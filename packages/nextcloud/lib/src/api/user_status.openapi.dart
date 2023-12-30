@@ -1013,20 +1013,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -1040,20 +1048,28 @@ abstract interface class $PublicInterface {
 }
 
 abstract class Public implements $PublicInterface, Built<Public, PublicBuilder> {
+  /// Creates a new Public object using the builder pattern.
   factory Public([void Function(PublicBuilder)? b]) = _$Public;
 
   // coverage:ignore-start
   const Public._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Public.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Public.
   static Serializer<Public> get serializer => _$publicSerializer;
 }
 
@@ -1068,20 +1084,28 @@ abstract interface class $Private_1Interface {
 abstract interface class $PrivateInterface implements $PublicInterface, $Private_1Interface {}
 
 abstract class Private implements $PrivateInterface, Built<Private, PrivateBuilder> {
+  /// Creates a new Private object using the builder pattern.
   factory Private([void Function(PrivateBuilder)? b]) = _$Private;
 
   // coverage:ignore-start
   const Private._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Private.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Private.
   static Serializer<Private> get serializer => _$privateSerializer;
 }
 
@@ -1095,6 +1119,7 @@ abstract class HeartbeatHeartbeatResponseApplicationJson_Ocs
     implements
         $HeartbeatHeartbeatResponseApplicationJson_OcsInterface,
         Built<HeartbeatHeartbeatResponseApplicationJson_Ocs, HeartbeatHeartbeatResponseApplicationJson_OcsBuilder> {
+  /// Creates a new HeartbeatHeartbeatResponseApplicationJson_Ocs object using the builder pattern.
   factory HeartbeatHeartbeatResponseApplicationJson_Ocs([
     void Function(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder)? b,
   ]) = _$HeartbeatHeartbeatResponseApplicationJson_Ocs;
@@ -1103,15 +1128,22 @@ abstract class HeartbeatHeartbeatResponseApplicationJson_Ocs
   const HeartbeatHeartbeatResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HeartbeatHeartbeatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for HeartbeatHeartbeatResponseApplicationJson_Ocs.
   static Serializer<HeartbeatHeartbeatResponseApplicationJson_Ocs> get serializer =>
       _$heartbeatHeartbeatResponseApplicationJsonOcsSerializer;
 }
@@ -1125,6 +1157,7 @@ abstract class HeartbeatHeartbeatResponseApplicationJson
     implements
         $HeartbeatHeartbeatResponseApplicationJsonInterface,
         Built<HeartbeatHeartbeatResponseApplicationJson, HeartbeatHeartbeatResponseApplicationJsonBuilder> {
+  /// Creates a new HeartbeatHeartbeatResponseApplicationJson object using the builder pattern.
   factory HeartbeatHeartbeatResponseApplicationJson([
     void Function(HeartbeatHeartbeatResponseApplicationJsonBuilder)? b,
   ]) = _$HeartbeatHeartbeatResponseApplicationJson;
@@ -1133,15 +1166,22 @@ abstract class HeartbeatHeartbeatResponseApplicationJson
   const HeartbeatHeartbeatResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HeartbeatHeartbeatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for HeartbeatHeartbeatResponseApplicationJson.
   static Serializer<HeartbeatHeartbeatResponseApplicationJson> get serializer =>
       _$heartbeatHeartbeatResponseApplicationJsonSerializer;
 }
@@ -1149,19 +1189,25 @@ abstract class HeartbeatHeartbeatResponseApplicationJson
 class ClearAt_Type extends EnumClass {
   const ClearAt_Type._(super.name);
 
+  /// `period`
   static const ClearAt_Type period = _$clearAtTypePeriod;
 
+  /// `end-of`
   @BuiltValueEnumConst(wireName: 'end-of')
   static const ClearAt_Type endOf = _$clearAtTypeEndOf;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ClearAt_Type> get values => _$clearAtTypeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ClearAt_Type valueOf(String name) => _$valueOfClearAt_Type(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ClearAt_Type.
   @BuiltValueSerializer(custom: true)
   static Serializer<ClearAt_Type> get serializer => const _$ClearAt_TypeSerializer();
 }
@@ -1205,18 +1251,24 @@ class _$ClearAt_TypeSerializer implements PrimitiveSerializer<ClearAt_Type> {
 class ClearAtTimeType extends EnumClass {
   const ClearAtTimeType._(super.name);
 
+  /// `day`
   static const ClearAtTimeType day = _$clearAtTimeTypeDay;
 
+  /// `week`
   static const ClearAtTimeType week = _$clearAtTimeTypeWeek;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ClearAtTimeType> get values => _$clearAtTimeTypeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ClearAtTimeType valueOf(String name) => _$valueOfClearAtTimeType(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ClearAtTimeType.
   @BuiltValueSerializer(custom: true)
   static Serializer<ClearAtTimeType> get serializer => const _$ClearAtTimeTypeSerializer();
 }
@@ -1257,6 +1309,8 @@ class _$ClearAtTimeTypeSerializer implements PrimitiveSerializer<ClearAtTimeType
       _fromWire[serialized]!;
 }
 
+typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
+
 @BuiltValue(instantiable: false)
 abstract interface class $ClearAtInterface {
   ClearAt_Type get type;
@@ -1264,20 +1318,28 @@ abstract interface class $ClearAtInterface {
 }
 
 abstract class ClearAt implements $ClearAtInterface, Built<ClearAt, ClearAtBuilder> {
+  /// Creates a new ClearAt object using the builder pattern.
   factory ClearAt([void Function(ClearAtBuilder)? b]) = _$ClearAt;
 
   // coverage:ignore-start
   const ClearAt._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ClearAt.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ClearAt.
   static Serializer<ClearAt> get serializer => _$clearAtSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
@@ -1296,20 +1358,28 @@ abstract interface class $PredefinedInterface {
 }
 
 abstract class Predefined implements $PredefinedInterface, Built<Predefined, PredefinedBuilder> {
+  /// Creates a new Predefined object using the builder pattern.
   factory Predefined([void Function(PredefinedBuilder)? b]) = _$Predefined;
 
   // coverage:ignore-start
   const Predefined._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Predefined.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Predefined.
   static Serializer<Predefined> get serializer => _$predefinedSerializer;
 }
 
@@ -1324,6 +1394,7 @@ abstract class PredefinedStatusFindAllResponseApplicationJson_Ocs
         $PredefinedStatusFindAllResponseApplicationJson_OcsInterface,
         Built<PredefinedStatusFindAllResponseApplicationJson_Ocs,
             PredefinedStatusFindAllResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PredefinedStatusFindAllResponseApplicationJson_Ocs object using the builder pattern.
   factory PredefinedStatusFindAllResponseApplicationJson_Ocs([
     void Function(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PredefinedStatusFindAllResponseApplicationJson_Ocs;
@@ -1332,15 +1403,22 @@ abstract class PredefinedStatusFindAllResponseApplicationJson_Ocs
   const PredefinedStatusFindAllResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PredefinedStatusFindAllResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PredefinedStatusFindAllResponseApplicationJson_Ocs.
   static Serializer<PredefinedStatusFindAllResponseApplicationJson_Ocs> get serializer =>
       _$predefinedStatusFindAllResponseApplicationJsonOcsSerializer;
 }
@@ -1354,6 +1432,7 @@ abstract class PredefinedStatusFindAllResponseApplicationJson
     implements
         $PredefinedStatusFindAllResponseApplicationJsonInterface,
         Built<PredefinedStatusFindAllResponseApplicationJson, PredefinedStatusFindAllResponseApplicationJsonBuilder> {
+  /// Creates a new PredefinedStatusFindAllResponseApplicationJson object using the builder pattern.
   factory PredefinedStatusFindAllResponseApplicationJson([
     void Function(PredefinedStatusFindAllResponseApplicationJsonBuilder)? b,
   ]) = _$PredefinedStatusFindAllResponseApplicationJson;
@@ -1362,15 +1441,22 @@ abstract class PredefinedStatusFindAllResponseApplicationJson
   const PredefinedStatusFindAllResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PredefinedStatusFindAllResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PredefinedStatusFindAllResponseApplicationJson.
   static Serializer<PredefinedStatusFindAllResponseApplicationJson> get serializer =>
       _$predefinedStatusFindAllResponseApplicationJsonSerializer;
 }
@@ -1385,6 +1471,7 @@ abstract class StatusesFindAllResponseApplicationJson_Ocs
     implements
         $StatusesFindAllResponseApplicationJson_OcsInterface,
         Built<StatusesFindAllResponseApplicationJson_Ocs, StatusesFindAllResponseApplicationJson_OcsBuilder> {
+  /// Creates a new StatusesFindAllResponseApplicationJson_Ocs object using the builder pattern.
   factory StatusesFindAllResponseApplicationJson_Ocs([
     void Function(StatusesFindAllResponseApplicationJson_OcsBuilder)? b,
   ]) = _$StatusesFindAllResponseApplicationJson_Ocs;
@@ -1393,15 +1480,22 @@ abstract class StatusesFindAllResponseApplicationJson_Ocs
   const StatusesFindAllResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory StatusesFindAllResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for StatusesFindAllResponseApplicationJson_Ocs.
   static Serializer<StatusesFindAllResponseApplicationJson_Ocs> get serializer =>
       _$statusesFindAllResponseApplicationJsonOcsSerializer;
 }
@@ -1415,6 +1509,7 @@ abstract class StatusesFindAllResponseApplicationJson
     implements
         $StatusesFindAllResponseApplicationJsonInterface,
         Built<StatusesFindAllResponseApplicationJson, StatusesFindAllResponseApplicationJsonBuilder> {
+  /// Creates a new StatusesFindAllResponseApplicationJson object using the builder pattern.
   factory StatusesFindAllResponseApplicationJson([void Function(StatusesFindAllResponseApplicationJsonBuilder)? b]) =
       _$StatusesFindAllResponseApplicationJson;
 
@@ -1422,15 +1517,22 @@ abstract class StatusesFindAllResponseApplicationJson
   const StatusesFindAllResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory StatusesFindAllResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for StatusesFindAllResponseApplicationJson.
   static Serializer<StatusesFindAllResponseApplicationJson> get serializer =>
       _$statusesFindAllResponseApplicationJsonSerializer;
 }
@@ -1445,6 +1547,7 @@ abstract class StatusesFindResponseApplicationJson_Ocs
     implements
         $StatusesFindResponseApplicationJson_OcsInterface,
         Built<StatusesFindResponseApplicationJson_Ocs, StatusesFindResponseApplicationJson_OcsBuilder> {
+  /// Creates a new StatusesFindResponseApplicationJson_Ocs object using the builder pattern.
   factory StatusesFindResponseApplicationJson_Ocs([void Function(StatusesFindResponseApplicationJson_OcsBuilder)? b]) =
       _$StatusesFindResponseApplicationJson_Ocs;
 
@@ -1452,15 +1555,22 @@ abstract class StatusesFindResponseApplicationJson_Ocs
   const StatusesFindResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory StatusesFindResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for StatusesFindResponseApplicationJson_Ocs.
   static Serializer<StatusesFindResponseApplicationJson_Ocs> get serializer =>
       _$statusesFindResponseApplicationJsonOcsSerializer;
 }
@@ -1474,6 +1584,7 @@ abstract class StatusesFindResponseApplicationJson
     implements
         $StatusesFindResponseApplicationJsonInterface,
         Built<StatusesFindResponseApplicationJson, StatusesFindResponseApplicationJsonBuilder> {
+  /// Creates a new StatusesFindResponseApplicationJson object using the builder pattern.
   factory StatusesFindResponseApplicationJson([void Function(StatusesFindResponseApplicationJsonBuilder)? b]) =
       _$StatusesFindResponseApplicationJson;
 
@@ -1481,15 +1592,22 @@ abstract class StatusesFindResponseApplicationJson
   const StatusesFindResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory StatusesFindResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for StatusesFindResponseApplicationJson.
   static Serializer<StatusesFindResponseApplicationJson> get serializer =>
       _$statusesFindResponseApplicationJsonSerializer;
 }
@@ -1504,6 +1622,7 @@ abstract class UserStatusGetStatusResponseApplicationJson_Ocs
     implements
         $UserStatusGetStatusResponseApplicationJson_OcsInterface,
         Built<UserStatusGetStatusResponseApplicationJson_Ocs, UserStatusGetStatusResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UserStatusGetStatusResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusGetStatusResponseApplicationJson_Ocs([
     void Function(UserStatusGetStatusResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusGetStatusResponseApplicationJson_Ocs;
@@ -1512,15 +1631,22 @@ abstract class UserStatusGetStatusResponseApplicationJson_Ocs
   const UserStatusGetStatusResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusGetStatusResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusGetStatusResponseApplicationJson_Ocs.
   static Serializer<UserStatusGetStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusGetStatusResponseApplicationJsonOcsSerializer;
 }
@@ -1534,6 +1660,7 @@ abstract class UserStatusGetStatusResponseApplicationJson
     implements
         $UserStatusGetStatusResponseApplicationJsonInterface,
         Built<UserStatusGetStatusResponseApplicationJson, UserStatusGetStatusResponseApplicationJsonBuilder> {
+  /// Creates a new UserStatusGetStatusResponseApplicationJson object using the builder pattern.
   factory UserStatusGetStatusResponseApplicationJson([
     void Function(UserStatusGetStatusResponseApplicationJsonBuilder)? b,
   ]) = _$UserStatusGetStatusResponseApplicationJson;
@@ -1542,15 +1669,22 @@ abstract class UserStatusGetStatusResponseApplicationJson
   const UserStatusGetStatusResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusGetStatusResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusGetStatusResponseApplicationJson.
   static Serializer<UserStatusGetStatusResponseApplicationJson> get serializer =>
       _$userStatusGetStatusResponseApplicationJsonSerializer;
 }
@@ -1565,6 +1699,7 @@ abstract class UserStatusSetStatusResponseApplicationJson_Ocs
     implements
         $UserStatusSetStatusResponseApplicationJson_OcsInterface,
         Built<UserStatusSetStatusResponseApplicationJson_Ocs, UserStatusSetStatusResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UserStatusSetStatusResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusSetStatusResponseApplicationJson_Ocs([
     void Function(UserStatusSetStatusResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusSetStatusResponseApplicationJson_Ocs;
@@ -1573,15 +1708,22 @@ abstract class UserStatusSetStatusResponseApplicationJson_Ocs
   const UserStatusSetStatusResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusSetStatusResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusSetStatusResponseApplicationJson_Ocs.
   static Serializer<UserStatusSetStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusSetStatusResponseApplicationJsonOcsSerializer;
 }
@@ -1595,6 +1737,7 @@ abstract class UserStatusSetStatusResponseApplicationJson
     implements
         $UserStatusSetStatusResponseApplicationJsonInterface,
         Built<UserStatusSetStatusResponseApplicationJson, UserStatusSetStatusResponseApplicationJsonBuilder> {
+  /// Creates a new UserStatusSetStatusResponseApplicationJson object using the builder pattern.
   factory UserStatusSetStatusResponseApplicationJson([
     void Function(UserStatusSetStatusResponseApplicationJsonBuilder)? b,
   ]) = _$UserStatusSetStatusResponseApplicationJson;
@@ -1603,15 +1746,22 @@ abstract class UserStatusSetStatusResponseApplicationJson
   const UserStatusSetStatusResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusSetStatusResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusSetStatusResponseApplicationJson.
   static Serializer<UserStatusSetStatusResponseApplicationJson> get serializer =>
       _$userStatusSetStatusResponseApplicationJsonSerializer;
 }
@@ -1627,6 +1777,7 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
         $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface,
         Built<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
             UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UserStatusSetPredefinedMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusSetPredefinedMessageResponseApplicationJson_Ocs([
     void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs;
@@ -1635,15 +1786,22 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
   const UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusSetPredefinedMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusSetPredefinedMessageResponseApplicationJson_Ocs.
   static Serializer<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer;
 }
@@ -1658,6 +1816,7 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson
         $UserStatusSetPredefinedMessageResponseApplicationJsonInterface,
         Built<UserStatusSetPredefinedMessageResponseApplicationJson,
             UserStatusSetPredefinedMessageResponseApplicationJsonBuilder> {
+  /// Creates a new UserStatusSetPredefinedMessageResponseApplicationJson object using the builder pattern.
   factory UserStatusSetPredefinedMessageResponseApplicationJson([
     void Function(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder)? b,
   ]) = _$UserStatusSetPredefinedMessageResponseApplicationJson;
@@ -1666,15 +1825,22 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson
   const UserStatusSetPredefinedMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusSetPredefinedMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusSetPredefinedMessageResponseApplicationJson.
   static Serializer<UserStatusSetPredefinedMessageResponseApplicationJson> get serializer =>
       _$userStatusSetPredefinedMessageResponseApplicationJsonSerializer;
 }
@@ -1690,6 +1856,7 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson_Ocs
         $UserStatusSetCustomMessageResponseApplicationJson_OcsInterface,
         Built<UserStatusSetCustomMessageResponseApplicationJson_Ocs,
             UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UserStatusSetCustomMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusSetCustomMessageResponseApplicationJson_Ocs([
     void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusSetCustomMessageResponseApplicationJson_Ocs;
@@ -1698,15 +1865,22 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson_Ocs
   const UserStatusSetCustomMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusSetCustomMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusSetCustomMessageResponseApplicationJson_Ocs.
   static Serializer<UserStatusSetCustomMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusSetCustomMessageResponseApplicationJsonOcsSerializer;
 }
@@ -1721,6 +1895,7 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson
         $UserStatusSetCustomMessageResponseApplicationJsonInterface,
         Built<UserStatusSetCustomMessageResponseApplicationJson,
             UserStatusSetCustomMessageResponseApplicationJsonBuilder> {
+  /// Creates a new UserStatusSetCustomMessageResponseApplicationJson object using the builder pattern.
   factory UserStatusSetCustomMessageResponseApplicationJson([
     void Function(UserStatusSetCustomMessageResponseApplicationJsonBuilder)? b,
   ]) = _$UserStatusSetCustomMessageResponseApplicationJson;
@@ -1729,15 +1904,22 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson
   const UserStatusSetCustomMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusSetCustomMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusSetCustomMessageResponseApplicationJson.
   static Serializer<UserStatusSetCustomMessageResponseApplicationJson> get serializer =>
       _$userStatusSetCustomMessageResponseApplicationJsonSerializer;
 }
@@ -1753,6 +1935,7 @@ abstract class UserStatusClearMessageResponseApplicationJson_Ocs
         $UserStatusClearMessageResponseApplicationJson_OcsInterface,
         Built<UserStatusClearMessageResponseApplicationJson_Ocs,
             UserStatusClearMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UserStatusClearMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusClearMessageResponseApplicationJson_Ocs([
     void Function(UserStatusClearMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusClearMessageResponseApplicationJson_Ocs;
@@ -1761,15 +1944,22 @@ abstract class UserStatusClearMessageResponseApplicationJson_Ocs
   const UserStatusClearMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusClearMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusClearMessageResponseApplicationJson_Ocs.
   static Serializer<UserStatusClearMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusClearMessageResponseApplicationJsonOcsSerializer;
 }
@@ -1783,6 +1973,7 @@ abstract class UserStatusClearMessageResponseApplicationJson
     implements
         $UserStatusClearMessageResponseApplicationJsonInterface,
         Built<UserStatusClearMessageResponseApplicationJson, UserStatusClearMessageResponseApplicationJsonBuilder> {
+  /// Creates a new UserStatusClearMessageResponseApplicationJson object using the builder pattern.
   factory UserStatusClearMessageResponseApplicationJson([
     void Function(UserStatusClearMessageResponseApplicationJsonBuilder)? b,
   ]) = _$UserStatusClearMessageResponseApplicationJson;
@@ -1791,18 +1982,27 @@ abstract class UserStatusClearMessageResponseApplicationJson
   const UserStatusClearMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusClearMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusClearMessageResponseApplicationJson.
   static Serializer<UserStatusClearMessageResponseApplicationJson> get serializer =>
       _$userStatusClearMessageResponseApplicationJsonSerializer;
 }
+
+typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusRevertStatusResponseApplicationJson_OcsInterface {
@@ -1815,6 +2015,7 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
         $UserStatusRevertStatusResponseApplicationJson_OcsInterface,
         Built<UserStatusRevertStatusResponseApplicationJson_Ocs,
             UserStatusRevertStatusResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UserStatusRevertStatusResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusRevertStatusResponseApplicationJson_Ocs([
     void Function(UserStatusRevertStatusResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusRevertStatusResponseApplicationJson_Ocs;
@@ -1823,15 +2024,22 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
   const UserStatusRevertStatusResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusRevertStatusResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusRevertStatusResponseApplicationJson_Ocs.
   static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusRevertStatusResponseApplicationJsonOcsSerializer;
 
@@ -1850,6 +2058,7 @@ abstract class UserStatusRevertStatusResponseApplicationJson
     implements
         $UserStatusRevertStatusResponseApplicationJsonInterface,
         Built<UserStatusRevertStatusResponseApplicationJson, UserStatusRevertStatusResponseApplicationJsonBuilder> {
+  /// Creates a new UserStatusRevertStatusResponseApplicationJson object using the builder pattern.
   factory UserStatusRevertStatusResponseApplicationJson([
     void Function(UserStatusRevertStatusResponseApplicationJsonBuilder)? b,
   ]) = _$UserStatusRevertStatusResponseApplicationJson;
@@ -1858,15 +2067,22 @@ abstract class UserStatusRevertStatusResponseApplicationJson
   const UserStatusRevertStatusResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserStatusRevertStatusResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserStatusRevertStatusResponseApplicationJson.
   static Serializer<UserStatusRevertStatusResponseApplicationJson> get serializer =>
       _$userStatusRevertStatusResponseApplicationJsonSerializer;
 }
@@ -1881,21 +2097,29 @@ abstract interface class $Capabilities_UserStatusInterface {
 
 abstract class Capabilities_UserStatus
     implements $Capabilities_UserStatusInterface, Built<Capabilities_UserStatus, Capabilities_UserStatusBuilder> {
+  /// Creates a new Capabilities_UserStatus object using the builder pattern.
   factory Capabilities_UserStatus([void Function(Capabilities_UserStatusBuilder)? b]) = _$Capabilities_UserStatus;
 
   // coverage:ignore-start
   const Capabilities_UserStatus._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_UserStatus.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_UserStatus.
   static Serializer<Capabilities_UserStatus> get serializer => _$capabilitiesUserStatusSerializer;
 }
 
@@ -1906,36 +2130,54 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  /// Creates a new Capabilities object using the builder pattern.
   factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
-typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
-
+/// Serialization extension for `ClearAt_Time`.
 extension $ClearAt_TimeExtension on ClearAt_Time {
+  /// Serializer for ClearAt_Time.
+  @BuiltValueSerializer(custom: true)
   static Serializer<ClearAt_Time> get serializer => $557344b3ba734aacc7109e5420fcb6c5Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static ClearAt_Time fromJson(Object? json) => $557344b3ba734aacc7109e5420fcb6c5Extension._fromJson(json);
 }
 
-typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
-
+/// Serialization extension for `UserStatusRevertStatusResponseApplicationJson_Ocs_Data`.
 extension $UserStatusRevertStatusResponseApplicationJson_Ocs_DataExtension
     on UserStatusRevertStatusResponseApplicationJson_Ocs_Data {
+  /// Serializer for UserStatusRevertStatusResponseApplicationJson_Ocs_Data.
+  @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs_Data> get serializer =>
       $d77829de8b7590d2e16cdb714800f5beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static UserStatusRevertStatusResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
       $d77829de8b7590d2e16cdb714800f5beExtension._fromJson(json);
 }
@@ -1946,12 +2188,20 @@ typedef _$557344b3ba734aacc7109e5420fcb6c5 = ({ClearAtTimeType? clearAtTimeType,
 // ignore: library_private_types_in_public_api
 extension $557344b3ba734aacc7109e5420fcb6c5Extension on _$557344b3ba734aacc7109e5420fcb6c5 {
   List<dynamic> get _values => [clearAtTimeType, $int];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$557344b3ba734aacc7109e5420fcb6c5> get _serializer =>
       const _$557344b3ba734aacc7109e5420fcb6c5Serializer();
   static _$557344b3ba734aacc7109e5420fcb6c5 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -2008,12 +2258,20 @@ typedef _$d77829de8b7590d2e16cdb714800f5be = ({BuiltList<Never>? builtListNever,
 // ignore: library_private_types_in_public_api
 extension $d77829de8b7590d2e16cdb714800f5beExtension on _$d77829de8b7590d2e16cdb714800f5be {
   List<dynamic> get _values => [builtListNever, private];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$d77829de8b7590d2e16cdb714800f5be> get _serializer =>
       const _$d77829de8b7590d2e16cdb714800f5beSerializer();
   static _$d77829de8b7590d2e16cdb714800f5be _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -2065,6 +2323,10 @@ class _$d77829de8b7590d2e16cdb714800f5beSerializer implements PrimitiveSerialize
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -2189,6 +2451,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Capabilities_UserStatus), Capabilities_UserStatusBuilder.new)
       ..add(Capabilities_UserStatus.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

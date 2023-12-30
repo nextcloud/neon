@@ -477,20 +477,29 @@ class $Client extends DynamiteClient {
   }
 }
 
+typedef GetOneOf = ({bool? $bool, String? string});
+typedef GetAnyOf = ({bool? $bool, String? string});
+
 class GetEnumPattern extends EnumClass {
   const GetEnumPattern._(super.name);
 
+  /// `a`
   static const GetEnumPattern a = _$getEnumPatternA;
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const GetEnumPattern $0 = _$getEnumPattern$0;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<GetEnumPattern> get values => _$getEnumPatternValues;
 
+  /// Returns the enum value associated to the [name].
   static GetEnumPattern valueOf(String name) => _$valueOfGetEnumPattern(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for GetEnumPattern.
   @BuiltValueSerializer(custom: true)
   static Serializer<GetEnumPattern> get serializer => const _$GetEnumPatternSerializer();
 }
@@ -531,20 +540,29 @@ class _$GetEnumPatternSerializer implements PrimitiveSerializer<GetEnumPattern> 
       _fromWire[serialized]!;
 }
 
+typedef GetHeadersOneOf = ({bool? $bool, String? string});
+typedef GetHeadersAnyOf = ({bool? $bool, String? string});
+
 class GetHeadersEnumPattern extends EnumClass {
   const GetHeadersEnumPattern._(super.name);
 
+  /// `a`
   static const GetHeadersEnumPattern a = _$getHeadersEnumPatternA;
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const GetHeadersEnumPattern $0 = _$getHeadersEnumPattern$0;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<GetHeadersEnumPattern> get values => _$getHeadersEnumPatternValues;
 
+  /// Returns the enum value associated to the [name].
   static GetHeadersEnumPattern valueOf(String name) => _$valueOfGetHeadersEnumPattern(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for GetHeadersEnumPattern.
   @BuiltValueSerializer(custom: true)
   static Serializer<GetHeadersEnumPattern> get serializer => const _$GetHeadersEnumPatternSerializer();
 }
@@ -585,31 +603,51 @@ class _$GetHeadersEnumPatternSerializer implements PrimitiveSerializer<GetHeader
       _fromWire[serialized]!;
 }
 
-typedef GetOneOf = ({bool? $bool, String? string});
-
+/// Serialization extension for `GetOneOf`.
 extension $GetOneOfExtension on GetOneOf {
+  /// Serializer for GetOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<GetOneOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static GetOneOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
-typedef GetAnyOf = ({bool? $bool, String? string});
-
+/// Serialization extension for `GetAnyOf`.
 extension $GetAnyOfExtension on GetAnyOf {
+  /// Serializer for GetAnyOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<GetAnyOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static GetAnyOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
-typedef GetHeadersOneOf = ({bool? $bool, String? string});
-
+/// Serialization extension for `GetHeadersOneOf`.
 extension $GetHeadersOneOfExtension on GetHeadersOneOf {
+  /// Serializer for GetHeadersOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<GetHeadersOneOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static GetHeadersOneOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
-typedef GetHeadersAnyOf = ({bool? $bool, String? string});
-
+/// Serialization extension for `GetHeadersAnyOf`.
 extension $GetHeadersAnyOfExtension on GetHeadersAnyOf {
+  /// Serializer for GetHeadersAnyOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<GetHeadersAnyOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static GetHeadersAnyOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
@@ -619,12 +657,20 @@ typedef _$93403da1a64cb6a7b1597c7a05e9b2be = ({bool? $bool, String? string});
 // ignore: library_private_types_in_public_api
 extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c7a05e9b2be {
   List<dynamic> get _values => [$bool, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$93403da1a64cb6a7b1597c7a05e9b2be> get _serializer =>
       const _$93403da1a64cb6a7b1597c7a05e9b2beSerializer();
   static _$93403da1a64cb6a7b1597c7a05e9b2be _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -675,6 +721,10 @@ class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerialize
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -694,6 +744,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(GetEnumPattern.serializer)
       ..add(GetHeadersEnumPattern.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

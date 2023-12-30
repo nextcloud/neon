@@ -374,20 +374,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -399,20 +407,28 @@ abstract interface class $Widget_ButtonsInterface {
 }
 
 abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
+  /// Creates a new Widget_Buttons object using the builder pattern.
   factory Widget_Buttons([void Function(Widget_ButtonsBuilder)? b]) = _$Widget_Buttons;
 
   // coverage:ignore-start
   const Widget_Buttons._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Widget_Buttons.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Widget_Buttons.
   static Serializer<Widget_Buttons> get serializer => _$widgetButtonsSerializer;
 }
 
@@ -437,20 +453,28 @@ abstract interface class $WidgetInterface {
 }
 
 abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> {
+  /// Creates a new Widget object using the builder pattern.
   factory Widget([void Function(WidgetBuilder)? b]) = _$Widget;
 
   // coverage:ignore-start
   const Widget._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Widget.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Widget.
   static Serializer<Widget> get serializer => _$widgetSerializer;
 }
 
@@ -465,6 +489,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
         $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface,
         Built<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
             DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DashboardApiGetWidgetsResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiGetWidgetsResponseApplicationJson_Ocs([
     void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DashboardApiGetWidgetsResponseApplicationJson_Ocs;
@@ -473,15 +498,22 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
   const DashboardApiGetWidgetsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DashboardApiGetWidgetsResponseApplicationJson_Ocs.
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer;
 }
@@ -495,6 +527,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
     implements
         $DashboardApiGetWidgetsResponseApplicationJsonInterface,
         Built<DashboardApiGetWidgetsResponseApplicationJson, DashboardApiGetWidgetsResponseApplicationJsonBuilder> {
+  /// Creates a new DashboardApiGetWidgetsResponseApplicationJson object using the builder pattern.
   factory DashboardApiGetWidgetsResponseApplicationJson([
     void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? b,
   ]) = _$DashboardApiGetWidgetsResponseApplicationJson;
@@ -503,15 +536,22 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
   const DashboardApiGetWidgetsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DashboardApiGetWidgetsResponseApplicationJson.
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetsResponseApplicationJsonSerializer;
 }
@@ -527,20 +567,28 @@ abstract interface class $WidgetItemInterface {
 }
 
 abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, WidgetItemBuilder> {
+  /// Creates a new WidgetItem object using the builder pattern.
   factory WidgetItem([void Function(WidgetItemBuilder)? b]) = _$WidgetItem;
 
   // coverage:ignore-start
   const WidgetItem._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WidgetItem.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for WidgetItem.
   static Serializer<WidgetItem> get serializer => _$widgetItemSerializer;
 }
 
@@ -555,6 +603,7 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
         $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface,
         Built<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
             DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DashboardApiGetWidgetItemsResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs([
     void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs;
@@ -563,15 +612,22 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   const DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer;
 }
@@ -586,6 +642,7 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
         $DashboardApiGetWidgetItemsResponseApplicationJsonInterface,
         Built<DashboardApiGetWidgetItemsResponseApplicationJson,
             DashboardApiGetWidgetItemsResponseApplicationJsonBuilder> {
+  /// Creates a new DashboardApiGetWidgetItemsResponseApplicationJson object using the builder pattern.
   factory DashboardApiGetWidgetItemsResponseApplicationJson([
     void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? b,
   ]) = _$DashboardApiGetWidgetItemsResponseApplicationJson;
@@ -594,15 +651,22 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
   const DashboardApiGetWidgetItemsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DashboardApiGetWidgetItemsResponseApplicationJson.
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer;
 }
@@ -615,20 +679,28 @@ abstract interface class $WidgetItemsInterface {
 }
 
 abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, WidgetItemsBuilder> {
+  /// Creates a new WidgetItems object using the builder pattern.
   factory WidgetItems([void Function(WidgetItemsBuilder)? b]) = _$WidgetItems;
 
   // coverage:ignore-start
   const WidgetItems._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WidgetItems.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for WidgetItems.
   static Serializer<WidgetItems> get serializer => _$widgetItemsSerializer;
 }
 
@@ -643,6 +715,7 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
         $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface,
         Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
             DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs([
     void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs;
@@ -651,15 +724,22 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   const DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer;
 }
@@ -674,6 +754,7 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
         $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface,
         Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson,
             DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder> {
+  /// Creates a new DashboardApiGetWidgetItemsV2ResponseApplicationJson object using the builder pattern.
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson([
     void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? b,
   ]) = _$DashboardApiGetWidgetItemsV2ResponseApplicationJson;
@@ -682,20 +763,31 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
   const DashboardApiGetWidgetItemsV2ResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DashboardApiGetWidgetItemsV2ResponseApplicationJson.
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -769,6 +861,11 @@ final Serializers serializers = (Serializers().toBuilder()
         MapBuilder<String, WidgetItems>.new,
       ))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

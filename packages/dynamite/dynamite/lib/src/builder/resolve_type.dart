@@ -1,5 +1,4 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:collection/collection.dart';
 import 'package:dynamite/src/builder/resolve_enum.dart';
 import 'package:dynamite/src/builder/resolve_object.dart';
 import 'package:dynamite/src/builder/resolve_ofs.dart';
@@ -41,33 +40,13 @@ TypeResult resolveType(
       nullable: nullable,
     );
   } else if (schema.ofs != null) {
-    final subResults = schema.ofs!
-        .mapIndexed(
-          (final index, final s) => resolveType(
-            spec,
-            state,
-            '$identifier$index',
-            s,
-            nullable: true,
-          ),
-        )
-        .toBuiltSet();
-
-    if (schema.oneOf != null) {
-      result = TypeResultOneOf(
-        identifier,
-        nullable: nullable,
-        subTypes: subResults,
-      );
-    } else if (schema.anyOf != null) {
-      result = TypeResultAnyOf(
-        identifier,
-        nullable: nullable,
-        subTypes: subResults,
-      );
-    } else {
-      throw StateError('allOf should be handled with inheritance');
-    }
+    result = resolveSomeOf(
+      spec,
+      state,
+      identifier,
+      schema,
+      nullable: nullable,
+    );
   } else if (schema.isContentString) {
     final subResult = resolveType(
       spec,

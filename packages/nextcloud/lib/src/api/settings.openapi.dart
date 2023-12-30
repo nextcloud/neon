@@ -128,6 +128,7 @@ abstract class LogSettingsLogSettingsDownloadHeaders
     implements
         $LogSettingsLogSettingsDownloadHeadersInterface,
         Built<LogSettingsLogSettingsDownloadHeaders, LogSettingsLogSettingsDownloadHeadersBuilder> {
+  /// Creates a new LogSettingsLogSettingsDownloadHeaders object using the builder pattern.
   factory LogSettingsLogSettingsDownloadHeaders([void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? b]) =
       _$LogSettingsLogSettingsDownloadHeaders;
 
@@ -135,20 +136,31 @@ abstract class LogSettingsLogSettingsDownloadHeaders
   const LogSettingsLogSettingsDownloadHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory LogSettingsLogSettingsDownloadHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for LogSettingsLogSettingsDownloadHeaders.
   static Serializer<LogSettingsLogSettingsDownloadHeaders> get serializer =>
       _$logSettingsLogSettingsDownloadHeadersSerializer;
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -157,6 +169,11 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(LogSettingsLogSettingsDownloadHeaders.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

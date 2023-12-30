@@ -28,15 +28,24 @@ abstract interface class $ObjectAllOf_1Interface {
 @BuiltValue(instantiable: false)
 abstract interface class $ObjectAllOfInterface implements $ObjectAllOf_0Interface, $ObjectAllOf_1Interface {}
 
+/// All of with objects only.
 abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, ObjectAllOfBuilder> {
+  /// Creates a new ObjectAllOf object using the builder pattern.
   factory ObjectAllOf([void Function(ObjectAllOfBuilder)? b]) = _$ObjectAllOf;
 
   const ObjectAllOf._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory ObjectAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for ObjectAllOf.
   static Serializer<ObjectAllOf> get serializer => _$objectAllOfSerializer;
 }
 
@@ -49,15 +58,24 @@ abstract interface class $OneObjectAllOf_0Interface {
 @BuiltValue(instantiable: false)
 abstract interface class $OneObjectAllOfInterface implements $OneObjectAllOf_0Interface {}
 
+/// All of with one object value.
 abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObjectAllOf, OneObjectAllOfBuilder> {
+  /// Creates a new OneObjectAllOf object using the builder pattern.
   factory OneObjectAllOf([void Function(OneObjectAllOfBuilder)? b]) = _$OneObjectAllOf;
 
   const OneObjectAllOf._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory OneObjectAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for OneObjectAllOf.
   static Serializer<OneObjectAllOf> get serializer => _$oneObjectAllOfSerializer;
 }
 
@@ -69,15 +87,24 @@ abstract interface class $PrimitiveAllOfInterface {
   String get string;
 }
 
+/// All of with an primitive values.
 abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<PrimitiveAllOf, PrimitiveAllOfBuilder> {
+  /// Creates a new PrimitiveAllOf object using the builder pattern.
   factory PrimitiveAllOf([void Function(PrimitiveAllOfBuilder)? b]) = _$PrimitiveAllOf;
 
   const PrimitiveAllOf._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory PrimitiveAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for PrimitiveAllOf.
   static Serializer<PrimitiveAllOf> get serializer => _$primitiveAllOfSerializer;
 }
 
@@ -93,15 +120,24 @@ abstract interface class $MixedAllOfInterface implements $MixedAllOf_1Interface 
   String get string;
 }
 
+/// All of with object and primitive value.
 abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, MixedAllOfBuilder> {
+  /// Creates a new MixedAllOf object using the builder pattern.
   factory MixedAllOf([void Function(MixedAllOfBuilder)? b]) = _$MixedAllOf;
 
   const MixedAllOf._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory MixedAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for MixedAllOf.
   static Serializer<MixedAllOf> get serializer => _$mixedAllOfSerializer;
 }
 
@@ -111,19 +147,32 @@ abstract interface class $OneValueAllOfInterface {
   String get string;
 }
 
+/// All of with one primitive value.
 abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueAllOf, OneValueAllOfBuilder> {
+  /// Creates a new OneValueAllOf object using the builder pattern.
   factory OneValueAllOf([void Function(OneValueAllOfBuilder)? b]) = _$OneValueAllOf;
 
   const OneValueAllOf._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory OneValueAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for OneValueAllOf.
   static Serializer<OneValueAllOf> get serializer => _$oneValueAllOfSerializer;
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOfBuilder.new)
@@ -137,6 +186,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOfBuilder.new)
       ..add(OneValueAllOf.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

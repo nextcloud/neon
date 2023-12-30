@@ -27,14 +27,22 @@ abstract interface class $BaseAllOfInterface implements $BaseAllOf_1Interface {
 }
 
 abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAllOfBuilder> {
+  /// Creates a new BaseAllOf object using the builder pattern.
   factory BaseAllOf([void Function(BaseAllOfBuilder)? b]) = _$BaseAllOf;
 
   const BaseAllOf._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory BaseAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for BaseAllOf.
   static Serializer<BaseAllOf> get serializer => _$baseAllOfSerializer;
 }
 
@@ -45,16 +53,26 @@ abstract interface class $BaseOneOf1Interface {
 }
 
 abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, BaseOneOf1Builder> {
+  /// Creates a new BaseOneOf1 object using the builder pattern.
   factory BaseOneOf1([void Function(BaseOneOf1Builder)? b]) = _$BaseOneOf1;
 
   const BaseOneOf1._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory BaseOneOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for BaseOneOf1.
   static Serializer<BaseOneOf1> get serializer => _$baseOneOf1Serializer;
 }
+
+typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
 
 @BuiltValue(instantiable: false)
 abstract interface class $BaseAnyOf1Interface {
@@ -63,16 +81,26 @@ abstract interface class $BaseAnyOf1Interface {
 }
 
 abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, BaseAnyOf1Builder> {
+  /// Creates a new BaseAnyOf1 object using the builder pattern.
   factory BaseAnyOf1([void Function(BaseAnyOf1Builder)? b]) = _$BaseAnyOf1;
 
   const BaseAnyOf1._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory BaseAnyOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for BaseAnyOf1.
   static Serializer<BaseAnyOf1> get serializer => _$baseAnyOf1Serializer;
 }
+
+typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
 
 @BuiltValue(instantiable: false)
 abstract interface class $BaseNestedAllOf_3Interface {
@@ -89,14 +117,22 @@ abstract interface class $BaseNestedAllOfInterface implements $BaseAllOfInterfac
 }
 
 abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {
+  /// Creates a new BaseNestedAllOf object using the builder pattern.
   factory BaseNestedAllOf([void Function(BaseNestedAllOfBuilder)? b]) = _$BaseNestedAllOf;
 
   const BaseNestedAllOf._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory BaseNestedAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for BaseNestedAllOf.
   static Serializer<BaseNestedAllOf> get serializer => _$baseNestedAllOfSerializer;
 }
 
@@ -108,48 +144,23 @@ abstract interface class $BaseNestedOneOf3Interface {
 
 abstract class BaseNestedOneOf3
     implements $BaseNestedOneOf3Interface, Built<BaseNestedOneOf3, BaseNestedOneOf3Builder> {
+  /// Creates a new BaseNestedOneOf3 object using the builder pattern.
   factory BaseNestedOneOf3([void Function(BaseNestedOneOf3Builder)? b]) = _$BaseNestedOneOf3;
 
   const BaseNestedOneOf3._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory BaseNestedOneOf3.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for BaseNestedOneOf3.
   static Serializer<BaseNestedOneOf3> get serializer => _$baseNestedOneOf3Serializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BaseNestedAnyOf3Interface {
-  @BuiltValueField(wireName: 'attribute-nested-anyOf')
-  String get attributeNestedAnyOf;
-}
-
-abstract class BaseNestedAnyOf3
-    implements $BaseNestedAnyOf3Interface, Built<BaseNestedAnyOf3, BaseNestedAnyOf3Builder> {
-  factory BaseNestedAnyOf3([void Function(BaseNestedAnyOf3Builder)? b]) = _$BaseNestedAnyOf3;
-
-  const BaseNestedAnyOf3._();
-
-  factory BaseNestedAnyOf3.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  static Serializer<BaseNestedAnyOf3> get serializer => _$baseNestedAnyOf3Serializer;
-}
-
-typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
-
-extension $BaseOneOfExtension on BaseOneOf {
-  static Serializer<BaseOneOf> get serializer => $fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer;
-  static BaseOneOf fromJson(Object? json) => $fc0451dbdd462718bd075afd2e3ce0ecExtension._fromJson(json);
-}
-
-typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
-
-extension $BaseAnyOfExtension on BaseAnyOf {
-  static Serializer<BaseAnyOf> get serializer => $ce3c7b262d1c503446a436c461be5be9Extension._serializer;
-  static BaseAnyOf fromJson(Object? json) => $ce3c7b262d1c503446a436c461be5be9Extension._fromJson(json);
 }
 
 typedef BaseNestedOneOf = ({
@@ -160,9 +171,31 @@ typedef BaseNestedOneOf = ({
   double? $double
 });
 
-extension $BaseNestedOneOfExtension on BaseNestedOneOf {
-  static Serializer<BaseNestedOneOf> get serializer => $8da5087c0b3f2cce06998d453af8ad19Extension._serializer;
-  static BaseNestedOneOf fromJson(Object? json) => $8da5087c0b3f2cce06998d453af8ad19Extension._fromJson(json);
+@BuiltValue(instantiable: false)
+abstract interface class $BaseNestedAnyOf3Interface {
+  @BuiltValueField(wireName: 'attribute-nested-anyOf')
+  String get attributeNestedAnyOf;
+}
+
+abstract class BaseNestedAnyOf3
+    implements $BaseNestedAnyOf3Interface, Built<BaseNestedAnyOf3, BaseNestedAnyOf3Builder> {
+  /// Creates a new BaseNestedAnyOf3 object using the builder pattern.
+  factory BaseNestedAnyOf3([void Function(BaseNestedAnyOf3Builder)? b]) = _$BaseNestedAnyOf3;
+
+  const BaseNestedAnyOf3._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory BaseNestedAnyOf3.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for BaseNestedAnyOf3.
+  static Serializer<BaseNestedAnyOf3> get serializer => _$baseNestedAnyOf3Serializer;
 }
 
 typedef BaseNestedAnyOf = ({
@@ -172,16 +205,65 @@ typedef BaseNestedAnyOf = ({
   BaseOneOf? baseOneOf,
   int? $int
 });
+typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
 
+/// Serialization extension for `BaseOneOf`.
+extension $BaseOneOfExtension on BaseOneOf {
+  /// Serializer for BaseOneOf.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BaseOneOf> get serializer => $fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static BaseOneOf fromJson(Object? json) => $fc0451dbdd462718bd075afd2e3ce0ecExtension._fromJson(json);
+}
+
+/// Serialization extension for `BaseAnyOf`.
+extension $BaseAnyOfExtension on BaseAnyOf {
+  /// Serializer for BaseAnyOf.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BaseAnyOf> get serializer => $ce3c7b262d1c503446a436c461be5be9Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static BaseAnyOf fromJson(Object? json) => $ce3c7b262d1c503446a436c461be5be9Extension._fromJson(json);
+}
+
+/// Serialization extension for `BaseNestedOneOf`.
+extension $BaseNestedOneOfExtension on BaseNestedOneOf {
+  /// Serializer for BaseNestedOneOf.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BaseNestedOneOf> get serializer => $8da5087c0b3f2cce06998d453af8ad19Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static BaseNestedOneOf fromJson(Object? json) => $8da5087c0b3f2cce06998d453af8ad19Extension._fromJson(json);
+}
+
+/// Serialization extension for `BaseNestedAnyOf`.
 extension $BaseNestedAnyOfExtension on BaseNestedAnyOf {
+  /// Serializer for BaseNestedAnyOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<BaseNestedAnyOf> get serializer => $523892e2348458a2bdb28f9f942dca37Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static BaseNestedAnyOf fromJson(Object? json) => $523892e2348458a2bdb28f9f942dca37Extension._fromJson(json);
 }
 
-typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
-
+/// Serialization extension for `NestedOptimizedOneOf`.
 extension $NestedOptimizedOneOfExtension on NestedOptimizedOneOf {
+  /// Serializer for NestedOptimizedOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<NestedOptimizedOneOf> get serializer => $abe6d27882a5771a98ede04cd64de567Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static NestedOptimizedOneOf fromJson(Object? json) => $abe6d27882a5771a98ede04cd64de567Extension._fromJson(json);
 }
 
@@ -191,12 +273,20 @@ typedef _$fc0451dbdd462718bd075afd2e3ce0ec = ({BaseOneOf1? baseOneOf1, double? $
 // ignore: library_private_types_in_public_api
 extension $fc0451dbdd462718bd075afd2e3ce0ecExtension on _$fc0451dbdd462718bd075afd2e3ce0ec {
   List<dynamic> get _values => [baseOneOf1, $double];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$fc0451dbdd462718bd075afd2e3ce0ec> get _serializer =>
       const _$fc0451dbdd462718bd075afd2e3ce0ecSerializer();
   static _$fc0451dbdd462718bd075afd2e3ce0ec _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -252,12 +342,20 @@ typedef _$ce3c7b262d1c503446a436c461be5be9 = ({BaseAnyOf1? baseAnyOf1, int? $int
 // ignore: library_private_types_in_public_api
 extension $ce3c7b262d1c503446a436c461be5be9Extension on _$ce3c7b262d1c503446a436c461be5be9 {
   List<dynamic> get _values => [baseAnyOf1, $int];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$ce3c7b262d1c503446a436c461be5be9> get _serializer =>
       const _$ce3c7b262d1c503446a436c461be5be9Serializer();
   static _$ce3c7b262d1c503446a436c461be5be9 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -319,12 +417,20 @@ typedef _$8da5087c0b3f2cce06998d453af8ad19 = ({
 // ignore: library_private_types_in_public_api
 extension $8da5087c0b3f2cce06998d453af8ad19Extension on _$8da5087c0b3f2cce06998d453af8ad19 {
   List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf1, $double];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$8da5087c0b3f2cce06998d453af8ad19> get _serializer =>
       const _$8da5087c0b3f2cce06998d453af8ad19Serializer();
   static _$8da5087c0b3f2cce06998d453af8ad19 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -418,12 +524,20 @@ typedef _$523892e2348458a2bdb28f9f942dca37 = ({
 // ignore: library_private_types_in_public_api
 extension $523892e2348458a2bdb28f9f942dca37Extension on _$523892e2348458a2bdb28f9f942dca37 {
   List<dynamic> get _values => [baseAllOf, baseAnyOf1, baseNestedAnyOf3, baseOneOf, $int];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$523892e2348458a2bdb28f9f942dca37> get _serializer =>
       const _$523892e2348458a2bdb28f9f942dca37Serializer();
   static _$523892e2348458a2bdb28f9f942dca37 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -511,12 +625,20 @@ typedef _$abe6d27882a5771a98ede04cd64de567 = ({BaseOneOf1? baseOneOf1, num? $num
 // ignore: library_private_types_in_public_api
 extension $abe6d27882a5771a98ede04cd64de567Extension on _$abe6d27882a5771a98ede04cd64de567 {
   List<dynamic> get _values => [baseOneOf1, $num];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$abe6d27882a5771a98ede04cd64de567> get _serializer =>
       const _$abe6d27882a5771a98ede04cd64de567Serializer();
   static _$abe6d27882a5771a98ede04cd64de567 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -567,6 +689,10 @@ class _$abe6d27882a5771a98ede04cd64de567Serializer implements PrimitiveSerialize
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BaseAllOf), BaseAllOfBuilder.new)
@@ -587,6 +713,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add($523892e2348458a2bdb28f9f942dca37Extension._serializer)
       ..add($abe6d27882a5771a98ede04cd64de567Extension._serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

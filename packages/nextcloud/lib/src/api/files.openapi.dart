@@ -1395,20 +1395,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -1426,6 +1434,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
         $DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
             DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder> {
+  /// Creates a new DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors object using the builder pattern.
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors([
     void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors;
@@ -1434,15 +1443,22 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
   const DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.
   static Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get serializer =>
       _$directEditingInfoResponseApplicationJsonOcsDataEditorsSerializer;
 }
@@ -1463,6 +1479,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
         $DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
             DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder> {
+  /// Creates a new DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators object using the builder pattern.
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators([
     void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators;
@@ -1471,15 +1488,22 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
   const DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.
   static Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> get serializer =>
       _$directEditingInfoResponseApplicationJsonOcsDataCreatorsSerializer;
 }
@@ -1495,6 +1519,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
         $DirectEditingInfoResponseApplicationJson_Ocs_DataInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data,
             DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DirectEditingInfoResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data([
     void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson_Ocs_Data;
@@ -1503,15 +1528,22 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
   const DirectEditingInfoResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingInfoResponseApplicationJson_Ocs_Data.
   static Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data> get serializer =>
       _$directEditingInfoResponseApplicationJsonOcsDataSerializer;
 }
@@ -1526,6 +1558,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs
     implements
         $DirectEditingInfoResponseApplicationJson_OcsInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs, DirectEditingInfoResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DirectEditingInfoResponseApplicationJson_Ocs object using the builder pattern.
   factory DirectEditingInfoResponseApplicationJson_Ocs([
     void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson_Ocs;
@@ -1534,15 +1567,22 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs
   const DirectEditingInfoResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingInfoResponseApplicationJson_Ocs.
   static Serializer<DirectEditingInfoResponseApplicationJson_Ocs> get serializer =>
       _$directEditingInfoResponseApplicationJsonOcsSerializer;
 }
@@ -1556,6 +1596,7 @@ abstract class DirectEditingInfoResponseApplicationJson
     implements
         $DirectEditingInfoResponseApplicationJsonInterface,
         Built<DirectEditingInfoResponseApplicationJson, DirectEditingInfoResponseApplicationJsonBuilder> {
+  /// Creates a new DirectEditingInfoResponseApplicationJson object using the builder pattern.
   factory DirectEditingInfoResponseApplicationJson([
     void Function(DirectEditingInfoResponseApplicationJsonBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson;
@@ -1564,15 +1605,22 @@ abstract class DirectEditingInfoResponseApplicationJson
   const DirectEditingInfoResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingInfoResponseApplicationJson.
   static Serializer<DirectEditingInfoResponseApplicationJson> get serializer =>
       _$directEditingInfoResponseApplicationJsonSerializer;
 }
@@ -1592,6 +1640,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
         $DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface,
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
             DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder> {
+  /// Creates a new DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates object using the builder pattern.
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates([
     void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? b,
   ]) = _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates;
@@ -1600,15 +1649,22 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
   const DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.
   static Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get serializer =>
       _$directEditingTemplatesResponseApplicationJsonOcsDataTemplatesSerializer;
 }
@@ -1623,6 +1679,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
         $DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface,
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
             DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DirectEditingTemplatesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data([
     void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data;
@@ -1631,15 +1688,22 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
   const DirectEditingTemplatesResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingTemplatesResponseApplicationJson_Ocs_Data.
   static Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data> get serializer =>
       _$directEditingTemplatesResponseApplicationJsonOcsDataSerializer;
 }
@@ -1655,6 +1719,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
         $DirectEditingTemplatesResponseApplicationJson_OcsInterface,
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs,
             DirectEditingTemplatesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DirectEditingTemplatesResponseApplicationJson_Ocs object using the builder pattern.
   factory DirectEditingTemplatesResponseApplicationJson_Ocs([
     void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DirectEditingTemplatesResponseApplicationJson_Ocs;
@@ -1663,15 +1728,22 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
   const DirectEditingTemplatesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingTemplatesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingTemplatesResponseApplicationJson_Ocs.
   static Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs> get serializer =>
       _$directEditingTemplatesResponseApplicationJsonOcsSerializer;
 }
@@ -1685,6 +1757,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson
     implements
         $DirectEditingTemplatesResponseApplicationJsonInterface,
         Built<DirectEditingTemplatesResponseApplicationJson, DirectEditingTemplatesResponseApplicationJsonBuilder> {
+  /// Creates a new DirectEditingTemplatesResponseApplicationJson object using the builder pattern.
   factory DirectEditingTemplatesResponseApplicationJson([
     void Function(DirectEditingTemplatesResponseApplicationJsonBuilder)? b,
   ]) = _$DirectEditingTemplatesResponseApplicationJson;
@@ -1693,15 +1766,22 @@ abstract class DirectEditingTemplatesResponseApplicationJson
   const DirectEditingTemplatesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingTemplatesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingTemplatesResponseApplicationJson.
   static Serializer<DirectEditingTemplatesResponseApplicationJson> get serializer =>
       _$directEditingTemplatesResponseApplicationJsonSerializer;
 }
@@ -1716,6 +1796,7 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
         $DirectEditingOpenResponseApplicationJson_Ocs_DataInterface,
         Built<DirectEditingOpenResponseApplicationJson_Ocs_Data,
             DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DirectEditingOpenResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectEditingOpenResponseApplicationJson_Ocs_Data([
     void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectEditingOpenResponseApplicationJson_Ocs_Data;
@@ -1724,15 +1805,22 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
   const DirectEditingOpenResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingOpenResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingOpenResponseApplicationJson_Ocs_Data.
   static Serializer<DirectEditingOpenResponseApplicationJson_Ocs_Data> get serializer =>
       _$directEditingOpenResponseApplicationJsonOcsDataSerializer;
 }
@@ -1747,6 +1835,7 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs
     implements
         $DirectEditingOpenResponseApplicationJson_OcsInterface,
         Built<DirectEditingOpenResponseApplicationJson_Ocs, DirectEditingOpenResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DirectEditingOpenResponseApplicationJson_Ocs object using the builder pattern.
   factory DirectEditingOpenResponseApplicationJson_Ocs([
     void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DirectEditingOpenResponseApplicationJson_Ocs;
@@ -1755,15 +1844,22 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs
   const DirectEditingOpenResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingOpenResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingOpenResponseApplicationJson_Ocs.
   static Serializer<DirectEditingOpenResponseApplicationJson_Ocs> get serializer =>
       _$directEditingOpenResponseApplicationJsonOcsSerializer;
 }
@@ -1777,6 +1873,7 @@ abstract class DirectEditingOpenResponseApplicationJson
     implements
         $DirectEditingOpenResponseApplicationJsonInterface,
         Built<DirectEditingOpenResponseApplicationJson, DirectEditingOpenResponseApplicationJsonBuilder> {
+  /// Creates a new DirectEditingOpenResponseApplicationJson object using the builder pattern.
   factory DirectEditingOpenResponseApplicationJson([
     void Function(DirectEditingOpenResponseApplicationJsonBuilder)? b,
   ]) = _$DirectEditingOpenResponseApplicationJson;
@@ -1785,15 +1882,22 @@ abstract class DirectEditingOpenResponseApplicationJson
   const DirectEditingOpenResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingOpenResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingOpenResponseApplicationJson.
   static Serializer<DirectEditingOpenResponseApplicationJson> get serializer =>
       _$directEditingOpenResponseApplicationJsonSerializer;
 }
@@ -1808,6 +1912,7 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
         $DirectEditingCreateResponseApplicationJson_Ocs_DataInterface,
         Built<DirectEditingCreateResponseApplicationJson_Ocs_Data,
             DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DirectEditingCreateResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectEditingCreateResponseApplicationJson_Ocs_Data([
     void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectEditingCreateResponseApplicationJson_Ocs_Data;
@@ -1816,15 +1921,22 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
   const DirectEditingCreateResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingCreateResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingCreateResponseApplicationJson_Ocs_Data.
   static Serializer<DirectEditingCreateResponseApplicationJson_Ocs_Data> get serializer =>
       _$directEditingCreateResponseApplicationJsonOcsDataSerializer;
 }
@@ -1839,6 +1951,7 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs
     implements
         $DirectEditingCreateResponseApplicationJson_OcsInterface,
         Built<DirectEditingCreateResponseApplicationJson_Ocs, DirectEditingCreateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DirectEditingCreateResponseApplicationJson_Ocs object using the builder pattern.
   factory DirectEditingCreateResponseApplicationJson_Ocs([
     void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DirectEditingCreateResponseApplicationJson_Ocs;
@@ -1847,15 +1960,22 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs
   const DirectEditingCreateResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingCreateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingCreateResponseApplicationJson_Ocs.
   static Serializer<DirectEditingCreateResponseApplicationJson_Ocs> get serializer =>
       _$directEditingCreateResponseApplicationJsonOcsSerializer;
 }
@@ -1869,6 +1989,7 @@ abstract class DirectEditingCreateResponseApplicationJson
     implements
         $DirectEditingCreateResponseApplicationJsonInterface,
         Built<DirectEditingCreateResponseApplicationJson, DirectEditingCreateResponseApplicationJsonBuilder> {
+  /// Creates a new DirectEditingCreateResponseApplicationJson object using the builder pattern.
   factory DirectEditingCreateResponseApplicationJson([
     void Function(DirectEditingCreateResponseApplicationJsonBuilder)? b,
   ]) = _$DirectEditingCreateResponseApplicationJson;
@@ -1877,15 +1998,22 @@ abstract class DirectEditingCreateResponseApplicationJson
   const DirectEditingCreateResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectEditingCreateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectEditingCreateResponseApplicationJson.
   static Serializer<DirectEditingCreateResponseApplicationJson> get serializer =>
       _$directEditingCreateResponseApplicationJsonSerializer;
 }
@@ -1903,6 +2031,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
         $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface,
         Built<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
             OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new OpenLocalEditorCreateResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs_Data([
     void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data;
@@ -1911,15 +2040,22 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
   const OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.
   static Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data> get serializer =>
       _$openLocalEditorCreateResponseApplicationJsonOcsDataSerializer;
 }
@@ -1935,6 +2071,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
         $OpenLocalEditorCreateResponseApplicationJson_OcsInterface,
         Built<OpenLocalEditorCreateResponseApplicationJson_Ocs,
             OpenLocalEditorCreateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new OpenLocalEditorCreateResponseApplicationJson_Ocs object using the builder pattern.
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs([
     void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OpenLocalEditorCreateResponseApplicationJson_Ocs;
@@ -1943,15 +2080,22 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
   const OpenLocalEditorCreateResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OpenLocalEditorCreateResponseApplicationJson_Ocs.
   static Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs> get serializer =>
       _$openLocalEditorCreateResponseApplicationJsonOcsSerializer;
 }
@@ -1965,6 +2109,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson
     implements
         $OpenLocalEditorCreateResponseApplicationJsonInterface,
         Built<OpenLocalEditorCreateResponseApplicationJson, OpenLocalEditorCreateResponseApplicationJsonBuilder> {
+  /// Creates a new OpenLocalEditorCreateResponseApplicationJson object using the builder pattern.
   factory OpenLocalEditorCreateResponseApplicationJson([
     void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder)? b,
   ]) = _$OpenLocalEditorCreateResponseApplicationJson;
@@ -1973,15 +2118,22 @@ abstract class OpenLocalEditorCreateResponseApplicationJson
   const OpenLocalEditorCreateResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OpenLocalEditorCreateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OpenLocalEditorCreateResponseApplicationJson.
   static Serializer<OpenLocalEditorCreateResponseApplicationJson> get serializer =>
       _$openLocalEditorCreateResponseApplicationJsonSerializer;
 }
@@ -1999,6 +2151,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
         $OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface,
         Built<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
             OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new OpenLocalEditorValidateResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs_Data([
     void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data;
@@ -2007,15 +2160,22 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
   const OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.
   static Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data> get serializer =>
       _$openLocalEditorValidateResponseApplicationJsonOcsDataSerializer;
 }
@@ -2031,6 +2191,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
         $OpenLocalEditorValidateResponseApplicationJson_OcsInterface,
         Built<OpenLocalEditorValidateResponseApplicationJson_Ocs,
             OpenLocalEditorValidateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new OpenLocalEditorValidateResponseApplicationJson_Ocs object using the builder pattern.
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs([
     void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OpenLocalEditorValidateResponseApplicationJson_Ocs;
@@ -2039,15 +2200,22 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
   const OpenLocalEditorValidateResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OpenLocalEditorValidateResponseApplicationJson_Ocs.
   static Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs> get serializer =>
       _$openLocalEditorValidateResponseApplicationJsonOcsSerializer;
 }
@@ -2061,6 +2229,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson
     implements
         $OpenLocalEditorValidateResponseApplicationJsonInterface,
         Built<OpenLocalEditorValidateResponseApplicationJson, OpenLocalEditorValidateResponseApplicationJsonBuilder> {
+  /// Creates a new OpenLocalEditorValidateResponseApplicationJson object using the builder pattern.
   factory OpenLocalEditorValidateResponseApplicationJson([
     void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder)? b,
   ]) = _$OpenLocalEditorValidateResponseApplicationJson;
@@ -2069,15 +2238,22 @@ abstract class OpenLocalEditorValidateResponseApplicationJson
   const OpenLocalEditorValidateResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OpenLocalEditorValidateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OpenLocalEditorValidateResponseApplicationJson.
   static Serializer<OpenLocalEditorValidateResponseApplicationJson> get serializer =>
       _$openLocalEditorValidateResponseApplicationJsonSerializer;
 }
@@ -2096,20 +2272,28 @@ abstract interface class $TemplateFileCreatorInterface {
 
 abstract class TemplateFileCreator
     implements $TemplateFileCreatorInterface, Built<TemplateFileCreator, TemplateFileCreatorBuilder> {
+  /// Creates a new TemplateFileCreator object using the builder pattern.
   factory TemplateFileCreator([void Function(TemplateFileCreatorBuilder)? b]) = _$TemplateFileCreator;
 
   // coverage:ignore-start
   const TemplateFileCreator._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplateFileCreator.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplateFileCreator.
   static Serializer<TemplateFileCreator> get serializer => _$templateFileCreatorSerializer;
 }
 
@@ -2123,6 +2307,7 @@ abstract class TemplateListResponseApplicationJson_Ocs
     implements
         $TemplateListResponseApplicationJson_OcsInterface,
         Built<TemplateListResponseApplicationJson_Ocs, TemplateListResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TemplateListResponseApplicationJson_Ocs object using the builder pattern.
   factory TemplateListResponseApplicationJson_Ocs([void Function(TemplateListResponseApplicationJson_OcsBuilder)? b]) =
       _$TemplateListResponseApplicationJson_Ocs;
 
@@ -2130,15 +2315,22 @@ abstract class TemplateListResponseApplicationJson_Ocs
   const TemplateListResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplateListResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplateListResponseApplicationJson_Ocs.
   static Serializer<TemplateListResponseApplicationJson_Ocs> get serializer =>
       _$templateListResponseApplicationJsonOcsSerializer;
 }
@@ -2152,6 +2344,7 @@ abstract class TemplateListResponseApplicationJson
     implements
         $TemplateListResponseApplicationJsonInterface,
         Built<TemplateListResponseApplicationJson, TemplateListResponseApplicationJsonBuilder> {
+  /// Creates a new TemplateListResponseApplicationJson object using the builder pattern.
   factory TemplateListResponseApplicationJson([void Function(TemplateListResponseApplicationJsonBuilder)? b]) =
       _$TemplateListResponseApplicationJson;
 
@@ -2159,15 +2352,22 @@ abstract class TemplateListResponseApplicationJson
   const TemplateListResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplateListResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplateListResponseApplicationJson.
   static Serializer<TemplateListResponseApplicationJson> get serializer =>
       _$templateListResponseApplicationJsonSerializer;
 }
@@ -2186,20 +2386,28 @@ abstract interface class $TemplateFileInterface {
 }
 
 abstract class TemplateFile implements $TemplateFileInterface, Built<TemplateFile, TemplateFileBuilder> {
+  /// Creates a new TemplateFile object using the builder pattern.
   factory TemplateFile([void Function(TemplateFileBuilder)? b]) = _$TemplateFile;
 
   // coverage:ignore-start
   const TemplateFile._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplateFile.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplateFile.
   static Serializer<TemplateFile> get serializer => _$templateFileSerializer;
 }
 
@@ -2213,6 +2421,7 @@ abstract class TemplateCreateResponseApplicationJson_Ocs
     implements
         $TemplateCreateResponseApplicationJson_OcsInterface,
         Built<TemplateCreateResponseApplicationJson_Ocs, TemplateCreateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TemplateCreateResponseApplicationJson_Ocs object using the builder pattern.
   factory TemplateCreateResponseApplicationJson_Ocs([
     void Function(TemplateCreateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TemplateCreateResponseApplicationJson_Ocs;
@@ -2221,15 +2430,22 @@ abstract class TemplateCreateResponseApplicationJson_Ocs
   const TemplateCreateResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplateCreateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplateCreateResponseApplicationJson_Ocs.
   static Serializer<TemplateCreateResponseApplicationJson_Ocs> get serializer =>
       _$templateCreateResponseApplicationJsonOcsSerializer;
 }
@@ -2243,6 +2459,7 @@ abstract class TemplateCreateResponseApplicationJson
     implements
         $TemplateCreateResponseApplicationJsonInterface,
         Built<TemplateCreateResponseApplicationJson, TemplateCreateResponseApplicationJsonBuilder> {
+  /// Creates a new TemplateCreateResponseApplicationJson object using the builder pattern.
   factory TemplateCreateResponseApplicationJson([void Function(TemplateCreateResponseApplicationJsonBuilder)? b]) =
       _$TemplateCreateResponseApplicationJson;
 
@@ -2250,15 +2467,22 @@ abstract class TemplateCreateResponseApplicationJson
   const TemplateCreateResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplateCreateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplateCreateResponseApplicationJson.
   static Serializer<TemplateCreateResponseApplicationJson> get serializer =>
       _$templateCreateResponseApplicationJsonSerializer;
 }
@@ -2274,6 +2498,7 @@ abstract class TemplatePathResponseApplicationJson_Ocs_Data
     implements
         $TemplatePathResponseApplicationJson_Ocs_DataInterface,
         Built<TemplatePathResponseApplicationJson_Ocs_Data, TemplatePathResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TemplatePathResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TemplatePathResponseApplicationJson_Ocs_Data([
     void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TemplatePathResponseApplicationJson_Ocs_Data;
@@ -2282,15 +2507,22 @@ abstract class TemplatePathResponseApplicationJson_Ocs_Data
   const TemplatePathResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplatePathResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplatePathResponseApplicationJson_Ocs_Data.
   static Serializer<TemplatePathResponseApplicationJson_Ocs_Data> get serializer =>
       _$templatePathResponseApplicationJsonOcsDataSerializer;
 }
@@ -2305,6 +2537,7 @@ abstract class TemplatePathResponseApplicationJson_Ocs
     implements
         $TemplatePathResponseApplicationJson_OcsInterface,
         Built<TemplatePathResponseApplicationJson_Ocs, TemplatePathResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TemplatePathResponseApplicationJson_Ocs object using the builder pattern.
   factory TemplatePathResponseApplicationJson_Ocs([void Function(TemplatePathResponseApplicationJson_OcsBuilder)? b]) =
       _$TemplatePathResponseApplicationJson_Ocs;
 
@@ -2312,15 +2545,22 @@ abstract class TemplatePathResponseApplicationJson_Ocs
   const TemplatePathResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplatePathResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplatePathResponseApplicationJson_Ocs.
   static Serializer<TemplatePathResponseApplicationJson_Ocs> get serializer =>
       _$templatePathResponseApplicationJsonOcsSerializer;
 }
@@ -2334,6 +2574,7 @@ abstract class TemplatePathResponseApplicationJson
     implements
         $TemplatePathResponseApplicationJsonInterface,
         Built<TemplatePathResponseApplicationJson, TemplatePathResponseApplicationJsonBuilder> {
+  /// Creates a new TemplatePathResponseApplicationJson object using the builder pattern.
   factory TemplatePathResponseApplicationJson([void Function(TemplatePathResponseApplicationJsonBuilder)? b]) =
       _$TemplatePathResponseApplicationJson;
 
@@ -2341,15 +2582,22 @@ abstract class TemplatePathResponseApplicationJson
   const TemplatePathResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TemplatePathResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TemplatePathResponseApplicationJson.
   static Serializer<TemplatePathResponseApplicationJson> get serializer =>
       _$templatePathResponseApplicationJsonSerializer;
 }
@@ -2365,6 +2613,7 @@ abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
         $TransferOwnershipTransferResponseApplicationJson_OcsInterface,
         Built<TransferOwnershipTransferResponseApplicationJson_Ocs,
             TransferOwnershipTransferResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TransferOwnershipTransferResponseApplicationJson_Ocs object using the builder pattern.
   factory TransferOwnershipTransferResponseApplicationJson_Ocs([
     void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TransferOwnershipTransferResponseApplicationJson_Ocs;
@@ -2373,15 +2622,22 @@ abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
   const TransferOwnershipTransferResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TransferOwnershipTransferResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TransferOwnershipTransferResponseApplicationJson_Ocs.
   static Serializer<TransferOwnershipTransferResponseApplicationJson_Ocs> get serializer =>
       _$transferOwnershipTransferResponseApplicationJsonOcsSerializer;
 }
@@ -2396,6 +2652,7 @@ abstract class TransferOwnershipTransferResponseApplicationJson
         $TransferOwnershipTransferResponseApplicationJsonInterface,
         Built<TransferOwnershipTransferResponseApplicationJson,
             TransferOwnershipTransferResponseApplicationJsonBuilder> {
+  /// Creates a new TransferOwnershipTransferResponseApplicationJson object using the builder pattern.
   factory TransferOwnershipTransferResponseApplicationJson([
     void Function(TransferOwnershipTransferResponseApplicationJsonBuilder)? b,
   ]) = _$TransferOwnershipTransferResponseApplicationJson;
@@ -2404,15 +2661,22 @@ abstract class TransferOwnershipTransferResponseApplicationJson
   const TransferOwnershipTransferResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TransferOwnershipTransferResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TransferOwnershipTransferResponseApplicationJson.
   static Serializer<TransferOwnershipTransferResponseApplicationJson> get serializer =>
       _$transferOwnershipTransferResponseApplicationJsonSerializer;
 }
@@ -2428,6 +2692,7 @@ abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
         $TransferOwnershipAcceptResponseApplicationJson_OcsInterface,
         Built<TransferOwnershipAcceptResponseApplicationJson_Ocs,
             TransferOwnershipAcceptResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TransferOwnershipAcceptResponseApplicationJson_Ocs object using the builder pattern.
   factory TransferOwnershipAcceptResponseApplicationJson_Ocs([
     void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TransferOwnershipAcceptResponseApplicationJson_Ocs;
@@ -2436,15 +2701,22 @@ abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
   const TransferOwnershipAcceptResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TransferOwnershipAcceptResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TransferOwnershipAcceptResponseApplicationJson_Ocs.
   static Serializer<TransferOwnershipAcceptResponseApplicationJson_Ocs> get serializer =>
       _$transferOwnershipAcceptResponseApplicationJsonOcsSerializer;
 }
@@ -2458,6 +2730,7 @@ abstract class TransferOwnershipAcceptResponseApplicationJson
     implements
         $TransferOwnershipAcceptResponseApplicationJsonInterface,
         Built<TransferOwnershipAcceptResponseApplicationJson, TransferOwnershipAcceptResponseApplicationJsonBuilder> {
+  /// Creates a new TransferOwnershipAcceptResponseApplicationJson object using the builder pattern.
   factory TransferOwnershipAcceptResponseApplicationJson([
     void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder)? b,
   ]) = _$TransferOwnershipAcceptResponseApplicationJson;
@@ -2466,15 +2739,22 @@ abstract class TransferOwnershipAcceptResponseApplicationJson
   const TransferOwnershipAcceptResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TransferOwnershipAcceptResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TransferOwnershipAcceptResponseApplicationJson.
   static Serializer<TransferOwnershipAcceptResponseApplicationJson> get serializer =>
       _$transferOwnershipAcceptResponseApplicationJsonSerializer;
 }
@@ -2490,6 +2770,7 @@ abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
         $TransferOwnershipRejectResponseApplicationJson_OcsInterface,
         Built<TransferOwnershipRejectResponseApplicationJson_Ocs,
             TransferOwnershipRejectResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TransferOwnershipRejectResponseApplicationJson_Ocs object using the builder pattern.
   factory TransferOwnershipRejectResponseApplicationJson_Ocs([
     void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TransferOwnershipRejectResponseApplicationJson_Ocs;
@@ -2498,15 +2779,22 @@ abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
   const TransferOwnershipRejectResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TransferOwnershipRejectResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TransferOwnershipRejectResponseApplicationJson_Ocs.
   static Serializer<TransferOwnershipRejectResponseApplicationJson_Ocs> get serializer =>
       _$transferOwnershipRejectResponseApplicationJsonOcsSerializer;
 }
@@ -2520,6 +2808,7 @@ abstract class TransferOwnershipRejectResponseApplicationJson
     implements
         $TransferOwnershipRejectResponseApplicationJsonInterface,
         Built<TransferOwnershipRejectResponseApplicationJson, TransferOwnershipRejectResponseApplicationJsonBuilder> {
+  /// Creates a new TransferOwnershipRejectResponseApplicationJson object using the builder pattern.
   factory TransferOwnershipRejectResponseApplicationJson([
     void Function(TransferOwnershipRejectResponseApplicationJsonBuilder)? b,
   ]) = _$TransferOwnershipRejectResponseApplicationJson;
@@ -2528,15 +2817,22 @@ abstract class TransferOwnershipRejectResponseApplicationJson
   const TransferOwnershipRejectResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TransferOwnershipRejectResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TransferOwnershipRejectResponseApplicationJson.
   static Serializer<TransferOwnershipRejectResponseApplicationJson> get serializer =>
       _$transferOwnershipRejectResponseApplicationJsonSerializer;
 }
@@ -2552,6 +2848,7 @@ abstract class Capabilities_Files_DirectEditing
     implements
         $Capabilities_Files_DirectEditingInterface,
         Built<Capabilities_Files_DirectEditing, Capabilities_Files_DirectEditingBuilder> {
+  /// Creates a new Capabilities_Files_DirectEditing object using the builder pattern.
   factory Capabilities_Files_DirectEditing([void Function(Capabilities_Files_DirectEditingBuilder)? b]) =
       _$Capabilities_Files_DirectEditing;
 
@@ -2559,15 +2856,22 @@ abstract class Capabilities_Files_DirectEditing
   const Capabilities_Files_DirectEditing._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_Files_DirectEditing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_Files_DirectEditing.
   static Serializer<Capabilities_Files_DirectEditing> get serializer => _$capabilitiesFilesDirectEditingSerializer;
 }
 
@@ -2581,20 +2885,28 @@ abstract interface class $Capabilities_FilesInterface {
 
 abstract class Capabilities_Files
     implements $Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
+  /// Creates a new Capabilities_Files object using the builder pattern.
   factory Capabilities_Files([void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
 
   // coverage:ignore-start
   const Capabilities_Files._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_Files.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_Files.
   static Serializer<Capabilities_Files> get serializer => _$capabilitiesFilesSerializer;
 }
 
@@ -2604,20 +2916,28 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  /// Creates a new Capabilities object using the builder pattern.
   factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
@@ -2638,24 +2958,36 @@ abstract interface class $TemplateInterface {
 }
 
 abstract class Template implements $TemplateInterface, Built<Template, TemplateBuilder> {
+  /// Creates a new Template object using the builder pattern.
   factory Template([void Function(TemplateBuilder)? b]) = _$Template;
 
   // coverage:ignore-start
   const Template._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Template.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Template.
   static Serializer<Template> get serializer => _$templateSerializer;
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -2870,6 +3202,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Template), TemplateBuilder.new)
       ..add(Template.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

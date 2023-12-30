@@ -1427,21 +1427,29 @@ abstract interface class $SupportedAPIVersionsInterface {
 
 abstract class SupportedAPIVersions
     implements $SupportedAPIVersionsInterface, Built<SupportedAPIVersions, SupportedAPIVersionsBuilder> {
+  /// Creates a new SupportedAPIVersions object using the builder pattern.
   factory SupportedAPIVersions([void Function(SupportedAPIVersionsBuilder)? b]) = _$SupportedAPIVersions;
 
   // coverage:ignore-start
   const SupportedAPIVersions._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SupportedAPIVersions.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SupportedAPIVersions.
   static Serializer<SupportedAPIVersions> get serializer => _$supportedAPIVersionsSerializer;
 }
 
@@ -1470,20 +1478,28 @@ abstract interface class $ArticleInterface {
 }
 
 abstract class Article implements $ArticleInterface, Built<Article, ArticleBuilder> {
+  /// Creates a new Article object using the builder pattern.
   factory Article([void Function(ArticleBuilder)? b]) = _$Article;
 
   // coverage:ignore-start
   const Article._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Article.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Article.
   static Serializer<Article> get serializer => _$articleSerializer;
 }
 
@@ -1505,20 +1521,28 @@ abstract interface class $FeedInterface {
 }
 
 abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
+  /// Creates a new Feed object using the builder pattern.
   factory Feed([void Function(FeedBuilder)? b]) = _$Feed;
 
   // coverage:ignore-start
   const Feed._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Feed.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Feed.
   static Serializer<Feed> get serializer => _$feedSerializer;
 }
 
@@ -1533,20 +1557,28 @@ abstract interface class $FolderInterface {
 }
 
 abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> {
+  /// Creates a new Folder object using the builder pattern.
   factory Folder([void Function(FolderBuilder)? b]) = _$Folder;
 
   // coverage:ignore-start
   const Folder._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Folder.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Folder.
   static Serializer<Folder> get serializer => _$folderSerializer;
 }
 
@@ -1556,20 +1588,28 @@ abstract interface class $ListFoldersInterface {
 }
 
 abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, ListFoldersBuilder> {
+  /// Creates a new ListFolders object using the builder pattern.
   factory ListFolders([void Function(ListFoldersBuilder)? b]) = _$ListFolders;
 
   // coverage:ignore-start
   const ListFolders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ListFolders.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ListFolders.
   static Serializer<ListFolders> get serializer => _$listFoldersSerializer;
 }
 
@@ -1581,20 +1621,28 @@ abstract interface class $ListFeedsInterface {
 }
 
 abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
+  /// Creates a new ListFeeds object using the builder pattern.
   factory ListFeeds([void Function(ListFeedsBuilder)? b]) = _$ListFeeds;
 
   // coverage:ignore-start
   const ListFeeds._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ListFeeds.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ListFeeds.
   static Serializer<ListFeeds> get serializer => _$listFeedsSerializer;
 }
 
@@ -1604,20 +1652,28 @@ abstract interface class $ListArticlesInterface {
 }
 
 abstract class ListArticles implements $ListArticlesInterface, Built<ListArticles, ListArticlesBuilder> {
+  /// Creates a new ListArticles object using the builder pattern.
   factory ListArticles([void Function(ListArticlesBuilder)? b]) = _$ListArticles;
 
   // coverage:ignore-start
   const ListArticles._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ListArticles.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ListArticles.
   static Serializer<ListArticles> get serializer => _$listArticlesSerializer;
 }
 
@@ -1631,20 +1687,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -1655,20 +1719,28 @@ abstract interface class $EmptyOCS_OcsInterface {
 }
 
 abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
+  /// Creates a new EmptyOCS_Ocs object using the builder pattern.
   factory EmptyOCS_Ocs([void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
 
   // coverage:ignore-start
   const EmptyOCS_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for EmptyOCS_Ocs.
   static Serializer<EmptyOCS_Ocs> get serializer => _$emptyOCSOcsSerializer;
 }
 
@@ -1678,24 +1750,36 @@ abstract interface class $EmptyOCSInterface {
 }
 
 abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
+  /// Creates a new EmptyOCS object using the builder pattern.
   factory EmptyOCS([void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
 
   // coverage:ignore-start
   const EmptyOCS._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory EmptyOCS.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for EmptyOCS.
   static Serializer<EmptyOCS> get serializer => _$emptyOCSSerializer;
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(SupportedAPIVersions), SupportedAPIVersionsBuilder.new)
@@ -1724,6 +1808,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(EmptyOCS_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

@@ -19,14 +19,22 @@ abstract interface class $BaseInterface {
 }
 
 abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
+  /// Creates a new Base object using the builder pattern.
   factory Base([void Function(BaseBuilder)? b]) = _$Base;
 
   const Base._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory Base.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for Base.
   static Serializer<Base> get serializer => _$baseSerializer;
 }
 
@@ -36,18 +44,30 @@ abstract interface class $BaseInterfaceInterface {
 }
 
 abstract class BaseInterface implements $BaseInterfaceInterface, Built<BaseInterface, BaseInterfaceBuilder> {
+  /// Creates a new BaseInterface object using the builder pattern.
   factory BaseInterface([void Function(BaseInterfaceBuilder)? b]) = _$BaseInterface;
 
   const BaseInterface._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory BaseInterface.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for BaseInterface.
   static Serializer<BaseInterface> get serializer => _$baseInterfaceSerializer;
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
@@ -55,6 +75,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BaseInterface), BaseInterfaceBuilder.new)
       ..add(BaseInterface.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

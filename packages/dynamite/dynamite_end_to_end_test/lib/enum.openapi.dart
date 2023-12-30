@@ -17,20 +17,27 @@ part 'enum.openapi.g.dart';
 class EnumString extends EnumClass {
   const EnumString._(super.name);
 
+  /// `test`
   static const EnumString test = _$enumStringTest;
 
+  /// `default`
   @BuiltValueEnumConst(wireName: 'default')
   static const EnumString $default = _$enumString$default;
 
+  /// `$dollar$`
   @BuiltValueEnumConst(wireName: r'$dollar$')
   static const EnumString dollar = _$enumStringDollar;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<EnumString> get values => _$enumStringValues;
 
+  /// Returns the enum value associated to the [name].
   static EnumString valueOf(String name) => _$valueOfEnumString(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for EnumString.
   @BuiltValueSerializer(custom: true)
   static Serializer<EnumString> get serializer => const _$EnumStringSerializer();
 }
@@ -76,21 +83,28 @@ class _$EnumStringSerializer implements PrimitiveSerializer<EnumString> {
 class EnumInt extends EnumClass {
   const EnumInt._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const EnumInt $0 = _$enumInt$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const EnumInt $1 = _$enumInt$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const EnumInt $2 = _$enumInt$2;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<EnumInt> get values => _$enumIntValues;
 
+  /// Returns the enum value associated to the [name].
   static EnumInt valueOf(String name) => _$valueOfEnumInt(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for EnumInt.
   @BuiltValueSerializer(custom: true)
   static Serializer<EnumInt> get serializer => const _$EnumIntSerializer();
 }
@@ -136,20 +150,27 @@ class _$EnumIntSerializer implements PrimitiveSerializer<EnumInt> {
 class EnumDynamic extends EnumClass {
   const EnumDynamic._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const EnumDynamic $0 = _$enumDynamic$0;
 
+  /// `string`
   static const EnumDynamic string = _$enumDynamicString;
 
+  /// `false`
   @BuiltValueEnumConst(wireName: 'false')
   static const EnumDynamic $false = _$enumDynamic$false;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<EnumDynamic> get values => _$enumDynamicValues;
 
+  /// Returns the enum value associated to the [name].
   static EnumDynamic valueOf(String name) => _$valueOfEnumDynamic(name);
 
+  /// Returns the serialized value of this enum value.
   dynamic get value => jsonSerializers.serializeWith(serializer, this)! as dynamic;
 
+  /// Serializer for EnumDynamic.
   @BuiltValueSerializer(custom: true)
   static Serializer<EnumDynamic> get serializer => const _$EnumDynamicSerializer();
 }
@@ -195,17 +216,23 @@ class _$EnumDynamicSerializer implements PrimitiveSerializer<EnumDynamic> {
 class WrappedEnum_CustomString extends EnumClass {
   const WrappedEnum_CustomString._(super.name);
 
+  /// `test`
   static const WrappedEnum_CustomString test = _$wrappedEnumCustomStringTest;
 
+  /// `default`
   @BuiltValueEnumConst(wireName: 'default')
   static const WrappedEnum_CustomString $default = _$wrappedEnumCustomString$default;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<WrappedEnum_CustomString> get values => _$wrappedEnumCustomStringValues;
 
+  /// Returns the enum value associated to the [name].
   static WrappedEnum_CustomString valueOf(String name) => _$valueOfWrappedEnum_CustomString(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for WrappedEnum_CustomString.
   @BuiltValueSerializer(custom: true)
   static Serializer<WrappedEnum_CustomString> get serializer => const _$WrappedEnum_CustomStringSerializer();
 }
@@ -249,21 +276,28 @@ class _$WrappedEnum_CustomStringSerializer implements PrimitiveSerializer<Wrappe
 class WrappedEnum_Integer extends EnumClass {
   const WrappedEnum_Integer._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const WrappedEnum_Integer $0 = _$wrappedEnumInteger$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const WrappedEnum_Integer $1 = _$wrappedEnumInteger$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const WrappedEnum_Integer $2 = _$wrappedEnumInteger$2;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<WrappedEnum_Integer> get values => _$wrappedEnumIntegerValues;
 
+  /// Returns the enum value associated to the [name].
   static WrappedEnum_Integer valueOf(String name) => _$valueOfWrappedEnum_Integer(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for WrappedEnum_Integer.
   @BuiltValueSerializer(custom: true)
   static Serializer<WrappedEnum_Integer> get serializer => const _$WrappedEnum_IntegerSerializer();
 }
@@ -313,19 +347,32 @@ abstract interface class $WrappedEnumInterface {
   WrappedEnum_Integer get integer;
 }
 
+/// Due to limitations in built_value we can not call the class String. See https://github.com/google/built_value.dart/issues/1292.
 abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, WrappedEnumBuilder> {
+  /// Creates a new WrappedEnum object using the builder pattern.
   factory WrappedEnum([void Function(WrappedEnumBuilder)? b]) = _$WrappedEnum;
 
   const WrappedEnum._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory WrappedEnum.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for WrappedEnum.
   static Serializer<WrappedEnum> get serializer => _$wrappedEnumSerializer;
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..add(EnumString.serializer)
@@ -336,6 +383,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(WrappedEnum_CustomString.serializer)
       ..add(WrappedEnum_Integer.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

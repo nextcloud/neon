@@ -382,20 +382,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -408,6 +416,7 @@ abstract class ApiGetResponseApplicationJson_Ocs_Data
     implements
         $ApiGetResponseApplicationJson_Ocs_DataInterface,
         Built<ApiGetResponseApplicationJson_Ocs_Data, ApiGetResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ApiGetResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ApiGetResponseApplicationJson_Ocs_Data([void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? b]) =
       _$ApiGetResponseApplicationJson_Ocs_Data;
 
@@ -415,15 +424,22 @@ abstract class ApiGetResponseApplicationJson_Ocs_Data
   const ApiGetResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiGetResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiGetResponseApplicationJson_Ocs_Data.
   static Serializer<ApiGetResponseApplicationJson_Ocs_Data> get serializer =>
       _$apiGetResponseApplicationJsonOcsDataSerializer;
 }
@@ -438,6 +454,7 @@ abstract class ApiGetResponseApplicationJson_Ocs
     implements
         $ApiGetResponseApplicationJson_OcsInterface,
         Built<ApiGetResponseApplicationJson_Ocs, ApiGetResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiGetResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiGetResponseApplicationJson_Ocs([void Function(ApiGetResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiGetResponseApplicationJson_Ocs;
 
@@ -445,15 +462,22 @@ abstract class ApiGetResponseApplicationJson_Ocs
   const ApiGetResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiGetResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiGetResponseApplicationJson_Ocs.
   static Serializer<ApiGetResponseApplicationJson_Ocs> get serializer => _$apiGetResponseApplicationJsonOcsSerializer;
 }
 
@@ -466,6 +490,7 @@ abstract class ApiGetResponseApplicationJson
     implements
         $ApiGetResponseApplicationJsonInterface,
         Built<ApiGetResponseApplicationJson, ApiGetResponseApplicationJsonBuilder> {
+  /// Creates a new ApiGetResponseApplicationJson object using the builder pattern.
   factory ApiGetResponseApplicationJson([void Function(ApiGetResponseApplicationJsonBuilder)? b]) =
       _$ApiGetResponseApplicationJson;
 
@@ -473,15 +498,22 @@ abstract class ApiGetResponseApplicationJson
   const ApiGetResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiGetResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiGetResponseApplicationJson.
   static Serializer<ApiGetResponseApplicationJson> get serializer => _$apiGetResponseApplicationJsonSerializer;
 }
 
@@ -495,6 +527,7 @@ abstract class ApiSetResponseApplicationJson_Ocs
     implements
         $ApiSetResponseApplicationJson_OcsInterface,
         Built<ApiSetResponseApplicationJson_Ocs, ApiSetResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiSetResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiSetResponseApplicationJson_Ocs([void Function(ApiSetResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiSetResponseApplicationJson_Ocs;
 
@@ -502,15 +535,22 @@ abstract class ApiSetResponseApplicationJson_Ocs
   const ApiSetResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiSetResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiSetResponseApplicationJson_Ocs.
   static Serializer<ApiSetResponseApplicationJson_Ocs> get serializer => _$apiSetResponseApplicationJsonOcsSerializer;
 }
 
@@ -523,6 +563,7 @@ abstract class ApiSetResponseApplicationJson
     implements
         $ApiSetResponseApplicationJsonInterface,
         Built<ApiSetResponseApplicationJson, ApiSetResponseApplicationJsonBuilder> {
+  /// Creates a new ApiSetResponseApplicationJson object using the builder pattern.
   factory ApiSetResponseApplicationJson([void Function(ApiSetResponseApplicationJsonBuilder)? b]) =
       _$ApiSetResponseApplicationJson;
 
@@ -530,15 +571,22 @@ abstract class ApiSetResponseApplicationJson
   const ApiSetResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiSetResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiSetResponseApplicationJson.
   static Serializer<ApiSetResponseApplicationJson> get serializer => _$apiSetResponseApplicationJsonSerializer;
 }
 
@@ -552,6 +600,7 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
     implements
         $ApiRemoveResponseApplicationJson_OcsInterface,
         Built<ApiRemoveResponseApplicationJson_Ocs, ApiRemoveResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiRemoveResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiRemoveResponseApplicationJson_Ocs([void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiRemoveResponseApplicationJson_Ocs;
 
@@ -559,15 +608,22 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
   const ApiRemoveResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiRemoveResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiRemoveResponseApplicationJson_Ocs.
   static Serializer<ApiRemoveResponseApplicationJson_Ocs> get serializer =>
       _$apiRemoveResponseApplicationJsonOcsSerializer;
 }
@@ -581,6 +637,7 @@ abstract class ApiRemoveResponseApplicationJson
     implements
         $ApiRemoveResponseApplicationJsonInterface,
         Built<ApiRemoveResponseApplicationJson, ApiRemoveResponseApplicationJsonBuilder> {
+  /// Creates a new ApiRemoveResponseApplicationJson object using the builder pattern.
   factory ApiRemoveResponseApplicationJson([void Function(ApiRemoveResponseApplicationJsonBuilder)? b]) =
       _$ApiRemoveResponseApplicationJson;
 
@@ -588,19 +645,30 @@ abstract class ApiRemoveResponseApplicationJson
   const ApiRemoveResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiRemoveResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiRemoveResponseApplicationJson.
   static Serializer<ApiRemoveResponseApplicationJson> get serializer => _$apiRemoveResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson), ApiGetResponseApplicationJsonBuilder.new)
@@ -632,6 +700,11 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(ApiRemoveResponseApplicationJson_Ocs.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

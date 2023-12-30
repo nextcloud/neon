@@ -12925,16 +12925,21 @@ class $TempAvatarClient {
 class AvatarGetAvatarApiVersion extends EnumClass {
   const AvatarGetAvatarApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarGetAvatarApiVersion v1 = _$avatarGetAvatarApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarGetAvatarApiVersion> get values => _$avatarGetAvatarApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarGetAvatarApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for AvatarGetAvatarApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<AvatarGetAvatarApiVersion> get serializer => const _$AvatarGetAvatarApiVersionSerializer();
 }
@@ -12976,16 +12981,21 @@ class _$AvatarGetAvatarApiVersionSerializer implements PrimitiveSerializer<Avata
 class AvatarUploadAvatarApiVersion extends EnumClass {
   const AvatarUploadAvatarApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarUploadAvatarApiVersion v1 = _$avatarUploadAvatarApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarUploadAvatarApiVersion> get values => _$avatarUploadAvatarApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarUploadAvatarApiVersion valueOf(String name) => _$valueOfAvatarUploadAvatarApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for AvatarUploadAvatarApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<AvatarUploadAvatarApiVersion> get serializer => const _$AvatarUploadAvatarApiVersionSerializer();
 }
@@ -13034,20 +13044,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -13072,22 +13090,32 @@ abstract interface class $ChatMessageInterface {
 }
 
 abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, ChatMessageBuilder> {
+  /// Creates a new ChatMessage object using the builder pattern.
   factory ChatMessage([void Function(ChatMessageBuilder)? b]) = _$ChatMessage;
 
   // coverage:ignore-start
   const ChatMessage._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMessage.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatMessage.
   static Serializer<ChatMessage> get serializer => _$chatMessageSerializer;
 }
+
+typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
 @BuiltValue(instantiable: false)
 abstract interface class $RoomInterface {
@@ -13148,20 +13176,28 @@ abstract interface class $RoomInterface {
 }
 
 abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
+  /// Creates a new Room object using the builder pattern.
   factory Room([void Function(RoomBuilder)? b]) = _$Room;
 
   // coverage:ignore-start
   const Room._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Room.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Room.
   static Serializer<Room> get serializer => _$roomSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
@@ -13180,6 +13216,7 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
     implements
         $AvatarUploadAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarUploadAvatarResponseApplicationJson_Ocs, AvatarUploadAvatarResponseApplicationJson_OcsBuilder> {
+  /// Creates a new AvatarUploadAvatarResponseApplicationJson_Ocs object using the builder pattern.
   factory AvatarUploadAvatarResponseApplicationJson_Ocs([
     void Function(AvatarUploadAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AvatarUploadAvatarResponseApplicationJson_Ocs;
@@ -13188,15 +13225,22 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
   const AvatarUploadAvatarResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarUploadAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for AvatarUploadAvatarResponseApplicationJson_Ocs.
   static Serializer<AvatarUploadAvatarResponseApplicationJson_Ocs> get serializer =>
       _$avatarUploadAvatarResponseApplicationJsonOcsSerializer;
 }
@@ -13210,6 +13254,7 @@ abstract class AvatarUploadAvatarResponseApplicationJson
     implements
         $AvatarUploadAvatarResponseApplicationJsonInterface,
         Built<AvatarUploadAvatarResponseApplicationJson, AvatarUploadAvatarResponseApplicationJsonBuilder> {
+  /// Creates a new AvatarUploadAvatarResponseApplicationJson object using the builder pattern.
   factory AvatarUploadAvatarResponseApplicationJson([
     void Function(AvatarUploadAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$AvatarUploadAvatarResponseApplicationJson;
@@ -13218,15 +13263,22 @@ abstract class AvatarUploadAvatarResponseApplicationJson
   const AvatarUploadAvatarResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarUploadAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for AvatarUploadAvatarResponseApplicationJson.
   static Serializer<AvatarUploadAvatarResponseApplicationJson> get serializer =>
       _$avatarUploadAvatarResponseApplicationJsonSerializer;
 }
@@ -13234,16 +13286,21 @@ abstract class AvatarUploadAvatarResponseApplicationJson
 class AvatarDeleteAvatarApiVersion extends EnumClass {
   const AvatarDeleteAvatarApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarDeleteAvatarApiVersion v1 = _$avatarDeleteAvatarApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarDeleteAvatarApiVersion> get values => _$avatarDeleteAvatarApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarDeleteAvatarApiVersion valueOf(String name) => _$valueOfAvatarDeleteAvatarApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for AvatarDeleteAvatarApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<AvatarDeleteAvatarApiVersion> get serializer => const _$AvatarDeleteAvatarApiVersionSerializer();
 }
@@ -13292,6 +13349,7 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
     implements
         $AvatarDeleteAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarDeleteAvatarResponseApplicationJson_Ocs, AvatarDeleteAvatarResponseApplicationJson_OcsBuilder> {
+  /// Creates a new AvatarDeleteAvatarResponseApplicationJson_Ocs object using the builder pattern.
   factory AvatarDeleteAvatarResponseApplicationJson_Ocs([
     void Function(AvatarDeleteAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AvatarDeleteAvatarResponseApplicationJson_Ocs;
@@ -13300,15 +13358,22 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
   const AvatarDeleteAvatarResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for AvatarDeleteAvatarResponseApplicationJson_Ocs.
   static Serializer<AvatarDeleteAvatarResponseApplicationJson_Ocs> get serializer =>
       _$avatarDeleteAvatarResponseApplicationJsonOcsSerializer;
 }
@@ -13322,6 +13387,7 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
     implements
         $AvatarDeleteAvatarResponseApplicationJsonInterface,
         Built<AvatarDeleteAvatarResponseApplicationJson, AvatarDeleteAvatarResponseApplicationJsonBuilder> {
+  /// Creates a new AvatarDeleteAvatarResponseApplicationJson object using the builder pattern.
   factory AvatarDeleteAvatarResponseApplicationJson([
     void Function(AvatarDeleteAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$AvatarDeleteAvatarResponseApplicationJson;
@@ -13330,15 +13396,22 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
   const AvatarDeleteAvatarResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarDeleteAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for AvatarDeleteAvatarResponseApplicationJson.
   static Serializer<AvatarDeleteAvatarResponseApplicationJson> get serializer =>
       _$avatarDeleteAvatarResponseApplicationJsonSerializer;
 }
@@ -13346,16 +13419,21 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
 class AvatarEmojiAvatarApiVersion extends EnumClass {
   const AvatarEmojiAvatarApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarEmojiAvatarApiVersion v1 = _$avatarEmojiAvatarApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarEmojiAvatarApiVersion> get values => _$avatarEmojiAvatarApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarEmojiAvatarApiVersion valueOf(String name) => _$valueOfAvatarEmojiAvatarApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for AvatarEmojiAvatarApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<AvatarEmojiAvatarApiVersion> get serializer => const _$AvatarEmojiAvatarApiVersionSerializer();
 }
@@ -13404,6 +13482,7 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
     implements
         $AvatarEmojiAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarEmojiAvatarResponseApplicationJson_Ocs, AvatarEmojiAvatarResponseApplicationJson_OcsBuilder> {
+  /// Creates a new AvatarEmojiAvatarResponseApplicationJson_Ocs object using the builder pattern.
   factory AvatarEmojiAvatarResponseApplicationJson_Ocs([
     void Function(AvatarEmojiAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AvatarEmojiAvatarResponseApplicationJson_Ocs;
@@ -13412,15 +13491,22 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
   const AvatarEmojiAvatarResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarEmojiAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for AvatarEmojiAvatarResponseApplicationJson_Ocs.
   static Serializer<AvatarEmojiAvatarResponseApplicationJson_Ocs> get serializer =>
       _$avatarEmojiAvatarResponseApplicationJsonOcsSerializer;
 }
@@ -13434,6 +13520,7 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
     implements
         $AvatarEmojiAvatarResponseApplicationJsonInterface,
         Built<AvatarEmojiAvatarResponseApplicationJson, AvatarEmojiAvatarResponseApplicationJsonBuilder> {
+  /// Creates a new AvatarEmojiAvatarResponseApplicationJson object using the builder pattern.
   factory AvatarEmojiAvatarResponseApplicationJson([
     void Function(AvatarEmojiAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$AvatarEmojiAvatarResponseApplicationJson;
@@ -13442,15 +13529,22 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
   const AvatarEmojiAvatarResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarEmojiAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for AvatarEmojiAvatarResponseApplicationJson.
   static Serializer<AvatarEmojiAvatarResponseApplicationJson> get serializer =>
       _$avatarEmojiAvatarResponseApplicationJsonSerializer;
 }
@@ -13458,16 +13552,21 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
 class AvatarGetAvatarDarkApiVersion extends EnumClass {
   const AvatarGetAvatarDarkApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarGetAvatarDarkApiVersion v1 = _$avatarGetAvatarDarkApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarGetAvatarDarkApiVersion> get values => _$avatarGetAvatarDarkApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarGetAvatarDarkApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarDarkApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for AvatarGetAvatarDarkApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<AvatarGetAvatarDarkApiVersion> get serializer => const _$AvatarGetAvatarDarkApiVersionSerializer();
 }
@@ -13509,16 +13608,21 @@ class _$AvatarGetAvatarDarkApiVersionSerializer implements PrimitiveSerializer<A
 class BotSendMessageApiVersion extends EnumClass {
   const BotSendMessageApiVersion._(super.name);
 
+  /// `v1`
   static const BotSendMessageApiVersion v1 = _$botSendMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotSendMessageApiVersion> get values => _$botSendMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotSendMessageApiVersion valueOf(String name) => _$valueOfBotSendMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BotSendMessageApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BotSendMessageApiVersion> get serializer => const _$BotSendMessageApiVersionSerializer();
 }
@@ -13567,6 +13671,7 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
     implements
         $BotSendMessageResponseApplicationJson_OcsInterface,
         Built<BotSendMessageResponseApplicationJson_Ocs, BotSendMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotSendMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory BotSendMessageResponseApplicationJson_Ocs([
     void Function(BotSendMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BotSendMessageResponseApplicationJson_Ocs;
@@ -13575,15 +13680,22 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
   const BotSendMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotSendMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotSendMessageResponseApplicationJson_Ocs.
   static Serializer<BotSendMessageResponseApplicationJson_Ocs> get serializer =>
       _$botSendMessageResponseApplicationJsonOcsSerializer;
 }
@@ -13597,6 +13709,7 @@ abstract class BotSendMessageResponseApplicationJson
     implements
         $BotSendMessageResponseApplicationJsonInterface,
         Built<BotSendMessageResponseApplicationJson, BotSendMessageResponseApplicationJsonBuilder> {
+  /// Creates a new BotSendMessageResponseApplicationJson object using the builder pattern.
   factory BotSendMessageResponseApplicationJson([void Function(BotSendMessageResponseApplicationJsonBuilder)? b]) =
       _$BotSendMessageResponseApplicationJson;
 
@@ -13604,15 +13717,22 @@ abstract class BotSendMessageResponseApplicationJson
   const BotSendMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotSendMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotSendMessageResponseApplicationJson.
   static Serializer<BotSendMessageResponseApplicationJson> get serializer =>
       _$botSendMessageResponseApplicationJsonSerializer;
 }
@@ -13620,16 +13740,21 @@ abstract class BotSendMessageResponseApplicationJson
 class BotReactApiVersion extends EnumClass {
   const BotReactApiVersion._(super.name);
 
+  /// `v1`
   static const BotReactApiVersion v1 = _$botReactApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotReactApiVersion> get values => _$botReactApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotReactApiVersion valueOf(String name) => _$valueOfBotReactApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BotReactApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BotReactApiVersion> get serializer => const _$BotReactApiVersionSerializer();
 }
@@ -13678,6 +13803,7 @@ abstract class BotReactResponseApplicationJson_Ocs
     implements
         $BotReactResponseApplicationJson_OcsInterface,
         Built<BotReactResponseApplicationJson_Ocs, BotReactResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotReactResponseApplicationJson_Ocs object using the builder pattern.
   factory BotReactResponseApplicationJson_Ocs([void Function(BotReactResponseApplicationJson_OcsBuilder)? b]) =
       _$BotReactResponseApplicationJson_Ocs;
 
@@ -13685,15 +13811,22 @@ abstract class BotReactResponseApplicationJson_Ocs
   const BotReactResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotReactResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotReactResponseApplicationJson_Ocs.
   static Serializer<BotReactResponseApplicationJson_Ocs> get serializer =>
       _$botReactResponseApplicationJsonOcsSerializer;
 }
@@ -13707,6 +13840,7 @@ abstract class BotReactResponseApplicationJson
     implements
         $BotReactResponseApplicationJsonInterface,
         Built<BotReactResponseApplicationJson, BotReactResponseApplicationJsonBuilder> {
+  /// Creates a new BotReactResponseApplicationJson object using the builder pattern.
   factory BotReactResponseApplicationJson([void Function(BotReactResponseApplicationJsonBuilder)? b]) =
       _$BotReactResponseApplicationJson;
 
@@ -13714,31 +13848,43 @@ abstract class BotReactResponseApplicationJson
   const BotReactResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotReactResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotReactResponseApplicationJson.
   static Serializer<BotReactResponseApplicationJson> get serializer => _$botReactResponseApplicationJsonSerializer;
 }
 
 class BotDeleteReactionApiVersion extends EnumClass {
   const BotDeleteReactionApiVersion._(super.name);
 
+  /// `v1`
   static const BotDeleteReactionApiVersion v1 = _$botDeleteReactionApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotDeleteReactionApiVersion> get values => _$botDeleteReactionApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotDeleteReactionApiVersion valueOf(String name) => _$valueOfBotDeleteReactionApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BotDeleteReactionApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BotDeleteReactionApiVersion> get serializer => const _$BotDeleteReactionApiVersionSerializer();
 }
@@ -13787,6 +13933,7 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
     implements
         $BotDeleteReactionResponseApplicationJson_OcsInterface,
         Built<BotDeleteReactionResponseApplicationJson_Ocs, BotDeleteReactionResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotDeleteReactionResponseApplicationJson_Ocs object using the builder pattern.
   factory BotDeleteReactionResponseApplicationJson_Ocs([
     void Function(BotDeleteReactionResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BotDeleteReactionResponseApplicationJson_Ocs;
@@ -13795,15 +13942,22 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
   const BotDeleteReactionResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotDeleteReactionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotDeleteReactionResponseApplicationJson_Ocs.
   static Serializer<BotDeleteReactionResponseApplicationJson_Ocs> get serializer =>
       _$botDeleteReactionResponseApplicationJsonOcsSerializer;
 }
@@ -13817,6 +13971,7 @@ abstract class BotDeleteReactionResponseApplicationJson
     implements
         $BotDeleteReactionResponseApplicationJsonInterface,
         Built<BotDeleteReactionResponseApplicationJson, BotDeleteReactionResponseApplicationJsonBuilder> {
+  /// Creates a new BotDeleteReactionResponseApplicationJson object using the builder pattern.
   factory BotDeleteReactionResponseApplicationJson([
     void Function(BotDeleteReactionResponseApplicationJsonBuilder)? b,
   ]) = _$BotDeleteReactionResponseApplicationJson;
@@ -13825,15 +13980,22 @@ abstract class BotDeleteReactionResponseApplicationJson
   const BotDeleteReactionResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotDeleteReactionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotDeleteReactionResponseApplicationJson.
   static Serializer<BotDeleteReactionResponseApplicationJson> get serializer =>
       _$botDeleteReactionResponseApplicationJsonSerializer;
 }
@@ -13841,16 +14003,21 @@ abstract class BotDeleteReactionResponseApplicationJson
 class BotAdminListBotsApiVersion extends EnumClass {
   const BotAdminListBotsApiVersion._(super.name);
 
+  /// `v1`
   static const BotAdminListBotsApiVersion v1 = _$botAdminListBotsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotAdminListBotsApiVersion> get values => _$botAdminListBotsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BotAdminListBotsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BotAdminListBotsApiVersion> get serializer => const _$BotAdminListBotsApiVersionSerializer();
 }
@@ -13898,20 +14065,28 @@ abstract interface class $BotInterface {
 }
 
 abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
+  /// Creates a new Bot object using the builder pattern.
   factory Bot([void Function(BotBuilder)? b]) = _$Bot;
 
   // coverage:ignore-start
   const Bot._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Bot.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Bot.
   static Serializer<Bot> get serializer => _$botSerializer;
 }
 
@@ -13933,20 +14108,28 @@ abstract interface class $BotWithDetails_1Interface {
 abstract interface class $BotWithDetailsInterface implements $BotInterface, $BotWithDetails_1Interface {}
 
 abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
+  /// Creates a new BotWithDetails object using the builder pattern.
   factory BotWithDetails([void Function(BotWithDetailsBuilder)? b]) = _$BotWithDetails;
 
   // coverage:ignore-start
   const BotWithDetails._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotWithDetails.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotWithDetails.
   static Serializer<BotWithDetails> get serializer => _$botWithDetailsSerializer;
 }
 
@@ -13960,6 +14143,7 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
     implements
         $BotAdminListBotsResponseApplicationJson_OcsInterface,
         Built<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotAdminListBotsResponseApplicationJson_Ocs object using the builder pattern.
   factory BotAdminListBotsResponseApplicationJson_Ocs([
     void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BotAdminListBotsResponseApplicationJson_Ocs;
@@ -13968,15 +14152,22 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
   const BotAdminListBotsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotAdminListBotsResponseApplicationJson_Ocs.
   static Serializer<BotAdminListBotsResponseApplicationJson_Ocs> get serializer =>
       _$botAdminListBotsResponseApplicationJsonOcsSerializer;
 }
@@ -13990,6 +14181,7 @@ abstract class BotAdminListBotsResponseApplicationJson
     implements
         $BotAdminListBotsResponseApplicationJsonInterface,
         Built<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder> {
+  /// Creates a new BotAdminListBotsResponseApplicationJson object using the builder pattern.
   factory BotAdminListBotsResponseApplicationJson([void Function(BotAdminListBotsResponseApplicationJsonBuilder)? b]) =
       _$BotAdminListBotsResponseApplicationJson;
 
@@ -13997,15 +14189,22 @@ abstract class BotAdminListBotsResponseApplicationJson
   const BotAdminListBotsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotAdminListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotAdminListBotsResponseApplicationJson.
   static Serializer<BotAdminListBotsResponseApplicationJson> get serializer =>
       _$botAdminListBotsResponseApplicationJsonSerializer;
 }
@@ -14013,16 +14212,21 @@ abstract class BotAdminListBotsResponseApplicationJson
 class BotListBotsApiVersion extends EnumClass {
   const BotListBotsApiVersion._(super.name);
 
+  /// `v1`
   static const BotListBotsApiVersion v1 = _$botListBotsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotListBotsApiVersion> get values => _$botListBotsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotListBotsApiVersion valueOf(String name) => _$valueOfBotListBotsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BotListBotsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BotListBotsApiVersion> get serializer => const _$BotListBotsApiVersionSerializer();
 }
@@ -14071,6 +14275,7 @@ abstract class BotListBotsResponseApplicationJson_Ocs
     implements
         $BotListBotsResponseApplicationJson_OcsInterface,
         Built<BotListBotsResponseApplicationJson_Ocs, BotListBotsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotListBotsResponseApplicationJson_Ocs object using the builder pattern.
   factory BotListBotsResponseApplicationJson_Ocs([void Function(BotListBotsResponseApplicationJson_OcsBuilder)? b]) =
       _$BotListBotsResponseApplicationJson_Ocs;
 
@@ -14078,15 +14283,22 @@ abstract class BotListBotsResponseApplicationJson_Ocs
   const BotListBotsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotListBotsResponseApplicationJson_Ocs.
   static Serializer<BotListBotsResponseApplicationJson_Ocs> get serializer =>
       _$botListBotsResponseApplicationJsonOcsSerializer;
 }
@@ -14100,6 +14312,7 @@ abstract class BotListBotsResponseApplicationJson
     implements
         $BotListBotsResponseApplicationJsonInterface,
         Built<BotListBotsResponseApplicationJson, BotListBotsResponseApplicationJsonBuilder> {
+  /// Creates a new BotListBotsResponseApplicationJson object using the builder pattern.
   factory BotListBotsResponseApplicationJson([void Function(BotListBotsResponseApplicationJsonBuilder)? b]) =
       _$BotListBotsResponseApplicationJson;
 
@@ -14107,15 +14320,22 @@ abstract class BotListBotsResponseApplicationJson
   const BotListBotsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotListBotsResponseApplicationJson.
   static Serializer<BotListBotsResponseApplicationJson> get serializer =>
       _$botListBotsResponseApplicationJsonSerializer;
 }
@@ -14123,16 +14343,21 @@ abstract class BotListBotsResponseApplicationJson
 class BotEnableBotApiVersion extends EnumClass {
   const BotEnableBotApiVersion._(super.name);
 
+  /// `v1`
   static const BotEnableBotApiVersion v1 = _$botEnableBotApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotEnableBotApiVersion> get values => _$botEnableBotApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotEnableBotApiVersion valueOf(String name) => _$valueOfBotEnableBotApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BotEnableBotApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BotEnableBotApiVersion> get serializer => const _$BotEnableBotApiVersionSerializer();
 }
@@ -14181,6 +14406,7 @@ abstract class BotEnableBotResponseApplicationJson_Ocs
     implements
         $BotEnableBotResponseApplicationJson_OcsInterface,
         Built<BotEnableBotResponseApplicationJson_Ocs, BotEnableBotResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotEnableBotResponseApplicationJson_Ocs object using the builder pattern.
   factory BotEnableBotResponseApplicationJson_Ocs([void Function(BotEnableBotResponseApplicationJson_OcsBuilder)? b]) =
       _$BotEnableBotResponseApplicationJson_Ocs;
 
@@ -14188,15 +14414,22 @@ abstract class BotEnableBotResponseApplicationJson_Ocs
   const BotEnableBotResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotEnableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotEnableBotResponseApplicationJson_Ocs.
   static Serializer<BotEnableBotResponseApplicationJson_Ocs> get serializer =>
       _$botEnableBotResponseApplicationJsonOcsSerializer;
 }
@@ -14210,6 +14443,7 @@ abstract class BotEnableBotResponseApplicationJson
     implements
         $BotEnableBotResponseApplicationJsonInterface,
         Built<BotEnableBotResponseApplicationJson, BotEnableBotResponseApplicationJsonBuilder> {
+  /// Creates a new BotEnableBotResponseApplicationJson object using the builder pattern.
   factory BotEnableBotResponseApplicationJson([void Function(BotEnableBotResponseApplicationJsonBuilder)? b]) =
       _$BotEnableBotResponseApplicationJson;
 
@@ -14217,15 +14451,22 @@ abstract class BotEnableBotResponseApplicationJson
   const BotEnableBotResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotEnableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotEnableBotResponseApplicationJson.
   static Serializer<BotEnableBotResponseApplicationJson> get serializer =>
       _$botEnableBotResponseApplicationJsonSerializer;
 }
@@ -14233,16 +14474,21 @@ abstract class BotEnableBotResponseApplicationJson
 class BotDisableBotApiVersion extends EnumClass {
   const BotDisableBotApiVersion._(super.name);
 
+  /// `v1`
   static const BotDisableBotApiVersion v1 = _$botDisableBotApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotDisableBotApiVersion> get values => _$botDisableBotApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotDisableBotApiVersion valueOf(String name) => _$valueOfBotDisableBotApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BotDisableBotApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BotDisableBotApiVersion> get serializer => const _$BotDisableBotApiVersionSerializer();
 }
@@ -14291,6 +14537,7 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
     implements
         $BotDisableBotResponseApplicationJson_OcsInterface,
         Built<BotDisableBotResponseApplicationJson_Ocs, BotDisableBotResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotDisableBotResponseApplicationJson_Ocs object using the builder pattern.
   factory BotDisableBotResponseApplicationJson_Ocs([
     void Function(BotDisableBotResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BotDisableBotResponseApplicationJson_Ocs;
@@ -14299,15 +14546,22 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
   const BotDisableBotResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotDisableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotDisableBotResponseApplicationJson_Ocs.
   static Serializer<BotDisableBotResponseApplicationJson_Ocs> get serializer =>
       _$botDisableBotResponseApplicationJsonOcsSerializer;
 }
@@ -14321,6 +14575,7 @@ abstract class BotDisableBotResponseApplicationJson
     implements
         $BotDisableBotResponseApplicationJsonInterface,
         Built<BotDisableBotResponseApplicationJson, BotDisableBotResponseApplicationJsonBuilder> {
+  /// Creates a new BotDisableBotResponseApplicationJson object using the builder pattern.
   factory BotDisableBotResponseApplicationJson([void Function(BotDisableBotResponseApplicationJsonBuilder)? b]) =
       _$BotDisableBotResponseApplicationJson;
 
@@ -14328,15 +14583,22 @@ abstract class BotDisableBotResponseApplicationJson
   const BotDisableBotResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotDisableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotDisableBotResponseApplicationJson.
   static Serializer<BotDisableBotResponseApplicationJson> get serializer =>
       _$botDisableBotResponseApplicationJsonSerializer;
 }
@@ -14344,27 +14606,35 @@ abstract class BotDisableBotResponseApplicationJson
 class BreakoutRoomConfigureBreakoutRoomsMode extends EnumClass {
   const BreakoutRoomConfigureBreakoutRoomsMode._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const BreakoutRoomConfigureBreakoutRoomsMode $0 = _$breakoutRoomConfigureBreakoutRoomsMode$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const BreakoutRoomConfigureBreakoutRoomsMode $1 = _$breakoutRoomConfigureBreakoutRoomsMode$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const BreakoutRoomConfigureBreakoutRoomsMode $2 = _$breakoutRoomConfigureBreakoutRoomsMode$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const BreakoutRoomConfigureBreakoutRoomsMode $3 = _$breakoutRoomConfigureBreakoutRoomsMode$3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomConfigureBreakoutRoomsMode> get values => _$breakoutRoomConfigureBreakoutRoomsModeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomConfigureBreakoutRoomsMode valueOf(String name) =>
       _$valueOfBreakoutRoomConfigureBreakoutRoomsMode(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for BreakoutRoomConfigureBreakoutRoomsMode.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomConfigureBreakoutRoomsMode> get serializer =>
       const _$BreakoutRoomConfigureBreakoutRoomsModeSerializer();
@@ -14416,18 +14686,23 @@ class _$BreakoutRoomConfigureBreakoutRoomsModeSerializer
 class BreakoutRoomConfigureBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomConfigureBreakoutRoomsApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomConfigureBreakoutRoomsApiVersion v1 = _$breakoutRoomConfigureBreakoutRoomsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomConfigureBreakoutRoomsApiVersion> get values =>
       _$breakoutRoomConfigureBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomConfigureBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomConfigureBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomConfigureBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomConfigureBreakoutRoomsApiVersion> get serializer =>
       const _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer();
@@ -14481,6 +14756,7 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
         $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs;
@@ -14489,15 +14765,22 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
   const BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomConfigureBreakoutRoomsResponseApplicationJsonOcsSerializer;
 }
@@ -14512,6 +14795,7 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
         $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface,
         Built<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson,
             BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson([
     void Function(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson;
@@ -14520,15 +14804,22 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
   const BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.
   static Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson> get serializer =>
       _$breakoutRoomConfigureBreakoutRoomsResponseApplicationJsonSerializer;
 }
@@ -14536,18 +14827,23 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
 class BreakoutRoomRemoveBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomRemoveBreakoutRoomsApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomRemoveBreakoutRoomsApiVersion v1 = _$breakoutRoomRemoveBreakoutRoomsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomRemoveBreakoutRoomsApiVersion> get values =>
       _$breakoutRoomRemoveBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomRemoveBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomRemoveBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomRemoveBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomRemoveBreakoutRoomsApiVersion> get serializer =>
       const _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer();
@@ -14601,6 +14897,7 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
         $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs;
@@ -14609,15 +14906,22 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
   const BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomRemoveBreakoutRoomsResponseApplicationJsonOcsSerializer;
 }
@@ -14632,6 +14936,7 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
         $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface,
         Built<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson,
             BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson([
     void Function(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson;
@@ -14640,15 +14945,22 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
   const BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.
   static Serializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson> get serializer =>
       _$breakoutRoomRemoveBreakoutRoomsResponseApplicationJsonSerializer;
 }
@@ -14656,18 +14968,23 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
 class BreakoutRoomBroadcastChatMessageApiVersion extends EnumClass {
   const BreakoutRoomBroadcastChatMessageApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomBroadcastChatMessageApiVersion v1 = _$breakoutRoomBroadcastChatMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomBroadcastChatMessageApiVersion> get values =>
       _$breakoutRoomBroadcastChatMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomBroadcastChatMessageApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomBroadcastChatMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomBroadcastChatMessageApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomBroadcastChatMessageApiVersion> get serializer =>
       const _$BreakoutRoomBroadcastChatMessageApiVersionSerializer();
@@ -14721,6 +15038,7 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
         $BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs,
             BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs([
     void Function(BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs;
@@ -14729,15 +15047,22 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
   const BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomBroadcastChatMessageResponseApplicationJsonOcsSerializer;
 }
@@ -14752,6 +15077,7 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
         $BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface,
         Built<BreakoutRoomBroadcastChatMessageResponseApplicationJson,
             BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomBroadcastChatMessageResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson([
     void Function(BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomBroadcastChatMessageResponseApplicationJson;
@@ -14760,15 +15086,22 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
   const BreakoutRoomBroadcastChatMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomBroadcastChatMessageResponseApplicationJson.
   static Serializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson> get serializer =>
       _$breakoutRoomBroadcastChatMessageResponseApplicationJsonSerializer;
 }
@@ -14776,17 +15109,22 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
 class BreakoutRoomApplyAttendeeMapApiVersion extends EnumClass {
   const BreakoutRoomApplyAttendeeMapApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomApplyAttendeeMapApiVersion v1 = _$breakoutRoomApplyAttendeeMapApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomApplyAttendeeMapApiVersion> get values => _$breakoutRoomApplyAttendeeMapApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomApplyAttendeeMapApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomApplyAttendeeMapApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomApplyAttendeeMapApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomApplyAttendeeMapApiVersion> get serializer =>
       const _$BreakoutRoomApplyAttendeeMapApiVersionSerializer();
@@ -14840,6 +15178,7 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
         $BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs,
             BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs([
     void Function(BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs;
@@ -14848,15 +15187,22 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
   const BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomApplyAttendeeMapResponseApplicationJsonOcsSerializer;
 }
@@ -14871,6 +15217,7 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
         $BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface,
         Built<BreakoutRoomApplyAttendeeMapResponseApplicationJson,
             BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomApplyAttendeeMapResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson([
     void Function(BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomApplyAttendeeMapResponseApplicationJson;
@@ -14879,15 +15226,22 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
   const BreakoutRoomApplyAttendeeMapResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomApplyAttendeeMapResponseApplicationJson.
   static Serializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson> get serializer =>
       _$breakoutRoomApplyAttendeeMapResponseApplicationJsonSerializer;
 }
@@ -14895,18 +15249,23 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
 class BreakoutRoomRequestAssistanceApiVersion extends EnumClass {
   const BreakoutRoomRequestAssistanceApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomRequestAssistanceApiVersion v1 = _$breakoutRoomRequestAssistanceApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomRequestAssistanceApiVersion> get values =>
       _$breakoutRoomRequestAssistanceApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomRequestAssistanceApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomRequestAssistanceApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomRequestAssistanceApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomRequestAssistanceApiVersion> get serializer =>
       const _$BreakoutRoomRequestAssistanceApiVersionSerializer();
@@ -14960,6 +15319,7 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
         $BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs,
             BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs([
     void Function(BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs;
@@ -14968,15 +15328,22 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
   const BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomRequestAssistanceResponseApplicationJsonOcsSerializer;
 }
@@ -14991,6 +15358,7 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
         $BreakoutRoomRequestAssistanceResponseApplicationJsonInterface,
         Built<BreakoutRoomRequestAssistanceResponseApplicationJson,
             BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomRequestAssistanceResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomRequestAssistanceResponseApplicationJson([
     void Function(BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomRequestAssistanceResponseApplicationJson;
@@ -14999,15 +15367,22 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
   const BreakoutRoomRequestAssistanceResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomRequestAssistanceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomRequestAssistanceResponseApplicationJson.
   static Serializer<BreakoutRoomRequestAssistanceResponseApplicationJson> get serializer =>
       _$breakoutRoomRequestAssistanceResponseApplicationJsonSerializer;
 }
@@ -15015,18 +15390,23 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
 class BreakoutRoomResetRequestForAssistanceApiVersion extends EnumClass {
   const BreakoutRoomResetRequestForAssistanceApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomResetRequestForAssistanceApiVersion v1 = _$breakoutRoomResetRequestForAssistanceApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomResetRequestForAssistanceApiVersion> get values =>
       _$breakoutRoomResetRequestForAssistanceApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomResetRequestForAssistanceApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomResetRequestForAssistanceApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomResetRequestForAssistanceApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomResetRequestForAssistanceApiVersion> get serializer =>
       const _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer();
@@ -15080,6 +15460,7 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
         $BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs,
             BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs([
     void Function(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs;
@@ -15088,15 +15469,22 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
   const BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomResetRequestForAssistanceResponseApplicationJsonOcsSerializer;
 }
@@ -15111,6 +15499,7 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
         $BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterface,
         Built<BreakoutRoomResetRequestForAssistanceResponseApplicationJson,
             BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomResetRequestForAssistanceResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson([
     void Function(BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson;
@@ -15119,15 +15508,22 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
   const BreakoutRoomResetRequestForAssistanceResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomResetRequestForAssistanceResponseApplicationJson.
   static Serializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson> get serializer =>
       _$breakoutRoomResetRequestForAssistanceResponseApplicationJsonSerializer;
 }
@@ -15135,18 +15531,23 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
 class BreakoutRoomStartBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomStartBreakoutRoomsApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomStartBreakoutRoomsApiVersion v1 = _$breakoutRoomStartBreakoutRoomsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomStartBreakoutRoomsApiVersion> get values =>
       _$breakoutRoomStartBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomStartBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomStartBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomStartBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomStartBreakoutRoomsApiVersion> get serializer =>
       const _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer();
@@ -15200,6 +15601,7 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
         $BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs;
@@ -15208,15 +15610,22 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
   const BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomStartBreakoutRoomsResponseApplicationJsonOcsSerializer;
 }
@@ -15231,6 +15640,7 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
         $BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface,
         Built<BreakoutRoomStartBreakoutRoomsResponseApplicationJson,
             BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomStartBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson([
     void Function(BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson;
@@ -15239,15 +15649,22 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
   const BreakoutRoomStartBreakoutRoomsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomStartBreakoutRoomsResponseApplicationJson.
   static Serializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson> get serializer =>
       _$breakoutRoomStartBreakoutRoomsResponseApplicationJsonSerializer;
 }
@@ -15255,18 +15672,23 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
 class BreakoutRoomStopBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomStopBreakoutRoomsApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomStopBreakoutRoomsApiVersion v1 = _$breakoutRoomStopBreakoutRoomsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomStopBreakoutRoomsApiVersion> get values =>
       _$breakoutRoomStopBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomStopBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomStopBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomStopBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomStopBreakoutRoomsApiVersion> get serializer =>
       const _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer();
@@ -15320,6 +15742,7 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
         $BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs;
@@ -15328,15 +15751,22 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
   const BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomStopBreakoutRoomsResponseApplicationJsonOcsSerializer;
 }
@@ -15351,6 +15781,7 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
         $BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface,
         Built<BreakoutRoomStopBreakoutRoomsResponseApplicationJson,
             BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomStopBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson([
     void Function(BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson;
@@ -15359,15 +15790,22 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
   const BreakoutRoomStopBreakoutRoomsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomStopBreakoutRoomsResponseApplicationJson.
   static Serializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson> get serializer =>
       _$breakoutRoomStopBreakoutRoomsResponseApplicationJsonSerializer;
 }
@@ -15375,18 +15813,23 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
 class BreakoutRoomSwitchBreakoutRoomApiVersion extends EnumClass {
   const BreakoutRoomSwitchBreakoutRoomApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomSwitchBreakoutRoomApiVersion v1 = _$breakoutRoomSwitchBreakoutRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomSwitchBreakoutRoomApiVersion> get values =>
       _$breakoutRoomSwitchBreakoutRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomSwitchBreakoutRoomApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomSwitchBreakoutRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for BreakoutRoomSwitchBreakoutRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomSwitchBreakoutRoomApiVersion> get serializer =>
       const _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer();
@@ -15440,6 +15883,7 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
         $BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs,
             BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs([
     void Function(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs;
@@ -15448,15 +15892,22 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
   const BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs> get serializer =>
       _$breakoutRoomSwitchBreakoutRoomResponseApplicationJsonOcsSerializer;
 }
@@ -15471,6 +15922,7 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
         $BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface,
         Built<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson,
             BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder> {
+  /// Creates a new BreakoutRoomSwitchBreakoutRoomResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson([
     void Function(BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson;
@@ -15479,15 +15931,22 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
   const BreakoutRoomSwitchBreakoutRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.
   static Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson> get serializer =>
       _$breakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer;
 }
@@ -15495,16 +15954,21 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
 class CallGetPeersForCallApiVersion extends EnumClass {
   const CallGetPeersForCallApiVersion._(super.name);
 
+  /// `v4`
   static const CallGetPeersForCallApiVersion v4 = _$callGetPeersForCallApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallGetPeersForCallApiVersion> get values => _$callGetPeersForCallApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallGetPeersForCallApiVersion valueOf(String name) => _$valueOfCallGetPeersForCallApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for CallGetPeersForCallApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<CallGetPeersForCallApiVersion> get serializer => const _$CallGetPeersForCallApiVersionSerializer();
 }
@@ -15554,20 +16018,28 @@ abstract interface class $CallPeerInterface {
 }
 
 abstract class CallPeer implements $CallPeerInterface, Built<CallPeer, CallPeerBuilder> {
+  /// Creates a new CallPeer object using the builder pattern.
   factory CallPeer([void Function(CallPeerBuilder)? b]) = _$CallPeer;
 
   // coverage:ignore-start
   const CallPeer._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallPeer.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallPeer.
   static Serializer<CallPeer> get serializer => _$callPeerSerializer;
 }
 
@@ -15581,6 +16053,7 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
     implements
         $CallGetPeersForCallResponseApplicationJson_OcsInterface,
         Built<CallGetPeersForCallResponseApplicationJson_Ocs, CallGetPeersForCallResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CallGetPeersForCallResponseApplicationJson_Ocs object using the builder pattern.
   factory CallGetPeersForCallResponseApplicationJson_Ocs([
     void Function(CallGetPeersForCallResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallGetPeersForCallResponseApplicationJson_Ocs;
@@ -15589,15 +16062,22 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
   const CallGetPeersForCallResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallGetPeersForCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallGetPeersForCallResponseApplicationJson_Ocs.
   static Serializer<CallGetPeersForCallResponseApplicationJson_Ocs> get serializer =>
       _$callGetPeersForCallResponseApplicationJsonOcsSerializer;
 }
@@ -15611,6 +16091,7 @@ abstract class CallGetPeersForCallResponseApplicationJson
     implements
         $CallGetPeersForCallResponseApplicationJsonInterface,
         Built<CallGetPeersForCallResponseApplicationJson, CallGetPeersForCallResponseApplicationJsonBuilder> {
+  /// Creates a new CallGetPeersForCallResponseApplicationJson object using the builder pattern.
   factory CallGetPeersForCallResponseApplicationJson([
     void Function(CallGetPeersForCallResponseApplicationJsonBuilder)? b,
   ]) = _$CallGetPeersForCallResponseApplicationJson;
@@ -15619,15 +16100,22 @@ abstract class CallGetPeersForCallResponseApplicationJson
   const CallGetPeersForCallResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallGetPeersForCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallGetPeersForCallResponseApplicationJson.
   static Serializer<CallGetPeersForCallResponseApplicationJson> get serializer =>
       _$callGetPeersForCallResponseApplicationJsonSerializer;
 }
@@ -15635,16 +16123,21 @@ abstract class CallGetPeersForCallResponseApplicationJson
 class CallUpdateCallFlagsApiVersion extends EnumClass {
   const CallUpdateCallFlagsApiVersion._(super.name);
 
+  /// `v4`
   static const CallUpdateCallFlagsApiVersion v4 = _$callUpdateCallFlagsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallUpdateCallFlagsApiVersion> get values => _$callUpdateCallFlagsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallUpdateCallFlagsApiVersion valueOf(String name) => _$valueOfCallUpdateCallFlagsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for CallUpdateCallFlagsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<CallUpdateCallFlagsApiVersion> get serializer => const _$CallUpdateCallFlagsApiVersionSerializer();
 }
@@ -15693,6 +16186,7 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
     implements
         $CallUpdateCallFlagsResponseApplicationJson_OcsInterface,
         Built<CallUpdateCallFlagsResponseApplicationJson_Ocs, CallUpdateCallFlagsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CallUpdateCallFlagsResponseApplicationJson_Ocs object using the builder pattern.
   factory CallUpdateCallFlagsResponseApplicationJson_Ocs([
     void Function(CallUpdateCallFlagsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallUpdateCallFlagsResponseApplicationJson_Ocs;
@@ -15701,15 +16195,22 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
   const CallUpdateCallFlagsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallUpdateCallFlagsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallUpdateCallFlagsResponseApplicationJson_Ocs.
   static Serializer<CallUpdateCallFlagsResponseApplicationJson_Ocs> get serializer =>
       _$callUpdateCallFlagsResponseApplicationJsonOcsSerializer;
 }
@@ -15723,6 +16224,7 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
     implements
         $CallUpdateCallFlagsResponseApplicationJsonInterface,
         Built<CallUpdateCallFlagsResponseApplicationJson, CallUpdateCallFlagsResponseApplicationJsonBuilder> {
+  /// Creates a new CallUpdateCallFlagsResponseApplicationJson object using the builder pattern.
   factory CallUpdateCallFlagsResponseApplicationJson([
     void Function(CallUpdateCallFlagsResponseApplicationJsonBuilder)? b,
   ]) = _$CallUpdateCallFlagsResponseApplicationJson;
@@ -15731,15 +16233,22 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
   const CallUpdateCallFlagsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallUpdateCallFlagsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallUpdateCallFlagsResponseApplicationJson.
   static Serializer<CallUpdateCallFlagsResponseApplicationJson> get serializer =>
       _$callUpdateCallFlagsResponseApplicationJsonSerializer;
 }
@@ -15747,62 +16256,82 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
 class CallJoinCallFlags extends EnumClass {
   const CallJoinCallFlags._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const CallJoinCallFlags $0 = _$callJoinCallFlags$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const CallJoinCallFlags $1 = _$callJoinCallFlags$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const CallJoinCallFlags $2 = _$callJoinCallFlags$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const CallJoinCallFlags $3 = _$callJoinCallFlags$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const CallJoinCallFlags $4 = _$callJoinCallFlags$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const CallJoinCallFlags $5 = _$callJoinCallFlags$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const CallJoinCallFlags $6 = _$callJoinCallFlags$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const CallJoinCallFlags $7 = _$callJoinCallFlags$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const CallJoinCallFlags $8 = _$callJoinCallFlags$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const CallJoinCallFlags $9 = _$callJoinCallFlags$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const CallJoinCallFlags $10 = _$callJoinCallFlags$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const CallJoinCallFlags $11 = _$callJoinCallFlags$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const CallJoinCallFlags $12 = _$callJoinCallFlags$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const CallJoinCallFlags $13 = _$callJoinCallFlags$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const CallJoinCallFlags $14 = _$callJoinCallFlags$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const CallJoinCallFlags $15 = _$callJoinCallFlags$15;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallJoinCallFlags> get values => _$callJoinCallFlagsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallJoinCallFlags valueOf(String name) => _$valueOfCallJoinCallFlags(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for CallJoinCallFlags.
   @BuiltValueSerializer(custom: true)
   static Serializer<CallJoinCallFlags> get serializer => const _$CallJoinCallFlagsSerializer();
 }
@@ -15874,782 +16403,1042 @@ class _$CallJoinCallFlagsSerializer implements PrimitiveSerializer<CallJoinCallF
 class CallJoinCallForcePermissions extends EnumClass {
   const CallJoinCallForcePermissions._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const CallJoinCallForcePermissions $0 = _$callJoinCallForcePermissions$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const CallJoinCallForcePermissions $1 = _$callJoinCallForcePermissions$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const CallJoinCallForcePermissions $2 = _$callJoinCallForcePermissions$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const CallJoinCallForcePermissions $3 = _$callJoinCallForcePermissions$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const CallJoinCallForcePermissions $4 = _$callJoinCallForcePermissions$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const CallJoinCallForcePermissions $5 = _$callJoinCallForcePermissions$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const CallJoinCallForcePermissions $6 = _$callJoinCallForcePermissions$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const CallJoinCallForcePermissions $7 = _$callJoinCallForcePermissions$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const CallJoinCallForcePermissions $8 = _$callJoinCallForcePermissions$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const CallJoinCallForcePermissions $9 = _$callJoinCallForcePermissions$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const CallJoinCallForcePermissions $10 = _$callJoinCallForcePermissions$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const CallJoinCallForcePermissions $11 = _$callJoinCallForcePermissions$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const CallJoinCallForcePermissions $12 = _$callJoinCallForcePermissions$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const CallJoinCallForcePermissions $13 = _$callJoinCallForcePermissions$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const CallJoinCallForcePermissions $14 = _$callJoinCallForcePermissions$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const CallJoinCallForcePermissions $15 = _$callJoinCallForcePermissions$15;
 
+  /// `16`
   @BuiltValueEnumConst(wireName: '16')
   static const CallJoinCallForcePermissions $16 = _$callJoinCallForcePermissions$16;
 
+  /// `17`
   @BuiltValueEnumConst(wireName: '17')
   static const CallJoinCallForcePermissions $17 = _$callJoinCallForcePermissions$17;
 
+  /// `18`
   @BuiltValueEnumConst(wireName: '18')
   static const CallJoinCallForcePermissions $18 = _$callJoinCallForcePermissions$18;
 
+  /// `19`
   @BuiltValueEnumConst(wireName: '19')
   static const CallJoinCallForcePermissions $19 = _$callJoinCallForcePermissions$19;
 
+  /// `20`
   @BuiltValueEnumConst(wireName: '20')
   static const CallJoinCallForcePermissions $20 = _$callJoinCallForcePermissions$20;
 
+  /// `21`
   @BuiltValueEnumConst(wireName: '21')
   static const CallJoinCallForcePermissions $21 = _$callJoinCallForcePermissions$21;
 
+  /// `22`
   @BuiltValueEnumConst(wireName: '22')
   static const CallJoinCallForcePermissions $22 = _$callJoinCallForcePermissions$22;
 
+  /// `23`
   @BuiltValueEnumConst(wireName: '23')
   static const CallJoinCallForcePermissions $23 = _$callJoinCallForcePermissions$23;
 
+  /// `24`
   @BuiltValueEnumConst(wireName: '24')
   static const CallJoinCallForcePermissions $24 = _$callJoinCallForcePermissions$24;
 
+  /// `25`
   @BuiltValueEnumConst(wireName: '25')
   static const CallJoinCallForcePermissions $25 = _$callJoinCallForcePermissions$25;
 
+  /// `26`
   @BuiltValueEnumConst(wireName: '26')
   static const CallJoinCallForcePermissions $26 = _$callJoinCallForcePermissions$26;
 
+  /// `27`
   @BuiltValueEnumConst(wireName: '27')
   static const CallJoinCallForcePermissions $27 = _$callJoinCallForcePermissions$27;
 
+  /// `28`
   @BuiltValueEnumConst(wireName: '28')
   static const CallJoinCallForcePermissions $28 = _$callJoinCallForcePermissions$28;
 
+  /// `29`
   @BuiltValueEnumConst(wireName: '29')
   static const CallJoinCallForcePermissions $29 = _$callJoinCallForcePermissions$29;
 
+  /// `30`
   @BuiltValueEnumConst(wireName: '30')
   static const CallJoinCallForcePermissions $30 = _$callJoinCallForcePermissions$30;
 
+  /// `31`
   @BuiltValueEnumConst(wireName: '31')
   static const CallJoinCallForcePermissions $31 = _$callJoinCallForcePermissions$31;
 
+  /// `32`
   @BuiltValueEnumConst(wireName: '32')
   static const CallJoinCallForcePermissions $32 = _$callJoinCallForcePermissions$32;
 
+  /// `33`
   @BuiltValueEnumConst(wireName: '33')
   static const CallJoinCallForcePermissions $33 = _$callJoinCallForcePermissions$33;
 
+  /// `34`
   @BuiltValueEnumConst(wireName: '34')
   static const CallJoinCallForcePermissions $34 = _$callJoinCallForcePermissions$34;
 
+  /// `35`
   @BuiltValueEnumConst(wireName: '35')
   static const CallJoinCallForcePermissions $35 = _$callJoinCallForcePermissions$35;
 
+  /// `36`
   @BuiltValueEnumConst(wireName: '36')
   static const CallJoinCallForcePermissions $36 = _$callJoinCallForcePermissions$36;
 
+  /// `37`
   @BuiltValueEnumConst(wireName: '37')
   static const CallJoinCallForcePermissions $37 = _$callJoinCallForcePermissions$37;
 
+  /// `38`
   @BuiltValueEnumConst(wireName: '38')
   static const CallJoinCallForcePermissions $38 = _$callJoinCallForcePermissions$38;
 
+  /// `39`
   @BuiltValueEnumConst(wireName: '39')
   static const CallJoinCallForcePermissions $39 = _$callJoinCallForcePermissions$39;
 
+  /// `40`
   @BuiltValueEnumConst(wireName: '40')
   static const CallJoinCallForcePermissions $40 = _$callJoinCallForcePermissions$40;
 
+  /// `41`
   @BuiltValueEnumConst(wireName: '41')
   static const CallJoinCallForcePermissions $41 = _$callJoinCallForcePermissions$41;
 
+  /// `42`
   @BuiltValueEnumConst(wireName: '42')
   static const CallJoinCallForcePermissions $42 = _$callJoinCallForcePermissions$42;
 
+  /// `43`
   @BuiltValueEnumConst(wireName: '43')
   static const CallJoinCallForcePermissions $43 = _$callJoinCallForcePermissions$43;
 
+  /// `44`
   @BuiltValueEnumConst(wireName: '44')
   static const CallJoinCallForcePermissions $44 = _$callJoinCallForcePermissions$44;
 
+  /// `45`
   @BuiltValueEnumConst(wireName: '45')
   static const CallJoinCallForcePermissions $45 = _$callJoinCallForcePermissions$45;
 
+  /// `46`
   @BuiltValueEnumConst(wireName: '46')
   static const CallJoinCallForcePermissions $46 = _$callJoinCallForcePermissions$46;
 
+  /// `47`
   @BuiltValueEnumConst(wireName: '47')
   static const CallJoinCallForcePermissions $47 = _$callJoinCallForcePermissions$47;
 
+  /// `48`
   @BuiltValueEnumConst(wireName: '48')
   static const CallJoinCallForcePermissions $48 = _$callJoinCallForcePermissions$48;
 
+  /// `49`
   @BuiltValueEnumConst(wireName: '49')
   static const CallJoinCallForcePermissions $49 = _$callJoinCallForcePermissions$49;
 
+  /// `50`
   @BuiltValueEnumConst(wireName: '50')
   static const CallJoinCallForcePermissions $50 = _$callJoinCallForcePermissions$50;
 
+  /// `51`
   @BuiltValueEnumConst(wireName: '51')
   static const CallJoinCallForcePermissions $51 = _$callJoinCallForcePermissions$51;
 
+  /// `52`
   @BuiltValueEnumConst(wireName: '52')
   static const CallJoinCallForcePermissions $52 = _$callJoinCallForcePermissions$52;
 
+  /// `53`
   @BuiltValueEnumConst(wireName: '53')
   static const CallJoinCallForcePermissions $53 = _$callJoinCallForcePermissions$53;
 
+  /// `54`
   @BuiltValueEnumConst(wireName: '54')
   static const CallJoinCallForcePermissions $54 = _$callJoinCallForcePermissions$54;
 
+  /// `55`
   @BuiltValueEnumConst(wireName: '55')
   static const CallJoinCallForcePermissions $55 = _$callJoinCallForcePermissions$55;
 
+  /// `56`
   @BuiltValueEnumConst(wireName: '56')
   static const CallJoinCallForcePermissions $56 = _$callJoinCallForcePermissions$56;
 
+  /// `57`
   @BuiltValueEnumConst(wireName: '57')
   static const CallJoinCallForcePermissions $57 = _$callJoinCallForcePermissions$57;
 
+  /// `58`
   @BuiltValueEnumConst(wireName: '58')
   static const CallJoinCallForcePermissions $58 = _$callJoinCallForcePermissions$58;
 
+  /// `59`
   @BuiltValueEnumConst(wireName: '59')
   static const CallJoinCallForcePermissions $59 = _$callJoinCallForcePermissions$59;
 
+  /// `60`
   @BuiltValueEnumConst(wireName: '60')
   static const CallJoinCallForcePermissions $60 = _$callJoinCallForcePermissions$60;
 
+  /// `61`
   @BuiltValueEnumConst(wireName: '61')
   static const CallJoinCallForcePermissions $61 = _$callJoinCallForcePermissions$61;
 
+  /// `62`
   @BuiltValueEnumConst(wireName: '62')
   static const CallJoinCallForcePermissions $62 = _$callJoinCallForcePermissions$62;
 
+  /// `63`
   @BuiltValueEnumConst(wireName: '63')
   static const CallJoinCallForcePermissions $63 = _$callJoinCallForcePermissions$63;
 
+  /// `64`
   @BuiltValueEnumConst(wireName: '64')
   static const CallJoinCallForcePermissions $64 = _$callJoinCallForcePermissions$64;
 
+  /// `65`
   @BuiltValueEnumConst(wireName: '65')
   static const CallJoinCallForcePermissions $65 = _$callJoinCallForcePermissions$65;
 
+  /// `66`
   @BuiltValueEnumConst(wireName: '66')
   static const CallJoinCallForcePermissions $66 = _$callJoinCallForcePermissions$66;
 
+  /// `67`
   @BuiltValueEnumConst(wireName: '67')
   static const CallJoinCallForcePermissions $67 = _$callJoinCallForcePermissions$67;
 
+  /// `68`
   @BuiltValueEnumConst(wireName: '68')
   static const CallJoinCallForcePermissions $68 = _$callJoinCallForcePermissions$68;
 
+  /// `69`
   @BuiltValueEnumConst(wireName: '69')
   static const CallJoinCallForcePermissions $69 = _$callJoinCallForcePermissions$69;
 
+  /// `70`
   @BuiltValueEnumConst(wireName: '70')
   static const CallJoinCallForcePermissions $70 = _$callJoinCallForcePermissions$70;
 
+  /// `71`
   @BuiltValueEnumConst(wireName: '71')
   static const CallJoinCallForcePermissions $71 = _$callJoinCallForcePermissions$71;
 
+  /// `72`
   @BuiltValueEnumConst(wireName: '72')
   static const CallJoinCallForcePermissions $72 = _$callJoinCallForcePermissions$72;
 
+  /// `73`
   @BuiltValueEnumConst(wireName: '73')
   static const CallJoinCallForcePermissions $73 = _$callJoinCallForcePermissions$73;
 
+  /// `74`
   @BuiltValueEnumConst(wireName: '74')
   static const CallJoinCallForcePermissions $74 = _$callJoinCallForcePermissions$74;
 
+  /// `75`
   @BuiltValueEnumConst(wireName: '75')
   static const CallJoinCallForcePermissions $75 = _$callJoinCallForcePermissions$75;
 
+  /// `76`
   @BuiltValueEnumConst(wireName: '76')
   static const CallJoinCallForcePermissions $76 = _$callJoinCallForcePermissions$76;
 
+  /// `77`
   @BuiltValueEnumConst(wireName: '77')
   static const CallJoinCallForcePermissions $77 = _$callJoinCallForcePermissions$77;
 
+  /// `78`
   @BuiltValueEnumConst(wireName: '78')
   static const CallJoinCallForcePermissions $78 = _$callJoinCallForcePermissions$78;
 
+  /// `79`
   @BuiltValueEnumConst(wireName: '79')
   static const CallJoinCallForcePermissions $79 = _$callJoinCallForcePermissions$79;
 
+  /// `80`
   @BuiltValueEnumConst(wireName: '80')
   static const CallJoinCallForcePermissions $80 = _$callJoinCallForcePermissions$80;
 
+  /// `81`
   @BuiltValueEnumConst(wireName: '81')
   static const CallJoinCallForcePermissions $81 = _$callJoinCallForcePermissions$81;
 
+  /// `82`
   @BuiltValueEnumConst(wireName: '82')
   static const CallJoinCallForcePermissions $82 = _$callJoinCallForcePermissions$82;
 
+  /// `83`
   @BuiltValueEnumConst(wireName: '83')
   static const CallJoinCallForcePermissions $83 = _$callJoinCallForcePermissions$83;
 
+  /// `84`
   @BuiltValueEnumConst(wireName: '84')
   static const CallJoinCallForcePermissions $84 = _$callJoinCallForcePermissions$84;
 
+  /// `85`
   @BuiltValueEnumConst(wireName: '85')
   static const CallJoinCallForcePermissions $85 = _$callJoinCallForcePermissions$85;
 
+  /// `86`
   @BuiltValueEnumConst(wireName: '86')
   static const CallJoinCallForcePermissions $86 = _$callJoinCallForcePermissions$86;
 
+  /// `87`
   @BuiltValueEnumConst(wireName: '87')
   static const CallJoinCallForcePermissions $87 = _$callJoinCallForcePermissions$87;
 
+  /// `88`
   @BuiltValueEnumConst(wireName: '88')
   static const CallJoinCallForcePermissions $88 = _$callJoinCallForcePermissions$88;
 
+  /// `89`
   @BuiltValueEnumConst(wireName: '89')
   static const CallJoinCallForcePermissions $89 = _$callJoinCallForcePermissions$89;
 
+  /// `90`
   @BuiltValueEnumConst(wireName: '90')
   static const CallJoinCallForcePermissions $90 = _$callJoinCallForcePermissions$90;
 
+  /// `91`
   @BuiltValueEnumConst(wireName: '91')
   static const CallJoinCallForcePermissions $91 = _$callJoinCallForcePermissions$91;
 
+  /// `92`
   @BuiltValueEnumConst(wireName: '92')
   static const CallJoinCallForcePermissions $92 = _$callJoinCallForcePermissions$92;
 
+  /// `93`
   @BuiltValueEnumConst(wireName: '93')
   static const CallJoinCallForcePermissions $93 = _$callJoinCallForcePermissions$93;
 
+  /// `94`
   @BuiltValueEnumConst(wireName: '94')
   static const CallJoinCallForcePermissions $94 = _$callJoinCallForcePermissions$94;
 
+  /// `95`
   @BuiltValueEnumConst(wireName: '95')
   static const CallJoinCallForcePermissions $95 = _$callJoinCallForcePermissions$95;
 
+  /// `96`
   @BuiltValueEnumConst(wireName: '96')
   static const CallJoinCallForcePermissions $96 = _$callJoinCallForcePermissions$96;
 
+  /// `97`
   @BuiltValueEnumConst(wireName: '97')
   static const CallJoinCallForcePermissions $97 = _$callJoinCallForcePermissions$97;
 
+  /// `98`
   @BuiltValueEnumConst(wireName: '98')
   static const CallJoinCallForcePermissions $98 = _$callJoinCallForcePermissions$98;
 
+  /// `99`
   @BuiltValueEnumConst(wireName: '99')
   static const CallJoinCallForcePermissions $99 = _$callJoinCallForcePermissions$99;
 
+  /// `100`
   @BuiltValueEnumConst(wireName: '100')
   static const CallJoinCallForcePermissions $100 = _$callJoinCallForcePermissions$100;
 
+  /// `101`
   @BuiltValueEnumConst(wireName: '101')
   static const CallJoinCallForcePermissions $101 = _$callJoinCallForcePermissions$101;
 
+  /// `102`
   @BuiltValueEnumConst(wireName: '102')
   static const CallJoinCallForcePermissions $102 = _$callJoinCallForcePermissions$102;
 
+  /// `103`
   @BuiltValueEnumConst(wireName: '103')
   static const CallJoinCallForcePermissions $103 = _$callJoinCallForcePermissions$103;
 
+  /// `104`
   @BuiltValueEnumConst(wireName: '104')
   static const CallJoinCallForcePermissions $104 = _$callJoinCallForcePermissions$104;
 
+  /// `105`
   @BuiltValueEnumConst(wireName: '105')
   static const CallJoinCallForcePermissions $105 = _$callJoinCallForcePermissions$105;
 
+  /// `106`
   @BuiltValueEnumConst(wireName: '106')
   static const CallJoinCallForcePermissions $106 = _$callJoinCallForcePermissions$106;
 
+  /// `107`
   @BuiltValueEnumConst(wireName: '107')
   static const CallJoinCallForcePermissions $107 = _$callJoinCallForcePermissions$107;
 
+  /// `108`
   @BuiltValueEnumConst(wireName: '108')
   static const CallJoinCallForcePermissions $108 = _$callJoinCallForcePermissions$108;
 
+  /// `109`
   @BuiltValueEnumConst(wireName: '109')
   static const CallJoinCallForcePermissions $109 = _$callJoinCallForcePermissions$109;
 
+  /// `110`
   @BuiltValueEnumConst(wireName: '110')
   static const CallJoinCallForcePermissions $110 = _$callJoinCallForcePermissions$110;
 
+  /// `111`
   @BuiltValueEnumConst(wireName: '111')
   static const CallJoinCallForcePermissions $111 = _$callJoinCallForcePermissions$111;
 
+  /// `112`
   @BuiltValueEnumConst(wireName: '112')
   static const CallJoinCallForcePermissions $112 = _$callJoinCallForcePermissions$112;
 
+  /// `113`
   @BuiltValueEnumConst(wireName: '113')
   static const CallJoinCallForcePermissions $113 = _$callJoinCallForcePermissions$113;
 
+  /// `114`
   @BuiltValueEnumConst(wireName: '114')
   static const CallJoinCallForcePermissions $114 = _$callJoinCallForcePermissions$114;
 
+  /// `115`
   @BuiltValueEnumConst(wireName: '115')
   static const CallJoinCallForcePermissions $115 = _$callJoinCallForcePermissions$115;
 
+  /// `116`
   @BuiltValueEnumConst(wireName: '116')
   static const CallJoinCallForcePermissions $116 = _$callJoinCallForcePermissions$116;
 
+  /// `117`
   @BuiltValueEnumConst(wireName: '117')
   static const CallJoinCallForcePermissions $117 = _$callJoinCallForcePermissions$117;
 
+  /// `118`
   @BuiltValueEnumConst(wireName: '118')
   static const CallJoinCallForcePermissions $118 = _$callJoinCallForcePermissions$118;
 
+  /// `119`
   @BuiltValueEnumConst(wireName: '119')
   static const CallJoinCallForcePermissions $119 = _$callJoinCallForcePermissions$119;
 
+  /// `120`
   @BuiltValueEnumConst(wireName: '120')
   static const CallJoinCallForcePermissions $120 = _$callJoinCallForcePermissions$120;
 
+  /// `121`
   @BuiltValueEnumConst(wireName: '121')
   static const CallJoinCallForcePermissions $121 = _$callJoinCallForcePermissions$121;
 
+  /// `122`
   @BuiltValueEnumConst(wireName: '122')
   static const CallJoinCallForcePermissions $122 = _$callJoinCallForcePermissions$122;
 
+  /// `123`
   @BuiltValueEnumConst(wireName: '123')
   static const CallJoinCallForcePermissions $123 = _$callJoinCallForcePermissions$123;
 
+  /// `124`
   @BuiltValueEnumConst(wireName: '124')
   static const CallJoinCallForcePermissions $124 = _$callJoinCallForcePermissions$124;
 
+  /// `125`
   @BuiltValueEnumConst(wireName: '125')
   static const CallJoinCallForcePermissions $125 = _$callJoinCallForcePermissions$125;
 
+  /// `126`
   @BuiltValueEnumConst(wireName: '126')
   static const CallJoinCallForcePermissions $126 = _$callJoinCallForcePermissions$126;
 
+  /// `127`
   @BuiltValueEnumConst(wireName: '127')
   static const CallJoinCallForcePermissions $127 = _$callJoinCallForcePermissions$127;
 
+  /// `128`
   @BuiltValueEnumConst(wireName: '128')
   static const CallJoinCallForcePermissions $128 = _$callJoinCallForcePermissions$128;
 
+  /// `129`
   @BuiltValueEnumConst(wireName: '129')
   static const CallJoinCallForcePermissions $129 = _$callJoinCallForcePermissions$129;
 
+  /// `130`
   @BuiltValueEnumConst(wireName: '130')
   static const CallJoinCallForcePermissions $130 = _$callJoinCallForcePermissions$130;
 
+  /// `131`
   @BuiltValueEnumConst(wireName: '131')
   static const CallJoinCallForcePermissions $131 = _$callJoinCallForcePermissions$131;
 
+  /// `132`
   @BuiltValueEnumConst(wireName: '132')
   static const CallJoinCallForcePermissions $132 = _$callJoinCallForcePermissions$132;
 
+  /// `133`
   @BuiltValueEnumConst(wireName: '133')
   static const CallJoinCallForcePermissions $133 = _$callJoinCallForcePermissions$133;
 
+  /// `134`
   @BuiltValueEnumConst(wireName: '134')
   static const CallJoinCallForcePermissions $134 = _$callJoinCallForcePermissions$134;
 
+  /// `135`
   @BuiltValueEnumConst(wireName: '135')
   static const CallJoinCallForcePermissions $135 = _$callJoinCallForcePermissions$135;
 
+  /// `136`
   @BuiltValueEnumConst(wireName: '136')
   static const CallJoinCallForcePermissions $136 = _$callJoinCallForcePermissions$136;
 
+  /// `137`
   @BuiltValueEnumConst(wireName: '137')
   static const CallJoinCallForcePermissions $137 = _$callJoinCallForcePermissions$137;
 
+  /// `138`
   @BuiltValueEnumConst(wireName: '138')
   static const CallJoinCallForcePermissions $138 = _$callJoinCallForcePermissions$138;
 
+  /// `139`
   @BuiltValueEnumConst(wireName: '139')
   static const CallJoinCallForcePermissions $139 = _$callJoinCallForcePermissions$139;
 
+  /// `140`
   @BuiltValueEnumConst(wireName: '140')
   static const CallJoinCallForcePermissions $140 = _$callJoinCallForcePermissions$140;
 
+  /// `141`
   @BuiltValueEnumConst(wireName: '141')
   static const CallJoinCallForcePermissions $141 = _$callJoinCallForcePermissions$141;
 
+  /// `142`
   @BuiltValueEnumConst(wireName: '142')
   static const CallJoinCallForcePermissions $142 = _$callJoinCallForcePermissions$142;
 
+  /// `143`
   @BuiltValueEnumConst(wireName: '143')
   static const CallJoinCallForcePermissions $143 = _$callJoinCallForcePermissions$143;
 
+  /// `144`
   @BuiltValueEnumConst(wireName: '144')
   static const CallJoinCallForcePermissions $144 = _$callJoinCallForcePermissions$144;
 
+  /// `145`
   @BuiltValueEnumConst(wireName: '145')
   static const CallJoinCallForcePermissions $145 = _$callJoinCallForcePermissions$145;
 
+  /// `146`
   @BuiltValueEnumConst(wireName: '146')
   static const CallJoinCallForcePermissions $146 = _$callJoinCallForcePermissions$146;
 
+  /// `147`
   @BuiltValueEnumConst(wireName: '147')
   static const CallJoinCallForcePermissions $147 = _$callJoinCallForcePermissions$147;
 
+  /// `148`
   @BuiltValueEnumConst(wireName: '148')
   static const CallJoinCallForcePermissions $148 = _$callJoinCallForcePermissions$148;
 
+  /// `149`
   @BuiltValueEnumConst(wireName: '149')
   static const CallJoinCallForcePermissions $149 = _$callJoinCallForcePermissions$149;
 
+  /// `150`
   @BuiltValueEnumConst(wireName: '150')
   static const CallJoinCallForcePermissions $150 = _$callJoinCallForcePermissions$150;
 
+  /// `151`
   @BuiltValueEnumConst(wireName: '151')
   static const CallJoinCallForcePermissions $151 = _$callJoinCallForcePermissions$151;
 
+  /// `152`
   @BuiltValueEnumConst(wireName: '152')
   static const CallJoinCallForcePermissions $152 = _$callJoinCallForcePermissions$152;
 
+  /// `153`
   @BuiltValueEnumConst(wireName: '153')
   static const CallJoinCallForcePermissions $153 = _$callJoinCallForcePermissions$153;
 
+  /// `154`
   @BuiltValueEnumConst(wireName: '154')
   static const CallJoinCallForcePermissions $154 = _$callJoinCallForcePermissions$154;
 
+  /// `155`
   @BuiltValueEnumConst(wireName: '155')
   static const CallJoinCallForcePermissions $155 = _$callJoinCallForcePermissions$155;
 
+  /// `156`
   @BuiltValueEnumConst(wireName: '156')
   static const CallJoinCallForcePermissions $156 = _$callJoinCallForcePermissions$156;
 
+  /// `157`
   @BuiltValueEnumConst(wireName: '157')
   static const CallJoinCallForcePermissions $157 = _$callJoinCallForcePermissions$157;
 
+  /// `158`
   @BuiltValueEnumConst(wireName: '158')
   static const CallJoinCallForcePermissions $158 = _$callJoinCallForcePermissions$158;
 
+  /// `159`
   @BuiltValueEnumConst(wireName: '159')
   static const CallJoinCallForcePermissions $159 = _$callJoinCallForcePermissions$159;
 
+  /// `160`
   @BuiltValueEnumConst(wireName: '160')
   static const CallJoinCallForcePermissions $160 = _$callJoinCallForcePermissions$160;
 
+  /// `161`
   @BuiltValueEnumConst(wireName: '161')
   static const CallJoinCallForcePermissions $161 = _$callJoinCallForcePermissions$161;
 
+  /// `162`
   @BuiltValueEnumConst(wireName: '162')
   static const CallJoinCallForcePermissions $162 = _$callJoinCallForcePermissions$162;
 
+  /// `163`
   @BuiltValueEnumConst(wireName: '163')
   static const CallJoinCallForcePermissions $163 = _$callJoinCallForcePermissions$163;
 
+  /// `164`
   @BuiltValueEnumConst(wireName: '164')
   static const CallJoinCallForcePermissions $164 = _$callJoinCallForcePermissions$164;
 
+  /// `165`
   @BuiltValueEnumConst(wireName: '165')
   static const CallJoinCallForcePermissions $165 = _$callJoinCallForcePermissions$165;
 
+  /// `166`
   @BuiltValueEnumConst(wireName: '166')
   static const CallJoinCallForcePermissions $166 = _$callJoinCallForcePermissions$166;
 
+  /// `167`
   @BuiltValueEnumConst(wireName: '167')
   static const CallJoinCallForcePermissions $167 = _$callJoinCallForcePermissions$167;
 
+  /// `168`
   @BuiltValueEnumConst(wireName: '168')
   static const CallJoinCallForcePermissions $168 = _$callJoinCallForcePermissions$168;
 
+  /// `169`
   @BuiltValueEnumConst(wireName: '169')
   static const CallJoinCallForcePermissions $169 = _$callJoinCallForcePermissions$169;
 
+  /// `170`
   @BuiltValueEnumConst(wireName: '170')
   static const CallJoinCallForcePermissions $170 = _$callJoinCallForcePermissions$170;
 
+  /// `171`
   @BuiltValueEnumConst(wireName: '171')
   static const CallJoinCallForcePermissions $171 = _$callJoinCallForcePermissions$171;
 
+  /// `172`
   @BuiltValueEnumConst(wireName: '172')
   static const CallJoinCallForcePermissions $172 = _$callJoinCallForcePermissions$172;
 
+  /// `173`
   @BuiltValueEnumConst(wireName: '173')
   static const CallJoinCallForcePermissions $173 = _$callJoinCallForcePermissions$173;
 
+  /// `174`
   @BuiltValueEnumConst(wireName: '174')
   static const CallJoinCallForcePermissions $174 = _$callJoinCallForcePermissions$174;
 
+  /// `175`
   @BuiltValueEnumConst(wireName: '175')
   static const CallJoinCallForcePermissions $175 = _$callJoinCallForcePermissions$175;
 
+  /// `176`
   @BuiltValueEnumConst(wireName: '176')
   static const CallJoinCallForcePermissions $176 = _$callJoinCallForcePermissions$176;
 
+  /// `177`
   @BuiltValueEnumConst(wireName: '177')
   static const CallJoinCallForcePermissions $177 = _$callJoinCallForcePermissions$177;
 
+  /// `178`
   @BuiltValueEnumConst(wireName: '178')
   static const CallJoinCallForcePermissions $178 = _$callJoinCallForcePermissions$178;
 
+  /// `179`
   @BuiltValueEnumConst(wireName: '179')
   static const CallJoinCallForcePermissions $179 = _$callJoinCallForcePermissions$179;
 
+  /// `180`
   @BuiltValueEnumConst(wireName: '180')
   static const CallJoinCallForcePermissions $180 = _$callJoinCallForcePermissions$180;
 
+  /// `181`
   @BuiltValueEnumConst(wireName: '181')
   static const CallJoinCallForcePermissions $181 = _$callJoinCallForcePermissions$181;
 
+  /// `182`
   @BuiltValueEnumConst(wireName: '182')
   static const CallJoinCallForcePermissions $182 = _$callJoinCallForcePermissions$182;
 
+  /// `183`
   @BuiltValueEnumConst(wireName: '183')
   static const CallJoinCallForcePermissions $183 = _$callJoinCallForcePermissions$183;
 
+  /// `184`
   @BuiltValueEnumConst(wireName: '184')
   static const CallJoinCallForcePermissions $184 = _$callJoinCallForcePermissions$184;
 
+  /// `185`
   @BuiltValueEnumConst(wireName: '185')
   static const CallJoinCallForcePermissions $185 = _$callJoinCallForcePermissions$185;
 
+  /// `186`
   @BuiltValueEnumConst(wireName: '186')
   static const CallJoinCallForcePermissions $186 = _$callJoinCallForcePermissions$186;
 
+  /// `187`
   @BuiltValueEnumConst(wireName: '187')
   static const CallJoinCallForcePermissions $187 = _$callJoinCallForcePermissions$187;
 
+  /// `188`
   @BuiltValueEnumConst(wireName: '188')
   static const CallJoinCallForcePermissions $188 = _$callJoinCallForcePermissions$188;
 
+  /// `189`
   @BuiltValueEnumConst(wireName: '189')
   static const CallJoinCallForcePermissions $189 = _$callJoinCallForcePermissions$189;
 
+  /// `190`
   @BuiltValueEnumConst(wireName: '190')
   static const CallJoinCallForcePermissions $190 = _$callJoinCallForcePermissions$190;
 
+  /// `191`
   @BuiltValueEnumConst(wireName: '191')
   static const CallJoinCallForcePermissions $191 = _$callJoinCallForcePermissions$191;
 
+  /// `192`
   @BuiltValueEnumConst(wireName: '192')
   static const CallJoinCallForcePermissions $192 = _$callJoinCallForcePermissions$192;
 
+  /// `193`
   @BuiltValueEnumConst(wireName: '193')
   static const CallJoinCallForcePermissions $193 = _$callJoinCallForcePermissions$193;
 
+  /// `194`
   @BuiltValueEnumConst(wireName: '194')
   static const CallJoinCallForcePermissions $194 = _$callJoinCallForcePermissions$194;
 
+  /// `195`
   @BuiltValueEnumConst(wireName: '195')
   static const CallJoinCallForcePermissions $195 = _$callJoinCallForcePermissions$195;
 
+  /// `196`
   @BuiltValueEnumConst(wireName: '196')
   static const CallJoinCallForcePermissions $196 = _$callJoinCallForcePermissions$196;
 
+  /// `197`
   @BuiltValueEnumConst(wireName: '197')
   static const CallJoinCallForcePermissions $197 = _$callJoinCallForcePermissions$197;
 
+  /// `198`
   @BuiltValueEnumConst(wireName: '198')
   static const CallJoinCallForcePermissions $198 = _$callJoinCallForcePermissions$198;
 
+  /// `199`
   @BuiltValueEnumConst(wireName: '199')
   static const CallJoinCallForcePermissions $199 = _$callJoinCallForcePermissions$199;
 
+  /// `200`
   @BuiltValueEnumConst(wireName: '200')
   static const CallJoinCallForcePermissions $200 = _$callJoinCallForcePermissions$200;
 
+  /// `201`
   @BuiltValueEnumConst(wireName: '201')
   static const CallJoinCallForcePermissions $201 = _$callJoinCallForcePermissions$201;
 
+  /// `202`
   @BuiltValueEnumConst(wireName: '202')
   static const CallJoinCallForcePermissions $202 = _$callJoinCallForcePermissions$202;
 
+  /// `203`
   @BuiltValueEnumConst(wireName: '203')
   static const CallJoinCallForcePermissions $203 = _$callJoinCallForcePermissions$203;
 
+  /// `204`
   @BuiltValueEnumConst(wireName: '204')
   static const CallJoinCallForcePermissions $204 = _$callJoinCallForcePermissions$204;
 
+  /// `205`
   @BuiltValueEnumConst(wireName: '205')
   static const CallJoinCallForcePermissions $205 = _$callJoinCallForcePermissions$205;
 
+  /// `206`
   @BuiltValueEnumConst(wireName: '206')
   static const CallJoinCallForcePermissions $206 = _$callJoinCallForcePermissions$206;
 
+  /// `207`
   @BuiltValueEnumConst(wireName: '207')
   static const CallJoinCallForcePermissions $207 = _$callJoinCallForcePermissions$207;
 
+  /// `208`
   @BuiltValueEnumConst(wireName: '208')
   static const CallJoinCallForcePermissions $208 = _$callJoinCallForcePermissions$208;
 
+  /// `209`
   @BuiltValueEnumConst(wireName: '209')
   static const CallJoinCallForcePermissions $209 = _$callJoinCallForcePermissions$209;
 
+  /// `210`
   @BuiltValueEnumConst(wireName: '210')
   static const CallJoinCallForcePermissions $210 = _$callJoinCallForcePermissions$210;
 
+  /// `211`
   @BuiltValueEnumConst(wireName: '211')
   static const CallJoinCallForcePermissions $211 = _$callJoinCallForcePermissions$211;
 
+  /// `212`
   @BuiltValueEnumConst(wireName: '212')
   static const CallJoinCallForcePermissions $212 = _$callJoinCallForcePermissions$212;
 
+  /// `213`
   @BuiltValueEnumConst(wireName: '213')
   static const CallJoinCallForcePermissions $213 = _$callJoinCallForcePermissions$213;
 
+  /// `214`
   @BuiltValueEnumConst(wireName: '214')
   static const CallJoinCallForcePermissions $214 = _$callJoinCallForcePermissions$214;
 
+  /// `215`
   @BuiltValueEnumConst(wireName: '215')
   static const CallJoinCallForcePermissions $215 = _$callJoinCallForcePermissions$215;
 
+  /// `216`
   @BuiltValueEnumConst(wireName: '216')
   static const CallJoinCallForcePermissions $216 = _$callJoinCallForcePermissions$216;
 
+  /// `217`
   @BuiltValueEnumConst(wireName: '217')
   static const CallJoinCallForcePermissions $217 = _$callJoinCallForcePermissions$217;
 
+  /// `218`
   @BuiltValueEnumConst(wireName: '218')
   static const CallJoinCallForcePermissions $218 = _$callJoinCallForcePermissions$218;
 
+  /// `219`
   @BuiltValueEnumConst(wireName: '219')
   static const CallJoinCallForcePermissions $219 = _$callJoinCallForcePermissions$219;
 
+  /// `220`
   @BuiltValueEnumConst(wireName: '220')
   static const CallJoinCallForcePermissions $220 = _$callJoinCallForcePermissions$220;
 
+  /// `221`
   @BuiltValueEnumConst(wireName: '221')
   static const CallJoinCallForcePermissions $221 = _$callJoinCallForcePermissions$221;
 
+  /// `222`
   @BuiltValueEnumConst(wireName: '222')
   static const CallJoinCallForcePermissions $222 = _$callJoinCallForcePermissions$222;
 
+  /// `223`
   @BuiltValueEnumConst(wireName: '223')
   static const CallJoinCallForcePermissions $223 = _$callJoinCallForcePermissions$223;
 
+  /// `224`
   @BuiltValueEnumConst(wireName: '224')
   static const CallJoinCallForcePermissions $224 = _$callJoinCallForcePermissions$224;
 
+  /// `225`
   @BuiltValueEnumConst(wireName: '225')
   static const CallJoinCallForcePermissions $225 = _$callJoinCallForcePermissions$225;
 
+  /// `226`
   @BuiltValueEnumConst(wireName: '226')
   static const CallJoinCallForcePermissions $226 = _$callJoinCallForcePermissions$226;
 
+  /// `227`
   @BuiltValueEnumConst(wireName: '227')
   static const CallJoinCallForcePermissions $227 = _$callJoinCallForcePermissions$227;
 
+  /// `228`
   @BuiltValueEnumConst(wireName: '228')
   static const CallJoinCallForcePermissions $228 = _$callJoinCallForcePermissions$228;
 
+  /// `229`
   @BuiltValueEnumConst(wireName: '229')
   static const CallJoinCallForcePermissions $229 = _$callJoinCallForcePermissions$229;
 
+  /// `230`
   @BuiltValueEnumConst(wireName: '230')
   static const CallJoinCallForcePermissions $230 = _$callJoinCallForcePermissions$230;
 
+  /// `231`
   @BuiltValueEnumConst(wireName: '231')
   static const CallJoinCallForcePermissions $231 = _$callJoinCallForcePermissions$231;
 
+  /// `232`
   @BuiltValueEnumConst(wireName: '232')
   static const CallJoinCallForcePermissions $232 = _$callJoinCallForcePermissions$232;
 
+  /// `233`
   @BuiltValueEnumConst(wireName: '233')
   static const CallJoinCallForcePermissions $233 = _$callJoinCallForcePermissions$233;
 
+  /// `234`
   @BuiltValueEnumConst(wireName: '234')
   static const CallJoinCallForcePermissions $234 = _$callJoinCallForcePermissions$234;
 
+  /// `235`
   @BuiltValueEnumConst(wireName: '235')
   static const CallJoinCallForcePermissions $235 = _$callJoinCallForcePermissions$235;
 
+  /// `236`
   @BuiltValueEnumConst(wireName: '236')
   static const CallJoinCallForcePermissions $236 = _$callJoinCallForcePermissions$236;
 
+  /// `237`
   @BuiltValueEnumConst(wireName: '237')
   static const CallJoinCallForcePermissions $237 = _$callJoinCallForcePermissions$237;
 
+  /// `238`
   @BuiltValueEnumConst(wireName: '238')
   static const CallJoinCallForcePermissions $238 = _$callJoinCallForcePermissions$238;
 
+  /// `239`
   @BuiltValueEnumConst(wireName: '239')
   static const CallJoinCallForcePermissions $239 = _$callJoinCallForcePermissions$239;
 
+  /// `240`
   @BuiltValueEnumConst(wireName: '240')
   static const CallJoinCallForcePermissions $240 = _$callJoinCallForcePermissions$240;
 
+  /// `241`
   @BuiltValueEnumConst(wireName: '241')
   static const CallJoinCallForcePermissions $241 = _$callJoinCallForcePermissions$241;
 
+  /// `242`
   @BuiltValueEnumConst(wireName: '242')
   static const CallJoinCallForcePermissions $242 = _$callJoinCallForcePermissions$242;
 
+  /// `243`
   @BuiltValueEnumConst(wireName: '243')
   static const CallJoinCallForcePermissions $243 = _$callJoinCallForcePermissions$243;
 
+  /// `244`
   @BuiltValueEnumConst(wireName: '244')
   static const CallJoinCallForcePermissions $244 = _$callJoinCallForcePermissions$244;
 
+  /// `245`
   @BuiltValueEnumConst(wireName: '245')
   static const CallJoinCallForcePermissions $245 = _$callJoinCallForcePermissions$245;
 
+  /// `246`
   @BuiltValueEnumConst(wireName: '246')
   static const CallJoinCallForcePermissions $246 = _$callJoinCallForcePermissions$246;
 
+  /// `247`
   @BuiltValueEnumConst(wireName: '247')
   static const CallJoinCallForcePermissions $247 = _$callJoinCallForcePermissions$247;
 
+  /// `248`
   @BuiltValueEnumConst(wireName: '248')
   static const CallJoinCallForcePermissions $248 = _$callJoinCallForcePermissions$248;
 
+  /// `249`
   @BuiltValueEnumConst(wireName: '249')
   static const CallJoinCallForcePermissions $249 = _$callJoinCallForcePermissions$249;
 
+  /// `250`
   @BuiltValueEnumConst(wireName: '250')
   static const CallJoinCallForcePermissions $250 = _$callJoinCallForcePermissions$250;
 
+  /// `251`
   @BuiltValueEnumConst(wireName: '251')
   static const CallJoinCallForcePermissions $251 = _$callJoinCallForcePermissions$251;
 
+  /// `252`
   @BuiltValueEnumConst(wireName: '252')
   static const CallJoinCallForcePermissions $252 = _$callJoinCallForcePermissions$252;
 
+  /// `253`
   @BuiltValueEnumConst(wireName: '253')
   static const CallJoinCallForcePermissions $253 = _$callJoinCallForcePermissions$253;
 
+  /// `254`
   @BuiltValueEnumConst(wireName: '254')
   static const CallJoinCallForcePermissions $254 = _$callJoinCallForcePermissions$254;
 
+  /// `255`
   @BuiltValueEnumConst(wireName: '255')
   static const CallJoinCallForcePermissions $255 = _$callJoinCallForcePermissions$255;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallJoinCallForcePermissions> get values => _$callJoinCallForcePermissionsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallJoinCallForcePermissions valueOf(String name) => _$valueOfCallJoinCallForcePermissions(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for CallJoinCallForcePermissions.
   @BuiltValueSerializer(custom: true)
   static Serializer<CallJoinCallForcePermissions> get serializer => const _$CallJoinCallForcePermissionsSerializer();
 }
@@ -17201,16 +17990,21 @@ class _$CallJoinCallForcePermissionsSerializer implements PrimitiveSerializer<Ca
 class CallJoinCallApiVersion extends EnumClass {
   const CallJoinCallApiVersion._(super.name);
 
+  /// `v4`
   static const CallJoinCallApiVersion v4 = _$callJoinCallApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallJoinCallApiVersion> get values => _$callJoinCallApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallJoinCallApiVersion valueOf(String name) => _$valueOfCallJoinCallApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for CallJoinCallApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<CallJoinCallApiVersion> get serializer => const _$CallJoinCallApiVersionSerializer();
 }
@@ -17259,6 +18053,7 @@ abstract class CallJoinCallResponseApplicationJson_Ocs
     implements
         $CallJoinCallResponseApplicationJson_OcsInterface,
         Built<CallJoinCallResponseApplicationJson_Ocs, CallJoinCallResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CallJoinCallResponseApplicationJson_Ocs object using the builder pattern.
   factory CallJoinCallResponseApplicationJson_Ocs([void Function(CallJoinCallResponseApplicationJson_OcsBuilder)? b]) =
       _$CallJoinCallResponseApplicationJson_Ocs;
 
@@ -17266,15 +18061,22 @@ abstract class CallJoinCallResponseApplicationJson_Ocs
   const CallJoinCallResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallJoinCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallJoinCallResponseApplicationJson_Ocs.
   static Serializer<CallJoinCallResponseApplicationJson_Ocs> get serializer =>
       _$callJoinCallResponseApplicationJsonOcsSerializer;
 }
@@ -17288,6 +18090,7 @@ abstract class CallJoinCallResponseApplicationJson
     implements
         $CallJoinCallResponseApplicationJsonInterface,
         Built<CallJoinCallResponseApplicationJson, CallJoinCallResponseApplicationJsonBuilder> {
+  /// Creates a new CallJoinCallResponseApplicationJson object using the builder pattern.
   factory CallJoinCallResponseApplicationJson([void Function(CallJoinCallResponseApplicationJsonBuilder)? b]) =
       _$CallJoinCallResponseApplicationJson;
 
@@ -17295,15 +18098,22 @@ abstract class CallJoinCallResponseApplicationJson
   const CallJoinCallResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallJoinCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallJoinCallResponseApplicationJson.
   static Serializer<CallJoinCallResponseApplicationJson> get serializer =>
       _$callJoinCallResponseApplicationJsonSerializer;
 }
@@ -17311,16 +18121,21 @@ abstract class CallJoinCallResponseApplicationJson
 class CallLeaveCallApiVersion extends EnumClass {
   const CallLeaveCallApiVersion._(super.name);
 
+  /// `v4`
   static const CallLeaveCallApiVersion v4 = _$callLeaveCallApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallLeaveCallApiVersion> get values => _$callLeaveCallApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallLeaveCallApiVersion valueOf(String name) => _$valueOfCallLeaveCallApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for CallLeaveCallApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<CallLeaveCallApiVersion> get serializer => const _$CallLeaveCallApiVersionSerializer();
 }
@@ -17369,6 +18184,7 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
     implements
         $CallLeaveCallResponseApplicationJson_OcsInterface,
         Built<CallLeaveCallResponseApplicationJson_Ocs, CallLeaveCallResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CallLeaveCallResponseApplicationJson_Ocs object using the builder pattern.
   factory CallLeaveCallResponseApplicationJson_Ocs([
     void Function(CallLeaveCallResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallLeaveCallResponseApplicationJson_Ocs;
@@ -17377,15 +18193,22 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
   const CallLeaveCallResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallLeaveCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallLeaveCallResponseApplicationJson_Ocs.
   static Serializer<CallLeaveCallResponseApplicationJson_Ocs> get serializer =>
       _$callLeaveCallResponseApplicationJsonOcsSerializer;
 }
@@ -17399,6 +18222,7 @@ abstract class CallLeaveCallResponseApplicationJson
     implements
         $CallLeaveCallResponseApplicationJsonInterface,
         Built<CallLeaveCallResponseApplicationJson, CallLeaveCallResponseApplicationJsonBuilder> {
+  /// Creates a new CallLeaveCallResponseApplicationJson object using the builder pattern.
   factory CallLeaveCallResponseApplicationJson([void Function(CallLeaveCallResponseApplicationJsonBuilder)? b]) =
       _$CallLeaveCallResponseApplicationJson;
 
@@ -17406,15 +18230,22 @@ abstract class CallLeaveCallResponseApplicationJson
   const CallLeaveCallResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallLeaveCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallLeaveCallResponseApplicationJson.
   static Serializer<CallLeaveCallResponseApplicationJson> get serializer =>
       _$callLeaveCallResponseApplicationJsonSerializer;
 }
@@ -17422,16 +18253,21 @@ abstract class CallLeaveCallResponseApplicationJson
 class CallRingAttendeeApiVersion extends EnumClass {
   const CallRingAttendeeApiVersion._(super.name);
 
+  /// `v4`
   static const CallRingAttendeeApiVersion v4 = _$callRingAttendeeApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallRingAttendeeApiVersion> get values => _$callRingAttendeeApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallRingAttendeeApiVersion valueOf(String name) => _$valueOfCallRingAttendeeApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for CallRingAttendeeApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<CallRingAttendeeApiVersion> get serializer => const _$CallRingAttendeeApiVersionSerializer();
 }
@@ -17480,6 +18316,7 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
     implements
         $CallRingAttendeeResponseApplicationJson_OcsInterface,
         Built<CallRingAttendeeResponseApplicationJson_Ocs, CallRingAttendeeResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CallRingAttendeeResponseApplicationJson_Ocs object using the builder pattern.
   factory CallRingAttendeeResponseApplicationJson_Ocs([
     void Function(CallRingAttendeeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallRingAttendeeResponseApplicationJson_Ocs;
@@ -17488,15 +18325,22 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
   const CallRingAttendeeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallRingAttendeeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallRingAttendeeResponseApplicationJson_Ocs.
   static Serializer<CallRingAttendeeResponseApplicationJson_Ocs> get serializer =>
       _$callRingAttendeeResponseApplicationJsonOcsSerializer;
 }
@@ -17510,6 +18354,7 @@ abstract class CallRingAttendeeResponseApplicationJson
     implements
         $CallRingAttendeeResponseApplicationJsonInterface,
         Built<CallRingAttendeeResponseApplicationJson, CallRingAttendeeResponseApplicationJsonBuilder> {
+  /// Creates a new CallRingAttendeeResponseApplicationJson object using the builder pattern.
   factory CallRingAttendeeResponseApplicationJson([void Function(CallRingAttendeeResponseApplicationJsonBuilder)? b]) =
       _$CallRingAttendeeResponseApplicationJson;
 
@@ -17517,15 +18362,22 @@ abstract class CallRingAttendeeResponseApplicationJson
   const CallRingAttendeeResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallRingAttendeeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallRingAttendeeResponseApplicationJson.
   static Serializer<CallRingAttendeeResponseApplicationJson> get serializer =>
       _$callRingAttendeeResponseApplicationJsonSerializer;
 }
@@ -17533,16 +18385,21 @@ abstract class CallRingAttendeeResponseApplicationJson
 class CallSipDialOutApiVersion extends EnumClass {
   const CallSipDialOutApiVersion._(super.name);
 
+  /// `v4`
   static const CallSipDialOutApiVersion v4 = _$callSipDialOutApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallSipDialOutApiVersion> get values => _$callSipDialOutApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallSipDialOutApiVersion valueOf(String name) => _$valueOfCallSipDialOutApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for CallSipDialOutApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<CallSipDialOutApiVersion> get serializer => const _$CallSipDialOutApiVersionSerializer();
 }
@@ -17591,6 +18448,7 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
     implements
         $CallSipDialOutResponseApplicationJson_Ocs_DataInterface,
         Built<CallSipDialOutResponseApplicationJson_Ocs_Data, CallSipDialOutResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new CallSipDialOutResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory CallSipDialOutResponseApplicationJson_Ocs_Data([
     void Function(CallSipDialOutResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CallSipDialOutResponseApplicationJson_Ocs_Data;
@@ -17599,15 +18457,22 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
   const CallSipDialOutResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallSipDialOutResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallSipDialOutResponseApplicationJson_Ocs_Data.
   static Serializer<CallSipDialOutResponseApplicationJson_Ocs_Data> get serializer =>
       _$callSipDialOutResponseApplicationJsonOcsDataSerializer;
 }
@@ -17622,6 +18487,7 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
     implements
         $CallSipDialOutResponseApplicationJson_OcsInterface,
         Built<CallSipDialOutResponseApplicationJson_Ocs, CallSipDialOutResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CallSipDialOutResponseApplicationJson_Ocs object using the builder pattern.
   factory CallSipDialOutResponseApplicationJson_Ocs([
     void Function(CallSipDialOutResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallSipDialOutResponseApplicationJson_Ocs;
@@ -17630,15 +18496,22 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
   const CallSipDialOutResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallSipDialOutResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallSipDialOutResponseApplicationJson_Ocs.
   static Serializer<CallSipDialOutResponseApplicationJson_Ocs> get serializer =>
       _$callSipDialOutResponseApplicationJsonOcsSerializer;
 }
@@ -17652,6 +18525,7 @@ abstract class CallSipDialOutResponseApplicationJson
     implements
         $CallSipDialOutResponseApplicationJsonInterface,
         Built<CallSipDialOutResponseApplicationJson, CallSipDialOutResponseApplicationJsonBuilder> {
+  /// Creates a new CallSipDialOutResponseApplicationJson object using the builder pattern.
   factory CallSipDialOutResponseApplicationJson([void Function(CallSipDialOutResponseApplicationJsonBuilder)? b]) =
       _$CallSipDialOutResponseApplicationJson;
 
@@ -17659,15 +18533,22 @@ abstract class CallSipDialOutResponseApplicationJson
   const CallSipDialOutResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallSipDialOutResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CallSipDialOutResponseApplicationJson.
   static Serializer<CallSipDialOutResponseApplicationJson> get serializer =>
       _$callSipDialOutResponseApplicationJsonSerializer;
 }
@@ -17675,18 +18556,23 @@ abstract class CallSipDialOutResponseApplicationJson
 class CertificateGetCertificateExpirationApiVersion extends EnumClass {
   const CertificateGetCertificateExpirationApiVersion._(super.name);
 
+  /// `v1`
   static const CertificateGetCertificateExpirationApiVersion v1 = _$certificateGetCertificateExpirationApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CertificateGetCertificateExpirationApiVersion> get values =>
       _$certificateGetCertificateExpirationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CertificateGetCertificateExpirationApiVersion valueOf(String name) =>
       _$valueOfCertificateGetCertificateExpirationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for CertificateGetCertificateExpirationApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<CertificateGetCertificateExpirationApiVersion> get serializer =>
       const _$CertificateGetCertificateExpirationApiVersionSerializer();
@@ -17740,6 +18626,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
         $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface,
         Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
             CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data([
     void Function(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data;
@@ -17748,15 +18635,22 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
   const CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data> get serializer =>
       _$certificateGetCertificateExpirationResponseApplicationJsonOcsDataSerializer;
 }
@@ -17772,6 +18666,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
         $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface,
         Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
             CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson_Ocs object using the builder pattern.
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs([
     void Function(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs;
@@ -17780,15 +18675,22 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
   const CertificateGetCertificateExpirationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs.
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs> get serializer =>
       _$certificateGetCertificateExpirationResponseApplicationJsonOcsSerializer;
 }
@@ -17803,6 +18705,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
         $CertificateGetCertificateExpirationResponseApplicationJsonInterface,
         Built<CertificateGetCertificateExpirationResponseApplicationJson,
             CertificateGetCertificateExpirationResponseApplicationJsonBuilder> {
+  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson object using the builder pattern.
   factory CertificateGetCertificateExpirationResponseApplicationJson([
     void Function(CertificateGetCertificateExpirationResponseApplicationJsonBuilder)? b,
   ]) = _$CertificateGetCertificateExpirationResponseApplicationJson;
@@ -17811,15 +18714,22 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
   const CertificateGetCertificateExpirationResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CertificateGetCertificateExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson.
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson> get serializer =>
       _$certificateGetCertificateExpirationResponseApplicationJsonSerializer;
 }
@@ -17827,20 +18737,26 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
 class ChatReceiveMessagesLookIntoFuture extends EnumClass {
   const ChatReceiveMessagesLookIntoFuture._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesLookIntoFuture $0 = _$chatReceiveMessagesLookIntoFuture$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesLookIntoFuture $1 = _$chatReceiveMessagesLookIntoFuture$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesLookIntoFuture> get values => _$chatReceiveMessagesLookIntoFutureValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesLookIntoFuture valueOf(String name) => _$valueOfChatReceiveMessagesLookIntoFuture(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for ChatReceiveMessagesLookIntoFuture.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatReceiveMessagesLookIntoFuture> get serializer =>
       const _$ChatReceiveMessagesLookIntoFutureSerializer();
@@ -17885,20 +18801,26 @@ class _$ChatReceiveMessagesLookIntoFutureSerializer implements PrimitiveSerializ
 class ChatReceiveMessagesSetReadMarker extends EnumClass {
   const ChatReceiveMessagesSetReadMarker._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesSetReadMarker $0 = _$chatReceiveMessagesSetReadMarker$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesSetReadMarker $1 = _$chatReceiveMessagesSetReadMarker$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesSetReadMarker> get values => _$chatReceiveMessagesSetReadMarkerValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesSetReadMarker valueOf(String name) => _$valueOfChatReceiveMessagesSetReadMarker(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for ChatReceiveMessagesSetReadMarker.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatReceiveMessagesSetReadMarker> get serializer =>
       const _$ChatReceiveMessagesSetReadMarkerSerializer();
@@ -17943,20 +18865,26 @@ class _$ChatReceiveMessagesSetReadMarkerSerializer implements PrimitiveSerialize
 class ChatReceiveMessagesIncludeLastKnown extends EnumClass {
   const ChatReceiveMessagesIncludeLastKnown._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesIncludeLastKnown $0 = _$chatReceiveMessagesIncludeLastKnown$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesIncludeLastKnown $1 = _$chatReceiveMessagesIncludeLastKnown$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesIncludeLastKnown> get values => _$chatReceiveMessagesIncludeLastKnownValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesIncludeLastKnown valueOf(String name) => _$valueOfChatReceiveMessagesIncludeLastKnown(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for ChatReceiveMessagesIncludeLastKnown.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatReceiveMessagesIncludeLastKnown> get serializer =>
       const _$ChatReceiveMessagesIncludeLastKnownSerializer();
@@ -18003,20 +18931,26 @@ class _$ChatReceiveMessagesIncludeLastKnownSerializer
 class ChatReceiveMessagesNoStatusUpdate extends EnumClass {
   const ChatReceiveMessagesNoStatusUpdate._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesNoStatusUpdate $0 = _$chatReceiveMessagesNoStatusUpdate$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesNoStatusUpdate $1 = _$chatReceiveMessagesNoStatusUpdate$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesNoStatusUpdate> get values => _$chatReceiveMessagesNoStatusUpdateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesNoStatusUpdate valueOf(String name) => _$valueOfChatReceiveMessagesNoStatusUpdate(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for ChatReceiveMessagesNoStatusUpdate.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatReceiveMessagesNoStatusUpdate> get serializer =>
       const _$ChatReceiveMessagesNoStatusUpdateSerializer();
@@ -18061,22 +18995,28 @@ class _$ChatReceiveMessagesNoStatusUpdateSerializer implements PrimitiveSerializ
 class ChatReceiveMessagesMarkNotificationsAsRead extends EnumClass {
   const ChatReceiveMessagesMarkNotificationsAsRead._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesMarkNotificationsAsRead $0 = _$chatReceiveMessagesMarkNotificationsAsRead$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesMarkNotificationsAsRead $1 = _$chatReceiveMessagesMarkNotificationsAsRead$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead> get values =>
       _$chatReceiveMessagesMarkNotificationsAsReadValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesMarkNotificationsAsRead valueOf(String name) =>
       _$valueOfChatReceiveMessagesMarkNotificationsAsRead(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for ChatReceiveMessagesMarkNotificationsAsRead.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatReceiveMessagesMarkNotificationsAsRead> get serializer =>
       const _$ChatReceiveMessagesMarkNotificationsAsReadSerializer();
@@ -18124,16 +19064,21 @@ class _$ChatReceiveMessagesMarkNotificationsAsReadSerializer
 class ChatReceiveMessagesApiVersion extends EnumClass {
   const ChatReceiveMessagesApiVersion._(super.name);
 
+  /// `v1`
   static const ChatReceiveMessagesApiVersion v1 = _$chatReceiveMessagesApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesApiVersion> get values => _$chatReceiveMessagesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesApiVersion valueOf(String name) => _$valueOfChatReceiveMessagesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatReceiveMessagesApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatReceiveMessagesApiVersion> get serializer => const _$ChatReceiveMessagesApiVersionSerializer();
 }
@@ -18184,6 +19129,7 @@ abstract class ChatChatReceiveMessagesHeaders
     implements
         $ChatChatReceiveMessagesHeadersInterface,
         Built<ChatChatReceiveMessagesHeaders, ChatChatReceiveMessagesHeadersBuilder> {
+  /// Creates a new ChatChatReceiveMessagesHeaders object using the builder pattern.
   factory ChatChatReceiveMessagesHeaders([void Function(ChatChatReceiveMessagesHeadersBuilder)? b]) =
       _$ChatChatReceiveMessagesHeaders;
 
@@ -18191,15 +19137,22 @@ abstract class ChatChatReceiveMessagesHeaders
   const ChatChatReceiveMessagesHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatReceiveMessagesHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatReceiveMessagesHeaders.
   static Serializer<ChatChatReceiveMessagesHeaders> get serializer => _$chatChatReceiveMessagesHeadersSerializer;
 }
 
@@ -18214,21 +19167,29 @@ abstract interface class $ChatMessageWithParentInterface
 
 abstract class ChatMessageWithParent
     implements $ChatMessageWithParentInterface, Built<ChatMessageWithParent, ChatMessageWithParentBuilder> {
+  /// Creates a new ChatMessageWithParent object using the builder pattern.
   factory ChatMessageWithParent([void Function(ChatMessageWithParentBuilder)? b]) = _$ChatMessageWithParent;
 
   // coverage:ignore-start
   const ChatMessageWithParent._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMessageWithParent.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatMessageWithParent.
   static Serializer<ChatMessageWithParent> get serializer => _$chatMessageWithParentSerializer;
 }
 
@@ -18242,6 +19203,7 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
     implements
         $ChatReceiveMessagesResponseApplicationJson_OcsInterface,
         Built<ChatReceiveMessagesResponseApplicationJson_Ocs, ChatReceiveMessagesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatReceiveMessagesResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatReceiveMessagesResponseApplicationJson_Ocs([
     void Function(ChatReceiveMessagesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatReceiveMessagesResponseApplicationJson_Ocs;
@@ -18250,15 +19212,22 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
   const ChatReceiveMessagesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatReceiveMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatReceiveMessagesResponseApplicationJson_Ocs.
   static Serializer<ChatReceiveMessagesResponseApplicationJson_Ocs> get serializer =>
       _$chatReceiveMessagesResponseApplicationJsonOcsSerializer;
 }
@@ -18272,6 +19241,7 @@ abstract class ChatReceiveMessagesResponseApplicationJson
     implements
         $ChatReceiveMessagesResponseApplicationJsonInterface,
         Built<ChatReceiveMessagesResponseApplicationJson, ChatReceiveMessagesResponseApplicationJsonBuilder> {
+  /// Creates a new ChatReceiveMessagesResponseApplicationJson object using the builder pattern.
   factory ChatReceiveMessagesResponseApplicationJson([
     void Function(ChatReceiveMessagesResponseApplicationJsonBuilder)? b,
   ]) = _$ChatReceiveMessagesResponseApplicationJson;
@@ -18280,15 +19250,22 @@ abstract class ChatReceiveMessagesResponseApplicationJson
   const ChatReceiveMessagesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatReceiveMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatReceiveMessagesResponseApplicationJson.
   static Serializer<ChatReceiveMessagesResponseApplicationJson> get serializer =>
       _$chatReceiveMessagesResponseApplicationJsonSerializer;
 }
@@ -18296,16 +19273,21 @@ abstract class ChatReceiveMessagesResponseApplicationJson
 class ChatSendMessageApiVersion extends EnumClass {
   const ChatSendMessageApiVersion._(super.name);
 
+  /// `v1`
   static const ChatSendMessageApiVersion v1 = _$chatSendMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatSendMessageApiVersion> get values => _$chatSendMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatSendMessageApiVersion valueOf(String name) => _$valueOfChatSendMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatSendMessageApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatSendMessageApiVersion> get serializer => const _$ChatSendMessageApiVersionSerializer();
 }
@@ -18354,6 +19336,7 @@ abstract class ChatChatSendMessageHeaders
     implements
         $ChatChatSendMessageHeadersInterface,
         Built<ChatChatSendMessageHeaders, ChatChatSendMessageHeadersBuilder> {
+  /// Creates a new ChatChatSendMessageHeaders object using the builder pattern.
   factory ChatChatSendMessageHeaders([void Function(ChatChatSendMessageHeadersBuilder)? b]) =
       _$ChatChatSendMessageHeaders;
 
@@ -18361,15 +19344,22 @@ abstract class ChatChatSendMessageHeaders
   const ChatChatSendMessageHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatSendMessageHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatSendMessageHeaders.
   static Serializer<ChatChatSendMessageHeaders> get serializer => _$chatChatSendMessageHeadersSerializer;
 }
 
@@ -18383,6 +19373,7 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
     implements
         $ChatSendMessageResponseApplicationJson_OcsInterface,
         Built<ChatSendMessageResponseApplicationJson_Ocs, ChatSendMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatSendMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatSendMessageResponseApplicationJson_Ocs([
     void Function(ChatSendMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatSendMessageResponseApplicationJson_Ocs;
@@ -18391,15 +19382,22 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
   const ChatSendMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSendMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatSendMessageResponseApplicationJson_Ocs.
   static Serializer<ChatSendMessageResponseApplicationJson_Ocs> get serializer =>
       _$chatSendMessageResponseApplicationJsonOcsSerializer;
 }
@@ -18413,6 +19411,7 @@ abstract class ChatSendMessageResponseApplicationJson
     implements
         $ChatSendMessageResponseApplicationJsonInterface,
         Built<ChatSendMessageResponseApplicationJson, ChatSendMessageResponseApplicationJsonBuilder> {
+  /// Creates a new ChatSendMessageResponseApplicationJson object using the builder pattern.
   factory ChatSendMessageResponseApplicationJson([void Function(ChatSendMessageResponseApplicationJsonBuilder)? b]) =
       _$ChatSendMessageResponseApplicationJson;
 
@@ -18420,15 +19419,22 @@ abstract class ChatSendMessageResponseApplicationJson
   const ChatSendMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSendMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatSendMessageResponseApplicationJson.
   static Serializer<ChatSendMessageResponseApplicationJson> get serializer =>
       _$chatSendMessageResponseApplicationJsonSerializer;
 }
@@ -18436,16 +19442,21 @@ abstract class ChatSendMessageResponseApplicationJson
 class ChatClearHistoryApiVersion extends EnumClass {
   const ChatClearHistoryApiVersion._(super.name);
 
+  /// `v1`
   static const ChatClearHistoryApiVersion v1 = _$chatClearHistoryApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatClearHistoryApiVersion> get values => _$chatClearHistoryApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatClearHistoryApiVersion valueOf(String name) => _$valueOfChatClearHistoryApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatClearHistoryApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatClearHistoryApiVersion> get serializer => const _$ChatClearHistoryApiVersionSerializer();
 }
@@ -18494,6 +19505,7 @@ abstract class ChatChatClearHistoryHeaders
     implements
         $ChatChatClearHistoryHeadersInterface,
         Built<ChatChatClearHistoryHeaders, ChatChatClearHistoryHeadersBuilder> {
+  /// Creates a new ChatChatClearHistoryHeaders object using the builder pattern.
   factory ChatChatClearHistoryHeaders([void Function(ChatChatClearHistoryHeadersBuilder)? b]) =
       _$ChatChatClearHistoryHeaders;
 
@@ -18501,15 +19513,22 @@ abstract class ChatChatClearHistoryHeaders
   const ChatChatClearHistoryHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatClearHistoryHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatClearHistoryHeaders.
   static Serializer<ChatChatClearHistoryHeaders> get serializer => _$chatChatClearHistoryHeadersSerializer;
 }
 
@@ -18523,6 +19542,7 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
     implements
         $ChatClearHistoryResponseApplicationJson_OcsInterface,
         Built<ChatClearHistoryResponseApplicationJson_Ocs, ChatClearHistoryResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatClearHistoryResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatClearHistoryResponseApplicationJson_Ocs([
     void Function(ChatClearHistoryResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatClearHistoryResponseApplicationJson_Ocs;
@@ -18531,15 +19551,22 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
   const ChatClearHistoryResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatClearHistoryResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatClearHistoryResponseApplicationJson_Ocs.
   static Serializer<ChatClearHistoryResponseApplicationJson_Ocs> get serializer =>
       _$chatClearHistoryResponseApplicationJsonOcsSerializer;
 }
@@ -18553,6 +19580,7 @@ abstract class ChatClearHistoryResponseApplicationJson
     implements
         $ChatClearHistoryResponseApplicationJsonInterface,
         Built<ChatClearHistoryResponseApplicationJson, ChatClearHistoryResponseApplicationJsonBuilder> {
+  /// Creates a new ChatClearHistoryResponseApplicationJson object using the builder pattern.
   factory ChatClearHistoryResponseApplicationJson([void Function(ChatClearHistoryResponseApplicationJsonBuilder)? b]) =
       _$ChatClearHistoryResponseApplicationJson;
 
@@ -18560,15 +19588,22 @@ abstract class ChatClearHistoryResponseApplicationJson
   const ChatClearHistoryResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatClearHistoryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatClearHistoryResponseApplicationJson.
   static Serializer<ChatClearHistoryResponseApplicationJson> get serializer =>
       _$chatClearHistoryResponseApplicationJsonSerializer;
 }
@@ -18576,16 +19611,21 @@ abstract class ChatClearHistoryResponseApplicationJson
 class ChatDeleteMessageApiVersion extends EnumClass {
   const ChatDeleteMessageApiVersion._(super.name);
 
+  /// `v1`
   static const ChatDeleteMessageApiVersion v1 = _$chatDeleteMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatDeleteMessageApiVersion> get values => _$chatDeleteMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatDeleteMessageApiVersion valueOf(String name) => _$valueOfChatDeleteMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatDeleteMessageApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatDeleteMessageApiVersion> get serializer => const _$ChatDeleteMessageApiVersionSerializer();
 }
@@ -18634,6 +19674,7 @@ abstract class ChatChatDeleteMessageHeaders
     implements
         $ChatChatDeleteMessageHeadersInterface,
         Built<ChatChatDeleteMessageHeaders, ChatChatDeleteMessageHeadersBuilder> {
+  /// Creates a new ChatChatDeleteMessageHeaders object using the builder pattern.
   factory ChatChatDeleteMessageHeaders([void Function(ChatChatDeleteMessageHeadersBuilder)? b]) =
       _$ChatChatDeleteMessageHeaders;
 
@@ -18641,15 +19682,22 @@ abstract class ChatChatDeleteMessageHeaders
   const ChatChatDeleteMessageHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatDeleteMessageHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatDeleteMessageHeaders.
   static Serializer<ChatChatDeleteMessageHeaders> get serializer => _$chatChatDeleteMessageHeadersSerializer;
 }
 
@@ -18663,6 +19711,7 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
     implements
         $ChatDeleteMessageResponseApplicationJson_OcsInterface,
         Built<ChatDeleteMessageResponseApplicationJson_Ocs, ChatDeleteMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatDeleteMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatDeleteMessageResponseApplicationJson_Ocs([
     void Function(ChatDeleteMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatDeleteMessageResponseApplicationJson_Ocs;
@@ -18671,15 +19720,22 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
   const ChatDeleteMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatDeleteMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatDeleteMessageResponseApplicationJson_Ocs.
   static Serializer<ChatDeleteMessageResponseApplicationJson_Ocs> get serializer =>
       _$chatDeleteMessageResponseApplicationJsonOcsSerializer;
 }
@@ -18693,6 +19749,7 @@ abstract class ChatDeleteMessageResponseApplicationJson
     implements
         $ChatDeleteMessageResponseApplicationJsonInterface,
         Built<ChatDeleteMessageResponseApplicationJson, ChatDeleteMessageResponseApplicationJsonBuilder> {
+  /// Creates a new ChatDeleteMessageResponseApplicationJson object using the builder pattern.
   factory ChatDeleteMessageResponseApplicationJson([
     void Function(ChatDeleteMessageResponseApplicationJsonBuilder)? b,
   ]) = _$ChatDeleteMessageResponseApplicationJson;
@@ -18701,15 +19758,22 @@ abstract class ChatDeleteMessageResponseApplicationJson
   const ChatDeleteMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatDeleteMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatDeleteMessageResponseApplicationJson.
   static Serializer<ChatDeleteMessageResponseApplicationJson> get serializer =>
       _$chatDeleteMessageResponseApplicationJsonSerializer;
 }
@@ -18717,16 +19781,21 @@ abstract class ChatDeleteMessageResponseApplicationJson
 class ChatGetMessageContextApiVersion extends EnumClass {
   const ChatGetMessageContextApiVersion._(super.name);
 
+  /// `v1`
   static const ChatGetMessageContextApiVersion v1 = _$chatGetMessageContextApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatGetMessageContextApiVersion> get values => _$chatGetMessageContextApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatGetMessageContextApiVersion valueOf(String name) => _$valueOfChatGetMessageContextApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatGetMessageContextApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetMessageContextApiVersion> get serializer =>
       const _$ChatGetMessageContextApiVersionSerializer();
@@ -18778,6 +19847,7 @@ abstract class ChatChatGetMessageContextHeaders
     implements
         $ChatChatGetMessageContextHeadersInterface,
         Built<ChatChatGetMessageContextHeaders, ChatChatGetMessageContextHeadersBuilder> {
+  /// Creates a new ChatChatGetMessageContextHeaders object using the builder pattern.
   factory ChatChatGetMessageContextHeaders([void Function(ChatChatGetMessageContextHeadersBuilder)? b]) =
       _$ChatChatGetMessageContextHeaders;
 
@@ -18785,15 +19855,22 @@ abstract class ChatChatGetMessageContextHeaders
   const ChatChatGetMessageContextHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatGetMessageContextHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatGetMessageContextHeaders.
   static Serializer<ChatChatGetMessageContextHeaders> get serializer => _$chatChatGetMessageContextHeadersSerializer;
 }
 
@@ -18808,6 +19885,7 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
         $ChatGetMessageContextResponseApplicationJson_OcsInterface,
         Built<ChatGetMessageContextResponseApplicationJson_Ocs,
             ChatGetMessageContextResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatGetMessageContextResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatGetMessageContextResponseApplicationJson_Ocs([
     void Function(ChatGetMessageContextResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatGetMessageContextResponseApplicationJson_Ocs;
@@ -18816,15 +19894,22 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
   const ChatGetMessageContextResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetMessageContextResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatGetMessageContextResponseApplicationJson_Ocs.
   static Serializer<ChatGetMessageContextResponseApplicationJson_Ocs> get serializer =>
       _$chatGetMessageContextResponseApplicationJsonOcsSerializer;
 }
@@ -18838,6 +19923,7 @@ abstract class ChatGetMessageContextResponseApplicationJson
     implements
         $ChatGetMessageContextResponseApplicationJsonInterface,
         Built<ChatGetMessageContextResponseApplicationJson, ChatGetMessageContextResponseApplicationJsonBuilder> {
+  /// Creates a new ChatGetMessageContextResponseApplicationJson object using the builder pattern.
   factory ChatGetMessageContextResponseApplicationJson([
     void Function(ChatGetMessageContextResponseApplicationJsonBuilder)? b,
   ]) = _$ChatGetMessageContextResponseApplicationJson;
@@ -18846,15 +19932,22 @@ abstract class ChatGetMessageContextResponseApplicationJson
   const ChatGetMessageContextResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetMessageContextResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatGetMessageContextResponseApplicationJson.
   static Serializer<ChatGetMessageContextResponseApplicationJson> get serializer =>
       _$chatGetMessageContextResponseApplicationJsonSerializer;
 }
@@ -18862,16 +19955,21 @@ abstract class ChatGetMessageContextResponseApplicationJson
 class ChatGetReminderApiVersion extends EnumClass {
   const ChatGetReminderApiVersion._(super.name);
 
+  /// `v1`
   static const ChatGetReminderApiVersion v1 = _$chatGetReminderApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatGetReminderApiVersion> get values => _$chatGetReminderApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatGetReminderApiVersion valueOf(String name) => _$valueOfChatGetReminderApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatGetReminderApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetReminderApiVersion> get serializer => const _$ChatGetReminderApiVersionSerializer();
 }
@@ -18919,20 +20017,28 @@ abstract interface class $ChatReminderInterface {
 }
 
 abstract class ChatReminder implements $ChatReminderInterface, Built<ChatReminder, ChatReminderBuilder> {
+  /// Creates a new ChatReminder object using the builder pattern.
   factory ChatReminder([void Function(ChatReminderBuilder)? b]) = _$ChatReminder;
 
   // coverage:ignore-start
   const ChatReminder._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatReminder.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatReminder.
   static Serializer<ChatReminder> get serializer => _$chatReminderSerializer;
 }
 
@@ -18946,6 +20052,7 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
     implements
         $ChatGetReminderResponseApplicationJson_OcsInterface,
         Built<ChatGetReminderResponseApplicationJson_Ocs, ChatGetReminderResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatGetReminderResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatGetReminderResponseApplicationJson_Ocs([
     void Function(ChatGetReminderResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatGetReminderResponseApplicationJson_Ocs;
@@ -18954,15 +20061,22 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
   const ChatGetReminderResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatGetReminderResponseApplicationJson_Ocs.
   static Serializer<ChatGetReminderResponseApplicationJson_Ocs> get serializer =>
       _$chatGetReminderResponseApplicationJsonOcsSerializer;
 }
@@ -18976,6 +20090,7 @@ abstract class ChatGetReminderResponseApplicationJson
     implements
         $ChatGetReminderResponseApplicationJsonInterface,
         Built<ChatGetReminderResponseApplicationJson, ChatGetReminderResponseApplicationJsonBuilder> {
+  /// Creates a new ChatGetReminderResponseApplicationJson object using the builder pattern.
   factory ChatGetReminderResponseApplicationJson([void Function(ChatGetReminderResponseApplicationJsonBuilder)? b]) =
       _$ChatGetReminderResponseApplicationJson;
 
@@ -18983,15 +20098,22 @@ abstract class ChatGetReminderResponseApplicationJson
   const ChatGetReminderResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatGetReminderResponseApplicationJson.
   static Serializer<ChatGetReminderResponseApplicationJson> get serializer =>
       _$chatGetReminderResponseApplicationJsonSerializer;
 }
@@ -18999,16 +20121,21 @@ abstract class ChatGetReminderResponseApplicationJson
 class ChatSetReminderApiVersion extends EnumClass {
   const ChatSetReminderApiVersion._(super.name);
 
+  /// `v1`
   static const ChatSetReminderApiVersion v1 = _$chatSetReminderApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatSetReminderApiVersion> get values => _$chatSetReminderApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatSetReminderApiVersion valueOf(String name) => _$valueOfChatSetReminderApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatSetReminderApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatSetReminderApiVersion> get serializer => const _$ChatSetReminderApiVersionSerializer();
 }
@@ -19057,6 +20184,7 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
     implements
         $ChatSetReminderResponseApplicationJson_OcsInterface,
         Built<ChatSetReminderResponseApplicationJson_Ocs, ChatSetReminderResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatSetReminderResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatSetReminderResponseApplicationJson_Ocs([
     void Function(ChatSetReminderResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatSetReminderResponseApplicationJson_Ocs;
@@ -19065,15 +20193,22 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
   const ChatSetReminderResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSetReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatSetReminderResponseApplicationJson_Ocs.
   static Serializer<ChatSetReminderResponseApplicationJson_Ocs> get serializer =>
       _$chatSetReminderResponseApplicationJsonOcsSerializer;
 }
@@ -19087,6 +20222,7 @@ abstract class ChatSetReminderResponseApplicationJson
     implements
         $ChatSetReminderResponseApplicationJsonInterface,
         Built<ChatSetReminderResponseApplicationJson, ChatSetReminderResponseApplicationJsonBuilder> {
+  /// Creates a new ChatSetReminderResponseApplicationJson object using the builder pattern.
   factory ChatSetReminderResponseApplicationJson([void Function(ChatSetReminderResponseApplicationJsonBuilder)? b]) =
       _$ChatSetReminderResponseApplicationJson;
 
@@ -19094,15 +20230,22 @@ abstract class ChatSetReminderResponseApplicationJson
   const ChatSetReminderResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSetReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatSetReminderResponseApplicationJson.
   static Serializer<ChatSetReminderResponseApplicationJson> get serializer =>
       _$chatSetReminderResponseApplicationJsonSerializer;
 }
@@ -19110,16 +20253,21 @@ abstract class ChatSetReminderResponseApplicationJson
 class ChatDeleteReminderApiVersion extends EnumClass {
   const ChatDeleteReminderApiVersion._(super.name);
 
+  /// `v1`
   static const ChatDeleteReminderApiVersion v1 = _$chatDeleteReminderApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatDeleteReminderApiVersion> get values => _$chatDeleteReminderApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatDeleteReminderApiVersion valueOf(String name) => _$valueOfChatDeleteReminderApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatDeleteReminderApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatDeleteReminderApiVersion> get serializer => const _$ChatDeleteReminderApiVersionSerializer();
 }
@@ -19168,6 +20316,7 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
     implements
         $ChatDeleteReminderResponseApplicationJson_OcsInterface,
         Built<ChatDeleteReminderResponseApplicationJson_Ocs, ChatDeleteReminderResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatDeleteReminderResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatDeleteReminderResponseApplicationJson_Ocs([
     void Function(ChatDeleteReminderResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatDeleteReminderResponseApplicationJson_Ocs;
@@ -19176,15 +20325,22 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
   const ChatDeleteReminderResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatDeleteReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatDeleteReminderResponseApplicationJson_Ocs.
   static Serializer<ChatDeleteReminderResponseApplicationJson_Ocs> get serializer =>
       _$chatDeleteReminderResponseApplicationJsonOcsSerializer;
 }
@@ -19198,6 +20354,7 @@ abstract class ChatDeleteReminderResponseApplicationJson
     implements
         $ChatDeleteReminderResponseApplicationJsonInterface,
         Built<ChatDeleteReminderResponseApplicationJson, ChatDeleteReminderResponseApplicationJsonBuilder> {
+  /// Creates a new ChatDeleteReminderResponseApplicationJson object using the builder pattern.
   factory ChatDeleteReminderResponseApplicationJson([
     void Function(ChatDeleteReminderResponseApplicationJsonBuilder)? b,
   ]) = _$ChatDeleteReminderResponseApplicationJson;
@@ -19206,15 +20363,22 @@ abstract class ChatDeleteReminderResponseApplicationJson
   const ChatDeleteReminderResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatDeleteReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatDeleteReminderResponseApplicationJson.
   static Serializer<ChatDeleteReminderResponseApplicationJson> get serializer =>
       _$chatDeleteReminderResponseApplicationJsonSerializer;
 }
@@ -19222,16 +20386,21 @@ abstract class ChatDeleteReminderResponseApplicationJson
 class ChatSetReadMarkerApiVersion extends EnumClass {
   const ChatSetReadMarkerApiVersion._(super.name);
 
+  /// `v1`
   static const ChatSetReadMarkerApiVersion v1 = _$chatSetReadMarkerApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatSetReadMarkerApiVersion> get values => _$chatSetReadMarkerApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatSetReadMarkerApiVersion valueOf(String name) => _$valueOfChatSetReadMarkerApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatSetReadMarkerApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatSetReadMarkerApiVersion> get serializer => const _$ChatSetReadMarkerApiVersionSerializer();
 }
@@ -19280,6 +20449,7 @@ abstract class ChatChatSetReadMarkerHeaders
     implements
         $ChatChatSetReadMarkerHeadersInterface,
         Built<ChatChatSetReadMarkerHeaders, ChatChatSetReadMarkerHeadersBuilder> {
+  /// Creates a new ChatChatSetReadMarkerHeaders object using the builder pattern.
   factory ChatChatSetReadMarkerHeaders([void Function(ChatChatSetReadMarkerHeadersBuilder)? b]) =
       _$ChatChatSetReadMarkerHeaders;
 
@@ -19287,15 +20457,22 @@ abstract class ChatChatSetReadMarkerHeaders
   const ChatChatSetReadMarkerHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatSetReadMarkerHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatSetReadMarkerHeaders.
   static Serializer<ChatChatSetReadMarkerHeaders> get serializer => _$chatChatSetReadMarkerHeadersSerializer;
 }
 
@@ -19309,6 +20486,7 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
     implements
         $ChatSetReadMarkerResponseApplicationJson_OcsInterface,
         Built<ChatSetReadMarkerResponseApplicationJson_Ocs, ChatSetReadMarkerResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatSetReadMarkerResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatSetReadMarkerResponseApplicationJson_Ocs([
     void Function(ChatSetReadMarkerResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatSetReadMarkerResponseApplicationJson_Ocs;
@@ -19317,15 +20495,22 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
   const ChatSetReadMarkerResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSetReadMarkerResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatSetReadMarkerResponseApplicationJson_Ocs.
   static Serializer<ChatSetReadMarkerResponseApplicationJson_Ocs> get serializer =>
       _$chatSetReadMarkerResponseApplicationJsonOcsSerializer;
 }
@@ -19339,6 +20524,7 @@ abstract class ChatSetReadMarkerResponseApplicationJson
     implements
         $ChatSetReadMarkerResponseApplicationJsonInterface,
         Built<ChatSetReadMarkerResponseApplicationJson, ChatSetReadMarkerResponseApplicationJsonBuilder> {
+  /// Creates a new ChatSetReadMarkerResponseApplicationJson object using the builder pattern.
   factory ChatSetReadMarkerResponseApplicationJson([
     void Function(ChatSetReadMarkerResponseApplicationJsonBuilder)? b,
   ]) = _$ChatSetReadMarkerResponseApplicationJson;
@@ -19347,15 +20533,22 @@ abstract class ChatSetReadMarkerResponseApplicationJson
   const ChatSetReadMarkerResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSetReadMarkerResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatSetReadMarkerResponseApplicationJson.
   static Serializer<ChatSetReadMarkerResponseApplicationJson> get serializer =>
       _$chatSetReadMarkerResponseApplicationJsonSerializer;
 }
@@ -19363,16 +20556,21 @@ abstract class ChatSetReadMarkerResponseApplicationJson
 class ChatMarkUnreadApiVersion extends EnumClass {
   const ChatMarkUnreadApiVersion._(super.name);
 
+  /// `v1`
   static const ChatMarkUnreadApiVersion v1 = _$chatMarkUnreadApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatMarkUnreadApiVersion> get values => _$chatMarkUnreadApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatMarkUnreadApiVersion valueOf(String name) => _$valueOfChatMarkUnreadApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatMarkUnreadApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatMarkUnreadApiVersion> get serializer => const _$ChatMarkUnreadApiVersionSerializer();
 }
@@ -19419,21 +20617,29 @@ abstract interface class $ChatChatMarkUnreadHeadersInterface {
 
 abstract class ChatChatMarkUnreadHeaders
     implements $ChatChatMarkUnreadHeadersInterface, Built<ChatChatMarkUnreadHeaders, ChatChatMarkUnreadHeadersBuilder> {
+  /// Creates a new ChatChatMarkUnreadHeaders object using the builder pattern.
   factory ChatChatMarkUnreadHeaders([void Function(ChatChatMarkUnreadHeadersBuilder)? b]) = _$ChatChatMarkUnreadHeaders;
 
   // coverage:ignore-start
   const ChatChatMarkUnreadHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatMarkUnreadHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatMarkUnreadHeaders.
   static Serializer<ChatChatMarkUnreadHeaders> get serializer => _$chatChatMarkUnreadHeadersSerializer;
 }
 
@@ -19447,6 +20653,7 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
     implements
         $ChatMarkUnreadResponseApplicationJson_OcsInterface,
         Built<ChatMarkUnreadResponseApplicationJson_Ocs, ChatMarkUnreadResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatMarkUnreadResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatMarkUnreadResponseApplicationJson_Ocs([
     void Function(ChatMarkUnreadResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatMarkUnreadResponseApplicationJson_Ocs;
@@ -19455,15 +20662,22 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
   const ChatMarkUnreadResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMarkUnreadResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatMarkUnreadResponseApplicationJson_Ocs.
   static Serializer<ChatMarkUnreadResponseApplicationJson_Ocs> get serializer =>
       _$chatMarkUnreadResponseApplicationJsonOcsSerializer;
 }
@@ -19477,6 +20691,7 @@ abstract class ChatMarkUnreadResponseApplicationJson
     implements
         $ChatMarkUnreadResponseApplicationJsonInterface,
         Built<ChatMarkUnreadResponseApplicationJson, ChatMarkUnreadResponseApplicationJsonBuilder> {
+  /// Creates a new ChatMarkUnreadResponseApplicationJson object using the builder pattern.
   factory ChatMarkUnreadResponseApplicationJson([void Function(ChatMarkUnreadResponseApplicationJsonBuilder)? b]) =
       _$ChatMarkUnreadResponseApplicationJson;
 
@@ -19484,15 +20699,22 @@ abstract class ChatMarkUnreadResponseApplicationJson
   const ChatMarkUnreadResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMarkUnreadResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatMarkUnreadResponseApplicationJson.
   static Serializer<ChatMarkUnreadResponseApplicationJson> get serializer =>
       _$chatMarkUnreadResponseApplicationJsonSerializer;
 }
@@ -19500,16 +20722,21 @@ abstract class ChatMarkUnreadResponseApplicationJson
 class ChatMentionsApiVersion extends EnumClass {
   const ChatMentionsApiVersion._(super.name);
 
+  /// `v1`
   static const ChatMentionsApiVersion v1 = _$chatMentionsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatMentionsApiVersion> get values => _$chatMentionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatMentionsApiVersion valueOf(String name) => _$valueOfChatMentionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatMentionsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatMentionsApiVersion> get serializer => const _$ChatMentionsApiVersionSerializer();
 }
@@ -19561,21 +20788,29 @@ abstract interface class $ChatMentionSuggestionInterface {
 
 abstract class ChatMentionSuggestion
     implements $ChatMentionSuggestionInterface, Built<ChatMentionSuggestion, ChatMentionSuggestionBuilder> {
+  /// Creates a new ChatMentionSuggestion object using the builder pattern.
   factory ChatMentionSuggestion([void Function(ChatMentionSuggestionBuilder)? b]) = _$ChatMentionSuggestion;
 
   // coverage:ignore-start
   const ChatMentionSuggestion._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMentionSuggestion.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatMentionSuggestion.
   static Serializer<ChatMentionSuggestion> get serializer => _$chatMentionSuggestionSerializer;
 }
 
@@ -19589,6 +20824,7 @@ abstract class ChatMentionsResponseApplicationJson_Ocs
     implements
         $ChatMentionsResponseApplicationJson_OcsInterface,
         Built<ChatMentionsResponseApplicationJson_Ocs, ChatMentionsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatMentionsResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatMentionsResponseApplicationJson_Ocs([void Function(ChatMentionsResponseApplicationJson_OcsBuilder)? b]) =
       _$ChatMentionsResponseApplicationJson_Ocs;
 
@@ -19596,15 +20832,22 @@ abstract class ChatMentionsResponseApplicationJson_Ocs
   const ChatMentionsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMentionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatMentionsResponseApplicationJson_Ocs.
   static Serializer<ChatMentionsResponseApplicationJson_Ocs> get serializer =>
       _$chatMentionsResponseApplicationJsonOcsSerializer;
 }
@@ -19618,6 +20861,7 @@ abstract class ChatMentionsResponseApplicationJson
     implements
         $ChatMentionsResponseApplicationJsonInterface,
         Built<ChatMentionsResponseApplicationJson, ChatMentionsResponseApplicationJsonBuilder> {
+  /// Creates a new ChatMentionsResponseApplicationJson object using the builder pattern.
   factory ChatMentionsResponseApplicationJson([void Function(ChatMentionsResponseApplicationJsonBuilder)? b]) =
       _$ChatMentionsResponseApplicationJson;
 
@@ -19625,15 +20869,22 @@ abstract class ChatMentionsResponseApplicationJson
   const ChatMentionsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMentionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatMentionsResponseApplicationJson.
   static Serializer<ChatMentionsResponseApplicationJson> get serializer =>
       _$chatMentionsResponseApplicationJsonSerializer;
 }
@@ -19641,17 +20892,22 @@ abstract class ChatMentionsResponseApplicationJson
 class ChatGetObjectsSharedInRoomApiVersion extends EnumClass {
   const ChatGetObjectsSharedInRoomApiVersion._(super.name);
 
+  /// `v1`
   static const ChatGetObjectsSharedInRoomApiVersion v1 = _$chatGetObjectsSharedInRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatGetObjectsSharedInRoomApiVersion> get values => _$chatGetObjectsSharedInRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatGetObjectsSharedInRoomApiVersion valueOf(String name) =>
       _$valueOfChatGetObjectsSharedInRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatGetObjectsSharedInRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetObjectsSharedInRoomApiVersion> get serializer =>
       const _$ChatGetObjectsSharedInRoomApiVersionSerializer();
@@ -19704,6 +20960,7 @@ abstract class ChatChatGetObjectsSharedInRoomHeaders
     implements
         $ChatChatGetObjectsSharedInRoomHeadersInterface,
         Built<ChatChatGetObjectsSharedInRoomHeaders, ChatChatGetObjectsSharedInRoomHeadersBuilder> {
+  /// Creates a new ChatChatGetObjectsSharedInRoomHeaders object using the builder pattern.
   factory ChatChatGetObjectsSharedInRoomHeaders([void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? b]) =
       _$ChatChatGetObjectsSharedInRoomHeaders;
 
@@ -19711,15 +20968,22 @@ abstract class ChatChatGetObjectsSharedInRoomHeaders
   const ChatChatGetObjectsSharedInRoomHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatGetObjectsSharedInRoomHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatGetObjectsSharedInRoomHeaders.
   static Serializer<ChatChatGetObjectsSharedInRoomHeaders> get serializer =>
       _$chatChatGetObjectsSharedInRoomHeadersSerializer;
 }
@@ -19735,6 +20999,7 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
         $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface,
         Built<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs,
             ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs([
     void Function(ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs;
@@ -19743,15 +21008,22 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
   const ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.
   static Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs> get serializer =>
       _$chatGetObjectsSharedInRoomResponseApplicationJsonOcsSerializer;
 }
@@ -19766,6 +21038,7 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
         $ChatGetObjectsSharedInRoomResponseApplicationJsonInterface,
         Built<ChatGetObjectsSharedInRoomResponseApplicationJson,
             ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder> {
+  /// Creates a new ChatGetObjectsSharedInRoomResponseApplicationJson object using the builder pattern.
   factory ChatGetObjectsSharedInRoomResponseApplicationJson([
     void Function(ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder)? b,
   ]) = _$ChatGetObjectsSharedInRoomResponseApplicationJson;
@@ -19774,15 +21047,22 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
   const ChatGetObjectsSharedInRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetObjectsSharedInRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatGetObjectsSharedInRoomResponseApplicationJson.
   static Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson> get serializer =>
       _$chatGetObjectsSharedInRoomResponseApplicationJsonSerializer;
 }
@@ -19790,16 +21070,21 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
 class ChatShareObjectToChatApiVersion extends EnumClass {
   const ChatShareObjectToChatApiVersion._(super.name);
 
+  /// `v1`
   static const ChatShareObjectToChatApiVersion v1 = _$chatShareObjectToChatApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatShareObjectToChatApiVersion> get values => _$chatShareObjectToChatApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatShareObjectToChatApiVersion valueOf(String name) => _$valueOfChatShareObjectToChatApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatShareObjectToChatApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatShareObjectToChatApiVersion> get serializer =>
       const _$ChatShareObjectToChatApiVersionSerializer();
@@ -19849,6 +21134,7 @@ abstract class ChatChatShareObjectToChatHeaders
     implements
         $ChatChatShareObjectToChatHeadersInterface,
         Built<ChatChatShareObjectToChatHeaders, ChatChatShareObjectToChatHeadersBuilder> {
+  /// Creates a new ChatChatShareObjectToChatHeaders object using the builder pattern.
   factory ChatChatShareObjectToChatHeaders([void Function(ChatChatShareObjectToChatHeadersBuilder)? b]) =
       _$ChatChatShareObjectToChatHeaders;
 
@@ -19856,15 +21142,22 @@ abstract class ChatChatShareObjectToChatHeaders
   const ChatChatShareObjectToChatHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatShareObjectToChatHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatChatShareObjectToChatHeaders.
   static Serializer<ChatChatShareObjectToChatHeaders> get serializer => _$chatChatShareObjectToChatHeadersSerializer;
 }
 
@@ -19879,6 +21172,7 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
         $ChatShareObjectToChatResponseApplicationJson_OcsInterface,
         Built<ChatShareObjectToChatResponseApplicationJson_Ocs,
             ChatShareObjectToChatResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatShareObjectToChatResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatShareObjectToChatResponseApplicationJson_Ocs([
     void Function(ChatShareObjectToChatResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatShareObjectToChatResponseApplicationJson_Ocs;
@@ -19887,15 +21181,22 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
   const ChatShareObjectToChatResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatShareObjectToChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatShareObjectToChatResponseApplicationJson_Ocs.
   static Serializer<ChatShareObjectToChatResponseApplicationJson_Ocs> get serializer =>
       _$chatShareObjectToChatResponseApplicationJsonOcsSerializer;
 }
@@ -19909,6 +21210,7 @@ abstract class ChatShareObjectToChatResponseApplicationJson
     implements
         $ChatShareObjectToChatResponseApplicationJsonInterface,
         Built<ChatShareObjectToChatResponseApplicationJson, ChatShareObjectToChatResponseApplicationJsonBuilder> {
+  /// Creates a new ChatShareObjectToChatResponseApplicationJson object using the builder pattern.
   factory ChatShareObjectToChatResponseApplicationJson([
     void Function(ChatShareObjectToChatResponseApplicationJsonBuilder)? b,
   ]) = _$ChatShareObjectToChatResponseApplicationJson;
@@ -19917,15 +21219,22 @@ abstract class ChatShareObjectToChatResponseApplicationJson
   const ChatShareObjectToChatResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatShareObjectToChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatShareObjectToChatResponseApplicationJson.
   static Serializer<ChatShareObjectToChatResponseApplicationJson> get serializer =>
       _$chatShareObjectToChatResponseApplicationJsonSerializer;
 }
@@ -19933,18 +21242,23 @@ abstract class ChatShareObjectToChatResponseApplicationJson
 class ChatGetObjectsSharedInRoomOverviewApiVersion extends EnumClass {
   const ChatGetObjectsSharedInRoomOverviewApiVersion._(super.name);
 
+  /// `v1`
   static const ChatGetObjectsSharedInRoomOverviewApiVersion v1 = _$chatGetObjectsSharedInRoomOverviewApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatGetObjectsSharedInRoomOverviewApiVersion> get values =>
       _$chatGetObjectsSharedInRoomOverviewApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatGetObjectsSharedInRoomOverviewApiVersion valueOf(String name) =>
       _$valueOfChatGetObjectsSharedInRoomOverviewApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ChatGetObjectsSharedInRoomOverviewApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetObjectsSharedInRoomOverviewApiVersion> get serializer =>
       const _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer();
@@ -19998,6 +21312,7 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
         $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface,
         Built<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs,
             ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs([
     void Function(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs;
@@ -20006,15 +21321,22 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
   const ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.
   static Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs> get serializer =>
       _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonOcsSerializer;
 }
@@ -20029,6 +21351,7 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
         $ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface,
         Built<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson,
             ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder> {
+  /// Creates a new ChatGetObjectsSharedInRoomOverviewResponseApplicationJson object using the builder pattern.
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson([
     void Function(ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder)? b,
   ]) = _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson;
@@ -20037,15 +21360,22 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
   const ChatGetObjectsSharedInRoomOverviewResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.
   static Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson> get serializer =>
       _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer;
 }
@@ -20053,18 +21383,23 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
 class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
   const FilesIntegrationGetRoomByFileIdApiVersion._(super.name);
 
+  /// `v1`
   static const FilesIntegrationGetRoomByFileIdApiVersion v1 = _$filesIntegrationGetRoomByFileIdApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<FilesIntegrationGetRoomByFileIdApiVersion> get values =>
       _$filesIntegrationGetRoomByFileIdApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static FilesIntegrationGetRoomByFileIdApiVersion valueOf(String name) =>
       _$valueOfFilesIntegrationGetRoomByFileIdApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for FilesIntegrationGetRoomByFileIdApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByFileIdApiVersion> get serializer =>
       const _$FilesIntegrationGetRoomByFileIdApiVersionSerializer();
@@ -20117,6 +21452,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
         $FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterface,
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data,
             FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data([
     void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data;
@@ -20125,15 +21461,22 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
   const FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data> get serializer =>
       _$filesIntegrationGetRoomByFileIdResponseApplicationJsonOcsDataSerializer;
 }
@@ -20149,6 +21492,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
         $FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterface,
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs,
             FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder> {
+  /// Creates a new FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs object using the builder pattern.
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs([
     void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs;
@@ -20157,15 +21501,22 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
   const FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs> get serializer =>
       _$filesIntegrationGetRoomByFileIdResponseApplicationJsonOcsSerializer;
 }
@@ -20180,6 +21531,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
         $FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface,
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson,
             FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder> {
+  /// Creates a new FilesIntegrationGetRoomByFileIdResponseApplicationJson object using the builder pattern.
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson([
     void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByFileIdResponseApplicationJson;
@@ -20188,15 +21540,22 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
   const FilesIntegrationGetRoomByFileIdResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson.
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson> get serializer =>
       _$filesIntegrationGetRoomByFileIdResponseApplicationJsonSerializer;
 }
@@ -20204,18 +21563,23 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
 class FilesIntegrationGetRoomByShareTokenApiVersion extends EnumClass {
   const FilesIntegrationGetRoomByShareTokenApiVersion._(super.name);
 
+  /// `v1`
   static const FilesIntegrationGetRoomByShareTokenApiVersion v1 = _$filesIntegrationGetRoomByShareTokenApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<FilesIntegrationGetRoomByShareTokenApiVersion> get values =>
       _$filesIntegrationGetRoomByShareTokenApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static FilesIntegrationGetRoomByShareTokenApiVersion valueOf(String name) =>
       _$valueOfFilesIntegrationGetRoomByShareTokenApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for FilesIntegrationGetRoomByShareTokenApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByShareTokenApiVersion> get serializer =>
       const _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer();
@@ -20270,6 +21634,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
         $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataInterface,
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data([
     void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data;
@@ -20278,15 +21643,22 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
   const FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data> get serializer =>
       _$filesIntegrationGetRoomByShareTokenResponseApplicationJsonOcsDataSerializer;
 }
@@ -20302,6 +21674,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
         $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInterface,
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder> {
+  /// Creates a new FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs object using the builder pattern.
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs([
     void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs;
@@ -20310,15 +21683,22 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
   const FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs> get serializer =>
       _$filesIntegrationGetRoomByShareTokenResponseApplicationJsonOcsSerializer;
 }
@@ -20333,6 +21713,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
         $FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterface,
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder> {
+  /// Creates a new FilesIntegrationGetRoomByShareTokenResponseApplicationJson object using the builder pattern.
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson([
     void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson;
@@ -20341,15 +21722,22 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
   const FilesIntegrationGetRoomByShareTokenResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson.
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson> get serializer =>
       _$filesIntegrationGetRoomByShareTokenResponseApplicationJsonSerializer;
 }
@@ -20357,16 +21745,21 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
 class GuestSetDisplayNameApiVersion extends EnumClass {
   const GuestSetDisplayNameApiVersion._(super.name);
 
+  /// `v1`
   static const GuestSetDisplayNameApiVersion v1 = _$guestSetDisplayNameApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<GuestSetDisplayNameApiVersion> get values => _$guestSetDisplayNameApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static GuestSetDisplayNameApiVersion valueOf(String name) => _$valueOfGuestSetDisplayNameApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for GuestSetDisplayNameApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<GuestSetDisplayNameApiVersion> get serializer => const _$GuestSetDisplayNameApiVersionSerializer();
 }
@@ -20415,6 +21808,7 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
     implements
         $GuestSetDisplayNameResponseApplicationJson_OcsInterface,
         Built<GuestSetDisplayNameResponseApplicationJson_Ocs, GuestSetDisplayNameResponseApplicationJson_OcsBuilder> {
+  /// Creates a new GuestSetDisplayNameResponseApplicationJson_Ocs object using the builder pattern.
   factory GuestSetDisplayNameResponseApplicationJson_Ocs([
     void Function(GuestSetDisplayNameResponseApplicationJson_OcsBuilder)? b,
   ]) = _$GuestSetDisplayNameResponseApplicationJson_Ocs;
@@ -20423,15 +21817,22 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
   const GuestSetDisplayNameResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory GuestSetDisplayNameResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for GuestSetDisplayNameResponseApplicationJson_Ocs.
   static Serializer<GuestSetDisplayNameResponseApplicationJson_Ocs> get serializer =>
       _$guestSetDisplayNameResponseApplicationJsonOcsSerializer;
 }
@@ -20445,6 +21846,7 @@ abstract class GuestSetDisplayNameResponseApplicationJson
     implements
         $GuestSetDisplayNameResponseApplicationJsonInterface,
         Built<GuestSetDisplayNameResponseApplicationJson, GuestSetDisplayNameResponseApplicationJsonBuilder> {
+  /// Creates a new GuestSetDisplayNameResponseApplicationJson object using the builder pattern.
   factory GuestSetDisplayNameResponseApplicationJson([
     void Function(GuestSetDisplayNameResponseApplicationJsonBuilder)? b,
   ]) = _$GuestSetDisplayNameResponseApplicationJson;
@@ -20453,15 +21855,22 @@ abstract class GuestSetDisplayNameResponseApplicationJson
   const GuestSetDisplayNameResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory GuestSetDisplayNameResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for GuestSetDisplayNameResponseApplicationJson.
   static Serializer<GuestSetDisplayNameResponseApplicationJson> get serializer =>
       _$guestSetDisplayNameResponseApplicationJsonSerializer;
 }
@@ -20469,18 +21878,23 @@ abstract class GuestSetDisplayNameResponseApplicationJson
 class HostedSignalingServerRequestTrialApiVersion extends EnumClass {
   const HostedSignalingServerRequestTrialApiVersion._(super.name);
 
+  /// `v1`
   static const HostedSignalingServerRequestTrialApiVersion v1 = _$hostedSignalingServerRequestTrialApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<HostedSignalingServerRequestTrialApiVersion> get values =>
       _$hostedSignalingServerRequestTrialApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static HostedSignalingServerRequestTrialApiVersion valueOf(String name) =>
       _$valueOfHostedSignalingServerRequestTrialApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for HostedSignalingServerRequestTrialApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<HostedSignalingServerRequestTrialApiVersion> get serializer =>
       const _$HostedSignalingServerRequestTrialApiVersionSerializer();
@@ -20534,6 +21948,7 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
         $HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterface,
         Built<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs,
             HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder> {
+  /// Creates a new HostedSignalingServerRequestTrialResponseApplicationJson_Ocs object using the builder pattern.
   factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs([
     void Function(HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder)? b,
   ]) = _$HostedSignalingServerRequestTrialResponseApplicationJson_Ocs;
@@ -20542,15 +21957,22 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
   const HostedSignalingServerRequestTrialResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.
   static Serializer<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs> get serializer =>
       _$hostedSignalingServerRequestTrialResponseApplicationJsonOcsSerializer;
 }
@@ -20565,6 +21987,7 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
         $HostedSignalingServerRequestTrialResponseApplicationJsonInterface,
         Built<HostedSignalingServerRequestTrialResponseApplicationJson,
             HostedSignalingServerRequestTrialResponseApplicationJsonBuilder> {
+  /// Creates a new HostedSignalingServerRequestTrialResponseApplicationJson object using the builder pattern.
   factory HostedSignalingServerRequestTrialResponseApplicationJson([
     void Function(HostedSignalingServerRequestTrialResponseApplicationJsonBuilder)? b,
   ]) = _$HostedSignalingServerRequestTrialResponseApplicationJson;
@@ -20573,15 +21996,22 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
   const HostedSignalingServerRequestTrialResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HostedSignalingServerRequestTrialResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for HostedSignalingServerRequestTrialResponseApplicationJson.
   static Serializer<HostedSignalingServerRequestTrialResponseApplicationJson> get serializer =>
       _$hostedSignalingServerRequestTrialResponseApplicationJsonSerializer;
 }
@@ -20589,18 +22019,23 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
 class HostedSignalingServerDeleteAccountApiVersion extends EnumClass {
   const HostedSignalingServerDeleteAccountApiVersion._(super.name);
 
+  /// `v1`
   static const HostedSignalingServerDeleteAccountApiVersion v1 = _$hostedSignalingServerDeleteAccountApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<HostedSignalingServerDeleteAccountApiVersion> get values =>
       _$hostedSignalingServerDeleteAccountApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static HostedSignalingServerDeleteAccountApiVersion valueOf(String name) =>
       _$valueOfHostedSignalingServerDeleteAccountApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for HostedSignalingServerDeleteAccountApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<HostedSignalingServerDeleteAccountApiVersion> get serializer =>
       const _$HostedSignalingServerDeleteAccountApiVersionSerializer();
@@ -20654,6 +22089,7 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
         $HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface,
         Built<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs,
             HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder> {
+  /// Creates a new HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs object using the builder pattern.
   factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs([
     void Function(HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder)? b,
   ]) = _$HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs;
@@ -20662,15 +22098,22 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
   const HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.
   static Serializer<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs> get serializer =>
       _$hostedSignalingServerDeleteAccountResponseApplicationJsonOcsSerializer;
 }
@@ -20685,6 +22128,7 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
         $HostedSignalingServerDeleteAccountResponseApplicationJsonInterface,
         Built<HostedSignalingServerDeleteAccountResponseApplicationJson,
             HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder> {
+  /// Creates a new HostedSignalingServerDeleteAccountResponseApplicationJson object using the builder pattern.
   factory HostedSignalingServerDeleteAccountResponseApplicationJson([
     void Function(HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder)? b,
   ]) = _$HostedSignalingServerDeleteAccountResponseApplicationJson;
@@ -20693,15 +22137,22 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
   const HostedSignalingServerDeleteAccountResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HostedSignalingServerDeleteAccountResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for HostedSignalingServerDeleteAccountResponseApplicationJson.
   static Serializer<HostedSignalingServerDeleteAccountResponseApplicationJson> get serializer =>
       _$hostedSignalingServerDeleteAccountResponseApplicationJsonSerializer;
 }
@@ -20709,17 +22160,22 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
 class MatterbridgeGetBridgeOfRoomApiVersion extends EnumClass {
   const MatterbridgeGetBridgeOfRoomApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeGetBridgeOfRoomApiVersion v1 = _$matterbridgeGetBridgeOfRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeGetBridgeOfRoomApiVersion> get values => _$matterbridgeGetBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeGetBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeGetBridgeOfRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for MatterbridgeGetBridgeOfRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeGetBridgeOfRoomApiVersion> get serializer =>
       const _$MatterbridgeGetBridgeOfRoomApiVersionSerializer();
@@ -20770,20 +22226,28 @@ abstract interface class $MatterbridgeInterface {
 }
 
 abstract class Matterbridge implements $MatterbridgeInterface, Built<Matterbridge, MatterbridgeBuilder> {
+  /// Creates a new Matterbridge object using the builder pattern.
   factory Matterbridge([void Function(MatterbridgeBuilder)? b]) = _$Matterbridge;
 
   // coverage:ignore-start
   const Matterbridge._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Matterbridge.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Matterbridge.
   static Serializer<Matterbridge> get serializer => _$matterbridgeSerializer;
 }
 
@@ -20795,21 +22259,29 @@ abstract interface class $MatterbridgeProcessStateInterface {
 
 abstract class MatterbridgeProcessState
     implements $MatterbridgeProcessStateInterface, Built<MatterbridgeProcessState, MatterbridgeProcessStateBuilder> {
+  /// Creates a new MatterbridgeProcessState object using the builder pattern.
   factory MatterbridgeProcessState([void Function(MatterbridgeProcessStateBuilder)? b]) = _$MatterbridgeProcessState;
 
   // coverage:ignore-start
   const MatterbridgeProcessState._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeProcessState.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeProcessState.
   static Serializer<MatterbridgeProcessState> get serializer => _$matterbridgeProcessStateSerializer;
 }
 
@@ -20821,6 +22293,7 @@ abstract class MatterbridgeWithProcessState
     implements
         $MatterbridgeWithProcessStateInterface,
         Built<MatterbridgeWithProcessState, MatterbridgeWithProcessStateBuilder> {
+  /// Creates a new MatterbridgeWithProcessState object using the builder pattern.
   factory MatterbridgeWithProcessState([void Function(MatterbridgeWithProcessStateBuilder)? b]) =
       _$MatterbridgeWithProcessState;
 
@@ -20828,15 +22301,22 @@ abstract class MatterbridgeWithProcessState
   const MatterbridgeWithProcessState._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeWithProcessState.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeWithProcessState.
   static Serializer<MatterbridgeWithProcessState> get serializer => _$matterbridgeWithProcessStateSerializer;
 }
 
@@ -20851,6 +22331,7 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
         $MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface,
         Built<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs([
     void Function(MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs;
@@ -20859,15 +22340,22 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
   const MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
       _$matterbridgeGetBridgeOfRoomResponseApplicationJsonOcsSerializer;
 }
@@ -20882,6 +22370,7 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
         $MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface,
         Built<MatterbridgeGetBridgeOfRoomResponseApplicationJson,
             MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder> {
+  /// Creates a new MatterbridgeGetBridgeOfRoomResponseApplicationJson object using the builder pattern.
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson([
     void Function(MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeGetBridgeOfRoomResponseApplicationJson;
@@ -20890,15 +22379,22 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
   const MatterbridgeGetBridgeOfRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeGetBridgeOfRoomResponseApplicationJson.
   static Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson> get serializer =>
       _$matterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer;
 }
@@ -20906,17 +22402,22 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
 class MatterbridgeEditBridgeOfRoomApiVersion extends EnumClass {
   const MatterbridgeEditBridgeOfRoomApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeEditBridgeOfRoomApiVersion v1 = _$matterbridgeEditBridgeOfRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeEditBridgeOfRoomApiVersion> get values => _$matterbridgeEditBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeEditBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeEditBridgeOfRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for MatterbridgeEditBridgeOfRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeEditBridgeOfRoomApiVersion> get serializer =>
       const _$MatterbridgeEditBridgeOfRoomApiVersionSerializer();
@@ -20970,6 +22471,7 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
         $MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface,
         Built<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs([
     void Function(MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs;
@@ -20978,15 +22480,22 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
   const MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
       _$matterbridgeEditBridgeOfRoomResponseApplicationJsonOcsSerializer;
 }
@@ -21001,6 +22510,7 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
         $MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface,
         Built<MatterbridgeEditBridgeOfRoomResponseApplicationJson,
             MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder> {
+  /// Creates a new MatterbridgeEditBridgeOfRoomResponseApplicationJson object using the builder pattern.
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson([
     void Function(MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeEditBridgeOfRoomResponseApplicationJson;
@@ -21009,15 +22519,22 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
   const MatterbridgeEditBridgeOfRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeEditBridgeOfRoomResponseApplicationJson.
   static Serializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson> get serializer =>
       _$matterbridgeEditBridgeOfRoomResponseApplicationJsonSerializer;
 }
@@ -21025,18 +22542,23 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
 class MatterbridgeDeleteBridgeOfRoomApiVersion extends EnumClass {
   const MatterbridgeDeleteBridgeOfRoomApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeDeleteBridgeOfRoomApiVersion v1 = _$matterbridgeDeleteBridgeOfRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeDeleteBridgeOfRoomApiVersion> get values =>
       _$matterbridgeDeleteBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeDeleteBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeDeleteBridgeOfRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for MatterbridgeDeleteBridgeOfRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeDeleteBridgeOfRoomApiVersion> get serializer =>
       const _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer();
@@ -21090,6 +22612,7 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
         $MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface,
         Built<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs([
     void Function(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs;
@@ -21098,15 +22621,22 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
   const MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
       _$matterbridgeDeleteBridgeOfRoomResponseApplicationJsonOcsSerializer;
 }
@@ -21121,6 +22651,7 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
         $MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface,
         Built<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson,
             MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder> {
+  /// Creates a new MatterbridgeDeleteBridgeOfRoomResponseApplicationJson object using the builder pattern.
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson([
     void Function(MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson;
@@ -21129,15 +22660,22 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
   const MatterbridgeDeleteBridgeOfRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.
   static Serializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson> get serializer =>
       _$matterbridgeDeleteBridgeOfRoomResponseApplicationJsonSerializer;
 }
@@ -21145,18 +22683,23 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
 class MatterbridgeGetBridgeProcessStateApiVersion extends EnumClass {
   const MatterbridgeGetBridgeProcessStateApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeGetBridgeProcessStateApiVersion v1 = _$matterbridgeGetBridgeProcessStateApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeGetBridgeProcessStateApiVersion> get values =>
       _$matterbridgeGetBridgeProcessStateApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeGetBridgeProcessStateApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeGetBridgeProcessStateApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for MatterbridgeGetBridgeProcessStateApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeGetBridgeProcessStateApiVersion> get serializer =>
       const _$MatterbridgeGetBridgeProcessStateApiVersionSerializer();
@@ -21210,6 +22753,7 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
         $MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterface,
         Built<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs,
             MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs([
     void Function(MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs;
@@ -21218,15 +22762,22 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
   const MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs> get serializer =>
       _$matterbridgeGetBridgeProcessStateResponseApplicationJsonOcsSerializer;
 }
@@ -21241,6 +22792,7 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
         $MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface,
         Built<MatterbridgeGetBridgeProcessStateResponseApplicationJson,
             MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder> {
+  /// Creates a new MatterbridgeGetBridgeProcessStateResponseApplicationJson object using the builder pattern.
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson([
     void Function(MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeGetBridgeProcessStateResponseApplicationJson;
@@ -21249,15 +22801,22 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
   const MatterbridgeGetBridgeProcessStateResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeGetBridgeProcessStateResponseApplicationJson.
   static Serializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson> get serializer =>
       _$matterbridgeGetBridgeProcessStateResponseApplicationJsonSerializer;
 }
@@ -21265,18 +22824,23 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
 class MatterbridgeSettingsStopAllBridgesApiVersion extends EnumClass {
   const MatterbridgeSettingsStopAllBridgesApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeSettingsStopAllBridgesApiVersion v1 = _$matterbridgeSettingsStopAllBridgesApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeSettingsStopAllBridgesApiVersion> get values =>
       _$matterbridgeSettingsStopAllBridgesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeSettingsStopAllBridgesApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeSettingsStopAllBridgesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for MatterbridgeSettingsStopAllBridgesApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsStopAllBridgesApiVersion> get serializer =>
       const _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer();
@@ -21330,6 +22894,7 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
         $MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInterface,
         Built<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs,
             MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs([
     void Function(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs;
@@ -21338,15 +22903,22 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
   const MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs> get serializer =>
       _$matterbridgeSettingsStopAllBridgesResponseApplicationJsonOcsSerializer;
 }
@@ -21361,6 +22933,7 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
         $MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface,
         Built<MatterbridgeSettingsStopAllBridgesResponseApplicationJson,
             MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder> {
+  /// Creates a new MatterbridgeSettingsStopAllBridgesResponseApplicationJson object using the builder pattern.
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson([
     void Function(MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson;
@@ -21369,15 +22942,22 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
   const MatterbridgeSettingsStopAllBridgesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeSettingsStopAllBridgesResponseApplicationJson.
   static Serializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson> get serializer =>
       _$matterbridgeSettingsStopAllBridgesResponseApplicationJsonSerializer;
 }
@@ -21385,19 +22965,24 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
 class MatterbridgeSettingsGetMatterbridgeVersionApiVersion extends EnumClass {
   const MatterbridgeSettingsGetMatterbridgeVersionApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeSettingsGetMatterbridgeVersionApiVersion v1 =
       _$matterbridgeSettingsGetMatterbridgeVersionApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeSettingsGetMatterbridgeVersionApiVersion> get values =>
       _$matterbridgeSettingsGetMatterbridgeVersionApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeSettingsGetMatterbridgeVersionApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeSettingsGetMatterbridgeVersionApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionApiVersion> get serializer =>
       const _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer();
@@ -21450,6 +23035,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
         $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataInterface,
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data([
     void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data;
@@ -21458,6 +23044,9 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   const MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.fromJson(
     Map<String, dynamic> json,
@@ -21465,10 +23054,14 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data> get serializer =>
       _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonOcsDataSerializer;
 }
@@ -21484,6 +23077,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
         $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsInterface,
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder> {
+  /// Creates a new MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs([
     void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs;
@@ -21492,15 +23086,22 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   const MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs> get serializer =>
       _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonOcsSerializer;
 }
@@ -21515,6 +23116,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
         $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterface,
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder> {
+  /// Creates a new MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson object using the builder pattern.
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson([
     void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson;
@@ -21523,15 +23125,22 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   const MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson> get serializer =>
       _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSerializer;
 }
@@ -21539,20 +23148,26 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
 class PollCreatePollResultMode extends EnumClass {
   const PollCreatePollResultMode._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const PollCreatePollResultMode $0 = _$pollCreatePollResultMode$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const PollCreatePollResultMode $1 = _$pollCreatePollResultMode$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollCreatePollResultMode> get values => _$pollCreatePollResultModeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollCreatePollResultMode valueOf(String name) => _$valueOfPollCreatePollResultMode(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for PollCreatePollResultMode.
   @BuiltValueSerializer(custom: true)
   static Serializer<PollCreatePollResultMode> get serializer => const _$PollCreatePollResultModeSerializer();
 }
@@ -21596,16 +23211,21 @@ class _$PollCreatePollResultModeSerializer implements PrimitiveSerializer<PollCr
 class PollCreatePollApiVersion extends EnumClass {
   const PollCreatePollApiVersion._(super.name);
 
+  /// `v1`
   static const PollCreatePollApiVersion v1 = _$pollCreatePollApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollCreatePollApiVersion> get values => _$pollCreatePollApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollCreatePollApiVersion valueOf(String name) => _$valueOfPollCreatePollApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for PollCreatePollApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<PollCreatePollApiVersion> get serializer => const _$PollCreatePollApiVersionSerializer();
 }
@@ -21653,20 +23273,28 @@ abstract interface class $PollVoteInterface {
 }
 
 abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteBuilder> {
+  /// Creates a new PollVote object using the builder pattern.
   factory PollVote([void Function(PollVoteBuilder)? b]) = _$PollVote;
 
   // coverage:ignore-start
   const PollVote._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollVote.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollVote.
   static Serializer<PollVote> get serializer => _$pollVoteSerializer;
 }
 
@@ -21688,20 +23316,28 @@ abstract interface class $PollInterface {
 }
 
 abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
+  /// Creates a new Poll object using the builder pattern.
   factory Poll([void Function(PollBuilder)? b]) = _$Poll;
 
   // coverage:ignore-start
   const Poll._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Poll.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Poll.
   static Serializer<Poll> get serializer => _$pollSerializer;
 }
 
@@ -21715,6 +23351,7 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
     implements
         $PollCreatePollResponseApplicationJson_OcsInterface,
         Built<PollCreatePollResponseApplicationJson_Ocs, PollCreatePollResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PollCreatePollResponseApplicationJson_Ocs object using the builder pattern.
   factory PollCreatePollResponseApplicationJson_Ocs([
     void Function(PollCreatePollResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PollCreatePollResponseApplicationJson_Ocs;
@@ -21723,15 +23360,22 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
   const PollCreatePollResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollCreatePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollCreatePollResponseApplicationJson_Ocs.
   static Serializer<PollCreatePollResponseApplicationJson_Ocs> get serializer =>
       _$pollCreatePollResponseApplicationJsonOcsSerializer;
 }
@@ -21745,6 +23389,7 @@ abstract class PollCreatePollResponseApplicationJson
     implements
         $PollCreatePollResponseApplicationJsonInterface,
         Built<PollCreatePollResponseApplicationJson, PollCreatePollResponseApplicationJsonBuilder> {
+  /// Creates a new PollCreatePollResponseApplicationJson object using the builder pattern.
   factory PollCreatePollResponseApplicationJson([void Function(PollCreatePollResponseApplicationJsonBuilder)? b]) =
       _$PollCreatePollResponseApplicationJson;
 
@@ -21752,15 +23397,22 @@ abstract class PollCreatePollResponseApplicationJson
   const PollCreatePollResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollCreatePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollCreatePollResponseApplicationJson.
   static Serializer<PollCreatePollResponseApplicationJson> get serializer =>
       _$pollCreatePollResponseApplicationJsonSerializer;
 }
@@ -21768,16 +23420,21 @@ abstract class PollCreatePollResponseApplicationJson
 class PollShowPollApiVersion extends EnumClass {
   const PollShowPollApiVersion._(super.name);
 
+  /// `v1`
   static const PollShowPollApiVersion v1 = _$pollShowPollApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollShowPollApiVersion> get values => _$pollShowPollApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollShowPollApiVersion valueOf(String name) => _$valueOfPollShowPollApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for PollShowPollApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<PollShowPollApiVersion> get serializer => const _$PollShowPollApiVersionSerializer();
 }
@@ -21826,6 +23483,7 @@ abstract class PollShowPollResponseApplicationJson_Ocs
     implements
         $PollShowPollResponseApplicationJson_OcsInterface,
         Built<PollShowPollResponseApplicationJson_Ocs, PollShowPollResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PollShowPollResponseApplicationJson_Ocs object using the builder pattern.
   factory PollShowPollResponseApplicationJson_Ocs([void Function(PollShowPollResponseApplicationJson_OcsBuilder)? b]) =
       _$PollShowPollResponseApplicationJson_Ocs;
 
@@ -21833,15 +23491,22 @@ abstract class PollShowPollResponseApplicationJson_Ocs
   const PollShowPollResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollShowPollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollShowPollResponseApplicationJson_Ocs.
   static Serializer<PollShowPollResponseApplicationJson_Ocs> get serializer =>
       _$pollShowPollResponseApplicationJsonOcsSerializer;
 }
@@ -21855,6 +23520,7 @@ abstract class PollShowPollResponseApplicationJson
     implements
         $PollShowPollResponseApplicationJsonInterface,
         Built<PollShowPollResponseApplicationJson, PollShowPollResponseApplicationJsonBuilder> {
+  /// Creates a new PollShowPollResponseApplicationJson object using the builder pattern.
   factory PollShowPollResponseApplicationJson([void Function(PollShowPollResponseApplicationJsonBuilder)? b]) =
       _$PollShowPollResponseApplicationJson;
 
@@ -21862,15 +23528,22 @@ abstract class PollShowPollResponseApplicationJson
   const PollShowPollResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollShowPollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollShowPollResponseApplicationJson.
   static Serializer<PollShowPollResponseApplicationJson> get serializer =>
       _$pollShowPollResponseApplicationJsonSerializer;
 }
@@ -21878,16 +23551,21 @@ abstract class PollShowPollResponseApplicationJson
 class PollVotePollApiVersion extends EnumClass {
   const PollVotePollApiVersion._(super.name);
 
+  /// `v1`
   static const PollVotePollApiVersion v1 = _$pollVotePollApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollVotePollApiVersion> get values => _$pollVotePollApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollVotePollApiVersion valueOf(String name) => _$valueOfPollVotePollApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for PollVotePollApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<PollVotePollApiVersion> get serializer => const _$PollVotePollApiVersionSerializer();
 }
@@ -21936,6 +23614,7 @@ abstract class PollVotePollResponseApplicationJson_Ocs
     implements
         $PollVotePollResponseApplicationJson_OcsInterface,
         Built<PollVotePollResponseApplicationJson_Ocs, PollVotePollResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PollVotePollResponseApplicationJson_Ocs object using the builder pattern.
   factory PollVotePollResponseApplicationJson_Ocs([void Function(PollVotePollResponseApplicationJson_OcsBuilder)? b]) =
       _$PollVotePollResponseApplicationJson_Ocs;
 
@@ -21943,15 +23622,22 @@ abstract class PollVotePollResponseApplicationJson_Ocs
   const PollVotePollResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollVotePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollVotePollResponseApplicationJson_Ocs.
   static Serializer<PollVotePollResponseApplicationJson_Ocs> get serializer =>
       _$pollVotePollResponseApplicationJsonOcsSerializer;
 }
@@ -21965,6 +23651,7 @@ abstract class PollVotePollResponseApplicationJson
     implements
         $PollVotePollResponseApplicationJsonInterface,
         Built<PollVotePollResponseApplicationJson, PollVotePollResponseApplicationJsonBuilder> {
+  /// Creates a new PollVotePollResponseApplicationJson object using the builder pattern.
   factory PollVotePollResponseApplicationJson([void Function(PollVotePollResponseApplicationJsonBuilder)? b]) =
       _$PollVotePollResponseApplicationJson;
 
@@ -21972,15 +23659,22 @@ abstract class PollVotePollResponseApplicationJson
   const PollVotePollResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollVotePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollVotePollResponseApplicationJson.
   static Serializer<PollVotePollResponseApplicationJson> get serializer =>
       _$pollVotePollResponseApplicationJsonSerializer;
 }
@@ -21988,16 +23682,21 @@ abstract class PollVotePollResponseApplicationJson
 class PollClosePollApiVersion extends EnumClass {
   const PollClosePollApiVersion._(super.name);
 
+  /// `v1`
   static const PollClosePollApiVersion v1 = _$pollClosePollApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollClosePollApiVersion> get values => _$pollClosePollApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollClosePollApiVersion valueOf(String name) => _$valueOfPollClosePollApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for PollClosePollApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<PollClosePollApiVersion> get serializer => const _$PollClosePollApiVersionSerializer();
 }
@@ -22046,6 +23745,7 @@ abstract class PollClosePollResponseApplicationJson_Ocs
     implements
         $PollClosePollResponseApplicationJson_OcsInterface,
         Built<PollClosePollResponseApplicationJson_Ocs, PollClosePollResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PollClosePollResponseApplicationJson_Ocs object using the builder pattern.
   factory PollClosePollResponseApplicationJson_Ocs([
     void Function(PollClosePollResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PollClosePollResponseApplicationJson_Ocs;
@@ -22054,15 +23754,22 @@ abstract class PollClosePollResponseApplicationJson_Ocs
   const PollClosePollResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollClosePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollClosePollResponseApplicationJson_Ocs.
   static Serializer<PollClosePollResponseApplicationJson_Ocs> get serializer =>
       _$pollClosePollResponseApplicationJsonOcsSerializer;
 }
@@ -22076,6 +23783,7 @@ abstract class PollClosePollResponseApplicationJson
     implements
         $PollClosePollResponseApplicationJsonInterface,
         Built<PollClosePollResponseApplicationJson, PollClosePollResponseApplicationJsonBuilder> {
+  /// Creates a new PollClosePollResponseApplicationJson object using the builder pattern.
   factory PollClosePollResponseApplicationJson([void Function(PollClosePollResponseApplicationJsonBuilder)? b]) =
       _$PollClosePollResponseApplicationJson;
 
@@ -22083,15 +23791,22 @@ abstract class PollClosePollResponseApplicationJson
   const PollClosePollResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollClosePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PollClosePollResponseApplicationJson.
   static Serializer<PollClosePollResponseApplicationJson> get serializer =>
       _$pollClosePollResponseApplicationJsonSerializer;
 }
@@ -22099,16 +23814,21 @@ abstract class PollClosePollResponseApplicationJson
 class PublicShareAuthCreateRoomApiVersion extends EnumClass {
   const PublicShareAuthCreateRoomApiVersion._(super.name);
 
+  /// `v1`
   static const PublicShareAuthCreateRoomApiVersion v1 = _$publicShareAuthCreateRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PublicShareAuthCreateRoomApiVersion> get values => _$publicShareAuthCreateRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PublicShareAuthCreateRoomApiVersion valueOf(String name) => _$valueOfPublicShareAuthCreateRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for PublicShareAuthCreateRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<PublicShareAuthCreateRoomApiVersion> get serializer =>
       const _$PublicShareAuthCreateRoomApiVersionSerializer();
@@ -22162,6 +23882,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
         $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface,
         Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
             PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data([
     void Function(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data;
@@ -22170,15 +23891,22 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
   const PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data> get serializer =>
       _$publicShareAuthCreateRoomResponseApplicationJsonOcsDataSerializer;
 }
@@ -22194,6 +23922,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
         $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface,
         Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
             PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs([
     void Function(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs;
@@ -22202,15 +23931,22 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
   const PublicShareAuthCreateRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs.
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs> get serializer =>
       _$publicShareAuthCreateRoomResponseApplicationJsonOcsSerializer;
 }
@@ -22225,6 +23961,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
         $PublicShareAuthCreateRoomResponseApplicationJsonInterface,
         Built<PublicShareAuthCreateRoomResponseApplicationJson,
             PublicShareAuthCreateRoomResponseApplicationJsonBuilder> {
+  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson object using the builder pattern.
   factory PublicShareAuthCreateRoomResponseApplicationJson([
     void Function(PublicShareAuthCreateRoomResponseApplicationJsonBuilder)? b,
   ]) = _$PublicShareAuthCreateRoomResponseApplicationJson;
@@ -22233,15 +23970,22 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
   const PublicShareAuthCreateRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicShareAuthCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson.
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson> get serializer =>
       _$publicShareAuthCreateRoomResponseApplicationJsonSerializer;
 }
@@ -22249,16 +23993,21 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
 class ReactionGetReactionsApiVersion extends EnumClass {
   const ReactionGetReactionsApiVersion._(super.name);
 
+  /// `v1`
   static const ReactionGetReactionsApiVersion v1 = _$reactionGetReactionsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ReactionGetReactionsApiVersion> get values => _$reactionGetReactionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ReactionGetReactionsApiVersion valueOf(String name) => _$valueOfReactionGetReactionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ReactionGetReactionsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ReactionGetReactionsApiVersion> get serializer =>
       const _$ReactionGetReactionsApiVersionSerializer();
@@ -22307,20 +24056,28 @@ abstract interface class $ReactionInterface {
 }
 
 abstract class Reaction implements $ReactionInterface, Built<Reaction, ReactionBuilder> {
+  /// Creates a new Reaction object using the builder pattern.
   factory Reaction([void Function(ReactionBuilder)? b]) = _$Reaction;
 
   // coverage:ignore-start
   const Reaction._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Reaction.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Reaction.
   static Serializer<Reaction> get serializer => _$reactionSerializer;
 }
 
@@ -22334,6 +24091,7 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
     implements
         $ReactionGetReactionsResponseApplicationJson_OcsInterface,
         Built<ReactionGetReactionsResponseApplicationJson_Ocs, ReactionGetReactionsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ReactionGetReactionsResponseApplicationJson_Ocs object using the builder pattern.
   factory ReactionGetReactionsResponseApplicationJson_Ocs([
     void Function(ReactionGetReactionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReactionGetReactionsResponseApplicationJson_Ocs;
@@ -22342,15 +24100,22 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
   const ReactionGetReactionsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionGetReactionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ReactionGetReactionsResponseApplicationJson_Ocs.
   static Serializer<ReactionGetReactionsResponseApplicationJson_Ocs> get serializer =>
       _$reactionGetReactionsResponseApplicationJsonOcsSerializer;
 }
@@ -22364,6 +24129,7 @@ abstract class ReactionGetReactionsResponseApplicationJson
     implements
         $ReactionGetReactionsResponseApplicationJsonInterface,
         Built<ReactionGetReactionsResponseApplicationJson, ReactionGetReactionsResponseApplicationJsonBuilder> {
+  /// Creates a new ReactionGetReactionsResponseApplicationJson object using the builder pattern.
   factory ReactionGetReactionsResponseApplicationJson([
     void Function(ReactionGetReactionsResponseApplicationJsonBuilder)? b,
   ]) = _$ReactionGetReactionsResponseApplicationJson;
@@ -22372,15 +24138,22 @@ abstract class ReactionGetReactionsResponseApplicationJson
   const ReactionGetReactionsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionGetReactionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ReactionGetReactionsResponseApplicationJson.
   static Serializer<ReactionGetReactionsResponseApplicationJson> get serializer =>
       _$reactionGetReactionsResponseApplicationJsonSerializer;
 }
@@ -22388,16 +24161,21 @@ abstract class ReactionGetReactionsResponseApplicationJson
 class ReactionReactApiVersion extends EnumClass {
   const ReactionReactApiVersion._(super.name);
 
+  /// `v1`
   static const ReactionReactApiVersion v1 = _$reactionReactApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ReactionReactApiVersion> get values => _$reactionReactApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ReactionReactApiVersion valueOf(String name) => _$valueOfReactionReactApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ReactionReactApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ReactionReactApiVersion> get serializer => const _$ReactionReactApiVersionSerializer();
 }
@@ -22446,6 +24224,7 @@ abstract class ReactionReactResponseApplicationJson_Ocs
     implements
         $ReactionReactResponseApplicationJson_OcsInterface,
         Built<ReactionReactResponseApplicationJson_Ocs, ReactionReactResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ReactionReactResponseApplicationJson_Ocs object using the builder pattern.
   factory ReactionReactResponseApplicationJson_Ocs([
     void Function(ReactionReactResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReactionReactResponseApplicationJson_Ocs;
@@ -22454,15 +24233,22 @@ abstract class ReactionReactResponseApplicationJson_Ocs
   const ReactionReactResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionReactResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ReactionReactResponseApplicationJson_Ocs.
   static Serializer<ReactionReactResponseApplicationJson_Ocs> get serializer =>
       _$reactionReactResponseApplicationJsonOcsSerializer;
 }
@@ -22476,6 +24262,7 @@ abstract class ReactionReactResponseApplicationJson
     implements
         $ReactionReactResponseApplicationJsonInterface,
         Built<ReactionReactResponseApplicationJson, ReactionReactResponseApplicationJsonBuilder> {
+  /// Creates a new ReactionReactResponseApplicationJson object using the builder pattern.
   factory ReactionReactResponseApplicationJson([void Function(ReactionReactResponseApplicationJsonBuilder)? b]) =
       _$ReactionReactResponseApplicationJson;
 
@@ -22483,15 +24270,22 @@ abstract class ReactionReactResponseApplicationJson
   const ReactionReactResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionReactResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ReactionReactResponseApplicationJson.
   static Serializer<ReactionReactResponseApplicationJson> get serializer =>
       _$reactionReactResponseApplicationJsonSerializer;
 }
@@ -22499,16 +24293,21 @@ abstract class ReactionReactResponseApplicationJson
 class ReactionDeleteApiVersion extends EnumClass {
   const ReactionDeleteApiVersion._(super.name);
 
+  /// `v1`
   static const ReactionDeleteApiVersion v1 = _$reactionDeleteApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ReactionDeleteApiVersion> get values => _$reactionDeleteApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ReactionDeleteApiVersion valueOf(String name) => _$valueOfReactionDeleteApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for ReactionDeleteApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<ReactionDeleteApiVersion> get serializer => const _$ReactionDeleteApiVersionSerializer();
 }
@@ -22557,6 +24356,7 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
     implements
         $ReactionDeleteResponseApplicationJson_OcsInterface,
         Built<ReactionDeleteResponseApplicationJson_Ocs, ReactionDeleteResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ReactionDeleteResponseApplicationJson_Ocs object using the builder pattern.
   factory ReactionDeleteResponseApplicationJson_Ocs([
     void Function(ReactionDeleteResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReactionDeleteResponseApplicationJson_Ocs;
@@ -22565,15 +24365,22 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
   const ReactionDeleteResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionDeleteResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ReactionDeleteResponseApplicationJson_Ocs.
   static Serializer<ReactionDeleteResponseApplicationJson_Ocs> get serializer =>
       _$reactionDeleteResponseApplicationJsonOcsSerializer;
 }
@@ -22587,6 +24394,7 @@ abstract class ReactionDeleteResponseApplicationJson
     implements
         $ReactionDeleteResponseApplicationJsonInterface,
         Built<ReactionDeleteResponseApplicationJson, ReactionDeleteResponseApplicationJsonBuilder> {
+  /// Creates a new ReactionDeleteResponseApplicationJson object using the builder pattern.
   factory ReactionDeleteResponseApplicationJson([void Function(ReactionDeleteResponseApplicationJsonBuilder)? b]) =
       _$ReactionDeleteResponseApplicationJson;
 
@@ -22594,15 +24402,22 @@ abstract class ReactionDeleteResponseApplicationJson
   const ReactionDeleteResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionDeleteResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ReactionDeleteResponseApplicationJson.
   static Serializer<ReactionDeleteResponseApplicationJson> get serializer =>
       _$reactionDeleteResponseApplicationJsonSerializer;
 }
@@ -22610,17 +24425,22 @@ abstract class ReactionDeleteResponseApplicationJson
 class RecordingGetWelcomeMessageApiVersion extends EnumClass {
   const RecordingGetWelcomeMessageApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingGetWelcomeMessageApiVersion v1 = _$recordingGetWelcomeMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingGetWelcomeMessageApiVersion> get values => _$recordingGetWelcomeMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingGetWelcomeMessageApiVersion valueOf(String name) =>
       _$valueOfRecordingGetWelcomeMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RecordingGetWelcomeMessageApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RecordingGetWelcomeMessageApiVersion> get serializer =>
       const _$RecordingGetWelcomeMessageApiVersionSerializer();
@@ -22673,6 +24493,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
         $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
         Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
             RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
     void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
@@ -22681,15 +24502,22 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
   const RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> get serializer =>
       _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer;
 }
@@ -22705,6 +24533,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
         $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface,
         Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
             RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs([
     void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs;
@@ -22713,15 +24542,22 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
   const RecordingGetWelcomeMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs.
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
       _$recordingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
 }
@@ -22736,6 +24572,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
         $RecordingGetWelcomeMessageResponseApplicationJsonInterface,
         Built<RecordingGetWelcomeMessageResponseApplicationJson,
             RecordingGetWelcomeMessageResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
   factory RecordingGetWelcomeMessageResponseApplicationJson([
     void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
   ]) = _$RecordingGetWelcomeMessageResponseApplicationJson;
@@ -22744,15 +24581,22 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
   const RecordingGetWelcomeMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson.
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson> get serializer =>
       _$recordingGetWelcomeMessageResponseApplicationJsonSerializer;
 }
@@ -22760,16 +24604,21 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
 class RecordingStartApiVersion extends EnumClass {
   const RecordingStartApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingStartApiVersion v1 = _$recordingStartApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingStartApiVersion> get values => _$recordingStartApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingStartApiVersion valueOf(String name) => _$valueOfRecordingStartApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RecordingStartApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStartApiVersion> get serializer => const _$RecordingStartApiVersionSerializer();
 }
@@ -22818,6 +24667,7 @@ abstract class RecordingStartResponseApplicationJson_Ocs
     implements
         $RecordingStartResponseApplicationJson_OcsInterface,
         Built<RecordingStartResponseApplicationJson_Ocs, RecordingStartResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingStartResponseApplicationJson_Ocs object using the builder pattern.
   factory RecordingStartResponseApplicationJson_Ocs([
     void Function(RecordingStartResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingStartResponseApplicationJson_Ocs;
@@ -22826,15 +24676,22 @@ abstract class RecordingStartResponseApplicationJson_Ocs
   const RecordingStartResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStartResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingStartResponseApplicationJson_Ocs.
   static Serializer<RecordingStartResponseApplicationJson_Ocs> get serializer =>
       _$recordingStartResponseApplicationJsonOcsSerializer;
 }
@@ -22848,6 +24705,7 @@ abstract class RecordingStartResponseApplicationJson
     implements
         $RecordingStartResponseApplicationJsonInterface,
         Built<RecordingStartResponseApplicationJson, RecordingStartResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingStartResponseApplicationJson object using the builder pattern.
   factory RecordingStartResponseApplicationJson([void Function(RecordingStartResponseApplicationJsonBuilder)? b]) =
       _$RecordingStartResponseApplicationJson;
 
@@ -22855,15 +24713,22 @@ abstract class RecordingStartResponseApplicationJson
   const RecordingStartResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStartResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingStartResponseApplicationJson.
   static Serializer<RecordingStartResponseApplicationJson> get serializer =>
       _$recordingStartResponseApplicationJsonSerializer;
 }
@@ -22871,16 +24736,21 @@ abstract class RecordingStartResponseApplicationJson
 class RecordingStopApiVersion extends EnumClass {
   const RecordingStopApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingStopApiVersion v1 = _$recordingStopApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingStopApiVersion> get values => _$recordingStopApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingStopApiVersion valueOf(String name) => _$valueOfRecordingStopApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RecordingStopApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStopApiVersion> get serializer => const _$RecordingStopApiVersionSerializer();
 }
@@ -22929,6 +24799,7 @@ abstract class RecordingStopResponseApplicationJson_Ocs
     implements
         $RecordingStopResponseApplicationJson_OcsInterface,
         Built<RecordingStopResponseApplicationJson_Ocs, RecordingStopResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingStopResponseApplicationJson_Ocs object using the builder pattern.
   factory RecordingStopResponseApplicationJson_Ocs([
     void Function(RecordingStopResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingStopResponseApplicationJson_Ocs;
@@ -22937,15 +24808,22 @@ abstract class RecordingStopResponseApplicationJson_Ocs
   const RecordingStopResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStopResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingStopResponseApplicationJson_Ocs.
   static Serializer<RecordingStopResponseApplicationJson_Ocs> get serializer =>
       _$recordingStopResponseApplicationJsonOcsSerializer;
 }
@@ -22959,6 +24837,7 @@ abstract class RecordingStopResponseApplicationJson
     implements
         $RecordingStopResponseApplicationJsonInterface,
         Built<RecordingStopResponseApplicationJson, RecordingStopResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingStopResponseApplicationJson object using the builder pattern.
   factory RecordingStopResponseApplicationJson([void Function(RecordingStopResponseApplicationJsonBuilder)? b]) =
       _$RecordingStopResponseApplicationJson;
 
@@ -22966,15 +24845,22 @@ abstract class RecordingStopResponseApplicationJson
   const RecordingStopResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStopResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingStopResponseApplicationJson.
   static Serializer<RecordingStopResponseApplicationJson> get serializer =>
       _$recordingStopResponseApplicationJsonSerializer;
 }
@@ -22982,16 +24868,21 @@ abstract class RecordingStopResponseApplicationJson
 class RecordingStoreApiVersion extends EnumClass {
   const RecordingStoreApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingStoreApiVersion v1 = _$recordingStoreApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingStoreApiVersion> get values => _$recordingStoreApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingStoreApiVersion valueOf(String name) => _$valueOfRecordingStoreApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RecordingStoreApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStoreApiVersion> get serializer => const _$RecordingStoreApiVersionSerializer();
 }
@@ -23040,6 +24931,7 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
     implements
         $RecordingStoreResponseApplicationJson_OcsInterface,
         Built<RecordingStoreResponseApplicationJson_Ocs, RecordingStoreResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingStoreResponseApplicationJson_Ocs object using the builder pattern.
   factory RecordingStoreResponseApplicationJson_Ocs([
     void Function(RecordingStoreResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingStoreResponseApplicationJson_Ocs;
@@ -23048,15 +24940,22 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
   const RecordingStoreResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStoreResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingStoreResponseApplicationJson_Ocs.
   static Serializer<RecordingStoreResponseApplicationJson_Ocs> get serializer =>
       _$recordingStoreResponseApplicationJsonOcsSerializer;
 }
@@ -23070,6 +24969,7 @@ abstract class RecordingStoreResponseApplicationJson
     implements
         $RecordingStoreResponseApplicationJsonInterface,
         Built<RecordingStoreResponseApplicationJson, RecordingStoreResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingStoreResponseApplicationJson object using the builder pattern.
   factory RecordingStoreResponseApplicationJson([void Function(RecordingStoreResponseApplicationJsonBuilder)? b]) =
       _$RecordingStoreResponseApplicationJson;
 
@@ -23077,15 +24977,22 @@ abstract class RecordingStoreResponseApplicationJson
   const RecordingStoreResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStoreResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingStoreResponseApplicationJson.
   static Serializer<RecordingStoreResponseApplicationJson> get serializer =>
       _$recordingStoreResponseApplicationJsonSerializer;
 }
@@ -23093,17 +25000,22 @@ abstract class RecordingStoreResponseApplicationJson
 class RecordingNotificationDismissApiVersion extends EnumClass {
   const RecordingNotificationDismissApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingNotificationDismissApiVersion v1 = _$recordingNotificationDismissApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingNotificationDismissApiVersion> get values => _$recordingNotificationDismissApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingNotificationDismissApiVersion valueOf(String name) =>
       _$valueOfRecordingNotificationDismissApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RecordingNotificationDismissApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RecordingNotificationDismissApiVersion> get serializer =>
       const _$RecordingNotificationDismissApiVersionSerializer();
@@ -23157,6 +25069,7 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
         $RecordingNotificationDismissResponseApplicationJson_OcsInterface,
         Built<RecordingNotificationDismissResponseApplicationJson_Ocs,
             RecordingNotificationDismissResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingNotificationDismissResponseApplicationJson_Ocs object using the builder pattern.
   factory RecordingNotificationDismissResponseApplicationJson_Ocs([
     void Function(RecordingNotificationDismissResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingNotificationDismissResponseApplicationJson_Ocs;
@@ -23165,15 +25078,22 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
   const RecordingNotificationDismissResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingNotificationDismissResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingNotificationDismissResponseApplicationJson_Ocs.
   static Serializer<RecordingNotificationDismissResponseApplicationJson_Ocs> get serializer =>
       _$recordingNotificationDismissResponseApplicationJsonOcsSerializer;
 }
@@ -23188,6 +25108,7 @@ abstract class RecordingNotificationDismissResponseApplicationJson
         $RecordingNotificationDismissResponseApplicationJsonInterface,
         Built<RecordingNotificationDismissResponseApplicationJson,
             RecordingNotificationDismissResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingNotificationDismissResponseApplicationJson object using the builder pattern.
   factory RecordingNotificationDismissResponseApplicationJson([
     void Function(RecordingNotificationDismissResponseApplicationJsonBuilder)? b,
   ]) = _$RecordingNotificationDismissResponseApplicationJson;
@@ -23196,15 +25117,22 @@ abstract class RecordingNotificationDismissResponseApplicationJson
   const RecordingNotificationDismissResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingNotificationDismissResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingNotificationDismissResponseApplicationJson.
   static Serializer<RecordingNotificationDismissResponseApplicationJson> get serializer =>
       _$recordingNotificationDismissResponseApplicationJsonSerializer;
 }
@@ -23212,16 +25140,21 @@ abstract class RecordingNotificationDismissResponseApplicationJson
 class RecordingShareToChatApiVersion extends EnumClass {
   const RecordingShareToChatApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingShareToChatApiVersion v1 = _$recordingShareToChatApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingShareToChatApiVersion> get values => _$recordingShareToChatApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingShareToChatApiVersion valueOf(String name) => _$valueOfRecordingShareToChatApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RecordingShareToChatApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RecordingShareToChatApiVersion> get serializer =>
       const _$RecordingShareToChatApiVersionSerializer();
@@ -23271,6 +25204,7 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
     implements
         $RecordingShareToChatResponseApplicationJson_OcsInterface,
         Built<RecordingShareToChatResponseApplicationJson_Ocs, RecordingShareToChatResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingShareToChatResponseApplicationJson_Ocs object using the builder pattern.
   factory RecordingShareToChatResponseApplicationJson_Ocs([
     void Function(RecordingShareToChatResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingShareToChatResponseApplicationJson_Ocs;
@@ -23279,15 +25213,22 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
   const RecordingShareToChatResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingShareToChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingShareToChatResponseApplicationJson_Ocs.
   static Serializer<RecordingShareToChatResponseApplicationJson_Ocs> get serializer =>
       _$recordingShareToChatResponseApplicationJsonOcsSerializer;
 }
@@ -23301,6 +25242,7 @@ abstract class RecordingShareToChatResponseApplicationJson
     implements
         $RecordingShareToChatResponseApplicationJsonInterface,
         Built<RecordingShareToChatResponseApplicationJson, RecordingShareToChatResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingShareToChatResponseApplicationJson object using the builder pattern.
   factory RecordingShareToChatResponseApplicationJson([
     void Function(RecordingShareToChatResponseApplicationJsonBuilder)? b,
   ]) = _$RecordingShareToChatResponseApplicationJson;
@@ -23309,15 +25251,22 @@ abstract class RecordingShareToChatResponseApplicationJson
   const RecordingShareToChatResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingShareToChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RecordingShareToChatResponseApplicationJson.
   static Serializer<RecordingShareToChatResponseApplicationJson> get serializer =>
       _$recordingShareToChatResponseApplicationJsonSerializer;
 }
@@ -23325,20 +25274,26 @@ abstract class RecordingShareToChatResponseApplicationJson
 class RoomGetRoomsNoStatusUpdate extends EnumClass {
   const RoomGetRoomsNoStatusUpdate._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomGetRoomsNoStatusUpdate $0 = _$roomGetRoomsNoStatusUpdate$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomGetRoomsNoStatusUpdate $1 = _$roomGetRoomsNoStatusUpdate$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetRoomsNoStatusUpdate> get values => _$roomGetRoomsNoStatusUpdateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetRoomsNoStatusUpdate valueOf(String name) => _$valueOfRoomGetRoomsNoStatusUpdate(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for RoomGetRoomsNoStatusUpdate.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetRoomsNoStatusUpdate> get serializer => const _$RoomGetRoomsNoStatusUpdateSerializer();
 }
@@ -23382,16 +25337,21 @@ class _$RoomGetRoomsNoStatusUpdateSerializer implements PrimitiveSerializer<Room
 class RoomGetRoomsApiVersion extends EnumClass {
   const RoomGetRoomsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetRoomsApiVersion v4 = _$roomGetRoomsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetRoomsApiVersion> get values => _$roomGetRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetRoomsApiVersion valueOf(String name) => _$valueOfRoomGetRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomGetRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetRoomsApiVersion> get serializer => const _$RoomGetRoomsApiVersionSerializer();
 }
@@ -23440,21 +25400,29 @@ abstract interface class $RoomRoomGetRoomsHeadersInterface {
 
 abstract class RoomRoomGetRoomsHeaders
     implements $RoomRoomGetRoomsHeadersInterface, Built<RoomRoomGetRoomsHeaders, RoomRoomGetRoomsHeadersBuilder> {
+  /// Creates a new RoomRoomGetRoomsHeaders object using the builder pattern.
   factory RoomRoomGetRoomsHeaders([void Function(RoomRoomGetRoomsHeadersBuilder)? b]) = _$RoomRoomGetRoomsHeaders;
 
   // coverage:ignore-start
   const RoomRoomGetRoomsHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetRoomsHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRoomGetRoomsHeaders.
   static Serializer<RoomRoomGetRoomsHeaders> get serializer => _$roomRoomGetRoomsHeadersSerializer;
 }
 
@@ -23468,6 +25436,7 @@ abstract class RoomGetRoomsResponseApplicationJson_Ocs
     implements
         $RoomGetRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetRoomsResponseApplicationJson_Ocs, RoomGetRoomsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomGetRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetRoomsResponseApplicationJson_Ocs([void Function(RoomGetRoomsResponseApplicationJson_OcsBuilder)? b]) =
       _$RoomGetRoomsResponseApplicationJson_Ocs;
 
@@ -23475,15 +25444,22 @@ abstract class RoomGetRoomsResponseApplicationJson_Ocs
   const RoomGetRoomsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetRoomsResponseApplicationJson_Ocs.
   static Serializer<RoomGetRoomsResponseApplicationJson_Ocs> get serializer =>
       _$roomGetRoomsResponseApplicationJsonOcsSerializer;
 }
@@ -23497,6 +25473,7 @@ abstract class RoomGetRoomsResponseApplicationJson
     implements
         $RoomGetRoomsResponseApplicationJsonInterface,
         Built<RoomGetRoomsResponseApplicationJson, RoomGetRoomsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomGetRoomsResponseApplicationJson object using the builder pattern.
   factory RoomGetRoomsResponseApplicationJson([void Function(RoomGetRoomsResponseApplicationJsonBuilder)? b]) =
       _$RoomGetRoomsResponseApplicationJson;
 
@@ -23504,15 +25481,22 @@ abstract class RoomGetRoomsResponseApplicationJson
   const RoomGetRoomsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetRoomsResponseApplicationJson.
   static Serializer<RoomGetRoomsResponseApplicationJson> get serializer =>
       _$roomGetRoomsResponseApplicationJsonSerializer;
 }
@@ -23520,16 +25504,21 @@ abstract class RoomGetRoomsResponseApplicationJson
 class RoomCreateRoomApiVersion extends EnumClass {
   const RoomCreateRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomCreateRoomApiVersion v4 = _$roomCreateRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomCreateRoomApiVersion> get values => _$roomCreateRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomCreateRoomApiVersion valueOf(String name) => _$valueOfRoomCreateRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomCreateRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomCreateRoomApiVersion> get serializer => const _$RoomCreateRoomApiVersionSerializer();
 }
@@ -23578,6 +25567,7 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
     implements
         $RoomCreateRoomResponseApplicationJson_OcsInterface,
         Built<RoomCreateRoomResponseApplicationJson_Ocs, RoomCreateRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomCreateRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomCreateRoomResponseApplicationJson_Ocs([
     void Function(RoomCreateRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomCreateRoomResponseApplicationJson_Ocs;
@@ -23586,15 +25576,22 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
   const RoomCreateRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomCreateRoomResponseApplicationJson_Ocs.
   static Serializer<RoomCreateRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomCreateRoomResponseApplicationJsonOcsSerializer;
 }
@@ -23608,6 +25605,7 @@ abstract class RoomCreateRoomResponseApplicationJson
     implements
         $RoomCreateRoomResponseApplicationJsonInterface,
         Built<RoomCreateRoomResponseApplicationJson, RoomCreateRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomCreateRoomResponseApplicationJson object using the builder pattern.
   factory RoomCreateRoomResponseApplicationJson([void Function(RoomCreateRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomCreateRoomResponseApplicationJson;
 
@@ -23615,15 +25613,22 @@ abstract class RoomCreateRoomResponseApplicationJson
   const RoomCreateRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomCreateRoomResponseApplicationJson.
   static Serializer<RoomCreateRoomResponseApplicationJson> get serializer =>
       _$roomCreateRoomResponseApplicationJsonSerializer;
 }
@@ -23631,16 +25636,21 @@ abstract class RoomCreateRoomResponseApplicationJson
 class RoomGetListedRoomsApiVersion extends EnumClass {
   const RoomGetListedRoomsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetListedRoomsApiVersion v4 = _$roomGetListedRoomsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetListedRoomsApiVersion> get values => _$roomGetListedRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetListedRoomsApiVersion valueOf(String name) => _$valueOfRoomGetListedRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomGetListedRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetListedRoomsApiVersion> get serializer => const _$RoomGetListedRoomsApiVersionSerializer();
 }
@@ -23689,6 +25699,7 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
     implements
         $RoomGetListedRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetListedRoomsResponseApplicationJson_Ocs, RoomGetListedRoomsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomGetListedRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetListedRoomsResponseApplicationJson_Ocs([
     void Function(RoomGetListedRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetListedRoomsResponseApplicationJson_Ocs;
@@ -23697,15 +25708,22 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
   const RoomGetListedRoomsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetListedRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetListedRoomsResponseApplicationJson_Ocs.
   static Serializer<RoomGetListedRoomsResponseApplicationJson_Ocs> get serializer =>
       _$roomGetListedRoomsResponseApplicationJsonOcsSerializer;
 }
@@ -23719,6 +25737,7 @@ abstract class RoomGetListedRoomsResponseApplicationJson
     implements
         $RoomGetListedRoomsResponseApplicationJsonInterface,
         Built<RoomGetListedRoomsResponseApplicationJson, RoomGetListedRoomsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomGetListedRoomsResponseApplicationJson object using the builder pattern.
   factory RoomGetListedRoomsResponseApplicationJson([
     void Function(RoomGetListedRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetListedRoomsResponseApplicationJson;
@@ -23727,15 +25746,22 @@ abstract class RoomGetListedRoomsResponseApplicationJson
   const RoomGetListedRoomsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetListedRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetListedRoomsResponseApplicationJson.
   static Serializer<RoomGetListedRoomsResponseApplicationJson> get serializer =>
       _$roomGetListedRoomsResponseApplicationJsonSerializer;
 }
@@ -23743,18 +25769,23 @@ abstract class RoomGetListedRoomsResponseApplicationJson
 class RoomGetNoteToSelfConversationApiVersion extends EnumClass {
   const RoomGetNoteToSelfConversationApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetNoteToSelfConversationApiVersion v4 = _$roomGetNoteToSelfConversationApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetNoteToSelfConversationApiVersion> get values =>
       _$roomGetNoteToSelfConversationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetNoteToSelfConversationApiVersion valueOf(String name) =>
       _$valueOfRoomGetNoteToSelfConversationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomGetNoteToSelfConversationApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetNoteToSelfConversationApiVersion> get serializer =>
       const _$RoomGetNoteToSelfConversationApiVersionSerializer();
@@ -23807,6 +25838,7 @@ abstract class RoomRoomGetNoteToSelfConversationHeaders
     implements
         $RoomRoomGetNoteToSelfConversationHeadersInterface,
         Built<RoomRoomGetNoteToSelfConversationHeaders, RoomRoomGetNoteToSelfConversationHeadersBuilder> {
+  /// Creates a new RoomRoomGetNoteToSelfConversationHeaders object using the builder pattern.
   factory RoomRoomGetNoteToSelfConversationHeaders([
     void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? b,
   ]) = _$RoomRoomGetNoteToSelfConversationHeaders;
@@ -23815,15 +25847,22 @@ abstract class RoomRoomGetNoteToSelfConversationHeaders
   const RoomRoomGetNoteToSelfConversationHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetNoteToSelfConversationHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRoomGetNoteToSelfConversationHeaders.
   static Serializer<RoomRoomGetNoteToSelfConversationHeaders> get serializer =>
       _$roomRoomGetNoteToSelfConversationHeadersSerializer;
 }
@@ -23839,6 +25878,7 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
         $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface,
         Built<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs,
             RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomGetNoteToSelfConversationResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs([
     void Function(RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetNoteToSelfConversationResponseApplicationJson_Ocs;
@@ -23847,15 +25887,22 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
   const RoomGetNoteToSelfConversationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.
   static Serializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs> get serializer =>
       _$roomGetNoteToSelfConversationResponseApplicationJsonOcsSerializer;
 }
@@ -23870,6 +25917,7 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
         $RoomGetNoteToSelfConversationResponseApplicationJsonInterface,
         Built<RoomGetNoteToSelfConversationResponseApplicationJson,
             RoomGetNoteToSelfConversationResponseApplicationJsonBuilder> {
+  /// Creates a new RoomGetNoteToSelfConversationResponseApplicationJson object using the builder pattern.
   factory RoomGetNoteToSelfConversationResponseApplicationJson([
     void Function(RoomGetNoteToSelfConversationResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetNoteToSelfConversationResponseApplicationJson;
@@ -23878,15 +25926,22 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
   const RoomGetNoteToSelfConversationResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetNoteToSelfConversationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetNoteToSelfConversationResponseApplicationJson.
   static Serializer<RoomGetNoteToSelfConversationResponseApplicationJson> get serializer =>
       _$roomGetNoteToSelfConversationResponseApplicationJsonSerializer;
 }
@@ -23894,16 +25949,21 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
 class RoomGetSingleRoomApiVersion extends EnumClass {
   const RoomGetSingleRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetSingleRoomApiVersion v4 = _$roomGetSingleRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetSingleRoomApiVersion> get values => _$roomGetSingleRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetSingleRoomApiVersion valueOf(String name) => _$valueOfRoomGetSingleRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomGetSingleRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetSingleRoomApiVersion> get serializer => const _$RoomGetSingleRoomApiVersionSerializer();
 }
@@ -23952,6 +26012,7 @@ abstract class RoomRoomGetSingleRoomHeaders
     implements
         $RoomRoomGetSingleRoomHeadersInterface,
         Built<RoomRoomGetSingleRoomHeaders, RoomRoomGetSingleRoomHeadersBuilder> {
+  /// Creates a new RoomRoomGetSingleRoomHeaders object using the builder pattern.
   factory RoomRoomGetSingleRoomHeaders([void Function(RoomRoomGetSingleRoomHeadersBuilder)? b]) =
       _$RoomRoomGetSingleRoomHeaders;
 
@@ -23959,15 +26020,22 @@ abstract class RoomRoomGetSingleRoomHeaders
   const RoomRoomGetSingleRoomHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetSingleRoomHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRoomGetSingleRoomHeaders.
   static Serializer<RoomRoomGetSingleRoomHeaders> get serializer => _$roomRoomGetSingleRoomHeadersSerializer;
 }
 
@@ -23981,6 +26049,7 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
     implements
         $RoomGetSingleRoomResponseApplicationJson_OcsInterface,
         Built<RoomGetSingleRoomResponseApplicationJson_Ocs, RoomGetSingleRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomGetSingleRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetSingleRoomResponseApplicationJson_Ocs([
     void Function(RoomGetSingleRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetSingleRoomResponseApplicationJson_Ocs;
@@ -23989,15 +26058,22 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
   const RoomGetSingleRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetSingleRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetSingleRoomResponseApplicationJson_Ocs.
   static Serializer<RoomGetSingleRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomGetSingleRoomResponseApplicationJsonOcsSerializer;
 }
@@ -24011,6 +26087,7 @@ abstract class RoomGetSingleRoomResponseApplicationJson
     implements
         $RoomGetSingleRoomResponseApplicationJsonInterface,
         Built<RoomGetSingleRoomResponseApplicationJson, RoomGetSingleRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomGetSingleRoomResponseApplicationJson object using the builder pattern.
   factory RoomGetSingleRoomResponseApplicationJson([
     void Function(RoomGetSingleRoomResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetSingleRoomResponseApplicationJson;
@@ -24019,15 +26096,22 @@ abstract class RoomGetSingleRoomResponseApplicationJson
   const RoomGetSingleRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetSingleRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetSingleRoomResponseApplicationJson.
   static Serializer<RoomGetSingleRoomResponseApplicationJson> get serializer =>
       _$roomGetSingleRoomResponseApplicationJsonSerializer;
 }
@@ -24035,16 +26119,21 @@ abstract class RoomGetSingleRoomResponseApplicationJson
 class RoomRenameRoomApiVersion extends EnumClass {
   const RoomRenameRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomRenameRoomApiVersion v4 = _$roomRenameRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomRenameRoomApiVersion> get values => _$roomRenameRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomRenameRoomApiVersion valueOf(String name) => _$valueOfRoomRenameRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomRenameRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomRenameRoomApiVersion> get serializer => const _$RoomRenameRoomApiVersionSerializer();
 }
@@ -24093,6 +26182,7 @@ abstract class RoomRenameRoomResponseApplicationJson_Ocs
     implements
         $RoomRenameRoomResponseApplicationJson_OcsInterface,
         Built<RoomRenameRoomResponseApplicationJson_Ocs, RoomRenameRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomRenameRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomRenameRoomResponseApplicationJson_Ocs([
     void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomRenameRoomResponseApplicationJson_Ocs;
@@ -24101,15 +26191,22 @@ abstract class RoomRenameRoomResponseApplicationJson_Ocs
   const RoomRenameRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRenameRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRenameRoomResponseApplicationJson_Ocs.
   static Serializer<RoomRenameRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomRenameRoomResponseApplicationJsonOcsSerializer;
 }
@@ -24123,6 +26220,7 @@ abstract class RoomRenameRoomResponseApplicationJson
     implements
         $RoomRenameRoomResponseApplicationJsonInterface,
         Built<RoomRenameRoomResponseApplicationJson, RoomRenameRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomRenameRoomResponseApplicationJson object using the builder pattern.
   factory RoomRenameRoomResponseApplicationJson([void Function(RoomRenameRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomRenameRoomResponseApplicationJson;
 
@@ -24130,15 +26228,22 @@ abstract class RoomRenameRoomResponseApplicationJson
   const RoomRenameRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRenameRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRenameRoomResponseApplicationJson.
   static Serializer<RoomRenameRoomResponseApplicationJson> get serializer =>
       _$roomRenameRoomResponseApplicationJsonSerializer;
 }
@@ -24146,16 +26251,21 @@ abstract class RoomRenameRoomResponseApplicationJson
 class RoomDeleteRoomApiVersion extends EnumClass {
   const RoomDeleteRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomDeleteRoomApiVersion v4 = _$roomDeleteRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomDeleteRoomApiVersion> get values => _$roomDeleteRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomDeleteRoomApiVersion valueOf(String name) => _$valueOfRoomDeleteRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomDeleteRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomDeleteRoomApiVersion> get serializer => const _$RoomDeleteRoomApiVersionSerializer();
 }
@@ -24204,6 +26314,7 @@ abstract class RoomDeleteRoomResponseApplicationJson_Ocs
     implements
         $RoomDeleteRoomResponseApplicationJson_OcsInterface,
         Built<RoomDeleteRoomResponseApplicationJson_Ocs, RoomDeleteRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomDeleteRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomDeleteRoomResponseApplicationJson_Ocs([
     void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomDeleteRoomResponseApplicationJson_Ocs;
@@ -24212,15 +26323,22 @@ abstract class RoomDeleteRoomResponseApplicationJson_Ocs
   const RoomDeleteRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomDeleteRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomDeleteRoomResponseApplicationJson_Ocs.
   static Serializer<RoomDeleteRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomDeleteRoomResponseApplicationJsonOcsSerializer;
 }
@@ -24234,6 +26352,7 @@ abstract class RoomDeleteRoomResponseApplicationJson
     implements
         $RoomDeleteRoomResponseApplicationJsonInterface,
         Built<RoomDeleteRoomResponseApplicationJson, RoomDeleteRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomDeleteRoomResponseApplicationJson object using the builder pattern.
   factory RoomDeleteRoomResponseApplicationJson([void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomDeleteRoomResponseApplicationJson;
 
@@ -24241,15 +26360,22 @@ abstract class RoomDeleteRoomResponseApplicationJson
   const RoomDeleteRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomDeleteRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomDeleteRoomResponseApplicationJson.
   static Serializer<RoomDeleteRoomResponseApplicationJson> get serializer =>
       _$roomDeleteRoomResponseApplicationJsonSerializer;
 }
@@ -24257,16 +26383,21 @@ abstract class RoomDeleteRoomResponseApplicationJson
 class RoomGetBreakoutRoomsApiVersion extends EnumClass {
   const RoomGetBreakoutRoomsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetBreakoutRoomsApiVersion v4 = _$roomGetBreakoutRoomsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetBreakoutRoomsApiVersion> get values => _$roomGetBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetBreakoutRoomsApiVersion valueOf(String name) => _$valueOfRoomGetBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomGetBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetBreakoutRoomsApiVersion> get serializer =>
       const _$RoomGetBreakoutRoomsApiVersionSerializer();
@@ -24316,6 +26447,7 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
     implements
         $RoomGetBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetBreakoutRoomsResponseApplicationJson_Ocs, RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomGetBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetBreakoutRoomsResponseApplicationJson_Ocs;
@@ -24324,15 +26456,22 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
   const RoomGetBreakoutRoomsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<RoomGetBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
       _$roomGetBreakoutRoomsResponseApplicationJsonOcsSerializer;
 }
@@ -24346,6 +26485,7 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
     implements
         $RoomGetBreakoutRoomsResponseApplicationJsonInterface,
         Built<RoomGetBreakoutRoomsResponseApplicationJson, RoomGetBreakoutRoomsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomGetBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory RoomGetBreakoutRoomsResponseApplicationJson([
     void Function(RoomGetBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetBreakoutRoomsResponseApplicationJson;
@@ -24354,15 +26494,22 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
   const RoomGetBreakoutRoomsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetBreakoutRoomsResponseApplicationJson.
   static Serializer<RoomGetBreakoutRoomsResponseApplicationJson> get serializer =>
       _$roomGetBreakoutRoomsResponseApplicationJsonSerializer;
 }
@@ -24370,16 +26517,21 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
 class RoomMakePublicApiVersion extends EnumClass {
   const RoomMakePublicApiVersion._(super.name);
 
+  /// `v4`
   static const RoomMakePublicApiVersion v4 = _$roomMakePublicApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomMakePublicApiVersion> get values => _$roomMakePublicApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomMakePublicApiVersion valueOf(String name) => _$valueOfRoomMakePublicApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomMakePublicApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomMakePublicApiVersion> get serializer => const _$RoomMakePublicApiVersionSerializer();
 }
@@ -24428,6 +26580,7 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
     implements
         $RoomMakePublicResponseApplicationJson_OcsInterface,
         Built<RoomMakePublicResponseApplicationJson_Ocs, RoomMakePublicResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomMakePublicResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomMakePublicResponseApplicationJson_Ocs([
     void Function(RoomMakePublicResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomMakePublicResponseApplicationJson_Ocs;
@@ -24436,15 +26589,22 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
   const RoomMakePublicResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomMakePublicResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomMakePublicResponseApplicationJson_Ocs.
   static Serializer<RoomMakePublicResponseApplicationJson_Ocs> get serializer =>
       _$roomMakePublicResponseApplicationJsonOcsSerializer;
 }
@@ -24458,6 +26618,7 @@ abstract class RoomMakePublicResponseApplicationJson
     implements
         $RoomMakePublicResponseApplicationJsonInterface,
         Built<RoomMakePublicResponseApplicationJson, RoomMakePublicResponseApplicationJsonBuilder> {
+  /// Creates a new RoomMakePublicResponseApplicationJson object using the builder pattern.
   factory RoomMakePublicResponseApplicationJson([void Function(RoomMakePublicResponseApplicationJsonBuilder)? b]) =
       _$RoomMakePublicResponseApplicationJson;
 
@@ -24465,15 +26626,22 @@ abstract class RoomMakePublicResponseApplicationJson
   const RoomMakePublicResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomMakePublicResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomMakePublicResponseApplicationJson.
   static Serializer<RoomMakePublicResponseApplicationJson> get serializer =>
       _$roomMakePublicResponseApplicationJsonSerializer;
 }
@@ -24481,16 +26649,21 @@ abstract class RoomMakePublicResponseApplicationJson
 class RoomMakePrivateApiVersion extends EnumClass {
   const RoomMakePrivateApiVersion._(super.name);
 
+  /// `v4`
   static const RoomMakePrivateApiVersion v4 = _$roomMakePrivateApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomMakePrivateApiVersion> get values => _$roomMakePrivateApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomMakePrivateApiVersion valueOf(String name) => _$valueOfRoomMakePrivateApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomMakePrivateApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomMakePrivateApiVersion> get serializer => const _$RoomMakePrivateApiVersionSerializer();
 }
@@ -24539,6 +26712,7 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
     implements
         $RoomMakePrivateResponseApplicationJson_OcsInterface,
         Built<RoomMakePrivateResponseApplicationJson_Ocs, RoomMakePrivateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomMakePrivateResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomMakePrivateResponseApplicationJson_Ocs([
     void Function(RoomMakePrivateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomMakePrivateResponseApplicationJson_Ocs;
@@ -24547,15 +26721,22 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
   const RoomMakePrivateResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomMakePrivateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomMakePrivateResponseApplicationJson_Ocs.
   static Serializer<RoomMakePrivateResponseApplicationJson_Ocs> get serializer =>
       _$roomMakePrivateResponseApplicationJsonOcsSerializer;
 }
@@ -24569,6 +26750,7 @@ abstract class RoomMakePrivateResponseApplicationJson
     implements
         $RoomMakePrivateResponseApplicationJsonInterface,
         Built<RoomMakePrivateResponseApplicationJson, RoomMakePrivateResponseApplicationJsonBuilder> {
+  /// Creates a new RoomMakePrivateResponseApplicationJson object using the builder pattern.
   factory RoomMakePrivateResponseApplicationJson([void Function(RoomMakePrivateResponseApplicationJsonBuilder)? b]) =
       _$RoomMakePrivateResponseApplicationJson;
 
@@ -24576,15 +26758,22 @@ abstract class RoomMakePrivateResponseApplicationJson
   const RoomMakePrivateResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomMakePrivateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomMakePrivateResponseApplicationJson.
   static Serializer<RoomMakePrivateResponseApplicationJson> get serializer =>
       _$roomMakePrivateResponseApplicationJsonSerializer;
 }
@@ -24592,16 +26781,21 @@ abstract class RoomMakePrivateResponseApplicationJson
 class RoomSetDescriptionApiVersion extends EnumClass {
   const RoomSetDescriptionApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetDescriptionApiVersion v4 = _$roomSetDescriptionApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetDescriptionApiVersion> get values => _$roomSetDescriptionApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetDescriptionApiVersion valueOf(String name) => _$valueOfRoomSetDescriptionApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetDescriptionApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetDescriptionApiVersion> get serializer => const _$RoomSetDescriptionApiVersionSerializer();
 }
@@ -24650,6 +26844,7 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
     implements
         $RoomSetDescriptionResponseApplicationJson_OcsInterface,
         Built<RoomSetDescriptionResponseApplicationJson_Ocs, RoomSetDescriptionResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetDescriptionResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetDescriptionResponseApplicationJson_Ocs([
     void Function(RoomSetDescriptionResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetDescriptionResponseApplicationJson_Ocs;
@@ -24658,15 +26853,22 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
   const RoomSetDescriptionResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetDescriptionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetDescriptionResponseApplicationJson_Ocs.
   static Serializer<RoomSetDescriptionResponseApplicationJson_Ocs> get serializer =>
       _$roomSetDescriptionResponseApplicationJsonOcsSerializer;
 }
@@ -24680,6 +26882,7 @@ abstract class RoomSetDescriptionResponseApplicationJson
     implements
         $RoomSetDescriptionResponseApplicationJsonInterface,
         Built<RoomSetDescriptionResponseApplicationJson, RoomSetDescriptionResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetDescriptionResponseApplicationJson object using the builder pattern.
   factory RoomSetDescriptionResponseApplicationJson([
     void Function(RoomSetDescriptionResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetDescriptionResponseApplicationJson;
@@ -24688,15 +26891,22 @@ abstract class RoomSetDescriptionResponseApplicationJson
   const RoomSetDescriptionResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetDescriptionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetDescriptionResponseApplicationJson.
   static Serializer<RoomSetDescriptionResponseApplicationJson> get serializer =>
       _$roomSetDescriptionResponseApplicationJsonSerializer;
 }
@@ -24704,20 +26914,26 @@ abstract class RoomSetDescriptionResponseApplicationJson
 class RoomSetReadOnlyState extends EnumClass {
   const RoomSetReadOnlyState._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetReadOnlyState $0 = _$roomSetReadOnlyState$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetReadOnlyState $1 = _$roomSetReadOnlyState$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetReadOnlyState> get values => _$roomSetReadOnlyStateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetReadOnlyState valueOf(String name) => _$valueOfRoomSetReadOnlyState(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for RoomSetReadOnlyState.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetReadOnlyState> get serializer => const _$RoomSetReadOnlyStateSerializer();
 }
@@ -24761,16 +26977,21 @@ class _$RoomSetReadOnlyStateSerializer implements PrimitiveSerializer<RoomSetRea
 class RoomSetReadOnlyApiVersion extends EnumClass {
   const RoomSetReadOnlyApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetReadOnlyApiVersion v4 = _$roomSetReadOnlyApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetReadOnlyApiVersion> get values => _$roomSetReadOnlyApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetReadOnlyApiVersion valueOf(String name) => _$valueOfRoomSetReadOnlyApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetReadOnlyApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetReadOnlyApiVersion> get serializer => const _$RoomSetReadOnlyApiVersionSerializer();
 }
@@ -24819,6 +27040,7 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
     implements
         $RoomSetReadOnlyResponseApplicationJson_OcsInterface,
         Built<RoomSetReadOnlyResponseApplicationJson_Ocs, RoomSetReadOnlyResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetReadOnlyResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetReadOnlyResponseApplicationJson_Ocs([
     void Function(RoomSetReadOnlyResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetReadOnlyResponseApplicationJson_Ocs;
@@ -24827,15 +27049,22 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
   const RoomSetReadOnlyResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetReadOnlyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetReadOnlyResponseApplicationJson_Ocs.
   static Serializer<RoomSetReadOnlyResponseApplicationJson_Ocs> get serializer =>
       _$roomSetReadOnlyResponseApplicationJsonOcsSerializer;
 }
@@ -24849,6 +27078,7 @@ abstract class RoomSetReadOnlyResponseApplicationJson
     implements
         $RoomSetReadOnlyResponseApplicationJsonInterface,
         Built<RoomSetReadOnlyResponseApplicationJson, RoomSetReadOnlyResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetReadOnlyResponseApplicationJson object using the builder pattern.
   factory RoomSetReadOnlyResponseApplicationJson([void Function(RoomSetReadOnlyResponseApplicationJsonBuilder)? b]) =
       _$RoomSetReadOnlyResponseApplicationJson;
 
@@ -24856,15 +27086,22 @@ abstract class RoomSetReadOnlyResponseApplicationJson
   const RoomSetReadOnlyResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetReadOnlyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetReadOnlyResponseApplicationJson.
   static Serializer<RoomSetReadOnlyResponseApplicationJson> get serializer =>
       _$roomSetReadOnlyResponseApplicationJsonSerializer;
 }
@@ -24872,23 +27109,30 @@ abstract class RoomSetReadOnlyResponseApplicationJson
 class RoomSetListableScope extends EnumClass {
   const RoomSetListableScope._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetListableScope $0 = _$roomSetListableScope$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetListableScope $1 = _$roomSetListableScope$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetListableScope $2 = _$roomSetListableScope$2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetListableScope> get values => _$roomSetListableScopeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetListableScope valueOf(String name) => _$valueOfRoomSetListableScope(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for RoomSetListableScope.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetListableScope> get serializer => const _$RoomSetListableScopeSerializer();
 }
@@ -24934,16 +27178,21 @@ class _$RoomSetListableScopeSerializer implements PrimitiveSerializer<RoomSetLis
 class RoomSetListableApiVersion extends EnumClass {
   const RoomSetListableApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetListableApiVersion v4 = _$roomSetListableApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetListableApiVersion> get values => _$roomSetListableApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetListableApiVersion valueOf(String name) => _$valueOfRoomSetListableApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetListableApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetListableApiVersion> get serializer => const _$RoomSetListableApiVersionSerializer();
 }
@@ -24992,6 +27241,7 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
     implements
         $RoomSetListableResponseApplicationJson_OcsInterface,
         Built<RoomSetListableResponseApplicationJson_Ocs, RoomSetListableResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetListableResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetListableResponseApplicationJson_Ocs([
     void Function(RoomSetListableResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetListableResponseApplicationJson_Ocs;
@@ -25000,15 +27250,22 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
   const RoomSetListableResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetListableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetListableResponseApplicationJson_Ocs.
   static Serializer<RoomSetListableResponseApplicationJson_Ocs> get serializer =>
       _$roomSetListableResponseApplicationJsonOcsSerializer;
 }
@@ -25022,6 +27279,7 @@ abstract class RoomSetListableResponseApplicationJson
     implements
         $RoomSetListableResponseApplicationJsonInterface,
         Built<RoomSetListableResponseApplicationJson, RoomSetListableResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetListableResponseApplicationJson object using the builder pattern.
   factory RoomSetListableResponseApplicationJson([void Function(RoomSetListableResponseApplicationJsonBuilder)? b]) =
       _$RoomSetListableResponseApplicationJson;
 
@@ -25029,15 +27287,22 @@ abstract class RoomSetListableResponseApplicationJson
   const RoomSetListableResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetListableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetListableResponseApplicationJson.
   static Serializer<RoomSetListableResponseApplicationJson> get serializer =>
       _$roomSetListableResponseApplicationJsonSerializer;
 }
@@ -25045,16 +27310,21 @@ abstract class RoomSetListableResponseApplicationJson
 class RoomSetPasswordApiVersion extends EnumClass {
   const RoomSetPasswordApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetPasswordApiVersion v4 = _$roomSetPasswordApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetPasswordApiVersion> get values => _$roomSetPasswordApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetPasswordApiVersion valueOf(String name) => _$valueOfRoomSetPasswordApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetPasswordApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetPasswordApiVersion> get serializer => const _$RoomSetPasswordApiVersionSerializer();
 }
@@ -25103,6 +27373,7 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
     implements
         $RoomSetPasswordResponseApplicationJson_OcsInterface,
         Built<RoomSetPasswordResponseApplicationJson_Ocs, RoomSetPasswordResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetPasswordResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetPasswordResponseApplicationJson_Ocs([
     void Function(RoomSetPasswordResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetPasswordResponseApplicationJson_Ocs;
@@ -25111,15 +27382,22 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
   const RoomSetPasswordResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetPasswordResponseApplicationJson_Ocs.
   static Serializer<RoomSetPasswordResponseApplicationJson_Ocs> get serializer =>
       _$roomSetPasswordResponseApplicationJsonOcsSerializer;
 }
@@ -25133,6 +27411,7 @@ abstract class RoomSetPasswordResponseApplicationJson
     implements
         $RoomSetPasswordResponseApplicationJsonInterface,
         Built<RoomSetPasswordResponseApplicationJson, RoomSetPasswordResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetPasswordResponseApplicationJson object using the builder pattern.
   factory RoomSetPasswordResponseApplicationJson([void Function(RoomSetPasswordResponseApplicationJsonBuilder)? b]) =
       _$RoomSetPasswordResponseApplicationJson;
 
@@ -25140,15 +27419,22 @@ abstract class RoomSetPasswordResponseApplicationJson
   const RoomSetPasswordResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetPasswordResponseApplicationJson.
   static Serializer<RoomSetPasswordResponseApplicationJson> get serializer =>
       _$roomSetPasswordResponseApplicationJsonSerializer;
 }
@@ -25156,782 +27442,1042 @@ abstract class RoomSetPasswordResponseApplicationJson
 class RoomSetPermissionsPermissions extends EnumClass {
   const RoomSetPermissionsPermissions._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetPermissionsPermissions $0 = _$roomSetPermissionsPermissions$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetPermissionsPermissions $1 = _$roomSetPermissionsPermissions$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetPermissionsPermissions $2 = _$roomSetPermissionsPermissions$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const RoomSetPermissionsPermissions $3 = _$roomSetPermissionsPermissions$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const RoomSetPermissionsPermissions $4 = _$roomSetPermissionsPermissions$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const RoomSetPermissionsPermissions $5 = _$roomSetPermissionsPermissions$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const RoomSetPermissionsPermissions $6 = _$roomSetPermissionsPermissions$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const RoomSetPermissionsPermissions $7 = _$roomSetPermissionsPermissions$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const RoomSetPermissionsPermissions $8 = _$roomSetPermissionsPermissions$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const RoomSetPermissionsPermissions $9 = _$roomSetPermissionsPermissions$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const RoomSetPermissionsPermissions $10 = _$roomSetPermissionsPermissions$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const RoomSetPermissionsPermissions $11 = _$roomSetPermissionsPermissions$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const RoomSetPermissionsPermissions $12 = _$roomSetPermissionsPermissions$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const RoomSetPermissionsPermissions $13 = _$roomSetPermissionsPermissions$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const RoomSetPermissionsPermissions $14 = _$roomSetPermissionsPermissions$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const RoomSetPermissionsPermissions $15 = _$roomSetPermissionsPermissions$15;
 
+  /// `16`
   @BuiltValueEnumConst(wireName: '16')
   static const RoomSetPermissionsPermissions $16 = _$roomSetPermissionsPermissions$16;
 
+  /// `17`
   @BuiltValueEnumConst(wireName: '17')
   static const RoomSetPermissionsPermissions $17 = _$roomSetPermissionsPermissions$17;
 
+  /// `18`
   @BuiltValueEnumConst(wireName: '18')
   static const RoomSetPermissionsPermissions $18 = _$roomSetPermissionsPermissions$18;
 
+  /// `19`
   @BuiltValueEnumConst(wireName: '19')
   static const RoomSetPermissionsPermissions $19 = _$roomSetPermissionsPermissions$19;
 
+  /// `20`
   @BuiltValueEnumConst(wireName: '20')
   static const RoomSetPermissionsPermissions $20 = _$roomSetPermissionsPermissions$20;
 
+  /// `21`
   @BuiltValueEnumConst(wireName: '21')
   static const RoomSetPermissionsPermissions $21 = _$roomSetPermissionsPermissions$21;
 
+  /// `22`
   @BuiltValueEnumConst(wireName: '22')
   static const RoomSetPermissionsPermissions $22 = _$roomSetPermissionsPermissions$22;
 
+  /// `23`
   @BuiltValueEnumConst(wireName: '23')
   static const RoomSetPermissionsPermissions $23 = _$roomSetPermissionsPermissions$23;
 
+  /// `24`
   @BuiltValueEnumConst(wireName: '24')
   static const RoomSetPermissionsPermissions $24 = _$roomSetPermissionsPermissions$24;
 
+  /// `25`
   @BuiltValueEnumConst(wireName: '25')
   static const RoomSetPermissionsPermissions $25 = _$roomSetPermissionsPermissions$25;
 
+  /// `26`
   @BuiltValueEnumConst(wireName: '26')
   static const RoomSetPermissionsPermissions $26 = _$roomSetPermissionsPermissions$26;
 
+  /// `27`
   @BuiltValueEnumConst(wireName: '27')
   static const RoomSetPermissionsPermissions $27 = _$roomSetPermissionsPermissions$27;
 
+  /// `28`
   @BuiltValueEnumConst(wireName: '28')
   static const RoomSetPermissionsPermissions $28 = _$roomSetPermissionsPermissions$28;
 
+  /// `29`
   @BuiltValueEnumConst(wireName: '29')
   static const RoomSetPermissionsPermissions $29 = _$roomSetPermissionsPermissions$29;
 
+  /// `30`
   @BuiltValueEnumConst(wireName: '30')
   static const RoomSetPermissionsPermissions $30 = _$roomSetPermissionsPermissions$30;
 
+  /// `31`
   @BuiltValueEnumConst(wireName: '31')
   static const RoomSetPermissionsPermissions $31 = _$roomSetPermissionsPermissions$31;
 
+  /// `32`
   @BuiltValueEnumConst(wireName: '32')
   static const RoomSetPermissionsPermissions $32 = _$roomSetPermissionsPermissions$32;
 
+  /// `33`
   @BuiltValueEnumConst(wireName: '33')
   static const RoomSetPermissionsPermissions $33 = _$roomSetPermissionsPermissions$33;
 
+  /// `34`
   @BuiltValueEnumConst(wireName: '34')
   static const RoomSetPermissionsPermissions $34 = _$roomSetPermissionsPermissions$34;
 
+  /// `35`
   @BuiltValueEnumConst(wireName: '35')
   static const RoomSetPermissionsPermissions $35 = _$roomSetPermissionsPermissions$35;
 
+  /// `36`
   @BuiltValueEnumConst(wireName: '36')
   static const RoomSetPermissionsPermissions $36 = _$roomSetPermissionsPermissions$36;
 
+  /// `37`
   @BuiltValueEnumConst(wireName: '37')
   static const RoomSetPermissionsPermissions $37 = _$roomSetPermissionsPermissions$37;
 
+  /// `38`
   @BuiltValueEnumConst(wireName: '38')
   static const RoomSetPermissionsPermissions $38 = _$roomSetPermissionsPermissions$38;
 
+  /// `39`
   @BuiltValueEnumConst(wireName: '39')
   static const RoomSetPermissionsPermissions $39 = _$roomSetPermissionsPermissions$39;
 
+  /// `40`
   @BuiltValueEnumConst(wireName: '40')
   static const RoomSetPermissionsPermissions $40 = _$roomSetPermissionsPermissions$40;
 
+  /// `41`
   @BuiltValueEnumConst(wireName: '41')
   static const RoomSetPermissionsPermissions $41 = _$roomSetPermissionsPermissions$41;
 
+  /// `42`
   @BuiltValueEnumConst(wireName: '42')
   static const RoomSetPermissionsPermissions $42 = _$roomSetPermissionsPermissions$42;
 
+  /// `43`
   @BuiltValueEnumConst(wireName: '43')
   static const RoomSetPermissionsPermissions $43 = _$roomSetPermissionsPermissions$43;
 
+  /// `44`
   @BuiltValueEnumConst(wireName: '44')
   static const RoomSetPermissionsPermissions $44 = _$roomSetPermissionsPermissions$44;
 
+  /// `45`
   @BuiltValueEnumConst(wireName: '45')
   static const RoomSetPermissionsPermissions $45 = _$roomSetPermissionsPermissions$45;
 
+  /// `46`
   @BuiltValueEnumConst(wireName: '46')
   static const RoomSetPermissionsPermissions $46 = _$roomSetPermissionsPermissions$46;
 
+  /// `47`
   @BuiltValueEnumConst(wireName: '47')
   static const RoomSetPermissionsPermissions $47 = _$roomSetPermissionsPermissions$47;
 
+  /// `48`
   @BuiltValueEnumConst(wireName: '48')
   static const RoomSetPermissionsPermissions $48 = _$roomSetPermissionsPermissions$48;
 
+  /// `49`
   @BuiltValueEnumConst(wireName: '49')
   static const RoomSetPermissionsPermissions $49 = _$roomSetPermissionsPermissions$49;
 
+  /// `50`
   @BuiltValueEnumConst(wireName: '50')
   static const RoomSetPermissionsPermissions $50 = _$roomSetPermissionsPermissions$50;
 
+  /// `51`
   @BuiltValueEnumConst(wireName: '51')
   static const RoomSetPermissionsPermissions $51 = _$roomSetPermissionsPermissions$51;
 
+  /// `52`
   @BuiltValueEnumConst(wireName: '52')
   static const RoomSetPermissionsPermissions $52 = _$roomSetPermissionsPermissions$52;
 
+  /// `53`
   @BuiltValueEnumConst(wireName: '53')
   static const RoomSetPermissionsPermissions $53 = _$roomSetPermissionsPermissions$53;
 
+  /// `54`
   @BuiltValueEnumConst(wireName: '54')
   static const RoomSetPermissionsPermissions $54 = _$roomSetPermissionsPermissions$54;
 
+  /// `55`
   @BuiltValueEnumConst(wireName: '55')
   static const RoomSetPermissionsPermissions $55 = _$roomSetPermissionsPermissions$55;
 
+  /// `56`
   @BuiltValueEnumConst(wireName: '56')
   static const RoomSetPermissionsPermissions $56 = _$roomSetPermissionsPermissions$56;
 
+  /// `57`
   @BuiltValueEnumConst(wireName: '57')
   static const RoomSetPermissionsPermissions $57 = _$roomSetPermissionsPermissions$57;
 
+  /// `58`
   @BuiltValueEnumConst(wireName: '58')
   static const RoomSetPermissionsPermissions $58 = _$roomSetPermissionsPermissions$58;
 
+  /// `59`
   @BuiltValueEnumConst(wireName: '59')
   static const RoomSetPermissionsPermissions $59 = _$roomSetPermissionsPermissions$59;
 
+  /// `60`
   @BuiltValueEnumConst(wireName: '60')
   static const RoomSetPermissionsPermissions $60 = _$roomSetPermissionsPermissions$60;
 
+  /// `61`
   @BuiltValueEnumConst(wireName: '61')
   static const RoomSetPermissionsPermissions $61 = _$roomSetPermissionsPermissions$61;
 
+  /// `62`
   @BuiltValueEnumConst(wireName: '62')
   static const RoomSetPermissionsPermissions $62 = _$roomSetPermissionsPermissions$62;
 
+  /// `63`
   @BuiltValueEnumConst(wireName: '63')
   static const RoomSetPermissionsPermissions $63 = _$roomSetPermissionsPermissions$63;
 
+  /// `64`
   @BuiltValueEnumConst(wireName: '64')
   static const RoomSetPermissionsPermissions $64 = _$roomSetPermissionsPermissions$64;
 
+  /// `65`
   @BuiltValueEnumConst(wireName: '65')
   static const RoomSetPermissionsPermissions $65 = _$roomSetPermissionsPermissions$65;
 
+  /// `66`
   @BuiltValueEnumConst(wireName: '66')
   static const RoomSetPermissionsPermissions $66 = _$roomSetPermissionsPermissions$66;
 
+  /// `67`
   @BuiltValueEnumConst(wireName: '67')
   static const RoomSetPermissionsPermissions $67 = _$roomSetPermissionsPermissions$67;
 
+  /// `68`
   @BuiltValueEnumConst(wireName: '68')
   static const RoomSetPermissionsPermissions $68 = _$roomSetPermissionsPermissions$68;
 
+  /// `69`
   @BuiltValueEnumConst(wireName: '69')
   static const RoomSetPermissionsPermissions $69 = _$roomSetPermissionsPermissions$69;
 
+  /// `70`
   @BuiltValueEnumConst(wireName: '70')
   static const RoomSetPermissionsPermissions $70 = _$roomSetPermissionsPermissions$70;
 
+  /// `71`
   @BuiltValueEnumConst(wireName: '71')
   static const RoomSetPermissionsPermissions $71 = _$roomSetPermissionsPermissions$71;
 
+  /// `72`
   @BuiltValueEnumConst(wireName: '72')
   static const RoomSetPermissionsPermissions $72 = _$roomSetPermissionsPermissions$72;
 
+  /// `73`
   @BuiltValueEnumConst(wireName: '73')
   static const RoomSetPermissionsPermissions $73 = _$roomSetPermissionsPermissions$73;
 
+  /// `74`
   @BuiltValueEnumConst(wireName: '74')
   static const RoomSetPermissionsPermissions $74 = _$roomSetPermissionsPermissions$74;
 
+  /// `75`
   @BuiltValueEnumConst(wireName: '75')
   static const RoomSetPermissionsPermissions $75 = _$roomSetPermissionsPermissions$75;
 
+  /// `76`
   @BuiltValueEnumConst(wireName: '76')
   static const RoomSetPermissionsPermissions $76 = _$roomSetPermissionsPermissions$76;
 
+  /// `77`
   @BuiltValueEnumConst(wireName: '77')
   static const RoomSetPermissionsPermissions $77 = _$roomSetPermissionsPermissions$77;
 
+  /// `78`
   @BuiltValueEnumConst(wireName: '78')
   static const RoomSetPermissionsPermissions $78 = _$roomSetPermissionsPermissions$78;
 
+  /// `79`
   @BuiltValueEnumConst(wireName: '79')
   static const RoomSetPermissionsPermissions $79 = _$roomSetPermissionsPermissions$79;
 
+  /// `80`
   @BuiltValueEnumConst(wireName: '80')
   static const RoomSetPermissionsPermissions $80 = _$roomSetPermissionsPermissions$80;
 
+  /// `81`
   @BuiltValueEnumConst(wireName: '81')
   static const RoomSetPermissionsPermissions $81 = _$roomSetPermissionsPermissions$81;
 
+  /// `82`
   @BuiltValueEnumConst(wireName: '82')
   static const RoomSetPermissionsPermissions $82 = _$roomSetPermissionsPermissions$82;
 
+  /// `83`
   @BuiltValueEnumConst(wireName: '83')
   static const RoomSetPermissionsPermissions $83 = _$roomSetPermissionsPermissions$83;
 
+  /// `84`
   @BuiltValueEnumConst(wireName: '84')
   static const RoomSetPermissionsPermissions $84 = _$roomSetPermissionsPermissions$84;
 
+  /// `85`
   @BuiltValueEnumConst(wireName: '85')
   static const RoomSetPermissionsPermissions $85 = _$roomSetPermissionsPermissions$85;
 
+  /// `86`
   @BuiltValueEnumConst(wireName: '86')
   static const RoomSetPermissionsPermissions $86 = _$roomSetPermissionsPermissions$86;
 
+  /// `87`
   @BuiltValueEnumConst(wireName: '87')
   static const RoomSetPermissionsPermissions $87 = _$roomSetPermissionsPermissions$87;
 
+  /// `88`
   @BuiltValueEnumConst(wireName: '88')
   static const RoomSetPermissionsPermissions $88 = _$roomSetPermissionsPermissions$88;
 
+  /// `89`
   @BuiltValueEnumConst(wireName: '89')
   static const RoomSetPermissionsPermissions $89 = _$roomSetPermissionsPermissions$89;
 
+  /// `90`
   @BuiltValueEnumConst(wireName: '90')
   static const RoomSetPermissionsPermissions $90 = _$roomSetPermissionsPermissions$90;
 
+  /// `91`
   @BuiltValueEnumConst(wireName: '91')
   static const RoomSetPermissionsPermissions $91 = _$roomSetPermissionsPermissions$91;
 
+  /// `92`
   @BuiltValueEnumConst(wireName: '92')
   static const RoomSetPermissionsPermissions $92 = _$roomSetPermissionsPermissions$92;
 
+  /// `93`
   @BuiltValueEnumConst(wireName: '93')
   static const RoomSetPermissionsPermissions $93 = _$roomSetPermissionsPermissions$93;
 
+  /// `94`
   @BuiltValueEnumConst(wireName: '94')
   static const RoomSetPermissionsPermissions $94 = _$roomSetPermissionsPermissions$94;
 
+  /// `95`
   @BuiltValueEnumConst(wireName: '95')
   static const RoomSetPermissionsPermissions $95 = _$roomSetPermissionsPermissions$95;
 
+  /// `96`
   @BuiltValueEnumConst(wireName: '96')
   static const RoomSetPermissionsPermissions $96 = _$roomSetPermissionsPermissions$96;
 
+  /// `97`
   @BuiltValueEnumConst(wireName: '97')
   static const RoomSetPermissionsPermissions $97 = _$roomSetPermissionsPermissions$97;
 
+  /// `98`
   @BuiltValueEnumConst(wireName: '98')
   static const RoomSetPermissionsPermissions $98 = _$roomSetPermissionsPermissions$98;
 
+  /// `99`
   @BuiltValueEnumConst(wireName: '99')
   static const RoomSetPermissionsPermissions $99 = _$roomSetPermissionsPermissions$99;
 
+  /// `100`
   @BuiltValueEnumConst(wireName: '100')
   static const RoomSetPermissionsPermissions $100 = _$roomSetPermissionsPermissions$100;
 
+  /// `101`
   @BuiltValueEnumConst(wireName: '101')
   static const RoomSetPermissionsPermissions $101 = _$roomSetPermissionsPermissions$101;
 
+  /// `102`
   @BuiltValueEnumConst(wireName: '102')
   static const RoomSetPermissionsPermissions $102 = _$roomSetPermissionsPermissions$102;
 
+  /// `103`
   @BuiltValueEnumConst(wireName: '103')
   static const RoomSetPermissionsPermissions $103 = _$roomSetPermissionsPermissions$103;
 
+  /// `104`
   @BuiltValueEnumConst(wireName: '104')
   static const RoomSetPermissionsPermissions $104 = _$roomSetPermissionsPermissions$104;
 
+  /// `105`
   @BuiltValueEnumConst(wireName: '105')
   static const RoomSetPermissionsPermissions $105 = _$roomSetPermissionsPermissions$105;
 
+  /// `106`
   @BuiltValueEnumConst(wireName: '106')
   static const RoomSetPermissionsPermissions $106 = _$roomSetPermissionsPermissions$106;
 
+  /// `107`
   @BuiltValueEnumConst(wireName: '107')
   static const RoomSetPermissionsPermissions $107 = _$roomSetPermissionsPermissions$107;
 
+  /// `108`
   @BuiltValueEnumConst(wireName: '108')
   static const RoomSetPermissionsPermissions $108 = _$roomSetPermissionsPermissions$108;
 
+  /// `109`
   @BuiltValueEnumConst(wireName: '109')
   static const RoomSetPermissionsPermissions $109 = _$roomSetPermissionsPermissions$109;
 
+  /// `110`
   @BuiltValueEnumConst(wireName: '110')
   static const RoomSetPermissionsPermissions $110 = _$roomSetPermissionsPermissions$110;
 
+  /// `111`
   @BuiltValueEnumConst(wireName: '111')
   static const RoomSetPermissionsPermissions $111 = _$roomSetPermissionsPermissions$111;
 
+  /// `112`
   @BuiltValueEnumConst(wireName: '112')
   static const RoomSetPermissionsPermissions $112 = _$roomSetPermissionsPermissions$112;
 
+  /// `113`
   @BuiltValueEnumConst(wireName: '113')
   static const RoomSetPermissionsPermissions $113 = _$roomSetPermissionsPermissions$113;
 
+  /// `114`
   @BuiltValueEnumConst(wireName: '114')
   static const RoomSetPermissionsPermissions $114 = _$roomSetPermissionsPermissions$114;
 
+  /// `115`
   @BuiltValueEnumConst(wireName: '115')
   static const RoomSetPermissionsPermissions $115 = _$roomSetPermissionsPermissions$115;
 
+  /// `116`
   @BuiltValueEnumConst(wireName: '116')
   static const RoomSetPermissionsPermissions $116 = _$roomSetPermissionsPermissions$116;
 
+  /// `117`
   @BuiltValueEnumConst(wireName: '117')
   static const RoomSetPermissionsPermissions $117 = _$roomSetPermissionsPermissions$117;
 
+  /// `118`
   @BuiltValueEnumConst(wireName: '118')
   static const RoomSetPermissionsPermissions $118 = _$roomSetPermissionsPermissions$118;
 
+  /// `119`
   @BuiltValueEnumConst(wireName: '119')
   static const RoomSetPermissionsPermissions $119 = _$roomSetPermissionsPermissions$119;
 
+  /// `120`
   @BuiltValueEnumConst(wireName: '120')
   static const RoomSetPermissionsPermissions $120 = _$roomSetPermissionsPermissions$120;
 
+  /// `121`
   @BuiltValueEnumConst(wireName: '121')
   static const RoomSetPermissionsPermissions $121 = _$roomSetPermissionsPermissions$121;
 
+  /// `122`
   @BuiltValueEnumConst(wireName: '122')
   static const RoomSetPermissionsPermissions $122 = _$roomSetPermissionsPermissions$122;
 
+  /// `123`
   @BuiltValueEnumConst(wireName: '123')
   static const RoomSetPermissionsPermissions $123 = _$roomSetPermissionsPermissions$123;
 
+  /// `124`
   @BuiltValueEnumConst(wireName: '124')
   static const RoomSetPermissionsPermissions $124 = _$roomSetPermissionsPermissions$124;
 
+  /// `125`
   @BuiltValueEnumConst(wireName: '125')
   static const RoomSetPermissionsPermissions $125 = _$roomSetPermissionsPermissions$125;
 
+  /// `126`
   @BuiltValueEnumConst(wireName: '126')
   static const RoomSetPermissionsPermissions $126 = _$roomSetPermissionsPermissions$126;
 
+  /// `127`
   @BuiltValueEnumConst(wireName: '127')
   static const RoomSetPermissionsPermissions $127 = _$roomSetPermissionsPermissions$127;
 
+  /// `128`
   @BuiltValueEnumConst(wireName: '128')
   static const RoomSetPermissionsPermissions $128 = _$roomSetPermissionsPermissions$128;
 
+  /// `129`
   @BuiltValueEnumConst(wireName: '129')
   static const RoomSetPermissionsPermissions $129 = _$roomSetPermissionsPermissions$129;
 
+  /// `130`
   @BuiltValueEnumConst(wireName: '130')
   static const RoomSetPermissionsPermissions $130 = _$roomSetPermissionsPermissions$130;
 
+  /// `131`
   @BuiltValueEnumConst(wireName: '131')
   static const RoomSetPermissionsPermissions $131 = _$roomSetPermissionsPermissions$131;
 
+  /// `132`
   @BuiltValueEnumConst(wireName: '132')
   static const RoomSetPermissionsPermissions $132 = _$roomSetPermissionsPermissions$132;
 
+  /// `133`
   @BuiltValueEnumConst(wireName: '133')
   static const RoomSetPermissionsPermissions $133 = _$roomSetPermissionsPermissions$133;
 
+  /// `134`
   @BuiltValueEnumConst(wireName: '134')
   static const RoomSetPermissionsPermissions $134 = _$roomSetPermissionsPermissions$134;
 
+  /// `135`
   @BuiltValueEnumConst(wireName: '135')
   static const RoomSetPermissionsPermissions $135 = _$roomSetPermissionsPermissions$135;
 
+  /// `136`
   @BuiltValueEnumConst(wireName: '136')
   static const RoomSetPermissionsPermissions $136 = _$roomSetPermissionsPermissions$136;
 
+  /// `137`
   @BuiltValueEnumConst(wireName: '137')
   static const RoomSetPermissionsPermissions $137 = _$roomSetPermissionsPermissions$137;
 
+  /// `138`
   @BuiltValueEnumConst(wireName: '138')
   static const RoomSetPermissionsPermissions $138 = _$roomSetPermissionsPermissions$138;
 
+  /// `139`
   @BuiltValueEnumConst(wireName: '139')
   static const RoomSetPermissionsPermissions $139 = _$roomSetPermissionsPermissions$139;
 
+  /// `140`
   @BuiltValueEnumConst(wireName: '140')
   static const RoomSetPermissionsPermissions $140 = _$roomSetPermissionsPermissions$140;
 
+  /// `141`
   @BuiltValueEnumConst(wireName: '141')
   static const RoomSetPermissionsPermissions $141 = _$roomSetPermissionsPermissions$141;
 
+  /// `142`
   @BuiltValueEnumConst(wireName: '142')
   static const RoomSetPermissionsPermissions $142 = _$roomSetPermissionsPermissions$142;
 
+  /// `143`
   @BuiltValueEnumConst(wireName: '143')
   static const RoomSetPermissionsPermissions $143 = _$roomSetPermissionsPermissions$143;
 
+  /// `144`
   @BuiltValueEnumConst(wireName: '144')
   static const RoomSetPermissionsPermissions $144 = _$roomSetPermissionsPermissions$144;
 
+  /// `145`
   @BuiltValueEnumConst(wireName: '145')
   static const RoomSetPermissionsPermissions $145 = _$roomSetPermissionsPermissions$145;
 
+  /// `146`
   @BuiltValueEnumConst(wireName: '146')
   static const RoomSetPermissionsPermissions $146 = _$roomSetPermissionsPermissions$146;
 
+  /// `147`
   @BuiltValueEnumConst(wireName: '147')
   static const RoomSetPermissionsPermissions $147 = _$roomSetPermissionsPermissions$147;
 
+  /// `148`
   @BuiltValueEnumConst(wireName: '148')
   static const RoomSetPermissionsPermissions $148 = _$roomSetPermissionsPermissions$148;
 
+  /// `149`
   @BuiltValueEnumConst(wireName: '149')
   static const RoomSetPermissionsPermissions $149 = _$roomSetPermissionsPermissions$149;
 
+  /// `150`
   @BuiltValueEnumConst(wireName: '150')
   static const RoomSetPermissionsPermissions $150 = _$roomSetPermissionsPermissions$150;
 
+  /// `151`
   @BuiltValueEnumConst(wireName: '151')
   static const RoomSetPermissionsPermissions $151 = _$roomSetPermissionsPermissions$151;
 
+  /// `152`
   @BuiltValueEnumConst(wireName: '152')
   static const RoomSetPermissionsPermissions $152 = _$roomSetPermissionsPermissions$152;
 
+  /// `153`
   @BuiltValueEnumConst(wireName: '153')
   static const RoomSetPermissionsPermissions $153 = _$roomSetPermissionsPermissions$153;
 
+  /// `154`
   @BuiltValueEnumConst(wireName: '154')
   static const RoomSetPermissionsPermissions $154 = _$roomSetPermissionsPermissions$154;
 
+  /// `155`
   @BuiltValueEnumConst(wireName: '155')
   static const RoomSetPermissionsPermissions $155 = _$roomSetPermissionsPermissions$155;
 
+  /// `156`
   @BuiltValueEnumConst(wireName: '156')
   static const RoomSetPermissionsPermissions $156 = _$roomSetPermissionsPermissions$156;
 
+  /// `157`
   @BuiltValueEnumConst(wireName: '157')
   static const RoomSetPermissionsPermissions $157 = _$roomSetPermissionsPermissions$157;
 
+  /// `158`
   @BuiltValueEnumConst(wireName: '158')
   static const RoomSetPermissionsPermissions $158 = _$roomSetPermissionsPermissions$158;
 
+  /// `159`
   @BuiltValueEnumConst(wireName: '159')
   static const RoomSetPermissionsPermissions $159 = _$roomSetPermissionsPermissions$159;
 
+  /// `160`
   @BuiltValueEnumConst(wireName: '160')
   static const RoomSetPermissionsPermissions $160 = _$roomSetPermissionsPermissions$160;
 
+  /// `161`
   @BuiltValueEnumConst(wireName: '161')
   static const RoomSetPermissionsPermissions $161 = _$roomSetPermissionsPermissions$161;
 
+  /// `162`
   @BuiltValueEnumConst(wireName: '162')
   static const RoomSetPermissionsPermissions $162 = _$roomSetPermissionsPermissions$162;
 
+  /// `163`
   @BuiltValueEnumConst(wireName: '163')
   static const RoomSetPermissionsPermissions $163 = _$roomSetPermissionsPermissions$163;
 
+  /// `164`
   @BuiltValueEnumConst(wireName: '164')
   static const RoomSetPermissionsPermissions $164 = _$roomSetPermissionsPermissions$164;
 
+  /// `165`
   @BuiltValueEnumConst(wireName: '165')
   static const RoomSetPermissionsPermissions $165 = _$roomSetPermissionsPermissions$165;
 
+  /// `166`
   @BuiltValueEnumConst(wireName: '166')
   static const RoomSetPermissionsPermissions $166 = _$roomSetPermissionsPermissions$166;
 
+  /// `167`
   @BuiltValueEnumConst(wireName: '167')
   static const RoomSetPermissionsPermissions $167 = _$roomSetPermissionsPermissions$167;
 
+  /// `168`
   @BuiltValueEnumConst(wireName: '168')
   static const RoomSetPermissionsPermissions $168 = _$roomSetPermissionsPermissions$168;
 
+  /// `169`
   @BuiltValueEnumConst(wireName: '169')
   static const RoomSetPermissionsPermissions $169 = _$roomSetPermissionsPermissions$169;
 
+  /// `170`
   @BuiltValueEnumConst(wireName: '170')
   static const RoomSetPermissionsPermissions $170 = _$roomSetPermissionsPermissions$170;
 
+  /// `171`
   @BuiltValueEnumConst(wireName: '171')
   static const RoomSetPermissionsPermissions $171 = _$roomSetPermissionsPermissions$171;
 
+  /// `172`
   @BuiltValueEnumConst(wireName: '172')
   static const RoomSetPermissionsPermissions $172 = _$roomSetPermissionsPermissions$172;
 
+  /// `173`
   @BuiltValueEnumConst(wireName: '173')
   static const RoomSetPermissionsPermissions $173 = _$roomSetPermissionsPermissions$173;
 
+  /// `174`
   @BuiltValueEnumConst(wireName: '174')
   static const RoomSetPermissionsPermissions $174 = _$roomSetPermissionsPermissions$174;
 
+  /// `175`
   @BuiltValueEnumConst(wireName: '175')
   static const RoomSetPermissionsPermissions $175 = _$roomSetPermissionsPermissions$175;
 
+  /// `176`
   @BuiltValueEnumConst(wireName: '176')
   static const RoomSetPermissionsPermissions $176 = _$roomSetPermissionsPermissions$176;
 
+  /// `177`
   @BuiltValueEnumConst(wireName: '177')
   static const RoomSetPermissionsPermissions $177 = _$roomSetPermissionsPermissions$177;
 
+  /// `178`
   @BuiltValueEnumConst(wireName: '178')
   static const RoomSetPermissionsPermissions $178 = _$roomSetPermissionsPermissions$178;
 
+  /// `179`
   @BuiltValueEnumConst(wireName: '179')
   static const RoomSetPermissionsPermissions $179 = _$roomSetPermissionsPermissions$179;
 
+  /// `180`
   @BuiltValueEnumConst(wireName: '180')
   static const RoomSetPermissionsPermissions $180 = _$roomSetPermissionsPermissions$180;
 
+  /// `181`
   @BuiltValueEnumConst(wireName: '181')
   static const RoomSetPermissionsPermissions $181 = _$roomSetPermissionsPermissions$181;
 
+  /// `182`
   @BuiltValueEnumConst(wireName: '182')
   static const RoomSetPermissionsPermissions $182 = _$roomSetPermissionsPermissions$182;
 
+  /// `183`
   @BuiltValueEnumConst(wireName: '183')
   static const RoomSetPermissionsPermissions $183 = _$roomSetPermissionsPermissions$183;
 
+  /// `184`
   @BuiltValueEnumConst(wireName: '184')
   static const RoomSetPermissionsPermissions $184 = _$roomSetPermissionsPermissions$184;
 
+  /// `185`
   @BuiltValueEnumConst(wireName: '185')
   static const RoomSetPermissionsPermissions $185 = _$roomSetPermissionsPermissions$185;
 
+  /// `186`
   @BuiltValueEnumConst(wireName: '186')
   static const RoomSetPermissionsPermissions $186 = _$roomSetPermissionsPermissions$186;
 
+  /// `187`
   @BuiltValueEnumConst(wireName: '187')
   static const RoomSetPermissionsPermissions $187 = _$roomSetPermissionsPermissions$187;
 
+  /// `188`
   @BuiltValueEnumConst(wireName: '188')
   static const RoomSetPermissionsPermissions $188 = _$roomSetPermissionsPermissions$188;
 
+  /// `189`
   @BuiltValueEnumConst(wireName: '189')
   static const RoomSetPermissionsPermissions $189 = _$roomSetPermissionsPermissions$189;
 
+  /// `190`
   @BuiltValueEnumConst(wireName: '190')
   static const RoomSetPermissionsPermissions $190 = _$roomSetPermissionsPermissions$190;
 
+  /// `191`
   @BuiltValueEnumConst(wireName: '191')
   static const RoomSetPermissionsPermissions $191 = _$roomSetPermissionsPermissions$191;
 
+  /// `192`
   @BuiltValueEnumConst(wireName: '192')
   static const RoomSetPermissionsPermissions $192 = _$roomSetPermissionsPermissions$192;
 
+  /// `193`
   @BuiltValueEnumConst(wireName: '193')
   static const RoomSetPermissionsPermissions $193 = _$roomSetPermissionsPermissions$193;
 
+  /// `194`
   @BuiltValueEnumConst(wireName: '194')
   static const RoomSetPermissionsPermissions $194 = _$roomSetPermissionsPermissions$194;
 
+  /// `195`
   @BuiltValueEnumConst(wireName: '195')
   static const RoomSetPermissionsPermissions $195 = _$roomSetPermissionsPermissions$195;
 
+  /// `196`
   @BuiltValueEnumConst(wireName: '196')
   static const RoomSetPermissionsPermissions $196 = _$roomSetPermissionsPermissions$196;
 
+  /// `197`
   @BuiltValueEnumConst(wireName: '197')
   static const RoomSetPermissionsPermissions $197 = _$roomSetPermissionsPermissions$197;
 
+  /// `198`
   @BuiltValueEnumConst(wireName: '198')
   static const RoomSetPermissionsPermissions $198 = _$roomSetPermissionsPermissions$198;
 
+  /// `199`
   @BuiltValueEnumConst(wireName: '199')
   static const RoomSetPermissionsPermissions $199 = _$roomSetPermissionsPermissions$199;
 
+  /// `200`
   @BuiltValueEnumConst(wireName: '200')
   static const RoomSetPermissionsPermissions $200 = _$roomSetPermissionsPermissions$200;
 
+  /// `201`
   @BuiltValueEnumConst(wireName: '201')
   static const RoomSetPermissionsPermissions $201 = _$roomSetPermissionsPermissions$201;
 
+  /// `202`
   @BuiltValueEnumConst(wireName: '202')
   static const RoomSetPermissionsPermissions $202 = _$roomSetPermissionsPermissions$202;
 
+  /// `203`
   @BuiltValueEnumConst(wireName: '203')
   static const RoomSetPermissionsPermissions $203 = _$roomSetPermissionsPermissions$203;
 
+  /// `204`
   @BuiltValueEnumConst(wireName: '204')
   static const RoomSetPermissionsPermissions $204 = _$roomSetPermissionsPermissions$204;
 
+  /// `205`
   @BuiltValueEnumConst(wireName: '205')
   static const RoomSetPermissionsPermissions $205 = _$roomSetPermissionsPermissions$205;
 
+  /// `206`
   @BuiltValueEnumConst(wireName: '206')
   static const RoomSetPermissionsPermissions $206 = _$roomSetPermissionsPermissions$206;
 
+  /// `207`
   @BuiltValueEnumConst(wireName: '207')
   static const RoomSetPermissionsPermissions $207 = _$roomSetPermissionsPermissions$207;
 
+  /// `208`
   @BuiltValueEnumConst(wireName: '208')
   static const RoomSetPermissionsPermissions $208 = _$roomSetPermissionsPermissions$208;
 
+  /// `209`
   @BuiltValueEnumConst(wireName: '209')
   static const RoomSetPermissionsPermissions $209 = _$roomSetPermissionsPermissions$209;
 
+  /// `210`
   @BuiltValueEnumConst(wireName: '210')
   static const RoomSetPermissionsPermissions $210 = _$roomSetPermissionsPermissions$210;
 
+  /// `211`
   @BuiltValueEnumConst(wireName: '211')
   static const RoomSetPermissionsPermissions $211 = _$roomSetPermissionsPermissions$211;
 
+  /// `212`
   @BuiltValueEnumConst(wireName: '212')
   static const RoomSetPermissionsPermissions $212 = _$roomSetPermissionsPermissions$212;
 
+  /// `213`
   @BuiltValueEnumConst(wireName: '213')
   static const RoomSetPermissionsPermissions $213 = _$roomSetPermissionsPermissions$213;
 
+  /// `214`
   @BuiltValueEnumConst(wireName: '214')
   static const RoomSetPermissionsPermissions $214 = _$roomSetPermissionsPermissions$214;
 
+  /// `215`
   @BuiltValueEnumConst(wireName: '215')
   static const RoomSetPermissionsPermissions $215 = _$roomSetPermissionsPermissions$215;
 
+  /// `216`
   @BuiltValueEnumConst(wireName: '216')
   static const RoomSetPermissionsPermissions $216 = _$roomSetPermissionsPermissions$216;
 
+  /// `217`
   @BuiltValueEnumConst(wireName: '217')
   static const RoomSetPermissionsPermissions $217 = _$roomSetPermissionsPermissions$217;
 
+  /// `218`
   @BuiltValueEnumConst(wireName: '218')
   static const RoomSetPermissionsPermissions $218 = _$roomSetPermissionsPermissions$218;
 
+  /// `219`
   @BuiltValueEnumConst(wireName: '219')
   static const RoomSetPermissionsPermissions $219 = _$roomSetPermissionsPermissions$219;
 
+  /// `220`
   @BuiltValueEnumConst(wireName: '220')
   static const RoomSetPermissionsPermissions $220 = _$roomSetPermissionsPermissions$220;
 
+  /// `221`
   @BuiltValueEnumConst(wireName: '221')
   static const RoomSetPermissionsPermissions $221 = _$roomSetPermissionsPermissions$221;
 
+  /// `222`
   @BuiltValueEnumConst(wireName: '222')
   static const RoomSetPermissionsPermissions $222 = _$roomSetPermissionsPermissions$222;
 
+  /// `223`
   @BuiltValueEnumConst(wireName: '223')
   static const RoomSetPermissionsPermissions $223 = _$roomSetPermissionsPermissions$223;
 
+  /// `224`
   @BuiltValueEnumConst(wireName: '224')
   static const RoomSetPermissionsPermissions $224 = _$roomSetPermissionsPermissions$224;
 
+  /// `225`
   @BuiltValueEnumConst(wireName: '225')
   static const RoomSetPermissionsPermissions $225 = _$roomSetPermissionsPermissions$225;
 
+  /// `226`
   @BuiltValueEnumConst(wireName: '226')
   static const RoomSetPermissionsPermissions $226 = _$roomSetPermissionsPermissions$226;
 
+  /// `227`
   @BuiltValueEnumConst(wireName: '227')
   static const RoomSetPermissionsPermissions $227 = _$roomSetPermissionsPermissions$227;
 
+  /// `228`
   @BuiltValueEnumConst(wireName: '228')
   static const RoomSetPermissionsPermissions $228 = _$roomSetPermissionsPermissions$228;
 
+  /// `229`
   @BuiltValueEnumConst(wireName: '229')
   static const RoomSetPermissionsPermissions $229 = _$roomSetPermissionsPermissions$229;
 
+  /// `230`
   @BuiltValueEnumConst(wireName: '230')
   static const RoomSetPermissionsPermissions $230 = _$roomSetPermissionsPermissions$230;
 
+  /// `231`
   @BuiltValueEnumConst(wireName: '231')
   static const RoomSetPermissionsPermissions $231 = _$roomSetPermissionsPermissions$231;
 
+  /// `232`
   @BuiltValueEnumConst(wireName: '232')
   static const RoomSetPermissionsPermissions $232 = _$roomSetPermissionsPermissions$232;
 
+  /// `233`
   @BuiltValueEnumConst(wireName: '233')
   static const RoomSetPermissionsPermissions $233 = _$roomSetPermissionsPermissions$233;
 
+  /// `234`
   @BuiltValueEnumConst(wireName: '234')
   static const RoomSetPermissionsPermissions $234 = _$roomSetPermissionsPermissions$234;
 
+  /// `235`
   @BuiltValueEnumConst(wireName: '235')
   static const RoomSetPermissionsPermissions $235 = _$roomSetPermissionsPermissions$235;
 
+  /// `236`
   @BuiltValueEnumConst(wireName: '236')
   static const RoomSetPermissionsPermissions $236 = _$roomSetPermissionsPermissions$236;
 
+  /// `237`
   @BuiltValueEnumConst(wireName: '237')
   static const RoomSetPermissionsPermissions $237 = _$roomSetPermissionsPermissions$237;
 
+  /// `238`
   @BuiltValueEnumConst(wireName: '238')
   static const RoomSetPermissionsPermissions $238 = _$roomSetPermissionsPermissions$238;
 
+  /// `239`
   @BuiltValueEnumConst(wireName: '239')
   static const RoomSetPermissionsPermissions $239 = _$roomSetPermissionsPermissions$239;
 
+  /// `240`
   @BuiltValueEnumConst(wireName: '240')
   static const RoomSetPermissionsPermissions $240 = _$roomSetPermissionsPermissions$240;
 
+  /// `241`
   @BuiltValueEnumConst(wireName: '241')
   static const RoomSetPermissionsPermissions $241 = _$roomSetPermissionsPermissions$241;
 
+  /// `242`
   @BuiltValueEnumConst(wireName: '242')
   static const RoomSetPermissionsPermissions $242 = _$roomSetPermissionsPermissions$242;
 
+  /// `243`
   @BuiltValueEnumConst(wireName: '243')
   static const RoomSetPermissionsPermissions $243 = _$roomSetPermissionsPermissions$243;
 
+  /// `244`
   @BuiltValueEnumConst(wireName: '244')
   static const RoomSetPermissionsPermissions $244 = _$roomSetPermissionsPermissions$244;
 
+  /// `245`
   @BuiltValueEnumConst(wireName: '245')
   static const RoomSetPermissionsPermissions $245 = _$roomSetPermissionsPermissions$245;
 
+  /// `246`
   @BuiltValueEnumConst(wireName: '246')
   static const RoomSetPermissionsPermissions $246 = _$roomSetPermissionsPermissions$246;
 
+  /// `247`
   @BuiltValueEnumConst(wireName: '247')
   static const RoomSetPermissionsPermissions $247 = _$roomSetPermissionsPermissions$247;
 
+  /// `248`
   @BuiltValueEnumConst(wireName: '248')
   static const RoomSetPermissionsPermissions $248 = _$roomSetPermissionsPermissions$248;
 
+  /// `249`
   @BuiltValueEnumConst(wireName: '249')
   static const RoomSetPermissionsPermissions $249 = _$roomSetPermissionsPermissions$249;
 
+  /// `250`
   @BuiltValueEnumConst(wireName: '250')
   static const RoomSetPermissionsPermissions $250 = _$roomSetPermissionsPermissions$250;
 
+  /// `251`
   @BuiltValueEnumConst(wireName: '251')
   static const RoomSetPermissionsPermissions $251 = _$roomSetPermissionsPermissions$251;
 
+  /// `252`
   @BuiltValueEnumConst(wireName: '252')
   static const RoomSetPermissionsPermissions $252 = _$roomSetPermissionsPermissions$252;
 
+  /// `253`
   @BuiltValueEnumConst(wireName: '253')
   static const RoomSetPermissionsPermissions $253 = _$roomSetPermissionsPermissions$253;
 
+  /// `254`
   @BuiltValueEnumConst(wireName: '254')
   static const RoomSetPermissionsPermissions $254 = _$roomSetPermissionsPermissions$254;
 
+  /// `255`
   @BuiltValueEnumConst(wireName: '255')
   static const RoomSetPermissionsPermissions $255 = _$roomSetPermissionsPermissions$255;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetPermissionsPermissions> get values => _$roomSetPermissionsPermissionsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetPermissionsPermissions valueOf(String name) => _$valueOfRoomSetPermissionsPermissions(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for RoomSetPermissionsPermissions.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetPermissionsPermissions> get serializer => const _$RoomSetPermissionsPermissionsSerializer();
 }
@@ -26483,19 +29029,25 @@ class _$RoomSetPermissionsPermissionsSerializer implements PrimitiveSerializer<R
 class RoomSetPermissionsMode extends EnumClass {
   const RoomSetPermissionsMode._(super.name);
 
+  /// `call`
   static const RoomSetPermissionsMode call = _$roomSetPermissionsModeCall;
 
+  /// `default`
   @BuiltValueEnumConst(wireName: 'default')
   static const RoomSetPermissionsMode $default = _$roomSetPermissionsMode$default;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetPermissionsMode> get values => _$roomSetPermissionsModeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetPermissionsMode valueOf(String name) => _$valueOfRoomSetPermissionsMode(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetPermissionsMode.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetPermissionsMode> get serializer => const _$RoomSetPermissionsModeSerializer();
 }
@@ -26539,16 +29091,21 @@ class _$RoomSetPermissionsModeSerializer implements PrimitiveSerializer<RoomSetP
 class RoomSetPermissionsApiVersion extends EnumClass {
   const RoomSetPermissionsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetPermissionsApiVersion v4 = _$roomSetPermissionsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetPermissionsApiVersion> get values => _$roomSetPermissionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetPermissionsApiVersion valueOf(String name) => _$valueOfRoomSetPermissionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetPermissionsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetPermissionsApiVersion> get serializer => const _$RoomSetPermissionsApiVersionSerializer();
 }
@@ -26597,6 +29154,7 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
     implements
         $RoomSetPermissionsResponseApplicationJson_OcsInterface,
         Built<RoomSetPermissionsResponseApplicationJson_Ocs, RoomSetPermissionsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetPermissionsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetPermissionsResponseApplicationJson_Ocs([
     void Function(RoomSetPermissionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetPermissionsResponseApplicationJson_Ocs;
@@ -26605,15 +29163,22 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
   const RoomSetPermissionsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetPermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetPermissionsResponseApplicationJson_Ocs.
   static Serializer<RoomSetPermissionsResponseApplicationJson_Ocs> get serializer =>
       _$roomSetPermissionsResponseApplicationJsonOcsSerializer;
 }
@@ -26627,6 +29192,7 @@ abstract class RoomSetPermissionsResponseApplicationJson
     implements
         $RoomSetPermissionsResponseApplicationJsonInterface,
         Built<RoomSetPermissionsResponseApplicationJson, RoomSetPermissionsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetPermissionsResponseApplicationJson object using the builder pattern.
   factory RoomSetPermissionsResponseApplicationJson([
     void Function(RoomSetPermissionsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetPermissionsResponseApplicationJson;
@@ -26635,15 +29201,22 @@ abstract class RoomSetPermissionsResponseApplicationJson
   const RoomSetPermissionsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetPermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetPermissionsResponseApplicationJson.
   static Serializer<RoomSetPermissionsResponseApplicationJson> get serializer =>
       _$roomSetPermissionsResponseApplicationJsonSerializer;
 }
@@ -26651,16 +29224,21 @@ abstract class RoomSetPermissionsResponseApplicationJson
 class RoomGetParticipantsApiVersion extends EnumClass {
   const RoomGetParticipantsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetParticipantsApiVersion v4 = _$roomGetParticipantsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetParticipantsApiVersion> get values => _$roomGetParticipantsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetParticipantsApiVersion valueOf(String name) => _$valueOfRoomGetParticipantsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomGetParticipantsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetParticipantsApiVersion> get serializer => const _$RoomGetParticipantsApiVersionSerializer();
 }
@@ -26709,6 +29287,7 @@ abstract class RoomRoomGetParticipantsHeaders
     implements
         $RoomRoomGetParticipantsHeadersInterface,
         Built<RoomRoomGetParticipantsHeaders, RoomRoomGetParticipantsHeadersBuilder> {
+  /// Creates a new RoomRoomGetParticipantsHeaders object using the builder pattern.
   factory RoomRoomGetParticipantsHeaders([void Function(RoomRoomGetParticipantsHeadersBuilder)? b]) =
       _$RoomRoomGetParticipantsHeaders;
 
@@ -26716,15 +29295,22 @@ abstract class RoomRoomGetParticipantsHeaders
   const RoomRoomGetParticipantsHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRoomGetParticipantsHeaders.
   static Serializer<RoomRoomGetParticipantsHeaders> get serializer => _$roomRoomGetParticipantsHeadersSerializer;
 }
 
@@ -26751,20 +29337,28 @@ abstract interface class $ParticipantInterface {
 }
 
 abstract class Participant implements $ParticipantInterface, Built<Participant, ParticipantBuilder> {
+  /// Creates a new Participant object using the builder pattern.
   factory Participant([void Function(ParticipantBuilder)? b]) = _$Participant;
 
   // coverage:ignore-start
   const Participant._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Participant.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Participant.
   static Serializer<Participant> get serializer => _$participantSerializer;
 }
 
@@ -26778,6 +29372,7 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
     implements
         $RoomGetParticipantsResponseApplicationJson_OcsInterface,
         Built<RoomGetParticipantsResponseApplicationJson_Ocs, RoomGetParticipantsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomGetParticipantsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetParticipantsResponseApplicationJson_Ocs([
     void Function(RoomGetParticipantsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetParticipantsResponseApplicationJson_Ocs;
@@ -26786,15 +29381,22 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
   const RoomGetParticipantsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetParticipantsResponseApplicationJson_Ocs.
   static Serializer<RoomGetParticipantsResponseApplicationJson_Ocs> get serializer =>
       _$roomGetParticipantsResponseApplicationJsonOcsSerializer;
 }
@@ -26808,6 +29410,7 @@ abstract class RoomGetParticipantsResponseApplicationJson
     implements
         $RoomGetParticipantsResponseApplicationJsonInterface,
         Built<RoomGetParticipantsResponseApplicationJson, RoomGetParticipantsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomGetParticipantsResponseApplicationJson object using the builder pattern.
   factory RoomGetParticipantsResponseApplicationJson([
     void Function(RoomGetParticipantsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetParticipantsResponseApplicationJson;
@@ -26816,15 +29419,22 @@ abstract class RoomGetParticipantsResponseApplicationJson
   const RoomGetParticipantsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetParticipantsResponseApplicationJson.
   static Serializer<RoomGetParticipantsResponseApplicationJson> get serializer =>
       _$roomGetParticipantsResponseApplicationJsonSerializer;
 }
@@ -26832,26 +29442,36 @@ abstract class RoomGetParticipantsResponseApplicationJson
 class RoomAddParticipantToRoomSource extends EnumClass {
   const RoomAddParticipantToRoomSource._(super.name);
 
+  /// `users`
   static const RoomAddParticipantToRoomSource users = _$roomAddParticipantToRoomSourceUsers;
 
+  /// `groups`
   static const RoomAddParticipantToRoomSource groups = _$roomAddParticipantToRoomSourceGroups;
 
+  /// `circles`
   static const RoomAddParticipantToRoomSource circles = _$roomAddParticipantToRoomSourceCircles;
 
+  /// `emails`
   static const RoomAddParticipantToRoomSource emails = _$roomAddParticipantToRoomSourceEmails;
 
+  /// `remotes`
   static const RoomAddParticipantToRoomSource remotes = _$roomAddParticipantToRoomSourceRemotes;
 
+  /// `phones`
   static const RoomAddParticipantToRoomSource phones = _$roomAddParticipantToRoomSourcePhones;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomAddParticipantToRoomSource> get values => _$roomAddParticipantToRoomSourceValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomAddParticipantToRoomSource valueOf(String name) => _$valueOfRoomAddParticipantToRoomSource(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomAddParticipantToRoomSource.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddParticipantToRoomSource> get serializer =>
       const _$RoomAddParticipantToRoomSourceSerializer();
@@ -26904,16 +29524,21 @@ class _$RoomAddParticipantToRoomSourceSerializer implements PrimitiveSerializer<
 class RoomAddParticipantToRoomApiVersion extends EnumClass {
   const RoomAddParticipantToRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomAddParticipantToRoomApiVersion v4 = _$roomAddParticipantToRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomAddParticipantToRoomApiVersion> get values => _$roomAddParticipantToRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomAddParticipantToRoomApiVersion valueOf(String name) => _$valueOfRoomAddParticipantToRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomAddParticipantToRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddParticipantToRoomApiVersion> get serializer =>
       const _$RoomAddParticipantToRoomApiVersionSerializer();
@@ -26964,6 +29589,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
         $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface,
         Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0,
             RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder> {
+  /// Creates a new RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0 object using the builder pattern.
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0([
     void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder)? b,
   ]) = _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0;
@@ -26972,18 +29598,30 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
   const RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0> get serializer =>
       _$roomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer;
 }
+
+typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
+  BuiltList<Never>? builtListNever,
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
+});
 
 @BuiltValue(instantiable: false)
 abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
@@ -26996,6 +29634,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
         $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface,
         Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs,
             RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomAddParticipantToRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs([
     void Function(RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomAddParticipantToRoomResponseApplicationJson_Ocs;
@@ -27004,15 +29643,22 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
   const RoomAddParticipantToRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs.
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomAddParticipantToRoomResponseApplicationJsonOcsSerializer;
 
@@ -27031,6 +29677,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
     implements
         $RoomAddParticipantToRoomResponseApplicationJsonInterface,
         Built<RoomAddParticipantToRoomResponseApplicationJson, RoomAddParticipantToRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomAddParticipantToRoomResponseApplicationJson object using the builder pattern.
   factory RoomAddParticipantToRoomResponseApplicationJson([
     void Function(RoomAddParticipantToRoomResponseApplicationJsonBuilder)? b,
   ]) = _$RoomAddParticipantToRoomResponseApplicationJson;
@@ -27039,15 +29686,22 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
   const RoomAddParticipantToRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddParticipantToRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson.
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson> get serializer =>
       _$roomAddParticipantToRoomResponseApplicationJsonSerializer;
 }
@@ -27055,18 +29709,23 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
 class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
   const RoomGetBreakoutRoomParticipantsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetBreakoutRoomParticipantsApiVersion v4 = _$roomGetBreakoutRoomParticipantsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetBreakoutRoomParticipantsApiVersion> get values =>
       _$roomGetBreakoutRoomParticipantsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetBreakoutRoomParticipantsApiVersion valueOf(String name) =>
       _$valueOfRoomGetBreakoutRoomParticipantsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomGetBreakoutRoomParticipantsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetBreakoutRoomParticipantsApiVersion> get serializer =>
       const _$RoomGetBreakoutRoomParticipantsApiVersionSerializer();
@@ -27119,6 +29778,7 @@ abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
     implements
         $RoomRoomGetBreakoutRoomParticipantsHeadersInterface,
         Built<RoomRoomGetBreakoutRoomParticipantsHeaders, RoomRoomGetBreakoutRoomParticipantsHeadersBuilder> {
+  /// Creates a new RoomRoomGetBreakoutRoomParticipantsHeaders object using the builder pattern.
   factory RoomRoomGetBreakoutRoomParticipantsHeaders([
     void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? b,
   ]) = _$RoomRoomGetBreakoutRoomParticipantsHeaders;
@@ -27127,15 +29787,22 @@ abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
   const RoomRoomGetBreakoutRoomParticipantsHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetBreakoutRoomParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRoomGetBreakoutRoomParticipantsHeaders.
   static Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> get serializer =>
       _$roomRoomGetBreakoutRoomParticipantsHeadersSerializer;
 }
@@ -27151,6 +29818,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
         $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface,
         Built<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs,
             RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs([
     void Function(RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs;
@@ -27159,15 +29827,22 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
   const RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.
   static Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs> get serializer =>
       _$roomGetBreakoutRoomParticipantsResponseApplicationJsonOcsSerializer;
 }
@@ -27182,6 +29857,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
         $RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface,
         Built<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
             RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomGetBreakoutRoomParticipantsResponseApplicationJson object using the builder pattern.
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson([
     void Function(RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetBreakoutRoomParticipantsResponseApplicationJson;
@@ -27190,15 +29866,22 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
   const RoomGetBreakoutRoomParticipantsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomGetBreakoutRoomParticipantsResponseApplicationJson.
   static Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson> get serializer =>
       _$roomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer;
 }
@@ -27206,16 +29889,21 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
 class RoomRemoveSelfFromRoomApiVersion extends EnumClass {
   const RoomRemoveSelfFromRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomRemoveSelfFromRoomApiVersion v4 = _$roomRemoveSelfFromRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomRemoveSelfFromRoomApiVersion> get values => _$roomRemoveSelfFromRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomRemoveSelfFromRoomApiVersion valueOf(String name) => _$valueOfRoomRemoveSelfFromRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomRemoveSelfFromRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveSelfFromRoomApiVersion> get serializer =>
       const _$RoomRemoveSelfFromRoomApiVersionSerializer();
@@ -27266,6 +29954,7 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
         $RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface,
         Built<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs,
             RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomRemoveSelfFromRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs([
     void Function(RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomRemoveSelfFromRoomResponseApplicationJson_Ocs;
@@ -27274,15 +29963,22 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
   const RoomRemoveSelfFromRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.
   static Serializer<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomRemoveSelfFromRoomResponseApplicationJsonOcsSerializer;
 }
@@ -27296,6 +29992,7 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
     implements
         $RoomRemoveSelfFromRoomResponseApplicationJsonInterface,
         Built<RoomRemoveSelfFromRoomResponseApplicationJson, RoomRemoveSelfFromRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomRemoveSelfFromRoomResponseApplicationJson object using the builder pattern.
   factory RoomRemoveSelfFromRoomResponseApplicationJson([
     void Function(RoomRemoveSelfFromRoomResponseApplicationJsonBuilder)? b,
   ]) = _$RoomRemoveSelfFromRoomResponseApplicationJson;
@@ -27304,15 +30001,22 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
   const RoomRemoveSelfFromRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveSelfFromRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRemoveSelfFromRoomResponseApplicationJson.
   static Serializer<RoomRemoveSelfFromRoomResponseApplicationJson> get serializer =>
       _$roomRemoveSelfFromRoomResponseApplicationJsonSerializer;
 }
@@ -27320,17 +30024,22 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
 class RoomRemoveAttendeeFromRoomApiVersion extends EnumClass {
   const RoomRemoveAttendeeFromRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomRemoveAttendeeFromRoomApiVersion v4 = _$roomRemoveAttendeeFromRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomRemoveAttendeeFromRoomApiVersion> get values => _$roomRemoveAttendeeFromRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomRemoveAttendeeFromRoomApiVersion valueOf(String name) =>
       _$valueOfRoomRemoveAttendeeFromRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomRemoveAttendeeFromRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveAttendeeFromRoomApiVersion> get serializer =>
       const _$RoomRemoveAttendeeFromRoomApiVersionSerializer();
@@ -27384,6 +30093,7 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
         $RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface,
         Built<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs,
             RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs([
     void Function(RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs;
@@ -27392,15 +30102,22 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
   const RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.
   static Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomRemoveAttendeeFromRoomResponseApplicationJsonOcsSerializer;
 }
@@ -27415,6 +30132,7 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
         $RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface,
         Built<RoomRemoveAttendeeFromRoomResponseApplicationJson,
             RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomRemoveAttendeeFromRoomResponseApplicationJson object using the builder pattern.
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson([
     void Function(RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder)? b,
   ]) = _$RoomRemoveAttendeeFromRoomResponseApplicationJson;
@@ -27423,15 +30141,22 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
   const RoomRemoveAttendeeFromRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRemoveAttendeeFromRoomResponseApplicationJson.
   static Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson> get serializer =>
       _$roomRemoveAttendeeFromRoomResponseApplicationJsonSerializer;
 }
@@ -27439,21 +30164,28 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
 class RoomSetAttendeePermissionsMethod extends EnumClass {
   const RoomSetAttendeePermissionsMethod._(super.name);
 
+  /// `set`
   @BuiltValueEnumConst(wireName: 'set')
   static const RoomSetAttendeePermissionsMethod $set = _$roomSetAttendeePermissionsMethod$set;
 
+  /// `remove`
   static const RoomSetAttendeePermissionsMethod remove = _$roomSetAttendeePermissionsMethodRemove;
 
+  /// `add`
   static const RoomSetAttendeePermissionsMethod add = _$roomSetAttendeePermissionsMethodAdd;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAttendeePermissionsMethod> get values => _$roomSetAttendeePermissionsMethodValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAttendeePermissionsMethod valueOf(String name) => _$valueOfRoomSetAttendeePermissionsMethod(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetAttendeePermissionsMethod.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAttendeePermissionsMethod> get serializer =>
       const _$RoomSetAttendeePermissionsMethodSerializer();
@@ -27500,783 +30232,1043 @@ class _$RoomSetAttendeePermissionsMethodSerializer implements PrimitiveSerialize
 class RoomSetAttendeePermissionsPermissions extends EnumClass {
   const RoomSetAttendeePermissionsPermissions._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetAttendeePermissionsPermissions $0 = _$roomSetAttendeePermissionsPermissions$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetAttendeePermissionsPermissions $1 = _$roomSetAttendeePermissionsPermissions$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetAttendeePermissionsPermissions $2 = _$roomSetAttendeePermissionsPermissions$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const RoomSetAttendeePermissionsPermissions $3 = _$roomSetAttendeePermissionsPermissions$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const RoomSetAttendeePermissionsPermissions $4 = _$roomSetAttendeePermissionsPermissions$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const RoomSetAttendeePermissionsPermissions $5 = _$roomSetAttendeePermissionsPermissions$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const RoomSetAttendeePermissionsPermissions $6 = _$roomSetAttendeePermissionsPermissions$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const RoomSetAttendeePermissionsPermissions $7 = _$roomSetAttendeePermissionsPermissions$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const RoomSetAttendeePermissionsPermissions $8 = _$roomSetAttendeePermissionsPermissions$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const RoomSetAttendeePermissionsPermissions $9 = _$roomSetAttendeePermissionsPermissions$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const RoomSetAttendeePermissionsPermissions $10 = _$roomSetAttendeePermissionsPermissions$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const RoomSetAttendeePermissionsPermissions $11 = _$roomSetAttendeePermissionsPermissions$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const RoomSetAttendeePermissionsPermissions $12 = _$roomSetAttendeePermissionsPermissions$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const RoomSetAttendeePermissionsPermissions $13 = _$roomSetAttendeePermissionsPermissions$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const RoomSetAttendeePermissionsPermissions $14 = _$roomSetAttendeePermissionsPermissions$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const RoomSetAttendeePermissionsPermissions $15 = _$roomSetAttendeePermissionsPermissions$15;
 
+  /// `16`
   @BuiltValueEnumConst(wireName: '16')
   static const RoomSetAttendeePermissionsPermissions $16 = _$roomSetAttendeePermissionsPermissions$16;
 
+  /// `17`
   @BuiltValueEnumConst(wireName: '17')
   static const RoomSetAttendeePermissionsPermissions $17 = _$roomSetAttendeePermissionsPermissions$17;
 
+  /// `18`
   @BuiltValueEnumConst(wireName: '18')
   static const RoomSetAttendeePermissionsPermissions $18 = _$roomSetAttendeePermissionsPermissions$18;
 
+  /// `19`
   @BuiltValueEnumConst(wireName: '19')
   static const RoomSetAttendeePermissionsPermissions $19 = _$roomSetAttendeePermissionsPermissions$19;
 
+  /// `20`
   @BuiltValueEnumConst(wireName: '20')
   static const RoomSetAttendeePermissionsPermissions $20 = _$roomSetAttendeePermissionsPermissions$20;
 
+  /// `21`
   @BuiltValueEnumConst(wireName: '21')
   static const RoomSetAttendeePermissionsPermissions $21 = _$roomSetAttendeePermissionsPermissions$21;
 
+  /// `22`
   @BuiltValueEnumConst(wireName: '22')
   static const RoomSetAttendeePermissionsPermissions $22 = _$roomSetAttendeePermissionsPermissions$22;
 
+  /// `23`
   @BuiltValueEnumConst(wireName: '23')
   static const RoomSetAttendeePermissionsPermissions $23 = _$roomSetAttendeePermissionsPermissions$23;
 
+  /// `24`
   @BuiltValueEnumConst(wireName: '24')
   static const RoomSetAttendeePermissionsPermissions $24 = _$roomSetAttendeePermissionsPermissions$24;
 
+  /// `25`
   @BuiltValueEnumConst(wireName: '25')
   static const RoomSetAttendeePermissionsPermissions $25 = _$roomSetAttendeePermissionsPermissions$25;
 
+  /// `26`
   @BuiltValueEnumConst(wireName: '26')
   static const RoomSetAttendeePermissionsPermissions $26 = _$roomSetAttendeePermissionsPermissions$26;
 
+  /// `27`
   @BuiltValueEnumConst(wireName: '27')
   static const RoomSetAttendeePermissionsPermissions $27 = _$roomSetAttendeePermissionsPermissions$27;
 
+  /// `28`
   @BuiltValueEnumConst(wireName: '28')
   static const RoomSetAttendeePermissionsPermissions $28 = _$roomSetAttendeePermissionsPermissions$28;
 
+  /// `29`
   @BuiltValueEnumConst(wireName: '29')
   static const RoomSetAttendeePermissionsPermissions $29 = _$roomSetAttendeePermissionsPermissions$29;
 
+  /// `30`
   @BuiltValueEnumConst(wireName: '30')
   static const RoomSetAttendeePermissionsPermissions $30 = _$roomSetAttendeePermissionsPermissions$30;
 
+  /// `31`
   @BuiltValueEnumConst(wireName: '31')
   static const RoomSetAttendeePermissionsPermissions $31 = _$roomSetAttendeePermissionsPermissions$31;
 
+  /// `32`
   @BuiltValueEnumConst(wireName: '32')
   static const RoomSetAttendeePermissionsPermissions $32 = _$roomSetAttendeePermissionsPermissions$32;
 
+  /// `33`
   @BuiltValueEnumConst(wireName: '33')
   static const RoomSetAttendeePermissionsPermissions $33 = _$roomSetAttendeePermissionsPermissions$33;
 
+  /// `34`
   @BuiltValueEnumConst(wireName: '34')
   static const RoomSetAttendeePermissionsPermissions $34 = _$roomSetAttendeePermissionsPermissions$34;
 
+  /// `35`
   @BuiltValueEnumConst(wireName: '35')
   static const RoomSetAttendeePermissionsPermissions $35 = _$roomSetAttendeePermissionsPermissions$35;
 
+  /// `36`
   @BuiltValueEnumConst(wireName: '36')
   static const RoomSetAttendeePermissionsPermissions $36 = _$roomSetAttendeePermissionsPermissions$36;
 
+  /// `37`
   @BuiltValueEnumConst(wireName: '37')
   static const RoomSetAttendeePermissionsPermissions $37 = _$roomSetAttendeePermissionsPermissions$37;
 
+  /// `38`
   @BuiltValueEnumConst(wireName: '38')
   static const RoomSetAttendeePermissionsPermissions $38 = _$roomSetAttendeePermissionsPermissions$38;
 
+  /// `39`
   @BuiltValueEnumConst(wireName: '39')
   static const RoomSetAttendeePermissionsPermissions $39 = _$roomSetAttendeePermissionsPermissions$39;
 
+  /// `40`
   @BuiltValueEnumConst(wireName: '40')
   static const RoomSetAttendeePermissionsPermissions $40 = _$roomSetAttendeePermissionsPermissions$40;
 
+  /// `41`
   @BuiltValueEnumConst(wireName: '41')
   static const RoomSetAttendeePermissionsPermissions $41 = _$roomSetAttendeePermissionsPermissions$41;
 
+  /// `42`
   @BuiltValueEnumConst(wireName: '42')
   static const RoomSetAttendeePermissionsPermissions $42 = _$roomSetAttendeePermissionsPermissions$42;
 
+  /// `43`
   @BuiltValueEnumConst(wireName: '43')
   static const RoomSetAttendeePermissionsPermissions $43 = _$roomSetAttendeePermissionsPermissions$43;
 
+  /// `44`
   @BuiltValueEnumConst(wireName: '44')
   static const RoomSetAttendeePermissionsPermissions $44 = _$roomSetAttendeePermissionsPermissions$44;
 
+  /// `45`
   @BuiltValueEnumConst(wireName: '45')
   static const RoomSetAttendeePermissionsPermissions $45 = _$roomSetAttendeePermissionsPermissions$45;
 
+  /// `46`
   @BuiltValueEnumConst(wireName: '46')
   static const RoomSetAttendeePermissionsPermissions $46 = _$roomSetAttendeePermissionsPermissions$46;
 
+  /// `47`
   @BuiltValueEnumConst(wireName: '47')
   static const RoomSetAttendeePermissionsPermissions $47 = _$roomSetAttendeePermissionsPermissions$47;
 
+  /// `48`
   @BuiltValueEnumConst(wireName: '48')
   static const RoomSetAttendeePermissionsPermissions $48 = _$roomSetAttendeePermissionsPermissions$48;
 
+  /// `49`
   @BuiltValueEnumConst(wireName: '49')
   static const RoomSetAttendeePermissionsPermissions $49 = _$roomSetAttendeePermissionsPermissions$49;
 
+  /// `50`
   @BuiltValueEnumConst(wireName: '50')
   static const RoomSetAttendeePermissionsPermissions $50 = _$roomSetAttendeePermissionsPermissions$50;
 
+  /// `51`
   @BuiltValueEnumConst(wireName: '51')
   static const RoomSetAttendeePermissionsPermissions $51 = _$roomSetAttendeePermissionsPermissions$51;
 
+  /// `52`
   @BuiltValueEnumConst(wireName: '52')
   static const RoomSetAttendeePermissionsPermissions $52 = _$roomSetAttendeePermissionsPermissions$52;
 
+  /// `53`
   @BuiltValueEnumConst(wireName: '53')
   static const RoomSetAttendeePermissionsPermissions $53 = _$roomSetAttendeePermissionsPermissions$53;
 
+  /// `54`
   @BuiltValueEnumConst(wireName: '54')
   static const RoomSetAttendeePermissionsPermissions $54 = _$roomSetAttendeePermissionsPermissions$54;
 
+  /// `55`
   @BuiltValueEnumConst(wireName: '55')
   static const RoomSetAttendeePermissionsPermissions $55 = _$roomSetAttendeePermissionsPermissions$55;
 
+  /// `56`
   @BuiltValueEnumConst(wireName: '56')
   static const RoomSetAttendeePermissionsPermissions $56 = _$roomSetAttendeePermissionsPermissions$56;
 
+  /// `57`
   @BuiltValueEnumConst(wireName: '57')
   static const RoomSetAttendeePermissionsPermissions $57 = _$roomSetAttendeePermissionsPermissions$57;
 
+  /// `58`
   @BuiltValueEnumConst(wireName: '58')
   static const RoomSetAttendeePermissionsPermissions $58 = _$roomSetAttendeePermissionsPermissions$58;
 
+  /// `59`
   @BuiltValueEnumConst(wireName: '59')
   static const RoomSetAttendeePermissionsPermissions $59 = _$roomSetAttendeePermissionsPermissions$59;
 
+  /// `60`
   @BuiltValueEnumConst(wireName: '60')
   static const RoomSetAttendeePermissionsPermissions $60 = _$roomSetAttendeePermissionsPermissions$60;
 
+  /// `61`
   @BuiltValueEnumConst(wireName: '61')
   static const RoomSetAttendeePermissionsPermissions $61 = _$roomSetAttendeePermissionsPermissions$61;
 
+  /// `62`
   @BuiltValueEnumConst(wireName: '62')
   static const RoomSetAttendeePermissionsPermissions $62 = _$roomSetAttendeePermissionsPermissions$62;
 
+  /// `63`
   @BuiltValueEnumConst(wireName: '63')
   static const RoomSetAttendeePermissionsPermissions $63 = _$roomSetAttendeePermissionsPermissions$63;
 
+  /// `64`
   @BuiltValueEnumConst(wireName: '64')
   static const RoomSetAttendeePermissionsPermissions $64 = _$roomSetAttendeePermissionsPermissions$64;
 
+  /// `65`
   @BuiltValueEnumConst(wireName: '65')
   static const RoomSetAttendeePermissionsPermissions $65 = _$roomSetAttendeePermissionsPermissions$65;
 
+  /// `66`
   @BuiltValueEnumConst(wireName: '66')
   static const RoomSetAttendeePermissionsPermissions $66 = _$roomSetAttendeePermissionsPermissions$66;
 
+  /// `67`
   @BuiltValueEnumConst(wireName: '67')
   static const RoomSetAttendeePermissionsPermissions $67 = _$roomSetAttendeePermissionsPermissions$67;
 
+  /// `68`
   @BuiltValueEnumConst(wireName: '68')
   static const RoomSetAttendeePermissionsPermissions $68 = _$roomSetAttendeePermissionsPermissions$68;
 
+  /// `69`
   @BuiltValueEnumConst(wireName: '69')
   static const RoomSetAttendeePermissionsPermissions $69 = _$roomSetAttendeePermissionsPermissions$69;
 
+  /// `70`
   @BuiltValueEnumConst(wireName: '70')
   static const RoomSetAttendeePermissionsPermissions $70 = _$roomSetAttendeePermissionsPermissions$70;
 
+  /// `71`
   @BuiltValueEnumConst(wireName: '71')
   static const RoomSetAttendeePermissionsPermissions $71 = _$roomSetAttendeePermissionsPermissions$71;
 
+  /// `72`
   @BuiltValueEnumConst(wireName: '72')
   static const RoomSetAttendeePermissionsPermissions $72 = _$roomSetAttendeePermissionsPermissions$72;
 
+  /// `73`
   @BuiltValueEnumConst(wireName: '73')
   static const RoomSetAttendeePermissionsPermissions $73 = _$roomSetAttendeePermissionsPermissions$73;
 
+  /// `74`
   @BuiltValueEnumConst(wireName: '74')
   static const RoomSetAttendeePermissionsPermissions $74 = _$roomSetAttendeePermissionsPermissions$74;
 
+  /// `75`
   @BuiltValueEnumConst(wireName: '75')
   static const RoomSetAttendeePermissionsPermissions $75 = _$roomSetAttendeePermissionsPermissions$75;
 
+  /// `76`
   @BuiltValueEnumConst(wireName: '76')
   static const RoomSetAttendeePermissionsPermissions $76 = _$roomSetAttendeePermissionsPermissions$76;
 
+  /// `77`
   @BuiltValueEnumConst(wireName: '77')
   static const RoomSetAttendeePermissionsPermissions $77 = _$roomSetAttendeePermissionsPermissions$77;
 
+  /// `78`
   @BuiltValueEnumConst(wireName: '78')
   static const RoomSetAttendeePermissionsPermissions $78 = _$roomSetAttendeePermissionsPermissions$78;
 
+  /// `79`
   @BuiltValueEnumConst(wireName: '79')
   static const RoomSetAttendeePermissionsPermissions $79 = _$roomSetAttendeePermissionsPermissions$79;
 
+  /// `80`
   @BuiltValueEnumConst(wireName: '80')
   static const RoomSetAttendeePermissionsPermissions $80 = _$roomSetAttendeePermissionsPermissions$80;
 
+  /// `81`
   @BuiltValueEnumConst(wireName: '81')
   static const RoomSetAttendeePermissionsPermissions $81 = _$roomSetAttendeePermissionsPermissions$81;
 
+  /// `82`
   @BuiltValueEnumConst(wireName: '82')
   static const RoomSetAttendeePermissionsPermissions $82 = _$roomSetAttendeePermissionsPermissions$82;
 
+  /// `83`
   @BuiltValueEnumConst(wireName: '83')
   static const RoomSetAttendeePermissionsPermissions $83 = _$roomSetAttendeePermissionsPermissions$83;
 
+  /// `84`
   @BuiltValueEnumConst(wireName: '84')
   static const RoomSetAttendeePermissionsPermissions $84 = _$roomSetAttendeePermissionsPermissions$84;
 
+  /// `85`
   @BuiltValueEnumConst(wireName: '85')
   static const RoomSetAttendeePermissionsPermissions $85 = _$roomSetAttendeePermissionsPermissions$85;
 
+  /// `86`
   @BuiltValueEnumConst(wireName: '86')
   static const RoomSetAttendeePermissionsPermissions $86 = _$roomSetAttendeePermissionsPermissions$86;
 
+  /// `87`
   @BuiltValueEnumConst(wireName: '87')
   static const RoomSetAttendeePermissionsPermissions $87 = _$roomSetAttendeePermissionsPermissions$87;
 
+  /// `88`
   @BuiltValueEnumConst(wireName: '88')
   static const RoomSetAttendeePermissionsPermissions $88 = _$roomSetAttendeePermissionsPermissions$88;
 
+  /// `89`
   @BuiltValueEnumConst(wireName: '89')
   static const RoomSetAttendeePermissionsPermissions $89 = _$roomSetAttendeePermissionsPermissions$89;
 
+  /// `90`
   @BuiltValueEnumConst(wireName: '90')
   static const RoomSetAttendeePermissionsPermissions $90 = _$roomSetAttendeePermissionsPermissions$90;
 
+  /// `91`
   @BuiltValueEnumConst(wireName: '91')
   static const RoomSetAttendeePermissionsPermissions $91 = _$roomSetAttendeePermissionsPermissions$91;
 
+  /// `92`
   @BuiltValueEnumConst(wireName: '92')
   static const RoomSetAttendeePermissionsPermissions $92 = _$roomSetAttendeePermissionsPermissions$92;
 
+  /// `93`
   @BuiltValueEnumConst(wireName: '93')
   static const RoomSetAttendeePermissionsPermissions $93 = _$roomSetAttendeePermissionsPermissions$93;
 
+  /// `94`
   @BuiltValueEnumConst(wireName: '94')
   static const RoomSetAttendeePermissionsPermissions $94 = _$roomSetAttendeePermissionsPermissions$94;
 
+  /// `95`
   @BuiltValueEnumConst(wireName: '95')
   static const RoomSetAttendeePermissionsPermissions $95 = _$roomSetAttendeePermissionsPermissions$95;
 
+  /// `96`
   @BuiltValueEnumConst(wireName: '96')
   static const RoomSetAttendeePermissionsPermissions $96 = _$roomSetAttendeePermissionsPermissions$96;
 
+  /// `97`
   @BuiltValueEnumConst(wireName: '97')
   static const RoomSetAttendeePermissionsPermissions $97 = _$roomSetAttendeePermissionsPermissions$97;
 
+  /// `98`
   @BuiltValueEnumConst(wireName: '98')
   static const RoomSetAttendeePermissionsPermissions $98 = _$roomSetAttendeePermissionsPermissions$98;
 
+  /// `99`
   @BuiltValueEnumConst(wireName: '99')
   static const RoomSetAttendeePermissionsPermissions $99 = _$roomSetAttendeePermissionsPermissions$99;
 
+  /// `100`
   @BuiltValueEnumConst(wireName: '100')
   static const RoomSetAttendeePermissionsPermissions $100 = _$roomSetAttendeePermissionsPermissions$100;
 
+  /// `101`
   @BuiltValueEnumConst(wireName: '101')
   static const RoomSetAttendeePermissionsPermissions $101 = _$roomSetAttendeePermissionsPermissions$101;
 
+  /// `102`
   @BuiltValueEnumConst(wireName: '102')
   static const RoomSetAttendeePermissionsPermissions $102 = _$roomSetAttendeePermissionsPermissions$102;
 
+  /// `103`
   @BuiltValueEnumConst(wireName: '103')
   static const RoomSetAttendeePermissionsPermissions $103 = _$roomSetAttendeePermissionsPermissions$103;
 
+  /// `104`
   @BuiltValueEnumConst(wireName: '104')
   static const RoomSetAttendeePermissionsPermissions $104 = _$roomSetAttendeePermissionsPermissions$104;
 
+  /// `105`
   @BuiltValueEnumConst(wireName: '105')
   static const RoomSetAttendeePermissionsPermissions $105 = _$roomSetAttendeePermissionsPermissions$105;
 
+  /// `106`
   @BuiltValueEnumConst(wireName: '106')
   static const RoomSetAttendeePermissionsPermissions $106 = _$roomSetAttendeePermissionsPermissions$106;
 
+  /// `107`
   @BuiltValueEnumConst(wireName: '107')
   static const RoomSetAttendeePermissionsPermissions $107 = _$roomSetAttendeePermissionsPermissions$107;
 
+  /// `108`
   @BuiltValueEnumConst(wireName: '108')
   static const RoomSetAttendeePermissionsPermissions $108 = _$roomSetAttendeePermissionsPermissions$108;
 
+  /// `109`
   @BuiltValueEnumConst(wireName: '109')
   static const RoomSetAttendeePermissionsPermissions $109 = _$roomSetAttendeePermissionsPermissions$109;
 
+  /// `110`
   @BuiltValueEnumConst(wireName: '110')
   static const RoomSetAttendeePermissionsPermissions $110 = _$roomSetAttendeePermissionsPermissions$110;
 
+  /// `111`
   @BuiltValueEnumConst(wireName: '111')
   static const RoomSetAttendeePermissionsPermissions $111 = _$roomSetAttendeePermissionsPermissions$111;
 
+  /// `112`
   @BuiltValueEnumConst(wireName: '112')
   static const RoomSetAttendeePermissionsPermissions $112 = _$roomSetAttendeePermissionsPermissions$112;
 
+  /// `113`
   @BuiltValueEnumConst(wireName: '113')
   static const RoomSetAttendeePermissionsPermissions $113 = _$roomSetAttendeePermissionsPermissions$113;
 
+  /// `114`
   @BuiltValueEnumConst(wireName: '114')
   static const RoomSetAttendeePermissionsPermissions $114 = _$roomSetAttendeePermissionsPermissions$114;
 
+  /// `115`
   @BuiltValueEnumConst(wireName: '115')
   static const RoomSetAttendeePermissionsPermissions $115 = _$roomSetAttendeePermissionsPermissions$115;
 
+  /// `116`
   @BuiltValueEnumConst(wireName: '116')
   static const RoomSetAttendeePermissionsPermissions $116 = _$roomSetAttendeePermissionsPermissions$116;
 
+  /// `117`
   @BuiltValueEnumConst(wireName: '117')
   static const RoomSetAttendeePermissionsPermissions $117 = _$roomSetAttendeePermissionsPermissions$117;
 
+  /// `118`
   @BuiltValueEnumConst(wireName: '118')
   static const RoomSetAttendeePermissionsPermissions $118 = _$roomSetAttendeePermissionsPermissions$118;
 
+  /// `119`
   @BuiltValueEnumConst(wireName: '119')
   static const RoomSetAttendeePermissionsPermissions $119 = _$roomSetAttendeePermissionsPermissions$119;
 
+  /// `120`
   @BuiltValueEnumConst(wireName: '120')
   static const RoomSetAttendeePermissionsPermissions $120 = _$roomSetAttendeePermissionsPermissions$120;
 
+  /// `121`
   @BuiltValueEnumConst(wireName: '121')
   static const RoomSetAttendeePermissionsPermissions $121 = _$roomSetAttendeePermissionsPermissions$121;
 
+  /// `122`
   @BuiltValueEnumConst(wireName: '122')
   static const RoomSetAttendeePermissionsPermissions $122 = _$roomSetAttendeePermissionsPermissions$122;
 
+  /// `123`
   @BuiltValueEnumConst(wireName: '123')
   static const RoomSetAttendeePermissionsPermissions $123 = _$roomSetAttendeePermissionsPermissions$123;
 
+  /// `124`
   @BuiltValueEnumConst(wireName: '124')
   static const RoomSetAttendeePermissionsPermissions $124 = _$roomSetAttendeePermissionsPermissions$124;
 
+  /// `125`
   @BuiltValueEnumConst(wireName: '125')
   static const RoomSetAttendeePermissionsPermissions $125 = _$roomSetAttendeePermissionsPermissions$125;
 
+  /// `126`
   @BuiltValueEnumConst(wireName: '126')
   static const RoomSetAttendeePermissionsPermissions $126 = _$roomSetAttendeePermissionsPermissions$126;
 
+  /// `127`
   @BuiltValueEnumConst(wireName: '127')
   static const RoomSetAttendeePermissionsPermissions $127 = _$roomSetAttendeePermissionsPermissions$127;
 
+  /// `128`
   @BuiltValueEnumConst(wireName: '128')
   static const RoomSetAttendeePermissionsPermissions $128 = _$roomSetAttendeePermissionsPermissions$128;
 
+  /// `129`
   @BuiltValueEnumConst(wireName: '129')
   static const RoomSetAttendeePermissionsPermissions $129 = _$roomSetAttendeePermissionsPermissions$129;
 
+  /// `130`
   @BuiltValueEnumConst(wireName: '130')
   static const RoomSetAttendeePermissionsPermissions $130 = _$roomSetAttendeePermissionsPermissions$130;
 
+  /// `131`
   @BuiltValueEnumConst(wireName: '131')
   static const RoomSetAttendeePermissionsPermissions $131 = _$roomSetAttendeePermissionsPermissions$131;
 
+  /// `132`
   @BuiltValueEnumConst(wireName: '132')
   static const RoomSetAttendeePermissionsPermissions $132 = _$roomSetAttendeePermissionsPermissions$132;
 
+  /// `133`
   @BuiltValueEnumConst(wireName: '133')
   static const RoomSetAttendeePermissionsPermissions $133 = _$roomSetAttendeePermissionsPermissions$133;
 
+  /// `134`
   @BuiltValueEnumConst(wireName: '134')
   static const RoomSetAttendeePermissionsPermissions $134 = _$roomSetAttendeePermissionsPermissions$134;
 
+  /// `135`
   @BuiltValueEnumConst(wireName: '135')
   static const RoomSetAttendeePermissionsPermissions $135 = _$roomSetAttendeePermissionsPermissions$135;
 
+  /// `136`
   @BuiltValueEnumConst(wireName: '136')
   static const RoomSetAttendeePermissionsPermissions $136 = _$roomSetAttendeePermissionsPermissions$136;
 
+  /// `137`
   @BuiltValueEnumConst(wireName: '137')
   static const RoomSetAttendeePermissionsPermissions $137 = _$roomSetAttendeePermissionsPermissions$137;
 
+  /// `138`
   @BuiltValueEnumConst(wireName: '138')
   static const RoomSetAttendeePermissionsPermissions $138 = _$roomSetAttendeePermissionsPermissions$138;
 
+  /// `139`
   @BuiltValueEnumConst(wireName: '139')
   static const RoomSetAttendeePermissionsPermissions $139 = _$roomSetAttendeePermissionsPermissions$139;
 
+  /// `140`
   @BuiltValueEnumConst(wireName: '140')
   static const RoomSetAttendeePermissionsPermissions $140 = _$roomSetAttendeePermissionsPermissions$140;
 
+  /// `141`
   @BuiltValueEnumConst(wireName: '141')
   static const RoomSetAttendeePermissionsPermissions $141 = _$roomSetAttendeePermissionsPermissions$141;
 
+  /// `142`
   @BuiltValueEnumConst(wireName: '142')
   static const RoomSetAttendeePermissionsPermissions $142 = _$roomSetAttendeePermissionsPermissions$142;
 
+  /// `143`
   @BuiltValueEnumConst(wireName: '143')
   static const RoomSetAttendeePermissionsPermissions $143 = _$roomSetAttendeePermissionsPermissions$143;
 
+  /// `144`
   @BuiltValueEnumConst(wireName: '144')
   static const RoomSetAttendeePermissionsPermissions $144 = _$roomSetAttendeePermissionsPermissions$144;
 
+  /// `145`
   @BuiltValueEnumConst(wireName: '145')
   static const RoomSetAttendeePermissionsPermissions $145 = _$roomSetAttendeePermissionsPermissions$145;
 
+  /// `146`
   @BuiltValueEnumConst(wireName: '146')
   static const RoomSetAttendeePermissionsPermissions $146 = _$roomSetAttendeePermissionsPermissions$146;
 
+  /// `147`
   @BuiltValueEnumConst(wireName: '147')
   static const RoomSetAttendeePermissionsPermissions $147 = _$roomSetAttendeePermissionsPermissions$147;
 
+  /// `148`
   @BuiltValueEnumConst(wireName: '148')
   static const RoomSetAttendeePermissionsPermissions $148 = _$roomSetAttendeePermissionsPermissions$148;
 
+  /// `149`
   @BuiltValueEnumConst(wireName: '149')
   static const RoomSetAttendeePermissionsPermissions $149 = _$roomSetAttendeePermissionsPermissions$149;
 
+  /// `150`
   @BuiltValueEnumConst(wireName: '150')
   static const RoomSetAttendeePermissionsPermissions $150 = _$roomSetAttendeePermissionsPermissions$150;
 
+  /// `151`
   @BuiltValueEnumConst(wireName: '151')
   static const RoomSetAttendeePermissionsPermissions $151 = _$roomSetAttendeePermissionsPermissions$151;
 
+  /// `152`
   @BuiltValueEnumConst(wireName: '152')
   static const RoomSetAttendeePermissionsPermissions $152 = _$roomSetAttendeePermissionsPermissions$152;
 
+  /// `153`
   @BuiltValueEnumConst(wireName: '153')
   static const RoomSetAttendeePermissionsPermissions $153 = _$roomSetAttendeePermissionsPermissions$153;
 
+  /// `154`
   @BuiltValueEnumConst(wireName: '154')
   static const RoomSetAttendeePermissionsPermissions $154 = _$roomSetAttendeePermissionsPermissions$154;
 
+  /// `155`
   @BuiltValueEnumConst(wireName: '155')
   static const RoomSetAttendeePermissionsPermissions $155 = _$roomSetAttendeePermissionsPermissions$155;
 
+  /// `156`
   @BuiltValueEnumConst(wireName: '156')
   static const RoomSetAttendeePermissionsPermissions $156 = _$roomSetAttendeePermissionsPermissions$156;
 
+  /// `157`
   @BuiltValueEnumConst(wireName: '157')
   static const RoomSetAttendeePermissionsPermissions $157 = _$roomSetAttendeePermissionsPermissions$157;
 
+  /// `158`
   @BuiltValueEnumConst(wireName: '158')
   static const RoomSetAttendeePermissionsPermissions $158 = _$roomSetAttendeePermissionsPermissions$158;
 
+  /// `159`
   @BuiltValueEnumConst(wireName: '159')
   static const RoomSetAttendeePermissionsPermissions $159 = _$roomSetAttendeePermissionsPermissions$159;
 
+  /// `160`
   @BuiltValueEnumConst(wireName: '160')
   static const RoomSetAttendeePermissionsPermissions $160 = _$roomSetAttendeePermissionsPermissions$160;
 
+  /// `161`
   @BuiltValueEnumConst(wireName: '161')
   static const RoomSetAttendeePermissionsPermissions $161 = _$roomSetAttendeePermissionsPermissions$161;
 
+  /// `162`
   @BuiltValueEnumConst(wireName: '162')
   static const RoomSetAttendeePermissionsPermissions $162 = _$roomSetAttendeePermissionsPermissions$162;
 
+  /// `163`
   @BuiltValueEnumConst(wireName: '163')
   static const RoomSetAttendeePermissionsPermissions $163 = _$roomSetAttendeePermissionsPermissions$163;
 
+  /// `164`
   @BuiltValueEnumConst(wireName: '164')
   static const RoomSetAttendeePermissionsPermissions $164 = _$roomSetAttendeePermissionsPermissions$164;
 
+  /// `165`
   @BuiltValueEnumConst(wireName: '165')
   static const RoomSetAttendeePermissionsPermissions $165 = _$roomSetAttendeePermissionsPermissions$165;
 
+  /// `166`
   @BuiltValueEnumConst(wireName: '166')
   static const RoomSetAttendeePermissionsPermissions $166 = _$roomSetAttendeePermissionsPermissions$166;
 
+  /// `167`
   @BuiltValueEnumConst(wireName: '167')
   static const RoomSetAttendeePermissionsPermissions $167 = _$roomSetAttendeePermissionsPermissions$167;
 
+  /// `168`
   @BuiltValueEnumConst(wireName: '168')
   static const RoomSetAttendeePermissionsPermissions $168 = _$roomSetAttendeePermissionsPermissions$168;
 
+  /// `169`
   @BuiltValueEnumConst(wireName: '169')
   static const RoomSetAttendeePermissionsPermissions $169 = _$roomSetAttendeePermissionsPermissions$169;
 
+  /// `170`
   @BuiltValueEnumConst(wireName: '170')
   static const RoomSetAttendeePermissionsPermissions $170 = _$roomSetAttendeePermissionsPermissions$170;
 
+  /// `171`
   @BuiltValueEnumConst(wireName: '171')
   static const RoomSetAttendeePermissionsPermissions $171 = _$roomSetAttendeePermissionsPermissions$171;
 
+  /// `172`
   @BuiltValueEnumConst(wireName: '172')
   static const RoomSetAttendeePermissionsPermissions $172 = _$roomSetAttendeePermissionsPermissions$172;
 
+  /// `173`
   @BuiltValueEnumConst(wireName: '173')
   static const RoomSetAttendeePermissionsPermissions $173 = _$roomSetAttendeePermissionsPermissions$173;
 
+  /// `174`
   @BuiltValueEnumConst(wireName: '174')
   static const RoomSetAttendeePermissionsPermissions $174 = _$roomSetAttendeePermissionsPermissions$174;
 
+  /// `175`
   @BuiltValueEnumConst(wireName: '175')
   static const RoomSetAttendeePermissionsPermissions $175 = _$roomSetAttendeePermissionsPermissions$175;
 
+  /// `176`
   @BuiltValueEnumConst(wireName: '176')
   static const RoomSetAttendeePermissionsPermissions $176 = _$roomSetAttendeePermissionsPermissions$176;
 
+  /// `177`
   @BuiltValueEnumConst(wireName: '177')
   static const RoomSetAttendeePermissionsPermissions $177 = _$roomSetAttendeePermissionsPermissions$177;
 
+  /// `178`
   @BuiltValueEnumConst(wireName: '178')
   static const RoomSetAttendeePermissionsPermissions $178 = _$roomSetAttendeePermissionsPermissions$178;
 
+  /// `179`
   @BuiltValueEnumConst(wireName: '179')
   static const RoomSetAttendeePermissionsPermissions $179 = _$roomSetAttendeePermissionsPermissions$179;
 
+  /// `180`
   @BuiltValueEnumConst(wireName: '180')
   static const RoomSetAttendeePermissionsPermissions $180 = _$roomSetAttendeePermissionsPermissions$180;
 
+  /// `181`
   @BuiltValueEnumConst(wireName: '181')
   static const RoomSetAttendeePermissionsPermissions $181 = _$roomSetAttendeePermissionsPermissions$181;
 
+  /// `182`
   @BuiltValueEnumConst(wireName: '182')
   static const RoomSetAttendeePermissionsPermissions $182 = _$roomSetAttendeePermissionsPermissions$182;
 
+  /// `183`
   @BuiltValueEnumConst(wireName: '183')
   static const RoomSetAttendeePermissionsPermissions $183 = _$roomSetAttendeePermissionsPermissions$183;
 
+  /// `184`
   @BuiltValueEnumConst(wireName: '184')
   static const RoomSetAttendeePermissionsPermissions $184 = _$roomSetAttendeePermissionsPermissions$184;
 
+  /// `185`
   @BuiltValueEnumConst(wireName: '185')
   static const RoomSetAttendeePermissionsPermissions $185 = _$roomSetAttendeePermissionsPermissions$185;
 
+  /// `186`
   @BuiltValueEnumConst(wireName: '186')
   static const RoomSetAttendeePermissionsPermissions $186 = _$roomSetAttendeePermissionsPermissions$186;
 
+  /// `187`
   @BuiltValueEnumConst(wireName: '187')
   static const RoomSetAttendeePermissionsPermissions $187 = _$roomSetAttendeePermissionsPermissions$187;
 
+  /// `188`
   @BuiltValueEnumConst(wireName: '188')
   static const RoomSetAttendeePermissionsPermissions $188 = _$roomSetAttendeePermissionsPermissions$188;
 
+  /// `189`
   @BuiltValueEnumConst(wireName: '189')
   static const RoomSetAttendeePermissionsPermissions $189 = _$roomSetAttendeePermissionsPermissions$189;
 
+  /// `190`
   @BuiltValueEnumConst(wireName: '190')
   static const RoomSetAttendeePermissionsPermissions $190 = _$roomSetAttendeePermissionsPermissions$190;
 
+  /// `191`
   @BuiltValueEnumConst(wireName: '191')
   static const RoomSetAttendeePermissionsPermissions $191 = _$roomSetAttendeePermissionsPermissions$191;
 
+  /// `192`
   @BuiltValueEnumConst(wireName: '192')
   static const RoomSetAttendeePermissionsPermissions $192 = _$roomSetAttendeePermissionsPermissions$192;
 
+  /// `193`
   @BuiltValueEnumConst(wireName: '193')
   static const RoomSetAttendeePermissionsPermissions $193 = _$roomSetAttendeePermissionsPermissions$193;
 
+  /// `194`
   @BuiltValueEnumConst(wireName: '194')
   static const RoomSetAttendeePermissionsPermissions $194 = _$roomSetAttendeePermissionsPermissions$194;
 
+  /// `195`
   @BuiltValueEnumConst(wireName: '195')
   static const RoomSetAttendeePermissionsPermissions $195 = _$roomSetAttendeePermissionsPermissions$195;
 
+  /// `196`
   @BuiltValueEnumConst(wireName: '196')
   static const RoomSetAttendeePermissionsPermissions $196 = _$roomSetAttendeePermissionsPermissions$196;
 
+  /// `197`
   @BuiltValueEnumConst(wireName: '197')
   static const RoomSetAttendeePermissionsPermissions $197 = _$roomSetAttendeePermissionsPermissions$197;
 
+  /// `198`
   @BuiltValueEnumConst(wireName: '198')
   static const RoomSetAttendeePermissionsPermissions $198 = _$roomSetAttendeePermissionsPermissions$198;
 
+  /// `199`
   @BuiltValueEnumConst(wireName: '199')
   static const RoomSetAttendeePermissionsPermissions $199 = _$roomSetAttendeePermissionsPermissions$199;
 
+  /// `200`
   @BuiltValueEnumConst(wireName: '200')
   static const RoomSetAttendeePermissionsPermissions $200 = _$roomSetAttendeePermissionsPermissions$200;
 
+  /// `201`
   @BuiltValueEnumConst(wireName: '201')
   static const RoomSetAttendeePermissionsPermissions $201 = _$roomSetAttendeePermissionsPermissions$201;
 
+  /// `202`
   @BuiltValueEnumConst(wireName: '202')
   static const RoomSetAttendeePermissionsPermissions $202 = _$roomSetAttendeePermissionsPermissions$202;
 
+  /// `203`
   @BuiltValueEnumConst(wireName: '203')
   static const RoomSetAttendeePermissionsPermissions $203 = _$roomSetAttendeePermissionsPermissions$203;
 
+  /// `204`
   @BuiltValueEnumConst(wireName: '204')
   static const RoomSetAttendeePermissionsPermissions $204 = _$roomSetAttendeePermissionsPermissions$204;
 
+  /// `205`
   @BuiltValueEnumConst(wireName: '205')
   static const RoomSetAttendeePermissionsPermissions $205 = _$roomSetAttendeePermissionsPermissions$205;
 
+  /// `206`
   @BuiltValueEnumConst(wireName: '206')
   static const RoomSetAttendeePermissionsPermissions $206 = _$roomSetAttendeePermissionsPermissions$206;
 
+  /// `207`
   @BuiltValueEnumConst(wireName: '207')
   static const RoomSetAttendeePermissionsPermissions $207 = _$roomSetAttendeePermissionsPermissions$207;
 
+  /// `208`
   @BuiltValueEnumConst(wireName: '208')
   static const RoomSetAttendeePermissionsPermissions $208 = _$roomSetAttendeePermissionsPermissions$208;
 
+  /// `209`
   @BuiltValueEnumConst(wireName: '209')
   static const RoomSetAttendeePermissionsPermissions $209 = _$roomSetAttendeePermissionsPermissions$209;
 
+  /// `210`
   @BuiltValueEnumConst(wireName: '210')
   static const RoomSetAttendeePermissionsPermissions $210 = _$roomSetAttendeePermissionsPermissions$210;
 
+  /// `211`
   @BuiltValueEnumConst(wireName: '211')
   static const RoomSetAttendeePermissionsPermissions $211 = _$roomSetAttendeePermissionsPermissions$211;
 
+  /// `212`
   @BuiltValueEnumConst(wireName: '212')
   static const RoomSetAttendeePermissionsPermissions $212 = _$roomSetAttendeePermissionsPermissions$212;
 
+  /// `213`
   @BuiltValueEnumConst(wireName: '213')
   static const RoomSetAttendeePermissionsPermissions $213 = _$roomSetAttendeePermissionsPermissions$213;
 
+  /// `214`
   @BuiltValueEnumConst(wireName: '214')
   static const RoomSetAttendeePermissionsPermissions $214 = _$roomSetAttendeePermissionsPermissions$214;
 
+  /// `215`
   @BuiltValueEnumConst(wireName: '215')
   static const RoomSetAttendeePermissionsPermissions $215 = _$roomSetAttendeePermissionsPermissions$215;
 
+  /// `216`
   @BuiltValueEnumConst(wireName: '216')
   static const RoomSetAttendeePermissionsPermissions $216 = _$roomSetAttendeePermissionsPermissions$216;
 
+  /// `217`
   @BuiltValueEnumConst(wireName: '217')
   static const RoomSetAttendeePermissionsPermissions $217 = _$roomSetAttendeePermissionsPermissions$217;
 
+  /// `218`
   @BuiltValueEnumConst(wireName: '218')
   static const RoomSetAttendeePermissionsPermissions $218 = _$roomSetAttendeePermissionsPermissions$218;
 
+  /// `219`
   @BuiltValueEnumConst(wireName: '219')
   static const RoomSetAttendeePermissionsPermissions $219 = _$roomSetAttendeePermissionsPermissions$219;
 
+  /// `220`
   @BuiltValueEnumConst(wireName: '220')
   static const RoomSetAttendeePermissionsPermissions $220 = _$roomSetAttendeePermissionsPermissions$220;
 
+  /// `221`
   @BuiltValueEnumConst(wireName: '221')
   static const RoomSetAttendeePermissionsPermissions $221 = _$roomSetAttendeePermissionsPermissions$221;
 
+  /// `222`
   @BuiltValueEnumConst(wireName: '222')
   static const RoomSetAttendeePermissionsPermissions $222 = _$roomSetAttendeePermissionsPermissions$222;
 
+  /// `223`
   @BuiltValueEnumConst(wireName: '223')
   static const RoomSetAttendeePermissionsPermissions $223 = _$roomSetAttendeePermissionsPermissions$223;
 
+  /// `224`
   @BuiltValueEnumConst(wireName: '224')
   static const RoomSetAttendeePermissionsPermissions $224 = _$roomSetAttendeePermissionsPermissions$224;
 
+  /// `225`
   @BuiltValueEnumConst(wireName: '225')
   static const RoomSetAttendeePermissionsPermissions $225 = _$roomSetAttendeePermissionsPermissions$225;
 
+  /// `226`
   @BuiltValueEnumConst(wireName: '226')
   static const RoomSetAttendeePermissionsPermissions $226 = _$roomSetAttendeePermissionsPermissions$226;
 
+  /// `227`
   @BuiltValueEnumConst(wireName: '227')
   static const RoomSetAttendeePermissionsPermissions $227 = _$roomSetAttendeePermissionsPermissions$227;
 
+  /// `228`
   @BuiltValueEnumConst(wireName: '228')
   static const RoomSetAttendeePermissionsPermissions $228 = _$roomSetAttendeePermissionsPermissions$228;
 
+  /// `229`
   @BuiltValueEnumConst(wireName: '229')
   static const RoomSetAttendeePermissionsPermissions $229 = _$roomSetAttendeePermissionsPermissions$229;
 
+  /// `230`
   @BuiltValueEnumConst(wireName: '230')
   static const RoomSetAttendeePermissionsPermissions $230 = _$roomSetAttendeePermissionsPermissions$230;
 
+  /// `231`
   @BuiltValueEnumConst(wireName: '231')
   static const RoomSetAttendeePermissionsPermissions $231 = _$roomSetAttendeePermissionsPermissions$231;
 
+  /// `232`
   @BuiltValueEnumConst(wireName: '232')
   static const RoomSetAttendeePermissionsPermissions $232 = _$roomSetAttendeePermissionsPermissions$232;
 
+  /// `233`
   @BuiltValueEnumConst(wireName: '233')
   static const RoomSetAttendeePermissionsPermissions $233 = _$roomSetAttendeePermissionsPermissions$233;
 
+  /// `234`
   @BuiltValueEnumConst(wireName: '234')
   static const RoomSetAttendeePermissionsPermissions $234 = _$roomSetAttendeePermissionsPermissions$234;
 
+  /// `235`
   @BuiltValueEnumConst(wireName: '235')
   static const RoomSetAttendeePermissionsPermissions $235 = _$roomSetAttendeePermissionsPermissions$235;
 
+  /// `236`
   @BuiltValueEnumConst(wireName: '236')
   static const RoomSetAttendeePermissionsPermissions $236 = _$roomSetAttendeePermissionsPermissions$236;
 
+  /// `237`
   @BuiltValueEnumConst(wireName: '237')
   static const RoomSetAttendeePermissionsPermissions $237 = _$roomSetAttendeePermissionsPermissions$237;
 
+  /// `238`
   @BuiltValueEnumConst(wireName: '238')
   static const RoomSetAttendeePermissionsPermissions $238 = _$roomSetAttendeePermissionsPermissions$238;
 
+  /// `239`
   @BuiltValueEnumConst(wireName: '239')
   static const RoomSetAttendeePermissionsPermissions $239 = _$roomSetAttendeePermissionsPermissions$239;
 
+  /// `240`
   @BuiltValueEnumConst(wireName: '240')
   static const RoomSetAttendeePermissionsPermissions $240 = _$roomSetAttendeePermissionsPermissions$240;
 
+  /// `241`
   @BuiltValueEnumConst(wireName: '241')
   static const RoomSetAttendeePermissionsPermissions $241 = _$roomSetAttendeePermissionsPermissions$241;
 
+  /// `242`
   @BuiltValueEnumConst(wireName: '242')
   static const RoomSetAttendeePermissionsPermissions $242 = _$roomSetAttendeePermissionsPermissions$242;
 
+  /// `243`
   @BuiltValueEnumConst(wireName: '243')
   static const RoomSetAttendeePermissionsPermissions $243 = _$roomSetAttendeePermissionsPermissions$243;
 
+  /// `244`
   @BuiltValueEnumConst(wireName: '244')
   static const RoomSetAttendeePermissionsPermissions $244 = _$roomSetAttendeePermissionsPermissions$244;
 
+  /// `245`
   @BuiltValueEnumConst(wireName: '245')
   static const RoomSetAttendeePermissionsPermissions $245 = _$roomSetAttendeePermissionsPermissions$245;
 
+  /// `246`
   @BuiltValueEnumConst(wireName: '246')
   static const RoomSetAttendeePermissionsPermissions $246 = _$roomSetAttendeePermissionsPermissions$246;
 
+  /// `247`
   @BuiltValueEnumConst(wireName: '247')
   static const RoomSetAttendeePermissionsPermissions $247 = _$roomSetAttendeePermissionsPermissions$247;
 
+  /// `248`
   @BuiltValueEnumConst(wireName: '248')
   static const RoomSetAttendeePermissionsPermissions $248 = _$roomSetAttendeePermissionsPermissions$248;
 
+  /// `249`
   @BuiltValueEnumConst(wireName: '249')
   static const RoomSetAttendeePermissionsPermissions $249 = _$roomSetAttendeePermissionsPermissions$249;
 
+  /// `250`
   @BuiltValueEnumConst(wireName: '250')
   static const RoomSetAttendeePermissionsPermissions $250 = _$roomSetAttendeePermissionsPermissions$250;
 
+  /// `251`
   @BuiltValueEnumConst(wireName: '251')
   static const RoomSetAttendeePermissionsPermissions $251 = _$roomSetAttendeePermissionsPermissions$251;
 
+  /// `252`
   @BuiltValueEnumConst(wireName: '252')
   static const RoomSetAttendeePermissionsPermissions $252 = _$roomSetAttendeePermissionsPermissions$252;
 
+  /// `253`
   @BuiltValueEnumConst(wireName: '253')
   static const RoomSetAttendeePermissionsPermissions $253 = _$roomSetAttendeePermissionsPermissions$253;
 
+  /// `254`
   @BuiltValueEnumConst(wireName: '254')
   static const RoomSetAttendeePermissionsPermissions $254 = _$roomSetAttendeePermissionsPermissions$254;
 
+  /// `255`
   @BuiltValueEnumConst(wireName: '255')
   static const RoomSetAttendeePermissionsPermissions $255 = _$roomSetAttendeePermissionsPermissions$255;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAttendeePermissionsPermissions> get values => _$roomSetAttendeePermissionsPermissionsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAttendeePermissionsPermissions valueOf(String name) =>
       _$valueOfRoomSetAttendeePermissionsPermissions(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for RoomSetAttendeePermissionsPermissions.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAttendeePermissionsPermissions> get serializer =>
       const _$RoomSetAttendeePermissionsPermissionsSerializer();
@@ -28832,17 +31824,22 @@ class _$RoomSetAttendeePermissionsPermissionsSerializer
 class RoomSetAttendeePermissionsApiVersion extends EnumClass {
   const RoomSetAttendeePermissionsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetAttendeePermissionsApiVersion v4 = _$roomSetAttendeePermissionsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAttendeePermissionsApiVersion> get values => _$roomSetAttendeePermissionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAttendeePermissionsApiVersion valueOf(String name) =>
       _$valueOfRoomSetAttendeePermissionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetAttendeePermissionsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAttendeePermissionsApiVersion> get serializer =>
       const _$RoomSetAttendeePermissionsApiVersionSerializer();
@@ -28896,6 +31893,7 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
         $RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface,
         Built<RoomSetAttendeePermissionsResponseApplicationJson_Ocs,
             RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetAttendeePermissionsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs([
     void Function(RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetAttendeePermissionsResponseApplicationJson_Ocs;
@@ -28904,15 +31902,22 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
   const RoomSetAttendeePermissionsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetAttendeePermissionsResponseApplicationJson_Ocs.
   static Serializer<RoomSetAttendeePermissionsResponseApplicationJson_Ocs> get serializer =>
       _$roomSetAttendeePermissionsResponseApplicationJsonOcsSerializer;
 }
@@ -28927,6 +31932,7 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
         $RoomSetAttendeePermissionsResponseApplicationJsonInterface,
         Built<RoomSetAttendeePermissionsResponseApplicationJson,
             RoomSetAttendeePermissionsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetAttendeePermissionsResponseApplicationJson object using the builder pattern.
   factory RoomSetAttendeePermissionsResponseApplicationJson([
     void Function(RoomSetAttendeePermissionsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetAttendeePermissionsResponseApplicationJson;
@@ -28935,15 +31941,22 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
   const RoomSetAttendeePermissionsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetAttendeePermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetAttendeePermissionsResponseApplicationJson.
   static Serializer<RoomSetAttendeePermissionsResponseApplicationJson> get serializer =>
       _$roomSetAttendeePermissionsResponseApplicationJsonSerializer;
 }
@@ -28951,22 +31964,29 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
 class RoomSetAllAttendeesPermissionsMethod extends EnumClass {
   const RoomSetAllAttendeesPermissionsMethod._(super.name);
 
+  /// `set`
   @BuiltValueEnumConst(wireName: 'set')
   static const RoomSetAllAttendeesPermissionsMethod $set = _$roomSetAllAttendeesPermissionsMethod$set;
 
+  /// `remove`
   static const RoomSetAllAttendeesPermissionsMethod remove = _$roomSetAllAttendeesPermissionsMethodRemove;
 
+  /// `add`
   static const RoomSetAllAttendeesPermissionsMethod add = _$roomSetAllAttendeesPermissionsMethodAdd;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAllAttendeesPermissionsMethod> get values => _$roomSetAllAttendeesPermissionsMethodValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAllAttendeesPermissionsMethod valueOf(String name) =>
       _$valueOfRoomSetAllAttendeesPermissionsMethod(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetAllAttendeesPermissionsMethod.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAllAttendeesPermissionsMethod> get serializer =>
       const _$RoomSetAllAttendeesPermissionsMethodSerializer();
@@ -29016,784 +32036,1044 @@ class _$RoomSetAllAttendeesPermissionsMethodSerializer
 class RoomSetAllAttendeesPermissionsPermissions extends EnumClass {
   const RoomSetAllAttendeesPermissionsPermissions._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetAllAttendeesPermissionsPermissions $0 = _$roomSetAllAttendeesPermissionsPermissions$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetAllAttendeesPermissionsPermissions $1 = _$roomSetAllAttendeesPermissionsPermissions$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetAllAttendeesPermissionsPermissions $2 = _$roomSetAllAttendeesPermissionsPermissions$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const RoomSetAllAttendeesPermissionsPermissions $3 = _$roomSetAllAttendeesPermissionsPermissions$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const RoomSetAllAttendeesPermissionsPermissions $4 = _$roomSetAllAttendeesPermissionsPermissions$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const RoomSetAllAttendeesPermissionsPermissions $5 = _$roomSetAllAttendeesPermissionsPermissions$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const RoomSetAllAttendeesPermissionsPermissions $6 = _$roomSetAllAttendeesPermissionsPermissions$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const RoomSetAllAttendeesPermissionsPermissions $7 = _$roomSetAllAttendeesPermissionsPermissions$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const RoomSetAllAttendeesPermissionsPermissions $8 = _$roomSetAllAttendeesPermissionsPermissions$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const RoomSetAllAttendeesPermissionsPermissions $9 = _$roomSetAllAttendeesPermissionsPermissions$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const RoomSetAllAttendeesPermissionsPermissions $10 = _$roomSetAllAttendeesPermissionsPermissions$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const RoomSetAllAttendeesPermissionsPermissions $11 = _$roomSetAllAttendeesPermissionsPermissions$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const RoomSetAllAttendeesPermissionsPermissions $12 = _$roomSetAllAttendeesPermissionsPermissions$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const RoomSetAllAttendeesPermissionsPermissions $13 = _$roomSetAllAttendeesPermissionsPermissions$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const RoomSetAllAttendeesPermissionsPermissions $14 = _$roomSetAllAttendeesPermissionsPermissions$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const RoomSetAllAttendeesPermissionsPermissions $15 = _$roomSetAllAttendeesPermissionsPermissions$15;
 
+  /// `16`
   @BuiltValueEnumConst(wireName: '16')
   static const RoomSetAllAttendeesPermissionsPermissions $16 = _$roomSetAllAttendeesPermissionsPermissions$16;
 
+  /// `17`
   @BuiltValueEnumConst(wireName: '17')
   static const RoomSetAllAttendeesPermissionsPermissions $17 = _$roomSetAllAttendeesPermissionsPermissions$17;
 
+  /// `18`
   @BuiltValueEnumConst(wireName: '18')
   static const RoomSetAllAttendeesPermissionsPermissions $18 = _$roomSetAllAttendeesPermissionsPermissions$18;
 
+  /// `19`
   @BuiltValueEnumConst(wireName: '19')
   static const RoomSetAllAttendeesPermissionsPermissions $19 = _$roomSetAllAttendeesPermissionsPermissions$19;
 
+  /// `20`
   @BuiltValueEnumConst(wireName: '20')
   static const RoomSetAllAttendeesPermissionsPermissions $20 = _$roomSetAllAttendeesPermissionsPermissions$20;
 
+  /// `21`
   @BuiltValueEnumConst(wireName: '21')
   static const RoomSetAllAttendeesPermissionsPermissions $21 = _$roomSetAllAttendeesPermissionsPermissions$21;
 
+  /// `22`
   @BuiltValueEnumConst(wireName: '22')
   static const RoomSetAllAttendeesPermissionsPermissions $22 = _$roomSetAllAttendeesPermissionsPermissions$22;
 
+  /// `23`
   @BuiltValueEnumConst(wireName: '23')
   static const RoomSetAllAttendeesPermissionsPermissions $23 = _$roomSetAllAttendeesPermissionsPermissions$23;
 
+  /// `24`
   @BuiltValueEnumConst(wireName: '24')
   static const RoomSetAllAttendeesPermissionsPermissions $24 = _$roomSetAllAttendeesPermissionsPermissions$24;
 
+  /// `25`
   @BuiltValueEnumConst(wireName: '25')
   static const RoomSetAllAttendeesPermissionsPermissions $25 = _$roomSetAllAttendeesPermissionsPermissions$25;
 
+  /// `26`
   @BuiltValueEnumConst(wireName: '26')
   static const RoomSetAllAttendeesPermissionsPermissions $26 = _$roomSetAllAttendeesPermissionsPermissions$26;
 
+  /// `27`
   @BuiltValueEnumConst(wireName: '27')
   static const RoomSetAllAttendeesPermissionsPermissions $27 = _$roomSetAllAttendeesPermissionsPermissions$27;
 
+  /// `28`
   @BuiltValueEnumConst(wireName: '28')
   static const RoomSetAllAttendeesPermissionsPermissions $28 = _$roomSetAllAttendeesPermissionsPermissions$28;
 
+  /// `29`
   @BuiltValueEnumConst(wireName: '29')
   static const RoomSetAllAttendeesPermissionsPermissions $29 = _$roomSetAllAttendeesPermissionsPermissions$29;
 
+  /// `30`
   @BuiltValueEnumConst(wireName: '30')
   static const RoomSetAllAttendeesPermissionsPermissions $30 = _$roomSetAllAttendeesPermissionsPermissions$30;
 
+  /// `31`
   @BuiltValueEnumConst(wireName: '31')
   static const RoomSetAllAttendeesPermissionsPermissions $31 = _$roomSetAllAttendeesPermissionsPermissions$31;
 
+  /// `32`
   @BuiltValueEnumConst(wireName: '32')
   static const RoomSetAllAttendeesPermissionsPermissions $32 = _$roomSetAllAttendeesPermissionsPermissions$32;
 
+  /// `33`
   @BuiltValueEnumConst(wireName: '33')
   static const RoomSetAllAttendeesPermissionsPermissions $33 = _$roomSetAllAttendeesPermissionsPermissions$33;
 
+  /// `34`
   @BuiltValueEnumConst(wireName: '34')
   static const RoomSetAllAttendeesPermissionsPermissions $34 = _$roomSetAllAttendeesPermissionsPermissions$34;
 
+  /// `35`
   @BuiltValueEnumConst(wireName: '35')
   static const RoomSetAllAttendeesPermissionsPermissions $35 = _$roomSetAllAttendeesPermissionsPermissions$35;
 
+  /// `36`
   @BuiltValueEnumConst(wireName: '36')
   static const RoomSetAllAttendeesPermissionsPermissions $36 = _$roomSetAllAttendeesPermissionsPermissions$36;
 
+  /// `37`
   @BuiltValueEnumConst(wireName: '37')
   static const RoomSetAllAttendeesPermissionsPermissions $37 = _$roomSetAllAttendeesPermissionsPermissions$37;
 
+  /// `38`
   @BuiltValueEnumConst(wireName: '38')
   static const RoomSetAllAttendeesPermissionsPermissions $38 = _$roomSetAllAttendeesPermissionsPermissions$38;
 
+  /// `39`
   @BuiltValueEnumConst(wireName: '39')
   static const RoomSetAllAttendeesPermissionsPermissions $39 = _$roomSetAllAttendeesPermissionsPermissions$39;
 
+  /// `40`
   @BuiltValueEnumConst(wireName: '40')
   static const RoomSetAllAttendeesPermissionsPermissions $40 = _$roomSetAllAttendeesPermissionsPermissions$40;
 
+  /// `41`
   @BuiltValueEnumConst(wireName: '41')
   static const RoomSetAllAttendeesPermissionsPermissions $41 = _$roomSetAllAttendeesPermissionsPermissions$41;
 
+  /// `42`
   @BuiltValueEnumConst(wireName: '42')
   static const RoomSetAllAttendeesPermissionsPermissions $42 = _$roomSetAllAttendeesPermissionsPermissions$42;
 
+  /// `43`
   @BuiltValueEnumConst(wireName: '43')
   static const RoomSetAllAttendeesPermissionsPermissions $43 = _$roomSetAllAttendeesPermissionsPermissions$43;
 
+  /// `44`
   @BuiltValueEnumConst(wireName: '44')
   static const RoomSetAllAttendeesPermissionsPermissions $44 = _$roomSetAllAttendeesPermissionsPermissions$44;
 
+  /// `45`
   @BuiltValueEnumConst(wireName: '45')
   static const RoomSetAllAttendeesPermissionsPermissions $45 = _$roomSetAllAttendeesPermissionsPermissions$45;
 
+  /// `46`
   @BuiltValueEnumConst(wireName: '46')
   static const RoomSetAllAttendeesPermissionsPermissions $46 = _$roomSetAllAttendeesPermissionsPermissions$46;
 
+  /// `47`
   @BuiltValueEnumConst(wireName: '47')
   static const RoomSetAllAttendeesPermissionsPermissions $47 = _$roomSetAllAttendeesPermissionsPermissions$47;
 
+  /// `48`
   @BuiltValueEnumConst(wireName: '48')
   static const RoomSetAllAttendeesPermissionsPermissions $48 = _$roomSetAllAttendeesPermissionsPermissions$48;
 
+  /// `49`
   @BuiltValueEnumConst(wireName: '49')
   static const RoomSetAllAttendeesPermissionsPermissions $49 = _$roomSetAllAttendeesPermissionsPermissions$49;
 
+  /// `50`
   @BuiltValueEnumConst(wireName: '50')
   static const RoomSetAllAttendeesPermissionsPermissions $50 = _$roomSetAllAttendeesPermissionsPermissions$50;
 
+  /// `51`
   @BuiltValueEnumConst(wireName: '51')
   static const RoomSetAllAttendeesPermissionsPermissions $51 = _$roomSetAllAttendeesPermissionsPermissions$51;
 
+  /// `52`
   @BuiltValueEnumConst(wireName: '52')
   static const RoomSetAllAttendeesPermissionsPermissions $52 = _$roomSetAllAttendeesPermissionsPermissions$52;
 
+  /// `53`
   @BuiltValueEnumConst(wireName: '53')
   static const RoomSetAllAttendeesPermissionsPermissions $53 = _$roomSetAllAttendeesPermissionsPermissions$53;
 
+  /// `54`
   @BuiltValueEnumConst(wireName: '54')
   static const RoomSetAllAttendeesPermissionsPermissions $54 = _$roomSetAllAttendeesPermissionsPermissions$54;
 
+  /// `55`
   @BuiltValueEnumConst(wireName: '55')
   static const RoomSetAllAttendeesPermissionsPermissions $55 = _$roomSetAllAttendeesPermissionsPermissions$55;
 
+  /// `56`
   @BuiltValueEnumConst(wireName: '56')
   static const RoomSetAllAttendeesPermissionsPermissions $56 = _$roomSetAllAttendeesPermissionsPermissions$56;
 
+  /// `57`
   @BuiltValueEnumConst(wireName: '57')
   static const RoomSetAllAttendeesPermissionsPermissions $57 = _$roomSetAllAttendeesPermissionsPermissions$57;
 
+  /// `58`
   @BuiltValueEnumConst(wireName: '58')
   static const RoomSetAllAttendeesPermissionsPermissions $58 = _$roomSetAllAttendeesPermissionsPermissions$58;
 
+  /// `59`
   @BuiltValueEnumConst(wireName: '59')
   static const RoomSetAllAttendeesPermissionsPermissions $59 = _$roomSetAllAttendeesPermissionsPermissions$59;
 
+  /// `60`
   @BuiltValueEnumConst(wireName: '60')
   static const RoomSetAllAttendeesPermissionsPermissions $60 = _$roomSetAllAttendeesPermissionsPermissions$60;
 
+  /// `61`
   @BuiltValueEnumConst(wireName: '61')
   static const RoomSetAllAttendeesPermissionsPermissions $61 = _$roomSetAllAttendeesPermissionsPermissions$61;
 
+  /// `62`
   @BuiltValueEnumConst(wireName: '62')
   static const RoomSetAllAttendeesPermissionsPermissions $62 = _$roomSetAllAttendeesPermissionsPermissions$62;
 
+  /// `63`
   @BuiltValueEnumConst(wireName: '63')
   static const RoomSetAllAttendeesPermissionsPermissions $63 = _$roomSetAllAttendeesPermissionsPermissions$63;
 
+  /// `64`
   @BuiltValueEnumConst(wireName: '64')
   static const RoomSetAllAttendeesPermissionsPermissions $64 = _$roomSetAllAttendeesPermissionsPermissions$64;
 
+  /// `65`
   @BuiltValueEnumConst(wireName: '65')
   static const RoomSetAllAttendeesPermissionsPermissions $65 = _$roomSetAllAttendeesPermissionsPermissions$65;
 
+  /// `66`
   @BuiltValueEnumConst(wireName: '66')
   static const RoomSetAllAttendeesPermissionsPermissions $66 = _$roomSetAllAttendeesPermissionsPermissions$66;
 
+  /// `67`
   @BuiltValueEnumConst(wireName: '67')
   static const RoomSetAllAttendeesPermissionsPermissions $67 = _$roomSetAllAttendeesPermissionsPermissions$67;
 
+  /// `68`
   @BuiltValueEnumConst(wireName: '68')
   static const RoomSetAllAttendeesPermissionsPermissions $68 = _$roomSetAllAttendeesPermissionsPermissions$68;
 
+  /// `69`
   @BuiltValueEnumConst(wireName: '69')
   static const RoomSetAllAttendeesPermissionsPermissions $69 = _$roomSetAllAttendeesPermissionsPermissions$69;
 
+  /// `70`
   @BuiltValueEnumConst(wireName: '70')
   static const RoomSetAllAttendeesPermissionsPermissions $70 = _$roomSetAllAttendeesPermissionsPermissions$70;
 
+  /// `71`
   @BuiltValueEnumConst(wireName: '71')
   static const RoomSetAllAttendeesPermissionsPermissions $71 = _$roomSetAllAttendeesPermissionsPermissions$71;
 
+  /// `72`
   @BuiltValueEnumConst(wireName: '72')
   static const RoomSetAllAttendeesPermissionsPermissions $72 = _$roomSetAllAttendeesPermissionsPermissions$72;
 
+  /// `73`
   @BuiltValueEnumConst(wireName: '73')
   static const RoomSetAllAttendeesPermissionsPermissions $73 = _$roomSetAllAttendeesPermissionsPermissions$73;
 
+  /// `74`
   @BuiltValueEnumConst(wireName: '74')
   static const RoomSetAllAttendeesPermissionsPermissions $74 = _$roomSetAllAttendeesPermissionsPermissions$74;
 
+  /// `75`
   @BuiltValueEnumConst(wireName: '75')
   static const RoomSetAllAttendeesPermissionsPermissions $75 = _$roomSetAllAttendeesPermissionsPermissions$75;
 
+  /// `76`
   @BuiltValueEnumConst(wireName: '76')
   static const RoomSetAllAttendeesPermissionsPermissions $76 = _$roomSetAllAttendeesPermissionsPermissions$76;
 
+  /// `77`
   @BuiltValueEnumConst(wireName: '77')
   static const RoomSetAllAttendeesPermissionsPermissions $77 = _$roomSetAllAttendeesPermissionsPermissions$77;
 
+  /// `78`
   @BuiltValueEnumConst(wireName: '78')
   static const RoomSetAllAttendeesPermissionsPermissions $78 = _$roomSetAllAttendeesPermissionsPermissions$78;
 
+  /// `79`
   @BuiltValueEnumConst(wireName: '79')
   static const RoomSetAllAttendeesPermissionsPermissions $79 = _$roomSetAllAttendeesPermissionsPermissions$79;
 
+  /// `80`
   @BuiltValueEnumConst(wireName: '80')
   static const RoomSetAllAttendeesPermissionsPermissions $80 = _$roomSetAllAttendeesPermissionsPermissions$80;
 
+  /// `81`
   @BuiltValueEnumConst(wireName: '81')
   static const RoomSetAllAttendeesPermissionsPermissions $81 = _$roomSetAllAttendeesPermissionsPermissions$81;
 
+  /// `82`
   @BuiltValueEnumConst(wireName: '82')
   static const RoomSetAllAttendeesPermissionsPermissions $82 = _$roomSetAllAttendeesPermissionsPermissions$82;
 
+  /// `83`
   @BuiltValueEnumConst(wireName: '83')
   static const RoomSetAllAttendeesPermissionsPermissions $83 = _$roomSetAllAttendeesPermissionsPermissions$83;
 
+  /// `84`
   @BuiltValueEnumConst(wireName: '84')
   static const RoomSetAllAttendeesPermissionsPermissions $84 = _$roomSetAllAttendeesPermissionsPermissions$84;
 
+  /// `85`
   @BuiltValueEnumConst(wireName: '85')
   static const RoomSetAllAttendeesPermissionsPermissions $85 = _$roomSetAllAttendeesPermissionsPermissions$85;
 
+  /// `86`
   @BuiltValueEnumConst(wireName: '86')
   static const RoomSetAllAttendeesPermissionsPermissions $86 = _$roomSetAllAttendeesPermissionsPermissions$86;
 
+  /// `87`
   @BuiltValueEnumConst(wireName: '87')
   static const RoomSetAllAttendeesPermissionsPermissions $87 = _$roomSetAllAttendeesPermissionsPermissions$87;
 
+  /// `88`
   @BuiltValueEnumConst(wireName: '88')
   static const RoomSetAllAttendeesPermissionsPermissions $88 = _$roomSetAllAttendeesPermissionsPermissions$88;
 
+  /// `89`
   @BuiltValueEnumConst(wireName: '89')
   static const RoomSetAllAttendeesPermissionsPermissions $89 = _$roomSetAllAttendeesPermissionsPermissions$89;
 
+  /// `90`
   @BuiltValueEnumConst(wireName: '90')
   static const RoomSetAllAttendeesPermissionsPermissions $90 = _$roomSetAllAttendeesPermissionsPermissions$90;
 
+  /// `91`
   @BuiltValueEnumConst(wireName: '91')
   static const RoomSetAllAttendeesPermissionsPermissions $91 = _$roomSetAllAttendeesPermissionsPermissions$91;
 
+  /// `92`
   @BuiltValueEnumConst(wireName: '92')
   static const RoomSetAllAttendeesPermissionsPermissions $92 = _$roomSetAllAttendeesPermissionsPermissions$92;
 
+  /// `93`
   @BuiltValueEnumConst(wireName: '93')
   static const RoomSetAllAttendeesPermissionsPermissions $93 = _$roomSetAllAttendeesPermissionsPermissions$93;
 
+  /// `94`
   @BuiltValueEnumConst(wireName: '94')
   static const RoomSetAllAttendeesPermissionsPermissions $94 = _$roomSetAllAttendeesPermissionsPermissions$94;
 
+  /// `95`
   @BuiltValueEnumConst(wireName: '95')
   static const RoomSetAllAttendeesPermissionsPermissions $95 = _$roomSetAllAttendeesPermissionsPermissions$95;
 
+  /// `96`
   @BuiltValueEnumConst(wireName: '96')
   static const RoomSetAllAttendeesPermissionsPermissions $96 = _$roomSetAllAttendeesPermissionsPermissions$96;
 
+  /// `97`
   @BuiltValueEnumConst(wireName: '97')
   static const RoomSetAllAttendeesPermissionsPermissions $97 = _$roomSetAllAttendeesPermissionsPermissions$97;
 
+  /// `98`
   @BuiltValueEnumConst(wireName: '98')
   static const RoomSetAllAttendeesPermissionsPermissions $98 = _$roomSetAllAttendeesPermissionsPermissions$98;
 
+  /// `99`
   @BuiltValueEnumConst(wireName: '99')
   static const RoomSetAllAttendeesPermissionsPermissions $99 = _$roomSetAllAttendeesPermissionsPermissions$99;
 
+  /// `100`
   @BuiltValueEnumConst(wireName: '100')
   static const RoomSetAllAttendeesPermissionsPermissions $100 = _$roomSetAllAttendeesPermissionsPermissions$100;
 
+  /// `101`
   @BuiltValueEnumConst(wireName: '101')
   static const RoomSetAllAttendeesPermissionsPermissions $101 = _$roomSetAllAttendeesPermissionsPermissions$101;
 
+  /// `102`
   @BuiltValueEnumConst(wireName: '102')
   static const RoomSetAllAttendeesPermissionsPermissions $102 = _$roomSetAllAttendeesPermissionsPermissions$102;
 
+  /// `103`
   @BuiltValueEnumConst(wireName: '103')
   static const RoomSetAllAttendeesPermissionsPermissions $103 = _$roomSetAllAttendeesPermissionsPermissions$103;
 
+  /// `104`
   @BuiltValueEnumConst(wireName: '104')
   static const RoomSetAllAttendeesPermissionsPermissions $104 = _$roomSetAllAttendeesPermissionsPermissions$104;
 
+  /// `105`
   @BuiltValueEnumConst(wireName: '105')
   static const RoomSetAllAttendeesPermissionsPermissions $105 = _$roomSetAllAttendeesPermissionsPermissions$105;
 
+  /// `106`
   @BuiltValueEnumConst(wireName: '106')
   static const RoomSetAllAttendeesPermissionsPermissions $106 = _$roomSetAllAttendeesPermissionsPermissions$106;
 
+  /// `107`
   @BuiltValueEnumConst(wireName: '107')
   static const RoomSetAllAttendeesPermissionsPermissions $107 = _$roomSetAllAttendeesPermissionsPermissions$107;
 
+  /// `108`
   @BuiltValueEnumConst(wireName: '108')
   static const RoomSetAllAttendeesPermissionsPermissions $108 = _$roomSetAllAttendeesPermissionsPermissions$108;
 
+  /// `109`
   @BuiltValueEnumConst(wireName: '109')
   static const RoomSetAllAttendeesPermissionsPermissions $109 = _$roomSetAllAttendeesPermissionsPermissions$109;
 
+  /// `110`
   @BuiltValueEnumConst(wireName: '110')
   static const RoomSetAllAttendeesPermissionsPermissions $110 = _$roomSetAllAttendeesPermissionsPermissions$110;
 
+  /// `111`
   @BuiltValueEnumConst(wireName: '111')
   static const RoomSetAllAttendeesPermissionsPermissions $111 = _$roomSetAllAttendeesPermissionsPermissions$111;
 
+  /// `112`
   @BuiltValueEnumConst(wireName: '112')
   static const RoomSetAllAttendeesPermissionsPermissions $112 = _$roomSetAllAttendeesPermissionsPermissions$112;
 
+  /// `113`
   @BuiltValueEnumConst(wireName: '113')
   static const RoomSetAllAttendeesPermissionsPermissions $113 = _$roomSetAllAttendeesPermissionsPermissions$113;
 
+  /// `114`
   @BuiltValueEnumConst(wireName: '114')
   static const RoomSetAllAttendeesPermissionsPermissions $114 = _$roomSetAllAttendeesPermissionsPermissions$114;
 
+  /// `115`
   @BuiltValueEnumConst(wireName: '115')
   static const RoomSetAllAttendeesPermissionsPermissions $115 = _$roomSetAllAttendeesPermissionsPermissions$115;
 
+  /// `116`
   @BuiltValueEnumConst(wireName: '116')
   static const RoomSetAllAttendeesPermissionsPermissions $116 = _$roomSetAllAttendeesPermissionsPermissions$116;
 
+  /// `117`
   @BuiltValueEnumConst(wireName: '117')
   static const RoomSetAllAttendeesPermissionsPermissions $117 = _$roomSetAllAttendeesPermissionsPermissions$117;
 
+  /// `118`
   @BuiltValueEnumConst(wireName: '118')
   static const RoomSetAllAttendeesPermissionsPermissions $118 = _$roomSetAllAttendeesPermissionsPermissions$118;
 
+  /// `119`
   @BuiltValueEnumConst(wireName: '119')
   static const RoomSetAllAttendeesPermissionsPermissions $119 = _$roomSetAllAttendeesPermissionsPermissions$119;
 
+  /// `120`
   @BuiltValueEnumConst(wireName: '120')
   static const RoomSetAllAttendeesPermissionsPermissions $120 = _$roomSetAllAttendeesPermissionsPermissions$120;
 
+  /// `121`
   @BuiltValueEnumConst(wireName: '121')
   static const RoomSetAllAttendeesPermissionsPermissions $121 = _$roomSetAllAttendeesPermissionsPermissions$121;
 
+  /// `122`
   @BuiltValueEnumConst(wireName: '122')
   static const RoomSetAllAttendeesPermissionsPermissions $122 = _$roomSetAllAttendeesPermissionsPermissions$122;
 
+  /// `123`
   @BuiltValueEnumConst(wireName: '123')
   static const RoomSetAllAttendeesPermissionsPermissions $123 = _$roomSetAllAttendeesPermissionsPermissions$123;
 
+  /// `124`
   @BuiltValueEnumConst(wireName: '124')
   static const RoomSetAllAttendeesPermissionsPermissions $124 = _$roomSetAllAttendeesPermissionsPermissions$124;
 
+  /// `125`
   @BuiltValueEnumConst(wireName: '125')
   static const RoomSetAllAttendeesPermissionsPermissions $125 = _$roomSetAllAttendeesPermissionsPermissions$125;
 
+  /// `126`
   @BuiltValueEnumConst(wireName: '126')
   static const RoomSetAllAttendeesPermissionsPermissions $126 = _$roomSetAllAttendeesPermissionsPermissions$126;
 
+  /// `127`
   @BuiltValueEnumConst(wireName: '127')
   static const RoomSetAllAttendeesPermissionsPermissions $127 = _$roomSetAllAttendeesPermissionsPermissions$127;
 
+  /// `128`
   @BuiltValueEnumConst(wireName: '128')
   static const RoomSetAllAttendeesPermissionsPermissions $128 = _$roomSetAllAttendeesPermissionsPermissions$128;
 
+  /// `129`
   @BuiltValueEnumConst(wireName: '129')
   static const RoomSetAllAttendeesPermissionsPermissions $129 = _$roomSetAllAttendeesPermissionsPermissions$129;
 
+  /// `130`
   @BuiltValueEnumConst(wireName: '130')
   static const RoomSetAllAttendeesPermissionsPermissions $130 = _$roomSetAllAttendeesPermissionsPermissions$130;
 
+  /// `131`
   @BuiltValueEnumConst(wireName: '131')
   static const RoomSetAllAttendeesPermissionsPermissions $131 = _$roomSetAllAttendeesPermissionsPermissions$131;
 
+  /// `132`
   @BuiltValueEnumConst(wireName: '132')
   static const RoomSetAllAttendeesPermissionsPermissions $132 = _$roomSetAllAttendeesPermissionsPermissions$132;
 
+  /// `133`
   @BuiltValueEnumConst(wireName: '133')
   static const RoomSetAllAttendeesPermissionsPermissions $133 = _$roomSetAllAttendeesPermissionsPermissions$133;
 
+  /// `134`
   @BuiltValueEnumConst(wireName: '134')
   static const RoomSetAllAttendeesPermissionsPermissions $134 = _$roomSetAllAttendeesPermissionsPermissions$134;
 
+  /// `135`
   @BuiltValueEnumConst(wireName: '135')
   static const RoomSetAllAttendeesPermissionsPermissions $135 = _$roomSetAllAttendeesPermissionsPermissions$135;
 
+  /// `136`
   @BuiltValueEnumConst(wireName: '136')
   static const RoomSetAllAttendeesPermissionsPermissions $136 = _$roomSetAllAttendeesPermissionsPermissions$136;
 
+  /// `137`
   @BuiltValueEnumConst(wireName: '137')
   static const RoomSetAllAttendeesPermissionsPermissions $137 = _$roomSetAllAttendeesPermissionsPermissions$137;
 
+  /// `138`
   @BuiltValueEnumConst(wireName: '138')
   static const RoomSetAllAttendeesPermissionsPermissions $138 = _$roomSetAllAttendeesPermissionsPermissions$138;
 
+  /// `139`
   @BuiltValueEnumConst(wireName: '139')
   static const RoomSetAllAttendeesPermissionsPermissions $139 = _$roomSetAllAttendeesPermissionsPermissions$139;
 
+  /// `140`
   @BuiltValueEnumConst(wireName: '140')
   static const RoomSetAllAttendeesPermissionsPermissions $140 = _$roomSetAllAttendeesPermissionsPermissions$140;
 
+  /// `141`
   @BuiltValueEnumConst(wireName: '141')
   static const RoomSetAllAttendeesPermissionsPermissions $141 = _$roomSetAllAttendeesPermissionsPermissions$141;
 
+  /// `142`
   @BuiltValueEnumConst(wireName: '142')
   static const RoomSetAllAttendeesPermissionsPermissions $142 = _$roomSetAllAttendeesPermissionsPermissions$142;
 
+  /// `143`
   @BuiltValueEnumConst(wireName: '143')
   static const RoomSetAllAttendeesPermissionsPermissions $143 = _$roomSetAllAttendeesPermissionsPermissions$143;
 
+  /// `144`
   @BuiltValueEnumConst(wireName: '144')
   static const RoomSetAllAttendeesPermissionsPermissions $144 = _$roomSetAllAttendeesPermissionsPermissions$144;
 
+  /// `145`
   @BuiltValueEnumConst(wireName: '145')
   static const RoomSetAllAttendeesPermissionsPermissions $145 = _$roomSetAllAttendeesPermissionsPermissions$145;
 
+  /// `146`
   @BuiltValueEnumConst(wireName: '146')
   static const RoomSetAllAttendeesPermissionsPermissions $146 = _$roomSetAllAttendeesPermissionsPermissions$146;
 
+  /// `147`
   @BuiltValueEnumConst(wireName: '147')
   static const RoomSetAllAttendeesPermissionsPermissions $147 = _$roomSetAllAttendeesPermissionsPermissions$147;
 
+  /// `148`
   @BuiltValueEnumConst(wireName: '148')
   static const RoomSetAllAttendeesPermissionsPermissions $148 = _$roomSetAllAttendeesPermissionsPermissions$148;
 
+  /// `149`
   @BuiltValueEnumConst(wireName: '149')
   static const RoomSetAllAttendeesPermissionsPermissions $149 = _$roomSetAllAttendeesPermissionsPermissions$149;
 
+  /// `150`
   @BuiltValueEnumConst(wireName: '150')
   static const RoomSetAllAttendeesPermissionsPermissions $150 = _$roomSetAllAttendeesPermissionsPermissions$150;
 
+  /// `151`
   @BuiltValueEnumConst(wireName: '151')
   static const RoomSetAllAttendeesPermissionsPermissions $151 = _$roomSetAllAttendeesPermissionsPermissions$151;
 
+  /// `152`
   @BuiltValueEnumConst(wireName: '152')
   static const RoomSetAllAttendeesPermissionsPermissions $152 = _$roomSetAllAttendeesPermissionsPermissions$152;
 
+  /// `153`
   @BuiltValueEnumConst(wireName: '153')
   static const RoomSetAllAttendeesPermissionsPermissions $153 = _$roomSetAllAttendeesPermissionsPermissions$153;
 
+  /// `154`
   @BuiltValueEnumConst(wireName: '154')
   static const RoomSetAllAttendeesPermissionsPermissions $154 = _$roomSetAllAttendeesPermissionsPermissions$154;
 
+  /// `155`
   @BuiltValueEnumConst(wireName: '155')
   static const RoomSetAllAttendeesPermissionsPermissions $155 = _$roomSetAllAttendeesPermissionsPermissions$155;
 
+  /// `156`
   @BuiltValueEnumConst(wireName: '156')
   static const RoomSetAllAttendeesPermissionsPermissions $156 = _$roomSetAllAttendeesPermissionsPermissions$156;
 
+  /// `157`
   @BuiltValueEnumConst(wireName: '157')
   static const RoomSetAllAttendeesPermissionsPermissions $157 = _$roomSetAllAttendeesPermissionsPermissions$157;
 
+  /// `158`
   @BuiltValueEnumConst(wireName: '158')
   static const RoomSetAllAttendeesPermissionsPermissions $158 = _$roomSetAllAttendeesPermissionsPermissions$158;
 
+  /// `159`
   @BuiltValueEnumConst(wireName: '159')
   static const RoomSetAllAttendeesPermissionsPermissions $159 = _$roomSetAllAttendeesPermissionsPermissions$159;
 
+  /// `160`
   @BuiltValueEnumConst(wireName: '160')
   static const RoomSetAllAttendeesPermissionsPermissions $160 = _$roomSetAllAttendeesPermissionsPermissions$160;
 
+  /// `161`
   @BuiltValueEnumConst(wireName: '161')
   static const RoomSetAllAttendeesPermissionsPermissions $161 = _$roomSetAllAttendeesPermissionsPermissions$161;
 
+  /// `162`
   @BuiltValueEnumConst(wireName: '162')
   static const RoomSetAllAttendeesPermissionsPermissions $162 = _$roomSetAllAttendeesPermissionsPermissions$162;
 
+  /// `163`
   @BuiltValueEnumConst(wireName: '163')
   static const RoomSetAllAttendeesPermissionsPermissions $163 = _$roomSetAllAttendeesPermissionsPermissions$163;
 
+  /// `164`
   @BuiltValueEnumConst(wireName: '164')
   static const RoomSetAllAttendeesPermissionsPermissions $164 = _$roomSetAllAttendeesPermissionsPermissions$164;
 
+  /// `165`
   @BuiltValueEnumConst(wireName: '165')
   static const RoomSetAllAttendeesPermissionsPermissions $165 = _$roomSetAllAttendeesPermissionsPermissions$165;
 
+  /// `166`
   @BuiltValueEnumConst(wireName: '166')
   static const RoomSetAllAttendeesPermissionsPermissions $166 = _$roomSetAllAttendeesPermissionsPermissions$166;
 
+  /// `167`
   @BuiltValueEnumConst(wireName: '167')
   static const RoomSetAllAttendeesPermissionsPermissions $167 = _$roomSetAllAttendeesPermissionsPermissions$167;
 
+  /// `168`
   @BuiltValueEnumConst(wireName: '168')
   static const RoomSetAllAttendeesPermissionsPermissions $168 = _$roomSetAllAttendeesPermissionsPermissions$168;
 
+  /// `169`
   @BuiltValueEnumConst(wireName: '169')
   static const RoomSetAllAttendeesPermissionsPermissions $169 = _$roomSetAllAttendeesPermissionsPermissions$169;
 
+  /// `170`
   @BuiltValueEnumConst(wireName: '170')
   static const RoomSetAllAttendeesPermissionsPermissions $170 = _$roomSetAllAttendeesPermissionsPermissions$170;
 
+  /// `171`
   @BuiltValueEnumConst(wireName: '171')
   static const RoomSetAllAttendeesPermissionsPermissions $171 = _$roomSetAllAttendeesPermissionsPermissions$171;
 
+  /// `172`
   @BuiltValueEnumConst(wireName: '172')
   static const RoomSetAllAttendeesPermissionsPermissions $172 = _$roomSetAllAttendeesPermissionsPermissions$172;
 
+  /// `173`
   @BuiltValueEnumConst(wireName: '173')
   static const RoomSetAllAttendeesPermissionsPermissions $173 = _$roomSetAllAttendeesPermissionsPermissions$173;
 
+  /// `174`
   @BuiltValueEnumConst(wireName: '174')
   static const RoomSetAllAttendeesPermissionsPermissions $174 = _$roomSetAllAttendeesPermissionsPermissions$174;
 
+  /// `175`
   @BuiltValueEnumConst(wireName: '175')
   static const RoomSetAllAttendeesPermissionsPermissions $175 = _$roomSetAllAttendeesPermissionsPermissions$175;
 
+  /// `176`
   @BuiltValueEnumConst(wireName: '176')
   static const RoomSetAllAttendeesPermissionsPermissions $176 = _$roomSetAllAttendeesPermissionsPermissions$176;
 
+  /// `177`
   @BuiltValueEnumConst(wireName: '177')
   static const RoomSetAllAttendeesPermissionsPermissions $177 = _$roomSetAllAttendeesPermissionsPermissions$177;
 
+  /// `178`
   @BuiltValueEnumConst(wireName: '178')
   static const RoomSetAllAttendeesPermissionsPermissions $178 = _$roomSetAllAttendeesPermissionsPermissions$178;
 
+  /// `179`
   @BuiltValueEnumConst(wireName: '179')
   static const RoomSetAllAttendeesPermissionsPermissions $179 = _$roomSetAllAttendeesPermissionsPermissions$179;
 
+  /// `180`
   @BuiltValueEnumConst(wireName: '180')
   static const RoomSetAllAttendeesPermissionsPermissions $180 = _$roomSetAllAttendeesPermissionsPermissions$180;
 
+  /// `181`
   @BuiltValueEnumConst(wireName: '181')
   static const RoomSetAllAttendeesPermissionsPermissions $181 = _$roomSetAllAttendeesPermissionsPermissions$181;
 
+  /// `182`
   @BuiltValueEnumConst(wireName: '182')
   static const RoomSetAllAttendeesPermissionsPermissions $182 = _$roomSetAllAttendeesPermissionsPermissions$182;
 
+  /// `183`
   @BuiltValueEnumConst(wireName: '183')
   static const RoomSetAllAttendeesPermissionsPermissions $183 = _$roomSetAllAttendeesPermissionsPermissions$183;
 
+  /// `184`
   @BuiltValueEnumConst(wireName: '184')
   static const RoomSetAllAttendeesPermissionsPermissions $184 = _$roomSetAllAttendeesPermissionsPermissions$184;
 
+  /// `185`
   @BuiltValueEnumConst(wireName: '185')
   static const RoomSetAllAttendeesPermissionsPermissions $185 = _$roomSetAllAttendeesPermissionsPermissions$185;
 
+  /// `186`
   @BuiltValueEnumConst(wireName: '186')
   static const RoomSetAllAttendeesPermissionsPermissions $186 = _$roomSetAllAttendeesPermissionsPermissions$186;
 
+  /// `187`
   @BuiltValueEnumConst(wireName: '187')
   static const RoomSetAllAttendeesPermissionsPermissions $187 = _$roomSetAllAttendeesPermissionsPermissions$187;
 
+  /// `188`
   @BuiltValueEnumConst(wireName: '188')
   static const RoomSetAllAttendeesPermissionsPermissions $188 = _$roomSetAllAttendeesPermissionsPermissions$188;
 
+  /// `189`
   @BuiltValueEnumConst(wireName: '189')
   static const RoomSetAllAttendeesPermissionsPermissions $189 = _$roomSetAllAttendeesPermissionsPermissions$189;
 
+  /// `190`
   @BuiltValueEnumConst(wireName: '190')
   static const RoomSetAllAttendeesPermissionsPermissions $190 = _$roomSetAllAttendeesPermissionsPermissions$190;
 
+  /// `191`
   @BuiltValueEnumConst(wireName: '191')
   static const RoomSetAllAttendeesPermissionsPermissions $191 = _$roomSetAllAttendeesPermissionsPermissions$191;
 
+  /// `192`
   @BuiltValueEnumConst(wireName: '192')
   static const RoomSetAllAttendeesPermissionsPermissions $192 = _$roomSetAllAttendeesPermissionsPermissions$192;
 
+  /// `193`
   @BuiltValueEnumConst(wireName: '193')
   static const RoomSetAllAttendeesPermissionsPermissions $193 = _$roomSetAllAttendeesPermissionsPermissions$193;
 
+  /// `194`
   @BuiltValueEnumConst(wireName: '194')
   static const RoomSetAllAttendeesPermissionsPermissions $194 = _$roomSetAllAttendeesPermissionsPermissions$194;
 
+  /// `195`
   @BuiltValueEnumConst(wireName: '195')
   static const RoomSetAllAttendeesPermissionsPermissions $195 = _$roomSetAllAttendeesPermissionsPermissions$195;
 
+  /// `196`
   @BuiltValueEnumConst(wireName: '196')
   static const RoomSetAllAttendeesPermissionsPermissions $196 = _$roomSetAllAttendeesPermissionsPermissions$196;
 
+  /// `197`
   @BuiltValueEnumConst(wireName: '197')
   static const RoomSetAllAttendeesPermissionsPermissions $197 = _$roomSetAllAttendeesPermissionsPermissions$197;
 
+  /// `198`
   @BuiltValueEnumConst(wireName: '198')
   static const RoomSetAllAttendeesPermissionsPermissions $198 = _$roomSetAllAttendeesPermissionsPermissions$198;
 
+  /// `199`
   @BuiltValueEnumConst(wireName: '199')
   static const RoomSetAllAttendeesPermissionsPermissions $199 = _$roomSetAllAttendeesPermissionsPermissions$199;
 
+  /// `200`
   @BuiltValueEnumConst(wireName: '200')
   static const RoomSetAllAttendeesPermissionsPermissions $200 = _$roomSetAllAttendeesPermissionsPermissions$200;
 
+  /// `201`
   @BuiltValueEnumConst(wireName: '201')
   static const RoomSetAllAttendeesPermissionsPermissions $201 = _$roomSetAllAttendeesPermissionsPermissions$201;
 
+  /// `202`
   @BuiltValueEnumConst(wireName: '202')
   static const RoomSetAllAttendeesPermissionsPermissions $202 = _$roomSetAllAttendeesPermissionsPermissions$202;
 
+  /// `203`
   @BuiltValueEnumConst(wireName: '203')
   static const RoomSetAllAttendeesPermissionsPermissions $203 = _$roomSetAllAttendeesPermissionsPermissions$203;
 
+  /// `204`
   @BuiltValueEnumConst(wireName: '204')
   static const RoomSetAllAttendeesPermissionsPermissions $204 = _$roomSetAllAttendeesPermissionsPermissions$204;
 
+  /// `205`
   @BuiltValueEnumConst(wireName: '205')
   static const RoomSetAllAttendeesPermissionsPermissions $205 = _$roomSetAllAttendeesPermissionsPermissions$205;
 
+  /// `206`
   @BuiltValueEnumConst(wireName: '206')
   static const RoomSetAllAttendeesPermissionsPermissions $206 = _$roomSetAllAttendeesPermissionsPermissions$206;
 
+  /// `207`
   @BuiltValueEnumConst(wireName: '207')
   static const RoomSetAllAttendeesPermissionsPermissions $207 = _$roomSetAllAttendeesPermissionsPermissions$207;
 
+  /// `208`
   @BuiltValueEnumConst(wireName: '208')
   static const RoomSetAllAttendeesPermissionsPermissions $208 = _$roomSetAllAttendeesPermissionsPermissions$208;
 
+  /// `209`
   @BuiltValueEnumConst(wireName: '209')
   static const RoomSetAllAttendeesPermissionsPermissions $209 = _$roomSetAllAttendeesPermissionsPermissions$209;
 
+  /// `210`
   @BuiltValueEnumConst(wireName: '210')
   static const RoomSetAllAttendeesPermissionsPermissions $210 = _$roomSetAllAttendeesPermissionsPermissions$210;
 
+  /// `211`
   @BuiltValueEnumConst(wireName: '211')
   static const RoomSetAllAttendeesPermissionsPermissions $211 = _$roomSetAllAttendeesPermissionsPermissions$211;
 
+  /// `212`
   @BuiltValueEnumConst(wireName: '212')
   static const RoomSetAllAttendeesPermissionsPermissions $212 = _$roomSetAllAttendeesPermissionsPermissions$212;
 
+  /// `213`
   @BuiltValueEnumConst(wireName: '213')
   static const RoomSetAllAttendeesPermissionsPermissions $213 = _$roomSetAllAttendeesPermissionsPermissions$213;
 
+  /// `214`
   @BuiltValueEnumConst(wireName: '214')
   static const RoomSetAllAttendeesPermissionsPermissions $214 = _$roomSetAllAttendeesPermissionsPermissions$214;
 
+  /// `215`
   @BuiltValueEnumConst(wireName: '215')
   static const RoomSetAllAttendeesPermissionsPermissions $215 = _$roomSetAllAttendeesPermissionsPermissions$215;
 
+  /// `216`
   @BuiltValueEnumConst(wireName: '216')
   static const RoomSetAllAttendeesPermissionsPermissions $216 = _$roomSetAllAttendeesPermissionsPermissions$216;
 
+  /// `217`
   @BuiltValueEnumConst(wireName: '217')
   static const RoomSetAllAttendeesPermissionsPermissions $217 = _$roomSetAllAttendeesPermissionsPermissions$217;
 
+  /// `218`
   @BuiltValueEnumConst(wireName: '218')
   static const RoomSetAllAttendeesPermissionsPermissions $218 = _$roomSetAllAttendeesPermissionsPermissions$218;
 
+  /// `219`
   @BuiltValueEnumConst(wireName: '219')
   static const RoomSetAllAttendeesPermissionsPermissions $219 = _$roomSetAllAttendeesPermissionsPermissions$219;
 
+  /// `220`
   @BuiltValueEnumConst(wireName: '220')
   static const RoomSetAllAttendeesPermissionsPermissions $220 = _$roomSetAllAttendeesPermissionsPermissions$220;
 
+  /// `221`
   @BuiltValueEnumConst(wireName: '221')
   static const RoomSetAllAttendeesPermissionsPermissions $221 = _$roomSetAllAttendeesPermissionsPermissions$221;
 
+  /// `222`
   @BuiltValueEnumConst(wireName: '222')
   static const RoomSetAllAttendeesPermissionsPermissions $222 = _$roomSetAllAttendeesPermissionsPermissions$222;
 
+  /// `223`
   @BuiltValueEnumConst(wireName: '223')
   static const RoomSetAllAttendeesPermissionsPermissions $223 = _$roomSetAllAttendeesPermissionsPermissions$223;
 
+  /// `224`
   @BuiltValueEnumConst(wireName: '224')
   static const RoomSetAllAttendeesPermissionsPermissions $224 = _$roomSetAllAttendeesPermissionsPermissions$224;
 
+  /// `225`
   @BuiltValueEnumConst(wireName: '225')
   static const RoomSetAllAttendeesPermissionsPermissions $225 = _$roomSetAllAttendeesPermissionsPermissions$225;
 
+  /// `226`
   @BuiltValueEnumConst(wireName: '226')
   static const RoomSetAllAttendeesPermissionsPermissions $226 = _$roomSetAllAttendeesPermissionsPermissions$226;
 
+  /// `227`
   @BuiltValueEnumConst(wireName: '227')
   static const RoomSetAllAttendeesPermissionsPermissions $227 = _$roomSetAllAttendeesPermissionsPermissions$227;
 
+  /// `228`
   @BuiltValueEnumConst(wireName: '228')
   static const RoomSetAllAttendeesPermissionsPermissions $228 = _$roomSetAllAttendeesPermissionsPermissions$228;
 
+  /// `229`
   @BuiltValueEnumConst(wireName: '229')
   static const RoomSetAllAttendeesPermissionsPermissions $229 = _$roomSetAllAttendeesPermissionsPermissions$229;
 
+  /// `230`
   @BuiltValueEnumConst(wireName: '230')
   static const RoomSetAllAttendeesPermissionsPermissions $230 = _$roomSetAllAttendeesPermissionsPermissions$230;
 
+  /// `231`
   @BuiltValueEnumConst(wireName: '231')
   static const RoomSetAllAttendeesPermissionsPermissions $231 = _$roomSetAllAttendeesPermissionsPermissions$231;
 
+  /// `232`
   @BuiltValueEnumConst(wireName: '232')
   static const RoomSetAllAttendeesPermissionsPermissions $232 = _$roomSetAllAttendeesPermissionsPermissions$232;
 
+  /// `233`
   @BuiltValueEnumConst(wireName: '233')
   static const RoomSetAllAttendeesPermissionsPermissions $233 = _$roomSetAllAttendeesPermissionsPermissions$233;
 
+  /// `234`
   @BuiltValueEnumConst(wireName: '234')
   static const RoomSetAllAttendeesPermissionsPermissions $234 = _$roomSetAllAttendeesPermissionsPermissions$234;
 
+  /// `235`
   @BuiltValueEnumConst(wireName: '235')
   static const RoomSetAllAttendeesPermissionsPermissions $235 = _$roomSetAllAttendeesPermissionsPermissions$235;
 
+  /// `236`
   @BuiltValueEnumConst(wireName: '236')
   static const RoomSetAllAttendeesPermissionsPermissions $236 = _$roomSetAllAttendeesPermissionsPermissions$236;
 
+  /// `237`
   @BuiltValueEnumConst(wireName: '237')
   static const RoomSetAllAttendeesPermissionsPermissions $237 = _$roomSetAllAttendeesPermissionsPermissions$237;
 
+  /// `238`
   @BuiltValueEnumConst(wireName: '238')
   static const RoomSetAllAttendeesPermissionsPermissions $238 = _$roomSetAllAttendeesPermissionsPermissions$238;
 
+  /// `239`
   @BuiltValueEnumConst(wireName: '239')
   static const RoomSetAllAttendeesPermissionsPermissions $239 = _$roomSetAllAttendeesPermissionsPermissions$239;
 
+  /// `240`
   @BuiltValueEnumConst(wireName: '240')
   static const RoomSetAllAttendeesPermissionsPermissions $240 = _$roomSetAllAttendeesPermissionsPermissions$240;
 
+  /// `241`
   @BuiltValueEnumConst(wireName: '241')
   static const RoomSetAllAttendeesPermissionsPermissions $241 = _$roomSetAllAttendeesPermissionsPermissions$241;
 
+  /// `242`
   @BuiltValueEnumConst(wireName: '242')
   static const RoomSetAllAttendeesPermissionsPermissions $242 = _$roomSetAllAttendeesPermissionsPermissions$242;
 
+  /// `243`
   @BuiltValueEnumConst(wireName: '243')
   static const RoomSetAllAttendeesPermissionsPermissions $243 = _$roomSetAllAttendeesPermissionsPermissions$243;
 
+  /// `244`
   @BuiltValueEnumConst(wireName: '244')
   static const RoomSetAllAttendeesPermissionsPermissions $244 = _$roomSetAllAttendeesPermissionsPermissions$244;
 
+  /// `245`
   @BuiltValueEnumConst(wireName: '245')
   static const RoomSetAllAttendeesPermissionsPermissions $245 = _$roomSetAllAttendeesPermissionsPermissions$245;
 
+  /// `246`
   @BuiltValueEnumConst(wireName: '246')
   static const RoomSetAllAttendeesPermissionsPermissions $246 = _$roomSetAllAttendeesPermissionsPermissions$246;
 
+  /// `247`
   @BuiltValueEnumConst(wireName: '247')
   static const RoomSetAllAttendeesPermissionsPermissions $247 = _$roomSetAllAttendeesPermissionsPermissions$247;
 
+  /// `248`
   @BuiltValueEnumConst(wireName: '248')
   static const RoomSetAllAttendeesPermissionsPermissions $248 = _$roomSetAllAttendeesPermissionsPermissions$248;
 
+  /// `249`
   @BuiltValueEnumConst(wireName: '249')
   static const RoomSetAllAttendeesPermissionsPermissions $249 = _$roomSetAllAttendeesPermissionsPermissions$249;
 
+  /// `250`
   @BuiltValueEnumConst(wireName: '250')
   static const RoomSetAllAttendeesPermissionsPermissions $250 = _$roomSetAllAttendeesPermissionsPermissions$250;
 
+  /// `251`
   @BuiltValueEnumConst(wireName: '251')
   static const RoomSetAllAttendeesPermissionsPermissions $251 = _$roomSetAllAttendeesPermissionsPermissions$251;
 
+  /// `252`
   @BuiltValueEnumConst(wireName: '252')
   static const RoomSetAllAttendeesPermissionsPermissions $252 = _$roomSetAllAttendeesPermissionsPermissions$252;
 
+  /// `253`
   @BuiltValueEnumConst(wireName: '253')
   static const RoomSetAllAttendeesPermissionsPermissions $253 = _$roomSetAllAttendeesPermissionsPermissions$253;
 
+  /// `254`
   @BuiltValueEnumConst(wireName: '254')
   static const RoomSetAllAttendeesPermissionsPermissions $254 = _$roomSetAllAttendeesPermissionsPermissions$254;
 
+  /// `255`
   @BuiltValueEnumConst(wireName: '255')
   static const RoomSetAllAttendeesPermissionsPermissions $255 = _$roomSetAllAttendeesPermissionsPermissions$255;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAllAttendeesPermissionsPermissions> get values =>
       _$roomSetAllAttendeesPermissionsPermissionsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAllAttendeesPermissionsPermissions valueOf(String name) =>
       _$valueOfRoomSetAllAttendeesPermissionsPermissions(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for RoomSetAllAttendeesPermissionsPermissions.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAllAttendeesPermissionsPermissions> get serializer =>
       const _$RoomSetAllAttendeesPermissionsPermissionsSerializer();
@@ -30349,18 +33629,23 @@ class _$RoomSetAllAttendeesPermissionsPermissionsSerializer
 class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
   const RoomSetAllAttendeesPermissionsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetAllAttendeesPermissionsApiVersion v4 = _$roomSetAllAttendeesPermissionsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAllAttendeesPermissionsApiVersion> get values =>
       _$roomSetAllAttendeesPermissionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAllAttendeesPermissionsApiVersion valueOf(String name) =>
       _$valueOfRoomSetAllAttendeesPermissionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetAllAttendeesPermissionsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAllAttendeesPermissionsApiVersion> get serializer =>
       const _$RoomSetAllAttendeesPermissionsApiVersionSerializer();
@@ -30414,6 +33699,7 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
         $RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface,
         Built<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs,
             RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs([
     void Function(RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs;
@@ -30422,15 +33708,22 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
   const RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.
   static Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs> get serializer =>
       _$roomSetAllAttendeesPermissionsResponseApplicationJsonOcsSerializer;
 }
@@ -30445,6 +33738,7 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
         $RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface,
         Built<RoomSetAllAttendeesPermissionsResponseApplicationJson,
             RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetAllAttendeesPermissionsResponseApplicationJson object using the builder pattern.
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson([
     void Function(RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetAllAttendeesPermissionsResponseApplicationJson;
@@ -30453,15 +33747,22 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
   const RoomSetAllAttendeesPermissionsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetAllAttendeesPermissionsResponseApplicationJson.
   static Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson> get serializer =>
       _$roomSetAllAttendeesPermissionsResponseApplicationJsonSerializer;
 }
@@ -30469,16 +33770,21 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
 class RoomJoinRoomApiVersion extends EnumClass {
   const RoomJoinRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomJoinRoomApiVersion v4 = _$roomJoinRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomJoinRoomApiVersion> get values => _$roomJoinRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomJoinRoomApiVersion valueOf(String name) => _$valueOfRoomJoinRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomJoinRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomJoinRoomApiVersion> get serializer => const _$RoomJoinRoomApiVersionSerializer();
 }
@@ -30527,6 +33833,7 @@ abstract class RoomJoinRoomResponseApplicationJson_Ocs
     implements
         $RoomJoinRoomResponseApplicationJson_OcsInterface,
         Built<RoomJoinRoomResponseApplicationJson_Ocs, RoomJoinRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomJoinRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomJoinRoomResponseApplicationJson_Ocs([void Function(RoomJoinRoomResponseApplicationJson_OcsBuilder)? b]) =
       _$RoomJoinRoomResponseApplicationJson_Ocs;
 
@@ -30534,15 +33841,22 @@ abstract class RoomJoinRoomResponseApplicationJson_Ocs
   const RoomJoinRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomJoinRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomJoinRoomResponseApplicationJson_Ocs.
   static Serializer<RoomJoinRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomJoinRoomResponseApplicationJsonOcsSerializer;
 }
@@ -30556,6 +33870,7 @@ abstract class RoomJoinRoomResponseApplicationJson
     implements
         $RoomJoinRoomResponseApplicationJsonInterface,
         Built<RoomJoinRoomResponseApplicationJson, RoomJoinRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomJoinRoomResponseApplicationJson object using the builder pattern.
   factory RoomJoinRoomResponseApplicationJson([void Function(RoomJoinRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomJoinRoomResponseApplicationJson;
 
@@ -30563,15 +33878,22 @@ abstract class RoomJoinRoomResponseApplicationJson
   const RoomJoinRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomJoinRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomJoinRoomResponseApplicationJson.
   static Serializer<RoomJoinRoomResponseApplicationJson> get serializer =>
       _$roomJoinRoomResponseApplicationJsonSerializer;
 }
@@ -30579,16 +33901,21 @@ abstract class RoomJoinRoomResponseApplicationJson
 class RoomLeaveRoomApiVersion extends EnumClass {
   const RoomLeaveRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomLeaveRoomApiVersion v4 = _$roomLeaveRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomLeaveRoomApiVersion> get values => _$roomLeaveRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomLeaveRoomApiVersion valueOf(String name) => _$valueOfRoomLeaveRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomLeaveRoomApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomLeaveRoomApiVersion> get serializer => const _$RoomLeaveRoomApiVersionSerializer();
 }
@@ -30637,6 +33964,7 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
     implements
         $RoomLeaveRoomResponseApplicationJson_OcsInterface,
         Built<RoomLeaveRoomResponseApplicationJson_Ocs, RoomLeaveRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomLeaveRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomLeaveRoomResponseApplicationJson_Ocs([
     void Function(RoomLeaveRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomLeaveRoomResponseApplicationJson_Ocs;
@@ -30645,15 +33973,22 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
   const RoomLeaveRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomLeaveRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomLeaveRoomResponseApplicationJson_Ocs.
   static Serializer<RoomLeaveRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomLeaveRoomResponseApplicationJsonOcsSerializer;
 }
@@ -30667,6 +34002,7 @@ abstract class RoomLeaveRoomResponseApplicationJson
     implements
         $RoomLeaveRoomResponseApplicationJsonInterface,
         Built<RoomLeaveRoomResponseApplicationJson, RoomLeaveRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomLeaveRoomResponseApplicationJson object using the builder pattern.
   factory RoomLeaveRoomResponseApplicationJson([void Function(RoomLeaveRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomLeaveRoomResponseApplicationJson;
 
@@ -30674,15 +34010,22 @@ abstract class RoomLeaveRoomResponseApplicationJson
   const RoomLeaveRoomResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomLeaveRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomLeaveRoomResponseApplicationJson.
   static Serializer<RoomLeaveRoomResponseApplicationJson> get serializer =>
       _$roomLeaveRoomResponseApplicationJsonSerializer;
 }
@@ -30690,16 +34033,21 @@ abstract class RoomLeaveRoomResponseApplicationJson
 class RoomResendInvitationsApiVersion extends EnumClass {
   const RoomResendInvitationsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomResendInvitationsApiVersion v4 = _$roomResendInvitationsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomResendInvitationsApiVersion> get values => _$roomResendInvitationsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomResendInvitationsApiVersion valueOf(String name) => _$valueOfRoomResendInvitationsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomResendInvitationsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomResendInvitationsApiVersion> get serializer =>
       const _$RoomResendInvitationsApiVersionSerializer();
@@ -30750,6 +34098,7 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
         $RoomResendInvitationsResponseApplicationJson_OcsInterface,
         Built<RoomResendInvitationsResponseApplicationJson_Ocs,
             RoomResendInvitationsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomResendInvitationsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomResendInvitationsResponseApplicationJson_Ocs([
     void Function(RoomResendInvitationsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomResendInvitationsResponseApplicationJson_Ocs;
@@ -30758,15 +34107,22 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
   const RoomResendInvitationsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomResendInvitationsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomResendInvitationsResponseApplicationJson_Ocs.
   static Serializer<RoomResendInvitationsResponseApplicationJson_Ocs> get serializer =>
       _$roomResendInvitationsResponseApplicationJsonOcsSerializer;
 }
@@ -30780,6 +34136,7 @@ abstract class RoomResendInvitationsResponseApplicationJson
     implements
         $RoomResendInvitationsResponseApplicationJsonInterface,
         Built<RoomResendInvitationsResponseApplicationJson, RoomResendInvitationsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomResendInvitationsResponseApplicationJson object using the builder pattern.
   factory RoomResendInvitationsResponseApplicationJson([
     void Function(RoomResendInvitationsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomResendInvitationsResponseApplicationJson;
@@ -30788,15 +34145,22 @@ abstract class RoomResendInvitationsResponseApplicationJson
   const RoomResendInvitationsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomResendInvitationsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomResendInvitationsResponseApplicationJson.
   static Serializer<RoomResendInvitationsResponseApplicationJson> get serializer =>
       _$roomResendInvitationsResponseApplicationJsonSerializer;
 }
@@ -30804,20 +34168,26 @@ abstract class RoomResendInvitationsResponseApplicationJson
 class RoomSetSessionStateState extends EnumClass {
   const RoomSetSessionStateState._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetSessionStateState $0 = _$roomSetSessionStateState$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetSessionStateState $1 = _$roomSetSessionStateState$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetSessionStateState> get values => _$roomSetSessionStateStateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetSessionStateState valueOf(String name) => _$valueOfRoomSetSessionStateState(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for RoomSetSessionStateState.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetSessionStateState> get serializer => const _$RoomSetSessionStateStateSerializer();
 }
@@ -30861,16 +34231,21 @@ class _$RoomSetSessionStateStateSerializer implements PrimitiveSerializer<RoomSe
 class RoomSetSessionStateApiVersion extends EnumClass {
   const RoomSetSessionStateApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetSessionStateApiVersion v4 = _$roomSetSessionStateApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetSessionStateApiVersion> get values => _$roomSetSessionStateApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetSessionStateApiVersion valueOf(String name) => _$valueOfRoomSetSessionStateApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetSessionStateApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetSessionStateApiVersion> get serializer => const _$RoomSetSessionStateApiVersionSerializer();
 }
@@ -30919,6 +34294,7 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
     implements
         $RoomSetSessionStateResponseApplicationJson_OcsInterface,
         Built<RoomSetSessionStateResponseApplicationJson_Ocs, RoomSetSessionStateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetSessionStateResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetSessionStateResponseApplicationJson_Ocs([
     void Function(RoomSetSessionStateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetSessionStateResponseApplicationJson_Ocs;
@@ -30927,15 +34303,22 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
   const RoomSetSessionStateResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetSessionStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetSessionStateResponseApplicationJson_Ocs.
   static Serializer<RoomSetSessionStateResponseApplicationJson_Ocs> get serializer =>
       _$roomSetSessionStateResponseApplicationJsonOcsSerializer;
 }
@@ -30949,6 +34332,7 @@ abstract class RoomSetSessionStateResponseApplicationJson
     implements
         $RoomSetSessionStateResponseApplicationJsonInterface,
         Built<RoomSetSessionStateResponseApplicationJson, RoomSetSessionStateResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetSessionStateResponseApplicationJson object using the builder pattern.
   factory RoomSetSessionStateResponseApplicationJson([
     void Function(RoomSetSessionStateResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetSessionStateResponseApplicationJson;
@@ -30957,15 +34341,22 @@ abstract class RoomSetSessionStateResponseApplicationJson
   const RoomSetSessionStateResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetSessionStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetSessionStateResponseApplicationJson.
   static Serializer<RoomSetSessionStateResponseApplicationJson> get serializer =>
       _$roomSetSessionStateResponseApplicationJsonSerializer;
 }
@@ -30973,16 +34364,21 @@ abstract class RoomSetSessionStateResponseApplicationJson
 class RoomPromoteModeratorApiVersion extends EnumClass {
   const RoomPromoteModeratorApiVersion._(super.name);
 
+  /// `v4`
   static const RoomPromoteModeratorApiVersion v4 = _$roomPromoteModeratorApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomPromoteModeratorApiVersion> get values => _$roomPromoteModeratorApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomPromoteModeratorApiVersion valueOf(String name) => _$valueOfRoomPromoteModeratorApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomPromoteModeratorApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomPromoteModeratorApiVersion> get serializer =>
       const _$RoomPromoteModeratorApiVersionSerializer();
@@ -31032,6 +34428,7 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
     implements
         $RoomPromoteModeratorResponseApplicationJson_OcsInterface,
         Built<RoomPromoteModeratorResponseApplicationJson_Ocs, RoomPromoteModeratorResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomPromoteModeratorResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomPromoteModeratorResponseApplicationJson_Ocs([
     void Function(RoomPromoteModeratorResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomPromoteModeratorResponseApplicationJson_Ocs;
@@ -31040,15 +34437,22 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
   const RoomPromoteModeratorResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomPromoteModeratorResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomPromoteModeratorResponseApplicationJson_Ocs.
   static Serializer<RoomPromoteModeratorResponseApplicationJson_Ocs> get serializer =>
       _$roomPromoteModeratorResponseApplicationJsonOcsSerializer;
 }
@@ -31062,6 +34466,7 @@ abstract class RoomPromoteModeratorResponseApplicationJson
     implements
         $RoomPromoteModeratorResponseApplicationJsonInterface,
         Built<RoomPromoteModeratorResponseApplicationJson, RoomPromoteModeratorResponseApplicationJsonBuilder> {
+  /// Creates a new RoomPromoteModeratorResponseApplicationJson object using the builder pattern.
   factory RoomPromoteModeratorResponseApplicationJson([
     void Function(RoomPromoteModeratorResponseApplicationJsonBuilder)? b,
   ]) = _$RoomPromoteModeratorResponseApplicationJson;
@@ -31070,15 +34475,22 @@ abstract class RoomPromoteModeratorResponseApplicationJson
   const RoomPromoteModeratorResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomPromoteModeratorResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomPromoteModeratorResponseApplicationJson.
   static Serializer<RoomPromoteModeratorResponseApplicationJson> get serializer =>
       _$roomPromoteModeratorResponseApplicationJsonSerializer;
 }
@@ -31086,16 +34498,21 @@ abstract class RoomPromoteModeratorResponseApplicationJson
 class RoomDemoteModeratorApiVersion extends EnumClass {
   const RoomDemoteModeratorApiVersion._(super.name);
 
+  /// `v4`
   static const RoomDemoteModeratorApiVersion v4 = _$roomDemoteModeratorApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomDemoteModeratorApiVersion> get values => _$roomDemoteModeratorApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomDemoteModeratorApiVersion valueOf(String name) => _$valueOfRoomDemoteModeratorApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomDemoteModeratorApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomDemoteModeratorApiVersion> get serializer => const _$RoomDemoteModeratorApiVersionSerializer();
 }
@@ -31144,6 +34561,7 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
     implements
         $RoomDemoteModeratorResponseApplicationJson_OcsInterface,
         Built<RoomDemoteModeratorResponseApplicationJson_Ocs, RoomDemoteModeratorResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomDemoteModeratorResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomDemoteModeratorResponseApplicationJson_Ocs([
     void Function(RoomDemoteModeratorResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomDemoteModeratorResponseApplicationJson_Ocs;
@@ -31152,15 +34570,22 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
   const RoomDemoteModeratorResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomDemoteModeratorResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomDemoteModeratorResponseApplicationJson_Ocs.
   static Serializer<RoomDemoteModeratorResponseApplicationJson_Ocs> get serializer =>
       _$roomDemoteModeratorResponseApplicationJsonOcsSerializer;
 }
@@ -31174,6 +34599,7 @@ abstract class RoomDemoteModeratorResponseApplicationJson
     implements
         $RoomDemoteModeratorResponseApplicationJsonInterface,
         Built<RoomDemoteModeratorResponseApplicationJson, RoomDemoteModeratorResponseApplicationJsonBuilder> {
+  /// Creates a new RoomDemoteModeratorResponseApplicationJson object using the builder pattern.
   factory RoomDemoteModeratorResponseApplicationJson([
     void Function(RoomDemoteModeratorResponseApplicationJsonBuilder)? b,
   ]) = _$RoomDemoteModeratorResponseApplicationJson;
@@ -31182,15 +34608,22 @@ abstract class RoomDemoteModeratorResponseApplicationJson
   const RoomDemoteModeratorResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomDemoteModeratorResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomDemoteModeratorResponseApplicationJson.
   static Serializer<RoomDemoteModeratorResponseApplicationJson> get serializer =>
       _$roomDemoteModeratorResponseApplicationJsonSerializer;
 }
@@ -31198,16 +34631,21 @@ abstract class RoomDemoteModeratorResponseApplicationJson
 class RoomAddToFavoritesApiVersion extends EnumClass {
   const RoomAddToFavoritesApiVersion._(super.name);
 
+  /// `v4`
   static const RoomAddToFavoritesApiVersion v4 = _$roomAddToFavoritesApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomAddToFavoritesApiVersion> get values => _$roomAddToFavoritesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomAddToFavoritesApiVersion valueOf(String name) => _$valueOfRoomAddToFavoritesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomAddToFavoritesApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddToFavoritesApiVersion> get serializer => const _$RoomAddToFavoritesApiVersionSerializer();
 }
@@ -31256,6 +34694,7 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
     implements
         $RoomAddToFavoritesResponseApplicationJson_OcsInterface,
         Built<RoomAddToFavoritesResponseApplicationJson_Ocs, RoomAddToFavoritesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomAddToFavoritesResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomAddToFavoritesResponseApplicationJson_Ocs([
     void Function(RoomAddToFavoritesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomAddToFavoritesResponseApplicationJson_Ocs;
@@ -31264,15 +34703,22 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
   const RoomAddToFavoritesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddToFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomAddToFavoritesResponseApplicationJson_Ocs.
   static Serializer<RoomAddToFavoritesResponseApplicationJson_Ocs> get serializer =>
       _$roomAddToFavoritesResponseApplicationJsonOcsSerializer;
 }
@@ -31286,6 +34732,7 @@ abstract class RoomAddToFavoritesResponseApplicationJson
     implements
         $RoomAddToFavoritesResponseApplicationJsonInterface,
         Built<RoomAddToFavoritesResponseApplicationJson, RoomAddToFavoritesResponseApplicationJsonBuilder> {
+  /// Creates a new RoomAddToFavoritesResponseApplicationJson object using the builder pattern.
   factory RoomAddToFavoritesResponseApplicationJson([
     void Function(RoomAddToFavoritesResponseApplicationJsonBuilder)? b,
   ]) = _$RoomAddToFavoritesResponseApplicationJson;
@@ -31294,15 +34741,22 @@ abstract class RoomAddToFavoritesResponseApplicationJson
   const RoomAddToFavoritesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddToFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomAddToFavoritesResponseApplicationJson.
   static Serializer<RoomAddToFavoritesResponseApplicationJson> get serializer =>
       _$roomAddToFavoritesResponseApplicationJsonSerializer;
 }
@@ -31310,16 +34764,21 @@ abstract class RoomAddToFavoritesResponseApplicationJson
 class RoomRemoveFromFavoritesApiVersion extends EnumClass {
   const RoomRemoveFromFavoritesApiVersion._(super.name);
 
+  /// `v4`
   static const RoomRemoveFromFavoritesApiVersion v4 = _$roomRemoveFromFavoritesApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomRemoveFromFavoritesApiVersion> get values => _$roomRemoveFromFavoritesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomRemoveFromFavoritesApiVersion valueOf(String name) => _$valueOfRoomRemoveFromFavoritesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomRemoveFromFavoritesApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveFromFavoritesApiVersion> get serializer =>
       const _$RoomRemoveFromFavoritesApiVersionSerializer();
@@ -31370,6 +34829,7 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
         $RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface,
         Built<RoomRemoveFromFavoritesResponseApplicationJson_Ocs,
             RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomRemoveFromFavoritesResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs([
     void Function(RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomRemoveFromFavoritesResponseApplicationJson_Ocs;
@@ -31378,15 +34838,22 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
   const RoomRemoveFromFavoritesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRemoveFromFavoritesResponseApplicationJson_Ocs.
   static Serializer<RoomRemoveFromFavoritesResponseApplicationJson_Ocs> get serializer =>
       _$roomRemoveFromFavoritesResponseApplicationJsonOcsSerializer;
 }
@@ -31400,6 +34867,7 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
     implements
         $RoomRemoveFromFavoritesResponseApplicationJsonInterface,
         Built<RoomRemoveFromFavoritesResponseApplicationJson, RoomRemoveFromFavoritesResponseApplicationJsonBuilder> {
+  /// Creates a new RoomRemoveFromFavoritesResponseApplicationJson object using the builder pattern.
   factory RoomRemoveFromFavoritesResponseApplicationJson([
     void Function(RoomRemoveFromFavoritesResponseApplicationJsonBuilder)? b,
   ]) = _$RoomRemoveFromFavoritesResponseApplicationJson;
@@ -31408,15 +34876,22 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
   const RoomRemoveFromFavoritesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveFromFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomRemoveFromFavoritesResponseApplicationJson.
   static Serializer<RoomRemoveFromFavoritesResponseApplicationJson> get serializer =>
       _$roomRemoveFromFavoritesResponseApplicationJsonSerializer;
 }
@@ -31424,16 +34899,21 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
 class RoomSetNotificationLevelApiVersion extends EnumClass {
   const RoomSetNotificationLevelApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetNotificationLevelApiVersion v4 = _$roomSetNotificationLevelApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetNotificationLevelApiVersion> get values => _$roomSetNotificationLevelApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetNotificationLevelApiVersion valueOf(String name) => _$valueOfRoomSetNotificationLevelApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetNotificationLevelApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetNotificationLevelApiVersion> get serializer =>
       const _$RoomSetNotificationLevelApiVersionSerializer();
@@ -31485,6 +34965,7 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
         $RoomSetNotificationLevelResponseApplicationJson_OcsInterface,
         Built<RoomSetNotificationLevelResponseApplicationJson_Ocs,
             RoomSetNotificationLevelResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetNotificationLevelResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetNotificationLevelResponseApplicationJson_Ocs([
     void Function(RoomSetNotificationLevelResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetNotificationLevelResponseApplicationJson_Ocs;
@@ -31493,15 +34974,22 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
   const RoomSetNotificationLevelResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetNotificationLevelResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetNotificationLevelResponseApplicationJson_Ocs.
   static Serializer<RoomSetNotificationLevelResponseApplicationJson_Ocs> get serializer =>
       _$roomSetNotificationLevelResponseApplicationJsonOcsSerializer;
 }
@@ -31515,6 +35003,7 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
     implements
         $RoomSetNotificationLevelResponseApplicationJsonInterface,
         Built<RoomSetNotificationLevelResponseApplicationJson, RoomSetNotificationLevelResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetNotificationLevelResponseApplicationJson object using the builder pattern.
   factory RoomSetNotificationLevelResponseApplicationJson([
     void Function(RoomSetNotificationLevelResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetNotificationLevelResponseApplicationJson;
@@ -31523,15 +35012,22 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
   const RoomSetNotificationLevelResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetNotificationLevelResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetNotificationLevelResponseApplicationJson.
   static Serializer<RoomSetNotificationLevelResponseApplicationJson> get serializer =>
       _$roomSetNotificationLevelResponseApplicationJsonSerializer;
 }
@@ -31539,16 +35035,21 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
 class RoomSetNotificationCallsApiVersion extends EnumClass {
   const RoomSetNotificationCallsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetNotificationCallsApiVersion v4 = _$roomSetNotificationCallsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetNotificationCallsApiVersion> get values => _$roomSetNotificationCallsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetNotificationCallsApiVersion valueOf(String name) => _$valueOfRoomSetNotificationCallsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetNotificationCallsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetNotificationCallsApiVersion> get serializer =>
       const _$RoomSetNotificationCallsApiVersionSerializer();
@@ -31600,6 +35101,7 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
         $RoomSetNotificationCallsResponseApplicationJson_OcsInterface,
         Built<RoomSetNotificationCallsResponseApplicationJson_Ocs,
             RoomSetNotificationCallsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetNotificationCallsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetNotificationCallsResponseApplicationJson_Ocs([
     void Function(RoomSetNotificationCallsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetNotificationCallsResponseApplicationJson_Ocs;
@@ -31608,15 +35110,22 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
   const RoomSetNotificationCallsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetNotificationCallsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetNotificationCallsResponseApplicationJson_Ocs.
   static Serializer<RoomSetNotificationCallsResponseApplicationJson_Ocs> get serializer =>
       _$roomSetNotificationCallsResponseApplicationJsonOcsSerializer;
 }
@@ -31630,6 +35139,7 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
     implements
         $RoomSetNotificationCallsResponseApplicationJsonInterface,
         Built<RoomSetNotificationCallsResponseApplicationJson, RoomSetNotificationCallsResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetNotificationCallsResponseApplicationJson object using the builder pattern.
   factory RoomSetNotificationCallsResponseApplicationJson([
     void Function(RoomSetNotificationCallsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetNotificationCallsResponseApplicationJson;
@@ -31638,15 +35148,22 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
   const RoomSetNotificationCallsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetNotificationCallsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetNotificationCallsResponseApplicationJson.
   static Serializer<RoomSetNotificationCallsResponseApplicationJson> get serializer =>
       _$roomSetNotificationCallsResponseApplicationJsonSerializer;
 }
@@ -31654,16 +35171,21 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
 class RoomSetLobbyApiVersion extends EnumClass {
   const RoomSetLobbyApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetLobbyApiVersion v4 = _$roomSetLobbyApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetLobbyApiVersion> get values => _$roomSetLobbyApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetLobbyApiVersion valueOf(String name) => _$valueOfRoomSetLobbyApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetLobbyApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetLobbyApiVersion> get serializer => const _$RoomSetLobbyApiVersionSerializer();
 }
@@ -31712,6 +35234,7 @@ abstract class RoomSetLobbyResponseApplicationJson_Ocs
     implements
         $RoomSetLobbyResponseApplicationJson_OcsInterface,
         Built<RoomSetLobbyResponseApplicationJson_Ocs, RoomSetLobbyResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetLobbyResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetLobbyResponseApplicationJson_Ocs([void Function(RoomSetLobbyResponseApplicationJson_OcsBuilder)? b]) =
       _$RoomSetLobbyResponseApplicationJson_Ocs;
 
@@ -31719,15 +35242,22 @@ abstract class RoomSetLobbyResponseApplicationJson_Ocs
   const RoomSetLobbyResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetLobbyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetLobbyResponseApplicationJson_Ocs.
   static Serializer<RoomSetLobbyResponseApplicationJson_Ocs> get serializer =>
       _$roomSetLobbyResponseApplicationJsonOcsSerializer;
 }
@@ -31741,6 +35271,7 @@ abstract class RoomSetLobbyResponseApplicationJson
     implements
         $RoomSetLobbyResponseApplicationJsonInterface,
         Built<RoomSetLobbyResponseApplicationJson, RoomSetLobbyResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetLobbyResponseApplicationJson object using the builder pattern.
   factory RoomSetLobbyResponseApplicationJson([void Function(RoomSetLobbyResponseApplicationJsonBuilder)? b]) =
       _$RoomSetLobbyResponseApplicationJson;
 
@@ -31748,15 +35279,22 @@ abstract class RoomSetLobbyResponseApplicationJson
   const RoomSetLobbyResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetLobbyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetLobbyResponseApplicationJson.
   static Serializer<RoomSetLobbyResponseApplicationJson> get serializer =>
       _$roomSetLobbyResponseApplicationJsonSerializer;
 }
@@ -31764,23 +35302,30 @@ abstract class RoomSetLobbyResponseApplicationJson
 class RoomSetsipEnabledState extends EnumClass {
   const RoomSetsipEnabledState._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetsipEnabledState $0 = _$roomSetsipEnabledState$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetsipEnabledState $1 = _$roomSetsipEnabledState$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetsipEnabledState $2 = _$roomSetsipEnabledState$2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetsipEnabledState> get values => _$roomSetsipEnabledStateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetsipEnabledState valueOf(String name) => _$valueOfRoomSetsipEnabledState(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for RoomSetsipEnabledState.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetsipEnabledState> get serializer => const _$RoomSetsipEnabledStateSerializer();
 }
@@ -31826,16 +35371,21 @@ class _$RoomSetsipEnabledStateSerializer implements PrimitiveSerializer<RoomSets
 class RoomSetsipEnabledApiVersion extends EnumClass {
   const RoomSetsipEnabledApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetsipEnabledApiVersion v4 = _$roomSetsipEnabledApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetsipEnabledApiVersion> get values => _$roomSetsipEnabledApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetsipEnabledApiVersion valueOf(String name) => _$valueOfRoomSetsipEnabledApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetsipEnabledApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetsipEnabledApiVersion> get serializer => const _$RoomSetsipEnabledApiVersionSerializer();
 }
@@ -31884,6 +35434,7 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
     implements
         $RoomSetsipEnabledResponseApplicationJson_OcsInterface,
         Built<RoomSetsipEnabledResponseApplicationJson_Ocs, RoomSetsipEnabledResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetsipEnabledResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetsipEnabledResponseApplicationJson_Ocs([
     void Function(RoomSetsipEnabledResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetsipEnabledResponseApplicationJson_Ocs;
@@ -31892,15 +35443,22 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
   const RoomSetsipEnabledResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetsipEnabledResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetsipEnabledResponseApplicationJson_Ocs.
   static Serializer<RoomSetsipEnabledResponseApplicationJson_Ocs> get serializer =>
       _$roomSetsipEnabledResponseApplicationJsonOcsSerializer;
 }
@@ -31914,6 +35472,7 @@ abstract class RoomSetsipEnabledResponseApplicationJson
     implements
         $RoomSetsipEnabledResponseApplicationJsonInterface,
         Built<RoomSetsipEnabledResponseApplicationJson, RoomSetsipEnabledResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetsipEnabledResponseApplicationJson object using the builder pattern.
   factory RoomSetsipEnabledResponseApplicationJson([
     void Function(RoomSetsipEnabledResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetsipEnabledResponseApplicationJson;
@@ -31922,15 +35481,22 @@ abstract class RoomSetsipEnabledResponseApplicationJson
   const RoomSetsipEnabledResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetsipEnabledResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetsipEnabledResponseApplicationJson.
   static Serializer<RoomSetsipEnabledResponseApplicationJson> get serializer =>
       _$roomSetsipEnabledResponseApplicationJsonSerializer;
 }
@@ -31938,16 +35504,21 @@ abstract class RoomSetsipEnabledResponseApplicationJson
 class RoomSetRecordingConsentApiVersion extends EnumClass {
   const RoomSetRecordingConsentApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetRecordingConsentApiVersion v4 = _$roomSetRecordingConsentApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetRecordingConsentApiVersion> get values => _$roomSetRecordingConsentApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetRecordingConsentApiVersion valueOf(String name) => _$valueOfRoomSetRecordingConsentApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetRecordingConsentApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetRecordingConsentApiVersion> get serializer =>
       const _$RoomSetRecordingConsentApiVersionSerializer();
@@ -31998,6 +35569,7 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
         $RoomSetRecordingConsentResponseApplicationJson_OcsInterface,
         Built<RoomSetRecordingConsentResponseApplicationJson_Ocs,
             RoomSetRecordingConsentResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetRecordingConsentResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetRecordingConsentResponseApplicationJson_Ocs([
     void Function(RoomSetRecordingConsentResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetRecordingConsentResponseApplicationJson_Ocs;
@@ -32006,15 +35578,22 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
   const RoomSetRecordingConsentResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetRecordingConsentResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetRecordingConsentResponseApplicationJson_Ocs.
   static Serializer<RoomSetRecordingConsentResponseApplicationJson_Ocs> get serializer =>
       _$roomSetRecordingConsentResponseApplicationJsonOcsSerializer;
 }
@@ -32028,6 +35607,7 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
     implements
         $RoomSetRecordingConsentResponseApplicationJsonInterface,
         Built<RoomSetRecordingConsentResponseApplicationJson, RoomSetRecordingConsentResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetRecordingConsentResponseApplicationJson object using the builder pattern.
   factory RoomSetRecordingConsentResponseApplicationJson([
     void Function(RoomSetRecordingConsentResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetRecordingConsentResponseApplicationJson;
@@ -32036,15 +35616,22 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
   const RoomSetRecordingConsentResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetRecordingConsentResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetRecordingConsentResponseApplicationJson.
   static Serializer<RoomSetRecordingConsentResponseApplicationJson> get serializer =>
       _$roomSetRecordingConsentResponseApplicationJsonSerializer;
 }
@@ -32052,16 +35639,21 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
 class RoomSetMessageExpirationApiVersion extends EnumClass {
   const RoomSetMessageExpirationApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetMessageExpirationApiVersion v4 = _$roomSetMessageExpirationApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetMessageExpirationApiVersion> get values => _$roomSetMessageExpirationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetMessageExpirationApiVersion valueOf(String name) => _$valueOfRoomSetMessageExpirationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for RoomSetMessageExpirationApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetMessageExpirationApiVersion> get serializer =>
       const _$RoomSetMessageExpirationApiVersionSerializer();
@@ -32113,6 +35705,7 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
         $RoomSetMessageExpirationResponseApplicationJson_OcsInterface,
         Built<RoomSetMessageExpirationResponseApplicationJson_Ocs,
             RoomSetMessageExpirationResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomSetMessageExpirationResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetMessageExpirationResponseApplicationJson_Ocs([
     void Function(RoomSetMessageExpirationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetMessageExpirationResponseApplicationJson_Ocs;
@@ -32121,15 +35714,22 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
   const RoomSetMessageExpirationResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetMessageExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetMessageExpirationResponseApplicationJson_Ocs.
   static Serializer<RoomSetMessageExpirationResponseApplicationJson_Ocs> get serializer =>
       _$roomSetMessageExpirationResponseApplicationJsonOcsSerializer;
 }
@@ -32143,6 +35743,7 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
     implements
         $RoomSetMessageExpirationResponseApplicationJsonInterface,
         Built<RoomSetMessageExpirationResponseApplicationJson, RoomSetMessageExpirationResponseApplicationJsonBuilder> {
+  /// Creates a new RoomSetMessageExpirationResponseApplicationJson object using the builder pattern.
   factory RoomSetMessageExpirationResponseApplicationJson([
     void Function(RoomSetMessageExpirationResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetMessageExpirationResponseApplicationJson;
@@ -32151,15 +35752,22 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
   const RoomSetMessageExpirationResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetMessageExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RoomSetMessageExpirationResponseApplicationJson.
   static Serializer<RoomSetMessageExpirationResponseApplicationJson> get serializer =>
       _$roomSetMessageExpirationResponseApplicationJsonSerializer;
 }
@@ -32167,16 +35775,21 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
 class SettingsSetsipSettingsApiVersion extends EnumClass {
   const SettingsSetsipSettingsApiVersion._(super.name);
 
+  /// `v1`
   static const SettingsSetsipSettingsApiVersion v1 = _$settingsSetsipSettingsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SettingsSetsipSettingsApiVersion> get values => _$settingsSetsipSettingsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SettingsSetsipSettingsApiVersion valueOf(String name) => _$valueOfSettingsSetsipSettingsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for SettingsSetsipSettingsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<SettingsSetsipSettingsApiVersion> get serializer =>
       const _$SettingsSetsipSettingsApiVersionSerializer();
@@ -32227,6 +35840,7 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
         $SettingsSetsipSettingsResponseApplicationJson_OcsInterface,
         Built<SettingsSetsipSettingsResponseApplicationJson_Ocs,
             SettingsSetsipSettingsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SettingsSetsipSettingsResponseApplicationJson_Ocs object using the builder pattern.
   factory SettingsSetsipSettingsResponseApplicationJson_Ocs([
     void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SettingsSetsipSettingsResponseApplicationJson_Ocs;
@@ -32235,15 +35849,22 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
   const SettingsSetsipSettingsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SettingsSetsipSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SettingsSetsipSettingsResponseApplicationJson_Ocs.
   static Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs> get serializer =>
       _$settingsSetsipSettingsResponseApplicationJsonOcsSerializer;
 }
@@ -32257,6 +35878,7 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
     implements
         $SettingsSetsipSettingsResponseApplicationJsonInterface,
         Built<SettingsSetsipSettingsResponseApplicationJson, SettingsSetsipSettingsResponseApplicationJsonBuilder> {
+  /// Creates a new SettingsSetsipSettingsResponseApplicationJson object using the builder pattern.
   factory SettingsSetsipSettingsResponseApplicationJson([
     void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? b,
   ]) = _$SettingsSetsipSettingsResponseApplicationJson;
@@ -32265,15 +35887,22 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
   const SettingsSetsipSettingsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SettingsSetsipSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SettingsSetsipSettingsResponseApplicationJson.
   static Serializer<SettingsSetsipSettingsResponseApplicationJson> get serializer =>
       _$settingsSetsipSettingsResponseApplicationJsonSerializer;
 }
@@ -32281,26 +35910,34 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
 class SettingsSetUserSettingKey extends EnumClass {
   const SettingsSetUserSettingKey._(super.name);
 
+  /// `attachment_folder`
   @BuiltValueEnumConst(wireName: 'attachment_folder')
   static const SettingsSetUserSettingKey attachmentFolder = _$settingsSetUserSettingKeyAttachmentFolder;
 
+  /// `read_status_privacy`
   @BuiltValueEnumConst(wireName: 'read_status_privacy')
   static const SettingsSetUserSettingKey readStatusPrivacy = _$settingsSetUserSettingKeyReadStatusPrivacy;
 
+  /// `typing_privacy`
   @BuiltValueEnumConst(wireName: 'typing_privacy')
   static const SettingsSetUserSettingKey typingPrivacy = _$settingsSetUserSettingKeyTypingPrivacy;
 
+  /// `play_sounds`
   @BuiltValueEnumConst(wireName: 'play_sounds')
   static const SettingsSetUserSettingKey playSounds = _$settingsSetUserSettingKeyPlaySounds;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SettingsSetUserSettingKey> get values => _$settingsSetUserSettingKeyValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SettingsSetUserSettingKey valueOf(String name) => _$valueOfSettingsSetUserSettingKey(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for SettingsSetUserSettingKey.
   @BuiltValueSerializer(custom: true)
   static Serializer<SettingsSetUserSettingKey> get serializer => const _$SettingsSetUserSettingKeySerializer();
 }
@@ -32345,19 +35982,26 @@ class _$SettingsSetUserSettingKeySerializer implements PrimitiveSerializer<Setti
       _fromWire[serialized]!;
 }
 
+typedef SettingsSetUserSettingValue = ({int? $int, String? string});
+
 class SettingsSetUserSettingApiVersion extends EnumClass {
   const SettingsSetUserSettingApiVersion._(super.name);
 
+  /// `v1`
   static const SettingsSetUserSettingApiVersion v1 = _$settingsSetUserSettingApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SettingsSetUserSettingApiVersion> get values => _$settingsSetUserSettingApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SettingsSetUserSettingApiVersion valueOf(String name) => _$valueOfSettingsSetUserSettingApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for SettingsSetUserSettingApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<SettingsSetUserSettingApiVersion> get serializer =>
       const _$SettingsSetUserSettingApiVersionSerializer();
@@ -32408,6 +36052,7 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
         $SettingsSetUserSettingResponseApplicationJson_OcsInterface,
         Built<SettingsSetUserSettingResponseApplicationJson_Ocs,
             SettingsSetUserSettingResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SettingsSetUserSettingResponseApplicationJson_Ocs object using the builder pattern.
   factory SettingsSetUserSettingResponseApplicationJson_Ocs([
     void Function(SettingsSetUserSettingResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SettingsSetUserSettingResponseApplicationJson_Ocs;
@@ -32416,15 +36061,22 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
   const SettingsSetUserSettingResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SettingsSetUserSettingResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SettingsSetUserSettingResponseApplicationJson_Ocs.
   static Serializer<SettingsSetUserSettingResponseApplicationJson_Ocs> get serializer =>
       _$settingsSetUserSettingResponseApplicationJsonOcsSerializer;
 }
@@ -32438,6 +36090,7 @@ abstract class SettingsSetUserSettingResponseApplicationJson
     implements
         $SettingsSetUserSettingResponseApplicationJsonInterface,
         Built<SettingsSetUserSettingResponseApplicationJson, SettingsSetUserSettingResponseApplicationJsonBuilder> {
+  /// Creates a new SettingsSetUserSettingResponseApplicationJson object using the builder pattern.
   factory SettingsSetUserSettingResponseApplicationJson([
     void Function(SettingsSetUserSettingResponseApplicationJsonBuilder)? b,
   ]) = _$SettingsSetUserSettingResponseApplicationJson;
@@ -32446,15 +36099,22 @@ abstract class SettingsSetUserSettingResponseApplicationJson
   const SettingsSetUserSettingResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SettingsSetUserSettingResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SettingsSetUserSettingResponseApplicationJson.
   static Serializer<SettingsSetUserSettingResponseApplicationJson> get serializer =>
       _$settingsSetUserSettingResponseApplicationJsonSerializer;
 }
@@ -32462,16 +36122,21 @@ abstract class SettingsSetUserSettingResponseApplicationJson
 class SignalingGetSettingsApiVersion extends EnumClass {
   const SignalingGetSettingsApiVersion._(super.name);
 
+  /// `v3`
   static const SignalingGetSettingsApiVersion v3 = _$signalingGetSettingsApiVersionV3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SignalingGetSettingsApiVersion> get values => _$signalingGetSettingsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SignalingGetSettingsApiVersion valueOf(String name) => _$valueOfSignalingGetSettingsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for SignalingGetSettingsApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<SignalingGetSettingsApiVersion> get serializer =>
       const _$SignalingGetSettingsApiVersionSerializer();
@@ -32521,6 +36186,7 @@ abstract class SignalingSettings_HelloAuthParams_$10
     implements
         $SignalingSettings_HelloAuthParams_$10Interface,
         Built<SignalingSettings_HelloAuthParams_$10, SignalingSettings_HelloAuthParams_$10Builder> {
+  /// Creates a new SignalingSettings_HelloAuthParams_$10 object using the builder pattern.
   factory SignalingSettings_HelloAuthParams_$10([void Function(SignalingSettings_HelloAuthParams_$10Builder)? b]) =
       _$SignalingSettings_HelloAuthParams_$10;
 
@@ -32528,15 +36194,22 @@ abstract class SignalingSettings_HelloAuthParams_$10
   const SignalingSettings_HelloAuthParams_$10._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_HelloAuthParams_$10.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSettings_HelloAuthParams_$10.
   static Serializer<SignalingSettings_HelloAuthParams_$10> get serializer =>
       _$signalingSettingsHelloAuthParams$10Serializer;
 }
@@ -32550,6 +36223,7 @@ abstract class SignalingSettings_HelloAuthParams_$20
     implements
         $SignalingSettings_HelloAuthParams_$20Interface,
         Built<SignalingSettings_HelloAuthParams_$20, SignalingSettings_HelloAuthParams_$20Builder> {
+  /// Creates a new SignalingSettings_HelloAuthParams_$20 object using the builder pattern.
   factory SignalingSettings_HelloAuthParams_$20([void Function(SignalingSettings_HelloAuthParams_$20Builder)? b]) =
       _$SignalingSettings_HelloAuthParams_$20;
 
@@ -32557,15 +36231,22 @@ abstract class SignalingSettings_HelloAuthParams_$20
   const SignalingSettings_HelloAuthParams_$20._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_HelloAuthParams_$20.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSettings_HelloAuthParams_$20.
   static Serializer<SignalingSettings_HelloAuthParams_$20> get serializer =>
       _$signalingSettingsHelloAuthParams$20Serializer;
 }
@@ -32582,6 +36263,7 @@ abstract class SignalingSettings_HelloAuthParams
     implements
         $SignalingSettings_HelloAuthParamsInterface,
         Built<SignalingSettings_HelloAuthParams, SignalingSettings_HelloAuthParamsBuilder> {
+  /// Creates a new SignalingSettings_HelloAuthParams object using the builder pattern.
   factory SignalingSettings_HelloAuthParams([void Function(SignalingSettings_HelloAuthParamsBuilder)? b]) =
       _$SignalingSettings_HelloAuthParams;
 
@@ -32589,15 +36271,22 @@ abstract class SignalingSettings_HelloAuthParams
   const SignalingSettings_HelloAuthParams._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_HelloAuthParams.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSettings_HelloAuthParams.
   static Serializer<SignalingSettings_HelloAuthParams> get serializer => _$signalingSettingsHelloAuthParamsSerializer;
 }
 
@@ -32610,6 +36299,7 @@ abstract class SignalingSettings_Stunservers
     implements
         $SignalingSettings_StunserversInterface,
         Built<SignalingSettings_Stunservers, SignalingSettings_StunserversBuilder> {
+  /// Creates a new SignalingSettings_Stunservers object using the builder pattern.
   factory SignalingSettings_Stunservers([void Function(SignalingSettings_StunserversBuilder)? b]) =
       _$SignalingSettings_Stunservers;
 
@@ -32617,15 +36307,22 @@ abstract class SignalingSettings_Stunservers
   const SignalingSettings_Stunservers._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_Stunservers.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSettings_Stunservers.
   static Serializer<SignalingSettings_Stunservers> get serializer => _$signalingSettingsStunserversSerializer;
 }
 
@@ -32640,6 +36337,7 @@ abstract class SignalingSettings_Turnservers
     implements
         $SignalingSettings_TurnserversInterface,
         Built<SignalingSettings_Turnservers, SignalingSettings_TurnserversBuilder> {
+  /// Creates a new SignalingSettings_Turnservers object using the builder pattern.
   factory SignalingSettings_Turnservers([void Function(SignalingSettings_TurnserversBuilder)? b]) =
       _$SignalingSettings_Turnservers;
 
@@ -32647,15 +36345,22 @@ abstract class SignalingSettings_Turnservers
   const SignalingSettings_Turnservers._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_Turnservers.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSettings_Turnservers.
   static Serializer<SignalingSettings_Turnservers> get serializer => _$signalingSettingsTurnserversSerializer;
 }
 
@@ -32674,20 +36379,28 @@ abstract interface class $SignalingSettingsInterface {
 
 abstract class SignalingSettings
     implements $SignalingSettingsInterface, Built<SignalingSettings, SignalingSettingsBuilder> {
+  /// Creates a new SignalingSettings object using the builder pattern.
   factory SignalingSettings([void Function(SignalingSettingsBuilder)? b]) = _$SignalingSettings;
 
   // coverage:ignore-start
   const SignalingSettings._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSettings.
   static Serializer<SignalingSettings> get serializer => _$signalingSettingsSerializer;
 }
 
@@ -32701,6 +36414,7 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
     implements
         $SignalingGetSettingsResponseApplicationJson_OcsInterface,
         Built<SignalingGetSettingsResponseApplicationJson_Ocs, SignalingGetSettingsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingGetSettingsResponseApplicationJson_Ocs object using the builder pattern.
   factory SignalingGetSettingsResponseApplicationJson_Ocs([
     void Function(SignalingGetSettingsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SignalingGetSettingsResponseApplicationJson_Ocs;
@@ -32709,15 +36423,22 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
   const SignalingGetSettingsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingGetSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingGetSettingsResponseApplicationJson_Ocs.
   static Serializer<SignalingGetSettingsResponseApplicationJson_Ocs> get serializer =>
       _$signalingGetSettingsResponseApplicationJsonOcsSerializer;
 }
@@ -32731,6 +36452,7 @@ abstract class SignalingGetSettingsResponseApplicationJson
     implements
         $SignalingGetSettingsResponseApplicationJsonInterface,
         Built<SignalingGetSettingsResponseApplicationJson, SignalingGetSettingsResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingGetSettingsResponseApplicationJson object using the builder pattern.
   factory SignalingGetSettingsResponseApplicationJson([
     void Function(SignalingGetSettingsResponseApplicationJsonBuilder)? b,
   ]) = _$SignalingGetSettingsResponseApplicationJson;
@@ -32739,15 +36461,22 @@ abstract class SignalingGetSettingsResponseApplicationJson
   const SignalingGetSettingsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingGetSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingGetSettingsResponseApplicationJson.
   static Serializer<SignalingGetSettingsResponseApplicationJson> get serializer =>
       _$signalingGetSettingsResponseApplicationJsonSerializer;
 }
@@ -32755,17 +36484,22 @@ abstract class SignalingGetSettingsResponseApplicationJson
 class SignalingGetWelcomeMessageApiVersion extends EnumClass {
   const SignalingGetWelcomeMessageApiVersion._(super.name);
 
+  /// `v3`
   static const SignalingGetWelcomeMessageApiVersion v3 = _$signalingGetWelcomeMessageApiVersionV3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SignalingGetWelcomeMessageApiVersion> get values => _$signalingGetWelcomeMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SignalingGetWelcomeMessageApiVersion valueOf(String name) =>
       _$valueOfSignalingGetWelcomeMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for SignalingGetWelcomeMessageApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<SignalingGetWelcomeMessageApiVersion> get serializer =>
       const _$SignalingGetWelcomeMessageApiVersionSerializer();
@@ -32819,6 +36553,7 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
         $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface,
         Built<SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
             SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs([
     void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs;
@@ -32827,15 +36562,22 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
   const SignalingGetWelcomeMessageResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson_Ocs.
   static Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
       _$signalingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
 }
@@ -32850,6 +36592,7 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
         $SignalingGetWelcomeMessageResponseApplicationJsonInterface,
         Built<SignalingGetWelcomeMessageResponseApplicationJson,
             SignalingGetWelcomeMessageResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
   factory SignalingGetWelcomeMessageResponseApplicationJson([
     void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
   ]) = _$SignalingGetWelcomeMessageResponseApplicationJson;
@@ -32858,15 +36601,22 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
   const SignalingGetWelcomeMessageResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson.
   static Serializer<SignalingGetWelcomeMessageResponseApplicationJson> get serializer =>
       _$signalingGetWelcomeMessageResponseApplicationJsonSerializer;
 }
@@ -32874,16 +36624,21 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
 class SignalingPullMessagesApiVersion extends EnumClass {
   const SignalingPullMessagesApiVersion._(super.name);
 
+  /// `v3`
   static const SignalingPullMessagesApiVersion v3 = _$signalingPullMessagesApiVersionV3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SignalingPullMessagesApiVersion> get values => _$signalingPullMessagesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SignalingPullMessagesApiVersion valueOf(String name) => _$valueOfSignalingPullMessagesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for SignalingPullMessagesApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<SignalingPullMessagesApiVersion> get serializer =>
       const _$SignalingPullMessagesApiVersionSerializer();
@@ -32935,22 +36690,35 @@ abstract interface class $SignalingSessionInterface {
 
 abstract class SignalingSession
     implements $SignalingSessionInterface, Built<SignalingSession, SignalingSessionBuilder> {
+  /// Creates a new SignalingSession object using the builder pattern.
   factory SignalingSession([void Function(SignalingSessionBuilder)? b]) = _$SignalingSession;
 
   // coverage:ignore-start
   const SignalingSession._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSession.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSession.
   static Serializer<SignalingSession> get serializer => _$signalingSessionSerializer;
 }
+
+typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
+  BuiltList<SignalingSession>? builtListSignalingSession,
+  String? string
+});
 
 @BuiltValue(instantiable: false)
 abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
@@ -32963,6 +36731,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
         $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface,
         Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data,
             SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory SignalingPullMessagesResponseApplicationJson_Ocs_Data([
     void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs_Data;
@@ -32971,15 +36740,22 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
   const SignalingPullMessagesResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data.
   static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get serializer =>
       _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer;
 
@@ -33000,6 +36776,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
         $SignalingPullMessagesResponseApplicationJson_OcsInterface,
         Built<SignalingPullMessagesResponseApplicationJson_Ocs,
             SignalingPullMessagesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs object using the builder pattern.
   factory SignalingPullMessagesResponseApplicationJson_Ocs([
     void Function(SignalingPullMessagesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs;
@@ -33008,15 +36785,22 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
   const SignalingPullMessagesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingPullMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs.
   static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs> get serializer =>
       _$signalingPullMessagesResponseApplicationJsonOcsSerializer;
 }
@@ -33030,6 +36814,7 @@ abstract class SignalingPullMessagesResponseApplicationJson
     implements
         $SignalingPullMessagesResponseApplicationJsonInterface,
         Built<SignalingPullMessagesResponseApplicationJson, SignalingPullMessagesResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingPullMessagesResponseApplicationJson object using the builder pattern.
   factory SignalingPullMessagesResponseApplicationJson([
     void Function(SignalingPullMessagesResponseApplicationJsonBuilder)? b,
   ]) = _$SignalingPullMessagesResponseApplicationJson;
@@ -33038,15 +36823,22 @@ abstract class SignalingPullMessagesResponseApplicationJson
   const SignalingPullMessagesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingPullMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingPullMessagesResponseApplicationJson.
   static Serializer<SignalingPullMessagesResponseApplicationJson> get serializer =>
       _$signalingPullMessagesResponseApplicationJsonSerializer;
 }
@@ -33054,16 +36846,21 @@ abstract class SignalingPullMessagesResponseApplicationJson
 class SignalingSendMessagesApiVersion extends EnumClass {
   const SignalingSendMessagesApiVersion._(super.name);
 
+  /// `v3`
   static const SignalingSendMessagesApiVersion v3 = _$signalingSendMessagesApiVersionV3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SignalingSendMessagesApiVersion> get values => _$signalingSendMessagesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SignalingSendMessagesApiVersion valueOf(String name) => _$valueOfSignalingSendMessagesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for SignalingSendMessagesApiVersion.
   @BuiltValueSerializer(custom: true)
   static Serializer<SignalingSendMessagesApiVersion> get serializer =>
       const _$SignalingSendMessagesApiVersionSerializer();
@@ -33114,6 +36911,7 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
         $SignalingSendMessagesResponseApplicationJson_OcsInterface,
         Built<SignalingSendMessagesResponseApplicationJson_Ocs,
             SignalingSendMessagesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingSendMessagesResponseApplicationJson_Ocs object using the builder pattern.
   factory SignalingSendMessagesResponseApplicationJson_Ocs([
     void Function(SignalingSendMessagesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SignalingSendMessagesResponseApplicationJson_Ocs;
@@ -33122,15 +36920,22 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
   const SignalingSendMessagesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSendMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSendMessagesResponseApplicationJson_Ocs.
   static Serializer<SignalingSendMessagesResponseApplicationJson_Ocs> get serializer =>
       _$signalingSendMessagesResponseApplicationJsonOcsSerializer;
 }
@@ -33144,6 +36949,7 @@ abstract class SignalingSendMessagesResponseApplicationJson
     implements
         $SignalingSendMessagesResponseApplicationJsonInterface,
         Built<SignalingSendMessagesResponseApplicationJson, SignalingSendMessagesResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingSendMessagesResponseApplicationJson object using the builder pattern.
   factory SignalingSendMessagesResponseApplicationJson([
     void Function(SignalingSendMessagesResponseApplicationJsonBuilder)? b,
   ]) = _$SignalingSendMessagesResponseApplicationJson;
@@ -33152,15 +36958,22 @@ abstract class SignalingSendMessagesResponseApplicationJson
   const SignalingSendMessagesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSendMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for SignalingSendMessagesResponseApplicationJson.
   static Serializer<SignalingSendMessagesResponseApplicationJson> get serializer =>
       _$signalingSendMessagesResponseApplicationJsonSerializer;
 }
@@ -33175,6 +36988,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
     implements
         $TempAvatarPostAvatarResponseApplicationJson_OcsInterface,
         Built<TempAvatarPostAvatarResponseApplicationJson_Ocs, TempAvatarPostAvatarResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TempAvatarPostAvatarResponseApplicationJson_Ocs object using the builder pattern.
   factory TempAvatarPostAvatarResponseApplicationJson_Ocs([
     void Function(TempAvatarPostAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TempAvatarPostAvatarResponseApplicationJson_Ocs;
@@ -33183,15 +36997,22 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
   const TempAvatarPostAvatarResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TempAvatarPostAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TempAvatarPostAvatarResponseApplicationJson_Ocs.
   static Serializer<TempAvatarPostAvatarResponseApplicationJson_Ocs> get serializer =>
       _$tempAvatarPostAvatarResponseApplicationJsonOcsSerializer;
 }
@@ -33205,6 +37026,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
     implements
         $TempAvatarPostAvatarResponseApplicationJsonInterface,
         Built<TempAvatarPostAvatarResponseApplicationJson, TempAvatarPostAvatarResponseApplicationJsonBuilder> {
+  /// Creates a new TempAvatarPostAvatarResponseApplicationJson object using the builder pattern.
   factory TempAvatarPostAvatarResponseApplicationJson([
     void Function(TempAvatarPostAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$TempAvatarPostAvatarResponseApplicationJson;
@@ -33213,15 +37035,22 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
   const TempAvatarPostAvatarResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TempAvatarPostAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TempAvatarPostAvatarResponseApplicationJson.
   static Serializer<TempAvatarPostAvatarResponseApplicationJson> get serializer =>
       _$tempAvatarPostAvatarResponseApplicationJsonSerializer;
 }
@@ -33237,6 +37066,7 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
         $TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface,
         Built<TempAvatarDeleteAvatarResponseApplicationJson_Ocs,
             TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TempAvatarDeleteAvatarResponseApplicationJson_Ocs object using the builder pattern.
   factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs([
     void Function(TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TempAvatarDeleteAvatarResponseApplicationJson_Ocs;
@@ -33245,15 +37075,22 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
   const TempAvatarDeleteAvatarResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TempAvatarDeleteAvatarResponseApplicationJson_Ocs.
   static Serializer<TempAvatarDeleteAvatarResponseApplicationJson_Ocs> get serializer =>
       _$tempAvatarDeleteAvatarResponseApplicationJsonOcsSerializer;
 }
@@ -33267,6 +37104,7 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
     implements
         $TempAvatarDeleteAvatarResponseApplicationJsonInterface,
         Built<TempAvatarDeleteAvatarResponseApplicationJson, TempAvatarDeleteAvatarResponseApplicationJsonBuilder> {
+  /// Creates a new TempAvatarDeleteAvatarResponseApplicationJson object using the builder pattern.
   factory TempAvatarDeleteAvatarResponseApplicationJson([
     void Function(TempAvatarDeleteAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$TempAvatarDeleteAvatarResponseApplicationJson;
@@ -33275,15 +37113,22 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
   const TempAvatarDeleteAvatarResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TempAvatarDeleteAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for TempAvatarDeleteAvatarResponseApplicationJson.
   static Serializer<TempAvatarDeleteAvatarResponseApplicationJson> get serializer =>
       _$tempAvatarDeleteAvatarResponseApplicationJsonSerializer;
 }
@@ -33299,21 +37144,29 @@ abstract interface class $BotWithDetailsAndSecretInterface
 
 abstract class BotWithDetailsAndSecret
     implements $BotWithDetailsAndSecretInterface, Built<BotWithDetailsAndSecret, BotWithDetailsAndSecretBuilder> {
+  /// Creates a new BotWithDetailsAndSecret object using the builder pattern.
   factory BotWithDetailsAndSecret([void Function(BotWithDetailsAndSecretBuilder)? b]) = _$BotWithDetailsAndSecret;
 
   // coverage:ignore-start
   const BotWithDetailsAndSecret._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotWithDetailsAndSecret.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for BotWithDetailsAndSecret.
   static Serializer<BotWithDetailsAndSecret> get serializer => _$botWithDetailsAndSecretSerializer;
 }
 
@@ -33336,20 +37189,28 @@ abstract interface class $FederationInviteInterface {
 
 abstract class FederationInvite
     implements $FederationInviteInterface, Built<FederationInvite, FederationInviteBuilder> {
+  /// Creates a new FederationInvite object using the builder pattern.
   factory FederationInvite([void Function(FederationInviteBuilder)? b]) = _$FederationInvite;
 
   // coverage:ignore-start
   const FederationInvite._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FederationInvite.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for FederationInvite.
   static Serializer<FederationInvite> get serializer => _$federationInviteSerializer;
 }
 
@@ -33363,6 +37224,7 @@ abstract class PublicCapabilities0_Spreed_Config_Attachments
     implements
         $PublicCapabilities0_Spreed_Config_AttachmentsInterface,
         Built<PublicCapabilities0_Spreed_Config_Attachments, PublicCapabilities0_Spreed_Config_AttachmentsBuilder> {
+  /// Creates a new PublicCapabilities0_Spreed_Config_Attachments object using the builder pattern.
   factory PublicCapabilities0_Spreed_Config_Attachments([
     void Function(PublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
   ]) = _$PublicCapabilities0_Spreed_Config_Attachments;
@@ -33371,15 +37233,22 @@ abstract class PublicCapabilities0_Spreed_Config_Attachments
   const PublicCapabilities0_Spreed_Config_Attachments._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Attachments.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0_Spreed_Config_Attachments.
   static Serializer<PublicCapabilities0_Spreed_Config_Attachments> get serializer =>
       _$publicCapabilities0SpreedConfigAttachmentsSerializer;
 }
@@ -33410,6 +37279,7 @@ abstract class PublicCapabilities0_Spreed_Config_Call
     implements
         $PublicCapabilities0_Spreed_Config_CallInterface,
         Built<PublicCapabilities0_Spreed_Config_Call, PublicCapabilities0_Spreed_Config_CallBuilder> {
+  /// Creates a new PublicCapabilities0_Spreed_Config_Call object using the builder pattern.
   factory PublicCapabilities0_Spreed_Config_Call([void Function(PublicCapabilities0_Spreed_Config_CallBuilder)? b]) =
       _$PublicCapabilities0_Spreed_Config_Call;
 
@@ -33417,15 +37287,22 @@ abstract class PublicCapabilities0_Spreed_Config_Call
   const PublicCapabilities0_Spreed_Config_Call._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Call.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0_Spreed_Config_Call.
   static Serializer<PublicCapabilities0_Spreed_Config_Call> get serializer =>
       _$publicCapabilities0SpreedConfigCallSerializer;
 }
@@ -33447,6 +37324,7 @@ abstract class PublicCapabilities0_Spreed_Config_Chat
     implements
         $PublicCapabilities0_Spreed_Config_ChatInterface,
         Built<PublicCapabilities0_Spreed_Config_Chat, PublicCapabilities0_Spreed_Config_ChatBuilder> {
+  /// Creates a new PublicCapabilities0_Spreed_Config_Chat object using the builder pattern.
   factory PublicCapabilities0_Spreed_Config_Chat([void Function(PublicCapabilities0_Spreed_Config_ChatBuilder)? b]) =
       _$PublicCapabilities0_Spreed_Config_Chat;
 
@@ -33454,15 +37332,22 @@ abstract class PublicCapabilities0_Spreed_Config_Chat
   const PublicCapabilities0_Spreed_Config_Chat._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Chat.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0_Spreed_Config_Chat.
   static Serializer<PublicCapabilities0_Spreed_Config_Chat> get serializer =>
       _$publicCapabilities0SpreedConfigChatSerializer;
 }
@@ -33477,6 +37362,7 @@ abstract class PublicCapabilities0_Spreed_Config_Conversations
     implements
         $PublicCapabilities0_Spreed_Config_ConversationsInterface,
         Built<PublicCapabilities0_Spreed_Config_Conversations, PublicCapabilities0_Spreed_Config_ConversationsBuilder> {
+  /// Creates a new PublicCapabilities0_Spreed_Config_Conversations object using the builder pattern.
   factory PublicCapabilities0_Spreed_Config_Conversations([
     void Function(PublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
   ]) = _$PublicCapabilities0_Spreed_Config_Conversations;
@@ -33485,15 +37371,22 @@ abstract class PublicCapabilities0_Spreed_Config_Conversations
   const PublicCapabilities0_Spreed_Config_Conversations._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Conversations.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0_Spreed_Config_Conversations.
   static Serializer<PublicCapabilities0_Spreed_Config_Conversations> get serializer =>
       _$publicCapabilities0SpreedConfigConversationsSerializer;
 }
@@ -33508,6 +37401,7 @@ abstract class PublicCapabilities0_Spreed_Config_Previews
     implements
         $PublicCapabilities0_Spreed_Config_PreviewsInterface,
         Built<PublicCapabilities0_Spreed_Config_Previews, PublicCapabilities0_Spreed_Config_PreviewsBuilder> {
+  /// Creates a new PublicCapabilities0_Spreed_Config_Previews object using the builder pattern.
   factory PublicCapabilities0_Spreed_Config_Previews([
     void Function(PublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
   ]) = _$PublicCapabilities0_Spreed_Config_Previews;
@@ -33516,15 +37410,22 @@ abstract class PublicCapabilities0_Spreed_Config_Previews
   const PublicCapabilities0_Spreed_Config_Previews._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Previews.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0_Spreed_Config_Previews.
   static Serializer<PublicCapabilities0_Spreed_Config_Previews> get serializer =>
       _$publicCapabilities0SpreedConfigPreviewsSerializer;
 }
@@ -33541,6 +37442,7 @@ abstract class PublicCapabilities0_Spreed_Config_Signaling
     implements
         $PublicCapabilities0_Spreed_Config_SignalingInterface,
         Built<PublicCapabilities0_Spreed_Config_Signaling, PublicCapabilities0_Spreed_Config_SignalingBuilder> {
+  /// Creates a new PublicCapabilities0_Spreed_Config_Signaling object using the builder pattern.
   factory PublicCapabilities0_Spreed_Config_Signaling([
     void Function(PublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
   ]) = _$PublicCapabilities0_Spreed_Config_Signaling;
@@ -33549,15 +37451,22 @@ abstract class PublicCapabilities0_Spreed_Config_Signaling
   const PublicCapabilities0_Spreed_Config_Signaling._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Signaling.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0_Spreed_Config_Signaling.
   static Serializer<PublicCapabilities0_Spreed_Config_Signaling> get serializer =>
       _$publicCapabilities0SpreedConfigSignalingSerializer;
 }
@@ -33576,6 +37485,7 @@ abstract class PublicCapabilities0_Spreed_Config
     implements
         $PublicCapabilities0_Spreed_ConfigInterface,
         Built<PublicCapabilities0_Spreed_Config, PublicCapabilities0_Spreed_ConfigBuilder> {
+  /// Creates a new PublicCapabilities0_Spreed_Config object using the builder pattern.
   factory PublicCapabilities0_Spreed_Config([void Function(PublicCapabilities0_Spreed_ConfigBuilder)? b]) =
       _$PublicCapabilities0_Spreed_Config;
 
@@ -33583,15 +37493,22 @@ abstract class PublicCapabilities0_Spreed_Config
   const PublicCapabilities0_Spreed_Config._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0_Spreed_Config.
   static Serializer<PublicCapabilities0_Spreed_Config> get serializer => _$publicCapabilities0SpreedConfigSerializer;
 }
 
@@ -33606,6 +37523,7 @@ abstract class PublicCapabilities0_Spreed
     implements
         $PublicCapabilities0_SpreedInterface,
         Built<PublicCapabilities0_Spreed, PublicCapabilities0_SpreedBuilder> {
+  /// Creates a new PublicCapabilities0_Spreed object using the builder pattern.
   factory PublicCapabilities0_Spreed([void Function(PublicCapabilities0_SpreedBuilder)? b]) =
       _$PublicCapabilities0_Spreed;
 
@@ -33613,15 +37531,22 @@ abstract class PublicCapabilities0_Spreed
   const PublicCapabilities0_Spreed._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0_Spreed.
   static Serializer<PublicCapabilities0_Spreed> get serializer => _$publicCapabilities0SpreedSerializer;
 }
 
@@ -33632,69 +37557,98 @@ abstract interface class $PublicCapabilities0Interface {
 
 abstract class PublicCapabilities0
     implements $PublicCapabilities0Interface, Built<PublicCapabilities0, PublicCapabilities0Builder> {
+  /// Creates a new PublicCapabilities0 object using the builder pattern.
   factory PublicCapabilities0([void Function(PublicCapabilities0Builder)? b]) = _$PublicCapabilities0;
 
   // coverage:ignore-start
   const PublicCapabilities0._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities0.
   static Serializer<PublicCapabilities0> get serializer => _$publicCapabilities0Serializer;
-}
-
-typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
-
-extension $Room_LastMessageExtension on Room_LastMessage {
-  static Serializer<Room_LastMessage> get serializer => $e620970959f428e934829e52f32b7089Extension._serializer;
-  static Room_LastMessage fromJson(Object? json) => $e620970959f428e934829e52f32b7089Extension._fromJson(json);
-}
-
-typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
-  BuiltList<Never>? builtListNever,
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
-});
-
-extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
-    on RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
-  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
-      $bd993fb3f40af33e8594d0d698208560Extension._serializer;
-  static RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
-      $bd993fb3f40af33e8594d0d698208560Extension._fromJson(json);
-}
-
-typedef SettingsSetUserSettingValue = ({int? $int, String? string});
-
-extension $SettingsSetUserSettingValueExtension on SettingsSetUserSettingValue {
-  static Serializer<SettingsSetUserSettingValue> get serializer =>
-      $b2c4857c0136baea42828d89c87c757dExtension._serializer;
-  static SettingsSetUserSettingValue fromJson(Object? json) =>
-      $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
-}
-
-typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
-  BuiltList<SignalingSession>? builtListSignalingSession,
-  String? string
-});
-
-extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
-    on SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data {
-  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data> get serializer =>
-      $1df642f5035aea3b22543ab331c3fb01Extension._serializer;
-  static SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data fromJson(Object? json) =>
-      $1df642f5035aea3b22543ab331c3fb01Extension._fromJson(json);
 }
 
 typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
 
+/// Serialization extension for `Room_LastMessage`.
+extension $Room_LastMessageExtension on Room_LastMessage {
+  /// Serializer for Room_LastMessage.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Room_LastMessage> get serializer => $e620970959f428e934829e52f32b7089Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static Room_LastMessage fromJson(Object? json) => $e620970959f428e934829e52f32b7089Extension._fromJson(json);
+}
+
+/// Serialization extension for `RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data`.
+extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
+    on RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
+  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
+      $bd993fb3f40af33e8594d0d698208560Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
+      $bd993fb3f40af33e8594d0d698208560Extension._fromJson(json);
+}
+
+/// Serialization extension for `SettingsSetUserSettingValue`.
+extension $SettingsSetUserSettingValueExtension on SettingsSetUserSettingValue {
+  /// Serializer for SettingsSetUserSettingValue.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SettingsSetUserSettingValue> get serializer =>
+      $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static SettingsSetUserSettingValue fromJson(Object? json) =>
+      $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+}
+
+/// Serialization extension for `SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data`.
+extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
+    on SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data {
+  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data> get serializer =>
+      $1df642f5035aea3b22543ab331c3fb01Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data fromJson(Object? json) =>
+      $1df642f5035aea3b22543ab331c3fb01Extension._fromJson(json);
+}
+
+/// Serialization extension for `PublicCapabilities`.
 extension $PublicCapabilitiesExtension on PublicCapabilities {
+  /// Serializer for PublicCapabilities.
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicCapabilities> get serializer => $bc4aac45771b11649d372f39a92b1cf3Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static PublicCapabilities fromJson(Object? json) => $bc4aac45771b11649d372f39a92b1cf3Extension._fromJson(json);
 }
 
@@ -33704,12 +37658,20 @@ typedef _$e620970959f428e934829e52f32b7089 = ({BuiltList<Never>? builtListNever,
 // ignore: library_private_types_in_public_api
 extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e52f32b7089 {
   List<dynamic> get _values => [builtListNever, chatMessage];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$e620970959f428e934829e52f32b7089> get _serializer =>
       const _$e620970959f428e934829e52f32b7089Serializer();
   static _$e620970959f428e934829e52f32b7089 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -33769,12 +37731,20 @@ typedef _$bd993fb3f40af33e8594d0d698208560 = ({
 // ignore: library_private_types_in_public_api
 extension $bd993fb3f40af33e8594d0d698208560Extension on _$bd993fb3f40af33e8594d0d698208560 {
   List<dynamic> get _values => [builtListNever, roomAddParticipantToRoomResponseApplicationJsonOcsData0];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$bd993fb3f40af33e8594d0d698208560> get _serializer =>
       const _$bd993fb3f40af33e8594d0d698208560Serializer();
   static _$bd993fb3f40af33e8594d0d698208560 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -33840,12 +37810,20 @@ typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 // ignore: library_private_types_in_public_api
 extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
   List<dynamic> get _values => [$int, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -33901,12 +37879,20 @@ typedef _$1df642f5035aea3b22543ab331c3fb01 = ({BuiltList<SignalingSession>? buil
 // ignore: library_private_types_in_public_api
 extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543ab331c3fb01 {
   List<dynamic> get _values => [builtListSignalingSession, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
       const _$1df642f5035aea3b22543ab331c3fb01Serializer();
   static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -33968,12 +37954,20 @@ typedef _$bc4aac45771b11649d372f39a92b1cf3 = ({
 // ignore: library_private_types_in_public_api
 extension $bc4aac45771b11649d372f39a92b1cf3Extension on _$bc4aac45771b11649d372f39a92b1cf3 {
   List<dynamic> get _values => [builtListNever, publicCapabilities0];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$bc4aac45771b11649d372f39a92b1cf3> get _serializer =>
       const _$bc4aac45771b11649d372f39a92b1cf3Serializer();
   static _$bc4aac45771b11649d372f39a92b1cf3 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -34026,6 +38020,10 @@ class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerialize
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..add(AvatarGetAvatarApiVersion.serializer)
@@ -35507,6 +39505,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(PublicCapabilities0_Spreed_Config_Signaling.serializer)
       ..add($bc4aac45771b11649d372f39a92b1cf3Extension._serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

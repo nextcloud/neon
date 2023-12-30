@@ -1,5 +1,6 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/builder/state.dart';
+import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
@@ -16,24 +17,15 @@ Iterable<Spec> buildOfsExtensions(
       continue;
     }
 
-    yield TypeDef((final b) {
-      b
-        ..name = result.className
-        ..definition = refer(result.dartType.name);
-    });
-
-    final serializerMethod = Method(
-      (final b) => b
-        ..static = true
-        ..returns = refer('Serializer<${result.className}>')
-        ..type = MethodType.getter
-        ..name = 'serializer'
-        ..lambda = true
-        ..body = Code('${result.typeName}Extension._serializer'),
-    );
+    final serializerMethod = buildSerializer(result.className, '${result.typeName}Extension._serializer');
 
     final toJson = Method(
       (final b) => b
+        ..docs.addAll([
+          '/// Creates a new object from the given [json] data.',
+          '///',
+          '/// Use `toJson` to serialize it back into json.',
+        ])
         ..static = true
         ..returns = refer(result.className)
         ..name = 'fromJson'
@@ -50,6 +42,7 @@ Iterable<Spec> buildOfsExtensions(
 
     yield Extension(
       (final b) => b
+        ..docs.add('/// Serialization extension for `${result.className}`.')
         ..name = '\$${result.className}Extension'
         ..on = refer(result.className)
         ..methods.addAll([
@@ -99,6 +92,7 @@ Iterable<Spec> generateSomeOf(
 
   final oneOfValidator = Method((final b) {
     b
+      ..docs.add('/// {@macro Dynamite.validateOneOf}')
       ..name = 'validateOneOf'
       ..returns = refer('void')
       ..lambda = true
@@ -107,6 +101,7 @@ Iterable<Spec> generateSomeOf(
 
   final anyOfValidator = Method((final b) {
     b
+      ..docs.add('/// {@macro Dynamite.validateAnyOf}')
       ..name = 'validateAnyOf'
       ..returns = refer('void')
       ..lambda = true
@@ -141,6 +136,11 @@ Iterable<Spec> generateSomeOf(
 
   final toJson = Method(
     (final b) => b
+      ..docs.addAll([
+        '/// Parses this object into a json like map.',
+        '///',
+        '/// Use the fromJson factory to revive it again.',
+      ])
       ..name = 'toJson'
       ..returns = refer('Object?')
       ..lambda = true
