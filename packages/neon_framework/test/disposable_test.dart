@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/models/disposable.dart';
-import 'package:test/test.dart';
 
 class DisposableMock extends Mock implements Disposable {}
 

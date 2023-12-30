@@ -1,7 +1,7 @@
 // ignore_for_file: inference_failure_on_instance_creation
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('Result', () {

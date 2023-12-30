@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
@@ -10,7 +11,6 @@ import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/src/settings/utils/settings_export_helper.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:test/test.dart';
 
 // ignore: missing_override_of_must_be_overridden, avoid_implementing_value_types
 class FakeAppImplementation extends Mock implements AppImplementation {}
