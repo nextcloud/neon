@@ -25,15 +25,17 @@ import 'package:provider/provider.dart';
 class HomePage extends StatefulWidget {
   /// Creates a new home page.
   const HomePage({
+    required this.account,
     super.key,
   });
+
+  final Account account;
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  late Account _account;
   late global_options.GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
@@ -44,8 +46,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _globalOptions = NeonProvider.of<global_options.GlobalOptions>(context);
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    _account = _accountsBloc.activeAccount.value!;
-    _appsBloc = _accountsBloc.activeAppsBloc;
+    _appsBloc = _accountsBloc.getAppsBlocFor(widget.account);
 
     _versionCheckSubscription = _appsBloc.appVersionChecks.listen((final values) {
       if (!mounted) {
@@ -80,7 +81,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _checkMaintenanceMode() async {
     try {
-      final status = await _account.client.core.getStatus();
+      final status = await widget.account.client.core.getStatus();
 
       if (status.body.maintenance && mounted) {
         final message = NeonLocalizations.of(context).errorServerInMaintenanceMode;
@@ -101,7 +102,7 @@ class _HomePageState extends State<HomePage> {
     const appBar = NeonAppBar();
 
     final appView = StreamBuilder(
-      stream: _accountsBloc.activeUnifiedSearchBloc.enabled,
+      stream: _accountsBloc.getUnifiedSearchBlocFor(widget.account).enabled,
       builder: (final context, final unifiedSearchEnabledSnapshot) {
         if (unifiedSearchEnabledSnapshot.data ?? false) {
           return const NeonUnifiedSearchResults();
