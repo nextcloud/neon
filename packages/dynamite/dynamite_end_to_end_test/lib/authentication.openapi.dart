@@ -5,11 +5,13 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i2;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i1;
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
@@ -283,9 +285,9 @@ final Serializers _$serializers = Serializers();
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i1.DynamiteDoubleSerializer())
+      ..addPlugin(_i2.StandardJsonPlugin())
+      ..addPlugin(const _i1.HeaderPlugin())
+      ..addPlugin(const _i1.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

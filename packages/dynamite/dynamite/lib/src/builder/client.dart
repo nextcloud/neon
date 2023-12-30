@@ -498,7 +498,9 @@ String buildParameterSerialization(
         .index(literalString(parameter.pctEncodedName))
         .assign(
           refer('HeaderEncoder', 'package:dynamite_runtime/utils.dart')
-              .call([], {'explode': literalBool(parameter.explode)})
+              .constInstance(const [], {
+                'explode': literalBool(parameter.explode),
+              })
               .property('convert')
               .call([refer(serializedName)]),
         )

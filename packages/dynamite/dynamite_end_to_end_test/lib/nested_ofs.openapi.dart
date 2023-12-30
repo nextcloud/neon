@@ -9,8 +9,8 @@
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
-import 'package:dynamite_runtime/built_value.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i3;
+import 'package:dynamite_runtime/built_value.dart' as _i2;
 import 'package:dynamite_runtime/utils.dart' as _i1;
 import 'package:meta/meta.dart';
 
@@ -724,9 +724,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i2.DynamiteDoubleSerializer())
+      ..addPlugin(_i3.StandardJsonPlugin())
+      ..addPlugin(const _i2.HeaderPlugin())
+      ..addPlugin(const _i2.ContentStringPlugin()))
     .build();
 // coverage:ignore-end
