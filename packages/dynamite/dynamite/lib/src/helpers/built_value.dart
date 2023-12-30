@@ -106,7 +106,7 @@ Method get toJsonMethod => Method(
         ..name = 'toJson'
         ..returns = refer('Map<String, dynamic>')
         ..lambda = true
-        ..body = const Code('jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
+        ..body = const Code(r'_$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
     );
 
 /// Builds the serializer getter for a built class.
@@ -164,5 +164,5 @@ Constructor get fromJsonConstructor => Constructor(
               ..type = refer('Map<String, dynamic>'),
           ),
         )
-        ..body = const Code('jsonSerializers.deserializeWith(serializer, json)!'),
+        ..body = const Code(r'_$jsonSerializers.deserializeWith(serializer, json)!'),
     );

@@ -76,7 +76,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -138,7 +138,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -200,7 +200,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -262,7 +262,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -271,16 +271,18 @@ class $Client extends DynamiteClient {
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = Serializers();
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = Serializers();
 
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

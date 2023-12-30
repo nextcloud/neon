@@ -117,10 +117,10 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    final $mode = jsonSerializers.serialize(mode, specifiedType: const FullType(int));
+    final $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(int));
     _parameters['mode'] = $mode;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -135,7 +135,7 @@ class $WeatherStatusClient {
       ),
       bodyType: const FullType(WeatherStatusSetModeResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -202,7 +202,7 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -217,7 +217,7 @@ class $WeatherStatusClient {
       ),
       bodyType: const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -282,7 +282,7 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -297,7 +297,7 @@ class $WeatherStatusClient {
       ),
       bodyType: const FullType(WeatherStatusGetLocationResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -380,16 +380,16 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    final $address = jsonSerializers.serialize(address, specifiedType: const FullType(String));
+    final $address = _$jsonSerializers.serialize(address, specifiedType: const FullType(String));
     _parameters['address'] = $address;
 
-    final $lat = jsonSerializers.serialize(lat, specifiedType: const FullType(double));
+    final $lat = _$jsonSerializers.serialize(lat, specifiedType: const FullType(double));
     _parameters['lat'] = $lat;
 
-    final $lon = jsonSerializers.serialize(lon, specifiedType: const FullType(double));
+    final $lon = _$jsonSerializers.serialize(lon, specifiedType: const FullType(double));
     _parameters['lon'] = $lon;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -405,7 +405,7 @@ class $WeatherStatusClient {
       ),
       bodyType: const FullType(WeatherStatusSetLocationResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -472,7 +472,7 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -487,7 +487,7 @@ class $WeatherStatusClient {
       ),
       bodyType: const FullType(WeatherStatusGetForecastResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -552,7 +552,7 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -567,7 +567,7 @@ class $WeatherStatusClient {
       ),
       bodyType: const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -641,10 +641,10 @@ class $WeatherStatusClient {
 
 // coverage:ignore-end
     final $favorites =
-        jsonSerializers.serialize(favorites, specifiedType: const FullType(BuiltList, [FullType(String)]));
+        _$jsonSerializers.serialize(favorites, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['favorites%5B%5D'] = $favorites;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -660,7 +660,7 @@ class $WeatherStatusClient {
       ),
       bodyType: const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -686,14 +686,14 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for OCSMeta.
@@ -724,14 +724,14 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetModeResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetModeResponseApplicationJson_Ocs_Data.
@@ -763,14 +763,14 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetModeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetModeResponseApplicationJson_Ocs.
@@ -801,14 +801,14 @@ abstract class WeatherStatusSetModeResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetModeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetModeResponseApplicationJson.
@@ -843,14 +843,14 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.
@@ -883,14 +883,14 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.
@@ -922,14 +922,14 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusUsePersonalAddressResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusUsePersonalAddressResponseApplicationJson.
@@ -964,14 +964,14 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.
@@ -1004,14 +1004,14 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusGetLocationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusGetLocationResponseApplicationJson_Ocs.
@@ -1042,14 +1042,14 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusGetLocationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusGetLocationResponseApplicationJson.
@@ -1084,14 +1084,14 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.
@@ -1124,14 +1124,14 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetLocationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetLocationResponseApplicationJson_Ocs.
@@ -1162,14 +1162,14 @@ abstract class WeatherStatusSetLocationResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetLocationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetLocationResponseApplicationJson.
@@ -1224,14 +1224,14 @@ abstract class Forecast_Data_Instant_Details
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Instant_Details.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Instant_Details.
@@ -1257,14 +1257,14 @@ abstract class Forecast_Data_Instant
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Instant.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Instant.
@@ -1294,14 +1294,14 @@ abstract class Forecast_Data_Next12Hours_Summary
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next12Hours_Summary.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next12Hours_Summary.
@@ -1331,14 +1331,14 @@ abstract class Forecast_Data_Next12Hours_Details
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next12Hours_Details.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next12Hours_Details.
@@ -1365,14 +1365,14 @@ abstract class Forecast_Data_Next12Hours
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next12Hours.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next12Hours.
@@ -1402,14 +1402,14 @@ abstract class Forecast_Data_Next1Hours_Summary
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next1Hours_Summary.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next1Hours_Summary.
@@ -1447,14 +1447,14 @@ abstract class Forecast_Data_Next1Hours_Details
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next1Hours_Details.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next1Hours_Details.
@@ -1481,14 +1481,14 @@ abstract class Forecast_Data_Next1Hours
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next1Hours.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next1Hours.
@@ -1518,14 +1518,14 @@ abstract class Forecast_Data_Next6Hours_Summary
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next6Hours_Summary.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next6Hours_Summary.
@@ -1565,14 +1565,14 @@ abstract class Forecast_Data_Next6Hours_Details
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next6Hours_Details.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next6Hours_Details.
@@ -1599,14 +1599,14 @@ abstract class Forecast_Data_Next6Hours
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Forecast_Data_Next6Hours.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data_Next6Hours.
@@ -1636,14 +1636,14 @@ abstract class Forecast_Data implements $Forecast_DataInterface, Built<Forecast_
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Forecast_Data.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Forecast_Data.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast_Data.
@@ -1668,14 +1668,14 @@ abstract class Forecast implements $ForecastInterface, Built<Forecast, ForecastB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Forecast.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Forecast.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Forecast.
@@ -1707,14 +1707,14 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusGetForecastResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusGetForecastResponseApplicationJson_Ocs.
@@ -1745,14 +1745,14 @@ abstract class WeatherStatusGetForecastResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusGetForecastResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusGetForecastResponseApplicationJson.
@@ -1785,14 +1785,14 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusGetFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusGetFavoritesResponseApplicationJson_Ocs.
@@ -1824,14 +1824,14 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusGetFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusGetFavoritesResponseApplicationJson.
@@ -1863,14 +1863,14 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.
@@ -1903,14 +1903,14 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetFavoritesResponseApplicationJson_Ocs.
@@ -1942,14 +1942,14 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory WeatherStatusSetFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WeatherStatusSetFavoritesResponseApplicationJson.
@@ -1979,14 +1979,14 @@ abstract class Capabilities_WeatherStatus
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_WeatherStatus.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_WeatherStatus.
@@ -2011,14 +2011,14 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities.
@@ -2029,9 +2029,10 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(WeatherStatusSetModeResponseApplicationJson),
         WeatherStatusSetModeResponseApplicationJsonBuilder.new,
@@ -2172,9 +2173,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

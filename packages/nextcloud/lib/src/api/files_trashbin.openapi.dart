@@ -131,19 +131,19 @@ class $PreviewClient {
     }
 
 // coverage:ignore-end
-    var $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    var $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
     $fileId ??= -1;
     _parameters['fileId'] = $fileId;
 
-    var $x = jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
     $x ??= 32;
     _parameters['x'] = $x;
 
-    var $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
     $y ??= 32;
     _parameters['y'] = $y;
 
-    var $a = jsonSerializers.serialize(a, specifiedType: const FullType(int));
+    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(int));
     $a ??= 0;
     _parameters['a'] = $a;
 
@@ -158,7 +158,7 @@ class $PreviewClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -181,14 +181,15 @@ abstract class Capabilities_Files
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Files.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Files.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_Files.
@@ -212,14 +213,14 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities.
@@ -230,9 +231,10 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
@@ -242,9 +244,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

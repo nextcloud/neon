@@ -165,19 +165,19 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $darkTheme = jsonSerializers.serialize(darkTheme, specifiedType: const FullType(int));
+    var $darkTheme = _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(int));
     $darkTheme ??= 0;
     _parameters['darkTheme'] = $darkTheme;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -193,7 +193,7 @@ class $AvatarClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -271,16 +271,16 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarUploadAvatarApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarUploadAvatarApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -295,7 +295,7 @@ class $AvatarClient {
       ),
       bodyType: const FullType(AvatarUploadAvatarResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -371,16 +371,16 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarDeleteAvatarApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarDeleteAvatarApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -395,7 +395,7 @@ class $AvatarClient {
       ),
       bodyType: const FullType(AvatarDeleteAvatarResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -483,21 +483,22 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    final $emoji = jsonSerializers.serialize(emoji, specifiedType: const FullType(String));
+    final $emoji = _$jsonSerializers.serialize(emoji, specifiedType: const FullType(String));
     _parameters['emoji'] = $emoji;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $color = jsonSerializers.serialize(color, specifiedType: const FullType(String));
+    final $color = _$jsonSerializers.serialize(color, specifiedType: const FullType(String));
     _parameters['color'] = $color;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarEmojiAvatarApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarEmojiAvatarApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -513,7 +514,7 @@ class $AvatarClient {
       ),
       bodyType: const FullType(AvatarEmojiAvatarResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -589,16 +590,16 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarDarkApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarDarkApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -613,7 +614,7 @@ class $AvatarClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -726,30 +727,30 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
     _parameters['message'] = $message;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $referenceId = jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    var $referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
     $referenceId ??= '';
     _parameters['referenceId'] = $referenceId;
 
-    var $replyTo = jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
+    var $replyTo = _$jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
     $replyTo ??= 0;
     _parameters['replyTo'] = $replyTo;
 
-    var $silent = jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(int));
     $silent ??= 0;
     _parameters['silent'] = $silent;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotSendMessageApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotSendMessageApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -766,7 +767,7 @@ class $BotClient {
       ),
       bodyType: const FullType(BotSendMessageResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -860,21 +861,21 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     _parameters['reaction'] = $reaction;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotReactApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotReactApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -890,7 +891,7 @@ class $BotClient {
       ),
       bodyType: const FullType(BotReactResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -982,21 +983,22 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     _parameters['reaction'] = $reaction;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDeleteReactionApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDeleteReactionApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1012,7 +1014,7 @@ class $BotClient {
       ),
       bodyType: const FullType(BotDeleteReactionResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1089,11 +1091,12 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1108,7 +1111,7 @@ class $BotClient {
       ),
       bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1186,15 +1189,15 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1209,7 +1212,7 @@ class $BotClient {
       ),
       bodyType: const FullType(BotListBotsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1296,18 +1299,18 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $botId = jsonSerializers.serialize(botId, specifiedType: const FullType(int));
+    final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
     _parameters['botId'] = $botId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotEnableBotApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotEnableBotApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1322,7 +1325,7 @@ class $BotClient {
       ),
       bodyType: const FullType(BotEnableBotResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1407,18 +1410,18 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $botId = jsonSerializers.serialize(botId, specifiedType: const FullType(int));
+    final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
     _parameters['botId'] = $botId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDisableBotApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDisableBotApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1433,7 +1436,7 @@ class $BotClient {
       ),
       bodyType: const FullType(BotDisableBotResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -1536,28 +1539,28 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $mode =
-        jsonSerializers.serialize(mode, specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsMode));
+        _$jsonSerializers.serialize(mode, specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsMode));
     _parameters['mode'] = $mode;
 
-    final $amount = jsonSerializers.serialize(amount, specifiedType: const FullType(int));
+    final $amount = _$jsonSerializers.serialize(amount, specifiedType: const FullType(int));
     _parameters['amount'] = $amount;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $attendeeMap = jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
+    var $attendeeMap = _$jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
     $attendeeMap ??= '[]';
     _parameters['attendeeMap'] = $attendeeMap;
 
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1574,7 +1577,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1652,16 +1655,18 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomRemoveBreakoutRoomsApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomRemoveBreakoutRoomsApiVersion),
+    );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1676,7 +1681,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1763,21 +1768,21 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
     _parameters['message'] = $message;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomBroadcastChatMessageApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1793,7 +1798,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1878,19 +1883,19 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $attendeeMap = jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
+    final $attendeeMap = _$jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
     _parameters['attendeeMap'] = $attendeeMap;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomApplyAttendeeMapApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomApplyAttendeeMapApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1907,7 +1912,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1987,16 +1992,16 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomRequestAssistanceApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomRequestAssistanceApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2012,7 +2017,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2093,18 +2098,18 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomResetRequestForAssistanceApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2120,7 +2125,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2200,16 +2205,18 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomStartBreakoutRoomsApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomStartBreakoutRoomsApiVersion),
+    );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2225,7 +2232,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2305,16 +2312,16 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomStopBreakoutRoomsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomStopBreakoutRoomsApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2330,7 +2337,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2415,19 +2422,21 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $target = jsonSerializers.serialize(target, specifiedType: const FullType(String));
+    final $target = _$jsonSerializers.serialize(target, specifiedType: const FullType(String));
     _parameters['target'] = $target;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomSwitchBreakoutRoomApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomSwitchBreakoutRoomApiVersion),
+    );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2443,7 +2452,7 @@ class $BreakoutRoomClient {
       ),
       bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -2526,16 +2535,16 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallGetPeersForCallApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallGetPeersForCallApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2550,7 +2559,7 @@ class $CallClient {
       ),
       bodyType: const FullType(CallGetPeersForCallResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2635,19 +2644,19 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    final $flags = jsonSerializers.serialize(flags, specifiedType: const FullType(int));
+    final $flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(int));
     _parameters['flags'] = $flags;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallUpdateCallFlagsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallUpdateCallFlagsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2662,7 +2671,7 @@ class $CallClient {
       ),
       bodyType: const FullType(CallUpdateCallFlagsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2762,30 +2771,30 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $flags = jsonSerializers.serialize(flags, specifiedType: const FullType(CallJoinCallFlags));
+    final $flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(CallJoinCallFlags));
     _parameters['flags'] = $flags;
 
     final $forcePermissions =
-        jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(CallJoinCallForcePermissions));
+        _$jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(CallJoinCallForcePermissions));
     _parameters['forcePermissions'] = $forcePermissions;
 
-    var $silent = jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(int));
     $silent ??= 0;
     _parameters['silent'] = $silent;
 
-    var $recordingConsent = jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
+    var $recordingConsent = _$jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
     $recordingConsent ??= 0;
     _parameters['recordingConsent'] = $recordingConsent;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallJoinCallApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallJoinCallApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2802,7 +2811,7 @@ class $CallClient {
       ),
       bodyType: const FullType(CallJoinCallResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2885,19 +2894,19 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $all = jsonSerializers.serialize(all, specifiedType: const FullType(int));
+    var $all = _$jsonSerializers.serialize(all, specifiedType: const FullType(int));
     $all ??= 0;
     _parameters['all'] = $all;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallLeaveCallApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallLeaveCallApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2912,7 +2921,7 @@ class $CallClient {
       ),
       bodyType: const FullType(CallLeaveCallResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2997,18 +3006,19 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = $attendeeId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallRingAttendeeApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallRingAttendeeApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -3024,7 +3034,7 @@ class $CallClient {
       ),
       bodyType: const FullType(CallRingAttendeeResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -3111,18 +3121,18 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = $attendeeId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallSipDialOutApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallSipDialOutApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -3138,7 +3148,7 @@ class $CallClient {
       ),
       bodyType: const FullType(CallSipDialOutResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -3229,17 +3239,17 @@ class $CertificateClient {
     }
 
 // coverage:ignore-end
-    final $host = jsonSerializers.serialize(host, specifiedType: const FullType(String));
+    final $host = _$jsonSerializers.serialize(host, specifiedType: const FullType(String));
     _parameters['host'] = $host;
 
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(CertificateGetCertificateExpirationApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -3255,7 +3265,7 @@ class $CertificateClient {
       ),
       bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -3394,45 +3404,47 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $lookIntoFuture =
-        jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(ChatReceiveMessagesLookIntoFuture));
+        _$jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(ChatReceiveMessagesLookIntoFuture));
     _parameters['lookIntoFuture'] = $lookIntoFuture;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 100;
     _parameters['limit'] = $limit;
 
-    var $lastKnownMessageId = jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
+    var $lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
     $lastKnownMessageId ??= 0;
     _parameters['lastKnownMessageId'] = $lastKnownMessageId;
 
-    var $lastCommonReadId = jsonSerializers.serialize(lastCommonReadId, specifiedType: const FullType(int));
+    var $lastCommonReadId = _$jsonSerializers.serialize(lastCommonReadId, specifiedType: const FullType(int));
     $lastCommonReadId ??= 0;
     _parameters['lastCommonReadId'] = $lastCommonReadId;
 
-    var $timeout = jsonSerializers.serialize(timeout, specifiedType: const FullType(int));
+    var $timeout = _$jsonSerializers.serialize(timeout, specifiedType: const FullType(int));
     $timeout ??= 30;
     _parameters['timeout'] = $timeout;
 
     var $setReadMarker =
-        jsonSerializers.serialize(setReadMarker, specifiedType: const FullType(ChatReceiveMessagesSetReadMarker));
+        _$jsonSerializers.serialize(setReadMarker, specifiedType: const FullType(ChatReceiveMessagesSetReadMarker));
     $setReadMarker ??= 1;
     _parameters['setReadMarker'] = $setReadMarker;
 
-    var $includeLastKnown =
-        jsonSerializers.serialize(includeLastKnown, specifiedType: const FullType(ChatReceiveMessagesIncludeLastKnown));
+    var $includeLastKnown = _$jsonSerializers.serialize(
+      includeLastKnown,
+      specifiedType: const FullType(ChatReceiveMessagesIncludeLastKnown),
+    );
     $includeLastKnown ??= 0;
     _parameters['includeLastKnown'] = $includeLastKnown;
 
     var $noStatusUpdate =
-        jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(ChatReceiveMessagesNoStatusUpdate));
+        _$jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(ChatReceiveMessagesNoStatusUpdate));
     $noStatusUpdate ??= 0;
     _parameters['noStatusUpdate'] = $noStatusUpdate;
 
-    var $markNotificationsAsRead = jsonSerializers.serialize(
+    var $markNotificationsAsRead = _$jsonSerializers.serialize(
       markNotificationsAsRead,
       specifiedType: const FullType(ChatReceiveMessagesMarkNotificationsAsRead),
     );
@@ -3440,11 +3452,11 @@ class $ChatClient {
     _parameters['markNotificationsAsRead'] = $markNotificationsAsRead;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatReceiveMessagesApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatReceiveMessagesApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -3461,7 +3473,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
       headersType: const FullType(ChatChatReceiveMessagesHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -3572,34 +3584,34 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
     _parameters['message'] = $message;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $actorDisplayName = jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
+    var $actorDisplayName = _$jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
     $actorDisplayName ??= '';
     _parameters['actorDisplayName'] = $actorDisplayName;
 
-    var $referenceId = jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    var $referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
     $referenceId ??= '';
     _parameters['referenceId'] = $referenceId;
 
-    var $replyTo = jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
+    var $replyTo = _$jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
     $replyTo ??= 0;
     _parameters['replyTo'] = $replyTo;
 
-    var $silent = jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(int));
     $silent ??= 0;
     _parameters['silent'] = $silent;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSendMessageApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSendMessageApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -3616,7 +3628,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatSendMessageResponseApplicationJson),
       headersType: const FullType(ChatChatSendMessageHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -3698,15 +3710,16 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatClearHistoryApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatClearHistoryApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -3721,7 +3734,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
       headersType: const FullType(ChatChatClearHistoryHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -3814,18 +3827,19 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteMessageApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteMessageApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -3840,7 +3854,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
       headersType: const FullType(ChatChatDeleteMessageHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -3930,23 +3944,23 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 50;
     _parameters['limit'] = $limit;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetMessageContextApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetMessageContextApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -3962,7 +3976,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
       headersType: const FullType(ChatChatGetMessageContextHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -4047,18 +4061,18 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetReminderApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetReminderApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -4074,7 +4088,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatGetReminderResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -4164,21 +4178,21 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    final $timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     _parameters['timestamp'] = $timestamp;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReminderApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReminderApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -4194,7 +4208,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatSetReminderResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -4279,19 +4293,19 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteReminderApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteReminderApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -4307,7 +4321,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatDeleteReminderResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -4390,18 +4404,19 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $lastReadMessage = jsonSerializers.serialize(lastReadMessage, specifiedType: const FullType(int));
+    final $lastReadMessage = _$jsonSerializers.serialize(lastReadMessage, specifiedType: const FullType(int));
     _parameters['lastReadMessage'] = $lastReadMessage;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReadMarkerApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReadMarkerApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -4417,7 +4432,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
       headersType: const FullType(ChatChatSetReadMarkerHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -4495,15 +4510,15 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMarkUnreadApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMarkUnreadApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -4518,7 +4533,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatMarkUnreadResponseApplicationJson),
       headersType: const FullType(ChatChatMarkUnreadHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -4609,26 +4624,26 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $search = jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    final $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
     _parameters['search'] = $search;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 20;
     _parameters['limit'] = $limit;
 
-    var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
     $includeStatus ??= 0;
     _parameters['includeStatus'] = $includeStatus;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMentionsApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMentionsApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -4645,7 +4660,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatMentionsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -4738,27 +4753,27 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $objectType = jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    final $objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
     _parameters['objectType'] = $objectType;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $lastKnownMessageId = jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
+    var $lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
     $lastKnownMessageId ??= 0;
     _parameters['lastKnownMessageId'] = $lastKnownMessageId;
 
-    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 100;
     _parameters['limit'] = $limit;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetObjectsSharedInRoomApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetObjectsSharedInRoomApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -4776,7 +4791,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
       headersType: const FullType(ChatChatGetObjectsSharedInRoomHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -4889,34 +4904,34 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $objectType = jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    final $objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
     _parameters['objectType'] = $objectType;
 
-    final $objectId = jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
+    final $objectId = _$jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
     _parameters['objectId'] = $objectId;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $metaData = jsonSerializers.serialize(metaData, specifiedType: const FullType(String));
+    var $metaData = _$jsonSerializers.serialize(metaData, specifiedType: const FullType(String));
     $metaData ??= '';
     _parameters['metaData'] = $metaData;
 
-    var $actorDisplayName = jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
+    var $actorDisplayName = _$jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
     $actorDisplayName ??= '';
     _parameters['actorDisplayName'] = $actorDisplayName;
 
-    var $referenceId = jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    var $referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
     $referenceId ??= '';
     _parameters['referenceId'] = $referenceId;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatShareObjectToChatApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatShareObjectToChatApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -4933,7 +4948,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
       headersType: const FullType(ChatChatShareObjectToChatHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -5016,22 +5031,22 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
     _parameters['limit'] = $limit;
 
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -5047,7 +5062,7 @@ class $ChatClient {
       ),
       bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -5144,16 +5159,18 @@ class $FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($fileId as String?, RegExp(r'^.+$'), 'fileId');
     _parameters['fileId'] = $fileId;
 
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FilesIntegrationGetRoomByFileIdApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(FilesIntegrationGetRoomByFileIdApiVersion),
+    );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -5168,7 +5185,7 @@ class $FilesIntegrationClient {
       ),
       bodyType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -5258,18 +5275,18 @@ class $FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    final $shareToken = jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
+    final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($shareToken as String?, RegExp(r'^.+$'), 'shareToken');
     _parameters['shareToken'] = $shareToken;
 
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(FilesIntegrationGetRoomByShareTokenApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -5284,7 +5301,7 @@ class $FilesIntegrationClient {
       ),
       bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -5376,19 +5393,19 @@ class $GuestClient {
     }
 
 // coverage:ignore-end
-    final $displayName = jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
+    final $displayName = _$jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
     _parameters['displayName'] = $displayName;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(GuestSetDisplayNameApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(GuestSetDisplayNameApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -5404,7 +5421,7 @@ class $GuestClient {
       ),
       bodyType: const FullType(GuestSetDisplayNameResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -5517,29 +5534,29 @@ class $HostedSignalingServerClient {
     }
 
 // coverage:ignore-end
-    final $url = jsonSerializers.serialize(url, specifiedType: const FullType(String));
+    final $url = _$jsonSerializers.serialize(url, specifiedType: const FullType(String));
     _parameters['url'] = $url;
 
-    final $name = jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
     _parameters['name'] = $name;
 
-    final $email = jsonSerializers.serialize(email, specifiedType: const FullType(String));
+    final $email = _$jsonSerializers.serialize(email, specifiedType: const FullType(String));
     _parameters['email'] = $email;
 
-    final $language = jsonSerializers.serialize(language, specifiedType: const FullType(String));
+    final $language = _$jsonSerializers.serialize(language, specifiedType: const FullType(String));
     _parameters['language'] = $language;
 
-    final $country = jsonSerializers.serialize(country, specifiedType: const FullType(String));
+    final $country = _$jsonSerializers.serialize(country, specifiedType: const FullType(String));
     _parameters['country'] = $country;
 
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(HostedSignalingServerRequestTrialApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -5556,7 +5573,7 @@ class $HostedSignalingServerClient {
       ),
       bodyType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -5637,14 +5654,14 @@ class $HostedSignalingServerClient {
     }
 
 // coverage:ignore-end
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(HostedSignalingServerDeleteAccountApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -5660,7 +5677,7 @@ class $HostedSignalingServerClient {
       ),
       bodyType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -5745,16 +5762,16 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeGetBridgeOfRoomApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeGetBridgeOfRoomApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -5769,7 +5786,7 @@ class $MatterbridgeClient {
       ),
       bodyType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -5859,14 +5876,14 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    final $enabled = jsonSerializers.serialize(enabled, specifiedType: const FullType(int));
+    final $enabled = _$jsonSerializers.serialize(enabled, specifiedType: const FullType(int));
     _parameters['enabled'] = $enabled;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $parts = jsonSerializers.serialize(
+    final $parts = _$jsonSerializers.serialize(
       parts,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltList, [
@@ -5877,11 +5894,11 @@ class $MatterbridgeClient {
     _parameters['parts'] = $parts;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeEditBridgeOfRoomApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeEditBridgeOfRoomApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -5897,7 +5914,7 @@ class $MatterbridgeClient {
       ),
       bodyType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -5977,16 +5994,18 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeDeleteBridgeOfRoomApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(MatterbridgeDeleteBridgeOfRoomApiVersion),
+    );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6001,7 +6020,7 @@ class $MatterbridgeClient {
       ),
       bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -6079,18 +6098,18 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(MatterbridgeGetBridgeProcessStateApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6105,7 +6124,7 @@ class $MatterbridgeClient {
       ),
       bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -6191,14 +6210,14 @@ class $MatterbridgeSettingsClient {
     }
 
 // coverage:ignore-end
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(MatterbridgeSettingsStopAllBridgesApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6213,7 +6232,7 @@ class $MatterbridgeSettingsClient {
       ),
       bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -6294,14 +6313,14 @@ class $MatterbridgeSettingsClient {
     }
 
 // coverage:ignore-end
-    var $apiVersion = jsonSerializers.serialize(
+    var $apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionApiVersion),
     );
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6316,7 +6335,7 @@ class $MatterbridgeSettingsClient {
       ),
       bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -6421,27 +6440,28 @@ class $PollClient {
     }
 
 // coverage:ignore-end
-    final $question = jsonSerializers.serialize(question, specifiedType: const FullType(String));
+    final $question = _$jsonSerializers.serialize(question, specifiedType: const FullType(String));
     _parameters['question'] = $question;
 
-    final $options = jsonSerializers.serialize(options, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final $options = _$jsonSerializers.serialize(options, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['options%5B%5D'] = $options;
 
-    final $resultMode = jsonSerializers.serialize(resultMode, specifiedType: const FullType(PollCreatePollResultMode));
+    final $resultMode =
+        _$jsonSerializers.serialize(resultMode, specifiedType: const FullType(PollCreatePollResultMode));
     _parameters['resultMode'] = $resultMode;
 
-    final $maxVotes = jsonSerializers.serialize(maxVotes, specifiedType: const FullType(int));
+    final $maxVotes = _$jsonSerializers.serialize(maxVotes, specifiedType: const FullType(int));
     _parameters['maxVotes'] = $maxVotes;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollCreatePollApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollCreatePollApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6458,7 +6478,7 @@ class $PollClient {
       ),
       bodyType: const FullType(PollCreatePollResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -6541,18 +6561,18 @@ class $PollClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
     _parameters['pollId'] = $pollId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollShowPollApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollShowPollApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6567,7 +6587,7 @@ class $PollClient {
       ),
       bodyType: const FullType(PollShowPollResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -6657,22 +6677,22 @@ class $PollClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
     _parameters['pollId'] = $pollId;
 
-    var $optionIds = jsonSerializers.serialize(optionIds, specifiedType: const FullType(BuiltList, [FullType(int)]));
+    var $optionIds = _$jsonSerializers.serialize(optionIds, specifiedType: const FullType(BuiltList, [FullType(int)]));
     $optionIds ??= [];
     _parameters['optionIds%5B%5D'] = $optionIds;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollVotePollApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollVotePollApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6688,7 +6708,7 @@ class $PollClient {
       ),
       bodyType: const FullType(PollVotePollResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -6777,18 +6797,18 @@ class $PollClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
     _parameters['pollId'] = $pollId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollClosePollApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollClosePollApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6803,7 +6823,7 @@ class $PollClient {
       ),
       bodyType: const FullType(PollClosePollResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -6894,15 +6914,15 @@ class $PublicShareAuthClient {
     }
 
 // coverage:ignore-end
-    final $shareToken = jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
+    final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
     _parameters['shareToken'] = $shareToken;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PublicShareAuthCreateRoomApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PublicShareAuthCreateRoomApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -6918,7 +6938,7 @@ class $PublicShareAuthClient {
       ),
       bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -7013,22 +7033,22 @@ class $ReactionClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     _parameters['reaction'] = $reaction;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionGetReactionsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionGetReactionsApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7044,7 +7064,7 @@ class $ReactionClient {
       ),
       bodyType: const FullType(ReactionGetReactionsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -7136,21 +7156,21 @@ class $ReactionClient {
     }
 
 // coverage:ignore-end
-    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     _parameters['reaction'] = $reaction;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionReactApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionReactApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7166,7 +7186,7 @@ class $ReactionClient {
       ),
       bodyType: const FullType(ReactionReactResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -7256,21 +7276,21 @@ class $ReactionClient {
     }
 
 // coverage:ignore-end
-    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     _parameters['reaction'] = $reaction;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = $messageId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionDeleteApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionDeleteApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7286,7 +7306,7 @@ class $ReactionClient {
       ),
       bodyType: const FullType(ReactionDeleteResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -7379,15 +7399,15 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    final $serverId = jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
     _parameters['serverId'] = $serverId;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7403,7 +7423,7 @@ class $RecordingClient {
       ),
       bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -7488,18 +7508,18 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    final $status = jsonSerializers.serialize(status, specifiedType: const FullType(int));
+    final $status = _$jsonSerializers.serialize(status, specifiedType: const FullType(int));
     _parameters['status'] = $status;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStartApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStartApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7515,7 +7535,7 @@ class $RecordingClient {
       ),
       bodyType: const FullType(RecordingStartResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -7595,15 +7615,15 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStopApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStopApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7618,7 +7638,7 @@ class $RecordingClient {
       ),
       bodyType: const FullType(RecordingStopResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -7703,18 +7723,18 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    final $owner = jsonSerializers.serialize(owner, specifiedType: const FullType(String));
+    final $owner = _$jsonSerializers.serialize(owner, specifiedType: const FullType(String));
     _parameters['owner'] = $owner;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7730,7 +7750,7 @@ class $RecordingClient {
       ),
       bodyType: const FullType(RecordingStoreResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -7815,19 +7835,19 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    final $timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     _parameters['timestamp'] = $timestamp;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingNotificationDismissApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingNotificationDismissApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7843,7 +7863,7 @@ class $RecordingClient {
       ),
       bodyType: const FullType(RecordingNotificationDismissResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -7933,22 +7953,22 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
     _parameters['fileId'] = $fileId;
 
-    final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    final $timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     _parameters['timestamp'] = $timestamp;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingShareToChatApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingShareToChatApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -7965,7 +7985,7 @@ class $RecordingClient {
       ),
       bodyType: const FullType(RecordingShareToChatResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -8061,23 +8081,23 @@ class $RoomClient {
 
 // coverage:ignore-end
     var $noStatusUpdate =
-        jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(RoomGetRoomsNoStatusUpdate));
+        _$jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(RoomGetRoomsNoStatusUpdate));
     $noStatusUpdate ??= 0;
     _parameters['noStatusUpdate'] = $noStatusUpdate;
 
-    var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
     $includeStatus ??= 0;
     _parameters['includeStatus'] = $includeStatus;
 
-    var $modifiedSince = jsonSerializers.serialize(modifiedSince, specifiedType: const FullType(int));
+    var $modifiedSince = _$jsonSerializers.serialize(modifiedSince, specifiedType: const FullType(int));
     $modifiedSince ??= 0;
     _parameters['modifiedSince'] = $modifiedSince;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetRoomsApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetRoomsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8094,7 +8114,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomGetRoomsResponseApplicationJson),
       headersType: const FullType(RoomRoomGetRoomsHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -8205,34 +8225,34 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $roomType = jsonSerializers.serialize(roomType, specifiedType: const FullType(int));
+    final $roomType = _$jsonSerializers.serialize(roomType, specifiedType: const FullType(int));
     _parameters['roomType'] = $roomType;
 
-    var $invite = jsonSerializers.serialize(invite, specifiedType: const FullType(String));
+    var $invite = _$jsonSerializers.serialize(invite, specifiedType: const FullType(String));
     $invite ??= '';
     _parameters['invite'] = $invite;
 
-    var $roomName = jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
+    var $roomName = _$jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
     $roomName ??= '';
     _parameters['roomName'] = $roomName;
 
-    var $source = jsonSerializers.serialize(source, specifiedType: const FullType(String));
+    var $source = _$jsonSerializers.serialize(source, specifiedType: const FullType(String));
     $source ??= '';
     _parameters['source'] = $source;
 
-    var $objectType = jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    var $objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
     $objectType ??= '';
     _parameters['objectType'] = $objectType;
 
-    var $objectId = jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
+    var $objectId = _$jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
     $objectId ??= '';
     _parameters['objectId'] = $objectId;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomCreateRoomApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomCreateRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8249,7 +8269,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomCreateRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -8327,16 +8347,16 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $searchTerm = jsonSerializers.serialize(searchTerm, specifiedType: const FullType(String));
+    var $searchTerm = _$jsonSerializers.serialize(searchTerm, specifiedType: const FullType(String));
     $searchTerm ??= '';
     _parameters['searchTerm'] = $searchTerm;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetListedRoomsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetListedRoomsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8351,7 +8371,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomGetListedRoomsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -8432,11 +8452,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetNoteToSelfConversationApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetNoteToSelfConversationApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8452,7 +8472,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
       headersType: const FullType(RoomRoomGetNoteToSelfConversationHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -8532,15 +8552,16 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetSingleRoomApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetSingleRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8555,7 +8576,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
       headersType: const FullType(RoomRoomGetSingleRoomHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -8638,18 +8659,18 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $roomName = jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
+    final $roomName = _$jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
     _parameters['roomName'] = $roomName;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRenameRoomApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRenameRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8664,7 +8685,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -8742,15 +8763,15 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDeleteRoomApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDeleteRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8765,7 +8786,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -8849,16 +8870,16 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetBreakoutRoomsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetBreakoutRoomsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8874,7 +8895,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -8954,15 +8975,15 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePublicApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePublicApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -8977,7 +8998,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomMakePublicResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9057,15 +9078,15 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePrivateApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePrivateApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -9080,7 +9101,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomMakePrivateResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9163,19 +9184,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $description = jsonSerializers.serialize(description, specifiedType: const FullType(String));
+    final $description = _$jsonSerializers.serialize(description, specifiedType: const FullType(String));
     _parameters['description'] = $description;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetDescriptionApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetDescriptionApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -9191,7 +9212,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetDescriptionResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9276,18 +9297,18 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetReadOnlyState));
+    final $state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetReadOnlyState));
     _parameters['state'] = $state;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetReadOnlyApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetReadOnlyApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -9303,7 +9324,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetReadOnlyResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9388,18 +9409,18 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $scope = jsonSerializers.serialize(scope, specifiedType: const FullType(RoomSetListableScope));
+    final $scope = _$jsonSerializers.serialize(scope, specifiedType: const FullType(RoomSetListableScope));
     _parameters['scope'] = $scope;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetListableApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetListableApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -9415,7 +9436,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetListableResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9500,18 +9521,18 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    final $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
     _parameters['password'] = $password;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPasswordApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPasswordApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -9527,7 +9548,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetPasswordResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9616,23 +9637,23 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $permissions =
-        jsonSerializers.serialize(permissions, specifiedType: const FullType(RoomSetPermissionsPermissions));
+        _$jsonSerializers.serialize(permissions, specifiedType: const FullType(RoomSetPermissionsPermissions));
     _parameters['permissions'] = $permissions;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $mode = jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
+    final $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
     dynamite_utils.checkPattern($mode as String?, RegExp(r'^(call|default)$'), 'mode');
     _parameters['mode'] = $mode;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPermissionsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPermissionsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -9648,7 +9669,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetPermissionsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9731,20 +9752,20 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
     $includeStatus ??= 0;
     _parameters['includeStatus'] = $includeStatus;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetParticipantsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetParticipantsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -9760,7 +9781,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
       headersType: const FullType(RoomRoomGetParticipantsHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9854,23 +9875,23 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $newParticipant = jsonSerializers.serialize(newParticipant, specifiedType: const FullType(String));
+    final $newParticipant = _$jsonSerializers.serialize(newParticipant, specifiedType: const FullType(String));
     _parameters['newParticipant'] = $newParticipant;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $source = jsonSerializers.serialize(source, specifiedType: const FullType(RoomAddParticipantToRoomSource));
+    var $source = _$jsonSerializers.serialize(source, specifiedType: const FullType(RoomAddParticipantToRoomSource));
     $source ??= 'users';
     _parameters['source'] = $source;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddParticipantToRoomApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddParticipantToRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -9887,7 +9908,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomAddParticipantToRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -9975,20 +9996,22 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
     $includeStatus ??= 0;
     _parameters['includeStatus'] = $includeStatus;
 
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetBreakoutRoomParticipantsApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomGetBreakoutRoomParticipantsApiVersion),
+    );
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10006,7 +10029,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
       headersType: const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -10088,16 +10111,16 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveSelfFromRoomApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveSelfFromRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10113,7 +10136,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -10200,19 +10223,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = $attendeeId;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveAttendeeFromRoomApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveAttendeeFromRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10228,7 +10251,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -10325,26 +10348,27 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = $attendeeId;
 
-    final $method = jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAttendeePermissionsMethod));
+    final $method =
+        _$jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAttendeePermissionsMethod));
     _parameters['method'] = $method;
 
     final $permissions =
-        jsonSerializers.serialize(permissions, specifiedType: const FullType(RoomSetAttendeePermissionsPermissions));
+        _$jsonSerializers.serialize(permissions, specifiedType: const FullType(RoomSetAttendeePermissionsPermissions));
     _parameters['permissions'] = $permissions;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetAttendeePermissionsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetAttendeePermissionsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10361,7 +10385,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -10450,25 +10474,27 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $method =
-        jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAllAttendeesPermissionsMethod));
+        _$jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAllAttendeesPermissionsMethod));
     _parameters['method'] = $method;
 
-    final $permissions = jsonSerializers.serialize(
+    final $permissions = _$jsonSerializers.serialize(
       permissions,
       specifiedType: const FullType(RoomSetAllAttendeesPermissionsPermissions),
     );
     _parameters['permissions'] = $permissions;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetAllAttendeesPermissionsApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(RoomSetAllAttendeesPermissionsApiVersion),
+    );
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10485,7 +10511,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -10577,23 +10603,23 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    var $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
     $password ??= '';
     _parameters['password'] = $password;
 
-    var $force = jsonSerializers.serialize(force, specifiedType: const FullType(int));
+    var $force = _$jsonSerializers.serialize(force, specifiedType: const FullType(int));
     $force ??= 1;
     _parameters['force'] = $force;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinRoomApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10610,7 +10636,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomJoinRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -10686,15 +10712,15 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveRoomApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveRoomApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10710,7 +10736,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -10795,19 +10821,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = $attendeeId;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomResendInvitationsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomResendInvitationsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10824,7 +10850,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomResendInvitationsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -10909,19 +10935,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetSessionStateState));
+    final $state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetSessionStateState));
     _parameters['state'] = $state;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetSessionStateApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetSessionStateApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -10937,7 +10963,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetSessionStateResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11024,19 +11050,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = $attendeeId;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomPromoteModeratorApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomPromoteModeratorApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11052,7 +11078,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomPromoteModeratorResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11139,19 +11165,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = $attendeeId;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDemoteModeratorApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDemoteModeratorApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11167,7 +11193,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomDemoteModeratorResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11245,16 +11271,16 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddToFavoritesApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddToFavoritesApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11269,7 +11295,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomAddToFavoritesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11347,16 +11373,16 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveFromFavoritesApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveFromFavoritesApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11371,7 +11397,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11456,19 +11482,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $level = jsonSerializers.serialize(level, specifiedType: const FullType(int));
+    final $level = _$jsonSerializers.serialize(level, specifiedType: const FullType(int));
     _parameters['level'] = $level;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationLevelApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationLevelApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11484,7 +11510,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetNotificationLevelResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11569,19 +11595,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $level = jsonSerializers.serialize(level, specifiedType: const FullType(int));
+    final $level = _$jsonSerializers.serialize(level, specifiedType: const FullType(int));
     _parameters['level'] = $level;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationCallsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationCallsApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11597,7 +11623,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetNotificationCallsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11687,21 +11713,21 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    final $state = _$jsonSerializers.serialize(state, specifiedType: const FullType(int));
     _parameters['state'] = $state;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $timer = jsonSerializers.serialize(timer, specifiedType: const FullType(int));
+    final $timer = _$jsonSerializers.serialize(timer, specifiedType: const FullType(int));
     _parameters['timer'] = $timer;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetLobbyApiVersion));
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetLobbyApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11717,7 +11743,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11808,18 +11834,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetsipEnabledState));
+    final $state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetsipEnabledState));
     _parameters['state'] = $state;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetsipEnabledApiVersion));
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetsipEnabledApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11835,7 +11862,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetsipEnabledResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -11922,19 +11949,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $recordingConsent = jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
+    final $recordingConsent = _$jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
     _parameters['recordingConsent'] = $recordingConsent;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetRecordingConsentApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetRecordingConsentApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -11951,7 +11978,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetRecordingConsentResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -12034,19 +12061,19 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $seconds = jsonSerializers.serialize(seconds, specifiedType: const FullType(int));
+    final $seconds = _$jsonSerializers.serialize(seconds, specifiedType: const FullType(int));
     _parameters['seconds'] = $seconds;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetMessageExpirationApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetMessageExpirationApiVersion));
     $apiVersion ??= 'v4';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12062,7 +12089,7 @@ class $RoomClient {
       ),
       bodyType: const FullType(RoomSetMessageExpirationResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -12161,24 +12188,25 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $sipGroups = jsonSerializers.serialize(sipGroups, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    var $sipGroups =
+        _$jsonSerializers.serialize(sipGroups, specifiedType: const FullType(BuiltList, [FullType(String)]));
     $sipGroups ??= [];
     _parameters['sipGroups%5B%5D'] = $sipGroups;
 
-    var $dialInInfo = jsonSerializers.serialize(dialInInfo, specifiedType: const FullType(String));
+    var $dialInInfo = _$jsonSerializers.serialize(dialInInfo, specifiedType: const FullType(String));
     $dialInInfo ??= '';
     _parameters['dialInInfo'] = $dialInInfo;
 
-    var $sharedSecret = jsonSerializers.serialize(sharedSecret, specifiedType: const FullType(String));
+    var $sharedSecret = _$jsonSerializers.serialize(sharedSecret, specifiedType: const FullType(String));
     $sharedSecret ??= '';
     _parameters['sharedSecret'] = $sharedSecret;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetsipSettingsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetsipSettingsApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12195,7 +12223,7 @@ class $SettingsClient {
       ),
       bodyType: const FullType(SettingsSetsipSettingsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -12280,18 +12308,18 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    final $key = jsonSerializers.serialize(key, specifiedType: const FullType(SettingsSetUserSettingKey));
+    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(SettingsSetUserSettingKey));
     _parameters['key'] = $key;
 
-    final $value = jsonSerializers.serialize(value, specifiedType: const FullType(SettingsSetUserSettingValue));
+    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(SettingsSetUserSettingValue));
     _parameters['value'] = $value;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetUserSettingApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetUserSettingApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12307,7 +12335,7 @@ class $SettingsClient {
       ),
       bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -12394,16 +12422,16 @@ class $SignalingClient {
     }
 
 // coverage:ignore-end
-    var $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    var $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     $token ??= '';
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
     $apiVersion ??= 'v3';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12419,7 +12447,7 @@ class $SignalingClient {
       ),
       bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -12507,15 +12535,15 @@ class $SignalingClient {
     }
 
 // coverage:ignore-end
-    final $serverId = jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
     _parameters['serverId'] = $serverId;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetWelcomeMessageApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetWelcomeMessageApiVersion));
     $apiVersion ??= 'v3';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12531,7 +12559,7 @@ class $SignalingClient {
       ),
       bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -12613,16 +12641,16 @@ class $SignalingClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingPullMessagesApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingPullMessagesApiVersion));
     $apiVersion ??= 'v3';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12637,7 +12665,7 @@ class $SignalingClient {
       ),
       bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -12720,19 +12748,19 @@ class $SignalingClient {
     }
 
 // coverage:ignore-end
-    final $messages = jsonSerializers.serialize(messages, specifiedType: const FullType(String));
+    final $messages = _$jsonSerializers.serialize(messages, specifiedType: const FullType(String));
     _parameters['messages'] = $messages;
 
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
     var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingSendMessagesApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingSendMessagesApiVersion));
     $apiVersion ??= 'v3';
     _parameters['apiVersion'] = $apiVersion;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12748,7 +12776,7 @@ class $SignalingClient {
       ),
       bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -12820,7 +12848,7 @@ class $TempAvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12835,7 +12863,7 @@ class $TempAvatarClient {
       ),
       bodyType: const FullType(TempAvatarPostAvatarResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -12902,7 +12930,7 @@ class $TempAvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -12917,7 +12945,7 @@ class $TempAvatarClient {
       ),
       bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -12937,7 +12965,7 @@ class AvatarGetAvatarApiVersion extends EnumClass {
   static AvatarGetAvatarApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarGetAvatarApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -12993,7 +13021,7 @@ class AvatarUploadAvatarApiVersion extends EnumClass {
   static AvatarUploadAvatarApiVersion valueOf(String name) => _$valueOfAvatarUploadAvatarApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarUploadAvatarApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -13055,14 +13083,14 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for OCSMeta.
@@ -13101,14 +13129,14 @@ abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatMessage.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatMessage.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatMessage.
@@ -13187,14 +13215,14 @@ abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Room.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Room.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Room.
@@ -13230,14 +13258,14 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarUploadAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for AvatarUploadAvatarResponseApplicationJson_Ocs.
@@ -13268,14 +13296,14 @@ abstract class AvatarUploadAvatarResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarUploadAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for AvatarUploadAvatarResponseApplicationJson.
@@ -13298,7 +13326,7 @@ class AvatarDeleteAvatarApiVersion extends EnumClass {
   static AvatarDeleteAvatarApiVersion valueOf(String name) => _$valueOfAvatarDeleteAvatarApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarDeleteAvatarApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -13363,14 +13391,14 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for AvatarDeleteAvatarResponseApplicationJson_Ocs.
@@ -13401,14 +13429,14 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarDeleteAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for AvatarDeleteAvatarResponseApplicationJson.
@@ -13431,7 +13459,7 @@ class AvatarEmojiAvatarApiVersion extends EnumClass {
   static AvatarEmojiAvatarApiVersion valueOf(String name) => _$valueOfAvatarEmojiAvatarApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarEmojiAvatarApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -13496,14 +13524,14 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarEmojiAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for AvatarEmojiAvatarResponseApplicationJson_Ocs.
@@ -13534,14 +13562,14 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory AvatarEmojiAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for AvatarEmojiAvatarResponseApplicationJson.
@@ -13564,7 +13592,7 @@ class AvatarGetAvatarDarkApiVersion extends EnumClass {
   static AvatarGetAvatarDarkApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarDarkApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarGetAvatarDarkApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -13620,7 +13648,7 @@ class BotSendMessageApiVersion extends EnumClass {
   static BotSendMessageApiVersion valueOf(String name) => _$valueOfBotSendMessageApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotSendMessageApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -13685,14 +13713,14 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotSendMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotSendMessageResponseApplicationJson_Ocs.
@@ -13722,14 +13750,14 @@ abstract class BotSendMessageResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotSendMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotSendMessageResponseApplicationJson.
@@ -13752,7 +13780,7 @@ class BotReactApiVersion extends EnumClass {
   static BotReactApiVersion valueOf(String name) => _$valueOfBotReactApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotReactApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -13816,14 +13844,14 @@ abstract class BotReactResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotReactResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotReactResponseApplicationJson_Ocs.
@@ -13853,14 +13881,14 @@ abstract class BotReactResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotReactResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotReactResponseApplicationJson.
@@ -13882,7 +13910,7 @@ class BotDeleteReactionApiVersion extends EnumClass {
   static BotDeleteReactionApiVersion valueOf(String name) => _$valueOfBotDeleteReactionApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotDeleteReactionApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -13947,14 +13975,14 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotDeleteReactionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotDeleteReactionResponseApplicationJson_Ocs.
@@ -13985,14 +14013,14 @@ abstract class BotDeleteReactionResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotDeleteReactionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotDeleteReactionResponseApplicationJson.
@@ -14015,7 +14043,7 @@ class BotAdminListBotsApiVersion extends EnumClass {
   static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotAdminListBotsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -14076,14 +14104,14 @@ abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Bot.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Bot.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Bot.
@@ -14119,14 +14147,14 @@ abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWith
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotWithDetails.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory BotWithDetails.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotWithDetails.
@@ -14157,14 +14185,14 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotAdminListBotsResponseApplicationJson_Ocs.
@@ -14194,14 +14222,14 @@ abstract class BotAdminListBotsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotAdminListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotAdminListBotsResponseApplicationJson.
@@ -14224,7 +14252,7 @@ class BotListBotsApiVersion extends EnumClass {
   static BotListBotsApiVersion valueOf(String name) => _$valueOfBotListBotsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotListBotsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -14288,14 +14316,14 @@ abstract class BotListBotsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotListBotsResponseApplicationJson_Ocs.
@@ -14325,14 +14353,14 @@ abstract class BotListBotsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotListBotsResponseApplicationJson.
@@ -14355,7 +14383,7 @@ class BotEnableBotApiVersion extends EnumClass {
   static BotEnableBotApiVersion valueOf(String name) => _$valueOfBotEnableBotApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotEnableBotApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -14419,14 +14447,14 @@ abstract class BotEnableBotResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotEnableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotEnableBotResponseApplicationJson_Ocs.
@@ -14456,14 +14484,14 @@ abstract class BotEnableBotResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotEnableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotEnableBotResponseApplicationJson.
@@ -14486,7 +14514,7 @@ class BotDisableBotApiVersion extends EnumClass {
   static BotDisableBotApiVersion valueOf(String name) => _$valueOfBotDisableBotApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotDisableBotApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -14551,14 +14579,14 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotDisableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotDisableBotResponseApplicationJson_Ocs.
@@ -14588,14 +14616,14 @@ abstract class BotDisableBotResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotDisableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotDisableBotResponseApplicationJson.
@@ -14632,7 +14660,7 @@ class BreakoutRoomConfigureBreakoutRoomsMode extends EnumClass {
       _$valueOfBreakoutRoomConfigureBreakoutRoomsMode(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for BreakoutRoomConfigureBreakoutRoomsMode.
   @BuiltValueSerializer(custom: true)
@@ -14700,7 +14728,7 @@ class BreakoutRoomConfigureBreakoutRoomsApiVersion extends EnumClass {
       _$valueOfBreakoutRoomConfigureBreakoutRoomsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomConfigureBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -14770,14 +14798,14 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.
@@ -14809,14 +14837,14 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.
@@ -14841,7 +14869,7 @@ class BreakoutRoomRemoveBreakoutRoomsApiVersion extends EnumClass {
       _$valueOfBreakoutRoomRemoveBreakoutRoomsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomRemoveBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -14911,14 +14939,14 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.
@@ -14950,14 +14978,14 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.
@@ -14982,7 +15010,7 @@ class BreakoutRoomBroadcastChatMessageApiVersion extends EnumClass {
       _$valueOfBreakoutRoomBroadcastChatMessageApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomBroadcastChatMessageApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -15052,14 +15080,14 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.
@@ -15091,14 +15119,14 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomBroadcastChatMessageResponseApplicationJson.
@@ -15122,7 +15150,7 @@ class BreakoutRoomApplyAttendeeMapApiVersion extends EnumClass {
       _$valueOfBreakoutRoomApplyAttendeeMapApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomApplyAttendeeMapApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -15192,14 +15220,14 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.
@@ -15231,14 +15259,14 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomApplyAttendeeMapResponseApplicationJson.
@@ -15263,7 +15291,7 @@ class BreakoutRoomRequestAssistanceApiVersion extends EnumClass {
       _$valueOfBreakoutRoomRequestAssistanceApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomRequestAssistanceApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -15333,14 +15361,14 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.
@@ -15372,14 +15400,14 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomRequestAssistanceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomRequestAssistanceResponseApplicationJson.
@@ -15404,7 +15432,7 @@ class BreakoutRoomResetRequestForAssistanceApiVersion extends EnumClass {
       _$valueOfBreakoutRoomResetRequestForAssistanceApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomResetRequestForAssistanceApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -15474,14 +15502,14 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.
@@ -15513,14 +15541,14 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomResetRequestForAssistanceResponseApplicationJson.
@@ -15545,7 +15573,7 @@ class BreakoutRoomStartBreakoutRoomsApiVersion extends EnumClass {
       _$valueOfBreakoutRoomStartBreakoutRoomsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomStartBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -15615,14 +15643,14 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.
@@ -15654,14 +15682,14 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomStartBreakoutRoomsResponseApplicationJson.
@@ -15686,7 +15714,7 @@ class BreakoutRoomStopBreakoutRoomsApiVersion extends EnumClass {
       _$valueOfBreakoutRoomStopBreakoutRoomsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomStopBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -15756,14 +15784,14 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.
@@ -15795,14 +15823,14 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomStopBreakoutRoomsResponseApplicationJson.
@@ -15827,7 +15855,7 @@ class BreakoutRoomSwitchBreakoutRoomApiVersion extends EnumClass {
       _$valueOfBreakoutRoomSwitchBreakoutRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomSwitchBreakoutRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -15897,14 +15925,14 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.
@@ -15936,14 +15964,14 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.
@@ -15966,7 +15994,7 @@ class CallGetPeersForCallApiVersion extends EnumClass {
   static CallGetPeersForCallApiVersion valueOf(String name) => _$valueOfCallGetPeersForCallApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallGetPeersForCallApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -16029,14 +16057,14 @@ abstract class CallPeer implements $CallPeerInterface, Built<CallPeer, CallPeerB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallPeer.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory CallPeer.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallPeer.
@@ -16067,14 +16095,14 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallGetPeersForCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallGetPeersForCallResponseApplicationJson_Ocs.
@@ -16105,14 +16133,14 @@ abstract class CallGetPeersForCallResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallGetPeersForCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallGetPeersForCallResponseApplicationJson.
@@ -16135,7 +16163,7 @@ class CallUpdateCallFlagsApiVersion extends EnumClass {
   static CallUpdateCallFlagsApiVersion valueOf(String name) => _$valueOfCallUpdateCallFlagsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallUpdateCallFlagsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -16200,14 +16228,14 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallUpdateCallFlagsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallUpdateCallFlagsResponseApplicationJson_Ocs.
@@ -16238,14 +16266,14 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallUpdateCallFlagsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallUpdateCallFlagsResponseApplicationJson.
@@ -16329,7 +16357,7 @@ class CallJoinCallFlags extends EnumClass {
   static CallJoinCallFlags valueOf(String name) => _$valueOfCallJoinCallFlags(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for CallJoinCallFlags.
   @BuiltValueSerializer(custom: true)
@@ -17436,7 +17464,7 @@ class CallJoinCallForcePermissions extends EnumClass {
   static CallJoinCallForcePermissions valueOf(String name) => _$valueOfCallJoinCallForcePermissions(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for CallJoinCallForcePermissions.
   @BuiltValueSerializer(custom: true)
@@ -18002,7 +18030,7 @@ class CallJoinCallApiVersion extends EnumClass {
   static CallJoinCallApiVersion valueOf(String name) => _$valueOfCallJoinCallApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallJoinCallApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -18066,14 +18094,14 @@ abstract class CallJoinCallResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallJoinCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallJoinCallResponseApplicationJson_Ocs.
@@ -18103,14 +18131,14 @@ abstract class CallJoinCallResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallJoinCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallJoinCallResponseApplicationJson.
@@ -18133,7 +18161,7 @@ class CallLeaveCallApiVersion extends EnumClass {
   static CallLeaveCallApiVersion valueOf(String name) => _$valueOfCallLeaveCallApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallLeaveCallApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -18198,14 +18226,14 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallLeaveCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallLeaveCallResponseApplicationJson_Ocs.
@@ -18235,14 +18263,14 @@ abstract class CallLeaveCallResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallLeaveCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallLeaveCallResponseApplicationJson.
@@ -18265,7 +18293,7 @@ class CallRingAttendeeApiVersion extends EnumClass {
   static CallRingAttendeeApiVersion valueOf(String name) => _$valueOfCallRingAttendeeApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallRingAttendeeApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -18330,14 +18358,14 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallRingAttendeeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallRingAttendeeResponseApplicationJson_Ocs.
@@ -18367,14 +18395,14 @@ abstract class CallRingAttendeeResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallRingAttendeeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallRingAttendeeResponseApplicationJson.
@@ -18397,7 +18425,7 @@ class CallSipDialOutApiVersion extends EnumClass {
   static CallSipDialOutApiVersion valueOf(String name) => _$valueOfCallSipDialOutApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallSipDialOutApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -18462,14 +18490,14 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallSipDialOutResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallSipDialOutResponseApplicationJson_Ocs_Data.
@@ -18501,14 +18529,14 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallSipDialOutResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallSipDialOutResponseApplicationJson_Ocs.
@@ -18538,14 +18566,14 @@ abstract class CallSipDialOutResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CallSipDialOutResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CallSipDialOutResponseApplicationJson.
@@ -18570,7 +18598,7 @@ class CertificateGetCertificateExpirationApiVersion extends EnumClass {
       _$valueOfCertificateGetCertificateExpirationApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CertificateGetCertificateExpirationApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -18640,14 +18668,14 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.
@@ -18680,14 +18708,14 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs.
@@ -18719,14 +18747,14 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CertificateGetCertificateExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson.
@@ -18754,7 +18782,7 @@ class ChatReceiveMessagesLookIntoFuture extends EnumClass {
   static ChatReceiveMessagesLookIntoFuture valueOf(String name) => _$valueOfChatReceiveMessagesLookIntoFuture(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesLookIntoFuture.
   @BuiltValueSerializer(custom: true)
@@ -18818,7 +18846,7 @@ class ChatReceiveMessagesSetReadMarker extends EnumClass {
   static ChatReceiveMessagesSetReadMarker valueOf(String name) => _$valueOfChatReceiveMessagesSetReadMarker(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesSetReadMarker.
   @BuiltValueSerializer(custom: true)
@@ -18882,7 +18910,7 @@ class ChatReceiveMessagesIncludeLastKnown extends EnumClass {
   static ChatReceiveMessagesIncludeLastKnown valueOf(String name) => _$valueOfChatReceiveMessagesIncludeLastKnown(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesIncludeLastKnown.
   @BuiltValueSerializer(custom: true)
@@ -18948,7 +18976,7 @@ class ChatReceiveMessagesNoStatusUpdate extends EnumClass {
   static ChatReceiveMessagesNoStatusUpdate valueOf(String name) => _$valueOfChatReceiveMessagesNoStatusUpdate(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesNoStatusUpdate.
   @BuiltValueSerializer(custom: true)
@@ -19014,7 +19042,7 @@ class ChatReceiveMessagesMarkNotificationsAsRead extends EnumClass {
       _$valueOfChatReceiveMessagesMarkNotificationsAsRead(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesMarkNotificationsAsRead.
   @BuiltValueSerializer(custom: true)
@@ -19076,7 +19104,7 @@ class ChatReceiveMessagesApiVersion extends EnumClass {
   static ChatReceiveMessagesApiVersion valueOf(String name) => _$valueOfChatReceiveMessagesApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatReceiveMessagesApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -19142,14 +19170,14 @@ abstract class ChatChatReceiveMessagesHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatReceiveMessagesHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatReceiveMessagesHeaders.
@@ -19179,14 +19207,14 @@ abstract class ChatMessageWithParent
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMessageWithParent.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatMessageWithParent.
@@ -19217,14 +19245,14 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatReceiveMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatReceiveMessagesResponseApplicationJson_Ocs.
@@ -19255,14 +19283,14 @@ abstract class ChatReceiveMessagesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatReceiveMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatReceiveMessagesResponseApplicationJson.
@@ -19285,7 +19313,7 @@ class ChatSendMessageApiVersion extends EnumClass {
   static ChatSendMessageApiVersion valueOf(String name) => _$valueOfChatSendMessageApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatSendMessageApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -19349,14 +19377,14 @@ abstract class ChatChatSendMessageHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatSendMessageHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatSendMessageHeaders.
@@ -19387,14 +19415,14 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSendMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatSendMessageResponseApplicationJson_Ocs.
@@ -19424,14 +19452,14 @@ abstract class ChatSendMessageResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSendMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatSendMessageResponseApplicationJson.
@@ -19454,7 +19482,7 @@ class ChatClearHistoryApiVersion extends EnumClass {
   static ChatClearHistoryApiVersion valueOf(String name) => _$valueOfChatClearHistoryApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatClearHistoryApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -19518,14 +19546,14 @@ abstract class ChatChatClearHistoryHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatClearHistoryHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatClearHistoryHeaders.
@@ -19556,14 +19584,14 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatClearHistoryResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatClearHistoryResponseApplicationJson_Ocs.
@@ -19593,14 +19621,14 @@ abstract class ChatClearHistoryResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatClearHistoryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatClearHistoryResponseApplicationJson.
@@ -19623,7 +19651,7 @@ class ChatDeleteMessageApiVersion extends EnumClass {
   static ChatDeleteMessageApiVersion valueOf(String name) => _$valueOfChatDeleteMessageApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatDeleteMessageApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -19687,14 +19715,14 @@ abstract class ChatChatDeleteMessageHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatDeleteMessageHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatDeleteMessageHeaders.
@@ -19725,14 +19753,14 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatDeleteMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatDeleteMessageResponseApplicationJson_Ocs.
@@ -19763,14 +19791,14 @@ abstract class ChatDeleteMessageResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatDeleteMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatDeleteMessageResponseApplicationJson.
@@ -19793,7 +19821,7 @@ class ChatGetMessageContextApiVersion extends EnumClass {
   static ChatGetMessageContextApiVersion valueOf(String name) => _$valueOfChatGetMessageContextApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatGetMessageContextApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -19860,14 +19888,14 @@ abstract class ChatChatGetMessageContextHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatGetMessageContextHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatGetMessageContextHeaders.
@@ -19899,14 +19927,14 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetMessageContextResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatGetMessageContextResponseApplicationJson_Ocs.
@@ -19937,14 +19965,14 @@ abstract class ChatGetMessageContextResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetMessageContextResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatGetMessageContextResponseApplicationJson.
@@ -19967,7 +19995,7 @@ class ChatGetReminderApiVersion extends EnumClass {
   static ChatGetReminderApiVersion valueOf(String name) => _$valueOfChatGetReminderApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatGetReminderApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -20028,14 +20056,14 @@ abstract class ChatReminder implements $ChatReminderInterface, Built<ChatReminde
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatReminder.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatReminder.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatReminder.
@@ -20066,14 +20094,14 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatGetReminderResponseApplicationJson_Ocs.
@@ -20103,14 +20131,14 @@ abstract class ChatGetReminderResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatGetReminderResponseApplicationJson.
@@ -20133,7 +20161,7 @@ class ChatSetReminderApiVersion extends EnumClass {
   static ChatSetReminderApiVersion valueOf(String name) => _$valueOfChatSetReminderApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatSetReminderApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -20198,14 +20226,14 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSetReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatSetReminderResponseApplicationJson_Ocs.
@@ -20235,14 +20263,14 @@ abstract class ChatSetReminderResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSetReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatSetReminderResponseApplicationJson.
@@ -20265,7 +20293,7 @@ class ChatDeleteReminderApiVersion extends EnumClass {
   static ChatDeleteReminderApiVersion valueOf(String name) => _$valueOfChatDeleteReminderApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatDeleteReminderApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -20330,14 +20358,14 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatDeleteReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatDeleteReminderResponseApplicationJson_Ocs.
@@ -20368,14 +20396,14 @@ abstract class ChatDeleteReminderResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatDeleteReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatDeleteReminderResponseApplicationJson.
@@ -20398,7 +20426,7 @@ class ChatSetReadMarkerApiVersion extends EnumClass {
   static ChatSetReadMarkerApiVersion valueOf(String name) => _$valueOfChatSetReadMarkerApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatSetReadMarkerApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -20462,14 +20490,14 @@ abstract class ChatChatSetReadMarkerHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatSetReadMarkerHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatSetReadMarkerHeaders.
@@ -20500,14 +20528,14 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSetReadMarkerResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatSetReadMarkerResponseApplicationJson_Ocs.
@@ -20538,14 +20566,14 @@ abstract class ChatSetReadMarkerResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatSetReadMarkerResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatSetReadMarkerResponseApplicationJson.
@@ -20568,7 +20596,7 @@ class ChatMarkUnreadApiVersion extends EnumClass {
   static ChatMarkUnreadApiVersion valueOf(String name) => _$valueOfChatMarkUnreadApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatMarkUnreadApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -20629,14 +20657,14 @@ abstract class ChatChatMarkUnreadHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatMarkUnreadHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatMarkUnreadHeaders.
@@ -20667,14 +20695,14 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMarkUnreadResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatMarkUnreadResponseApplicationJson_Ocs.
@@ -20704,14 +20732,14 @@ abstract class ChatMarkUnreadResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMarkUnreadResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatMarkUnreadResponseApplicationJson.
@@ -20734,7 +20762,7 @@ class ChatMentionsApiVersion extends EnumClass {
   static ChatMentionsApiVersion valueOf(String name) => _$valueOfChatMentionsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatMentionsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -20800,14 +20828,14 @@ abstract class ChatMentionSuggestion
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMentionSuggestion.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatMentionSuggestion.
@@ -20837,14 +20865,14 @@ abstract class ChatMentionsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMentionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatMentionsResponseApplicationJson_Ocs.
@@ -20874,14 +20902,14 @@ abstract class ChatMentionsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatMentionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatMentionsResponseApplicationJson.
@@ -20905,7 +20933,7 @@ class ChatGetObjectsSharedInRoomApiVersion extends EnumClass {
       _$valueOfChatGetObjectsSharedInRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatGetObjectsSharedInRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -20973,14 +21001,14 @@ abstract class ChatChatGetObjectsSharedInRoomHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatGetObjectsSharedInRoomHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatGetObjectsSharedInRoomHeaders.
@@ -21013,14 +21041,14 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.
@@ -21052,14 +21080,14 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetObjectsSharedInRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatGetObjectsSharedInRoomResponseApplicationJson.
@@ -21082,7 +21110,7 @@ class ChatShareObjectToChatApiVersion extends EnumClass {
   static ChatShareObjectToChatApiVersion valueOf(String name) => _$valueOfChatShareObjectToChatApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatShareObjectToChatApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -21147,14 +21175,14 @@ abstract class ChatChatShareObjectToChatHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatChatShareObjectToChatHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatChatShareObjectToChatHeaders.
@@ -21186,14 +21214,14 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatShareObjectToChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatShareObjectToChatResponseApplicationJson_Ocs.
@@ -21224,14 +21252,14 @@ abstract class ChatShareObjectToChatResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatShareObjectToChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatShareObjectToChatResponseApplicationJson.
@@ -21256,7 +21284,7 @@ class ChatGetObjectsSharedInRoomOverviewApiVersion extends EnumClass {
       _$valueOfChatGetObjectsSharedInRoomOverviewApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatGetObjectsSharedInRoomOverviewApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -21326,14 +21354,14 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.
@@ -21365,14 +21393,14 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.
@@ -21397,7 +21425,7 @@ class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
       _$valueOfFilesIntegrationGetRoomByFileIdApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for FilesIntegrationGetRoomByFileIdApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -21466,14 +21494,14 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.
@@ -21506,14 +21534,14 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.
@@ -21545,14 +21573,14 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson.
@@ -21577,7 +21605,7 @@ class FilesIntegrationGetRoomByShareTokenApiVersion extends EnumClass {
       _$valueOfFilesIntegrationGetRoomByShareTokenApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for FilesIntegrationGetRoomByShareTokenApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -21648,14 +21676,14 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.
@@ -21688,14 +21716,14 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.
@@ -21727,14 +21755,14 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson.
@@ -21757,7 +21785,7 @@ class GuestSetDisplayNameApiVersion extends EnumClass {
   static GuestSetDisplayNameApiVersion valueOf(String name) => _$valueOfGuestSetDisplayNameApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for GuestSetDisplayNameApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -21822,14 +21850,14 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory GuestSetDisplayNameResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for GuestSetDisplayNameResponseApplicationJson_Ocs.
@@ -21860,14 +21888,14 @@ abstract class GuestSetDisplayNameResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory GuestSetDisplayNameResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for GuestSetDisplayNameResponseApplicationJson.
@@ -21892,7 +21920,7 @@ class HostedSignalingServerRequestTrialApiVersion extends EnumClass {
       _$valueOfHostedSignalingServerRequestTrialApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for HostedSignalingServerRequestTrialApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -21962,14 +21990,14 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.
@@ -22001,14 +22029,14 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HostedSignalingServerRequestTrialResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for HostedSignalingServerRequestTrialResponseApplicationJson.
@@ -22033,7 +22061,7 @@ class HostedSignalingServerDeleteAccountApiVersion extends EnumClass {
       _$valueOfHostedSignalingServerDeleteAccountApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for HostedSignalingServerDeleteAccountApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -22103,14 +22131,14 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.
@@ -22142,14 +22170,14 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory HostedSignalingServerDeleteAccountResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for HostedSignalingServerDeleteAccountResponseApplicationJson.
@@ -22173,7 +22201,7 @@ class MatterbridgeGetBridgeOfRoomApiVersion extends EnumClass {
       _$valueOfMatterbridgeGetBridgeOfRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeGetBridgeOfRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -22237,14 +22265,14 @@ abstract class Matterbridge implements $MatterbridgeInterface, Built<Matterbridg
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Matterbridge.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Matterbridge.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Matterbridge.
@@ -22271,14 +22299,14 @@ abstract class MatterbridgeProcessState
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeProcessState.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeProcessState.
@@ -22306,14 +22334,14 @@ abstract class MatterbridgeWithProcessState
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeWithProcessState.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeWithProcessState.
@@ -22345,14 +22373,14 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.
@@ -22384,14 +22412,14 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeGetBridgeOfRoomResponseApplicationJson.
@@ -22415,7 +22443,7 @@ class MatterbridgeEditBridgeOfRoomApiVersion extends EnumClass {
       _$valueOfMatterbridgeEditBridgeOfRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeEditBridgeOfRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -22485,14 +22513,14 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.
@@ -22524,14 +22552,14 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeEditBridgeOfRoomResponseApplicationJson.
@@ -22556,7 +22584,7 @@ class MatterbridgeDeleteBridgeOfRoomApiVersion extends EnumClass {
       _$valueOfMatterbridgeDeleteBridgeOfRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeDeleteBridgeOfRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -22626,14 +22654,14 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.
@@ -22665,14 +22693,14 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.
@@ -22697,7 +22725,7 @@ class MatterbridgeGetBridgeProcessStateApiVersion extends EnumClass {
       _$valueOfMatterbridgeGetBridgeProcessStateApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeGetBridgeProcessStateApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -22767,14 +22795,14 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.
@@ -22806,14 +22834,14 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeGetBridgeProcessStateResponseApplicationJson.
@@ -22838,7 +22866,7 @@ class MatterbridgeSettingsStopAllBridgesApiVersion extends EnumClass {
       _$valueOfMatterbridgeSettingsStopAllBridgesApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeSettingsStopAllBridgesApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -22908,14 +22936,14 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.
@@ -22947,14 +22975,14 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeSettingsStopAllBridgesResponseApplicationJson.
@@ -22980,7 +23008,7 @@ class MatterbridgeSettingsGetMatterbridgeVersionApiVersion extends EnumClass {
       _$valueOfMatterbridgeSettingsGetMatterbridgeVersionApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -23051,14 +23079,14 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.fromJson(
     Map<String, dynamic> json,
   ) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.
@@ -23091,14 +23119,14 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.
@@ -23130,14 +23158,14 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.
@@ -23165,7 +23193,7 @@ class PollCreatePollResultMode extends EnumClass {
   static PollCreatePollResultMode valueOf(String name) => _$valueOfPollCreatePollResultMode(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for PollCreatePollResultMode.
   @BuiltValueSerializer(custom: true)
@@ -23223,7 +23251,7 @@ class PollCreatePollApiVersion extends EnumClass {
   static PollCreatePollApiVersion valueOf(String name) => _$valueOfPollCreatePollApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PollCreatePollApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -23284,14 +23312,14 @@ abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollVote.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory PollVote.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollVote.
@@ -23327,14 +23355,14 @@ abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Poll.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Poll.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Poll.
@@ -23365,14 +23393,14 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollCreatePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollCreatePollResponseApplicationJson_Ocs.
@@ -23402,14 +23430,14 @@ abstract class PollCreatePollResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollCreatePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollCreatePollResponseApplicationJson.
@@ -23432,7 +23460,7 @@ class PollShowPollApiVersion extends EnumClass {
   static PollShowPollApiVersion valueOf(String name) => _$valueOfPollShowPollApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PollShowPollApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -23496,14 +23524,14 @@ abstract class PollShowPollResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollShowPollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollShowPollResponseApplicationJson_Ocs.
@@ -23533,14 +23561,14 @@ abstract class PollShowPollResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollShowPollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollShowPollResponseApplicationJson.
@@ -23563,7 +23591,7 @@ class PollVotePollApiVersion extends EnumClass {
   static PollVotePollApiVersion valueOf(String name) => _$valueOfPollVotePollApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PollVotePollApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -23627,14 +23655,14 @@ abstract class PollVotePollResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollVotePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollVotePollResponseApplicationJson_Ocs.
@@ -23664,14 +23692,14 @@ abstract class PollVotePollResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollVotePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollVotePollResponseApplicationJson.
@@ -23694,7 +23722,7 @@ class PollClosePollApiVersion extends EnumClass {
   static PollClosePollApiVersion valueOf(String name) => _$valueOfPollClosePollApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PollClosePollApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -23759,14 +23787,14 @@ abstract class PollClosePollResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollClosePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollClosePollResponseApplicationJson_Ocs.
@@ -23796,14 +23824,14 @@ abstract class PollClosePollResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PollClosePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PollClosePollResponseApplicationJson.
@@ -23826,7 +23854,7 @@ class PublicShareAuthCreateRoomApiVersion extends EnumClass {
   static PublicShareAuthCreateRoomApiVersion valueOf(String name) => _$valueOfPublicShareAuthCreateRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PublicShareAuthCreateRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -23896,14 +23924,14 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.
@@ -23936,14 +23964,14 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs.
@@ -23975,14 +24003,14 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicShareAuthCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson.
@@ -24005,7 +24033,7 @@ class ReactionGetReactionsApiVersion extends EnumClass {
   static ReactionGetReactionsApiVersion valueOf(String name) => _$valueOfReactionGetReactionsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ReactionGetReactionsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -24067,14 +24095,14 @@ abstract class Reaction implements $ReactionInterface, Built<Reaction, ReactionB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Reaction.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Reaction.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Reaction.
@@ -24105,14 +24133,14 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionGetReactionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ReactionGetReactionsResponseApplicationJson_Ocs.
@@ -24143,14 +24171,14 @@ abstract class ReactionGetReactionsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionGetReactionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ReactionGetReactionsResponseApplicationJson.
@@ -24173,7 +24201,7 @@ class ReactionReactApiVersion extends EnumClass {
   static ReactionReactApiVersion valueOf(String name) => _$valueOfReactionReactApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ReactionReactApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -24238,14 +24266,14 @@ abstract class ReactionReactResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionReactResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ReactionReactResponseApplicationJson_Ocs.
@@ -24275,14 +24303,14 @@ abstract class ReactionReactResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionReactResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ReactionReactResponseApplicationJson.
@@ -24305,7 +24333,7 @@ class ReactionDeleteApiVersion extends EnumClass {
   static ReactionDeleteApiVersion valueOf(String name) => _$valueOfReactionDeleteApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ReactionDeleteApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -24370,14 +24398,14 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionDeleteResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ReactionDeleteResponseApplicationJson_Ocs.
@@ -24407,14 +24435,14 @@ abstract class ReactionDeleteResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ReactionDeleteResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ReactionDeleteResponseApplicationJson.
@@ -24438,7 +24466,7 @@ class RecordingGetWelcomeMessageApiVersion extends EnumClass {
       _$valueOfRecordingGetWelcomeMessageApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingGetWelcomeMessageApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -24507,14 +24535,14 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.
@@ -24547,14 +24575,14 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs.
@@ -24586,14 +24614,14 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson.
@@ -24616,7 +24644,7 @@ class RecordingStartApiVersion extends EnumClass {
   static RecordingStartApiVersion valueOf(String name) => _$valueOfRecordingStartApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingStartApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -24681,14 +24709,14 @@ abstract class RecordingStartResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStartResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingStartResponseApplicationJson_Ocs.
@@ -24718,14 +24746,14 @@ abstract class RecordingStartResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStartResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingStartResponseApplicationJson.
@@ -24748,7 +24776,7 @@ class RecordingStopApiVersion extends EnumClass {
   static RecordingStopApiVersion valueOf(String name) => _$valueOfRecordingStopApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingStopApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -24813,14 +24841,14 @@ abstract class RecordingStopResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStopResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingStopResponseApplicationJson_Ocs.
@@ -24850,14 +24878,14 @@ abstract class RecordingStopResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStopResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingStopResponseApplicationJson.
@@ -24880,7 +24908,7 @@ class RecordingStoreApiVersion extends EnumClass {
   static RecordingStoreApiVersion valueOf(String name) => _$valueOfRecordingStoreApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingStoreApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -24945,14 +24973,14 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStoreResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingStoreResponseApplicationJson_Ocs.
@@ -24982,14 +25010,14 @@ abstract class RecordingStoreResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingStoreResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingStoreResponseApplicationJson.
@@ -25013,7 +25041,7 @@ class RecordingNotificationDismissApiVersion extends EnumClass {
       _$valueOfRecordingNotificationDismissApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingNotificationDismissApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -25083,14 +25111,14 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingNotificationDismissResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingNotificationDismissResponseApplicationJson_Ocs.
@@ -25122,14 +25150,14 @@ abstract class RecordingNotificationDismissResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingNotificationDismissResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingNotificationDismissResponseApplicationJson.
@@ -25152,7 +25180,7 @@ class RecordingShareToChatApiVersion extends EnumClass {
   static RecordingShareToChatApiVersion valueOf(String name) => _$valueOfRecordingShareToChatApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingShareToChatApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -25218,14 +25246,14 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingShareToChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingShareToChatResponseApplicationJson_Ocs.
@@ -25256,14 +25284,14 @@ abstract class RecordingShareToChatResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RecordingShareToChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RecordingShareToChatResponseApplicationJson.
@@ -25291,7 +25319,7 @@ class RoomGetRoomsNoStatusUpdate extends EnumClass {
   static RoomGetRoomsNoStatusUpdate valueOf(String name) => _$valueOfRoomGetRoomsNoStatusUpdate(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomGetRoomsNoStatusUpdate.
   @BuiltValueSerializer(custom: true)
@@ -25349,7 +25377,7 @@ class RoomGetRoomsApiVersion extends EnumClass {
   static RoomGetRoomsApiVersion valueOf(String name) => _$valueOfRoomGetRoomsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -25412,14 +25440,14 @@ abstract class RoomRoomGetRoomsHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetRoomsHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRoomGetRoomsHeaders.
@@ -25449,14 +25477,14 @@ abstract class RoomGetRoomsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetRoomsResponseApplicationJson_Ocs.
@@ -25486,14 +25514,14 @@ abstract class RoomGetRoomsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetRoomsResponseApplicationJson.
@@ -25516,7 +25544,7 @@ class RoomCreateRoomApiVersion extends EnumClass {
   static RoomCreateRoomApiVersion valueOf(String name) => _$valueOfRoomCreateRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomCreateRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -25581,14 +25609,14 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomCreateRoomResponseApplicationJson_Ocs.
@@ -25618,14 +25646,14 @@ abstract class RoomCreateRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomCreateRoomResponseApplicationJson.
@@ -25648,7 +25676,7 @@ class RoomGetListedRoomsApiVersion extends EnumClass {
   static RoomGetListedRoomsApiVersion valueOf(String name) => _$valueOfRoomGetListedRoomsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetListedRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -25713,14 +25741,14 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetListedRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetListedRoomsResponseApplicationJson_Ocs.
@@ -25751,14 +25779,14 @@ abstract class RoomGetListedRoomsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetListedRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetListedRoomsResponseApplicationJson.
@@ -25783,7 +25811,7 @@ class RoomGetNoteToSelfConversationApiVersion extends EnumClass {
       _$valueOfRoomGetNoteToSelfConversationApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetNoteToSelfConversationApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -25852,14 +25880,14 @@ abstract class RoomRoomGetNoteToSelfConversationHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetNoteToSelfConversationHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRoomGetNoteToSelfConversationHeaders.
@@ -25892,14 +25920,14 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.
@@ -25931,14 +25959,14 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetNoteToSelfConversationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetNoteToSelfConversationResponseApplicationJson.
@@ -25961,7 +25989,7 @@ class RoomGetSingleRoomApiVersion extends EnumClass {
   static RoomGetSingleRoomApiVersion valueOf(String name) => _$valueOfRoomGetSingleRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetSingleRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -26025,14 +26053,14 @@ abstract class RoomRoomGetSingleRoomHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetSingleRoomHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRoomGetSingleRoomHeaders.
@@ -26063,14 +26091,14 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetSingleRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetSingleRoomResponseApplicationJson_Ocs.
@@ -26101,14 +26129,14 @@ abstract class RoomGetSingleRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetSingleRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetSingleRoomResponseApplicationJson.
@@ -26131,7 +26159,7 @@ class RoomRenameRoomApiVersion extends EnumClass {
   static RoomRenameRoomApiVersion valueOf(String name) => _$valueOfRoomRenameRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomRenameRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -26196,14 +26224,14 @@ abstract class RoomRenameRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRenameRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRenameRoomResponseApplicationJson_Ocs.
@@ -26233,14 +26261,14 @@ abstract class RoomRenameRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRenameRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRenameRoomResponseApplicationJson.
@@ -26263,7 +26291,7 @@ class RoomDeleteRoomApiVersion extends EnumClass {
   static RoomDeleteRoomApiVersion valueOf(String name) => _$valueOfRoomDeleteRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomDeleteRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -26328,14 +26356,14 @@ abstract class RoomDeleteRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomDeleteRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomDeleteRoomResponseApplicationJson_Ocs.
@@ -26365,14 +26393,14 @@ abstract class RoomDeleteRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomDeleteRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomDeleteRoomResponseApplicationJson.
@@ -26395,7 +26423,7 @@ class RoomGetBreakoutRoomsApiVersion extends EnumClass {
   static RoomGetBreakoutRoomsApiVersion valueOf(String name) => _$valueOfRoomGetBreakoutRoomsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetBreakoutRoomsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -26461,14 +26489,14 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetBreakoutRoomsResponseApplicationJson_Ocs.
@@ -26499,14 +26527,14 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetBreakoutRoomsResponseApplicationJson.
@@ -26529,7 +26557,7 @@ class RoomMakePublicApiVersion extends EnumClass {
   static RoomMakePublicApiVersion valueOf(String name) => _$valueOfRoomMakePublicApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomMakePublicApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -26594,14 +26622,14 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomMakePublicResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomMakePublicResponseApplicationJson_Ocs.
@@ -26631,14 +26659,14 @@ abstract class RoomMakePublicResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomMakePublicResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomMakePublicResponseApplicationJson.
@@ -26661,7 +26689,7 @@ class RoomMakePrivateApiVersion extends EnumClass {
   static RoomMakePrivateApiVersion valueOf(String name) => _$valueOfRoomMakePrivateApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomMakePrivateApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -26726,14 +26754,14 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomMakePrivateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomMakePrivateResponseApplicationJson_Ocs.
@@ -26763,14 +26791,14 @@ abstract class RoomMakePrivateResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomMakePrivateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomMakePrivateResponseApplicationJson.
@@ -26793,7 +26821,7 @@ class RoomSetDescriptionApiVersion extends EnumClass {
   static RoomSetDescriptionApiVersion valueOf(String name) => _$valueOfRoomSetDescriptionApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetDescriptionApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -26858,14 +26886,14 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetDescriptionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetDescriptionResponseApplicationJson_Ocs.
@@ -26896,14 +26924,14 @@ abstract class RoomSetDescriptionResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetDescriptionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetDescriptionResponseApplicationJson.
@@ -26931,7 +26959,7 @@ class RoomSetReadOnlyState extends EnumClass {
   static RoomSetReadOnlyState valueOf(String name) => _$valueOfRoomSetReadOnlyState(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetReadOnlyState.
   @BuiltValueSerializer(custom: true)
@@ -26989,7 +27017,7 @@ class RoomSetReadOnlyApiVersion extends EnumClass {
   static RoomSetReadOnlyApiVersion valueOf(String name) => _$valueOfRoomSetReadOnlyApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetReadOnlyApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -27054,14 +27082,14 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetReadOnlyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetReadOnlyResponseApplicationJson_Ocs.
@@ -27091,14 +27119,14 @@ abstract class RoomSetReadOnlyResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetReadOnlyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetReadOnlyResponseApplicationJson.
@@ -27130,7 +27158,7 @@ class RoomSetListableScope extends EnumClass {
   static RoomSetListableScope valueOf(String name) => _$valueOfRoomSetListableScope(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetListableScope.
   @BuiltValueSerializer(custom: true)
@@ -27190,7 +27218,7 @@ class RoomSetListableApiVersion extends EnumClass {
   static RoomSetListableApiVersion valueOf(String name) => _$valueOfRoomSetListableApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetListableApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -27255,14 +27283,14 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetListableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetListableResponseApplicationJson_Ocs.
@@ -27292,14 +27320,14 @@ abstract class RoomSetListableResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetListableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetListableResponseApplicationJson.
@@ -27322,7 +27350,7 @@ class RoomSetPasswordApiVersion extends EnumClass {
   static RoomSetPasswordApiVersion valueOf(String name) => _$valueOfRoomSetPasswordApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetPasswordApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -27387,14 +27415,14 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetPasswordResponseApplicationJson_Ocs.
@@ -27424,14 +27452,14 @@ abstract class RoomSetPasswordResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetPasswordResponseApplicationJson.
@@ -28475,7 +28503,7 @@ class RoomSetPermissionsPermissions extends EnumClass {
   static RoomSetPermissionsPermissions valueOf(String name) => _$valueOfRoomSetPermissionsPermissions(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetPermissionsPermissions.
   @BuiltValueSerializer(custom: true)
@@ -29045,7 +29073,7 @@ class RoomSetPermissionsMode extends EnumClass {
   static RoomSetPermissionsMode valueOf(String name) => _$valueOfRoomSetPermissionsMode(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetPermissionsMode.
   @BuiltValueSerializer(custom: true)
@@ -29103,7 +29131,7 @@ class RoomSetPermissionsApiVersion extends EnumClass {
   static RoomSetPermissionsApiVersion valueOf(String name) => _$valueOfRoomSetPermissionsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetPermissionsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -29168,14 +29196,14 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetPermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetPermissionsResponseApplicationJson_Ocs.
@@ -29206,14 +29234,14 @@ abstract class RoomSetPermissionsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetPermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetPermissionsResponseApplicationJson.
@@ -29236,7 +29264,7 @@ class RoomGetParticipantsApiVersion extends EnumClass {
   static RoomGetParticipantsApiVersion valueOf(String name) => _$valueOfRoomGetParticipantsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetParticipantsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -29300,14 +29328,14 @@ abstract class RoomRoomGetParticipantsHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRoomGetParticipantsHeaders.
@@ -29348,14 +29376,14 @@ abstract class Participant implements $ParticipantInterface, Built<Participant, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Participant.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Participant.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Participant.
@@ -29386,14 +29414,14 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetParticipantsResponseApplicationJson_Ocs.
@@ -29424,14 +29452,14 @@ abstract class RoomGetParticipantsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetParticipantsResponseApplicationJson.
@@ -29469,7 +29497,7 @@ class RoomAddParticipantToRoomSource extends EnumClass {
   static RoomAddParticipantToRoomSource valueOf(String name) => _$valueOfRoomAddParticipantToRoomSource(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomAddParticipantToRoomSource.
   @BuiltValueSerializer(custom: true)
@@ -29536,7 +29564,7 @@ class RoomAddParticipantToRoomApiVersion extends EnumClass {
   static RoomAddParticipantToRoomApiVersion valueOf(String name) => _$valueOfRoomAddParticipantToRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomAddParticipantToRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -29603,14 +29631,14 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.
@@ -29648,14 +29676,14 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs.
@@ -29691,14 +29719,14 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddParticipantToRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomAddParticipantToRoomResponseApplicationJson.
@@ -29723,7 +29751,7 @@ class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
       _$valueOfRoomGetBreakoutRoomParticipantsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetBreakoutRoomParticipantsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -29792,14 +29820,14 @@ abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRoomGetBreakoutRoomParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRoomGetBreakoutRoomParticipantsHeaders.
@@ -29832,14 +29860,14 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.
@@ -29871,14 +29899,14 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomGetBreakoutRoomParticipantsResponseApplicationJson.
@@ -29901,7 +29929,7 @@ class RoomRemoveSelfFromRoomApiVersion extends EnumClass {
   static RoomRemoveSelfFromRoomApiVersion valueOf(String name) => _$valueOfRoomRemoveSelfFromRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomRemoveSelfFromRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -29968,14 +29996,14 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.
@@ -30006,14 +30034,14 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveSelfFromRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRemoveSelfFromRoomResponseApplicationJson.
@@ -30037,7 +30065,7 @@ class RoomRemoveAttendeeFromRoomApiVersion extends EnumClass {
       _$valueOfRoomRemoveAttendeeFromRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomRemoveAttendeeFromRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -30107,14 +30135,14 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.
@@ -30146,14 +30174,14 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRemoveAttendeeFromRoomResponseApplicationJson.
@@ -30183,7 +30211,7 @@ class RoomSetAttendeePermissionsMethod extends EnumClass {
   static RoomSetAttendeePermissionsMethod valueOf(String name) => _$valueOfRoomSetAttendeePermissionsMethod(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetAttendeePermissionsMethod.
   @BuiltValueSerializer(custom: true)
@@ -31266,7 +31294,7 @@ class RoomSetAttendeePermissionsPermissions extends EnumClass {
       _$valueOfRoomSetAttendeePermissionsPermissions(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetAttendeePermissionsPermissions.
   @BuiltValueSerializer(custom: true)
@@ -31837,7 +31865,7 @@ class RoomSetAttendeePermissionsApiVersion extends EnumClass {
       _$valueOfRoomSetAttendeePermissionsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetAttendeePermissionsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -31907,14 +31935,14 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetAttendeePermissionsResponseApplicationJson_Ocs.
@@ -31946,14 +31974,14 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetAttendeePermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetAttendeePermissionsResponseApplicationJson.
@@ -31984,7 +32012,7 @@ class RoomSetAllAttendeesPermissionsMethod extends EnumClass {
       _$valueOfRoomSetAllAttendeesPermissionsMethod(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetAllAttendeesPermissionsMethod.
   @BuiltValueSerializer(custom: true)
@@ -33071,7 +33099,7 @@ class RoomSetAllAttendeesPermissionsPermissions extends EnumClass {
       _$valueOfRoomSetAllAttendeesPermissionsPermissions(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetAllAttendeesPermissionsPermissions.
   @BuiltValueSerializer(custom: true)
@@ -33643,7 +33671,7 @@ class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
       _$valueOfRoomSetAllAttendeesPermissionsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetAllAttendeesPermissionsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -33713,14 +33741,14 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.
@@ -33752,14 +33780,14 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetAllAttendeesPermissionsResponseApplicationJson.
@@ -33782,7 +33810,7 @@ class RoomJoinRoomApiVersion extends EnumClass {
   static RoomJoinRoomApiVersion valueOf(String name) => _$valueOfRoomJoinRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomJoinRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -33846,14 +33874,14 @@ abstract class RoomJoinRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomJoinRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomJoinRoomResponseApplicationJson_Ocs.
@@ -33883,14 +33911,14 @@ abstract class RoomJoinRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomJoinRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomJoinRoomResponseApplicationJson.
@@ -33913,7 +33941,7 @@ class RoomLeaveRoomApiVersion extends EnumClass {
   static RoomLeaveRoomApiVersion valueOf(String name) => _$valueOfRoomLeaveRoomApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomLeaveRoomApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -33978,14 +34006,14 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomLeaveRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomLeaveRoomResponseApplicationJson_Ocs.
@@ -34015,14 +34043,14 @@ abstract class RoomLeaveRoomResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomLeaveRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomLeaveRoomResponseApplicationJson.
@@ -34045,7 +34073,7 @@ class RoomResendInvitationsApiVersion extends EnumClass {
   static RoomResendInvitationsApiVersion valueOf(String name) => _$valueOfRoomResendInvitationsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomResendInvitationsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -34112,14 +34140,14 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomResendInvitationsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomResendInvitationsResponseApplicationJson_Ocs.
@@ -34150,14 +34178,14 @@ abstract class RoomResendInvitationsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomResendInvitationsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomResendInvitationsResponseApplicationJson.
@@ -34185,7 +34213,7 @@ class RoomSetSessionStateState extends EnumClass {
   static RoomSetSessionStateState valueOf(String name) => _$valueOfRoomSetSessionStateState(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetSessionStateState.
   @BuiltValueSerializer(custom: true)
@@ -34243,7 +34271,7 @@ class RoomSetSessionStateApiVersion extends EnumClass {
   static RoomSetSessionStateApiVersion valueOf(String name) => _$valueOfRoomSetSessionStateApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetSessionStateApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -34308,14 +34336,14 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetSessionStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetSessionStateResponseApplicationJson_Ocs.
@@ -34346,14 +34374,14 @@ abstract class RoomSetSessionStateResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetSessionStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetSessionStateResponseApplicationJson.
@@ -34376,7 +34404,7 @@ class RoomPromoteModeratorApiVersion extends EnumClass {
   static RoomPromoteModeratorApiVersion valueOf(String name) => _$valueOfRoomPromoteModeratorApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomPromoteModeratorApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -34442,14 +34470,14 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomPromoteModeratorResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomPromoteModeratorResponseApplicationJson_Ocs.
@@ -34480,14 +34508,14 @@ abstract class RoomPromoteModeratorResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomPromoteModeratorResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomPromoteModeratorResponseApplicationJson.
@@ -34510,7 +34538,7 @@ class RoomDemoteModeratorApiVersion extends EnumClass {
   static RoomDemoteModeratorApiVersion valueOf(String name) => _$valueOfRoomDemoteModeratorApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomDemoteModeratorApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -34575,14 +34603,14 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomDemoteModeratorResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomDemoteModeratorResponseApplicationJson_Ocs.
@@ -34613,14 +34641,14 @@ abstract class RoomDemoteModeratorResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomDemoteModeratorResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomDemoteModeratorResponseApplicationJson.
@@ -34643,7 +34671,7 @@ class RoomAddToFavoritesApiVersion extends EnumClass {
   static RoomAddToFavoritesApiVersion valueOf(String name) => _$valueOfRoomAddToFavoritesApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomAddToFavoritesApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -34708,14 +34736,14 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddToFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomAddToFavoritesResponseApplicationJson_Ocs.
@@ -34746,14 +34774,14 @@ abstract class RoomAddToFavoritesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomAddToFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomAddToFavoritesResponseApplicationJson.
@@ -34776,7 +34804,7 @@ class RoomRemoveFromFavoritesApiVersion extends EnumClass {
   static RoomRemoveFromFavoritesApiVersion valueOf(String name) => _$valueOfRoomRemoveFromFavoritesApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomRemoveFromFavoritesApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -34843,14 +34871,14 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRemoveFromFavoritesResponseApplicationJson_Ocs.
@@ -34881,14 +34909,14 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomRemoveFromFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomRemoveFromFavoritesResponseApplicationJson.
@@ -34911,7 +34939,7 @@ class RoomSetNotificationLevelApiVersion extends EnumClass {
   static RoomSetNotificationLevelApiVersion valueOf(String name) => _$valueOfRoomSetNotificationLevelApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetNotificationLevelApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -34979,14 +35007,14 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetNotificationLevelResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetNotificationLevelResponseApplicationJson_Ocs.
@@ -35017,14 +35045,14 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetNotificationLevelResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetNotificationLevelResponseApplicationJson.
@@ -35047,7 +35075,7 @@ class RoomSetNotificationCallsApiVersion extends EnumClass {
   static RoomSetNotificationCallsApiVersion valueOf(String name) => _$valueOfRoomSetNotificationCallsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetNotificationCallsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -35115,14 +35143,14 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetNotificationCallsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetNotificationCallsResponseApplicationJson_Ocs.
@@ -35153,14 +35181,14 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetNotificationCallsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetNotificationCallsResponseApplicationJson.
@@ -35183,7 +35211,7 @@ class RoomSetLobbyApiVersion extends EnumClass {
   static RoomSetLobbyApiVersion valueOf(String name) => _$valueOfRoomSetLobbyApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetLobbyApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -35247,14 +35275,14 @@ abstract class RoomSetLobbyResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetLobbyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetLobbyResponseApplicationJson_Ocs.
@@ -35284,14 +35312,14 @@ abstract class RoomSetLobbyResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetLobbyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetLobbyResponseApplicationJson.
@@ -35323,7 +35351,7 @@ class RoomSetsipEnabledState extends EnumClass {
   static RoomSetsipEnabledState valueOf(String name) => _$valueOfRoomSetsipEnabledState(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetsipEnabledState.
   @BuiltValueSerializer(custom: true)
@@ -35383,7 +35411,7 @@ class RoomSetsipEnabledApiVersion extends EnumClass {
   static RoomSetsipEnabledApiVersion valueOf(String name) => _$valueOfRoomSetsipEnabledApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetsipEnabledApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -35448,14 +35476,14 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetsipEnabledResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetsipEnabledResponseApplicationJson_Ocs.
@@ -35486,14 +35514,14 @@ abstract class RoomSetsipEnabledResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetsipEnabledResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetsipEnabledResponseApplicationJson.
@@ -35516,7 +35544,7 @@ class RoomSetRecordingConsentApiVersion extends EnumClass {
   static RoomSetRecordingConsentApiVersion valueOf(String name) => _$valueOfRoomSetRecordingConsentApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetRecordingConsentApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -35583,14 +35611,14 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetRecordingConsentResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetRecordingConsentResponseApplicationJson_Ocs.
@@ -35621,14 +35649,14 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetRecordingConsentResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetRecordingConsentResponseApplicationJson.
@@ -35651,7 +35679,7 @@ class RoomSetMessageExpirationApiVersion extends EnumClass {
   static RoomSetMessageExpirationApiVersion valueOf(String name) => _$valueOfRoomSetMessageExpirationApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetMessageExpirationApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -35719,14 +35747,14 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetMessageExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetMessageExpirationResponseApplicationJson_Ocs.
@@ -35757,14 +35785,14 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RoomSetMessageExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RoomSetMessageExpirationResponseApplicationJson.
@@ -35787,7 +35815,7 @@ class SettingsSetsipSettingsApiVersion extends EnumClass {
   static SettingsSetsipSettingsApiVersion valueOf(String name) => _$valueOfSettingsSetsipSettingsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SettingsSetsipSettingsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -35854,14 +35882,14 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SettingsSetsipSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SettingsSetsipSettingsResponseApplicationJson_Ocs.
@@ -35892,14 +35920,14 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SettingsSetsipSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SettingsSetsipSettingsResponseApplicationJson.
@@ -35935,7 +35963,7 @@ class SettingsSetUserSettingKey extends EnumClass {
   static SettingsSetUserSettingKey valueOf(String name) => _$valueOfSettingsSetUserSettingKey(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SettingsSetUserSettingKey.
   @BuiltValueSerializer(custom: true)
@@ -35999,7 +36027,7 @@ class SettingsSetUserSettingApiVersion extends EnumClass {
   static SettingsSetUserSettingApiVersion valueOf(String name) => _$valueOfSettingsSetUserSettingApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SettingsSetUserSettingApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -36066,14 +36094,14 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SettingsSetUserSettingResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SettingsSetUserSettingResponseApplicationJson_Ocs.
@@ -36104,14 +36132,14 @@ abstract class SettingsSetUserSettingResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SettingsSetUserSettingResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SettingsSetUserSettingResponseApplicationJson.
@@ -36134,7 +36162,7 @@ class SignalingGetSettingsApiVersion extends EnumClass {
   static SignalingGetSettingsApiVersion valueOf(String name) => _$valueOfSignalingGetSettingsApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SignalingGetSettingsApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -36199,14 +36227,14 @@ abstract class SignalingSettings_HelloAuthParams_$10
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_HelloAuthParams_$10.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSettings_HelloAuthParams_$10.
@@ -36236,14 +36264,14 @@ abstract class SignalingSettings_HelloAuthParams_$20
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_HelloAuthParams_$20.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSettings_HelloAuthParams_$20.
@@ -36276,14 +36304,14 @@ abstract class SignalingSettings_HelloAuthParams
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_HelloAuthParams.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSettings_HelloAuthParams.
@@ -36312,14 +36340,14 @@ abstract class SignalingSettings_Stunservers
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_Stunservers.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSettings_Stunservers.
@@ -36350,14 +36378,14 @@ abstract class SignalingSettings_Turnservers
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSettings_Turnservers.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSettings_Turnservers.
@@ -36390,14 +36418,14 @@ abstract class SignalingSettings
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory SignalingSettings.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSettings.
@@ -36428,14 +36456,14 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingGetSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingGetSettingsResponseApplicationJson_Ocs.
@@ -36466,14 +36494,14 @@ abstract class SignalingGetSettingsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingGetSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingGetSettingsResponseApplicationJson.
@@ -36497,7 +36525,7 @@ class SignalingGetWelcomeMessageApiVersion extends EnumClass {
       _$valueOfSignalingGetWelcomeMessageApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SignalingGetWelcomeMessageApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -36567,14 +36595,14 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson_Ocs.
@@ -36606,14 +36634,14 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson.
@@ -36636,7 +36664,7 @@ class SignalingPullMessagesApiVersion extends EnumClass {
   static SignalingPullMessagesApiVersion valueOf(String name) => _$valueOfSignalingPullMessagesApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SignalingPullMessagesApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -36701,14 +36729,14 @@ abstract class SignalingSession
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSession.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory SignalingSession.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSession.
@@ -36745,14 +36773,14 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data.
@@ -36790,14 +36818,14 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingPullMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs.
@@ -36828,14 +36856,14 @@ abstract class SignalingPullMessagesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingPullMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingPullMessagesResponseApplicationJson.
@@ -36858,7 +36886,7 @@ class SignalingSendMessagesApiVersion extends EnumClass {
   static SignalingSendMessagesApiVersion valueOf(String name) => _$valueOfSignalingSendMessagesApiVersion(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SignalingSendMessagesApiVersion.
   @BuiltValueSerializer(custom: true)
@@ -36925,14 +36953,14 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSendMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSendMessagesResponseApplicationJson_Ocs.
@@ -36963,14 +36991,14 @@ abstract class SignalingSendMessagesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SignalingSendMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SignalingSendMessagesResponseApplicationJson.
@@ -37002,14 +37030,14 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TempAvatarPostAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for TempAvatarPostAvatarResponseApplicationJson_Ocs.
@@ -37040,14 +37068,14 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TempAvatarPostAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for TempAvatarPostAvatarResponseApplicationJson.
@@ -37080,14 +37108,14 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for TempAvatarDeleteAvatarResponseApplicationJson_Ocs.
@@ -37118,14 +37146,14 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory TempAvatarDeleteAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for TempAvatarDeleteAvatarResponseApplicationJson.
@@ -37156,14 +37184,14 @@ abstract class BotWithDetailsAndSecret
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory BotWithDetailsAndSecret.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for BotWithDetailsAndSecret.
@@ -37200,14 +37228,14 @@ abstract class FederationInvite
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FederationInvite.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory FederationInvite.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for FederationInvite.
@@ -37238,14 +37266,14 @@ abstract class PublicCapabilities0_Spreed_Config_Attachments
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Attachments.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0_Spreed_Config_Attachments.
@@ -37292,14 +37320,14 @@ abstract class PublicCapabilities0_Spreed_Config_Call
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Call.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0_Spreed_Config_Call.
@@ -37337,14 +37365,14 @@ abstract class PublicCapabilities0_Spreed_Config_Chat
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Chat.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0_Spreed_Config_Chat.
@@ -37376,14 +37404,14 @@ abstract class PublicCapabilities0_Spreed_Config_Conversations
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Conversations.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0_Spreed_Config_Conversations.
@@ -37415,14 +37443,14 @@ abstract class PublicCapabilities0_Spreed_Config_Previews
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Previews.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0_Spreed_Config_Previews.
@@ -37456,14 +37484,14 @@ abstract class PublicCapabilities0_Spreed_Config_Signaling
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config_Signaling.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0_Spreed_Config_Signaling.
@@ -37498,14 +37526,14 @@ abstract class PublicCapabilities0_Spreed_Config
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed_Config.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0_Spreed_Config.
@@ -37536,14 +37564,14 @@ abstract class PublicCapabilities0_Spreed
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities0_Spreed.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0_Spreed.
@@ -37568,14 +37596,15 @@ abstract class PublicCapabilities0
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PublicCapabilities0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory PublicCapabilities0.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities0.
@@ -37667,12 +37696,12 @@ extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e
   static Serializer<_$e620970959f428e934829e52f32b7089> get _serializer =>
       const _$e620970959f428e934829e52f32b7089Serializer();
   static _$e620970959f428e934829e52f32b7089 _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$e620970959f428e934829e52f32b7089Serializer implements PrimitiveSerializer<_$e620970959f428e934829e52f32b7089> {
@@ -37740,12 +37769,12 @@ extension $bd993fb3f40af33e8594d0d698208560Extension on _$bd993fb3f40af33e8594d0
   static Serializer<_$bd993fb3f40af33e8594d0d698208560> get _serializer =>
       const _$bd993fb3f40af33e8594d0d698208560Serializer();
   static _$bd993fb3f40af33e8594d0d698208560 _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$bd993fb3f40af33e8594d0d698208560Serializer implements PrimitiveSerializer<_$bd993fb3f40af33e8594d0d698208560> {
@@ -37819,12 +37848,12 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
@@ -37888,12 +37917,12 @@ extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543a
   static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
       const _$1df642f5035aea3b22543ab331c3fb01Serializer();
   static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$1df642f5035aea3b22543ab331c3fb01Serializer implements PrimitiveSerializer<_$1df642f5035aea3b22543ab331c3fb01> {
@@ -37963,12 +37992,12 @@ extension $bc4aac45771b11649d372f39a92b1cf3Extension on _$bc4aac45771b11649d372f
   static Serializer<_$bc4aac45771b11649d372f39a92b1cf3> get _serializer =>
       const _$bc4aac45771b11649d372f39a92b1cf3Serializer();
   static _$bc4aac45771b11649d372f39a92b1cf3 _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerializer<_$bc4aac45771b11649d372f39a92b1cf3> {
@@ -38023,9 +38052,10 @@ class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerialize
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..add(AvatarGetAvatarApiVersion.serializer)
       ..add(AvatarUploadAvatarApiVersion.serializer)
       ..addBuilderFactory(
@@ -39509,9 +39539,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

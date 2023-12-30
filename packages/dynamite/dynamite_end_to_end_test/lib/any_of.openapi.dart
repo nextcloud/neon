@@ -34,12 +34,12 @@ abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory ObjectAnyOf0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAnyOf0.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for ObjectAnyOf0.
   static Serializer<ObjectAnyOf0> get serializer => _$objectAnyOf0Serializer;
@@ -60,12 +60,12 @@ abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory ObjectAnyOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAnyOf1.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for ObjectAnyOf1.
   static Serializer<ObjectAnyOf1> get serializer => _$objectAnyOf1Serializer;
@@ -89,12 +89,12 @@ abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory MixedAnyOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory MixedAnyOf1.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for MixedAnyOf1.
   static Serializer<MixedAnyOf1> get serializer => _$mixedAnyOf1Serializer;
@@ -118,12 +118,12 @@ abstract class OneObjectAnyOf0 implements $OneObjectAnyOf0Interface, Built<OneOb
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory OneObjectAnyOf0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneObjectAnyOf0.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for OneObjectAnyOf0.
   static Serializer<OneObjectAnyOf0> get serializer => _$oneObjectAnyOf0Serializer;
@@ -183,12 +183,12 @@ extension $0c9017d9a03ba2eb2f15acadeab85bbeExtension on _$0c9017d9a03ba2eb2f15ac
   static Serializer<_$0c9017d9a03ba2eb2f15acadeab85bbe> get _serializer =>
       const _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer();
   static _$0c9017d9a03ba2eb2f15acadeab85bbe _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer implements PrimitiveSerializer<_$0c9017d9a03ba2eb2f15acadeab85bbe> {
@@ -252,12 +252,12 @@ extension $fba45e085ee99d64c5141852d4323e3dExtension on _$fba45e085ee99d64c51418
   static Serializer<_$fba45e085ee99d64c5141852d4323e3d> get _serializer =>
       const _$fba45e085ee99d64c5141852d4323e3dSerializer();
   static _$fba45e085ee99d64c5141852d4323e3d _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$fba45e085ee99d64c5141852d4323e3dSerializer implements PrimitiveSerializer<_$fba45e085ee99d64c5141852d4323e3d> {
@@ -321,12 +321,12 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
@@ -379,9 +379,10 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ObjectAnyOf0), ObjectAnyOf0Builder.new)
       ..add(ObjectAnyOf0.serializer)
       ..addBuilderFactory(const FullType(ObjectAnyOf1), ObjectAnyOf1Builder.new)
@@ -398,9 +399,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

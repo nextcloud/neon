@@ -35,12 +35,12 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory Base.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Base.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for Base.
   static Serializer<Base> get serializer => _$baseSerializer;
@@ -62,12 +62,12 @@ abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedR
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory NestedRedirect.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory NestedRedirect.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for NestedRedirect.
   static Serializer<NestedRedirect> get serializer => _$nestedRedirectSerializer;
@@ -102,12 +102,12 @@ extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension on _$e1c7ecea8e5fdae7b94cd8
   static Serializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> get _serializer =>
       const _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer();
   static _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer implements PrimitiveSerializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> {
@@ -168,9 +168,10 @@ class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer implements PrimitiveSerialize
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
       ..add(Base.serializer)
       ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirectBuilder.new)
@@ -181,9 +182,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

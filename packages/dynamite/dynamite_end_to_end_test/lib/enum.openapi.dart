@@ -35,7 +35,7 @@ class EnumString extends EnumClass {
   static EnumString valueOf(String name) => _$valueOfEnumString(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for EnumString.
   @BuiltValueSerializer(custom: true)
@@ -102,7 +102,7 @@ class EnumInt extends EnumClass {
   static EnumInt valueOf(String name) => _$valueOfEnumInt(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for EnumInt.
   @BuiltValueSerializer(custom: true)
@@ -168,7 +168,7 @@ class EnumDynamic extends EnumClass {
   static EnumDynamic valueOf(String name) => _$valueOfEnumDynamic(name);
 
   /// Returns the serialized value of this enum value.
-  dynamic get value => jsonSerializers.serializeWith(serializer, this)! as dynamic;
+  dynamic get value => _$jsonSerializers.serializeWith(serializer, this)! as dynamic;
 
   /// Serializer for EnumDynamic.
   @BuiltValueSerializer(custom: true)
@@ -230,7 +230,7 @@ class WrappedEnum_CustomString extends EnumClass {
   static WrappedEnum_CustomString valueOf(String name) => _$valueOfWrappedEnum_CustomString(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for WrappedEnum_CustomString.
   @BuiltValueSerializer(custom: true)
@@ -295,7 +295,7 @@ class WrappedEnum_Integer extends EnumClass {
   static WrappedEnum_Integer valueOf(String name) => _$valueOfWrappedEnum_Integer(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for WrappedEnum_Integer.
   @BuiltValueSerializer(custom: true)
@@ -357,12 +357,12 @@ abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory WrappedEnum.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory WrappedEnum.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for WrappedEnum.
   static Serializer<WrappedEnum> get serializer => _$wrappedEnumSerializer;
@@ -382,12 +382,12 @@ abstract class EnumReference implements $EnumReferenceInterface, Built<EnumRefer
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory EnumReference.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EnumReference.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for EnumReference.
   static Serializer<EnumReference> get serializer => _$enumReferenceSerializer;
@@ -397,9 +397,10 @@ abstract class EnumReference implements $EnumReferenceInterface, Built<EnumRefer
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..add(EnumString.serializer)
       ..add(EnumInt.serializer)
       ..add(EnumDynamic.serializer)
@@ -414,9 +415,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

@@ -124,14 +124,14 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
     _parameters['version'] = $version;
 
-    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
     _parameters['fileId'] = $fileId;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -146,7 +146,7 @@ class $ApiClient {
       ),
       bodyType: const FullType(ApiGetResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -237,17 +237,17 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    final $dueDate = jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
+    final $dueDate = _$jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
     _parameters['dueDate'] = $dueDate;
 
-    final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
     _parameters['version'] = $version;
 
-    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
     _parameters['fileId'] = $fileId;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -263,7 +263,7 @@ class $ApiClient {
       ),
       bodyType: const FullType(ApiSetResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -345,14 +345,14 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
     _parameters['version'] = $version;
 
-    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
     _parameters['fileId'] = $fileId;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -367,7 +367,7 @@ class $ApiClient {
       ),
       bodyType: const FullType(ApiRemoveResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -393,14 +393,14 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for OCSMeta.
@@ -429,14 +429,14 @@ abstract class ApiGetResponseApplicationJson_Ocs_Data
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiGetResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ApiGetResponseApplicationJson_Ocs_Data.
@@ -467,14 +467,14 @@ abstract class ApiGetResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiGetResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ApiGetResponseApplicationJson_Ocs.
@@ -503,14 +503,14 @@ abstract class ApiGetResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiGetResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ApiGetResponseApplicationJson.
@@ -540,14 +540,14 @@ abstract class ApiSetResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiSetResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ApiSetResponseApplicationJson_Ocs.
@@ -576,14 +576,14 @@ abstract class ApiSetResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiSetResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ApiSetResponseApplicationJson.
@@ -613,14 +613,14 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiRemoveResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ApiRemoveResponseApplicationJson_Ocs.
@@ -650,14 +650,14 @@ abstract class ApiRemoveResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiRemoveResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ApiRemoveResponseApplicationJson.
@@ -668,9 +668,10 @@ abstract class ApiRemoveResponseApplicationJson
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson), ApiGetResponseApplicationJsonBuilder.new)
       ..add(ApiGetResponseApplicationJson.serializer)
       ..addBuilderFactory(
@@ -704,9 +705,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

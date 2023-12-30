@@ -119,7 +119,7 @@ class $IconClient {
     }
 
 // coverage:ignore-end
-    var $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
     $app ??= 'core';
     _parameters['app'] = $app;
 
@@ -134,7 +134,7 @@ class $IconClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -200,7 +200,7 @@ class $IconClient {
     }
 
 // coverage:ignore-end
-    var $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
     $app ??= 'core';
     _parameters['app'] = $app;
 
@@ -215,7 +215,7 @@ class $IconClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -290,10 +290,10 @@ class $IconClient {
     }
 
 // coverage:ignore-end
-    final $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
     _parameters['app'] = $app;
 
-    final $image = jsonSerializers.serialize(image, specifiedType: const FullType(String));
+    final $image = _$jsonSerializers.serialize(image, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($image as String?, RegExp(r'^.+$'), 'image');
     _parameters['image'] = $image;
 
@@ -308,7 +308,7 @@ class $IconClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -395,14 +395,14 @@ class $ThemingClient {
     }
 
 // coverage:ignore-end
-    final $themeId = jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
     _parameters['themeId'] = $themeId;
 
-    var $plain = jsonSerializers.serialize(plain, specifiedType: const FullType(int));
+    var $plain = _$jsonSerializers.serialize(plain, specifiedType: const FullType(int));
     $plain ??= 0;
     _parameters['plain'] = $plain;
 
-    var $withCustomCss = jsonSerializers.serialize(withCustomCss, specifiedType: const FullType(int));
+    var $withCustomCss = _$jsonSerializers.serialize(withCustomCss, specifiedType: const FullType(int));
     $withCustomCss ??= 0;
     _parameters['withCustomCss'] = $withCustomCss;
 
@@ -418,7 +418,7 @@ class $ThemingClient {
       ),
       bodyType: const FullType(String),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -493,10 +493,10 @@ class $ThemingClient {
     }
 
 // coverage:ignore-end
-    final $key = jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
     _parameters['key'] = $key;
 
-    var $useSvg = jsonSerializers.serialize(useSvg, specifiedType: const FullType(int));
+    var $useSvg = _$jsonSerializers.serialize(useSvg, specifiedType: const FullType(int));
     $useSvg ??= 1;
     _parameters['useSvg'] = $useSvg;
 
@@ -511,7 +511,7 @@ class $ThemingClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -573,7 +573,7 @@ class $ThemingClient {
     }
 
 // coverage:ignore-end
-    var $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
     $app ??= 'core';
     _parameters['app'] = $app;
 
@@ -588,7 +588,7 @@ class $ThemingClient {
       ),
       bodyType: const FullType(ThemingGetManifestResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -660,7 +660,7 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -675,7 +675,7 @@ class $UserThemeClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -762,17 +762,17 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    final $type = jsonSerializers.serialize(type, specifiedType: const FullType(String));
+    final $type = _$jsonSerializers.serialize(type, specifiedType: const FullType(String));
     _parameters['type'] = $type;
 
-    var $value = jsonSerializers.serialize(value, specifiedType: const FullType(String));
+    var $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
     $value ??= '';
     _parameters['value'] = $value;
 
-    final $color = jsonSerializers.serialize(color, specifiedType: const FullType(String));
+    final $color = _$jsonSerializers.serialize(color, specifiedType: const FullType(String));
     _parameters['color'] = $color;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -787,7 +787,7 @@ class $UserThemeClient {
       ),
       bodyType: const FullType(Background),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -850,7 +850,7 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -865,7 +865,7 @@ class $UserThemeClient {
       ),
       bodyType: const FullType(Background),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -942,10 +942,10 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    final $themeId = jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
     _parameters['themeId'] = $themeId;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -960,7 +960,7 @@ class $UserThemeClient {
       ),
       bodyType: const FullType(UserThemeEnableThemeResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1037,10 +1037,10 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    final $themeId = jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
     _parameters['themeId'] = $themeId;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1055,7 +1055,7 @@ class $UserThemeClient {
       ),
       bodyType: const FullType(UserThemeDisableThemeResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -1085,14 +1085,14 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ThemingGetManifestResponseApplicationJson_Icons.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ThemingGetManifestResponseApplicationJson_Icons.
@@ -1139,14 +1139,14 @@ abstract class ThemingGetManifestResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ThemingGetManifestResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ThemingGetManifestResponseApplicationJson.
@@ -1173,14 +1173,14 @@ abstract class Background implements $BackgroundInterface, Built<Background, Bac
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Background.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Background.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Background.
@@ -1208,14 +1208,14 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for OCSMeta.
@@ -1246,14 +1246,14 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserThemeEnableThemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for UserThemeEnableThemeResponseApplicationJson_Ocs.
@@ -1284,14 +1284,14 @@ abstract class UserThemeEnableThemeResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserThemeEnableThemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for UserThemeEnableThemeResponseApplicationJson.
@@ -1324,14 +1324,14 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserThemeDisableThemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for UserThemeDisableThemeResponseApplicationJson_Ocs.
@@ -1362,14 +1362,14 @@ abstract class UserThemeDisableThemeResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserThemeDisableThemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for UserThemeDisableThemeResponseApplicationJson.
@@ -1418,14 +1418,14 @@ abstract class PublicCapabilities_Theming
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities_Theming.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities_Theming.
@@ -1450,14 +1450,15 @@ abstract class PublicCapabilities
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PublicCapabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory PublicCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PublicCapabilities.
@@ -1468,9 +1469,10 @@ abstract class PublicCapabilities
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(ThemingGetManifestResponseApplicationJson),
         ThemingGetManifestResponseApplicationJsonBuilder.new,
@@ -1518,9 +1520,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

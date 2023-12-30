@@ -120,7 +120,7 @@ class $DeletedShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -135,7 +135,7 @@ class $DeletedShareapiClient {
       ),
       bodyType: const FullType(DeletedShareapiListResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -210,10 +210,10 @@ class $DeletedShareapiClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = $id;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -228,7 +228,7 @@ class $DeletedShareapiClient {
       ),
       bodyType: const FullType(DeletedShareapiUndeleteResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -312,10 +312,10 @@ class $PublicPreviewClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -330,7 +330,7 @@ class $PublicPreviewClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -427,26 +427,26 @@ class $PublicPreviewClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    var $file = jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    var $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
     $file ??= '';
     _parameters['file'] = $file;
 
-    var $x = jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
     $x ??= 32;
     _parameters['x'] = $x;
 
-    var $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
     $y ??= 32;
     _parameters['y'] = $y;
 
-    var $a = jsonSerializers.serialize(a, specifiedType: const FullType(int));
+    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(int));
     $a ??= 0;
     _parameters['a'] = $a;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -462,7 +462,7 @@ class $PublicPreviewClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -532,7 +532,7 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -547,7 +547,7 @@ class $RemoteClient {
       ),
       bodyType: const FullType(RemoteGetSharesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -612,7 +612,7 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -627,7 +627,7 @@ class $RemoteClient {
       ),
       bodyType: const FullType(RemoteGetOpenSharesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -702,10 +702,10 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -720,7 +720,7 @@ class $RemoteClient {
       ),
       bodyType: const FullType(RemoteAcceptShareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -795,10 +795,10 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -813,7 +813,7 @@ class $RemoteClient {
       ),
       bodyType: const FullType(RemoteDeclineShareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -888,10 +888,10 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -906,7 +906,7 @@ class $RemoteClient {
       ),
       bodyType: const FullType(RemoteGetShareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -983,10 +983,10 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1001,7 +1001,7 @@ class $RemoteClient {
       ),
       bodyType: const FullType(RemoteUnshareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -1093,16 +1093,16 @@ class $ShareInfoClient {
     }
 
 // coverage:ignore-end
-    final $t = jsonSerializers.serialize(t, specifiedType: const FullType(String));
+    final $t = _$jsonSerializers.serialize(t, specifiedType: const FullType(String));
     _parameters['t'] = $t;
 
-    final $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    final $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
     _parameters['password'] = $password;
 
-    final $dir = jsonSerializers.serialize(dir, specifiedType: const FullType(String));
+    final $dir = _$jsonSerializers.serialize(dir, specifiedType: const FullType(String));
     _parameters['dir'] = $dir;
 
-    var $depth = jsonSerializers.serialize(depth, specifiedType: const FullType(int));
+    var $depth = _$jsonSerializers.serialize(depth, specifiedType: const FullType(int));
     $depth ??= -1;
     _parameters['depth'] = $depth;
 
@@ -1117,7 +1117,7 @@ class $ShareInfoClient {
       ),
       bodyType: const FullType(ShareInfo),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -1219,27 +1219,27 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $sharedWithMe = jsonSerializers.serialize(sharedWithMe, specifiedType: const FullType(String));
+    var $sharedWithMe = _$jsonSerializers.serialize(sharedWithMe, specifiedType: const FullType(String));
     $sharedWithMe ??= 'false';
     _parameters['shared_with_me'] = $sharedWithMe;
 
-    var $reshares = jsonSerializers.serialize(reshares, specifiedType: const FullType(String));
+    var $reshares = _$jsonSerializers.serialize(reshares, specifiedType: const FullType(String));
     $reshares ??= 'false';
     _parameters['reshares'] = $reshares;
 
-    var $subfiles = jsonSerializers.serialize(subfiles, specifiedType: const FullType(String));
+    var $subfiles = _$jsonSerializers.serialize(subfiles, specifiedType: const FullType(String));
     $subfiles ??= 'false';
     _parameters['subfiles'] = $subfiles;
 
-    var $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    var $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     $path ??= '';
     _parameters['path'] = $path;
 
-    var $includeTags = jsonSerializers.serialize(includeTags, specifiedType: const FullType(String));
+    var $includeTags = _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(String));
     $includeTags ??= 'false';
     _parameters['include_tags'] = $includeTags;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1256,7 +1256,7 @@ class $ShareapiClient {
       ),
       bodyType: const FullType(ShareapiGetSharesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1385,46 +1385,46 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     _parameters['path'] = $path;
 
-    final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     _parameters['permissions'] = $permissions;
 
-    var $shareType = jsonSerializers.serialize(shareType, specifiedType: const FullType(int));
+    var $shareType = _$jsonSerializers.serialize(shareType, specifiedType: const FullType(int));
     $shareType ??= -1;
     _parameters['shareType'] = $shareType;
 
-    final $shareWith = jsonSerializers.serialize(shareWith, specifiedType: const FullType(String));
+    final $shareWith = _$jsonSerializers.serialize(shareWith, specifiedType: const FullType(String));
     _parameters['shareWith'] = $shareWith;
 
-    var $publicUpload = jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
+    var $publicUpload = _$jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
     $publicUpload ??= 'false';
     _parameters['publicUpload'] = $publicUpload;
 
-    var $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    var $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
     $password ??= '';
     _parameters['password'] = $password;
 
-    final $sendPasswordByTalk = jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
+    final $sendPasswordByTalk = _$jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
     _parameters['sendPasswordByTalk'] = $sendPasswordByTalk;
 
-    var $expireDate = jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
+    var $expireDate = _$jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
     $expireDate ??= '';
     _parameters['expireDate'] = $expireDate;
 
-    var $note = jsonSerializers.serialize(note, specifiedType: const FullType(String));
+    var $note = _$jsonSerializers.serialize(note, specifiedType: const FullType(String));
     $note ??= '';
     _parameters['note'] = $note;
 
-    var $label = jsonSerializers.serialize(label, specifiedType: const FullType(String));
+    var $label = _$jsonSerializers.serialize(label, specifiedType: const FullType(String));
     $label ??= '';
     _parameters['label'] = $label;
 
-    final $attributes = jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
+    final $attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
     _parameters['attributes'] = $attributes;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1441,7 +1441,7 @@ class $ShareapiClient {
       ),
       bodyType: const FullType(ShareapiCreateShareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1518,10 +1518,10 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     _parameters['path'] = $path;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1536,7 +1536,7 @@ class $ShareapiClient {
       ),
       bodyType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1601,7 +1601,7 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1616,7 +1616,7 @@ class $ShareapiClient {
       ),
       bodyType: const FullType(ShareapiPendingSharesResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1696,14 +1696,14 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = $id;
 
-    var $includeTags = jsonSerializers.serialize(includeTags, specifiedType: const FullType(int));
+    var $includeTags = _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(int));
     $includeTags ??= 0;
     _parameters['include_tags'] = $includeTags;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1718,7 +1718,7 @@ class $ShareapiClient {
       ),
       bodyType: const FullType(ShareapiGetShareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1842,37 +1842,37 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = $id;
 
-    final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     _parameters['permissions'] = $permissions;
 
-    final $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    final $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
     _parameters['password'] = $password;
 
-    final $sendPasswordByTalk = jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
+    final $sendPasswordByTalk = _$jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
     _parameters['sendPasswordByTalk'] = $sendPasswordByTalk;
 
-    final $publicUpload = jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
+    final $publicUpload = _$jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
     _parameters['publicUpload'] = $publicUpload;
 
-    final $expireDate = jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
+    final $expireDate = _$jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
     _parameters['expireDate'] = $expireDate;
 
-    final $note = jsonSerializers.serialize(note, specifiedType: const FullType(String));
+    final $note = _$jsonSerializers.serialize(note, specifiedType: const FullType(String));
     _parameters['note'] = $note;
 
-    final $label = jsonSerializers.serialize(label, specifiedType: const FullType(String));
+    final $label = _$jsonSerializers.serialize(label, specifiedType: const FullType(String));
     _parameters['label'] = $label;
 
-    final $hideDownload = jsonSerializers.serialize(hideDownload, specifiedType: const FullType(String));
+    final $hideDownload = _$jsonSerializers.serialize(hideDownload, specifiedType: const FullType(String));
     _parameters['hideDownload'] = $hideDownload;
 
-    final $attributes = jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
+    final $attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
     _parameters['attributes'] = $attributes;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1889,7 +1889,7 @@ class $ShareapiClient {
       ),
       bodyType: const FullType(ShareapiUpdateShareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1966,10 +1966,10 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = $id;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -1984,7 +1984,7 @@ class $ShareapiClient {
       ),
       bodyType: const FullType(ShareapiDeleteShareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2061,10 +2061,10 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = $id;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2079,7 +2079,7 @@ class $ShareapiClient {
       ),
       bodyType: const FullType(ShareapiAcceptShareResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -2186,29 +2186,29 @@ class $ShareesapiClient {
     }
 
 // coverage:ignore-end
-    var $search = jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
     $search ??= '';
     _parameters['search'] = $search;
 
-    final $itemType = jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
+    final $itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
     _parameters['itemType'] = $itemType;
 
-    var $page = jsonSerializers.serialize(page, specifiedType: const FullType(int));
+    var $page = _$jsonSerializers.serialize(page, specifiedType: const FullType(int));
     $page ??= 1;
     _parameters['page'] = $page;
 
-    var $perPage = jsonSerializers.serialize(perPage, specifiedType: const FullType(int));
+    var $perPage = _$jsonSerializers.serialize(perPage, specifiedType: const FullType(int));
     $perPage ??= 200;
     _parameters['perPage'] = $perPage;
 
-    final $shareType = jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiSearchShareType));
+    final $shareType = _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiSearchShareType));
     _parameters['shareType'] = $shareType;
 
-    var $lookup = jsonSerializers.serialize(lookup, specifiedType: const FullType(int));
+    var $lookup = _$jsonSerializers.serialize(lookup, specifiedType: const FullType(int));
     $lookup ??= 0;
     _parameters['lookup'] = $lookup;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2225,7 +2225,7 @@ class $ShareesapiClient {
       ),
       bodyType: const FullType(ShareesapiSearchResponseApplicationJson),
       headersType: const FullType(ShareesapiShareesapiSearchHeaders),
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -2303,14 +2303,14 @@ class $ShareesapiClient {
     }
 
 // coverage:ignore-end
-    final $itemType = jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
+    final $itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
     _parameters['itemType'] = $itemType;
 
     final $shareType =
-        jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiFindRecommendedShareType));
+        _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiFindRecommendedShareType));
     _parameters['shareType'] = $shareType;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -2326,7 +2326,7 @@ class $ShareesapiClient {
       ),
       bodyType: const FullType(ShareesapiFindRecommendedResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -2352,14 +2352,14 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for OCSMeta.
@@ -2415,14 +2415,14 @@ abstract class DeletedShare implements $DeletedShareInterface, Built<DeletedShar
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeletedShare.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory DeletedShare.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DeletedShare.
@@ -2453,14 +2453,14 @@ abstract class DeletedShareapiListResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShareapiListResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DeletedShareapiListResponseApplicationJson_Ocs.
@@ -2491,14 +2491,14 @@ abstract class DeletedShareapiListResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShareapiListResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DeletedShareapiListResponseApplicationJson.
@@ -2531,14 +2531,14 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShareapiUndeleteResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DeletedShareapiUndeleteResponseApplicationJson_Ocs.
@@ -2569,14 +2569,14 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShareapiUndeleteResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DeletedShareapiUndeleteResponseApplicationJson.
@@ -2620,14 +2620,14 @@ abstract class RemoteShare implements $RemoteShareInterface, Built<RemoteShare, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RemoteShare.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory RemoteShare.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteShare.
@@ -2658,14 +2658,14 @@ abstract class RemoteGetSharesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteGetSharesResponseApplicationJson_Ocs.
@@ -2695,14 +2695,14 @@ abstract class RemoteGetSharesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteGetSharesResponseApplicationJson.
@@ -2734,14 +2734,14 @@ abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetOpenSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteGetOpenSharesResponseApplicationJson_Ocs.
@@ -2772,14 +2772,14 @@ abstract class RemoteGetOpenSharesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetOpenSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteGetOpenSharesResponseApplicationJson.
@@ -2811,14 +2811,14 @@ abstract class RemoteAcceptShareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteAcceptShareResponseApplicationJson_Ocs.
@@ -2849,14 +2849,14 @@ abstract class RemoteAcceptShareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteAcceptShareResponseApplicationJson.
@@ -2888,14 +2888,14 @@ abstract class RemoteDeclineShareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteDeclineShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteDeclineShareResponseApplicationJson_Ocs.
@@ -2926,14 +2926,14 @@ abstract class RemoteDeclineShareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteDeclineShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteDeclineShareResponseApplicationJson.
@@ -2965,14 +2965,14 @@ abstract class RemoteGetShareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteGetShareResponseApplicationJson_Ocs.
@@ -3002,14 +3002,14 @@ abstract class RemoteGetShareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteGetShareResponseApplicationJson.
@@ -3041,14 +3041,14 @@ abstract class RemoteUnshareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteUnshareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteUnshareResponseApplicationJson_Ocs.
@@ -3078,14 +3078,14 @@ abstract class RemoteUnshareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteUnshareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for RemoteUnshareResponseApplicationJson.
@@ -3119,14 +3119,14 @@ abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareI
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareInfo.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareInfo.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareInfo.
@@ -3153,7 +3153,7 @@ class Share_HideDownload extends EnumClass {
   static Share_HideDownload valueOf(String name) => _$valueOfShare_HideDownload(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for Share_HideDownload.
   @BuiltValueSerializer(custom: true)
@@ -3214,7 +3214,7 @@ class Share_ItemType extends EnumClass {
   static Share_ItemType valueOf(String name) => _$valueOfShare_ItemType(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for Share_ItemType.
   @BuiltValueSerializer(custom: true)
@@ -3277,7 +3277,7 @@ class Share_MailSend extends EnumClass {
   static Share_MailSend valueOf(String name) => _$valueOfShare_MailSend(name);
 
   /// Returns the serialized value of this enum value.
-  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for Share_MailSend.
   @BuiltValueSerializer(custom: true)
@@ -3340,14 +3340,14 @@ abstract class Share_Status implements $Share_StatusInterface, Built<Share_Statu
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Share_Status.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Share_Status.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Share_Status.
@@ -3437,14 +3437,14 @@ abstract class Share implements $ShareInterface, Built<Share, ShareBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Share.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Share.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Share.
@@ -3475,14 +3475,14 @@ abstract class ShareapiGetSharesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiGetSharesResponseApplicationJson_Ocs.
@@ -3513,14 +3513,14 @@ abstract class ShareapiGetSharesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiGetSharesResponseApplicationJson.
@@ -3552,14 +3552,14 @@ abstract class ShareapiCreateShareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiCreateShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiCreateShareResponseApplicationJson_Ocs.
@@ -3590,14 +3590,14 @@ abstract class ShareapiCreateShareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiCreateShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiCreateShareResponseApplicationJson.
@@ -3630,14 +3630,14 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetInheritedSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiGetInheritedSharesResponseApplicationJson_Ocs.
@@ -3669,14 +3669,14 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetInheritedSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiGetInheritedSharesResponseApplicationJson.
@@ -3709,14 +3709,14 @@ abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiPendingSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiPendingSharesResponseApplicationJson_Ocs.
@@ -3747,14 +3747,14 @@ abstract class ShareapiPendingSharesResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiPendingSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiPendingSharesResponseApplicationJson.
@@ -3786,14 +3786,14 @@ abstract class ShareapiGetShareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiGetShareResponseApplicationJson_Ocs.
@@ -3823,14 +3823,14 @@ abstract class ShareapiGetShareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiGetShareResponseApplicationJson.
@@ -3862,14 +3862,14 @@ abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiUpdateShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiUpdateShareResponseApplicationJson_Ocs.
@@ -3900,14 +3900,14 @@ abstract class ShareapiUpdateShareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiUpdateShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiUpdateShareResponseApplicationJson.
@@ -3939,14 +3939,14 @@ abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiDeleteShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiDeleteShareResponseApplicationJson_Ocs.
@@ -3977,14 +3977,14 @@ abstract class ShareapiDeleteShareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiDeleteShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiDeleteShareResponseApplicationJson.
@@ -4016,14 +4016,14 @@ abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiAcceptShareResponseApplicationJson_Ocs.
@@ -4054,14 +4054,14 @@ abstract class ShareapiAcceptShareResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareapiAcceptShareResponseApplicationJson.
@@ -4093,14 +4093,14 @@ abstract class ShareesapiShareesapiSearchHeaders
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiShareesapiSearchHeaders.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesapiShareesapiSearchHeaders.
@@ -4125,14 +4125,14 @@ abstract class Sharee implements $ShareeInterface, Built<Sharee, ShareeBuilder> 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Sharee.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Sharee.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Sharee.
@@ -4157,14 +4157,14 @@ abstract class ShareeValue implements $ShareeValueInterface, Built<ShareeValue, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeValue.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeValue.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeValue.
@@ -4194,14 +4194,14 @@ abstract class ShareeCircle_1_Value
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeCircle_1_Value.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeCircle_1_Value.
@@ -4229,14 +4229,14 @@ abstract class ShareeCircle implements $ShareeCircleInterface, Built<ShareeCircl
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeCircle.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeCircle.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeCircle.
@@ -4267,14 +4267,14 @@ abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeEmail.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeEmail.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeEmail.
@@ -4304,14 +4304,14 @@ abstract class ShareeRemoteGroup_1_Value
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeRemoteGroup_1_Value.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeRemoteGroup_1_Value.
@@ -4341,14 +4341,14 @@ abstract class ShareeRemoteGroup
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeRemoteGroup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeRemoteGroup.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeRemoteGroup.
@@ -4378,14 +4378,14 @@ abstract class ShareeRemote_1_Value
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeRemote_1_Value.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeRemote_1_Value.
@@ -4415,14 +4415,14 @@ abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemot
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeRemote.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeRemote.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeRemote.
@@ -4450,14 +4450,15 @@ abstract class ShareeUser_1_Status
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeUser_1_Status.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeUser_1_Status.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeUser_1_Status.
@@ -4488,14 +4489,14 @@ abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, Sha
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeUser.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeUser.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeUser.
@@ -4528,14 +4529,14 @@ abstract class ShareesSearchResult_Exact
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesSearchResult_Exact.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesSearchResult_Exact.
@@ -4560,14 +4561,14 @@ abstract class Lookup implements $LookupInterface, Built<Lookup, LookupBuilder> 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Lookup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Lookup.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Lookup.
@@ -4604,14 +4605,14 @@ abstract class ShareeLookup_1_Extra
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeLookup_1_Extra.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeLookup_1_Extra.
@@ -4641,14 +4642,14 @@ abstract class ShareeLookup_1_Value
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeLookup_1_Value.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeLookup_1_Value.
@@ -4676,14 +4677,14 @@ abstract class ShareeLookup implements $ShareeLookupInterface, Built<ShareeLooku
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeLookup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeLookup.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareeLookup.
@@ -4718,14 +4719,15 @@ abstract class ShareesSearchResult
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareesSearchResult.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareesSearchResult.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesSearchResult.
@@ -4756,14 +4758,14 @@ abstract class ShareesapiSearchResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiSearchResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesapiSearchResponseApplicationJson_Ocs.
@@ -4793,14 +4795,14 @@ abstract class ShareesapiSearchResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiSearchResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesapiSearchResponseApplicationJson.
@@ -4837,14 +4839,14 @@ abstract class ShareesRecommendedResult_Exact
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesRecommendedResult_Exact.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesRecommendedResult_Exact.
@@ -4876,14 +4878,14 @@ abstract class ShareesRecommendedResult
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesRecommendedResult.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesRecommendedResult.
@@ -4915,14 +4917,14 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiFindRecommendedResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesapiFindRecommendedResponseApplicationJson_Ocs.
@@ -4954,14 +4956,14 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiFindRecommendedResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ShareesapiFindRecommendedResponseApplicationJson.
@@ -4993,14 +4995,14 @@ abstract class Capabilities_FilesSharing_Public_Password
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public_Password.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Public_Password.
@@ -5033,14 +5035,14 @@ abstract class Capabilities_FilesSharing_Public_ExpireDate
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public_ExpireDate.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Public_ExpireDate.
@@ -5074,14 +5076,14 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Public_ExpireDateInternal.
@@ -5115,14 +5117,14 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Public_ExpireDateRemote.
@@ -5166,14 +5168,14 @@ abstract class Capabilities_FilesSharing_Public
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Public.
@@ -5203,14 +5205,14 @@ abstract class Capabilities_FilesSharing_User_ExpireDate
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_User_ExpireDate.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_User_ExpireDate.
@@ -5243,14 +5245,14 @@ abstract class Capabilities_FilesSharing_User
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_User.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_User.
@@ -5280,14 +5282,14 @@ abstract class Capabilities_FilesSharing_Group_ExpireDate
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Group_ExpireDate.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Group_ExpireDate.
@@ -5319,14 +5321,14 @@ abstract class Capabilities_FilesSharing_Group
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Group.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Group.
@@ -5356,14 +5358,14 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDate
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Federation_ExpireDate.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Federation_ExpireDate.
@@ -5395,14 +5397,14 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Federation_ExpireDateSupported.
@@ -5437,14 +5439,14 @@ abstract class Capabilities_FilesSharing_Federation
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Federation.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Federation.
@@ -5477,14 +5479,14 @@ abstract class Capabilities_FilesSharing_Sharee
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Sharee.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing_Sharee.
@@ -5521,14 +5523,14 @@ abstract class Capabilities_FilesSharing
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_FilesSharing.
@@ -5553,14 +5555,14 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities.
@@ -5608,12 +5610,12 @@ extension $07eaa0304017ba8abe7f9f20d6a736f3Extension on _$07eaa0304017ba8abe7f9f
   static Serializer<_$07eaa0304017ba8abe7f9f20d6a736f3> get _serializer =>
       const _$07eaa0304017ba8abe7f9f20d6a736f3Serializer();
   static _$07eaa0304017ba8abe7f9f20d6a736f3 _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerializer<_$07eaa0304017ba8abe7f9f20d6a736f3> {
@@ -5667,9 +5669,10 @@ class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerialize
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(DeletedShareapiListResponseApplicationJson),
         DeletedShareapiListResponseApplicationJsonBuilder.new,
@@ -5992,9 +5995,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

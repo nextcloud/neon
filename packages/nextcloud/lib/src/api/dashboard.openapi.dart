@@ -110,7 +110,7 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -125,7 +125,7 @@ class $DashboardApiClient {
       ),
       bodyType: const FullType(DashboardApiGetWidgetsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -208,7 +208,7 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    final $sinceIds = jsonSerializers.serialize(
+    final $sinceIds = _$jsonSerializers.serialize(
       sinceIds,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(String)]),
@@ -216,15 +216,15 @@ class $DashboardApiClient {
     );
     _parameters['sinceIds'] = $sinceIds;
 
-    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
     _parameters['limit'] = $limit;
 
-    var $widgets = jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
     $widgets ??= [];
     _parameters['widgets%5B%5D'] = $widgets;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -240,7 +240,7 @@ class $DashboardApiClient {
       ),
       bodyType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -327,7 +327,7 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    final $sinceIds = jsonSerializers.serialize(
+    final $sinceIds = _$jsonSerializers.serialize(
       sinceIds,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(String)]),
@@ -335,15 +335,15 @@ class $DashboardApiClient {
     );
     _parameters['sinceIds'] = $sinceIds;
 
-    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
     _parameters['limit'] = $limit;
 
-    var $widgets = jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
     $widgets ??= [];
     _parameters['widgets%5B%5D'] = $widgets;
 
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
@@ -359,7 +359,7 @@ class $DashboardApiClient {
       ),
       bodyType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -385,14 +385,14 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for OCSMeta.
@@ -418,14 +418,14 @@ abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Widget_Buttons.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Widget_Buttons.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Widget_Buttons.
@@ -464,14 +464,14 @@ abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Widget.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Widget.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Widget.
@@ -503,14 +503,14 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DashboardApiGetWidgetsResponseApplicationJson_Ocs.
@@ -541,14 +541,14 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DashboardApiGetWidgetsResponseApplicationJson.
@@ -578,14 +578,14 @@ abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, Wid
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory WidgetItem.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory WidgetItem.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WidgetItem.
@@ -617,14 +617,14 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.
@@ -656,14 +656,14 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DashboardApiGetWidgetItemsResponseApplicationJson.
@@ -690,14 +690,14 @@ abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory WidgetItems.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory WidgetItems.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for WidgetItems.
@@ -729,14 +729,14 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.
@@ -768,14 +768,14 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DashboardApiGetWidgetItemsV2ResponseApplicationJson.
@@ -787,9 +787,10 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetsResponseApplicationJson),
         DashboardApiGetWidgetsResponseApplicationJsonBuilder.new,
@@ -865,9 +866,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

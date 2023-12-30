@@ -103,7 +103,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(CheckResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -171,7 +171,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $keepalive = jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
+    final $keepalive = _$jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
     _parameters['keepalive'] = $keepalive;
 
     final _path = UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
@@ -185,7 +185,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(SetKeepaliveResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -249,7 +249,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $deviceName = jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
+    final $deviceName = _$jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
     _parameters['deviceName'] = $deviceName;
 
     final _path = UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
@@ -263,7 +263,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(CreateDeviceResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -325,7 +325,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
     final _path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
@@ -339,7 +339,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(SyncDeviceResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -397,7 +397,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
     final _path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
@@ -411,7 +411,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(DeleteDeviceResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -484,10 +484,10 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
-    final $appName = jsonSerializers.serialize(appName, specifiedType: const FullType(String));
+    final $appName = _$jsonSerializers.serialize(appName, specifiedType: const FullType(String));
     _parameters['appName'] = $appName;
 
     final _path = UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
@@ -501,7 +501,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(CreateAppResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -559,7 +559,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
     final _path = UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
@@ -573,7 +573,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(DeleteAppResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -635,7 +635,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
     final _path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
@@ -649,7 +649,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(UnifiedpushDiscoveryResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -707,7 +707,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
     final _path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
@@ -721,7 +721,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(PushResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -787,7 +787,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -853,7 +853,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(GatewayMatrixResponseApplicationJson),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -880,14 +880,14 @@ abstract class CheckResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CheckResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CheckResponseApplicationJson.
@@ -916,14 +916,14 @@ abstract class SetKeepaliveResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SetKeepaliveResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SetKeepaliveResponseApplicationJson.
@@ -954,14 +954,14 @@ abstract class CreateDeviceResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CreateDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CreateDeviceResponseApplicationJson.
@@ -991,14 +991,14 @@ abstract class SyncDeviceResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SyncDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SyncDeviceResponseApplicationJson.
@@ -1027,14 +1027,14 @@ abstract class DeleteDeviceResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeleteDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DeleteDeviceResponseApplicationJson.
@@ -1065,14 +1065,14 @@ abstract class CreateAppResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CreateAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for CreateAppResponseApplicationJson.
@@ -1101,14 +1101,14 @@ abstract class DeleteAppResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeleteAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for DeleteAppResponseApplicationJson.
@@ -1139,14 +1139,14 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.
@@ -1177,14 +1177,14 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UnifiedpushDiscoveryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for UnifiedpushDiscoveryResponseApplicationJson.
@@ -1214,14 +1214,14 @@ abstract class PushResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PushResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for PushResponseApplicationJson.
@@ -1252,14 +1252,14 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.
@@ -1290,14 +1290,14 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory GatewayMatrixDiscoveryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for GatewayMatrixDiscoveryResponseApplicationJson.
@@ -1327,14 +1327,14 @@ abstract class GatewayMatrixResponseApplicationJson
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory GatewayMatrixResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for GatewayMatrixResponseApplicationJson.
@@ -1346,9 +1346,10 @@ abstract class GatewayMatrixResponseApplicationJson
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(CheckResponseApplicationJson), CheckResponseApplicationJsonBuilder.new)
       ..add(CheckResponseApplicationJson.serializer)
       ..addBuilderFactory(
@@ -1408,9 +1409,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())
