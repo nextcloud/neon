@@ -12,13 +12,12 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i4;
-import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:built_value/standard_json_plugin.dart' as _i5;
+import 'package:dynamite_runtime/built_value.dart' as _i4;
 import 'package:dynamite_runtime/http_client.dart' as _i2;
 import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as _i1;
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
+import 'package:meta/meta.dart' as _i3;
 import 'package:uri/uri.dart';
 
 part 'parameters.openapi.g.dart';
@@ -105,7 +104,7 @@ class $Client extends _i2.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -129,7 +128,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i3.experimental
   _i2.DynamiteRawResponse<JsonObject, void> $getRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
@@ -288,7 +287,7 @@ class $Client extends _i2.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -312,7 +311,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getHeaders] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i3.experimental
   _i2.DynamiteRawResponse<JsonObject, void> getHeadersRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
@@ -452,7 +451,7 @@ class $Client extends _i2.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -460,7 +459,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getPathParameter] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i3.experimental
   _i2.DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{
@@ -513,7 +512,7 @@ class $Client extends _i2.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -521,7 +520,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getNamingCollisions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i3.experimental
   _i2.DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
     required String jsonSerializers,
     required String serializers,
@@ -821,7 +820,7 @@ class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i3.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -846,12 +845,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i3.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
+      ..add(_i4.DynamiteDoubleSerializer())
+      ..addPlugin(_i5.StandardJsonPlugin())
+      ..addPlugin(const _i4.HeaderPlugin())
+      ..addPlugin(const _i4.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

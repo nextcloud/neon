@@ -446,7 +446,7 @@ return rawResponse.future;
           b
             ..name = '${name}Raw'
             ..docs.addAll(operation.formattedDescription(name, isRawRequest: true))
-            ..annotations.add(refer('experimental'));
+            ..annotations.add(refer('experimental', 'package:meta/meta.dart'));
 
           if (annotations != null) {
             b.annotations.add(annotations);

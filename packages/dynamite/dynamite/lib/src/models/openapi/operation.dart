@@ -59,7 +59,7 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
       yield '''
 $docsSeparator This method and the response it returns is experimental. The API might change without a major version bump.
 $docsSeparator
-$docsSeparator Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.''';
+$docsSeparator Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.''';
     } else {
       yield '$docsSeparator Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.';
     }

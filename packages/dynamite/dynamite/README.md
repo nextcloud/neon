@@ -12,7 +12,6 @@ dependencies:
   collection: ^1.0.0
   dynamite_runtime: ^0.0.1
   meta: ^1.0.0
-  universal_io: ^2.0.0
   uri: ^1.0.0
 dev_dependencies:
   build_runner: ^2.4.0

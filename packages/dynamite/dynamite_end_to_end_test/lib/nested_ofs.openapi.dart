@@ -9,10 +9,10 @@
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
-import 'package:dynamite_runtime/built_value.dart' as _i2;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
 import 'package:dynamite_runtime/utils.dart' as _i1;
-import 'package:meta/meta.dart';
+import 'package:meta/meta.dart' as _i2;
 
 part 'nested_ofs.openapi.g.dart';
 
@@ -695,7 +695,7 @@ class _$abe6d27882a5771a98ede04cd64de567Serializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BaseAllOf), BaseAllOfBuilder.new)
@@ -721,12 +721,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

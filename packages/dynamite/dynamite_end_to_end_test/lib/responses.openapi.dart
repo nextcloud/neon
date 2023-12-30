@@ -8,11 +8,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
-import 'package:dynamite_runtime/built_value.dart' as _i2;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
+import 'package:meta/meta.dart' as _i2;
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
@@ -50,7 +49,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -58,7 +57,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<String, void> $getRaw() {
     const _headers = <String, String>{
       'Accept': 'application/json',
@@ -96,7 +95,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -105,7 +104,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [put] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<String, void> putRaw() {
     const _headers = <String, String>{
       'Accept': 'application/json',
@@ -144,7 +143,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -154,7 +153,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [post] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<String, void> postRaw() {
     const _headers = <String, String>{
       'Accept': 'application/json',
@@ -192,7 +191,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -201,7 +200,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [patch] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<String, void> patchRaw() {
     const _headers = <String, String>{
       'Accept': 'application/json',
@@ -231,7 +230,7 @@ class $Client extends _i1.DynamiteClient {
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = Serializers();
 
@@ -239,12 +238,12 @@ final Serializers _$serializers = Serializers();
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

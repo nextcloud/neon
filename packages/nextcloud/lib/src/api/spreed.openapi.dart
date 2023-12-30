@@ -18,7 +18,6 @@ import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as _i2;
 import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
 
 part 'spreed.openapi.g.dart';
@@ -125,7 +124,7 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -236,7 +235,7 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -341,7 +340,7 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -452,7 +451,7 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -568,7 +567,7 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -698,7 +697,7 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -844,7 +843,7 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -977,7 +976,7 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1101,7 +1100,7 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1197,7 +1196,7 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1307,7 +1306,7 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1426,7 +1425,7 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1554,7 +1553,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1682,7 +1681,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1795,7 +1794,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1915,7 +1914,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2030,7 +2029,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2140,7 +2139,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2252,7 +2251,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2363,7 +2362,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2475,7 +2474,7 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2597,7 +2596,7 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2706,7 +2705,7 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2835,7 +2834,7 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2972,7 +2971,7 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -3090,7 +3089,7 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -3212,7 +3211,7 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -3342,7 +3341,7 @@ class $CertificateClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -3492,7 +3491,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -3687,7 +3686,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -3826,7 +3825,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -3945,7 +3944,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -4072,7 +4071,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -4197,7 +4196,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -4316,7 +4315,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -4437,7 +4436,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -4556,7 +4555,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -4668,7 +4667,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -4782,7 +4781,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -4914,7 +4913,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -5062,7 +5061,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -5204,7 +5203,7 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -5335,7 +5334,7 @@ class $FilesIntegrationClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -5457,7 +5456,7 @@ class $FilesIntegrationClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -5577,7 +5576,7 @@ class $GuestClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -5718,7 +5717,7 @@ class $HostedSignalingServerClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -5848,7 +5847,7 @@ class $HostedSignalingServerClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -5956,7 +5955,7 @@ class $MatterbridgeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6069,7 +6068,7 @@ class $MatterbridgeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6195,7 +6194,7 @@ class $MatterbridgeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6304,7 +6303,7 @@ class $MatterbridgeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6421,7 +6420,7 @@ class $MatterbridgeSettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6523,7 +6522,7 @@ class $MatterbridgeSettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6643,7 +6642,7 @@ class $PollClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6774,7 +6773,7 @@ class $PollClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6891,7 +6890,7 @@ class $PollClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7015,7 +7014,7 @@ class $PollClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7141,7 +7140,7 @@ class $PublicShareAuthClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7256,7 +7255,7 @@ class $ReactionClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7381,7 +7380,7 @@ class $ReactionClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7509,7 +7508,7 @@ class $ReactionClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7638,7 +7637,7 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7746,7 +7745,7 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7859,7 +7858,7 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7970,7 +7969,7 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -8085,7 +8084,7 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -8205,7 +8204,7 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -8337,7 +8336,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -8472,7 +8471,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -8611,7 +8610,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -8716,7 +8715,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -8816,7 +8815,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -8926,7 +8925,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9039,7 +9038,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9151,7 +9150,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9260,7 +9259,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9370,7 +9369,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9483,7 +9482,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9601,7 +9600,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9720,7 +9719,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9840,7 +9839,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -9961,7 +9960,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -10088,7 +10087,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -10210,7 +10209,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -10339,7 +10338,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -10459,7 +10458,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -10578,7 +10577,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -10708,7 +10707,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -10846,7 +10845,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -10978,7 +10977,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -11098,7 +11097,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -11206,7 +11205,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -11328,7 +11327,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -11446,7 +11445,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -11570,7 +11569,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -11688,7 +11687,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -11794,7 +11793,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -11904,7 +11903,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12024,7 +12023,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12147,7 +12146,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12271,7 +12270,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12392,7 +12391,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12511,7 +12510,7 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12639,7 +12638,7 @@ class $SettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12760,7 +12759,7 @@ class $SettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12880,7 +12879,7 @@ class $SignalingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -12991,7 +12990,7 @@ class $SignalingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -13098,7 +13097,7 @@ class $SignalingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -13213,7 +13212,7 @@ class $SignalingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -13326,7 +13325,7 @@ class $TempAvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -13408,7 +13407,7 @@ class $TempAvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:

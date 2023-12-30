@@ -10,11 +10,10 @@ import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
-import 'package:dynamite_runtime/built_value.dart' as _i2;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
+import 'package:meta/meta.dart' as _i2;
 
 part 'headers.openapi.g.dart';
 
@@ -54,7 +53,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -62,7 +61,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, GetHeaders> $getRaw() {
     final _headers = <String, String>{};
 
@@ -97,7 +96,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -105,7 +104,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [withContentOperationId] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
     final _headers = <String, String>{};
 
@@ -140,7 +139,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -148,7 +147,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getWithContent] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
     const _headers = <String, String>{
       'Accept': 'application/octet-stream',
@@ -260,7 +259,7 @@ abstract class GetWithContentHeaders
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(GetHeaders), GetHeadersBuilder.new)
@@ -275,12 +274,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

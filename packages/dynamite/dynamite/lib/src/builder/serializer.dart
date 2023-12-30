@@ -10,7 +10,7 @@ List<Spec> buildSerializer(State state) => [
 /// 
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.''')
-          ..annotations.add(refer('visibleForTesting'))
+          ..annotations.add(refer('visibleForTesting', 'package:meta/meta.dart'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
           ..name = r'$serializers'
@@ -42,7 +42,7 @@ List<Spec> buildSerializer(State state) => [
 /// 
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.''')
-          ..annotations.add(refer('visibleForTesting'))
+          ..annotations.add(refer('visibleForTesting', 'package:meta/meta.dart'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
           ..name = r'$jsonSerializers'
