@@ -96,7 +96,7 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateOneOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = const Code('dynamite_utils.validateOneOf(_values)');
+      ..body = refer('validateOneOf', 'package:dynamite_runtime/utils.dart').call([refer('_values')]).code;
   });
 
   final anyOfValidator = Method((b) {
@@ -105,7 +105,7 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateAnyOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = const Code('dynamite_utils.validateAnyOf(_values)');
+      ..body = refer('validateAnyOf', 'package:dynamite_runtime/utils.dart').call([refer('_values')]).code;
   });
 
   final serializerMethod = Method(

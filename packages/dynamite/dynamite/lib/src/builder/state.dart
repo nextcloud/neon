@@ -10,6 +10,10 @@ class State {
   final output = <Spec>[];
   final resolvedTypes = <TypeResult>{};
   final resolvedInterfaces = <TypeResult>{};
+  final emitter = DartEmitter.scoped(
+    orderDirectives: true,
+    useNullSafetySyntax: true,
+  );
 
   Iterable<TypeResultSomeOf> get uniqueSomeOfTypes {
     final someOfs = resolvedTypes.whereType<TypeResultSomeOf>();

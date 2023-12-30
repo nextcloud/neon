@@ -5,11 +5,13 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:dynamite_runtime/utils.dart' as _i1;
 import 'package:meta/meta.dart';
 
 part 'nested_ofs.openapi.g.dart';
@@ -275,10 +277,10 @@ extension $fc0451dbdd462718bd075afd2e3ce0ecExtension on _$fc0451dbdd462718bd075a
   List<dynamic> get _values => [baseOneOf1, $double];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$fc0451dbdd462718bd075afd2e3ce0ec> get _serializer =>
       const _$fc0451dbdd462718bd075afd2e3ce0ecSerializer();
   static _$fc0451dbdd462718bd075afd2e3ce0ec _fromJson(Object? json) =>
@@ -344,10 +346,10 @@ extension $ce3c7b262d1c503446a436c461be5be9Extension on _$ce3c7b262d1c503446a436
   List<dynamic> get _values => [baseAnyOf1, $int];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$ce3c7b262d1c503446a436c461be5be9> get _serializer =>
       const _$ce3c7b262d1c503446a436c461be5be9Serializer();
   static _$ce3c7b262d1c503446a436c461be5be9 _fromJson(Object? json) =>
@@ -419,10 +421,10 @@ extension $8da5087c0b3f2cce06998d453af8ad19Extension on _$8da5087c0b3f2cce06998d
   List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf1, $double];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$8da5087c0b3f2cce06998d453af8ad19> get _serializer =>
       const _$8da5087c0b3f2cce06998d453af8ad19Serializer();
   static _$8da5087c0b3f2cce06998d453af8ad19 _fromJson(Object? json) =>
@@ -526,10 +528,10 @@ extension $523892e2348458a2bdb28f9f942dca37Extension on _$523892e2348458a2bdb28f
   List<dynamic> get _values => [baseAllOf, baseAnyOf1, baseNestedAnyOf3, baseOneOf, $int];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$523892e2348458a2bdb28f9f942dca37> get _serializer =>
       const _$523892e2348458a2bdb28f9f942dca37Serializer();
   static _$523892e2348458a2bdb28f9f942dca37 _fromJson(Object? json) =>
@@ -627,10 +629,10 @@ extension $abe6d27882a5771a98ede04cd64de567Extension on _$abe6d27882a5771a98ede0
   List<dynamic> get _values => [baseOneOf1, $num];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$abe6d27882a5771a98ede04cd64de567> get _serializer =>
       const _$abe6d27882a5771a98ede04cd64de567Serializer();
   static _$abe6d27882a5771a98ede04cd64de567 _fromJson(Object? json) =>

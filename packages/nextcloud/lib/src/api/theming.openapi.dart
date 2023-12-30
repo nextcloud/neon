@@ -4,6 +4,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -14,7 +15,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:dynamite_runtime/utils.dart' as _i1;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -294,7 +295,11 @@ class $IconClient {
     _parameters['app'] = $app;
 
     final $image = _$jsonSerializers.serialize(image, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($image as String?, RegExp(r'^.+$'), 'image');
+    _i1.checkPattern(
+      $image as String?,
+      RegExp(r'^.+$'),
+      'image',
+    );
     _parameters['image'] = $image;
 
     final _path = UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(_parameters);
@@ -662,7 +667,7 @@ class $UserThemeClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/index.php/apps/theming/background';
     return DynamiteRawResponse<Uint8List, void>(
@@ -774,7 +779,7 @@ class $UserThemeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/index.php/apps/theming/background/{type}{?value*,color*}').expand(_parameters);
     return DynamiteRawResponse<Background, void>(
@@ -852,7 +857,7 @@ class $UserThemeClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/index.php/apps/theming/background/custom';
     return DynamiteRawResponse<Background, void>(
@@ -947,7 +952,7 @@ class $UserThemeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(_parameters);
     return DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void>(
@@ -1042,7 +1047,7 @@ class $UserThemeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(_parameters);
     return DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void>(
@@ -1101,7 +1106,11 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
-    dynamite_utils.checkMinLength(b.src, 1, 'src');
+    _i1.checkMinLength(
+      b.src,
+      1,
+      'src',
+    );
   }
 }
 

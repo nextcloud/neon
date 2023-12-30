@@ -32,7 +32,7 @@ TypeResultObject resolveObject(
     }
 
     final defaults = ListBuilder<String>();
-    final validators = ListBuilder<String>();
+    final validators = ListBuilder<Expression>();
     final methods = ListBuilder<Method>();
     // resolveInterface is not suitable here as we need the resolved result.
     for (final property in properties) {
@@ -74,9 +74,13 @@ TypeResultObject resolveObject(
       }
 
       if (result is TypeResultOneOf && !result.isSingleValue) {
-        validators.add('b.$dartName?.validateOneOf();');
+        validators.add(
+          refer('b').property(dartName).nullSafeProperty('validateOneOf').call([]),
+        );
       } else if (result is TypeResultAnyOf && !result.isSingleValue) {
-        validators.add('b.$dartName?.validateAnyOf();');
+        validators.add(
+          refer('b').property(dartName).nullSafeProperty('validateAnyOf').call([]),
+        );
       }
 
       validators.addAll(buildPatternCheck(propertySchema, 'b.$dartName', dartName));

@@ -4,6 +4,8 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
@@ -12,7 +14,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:dynamite_runtime/utils.dart' as _i1;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -135,7 +137,7 @@ class $HeartbeatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/heartbeat{?status*}').expand(_parameters);
     return DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void>(
@@ -220,7 +222,7 @@ class $PredefinedStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
     return DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void>(
@@ -326,7 +328,7 @@ class $StatusesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(_parameters);
     return DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void>(
@@ -419,7 +421,7 @@ class $StatusesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(_parameters);
     return DynamiteRawResponse<StatusesFindResponseApplicationJson, void>(
@@ -506,7 +508,7 @@ class $UserStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
     return DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void>(
@@ -599,7 +601,7 @@ class $UserStatusClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/status{?statusType*}').expand(_parameters);
@@ -701,7 +703,7 @@ class $UserStatusClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined{?messageId*,clearAt*}')
@@ -812,7 +814,7 @@ class $UserStatusClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom{?statusIcon*,message*,clearAt*}')
@@ -894,7 +896,7 @@ class $UserStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
     return DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void>(
@@ -985,7 +987,7 @@ class $UserStatusClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(_parameters);
     return DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void>(
@@ -2190,10 +2192,10 @@ extension $557344b3ba734aacc7109e5420fcb6c5Extension on _$557344b3ba734aacc7109e
   List<dynamic> get _values => [clearAtTimeType, $int];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$557344b3ba734aacc7109e5420fcb6c5> get _serializer =>
       const _$557344b3ba734aacc7109e5420fcb6c5Serializer();
   static _$557344b3ba734aacc7109e5420fcb6c5 _fromJson(Object? json) =>
@@ -2260,10 +2262,10 @@ extension $d77829de8b7590d2e16cdb714800f5beExtension on _$d77829de8b7590d2e16cdb
   List<dynamic> get _values => [builtListNever, private];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$d77829de8b7590d2e16cdb714800f5be> get _serializer =>
       const _$d77829de8b7590d2e16cdb714800f5beSerializer();
   static _$d77829de8b7590d2e16cdb714800f5be _fromJson(Object? json) =>

@@ -296,7 +296,7 @@ Iterable<Method> buildTags(
           ),
         );
 
-        code.writeln(buildParameterSerialization(result, parameter));
+        code.writeln(buildParameterSerialization(result, parameter, state));
       }
       resolveMimeTypeEncode(operation, spec, state, operationName, operationParameters).forEach(code.writeln);
 
@@ -465,6 +465,7 @@ return rawResponse.future;
 String buildParameterSerialization(
   TypeResult result,
   openapi.Parameter parameter,
+  State state,
 ) {
   final $default = parameter.schema?.$default;
   var defaultValueCode = $default?.value;
@@ -484,12 +485,25 @@ String buildParameterSerialization(
   }
 
   if (parameter.schema != null) {
-    buildPatternCheck(parameter.schema!, serializedName, dartName).forEach(buffer.writeln);
+    // TODO: migrate the entire client generation to code_builder
+    buildPatternCheck(parameter.schema!, serializedName, dartName).forEach(
+      (l) => buffer.writeln(
+        l.statement.accept(state.emitter),
+      ),
+    );
   }
 
   if (parameter.$in == openapi.ParameterType.header) {
-    final assignment =
-        "_headers['${parameter.pctEncodedName}'] = const dynamite_utils.HeaderEncoder(explode: ${parameter.explode}).convert($serializedName);";
+    final assignment = refer('_headers')
+        .index(literalString(parameter.pctEncodedName))
+        .assign(
+          refer('HeaderEncoder', 'package:dynamite_runtime/utils.dart')
+              .call([], {'explode': literalBool(parameter.explode)})
+              .property('convert')
+              .call([refer(serializedName)]),
+        )
+        .statement
+        .accept(state.emitter);
 
     if ($default == null) {
       buffer

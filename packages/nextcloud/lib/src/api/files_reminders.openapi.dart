@@ -4,6 +4,8 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
@@ -11,7 +13,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:dynamite_runtime/utils.dart' as _i1;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -125,7 +127,11 @@ class $ApiClient {
 
 // coverage:ignore-end
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
+    _i1.checkPattern(
+      $version as String?,
+      RegExp(r'^1$'),
+      'version',
+    );
     _parameters['version'] = $version;
 
     final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
@@ -133,7 +139,7 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     return DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
@@ -241,7 +247,11 @@ class $ApiClient {
     _parameters['dueDate'] = $dueDate;
 
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
+    _i1.checkPattern(
+      $version as String?,
+      RegExp(r'^1$'),
+      'version',
+    );
     _parameters['version'] = $version;
 
     final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
@@ -249,7 +259,7 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
@@ -346,7 +356,11 @@ class $ApiClient {
 
 // coverage:ignore-end
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
+    _i1.checkPattern(
+      $version as String?,
+      RegExp(r'^1$'),
+      'version',
+    );
     _parameters['version'] = $version;
 
     final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
@@ -354,7 +368,7 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     return DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(

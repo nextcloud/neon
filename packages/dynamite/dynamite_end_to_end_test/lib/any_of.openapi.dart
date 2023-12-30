@@ -5,11 +5,13 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:dynamite_runtime/utils.dart' as _i1;
 import 'package:meta/meta.dart';
 
 part 'any_of.openapi.g.dart';
@@ -176,10 +178,10 @@ extension $0c9017d9a03ba2eb2f15acadeab85bbeExtension on _$0c9017d9a03ba2eb2f15ac
   List<dynamic> get _values => [objectAnyOf0, objectAnyOf1];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$0c9017d9a03ba2eb2f15acadeab85bbe> get _serializer =>
       const _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer();
   static _$0c9017d9a03ba2eb2f15acadeab85bbe _fromJson(Object? json) =>
@@ -245,10 +247,10 @@ extension $fba45e085ee99d64c5141852d4323e3dExtension on _$fba45e085ee99d64c51418
   List<dynamic> get _values => [mixedAnyOf1, string];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$fba45e085ee99d64c5141852d4323e3d> get _serializer =>
       const _$fba45e085ee99d64c5141852d4323e3dSerializer();
   static _$fba45e085ee99d64c5141852d4323e3d _fromJson(Object? json) =>
@@ -314,10 +316,10 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8
   List<dynamic> get _values => [$num, string];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(_values);
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
