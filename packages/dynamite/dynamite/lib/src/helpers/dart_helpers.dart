@@ -96,6 +96,7 @@ const _reservedNames = [
   'on',
   'operator',
   'part',
+  'RegExp',
   'rethrow',
   'return',
   'set',

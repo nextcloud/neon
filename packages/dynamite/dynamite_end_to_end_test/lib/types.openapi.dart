@@ -24,6 +24,7 @@ typedef $Uri = dynamic;
 typedef $Uint8List = dynamic;
 typedef $List = dynamic;
 typedef $Map = dynamic;
+typedef $RegExp = dynamic;
 
 @BuiltValue(instantiable: false)
 abstract interface class $BaseInterface {

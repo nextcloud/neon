@@ -69,6 +69,9 @@
             },
             "Map": {
                 "type": "object"
+            },
+            "RegExp": {
+                "type": "object"
             }
         }
     },
