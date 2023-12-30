@@ -9,17 +9,17 @@ import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i2;
+import 'package:built_value/standard_json_plugin.dart' as _i3;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i1;
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i2;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 part 'settings.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -30,7 +30,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -43,7 +43,7 @@ class $Client extends DynamiteClient {
 }
 
 class $LogSettingsClient {
-  /// Creates a new [DynamiteClient] for log_settings requests.
+  /// Creates a new `DynamiteClient` for log_settings requests.
   $LogSettingsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -52,15 +52,15 @@ class $LogSettingsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Logfile returned
   ///
   /// See:
-  ///  * [downloadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
+  ///  * [downloadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
     final rawResponse = downloadRaw();
 
     return rawResponse.future;
@@ -72,16 +72,16 @@ class $LogSettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Logfile returned
   ///
   /// See:
-  ///  * [download] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [download] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
+  _i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
     final _headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
@@ -89,7 +89,7 @@ class $LogSettingsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -104,7 +104,7 @@ class $LogSettingsClient {
 
 // coverage:ignore-end
     const _path = '/index.php/settings/admin/log/download';
-    return DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
+    return _i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -179,9 +179,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i1.DynamiteDoubleSerializer())
-      ..addPlugin(_i2.StandardJsonPlugin())
-      ..addPlugin(const _i1.HeaderPlugin())
-      ..addPlugin(const _i1.ContentStringPlugin()))
+      ..add(_i2.DynamiteDoubleSerializer())
+      ..addPlugin(_i3.StandardJsonPlugin())
+      ..addPlugin(const _i2.HeaderPlugin())
+      ..addPlugin(const _i2.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

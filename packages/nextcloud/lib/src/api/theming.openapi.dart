@@ -11,19 +11,19 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i2;
-import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart' as _i1;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:dynamite_runtime/utils.dart' as _i2;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
 
 part 'theming.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -34,7 +34,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -53,15 +53,15 @@ class $Client extends DynamiteClient {
 }
 
 class $IconClient {
-  /// Creates a new [DynamiteClient] for icon requests.
+  /// Creates a new `DynamiteClient` for icon requests.
   $IconClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Return a 32x32 favicon as png.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app. Defaults to `core`.
@@ -72,8 +72,8 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getFaviconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getFavicon({String? app}) async {
+  ///  * [getFaviconRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getFavicon({String? app}) async {
     final rawResponse = getFaviconRaw(
       app: app,
     );
@@ -85,8 +85,8 @@ class $IconClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app. Defaults to `core`.
@@ -97,9 +97,9 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getFavicon] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getFavicon] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> getFaviconRaw({String? app}) {
+  _i1.DynamiteRawResponse<Uint8List, void> getFaviconRaw({String? app}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'image/x-icon',
@@ -108,7 +108,7 @@ class $IconClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -125,7 +125,7 @@ class $IconClient {
     _parameters['app'] = $app;
 
     final _path = UriTemplate('/index.php/apps/theming/favicon/{app}').expand(_parameters);
-    return DynamiteRawResponse<Uint8List, void>(
+    return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -141,8 +141,8 @@ class $IconClient {
 
   /// Return a 512x512 icon for touch devices.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app. Defaults to `core`.
@@ -153,8 +153,8 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getTouchIconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getTouchIcon({String? app}) async {
+  ///  * [getTouchIconRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getTouchIcon({String? app}) async {
     final rawResponse = getTouchIconRaw(
       app: app,
     );
@@ -166,8 +166,8 @@ class $IconClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app. Defaults to `core`.
@@ -178,9 +178,9 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getTouchIcon] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getTouchIcon] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> getTouchIconRaw({String? app}) {
+  _i1.DynamiteRawResponse<Uint8List, void> getTouchIconRaw({String? app}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'image/png',
@@ -189,7 +189,7 @@ class $IconClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -206,7 +206,7 @@ class $IconClient {
     _parameters['app'] = $app;
 
     final _path = UriTemplate('/index.php/apps/theming/icon/{app}').expand(_parameters);
-    return DynamiteRawResponse<Uint8List, void>(
+    return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -222,8 +222,8 @@ class $IconClient {
 
   /// Get a themed icon.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -235,8 +235,8 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getThemedIconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getThemedIcon({
+  ///  * [getThemedIconRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getThemedIcon({
     required String app,
     required String image,
   }) async {
@@ -252,8 +252,8 @@ class $IconClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -265,9 +265,9 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getThemedIcon] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getThemedIcon] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> getThemedIconRaw({
+  _i1.DynamiteRawResponse<Uint8List, void> getThemedIconRaw({
     required String app,
     required String image,
   }) {
@@ -279,7 +279,7 @@ class $IconClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -295,7 +295,7 @@ class $IconClient {
     _parameters['app'] = $app;
 
     final $image = _$jsonSerializers.serialize(image, specifiedType: const FullType(String));
-    _i1.checkPattern(
+    _i2.checkPattern(
       $image as String?,
       RegExp(r'^.+$'),
       'image',
@@ -303,7 +303,7 @@ class $IconClient {
     _parameters['image'] = $image;
 
     final _path = UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(_parameters);
-    return DynamiteRawResponse<Uint8List, void>(
+    return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -321,15 +321,15 @@ class $IconClient {
 /// Class ThemingController.
 /// handle ajax requests to update the theme.
 class $ThemingClient {
-  /// Creates a new [DynamiteClient] for theming requests.
+  /// Creates a new `DynamiteClient` for theming requests.
   $ThemingClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get the CSS stylesheet for a theme.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [plain] Let the browser decide the CSS priority. Defaults to `0`.
@@ -341,8 +341,8 @@ class $ThemingClient {
   ///   * 404: Theme not found
   ///
   /// See:
-  ///  * [getThemeStylesheetRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<String, void>> getThemeStylesheet({
+  ///  * [getThemeStylesheetRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<String, void>> getThemeStylesheet({
     required String themeId,
     int? plain,
     int? withCustomCss,
@@ -360,8 +360,8 @@ class $ThemingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [plain] Let the browser decide the CSS priority. Defaults to `0`.
@@ -373,9 +373,9 @@ class $ThemingClient {
   ///   * 404: Theme not found
   ///
   /// See:
-  ///  * [getThemeStylesheet] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getThemeStylesheet] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<String, void> getThemeStylesheetRaw({
+  _i1.DynamiteRawResponse<String, void> getThemeStylesheetRaw({
     required String themeId,
     int? plain,
     int? withCustomCss,
@@ -388,7 +388,7 @@ class $ThemingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -413,7 +413,7 @@ class $ThemingClient {
 
     final _path =
         UriTemplate('/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}').expand(_parameters);
-    return DynamiteRawResponse<String, void>(
+    return _i1.DynamiteRawResponse<String, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -429,8 +429,8 @@ class $ThemingClient {
 
   /// Get an image.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [useSvg] Return image as SVG. Defaults to `1`.
@@ -442,8 +442,8 @@ class $ThemingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getImageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getImage({
+  ///  * [getImageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getImage({
     required String key,
     int? useSvg,
   }) async {
@@ -459,8 +459,8 @@ class $ThemingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [useSvg] Return image as SVG. Defaults to `1`.
@@ -472,9 +472,9 @@ class $ThemingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getImage] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getImage] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> getImageRaw({
+  _i1.DynamiteRawResponse<Uint8List, void> getImageRaw({
     required String key,
     int? useSvg,
   }) {
@@ -486,7 +486,7 @@ class $ThemingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -506,7 +506,7 @@ class $ThemingClient {
     _parameters['useSvg'] = $useSvg;
 
     final _path = UriTemplate('/index.php/apps/theming/image/{key}{?useSvg*}').expand(_parameters);
-    return DynamiteRawResponse<Uint8List, void>(
+    return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -522,8 +522,8 @@ class $ThemingClient {
 
   /// Get the manifest for an app.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app. Defaults to `core`.
@@ -532,8 +532,8 @@ class $ThemingClient {
   ///   * 200: Manifest returned
   ///
   /// See:
-  ///  * [getManifestRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ThemingGetManifestResponseApplicationJson, void>> getManifest({String? app}) async {
+  ///  * [getManifestRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ThemingGetManifestResponseApplicationJson, void>> getManifest({String? app}) async {
     final rawResponse = getManifestRaw(
       app: app,
     );
@@ -545,8 +545,8 @@ class $ThemingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app. Defaults to `core`.
@@ -555,9 +555,9 @@ class $ThemingClient {
   ///   * 200: Manifest returned
   ///
   /// See:
-  ///  * [getManifest] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getManifest] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({String? app}) {
+  _i1.DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({String? app}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -566,7 +566,7 @@ class $ThemingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -583,7 +583,7 @@ class $ThemingClient {
     _parameters['app'] = $app;
 
     final _path = UriTemplate('/index.php/apps/theming/manifest/{app}').expand(_parameters);
-    return DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -599,15 +599,15 @@ class $ThemingClient {
 }
 
 class $UserThemeClient {
-  /// Creates a new [DynamiteClient] for user_theme requests.
+  /// Creates a new `DynamiteClient` for user_theme requests.
   $UserThemeClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get the background image.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -617,8 +617,8 @@ class $UserThemeClient {
   ///   * 404: Background image not found
   ///
   /// See:
-  ///  * [getBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getBackground({bool? oCSAPIRequest}) async {
+  ///  * [getBackgroundRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getBackground({bool? oCSAPIRequest}) async {
     final rawResponse = getBackgroundRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -630,8 +630,8 @@ class $UserThemeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -641,9 +641,9 @@ class $UserThemeClient {
   ///   * 404: Background image not found
   ///
   /// See:
-  ///  * [getBackground] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getBackground] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> getBackgroundRaw({bool? oCSAPIRequest}) {
+  _i1.DynamiteRawResponse<Uint8List, void> getBackgroundRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
@@ -651,7 +651,7 @@ class $UserThemeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -667,10 +667,10 @@ class $UserThemeClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/index.php/apps/theming/background';
-    return DynamiteRawResponse<Uint8List, void>(
+    return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -686,8 +686,8 @@ class $UserThemeClient {
 
   /// Set the background.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [value] Path of the background image. Defaults to `''`.
@@ -701,8 +701,8 @@ class $UserThemeClient {
   ///   * 500
   ///
   /// See:
-  ///  * [setBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Background, void>> setBackground({
+  ///  * [setBackgroundRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Background, void>> setBackground({
     required String type,
     String? value,
     String? color,
@@ -722,8 +722,8 @@ class $UserThemeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [value] Path of the background image. Defaults to `''`.
@@ -737,9 +737,9 @@ class $UserThemeClient {
   ///   * 500
   ///
   /// See:
-  ///  * [setBackground] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [setBackground] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Background, void> setBackgroundRaw({
+  _i1.DynamiteRawResponse<Background, void> setBackgroundRaw({
     required String type,
     String? value,
     String? color,
@@ -753,7 +753,7 @@ class $UserThemeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -779,10 +779,10 @@ class $UserThemeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/index.php/apps/theming/background/{type}{?value*,color*}').expand(_parameters);
-    return DynamiteRawResponse<Background, void>(
+    return _i1.DynamiteRawResponse<Background, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -798,8 +798,8 @@ class $UserThemeClient {
 
   /// Delete the background.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -808,8 +808,8 @@ class $UserThemeClient {
   ///   * 200: Background deleted successfully
   ///
   /// See:
-  ///  * [deleteBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Background, void>> deleteBackground({bool? oCSAPIRequest}) async {
+  ///  * [deleteBackgroundRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Background, void>> deleteBackground({bool? oCSAPIRequest}) async {
     final rawResponse = deleteBackgroundRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -821,8 +821,8 @@ class $UserThemeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -831,9 +831,9 @@ class $UserThemeClient {
   ///   * 200: Background deleted successfully
   ///
   /// See:
-  ///  * [deleteBackground] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [deleteBackground] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Background, void> deleteBackgroundRaw({bool? oCSAPIRequest}) {
+  _i1.DynamiteRawResponse<Background, void> deleteBackgroundRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -841,7 +841,7 @@ class $UserThemeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -857,10 +857,10 @@ class $UserThemeClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/index.php/apps/theming/background/custom';
-    return DynamiteRawResponse<Background, void>(
+    return _i1.DynamiteRawResponse<Background, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -876,8 +876,8 @@ class $UserThemeClient {
 
   /// Enable theme.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [themeId] the theme ID.
@@ -889,8 +889,8 @@ class $UserThemeClient {
   ///   * 500
   ///
   /// See:
-  ///  * [enableThemeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UserThemeEnableThemeResponseApplicationJson, void>> enableTheme({
+  ///  * [enableThemeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UserThemeEnableThemeResponseApplicationJson, void>> enableTheme({
     required String themeId,
     bool? oCSAPIRequest,
   }) async {
@@ -906,8 +906,8 @@ class $UserThemeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [themeId] the theme ID.
@@ -919,9 +919,9 @@ class $UserThemeClient {
   ///   * 500
   ///
   /// See:
-  ///  * [enableTheme] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [enableTheme] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void> enableThemeRaw({
+  _i1.DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void> enableThemeRaw({
     required String themeId,
     bool? oCSAPIRequest,
   }) {
@@ -933,7 +933,7 @@ class $UserThemeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -952,10 +952,10 @@ class $UserThemeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(_parameters);
-    return DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -971,8 +971,8 @@ class $UserThemeClient {
 
   /// Disable theme.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [themeId] the theme ID.
@@ -984,8 +984,8 @@ class $UserThemeClient {
   ///   * 500
   ///
   /// See:
-  ///  * [disableThemeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UserThemeDisableThemeResponseApplicationJson, void>> disableTheme({
+  ///  * [disableThemeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UserThemeDisableThemeResponseApplicationJson, void>> disableTheme({
     required String themeId,
     bool? oCSAPIRequest,
   }) async {
@@ -1001,8 +1001,8 @@ class $UserThemeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [themeId] the theme ID.
@@ -1014,9 +1014,9 @@ class $UserThemeClient {
   ///   * 500
   ///
   /// See:
-  ///  * [disableTheme] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [disableTheme] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void> disableThemeRaw({
+  _i1.DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void> disableThemeRaw({
     required String themeId,
     bool? oCSAPIRequest,
   }) {
@@ -1028,7 +1028,7 @@ class $UserThemeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1047,10 +1047,10 @@ class $UserThemeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(_parameters);
-    return DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -1106,7 +1106,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
-    _i1.checkMinLength(
+    _i2.checkMinLength(
       b.src,
       1,
       'src',
@@ -1533,9 +1533,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

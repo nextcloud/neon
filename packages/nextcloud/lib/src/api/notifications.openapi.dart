@@ -10,19 +10,19 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i2;
-import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart' as _i1;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:dynamite_runtime/utils.dart' as _i2;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
 
 part 'notifications.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -33,7 +33,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -52,7 +52,7 @@ class $Client extends DynamiteClient {
 }
 
 class $ApiClient {
-  /// Creates a new [DynamiteClient] for api requests.
+  /// Creates a new `DynamiteClient` for api requests.
   $ApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -61,8 +61,8 @@ class $ApiClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [shortMessage] Subject of the notification.
@@ -78,8 +78,8 @@ class $ApiClient {
   ///   * 500
   ///
   /// See:
-  ///  * [generateNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ApiGenerateNotificationResponseApplicationJson, void>> generateNotification({
+  ///  * [generateNotificationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ApiGenerateNotificationResponseApplicationJson, void>> generateNotification({
     required String shortMessage,
     required String userId,
     String? longMessage,
@@ -103,8 +103,8 @@ class $ApiClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [shortMessage] Subject of the notification.
@@ -120,9 +120,9 @@ class $ApiClient {
   ///   * 500
   ///
   /// See:
-  ///  * [generateNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [generateNotification] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void> generateNotificationRaw({
+  _i1.DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void> generateNotificationRaw({
     required String shortMessage,
     required String userId,
     String? longMessage,
@@ -137,7 +137,7 @@ class $ApiClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -168,12 +168,12 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}{?shortMessage*,longMessage*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -189,15 +189,15 @@ class $ApiClient {
 }
 
 class $EndpointClient {
-  /// Creates a new [DynamiteClient] for endpoint requests.
+  /// Creates a new `DynamiteClient` for endpoint requests.
   $EndpointClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get all notifications.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
@@ -208,8 +208,10 @@ class $EndpointClient {
   ///   * 204: No app uses notifications
   ///
   /// See:
-  ///  * [listNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>>
+  ///  * [listNotificationsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<
+          _i1
+          .DynamiteResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>>
       listNotifications({
     EndpointListNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -226,8 +228,8 @@ class $EndpointClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
@@ -238,9 +240,9 @@ class $EndpointClient {
   ///   * 204: No app uses notifications
   ///
   /// See:
-  ///  * [listNotifications] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [listNotifications] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>
+  _i1.DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>
       listNotificationsRaw({
     EndpointListNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -253,7 +255,7 @@ class $EndpointClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -274,10 +276,10 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
-    return DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson,
+    return _i1.DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson,
         EndpointEndpointListNotificationsHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -294,8 +296,8 @@ class $EndpointClient {
 
   /// Delete all notifications.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v2`.
@@ -306,8 +308,8 @@ class $EndpointClient {
   ///   * 403: Deleting notification for impersonated user is not allowed
   ///
   /// See:
-  ///  * [deleteAllNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>> deleteAllNotifications({
+  ///  * [deleteAllNotificationsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>> deleteAllNotifications({
     EndpointDeleteAllNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -323,8 +325,8 @@ class $EndpointClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v2`.
@@ -335,9 +337,9 @@ class $EndpointClient {
   ///   * 403: Deleting notification for impersonated user is not allowed
   ///
   /// See:
-  ///  * [deleteAllNotifications] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [deleteAllNotifications] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void> deleteAllNotificationsRaw({
+  _i1.DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void> deleteAllNotificationsRaw({
     EndpointDeleteAllNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -349,7 +351,7 @@ class $EndpointClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -372,10 +374,10 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
-    return DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -391,8 +393,8 @@ class $EndpointClient {
 
   /// Get a notification.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
@@ -404,8 +406,8 @@ class $EndpointClient {
   ///   * 404: Notification not found
   ///
   /// See:
-  ///  * [getNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<EndpointGetNotificationResponseApplicationJson, void>> getNotification({
+  ///  * [getNotificationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<EndpointGetNotificationResponseApplicationJson, void>> getNotification({
     required int id,
     EndpointGetNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -423,8 +425,8 @@ class $EndpointClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
@@ -436,9 +438,9 @@ class $EndpointClient {
   ///   * 404: Notification not found
   ///
   /// See:
-  ///  * [getNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getNotification] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void> getNotificationRaw({
+  _i1.DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void> getNotificationRaw({
     required int id,
     EndpointGetNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -451,7 +453,7 @@ class $EndpointClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -475,10 +477,10 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
-    return DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -494,8 +496,8 @@ class $EndpointClient {
 
   /// Delete a notification.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v2`.
@@ -508,8 +510,8 @@ class $EndpointClient {
   ///   * 404: Notification not found
   ///
   /// See:
-  ///  * [deleteNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<EndpointDeleteNotificationResponseApplicationJson, void>> deleteNotification({
+  ///  * [deleteNotificationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<EndpointDeleteNotificationResponseApplicationJson, void>> deleteNotification({
     required int id,
     EndpointDeleteNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -527,8 +529,8 @@ class $EndpointClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v2`.
@@ -541,9 +543,9 @@ class $EndpointClient {
   ///   * 404: Notification not found
   ///
   /// See:
-  ///  * [deleteNotification] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [deleteNotification] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void> deleteNotificationRaw({
+  _i1.DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void> deleteNotificationRaw({
     required int id,
     EndpointDeleteNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -556,7 +558,7 @@ class $EndpointClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -580,10 +582,10 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
-    return DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -599,8 +601,8 @@ class $EndpointClient {
 
   /// Check if notification IDs exist.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [ids] IDs of the notifications to check.
@@ -612,8 +614,8 @@ class $EndpointClient {
   ///   * 400: Too many notification IDs requested
   ///
   /// See:
-  ///  * [confirmIdsForUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>> confirmIdsForUser({
+  ///  * [confirmIdsForUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>> confirmIdsForUser({
     required BuiltList<int> ids,
     EndpointConfirmIdsForUserApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -631,8 +633,8 @@ class $EndpointClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [ids] IDs of the notifications to check.
@@ -644,9 +646,9 @@ class $EndpointClient {
   ///   * 400: Too many notification IDs requested
   ///
   /// See:
-  ///  * [confirmIdsForUser] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [confirmIdsForUser] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void> confirmIdsForUserRaw({
+  _i1.DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void> confirmIdsForUserRaw({
     required BuiltList<int> ids,
     EndpointConfirmIdsForUserApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -659,7 +661,7 @@ class $EndpointClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -683,17 +685,20 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
         .expand(_parameters);
-    return DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(EndpointConfirmIdsForUserResponseApplicationJson),
       headersType: null,
@@ -703,15 +708,15 @@ class $EndpointClient {
 }
 
 class $PushClient {
-  /// Creates a new [DynamiteClient] for push requests.
+  /// Creates a new `DynamiteClient` for push requests.
   $PushClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Register device for push notifications.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [pushTokenHash] Hash of the push token.
@@ -727,8 +732,8 @@ class $PushClient {
   ///   * 401: Missing permissions to register device
   ///
   /// See:
-  ///  * [registerDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PushRegisterDeviceResponseApplicationJson, void>> registerDevice({
+  ///  * [registerDeviceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PushRegisterDeviceResponseApplicationJson, void>> registerDevice({
     required String pushTokenHash,
     required String devicePublicKey,
     required String proxyServer,
@@ -750,8 +755,8 @@ class $PushClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [pushTokenHash] Hash of the push token.
@@ -767,9 +772,9 @@ class $PushClient {
   ///   * 401: Missing permissions to register device
   ///
   /// See:
-  ///  * [registerDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [registerDevice] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void> registerDeviceRaw({
+  _i1.DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void> registerDeviceRaw({
     required String pushTokenHash,
     required String devicePublicKey,
     required String proxyServer,
@@ -784,7 +789,7 @@ class $PushClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -814,18 +819,21 @@ class $PushClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/push{?pushTokenHash*,devicePublicKey*,proxyServer*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 201},
+        const {
+          200,
+          201,
+        },
       ),
       bodyType: const FullType(PushRegisterDeviceResponseApplicationJson),
       headersType: null,
@@ -835,8 +843,8 @@ class $PushClient {
 
   /// Remove a device from push notifications.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v2`.
@@ -849,8 +857,8 @@ class $PushClient {
   ///   * 400: Removing device is not possible
   ///
   /// See:
-  ///  * [removeDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PushRemoveDeviceResponseApplicationJson, void>> removeDevice({
+  ///  * [removeDeviceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PushRemoveDeviceResponseApplicationJson, void>> removeDevice({
     PushRemoveDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -866,8 +874,8 @@ class $PushClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v2`.
@@ -880,9 +888,9 @@ class $PushClient {
   ///   * 400: Removing device is not possible
   ///
   /// See:
-  ///  * [removeDevice] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [removeDevice] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void> removeDeviceRaw({
+  _i1.DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void> removeDeviceRaw({
     PushRemoveDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -894,7 +902,7 @@ class $PushClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -915,16 +923,20 @@ class $PushClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(_parameters);
-    return DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 202, 401},
+        const {
+          200,
+          202,
+          401,
+        },
       ),
       bodyType: const FullType(PushRemoveDeviceResponseApplicationJson),
       headersType: null,
@@ -934,15 +946,15 @@ class $PushClient {
 }
 
 class $SettingsClient {
-  /// Creates a new [DynamiteClient] for settings requests.
+  /// Creates a new `DynamiteClient` for settings requests.
   $SettingsClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Update personal notification settings.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
@@ -955,8 +967,8 @@ class $SettingsClient {
   ///   * 200: Personal settings updated
   ///
   /// See:
-  ///  * [personalRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SettingsPersonalResponseApplicationJson, void>> personal({
+  ///  * [personalRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SettingsPersonalResponseApplicationJson, void>> personal({
     required int batchSetting,
     required String soundNotification,
     required String soundTalk,
@@ -978,8 +990,8 @@ class $SettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
@@ -992,9 +1004,9 @@ class $SettingsClient {
   ///   * 200: Personal settings updated
   ///
   /// See:
-  ///  * [personal] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [personal] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void> personalRaw({
+  _i1.DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void> personalRaw({
     required int batchSetting,
     required String soundNotification,
     required String soundTalk,
@@ -1009,7 +1021,7 @@ class $SettingsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1039,12 +1051,12 @@ class $SettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings{?batchSetting*,soundNotification*,soundTalk*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -1062,8 +1074,8 @@ class $SettingsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
@@ -1076,8 +1088,8 @@ class $SettingsClient {
   ///   * 200: Admin settings updated
   ///
   /// See:
-  ///  * [adminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SettingsAdminResponseApplicationJson, void>> admin({
+  ///  * [adminRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SettingsAdminResponseApplicationJson, void>> admin({
     required int batchSetting,
     required String soundNotification,
     required String soundTalk,
@@ -1101,8 +1113,8 @@ class $SettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
@@ -1115,9 +1127,9 @@ class $SettingsClient {
   ///   * 200: Admin settings updated
   ///
   /// See:
-  ///  * [admin] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [admin] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<SettingsAdminResponseApplicationJson, void> adminRaw({
+  _i1.DynamiteRawResponse<SettingsAdminResponseApplicationJson, void> adminRaw({
     required int batchSetting,
     required String soundNotification,
     required String soundTalk,
@@ -1132,7 +1144,7 @@ class $SettingsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1161,12 +1173,12 @@ class $SettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin{?batchSetting*,soundNotification*,soundTalk*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<SettingsAdminResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<SettingsAdminResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -2985,9 +2997,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -89,7 +89,6 @@ class OpenAPIBuilder implements Builder {
             Directive.import('package:built_value/json_object.dart'),
             Directive.import('package:built_value/serializer.dart'),
             Directive.import('package:collection/collection.dart'),
-            Directive.import('package:dynamite_runtime/http_client.dart'),
             Directive.import('package:dynamite_runtime/models.dart'),
             Directive.import('package:meta/meta.dart'),
             Directive.import('package:universal_io/io.dart'),

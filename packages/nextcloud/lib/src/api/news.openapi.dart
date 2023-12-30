@@ -11,18 +11,18 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i2;
+import 'package:built_value/standard_json_plugin.dart' as _i3;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i1;
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i2;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
 
 part 'news.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -33,7 +33,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -42,15 +42,15 @@ class $Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [getSupportedApiVersionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SupportedAPIVersions, void>> getSupportedApiVersions() async {
+  ///  * [getSupportedApiVersionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SupportedAPIVersions, void>> getSupportedApiVersions() async {
     final rawResponse = getSupportedApiVersionsRaw();
 
     return rawResponse.future;
@@ -58,16 +58,16 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [getSupportedApiVersions] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getSupportedApiVersions] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
+  _i1.DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -75,7 +75,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -90,7 +90,7 @@ class $Client extends DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/news/api';
-    return DynamiteRawResponse<SupportedAPIVersions, void>(
+    return _i1.DynamiteRawResponse<SupportedAPIVersions, void>(
       response: executeRequest(
         'get',
         _path,
@@ -104,15 +104,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [listFoldersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ListFolders, void>> listFolders() async {
+  ///  * [listFoldersRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ListFolders, void>> listFolders() async {
     final rawResponse = listFoldersRaw();
 
     return rawResponse.future;
@@ -120,16 +120,16 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [listFolders] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [listFolders] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
+  _i1.DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -137,7 +137,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -152,7 +152,7 @@ class $Client extends DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/news/api/v1-3/folders';
-    return DynamiteRawResponse<ListFolders, void>(
+    return _i1.DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
         'get',
         _path,
@@ -166,8 +166,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [name]
@@ -176,8 +176,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [createFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ListFolders, void>> createFolder({required String name}) async {
+  ///  * [createFolderRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ListFolders, void>> createFolder({required String name}) async {
     final rawResponse = createFolderRaw(
       name: name,
     );
@@ -187,8 +187,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [name]
@@ -197,9 +197,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [createFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [createFolder] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ListFolders, void> createFolderRaw({required String name}) {
+  _i1.DynamiteRawResponse<ListFolders, void> createFolderRaw({required String name}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -208,7 +208,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -226,7 +226,7 @@ class $Client extends DynamiteClient {
     _parameters['name'] = $name;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
-    return DynamiteRawResponse<ListFolders, void>(
+    return _i1.DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
         'post',
         _path,
@@ -240,8 +240,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [name]
@@ -250,8 +250,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [renameFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> renameFolder({
+  ///  * [renameFolderRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> renameFolder({
     required int folderId,
     required String name,
   }) async {
@@ -265,8 +265,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [name]
@@ -275,9 +275,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [renameFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [renameFolder] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> renameFolderRaw({
+  _i1.DynamiteRawResponse<void, void> renameFolderRaw({
     required int folderId,
     required String name,
   }) {
@@ -287,7 +287,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -308,7 +308,7 @@ class $Client extends DynamiteClient {
     _parameters['name'] = $name;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'put',
         _path,
@@ -322,15 +322,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [deleteFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> deleteFolder({required int folderId}) async {
+  ///  * [deleteFolderRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> deleteFolder({required int folderId}) async {
     final rawResponse = deleteFolderRaw(
       folderId: folderId,
     );
@@ -340,23 +340,23 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [deleteFolder] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [deleteFolder] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> deleteFolderRaw({required int folderId}) {
+  _i1.DynamiteRawResponse<void, void> deleteFolderRaw({required int folderId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -374,7 +374,7 @@ class $Client extends DynamiteClient {
     _parameters['folderId'] = $folderId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
         _path,
@@ -388,8 +388,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [newestItemId] The newest read item.
@@ -398,8 +398,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [markFolderAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> markFolderAsRead({
+  ///  * [markFolderAsReadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> markFolderAsRead({
     required int folderId,
     required int newestItemId,
   }) async {
@@ -413,8 +413,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [newestItemId] The newest read item.
@@ -423,9 +423,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [markFolderAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [markFolderAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> markFolderAsReadRaw({
+  _i1.DynamiteRawResponse<void, void> markFolderAsReadRaw({
     required int folderId,
     required int newestItemId,
   }) {
@@ -435,7 +435,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -457,7 +457,7 @@ class $Client extends DynamiteClient {
 
     final _path =
         UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -471,15 +471,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [listFeedsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ListFeeds, void>> listFeeds() async {
+  ///  * [listFeedsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ListFeeds, void>> listFeeds() async {
     final rawResponse = listFeedsRaw();
 
     return rawResponse.future;
@@ -487,16 +487,16 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [listFeeds] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [listFeeds] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
+  _i1.DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -504,7 +504,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -519,7 +519,7 @@ class $Client extends DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/news/api/v1-3/feeds';
-    return DynamiteRawResponse<ListFeeds, void>(
+    return _i1.DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
         'get',
         _path,
@@ -533,8 +533,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [url]
@@ -544,8 +544,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [addFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ListFeeds, void>> addFeed({
+  ///  * [addFeedRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ListFeeds, void>> addFeed({
     required String url,
     int? folderId,
   }) async {
@@ -559,8 +559,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [url]
@@ -570,9 +570,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [addFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [addFeed] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ListFeeds, void> addFeedRaw({
+  _i1.DynamiteRawResponse<ListFeeds, void> addFeedRaw({
     required String url,
     int? folderId,
   }) {
@@ -584,7 +584,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -605,7 +605,7 @@ class $Client extends DynamiteClient {
     _parameters['folderId'] = $folderId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
-    return DynamiteRawResponse<ListFeeds, void>(
+    return _i1.DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
         'post',
         _path,
@@ -619,15 +619,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [deleteFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> deleteFeed({required int feedId}) async {
+  ///  * [deleteFeedRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> deleteFeed({required int feedId}) async {
     final rawResponse = deleteFeedRaw(
       feedId: feedId,
     );
@@ -637,23 +637,23 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [deleteFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [deleteFeed] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> deleteFeedRaw({required int feedId}) {
+  _i1.DynamiteRawResponse<void, void> deleteFeedRaw({required int feedId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -671,7 +671,7 @@ class $Client extends DynamiteClient {
     _parameters['feedId'] = $feedId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
         _path,
@@ -685,8 +685,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [folderId]
@@ -695,8 +695,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [moveFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> moveFeed({
+  ///  * [moveFeedRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> moveFeed({
     required int feedId,
     int? folderId,
   }) async {
@@ -710,8 +710,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [folderId]
@@ -720,9 +720,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [moveFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [moveFeed] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> moveFeedRaw({
+  _i1.DynamiteRawResponse<void, void> moveFeedRaw({
     required int feedId,
     int? folderId,
   }) {
@@ -732,7 +732,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -753,7 +753,7 @@ class $Client extends DynamiteClient {
     _parameters['folderId'] = $folderId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -767,8 +767,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [feedTitle]
@@ -777,8 +777,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [renameFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> renameFeed({
+  ///  * [renameFeedRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> renameFeed({
     required int feedId,
     required String feedTitle,
   }) async {
@@ -792,8 +792,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [feedTitle]
@@ -802,9 +802,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [renameFeed] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [renameFeed] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> renameFeedRaw({
+  _i1.DynamiteRawResponse<void, void> renameFeedRaw({
     required int feedId,
     required String feedTitle,
   }) {
@@ -814,7 +814,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -835,7 +835,7 @@ class $Client extends DynamiteClient {
     _parameters['feedTitle'] = $feedTitle;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -849,8 +849,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [newestItemId]
@@ -859,8 +859,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [markFeedAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> markFeedAsRead({
+  ///  * [markFeedAsReadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> markFeedAsRead({
     required int feedId,
     required int newestItemId,
   }) async {
@@ -874,8 +874,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [newestItemId]
@@ -884,9 +884,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [markFeedAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [markFeedAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> markFeedAsReadRaw({
+  _i1.DynamiteRawResponse<void, void> markFeedAsReadRaw({
     required int feedId,
     required int newestItemId,
   }) {
@@ -896,7 +896,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -917,7 +917,7 @@ class $Client extends DynamiteClient {
     _parameters['newestItemId'] = $newestItemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -931,8 +931,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [type] Defaults to `3`.
@@ -946,8 +946,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [listArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ListArticles, void>> listArticles({
+  ///  * [listArticlesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ListArticles, void>> listArticles({
     int? type,
     int? id,
     int? getRead,
@@ -969,8 +969,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [type] Defaults to `3`.
@@ -984,9 +984,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [listArticles] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [listArticles] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ListArticles, void> listArticlesRaw({
+  _i1.DynamiteRawResponse<ListArticles, void> listArticlesRaw({
     int? type,
     int? id,
     int? getRead,
@@ -1002,7 +1002,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1043,7 +1043,7 @@ class $Client extends DynamiteClient {
     final _path =
         UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
             .expand(_parameters);
-    return DynamiteRawResponse<ListArticles, void>(
+    return _i1.DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
         'get',
         _path,
@@ -1057,8 +1057,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [type] Defaults to `3`.
@@ -1069,8 +1069,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [listUpdatedArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ListArticles, void>> listUpdatedArticles({
+  ///  * [listUpdatedArticlesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ListArticles, void>> listUpdatedArticles({
     int? type,
     int? id,
     int? lastModified,
@@ -1086,8 +1086,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [type] Defaults to `3`.
@@ -1098,9 +1098,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [listUpdatedArticles] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [listUpdatedArticles] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ListArticles, void> listUpdatedArticlesRaw({
+  _i1.DynamiteRawResponse<ListArticles, void> listUpdatedArticlesRaw({
     int? type,
     int? id,
     int? lastModified,
@@ -1113,7 +1113,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1141,7 +1141,7 @@ class $Client extends DynamiteClient {
 
     final _path =
         UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
-    return DynamiteRawResponse<ListArticles, void>(
+    return _i1.DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
         'get',
         _path,
@@ -1155,15 +1155,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [markArticleAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> markArticleAsRead({required int itemId}) async {
+  ///  * [markArticleAsReadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> markArticleAsRead({required int itemId}) async {
     final rawResponse = markArticleAsReadRaw(
       itemId: itemId,
     );
@@ -1173,23 +1173,23 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [markArticleAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [markArticleAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> markArticleAsReadRaw({required int itemId}) {
+  _i1.DynamiteRawResponse<void, void> markArticleAsReadRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1207,7 +1207,7 @@ class $Client extends DynamiteClient {
     _parameters['itemId'] = $itemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -1221,15 +1221,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [markArticleAsUnreadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> markArticleAsUnread({required int itemId}) async {
+  ///  * [markArticleAsUnreadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> markArticleAsUnread({required int itemId}) async {
     final rawResponse = markArticleAsUnreadRaw(
       itemId: itemId,
     );
@@ -1239,23 +1239,23 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [markArticleAsUnread] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [markArticleAsUnread] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required int itemId}) {
+  _i1.DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1273,7 +1273,7 @@ class $Client extends DynamiteClient {
     _parameters['itemId'] = $itemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -1287,15 +1287,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [starArticleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> starArticle({required int itemId}) async {
+  ///  * [starArticleRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> starArticle({required int itemId}) async {
     final rawResponse = starArticleRaw(
       itemId: itemId,
     );
@@ -1305,23 +1305,23 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [starArticle] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [starArticle] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> starArticleRaw({required int itemId}) {
+  _i1.DynamiteRawResponse<void, void> starArticleRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1339,7 +1339,7 @@ class $Client extends DynamiteClient {
     _parameters['itemId'] = $itemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -1353,15 +1353,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [unstarArticleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> unstarArticle({required int itemId}) async {
+  ///  * [unstarArticleRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> unstarArticle({required int itemId}) async {
     final rawResponse = unstarArticleRaw(
       itemId: itemId,
     );
@@ -1371,23 +1371,23 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [unstarArticle] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [unstarArticle] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> unstarArticleRaw({required int itemId}) {
+  _i1.DynamiteRawResponse<void, void> unstarArticleRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1405,7 +1405,7 @@ class $Client extends DynamiteClient {
     _parameters['itemId'] = $itemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -1817,9 +1817,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i1.DynamiteDoubleSerializer())
-      ..addPlugin(_i2.StandardJsonPlugin())
-      ..addPlugin(const _i1.HeaderPlugin())
-      ..addPlugin(const _i1.ContentStringPlugin()))
+      ..add(_i2.DynamiteDoubleSerializer())
+      ..addPlugin(_i3.StandardJsonPlugin())
+      ..addPlugin(const _i2.HeaderPlugin())
+      ..addPlugin(const _i2.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

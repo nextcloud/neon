@@ -9,19 +9,19 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i2;
-import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart' as _i1;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:dynamite_runtime/utils.dart' as _i2;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
 
 part 'updatenotification.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -32,7 +32,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -45,7 +45,7 @@ class $Client extends DynamiteClient {
 }
 
 class $ApiClient {
-  /// Creates a new [DynamiteClient] for api requests.
+  /// Creates a new `DynamiteClient` for api requests.
   $ApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -54,8 +54,8 @@ class $ApiClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -67,8 +67,8 @@ class $ApiClient {
   ///   * 404: New versions not found
   ///
   /// See:
-  ///  * [getAppListRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ApiGetAppListResponseApplicationJson, void>> getAppList({
+  ///  * [getAppListRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ApiGetAppListResponseApplicationJson, void>> getAppList({
     required String newVersion,
     ApiGetAppListApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -88,8 +88,8 @@ class $ApiClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -101,9 +101,9 @@ class $ApiClient {
   ///   * 404: New versions not found
   ///
   /// See:
-  ///  * [getAppList] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getAppList] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void> getAppListRaw({
+  _i1.DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void> getAppListRaw({
     required String newVersion,
     ApiGetAppListApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -116,7 +116,7 @@ class $ApiClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -139,11 +139,11 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i1.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(_parameters);
-    return DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -434,9 +434,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

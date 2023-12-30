@@ -59,11 +59,11 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
       yield '''
 $docsSeparator This method and the response it returns is experimental. The API might change without a major version bump.
 $docsSeparator
-$docsSeparator Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.''';
+$docsSeparator Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.''';
     } else {
-      yield '$docsSeparator Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.';
+      yield '$docsSeparator Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.';
     }
-    yield '$docsSeparator Throws a [DynamiteApiException] if the API call does not return an expected status code.';
+    yield '$docsSeparator Throws a `DynamiteApiException` if the API call does not return an expected status code.';
     yield docsSeparator;
 
     if (parameters != null && parameters!.isNotEmpty) {
@@ -97,9 +97,9 @@ $docsSeparator Returns a [Future] containing a [DynamiteRawResponse] with the ra
 
     yield '$docsSeparator See:';
     if (isRawRequest) {
-      yield '$docsSeparator  * [$methodName] for an operation that returns a [DynamiteResponse] with a stable API.';
+      yield '$docsSeparator  * [$methodName] for an operation that returns a `DynamiteResponse` with a stable API.';
     } else {
-      yield '$docsSeparator  * [${methodName}Raw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.';
+      yield '$docsSeparator  * [${methodName}Raw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.';
     }
   }
 }

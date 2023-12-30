@@ -43,12 +43,12 @@ Class buildRootClient(
         }
 
         b
-          ..extend = refer('DynamiteClient')
+          ..extend = refer('DynamiteClient', 'package:dynamite_runtime/http_client.dart')
           ..name = r'$Client'
           ..constructors.addAll([
             Constructor(
               (b) => b
-                ..docs.add('/// Creates a new [DynamiteClient] for untagged requests.')
+                ..docs.add('/// Creates a new `DynamiteClient` for untagged requests.')
                 ..requiredParameters.add(
                   Parameter(
                     (b) => b
@@ -99,7 +99,7 @@ Class buildRootClient(
                   Parameter(
                     (b) => b
                       ..name = 'client'
-                      ..type = refer('DynamiteClient'),
+                      ..type = refer('DynamiteClient', 'package:dynamite_runtime/http_client.dart'),
                   ),
                 )
                 ..initializers.add(
@@ -150,7 +150,7 @@ Class buildClient(
           ..constructors.add(
             Constructor(
               (b) => b
-                ..docs.add('/// Creates a new [DynamiteClient] for ${tag.name} requests.')
+                ..docs.add('/// Creates a new `DynamiteClient` for ${tag.name} requests.')
                 ..requiredParameters.add(
                   Parameter(
                     (b) => b
@@ -211,14 +211,14 @@ Iterable<Method> buildTags(
         }
       }
 
-      var responses = <openapi.Response, List<String>>{};
+      var responses = <openapi.Response, Set<dynamic>>{};
       if (operation.responses != null) {
         for (final responseEntry in operation.responses!.entries) {
           final statusCode = responseEntry.key;
           final response = responseEntry.value;
 
-          responses[response] ??= [];
-          responses[response]!.add(statusCode);
+          responses[response] ??= {};
+          responses[response]!.add(int.tryParse(statusCode) ?? statusCode);
         }
 
         if (responses.length > 1) {
@@ -255,6 +255,7 @@ Iterable<Method> buildTags(
 
       if (hasAuthentication) {
         buildAuthCheck(
+          state,
           pathEntry,
           operation,
           spec,
@@ -389,31 +390,26 @@ Iterable<Method> buildTags(
           returnHeadersType = headersType.name;
         }
 
-        code.writeln('''
-  return DynamiteRawResponse<$returnDataType, $returnHeadersType>(
-    response: $client.executeRequest(
-      '$httpMethod',
-      _path,
-      _headers,
-      ${operation.requestBody != null ? '_body' : 'null'},
-''');
+        final returnValue = refer(
+          'DynamiteRawResponse<$returnDataType, $returnHeadersType>',
+          'package:dynamite_runtime/http_client.dart',
+        ).newInstance(const [], {
+          'response': refer(client).property('executeRequest').call([
+            literalString(httpMethod),
+            refer('_path'),
+            refer('_headers'),
+            if (operation.requestBody != null) refer('_body') else literalNull,
+            if (responses.values.isNotEmpty && !statusCodes.contains('default'))
+              literalConstSet(statusCodes)
+            else
+              literalNull,
+          ]),
+          'bodyType': refer(dataType?.fullType ?? 'null'),
+          'headersType': refer(headersType?.fullType ?? 'null'),
+          'serializers': refer(r'_$jsonSerializers'),
+        });
 
-        if (responses.values.isNotEmpty) {
-          if (statusCodes.contains('default')) {
-            code.writeln('null,');
-          } else {
-            final codes = statusCodes.join(',');
-            code.writeln('const {$codes},');
-          }
-        }
-
-        code.writeln('''
-    ),
-    bodyType: ${dataType?.fullType},
-    headersType: ${headersType?.fullType},
-    serializers: _\$jsonSerializers,
-  );
-''');
+        code.writeln(returnValue.returned.statement.accept(state.emitter));
       }
 
       yield Method((b) {
@@ -428,10 +424,14 @@ Iterable<Method> buildTags(
 
         final parameters = operationParameters.build();
         final rawParameters = parameters.map((p) => '${p.name}: ${p.name},').join('\n');
+        final responseType = refer(
+          'DynamiteResponse<$returnDataType, $returnHeadersType>',
+          'package:dynamite_runtime/http_client.dart',
+        ).accept(state.emitter);
 
         b
           ..optionalParameters.addAll(parameters)
-          ..returns = refer('Future<DynamiteResponse<$returnDataType, $returnHeadersType>>')
+          ..returns = refer('Future<$responseType>')
           ..body = Code('''
 final rawResponse = ${name}Raw(
   $rawParameters
@@ -454,7 +454,10 @@ return rawResponse.future;
 
           b
             ..optionalParameters.addAll(operationParameters.build())
-            ..returns = refer('DynamiteRawResponse<$returnDataType, $returnHeadersType>')
+            ..returns = refer(
+              'DynamiteRawResponse<$returnDataType, $returnHeadersType>',
+              'package:dynamite_runtime/http_client.dart',
+            )
             ..body = Code(code.toString());
         },
       );
@@ -535,6 +538,7 @@ bool needsAuthCheck(
 }
 
 Iterable<String> buildAuthCheck(
+  State state,
   MapEntry<String, openapi.PathItem> pathEntry,
   openapi.Operation operation,
   openapi.OpenAPI spec,
@@ -560,7 +564,10 @@ final authentication = $client.authentications.firstWhereOrNull(
       'Dynamite-${securityScheme.fullName.join('-')}-Authentication',
       uppercaseFirstCharacter: true,
     );
-    return '$dynamiteAuth()';
+    return refer(dynamiteAuth, 'package:dynamite_runtime/http_client.dart')
+        .newInstance(const [])
+        .accept(state.emitter)
+        .toString();
   }).intersperse(' || ');
 
   yield '''

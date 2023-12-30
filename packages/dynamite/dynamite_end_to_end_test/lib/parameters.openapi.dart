@@ -12,9 +12,9 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
-import 'package:dynamite_runtime/built_value.dart' as _i2;
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/http_client.dart' as _i2;
 import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as _i1;
 import 'package:meta/meta.dart';
@@ -23,8 +23,8 @@ import 'package:uri/uri.dart';
 
 part 'parameters.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i2.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -34,7 +34,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i2.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -43,8 +43,8 @@ class $Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [contentString]
@@ -66,8 +66,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<JsonObject, void>> $get({
+  ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i2.DynamiteResponse<JsonObject, void>> $get({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -105,8 +105,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [contentString]
@@ -128,9 +128,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<JsonObject, void> $getRaw({
+  _i2.DynamiteRawResponse<JsonObject, void> $getRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -212,7 +212,7 @@ class $Client extends DynamiteClient {
     final _path = UriTemplate(
       '/{?content_string*,content_parameter*,array*,array_string*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<JsonObject, void>(
+    return _i2.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -226,8 +226,8 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [contentString]
@@ -249,8 +249,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [getHeadersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<JsonObject, void>> getHeaders({
+  ///  * [getHeadersRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i2.DynamiteResponse<JsonObject, void>> getHeaders({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -288,8 +288,8 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [contentString]
@@ -311,9 +311,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [getHeaders] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getHeaders] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<JsonObject, void> getHeadersRaw({
+  _i2.DynamiteRawResponse<JsonObject, void> getHeadersRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -420,7 +420,7 @@ class $Client extends DynamiteClient {
     }
 
     const _path = '/headers';
-    return DynamiteRawResponse<JsonObject, void>(
+    return _i2.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -434,15 +434,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [getPathParameterRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
+  ///  * [getPathParameterRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i2.DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
     final rawResponse = getPathParameterRaw(
       pathParameter: pathParameter,
     );
@@ -452,16 +452,16 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [getPathParameter] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getPathParameter] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
+  _i2.DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{
       'Accept': 'application/json',
@@ -471,7 +471,7 @@ class $Client extends DynamiteClient {
     _parameters['path_parameter'] = $pathParameter;
 
     final _path = UriTemplate('/{path_parameter}').expand(_parameters);
-    return DynamiteRawResponse<JsonObject, void>(
+    return _i2.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -485,15 +485,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [getNamingCollisionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<JsonObject, void>> getNamingCollisions({
+  ///  * [getNamingCollisionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i2.DynamiteResponse<JsonObject, void>> getNamingCollisions({
     required String jsonSerializers,
     required String serializers,
     required String body,
@@ -513,16 +513,16 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [getNamingCollisions] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getNamingCollisions] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
+  _i2.DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
     required String jsonSerializers,
     required String serializers,
     required String body,
@@ -558,7 +558,7 @@ class $Client extends DynamiteClient {
     }
 
     final _path = UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
-    return DynamiteRawResponse<JsonObject, void>(
+    return _i2.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -849,9 +849,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

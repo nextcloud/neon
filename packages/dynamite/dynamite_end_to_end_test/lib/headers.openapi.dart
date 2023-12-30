@@ -10,16 +10,16 @@ import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i2;
-import 'package:dynamite_runtime/built_value.dart' as _i1;
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i3;
+import 'package:dynamite_runtime/built_value.dart' as _i2;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
 part 'headers.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -29,7 +29,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -38,15 +38,15 @@ class $Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Returns a header only
   ///
   /// See:
-  ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, GetHeaders>> $get() async {
+  ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, GetHeaders>> $get() async {
     final rawResponse = $getRaw();
 
     return rawResponse.future;
@@ -54,20 +54,20 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Returns a header only
   ///
   /// See:
-  ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, GetHeaders> $getRaw() {
+  _i1.DynamiteRawResponse<void, GetHeaders> $getRaw() {
     final _headers = <String, String>{};
 
     const _path = '/';
-    return DynamiteRawResponse<void, GetHeaders>(
+    return _i1.DynamiteRawResponse<void, GetHeaders>(
       response: executeRequest(
         'get',
         _path,
@@ -81,15 +81,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Returns a header only
   ///
   /// See:
-  ///  * [withContentOperationIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, WithContentOperationIdHeaders>> withContentOperationId() async {
+  ///  * [withContentOperationIdRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, WithContentOperationIdHeaders>> withContentOperationId() async {
     final rawResponse = withContentOperationIdRaw();
 
     return rawResponse.future;
@@ -97,20 +97,20 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Returns a header only
   ///
   /// See:
-  ///  * [withContentOperationId] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [withContentOperationId] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
+  _i1.DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
     final _headers = <String, String>{};
 
     const _path = '/with_content/operation_id';
-    return DynamiteRawResponse<void, WithContentOperationIdHeaders>(
+    return _i1.DynamiteRawResponse<void, WithContentOperationIdHeaders>(
       response: executeRequest(
         'get',
         _path,
@@ -124,15 +124,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Returns both a header and a body.
   ///
   /// See:
-  ///  * [getWithContentRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, GetWithContentHeaders>> getWithContent() async {
+  ///  * [getWithContentRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, GetWithContentHeaders>> getWithContent() async {
     final rawResponse = getWithContentRaw();
 
     return rawResponse.future;
@@ -140,22 +140,22 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Returns both a header and a body.
   ///
   /// See:
-  ///  * [getWithContent] for an operation that returns a [DynamiteResponse] with a stable API.
+  ///  * [getWithContent] for an operation that returns a `DynamiteResponse` with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
+  _i1.DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
     const _headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
 
     const _path = '/with_content';
-    return DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
+    return _i1.DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
       response: executeRequest(
         'get',
         _path,
@@ -278,9 +278,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i1.DynamiteDoubleSerializer())
-      ..addPlugin(_i2.StandardJsonPlugin())
-      ..addPlugin(const _i1.HeaderPlugin())
-      ..addPlugin(const _i1.ContentStringPlugin()))
+      ..add(_i2.DynamiteDoubleSerializer())
+      ..addPlugin(_i3.StandardJsonPlugin())
+      ..addPlugin(const _i2.HeaderPlugin())
+      ..addPlugin(const _i2.ContentStringPlugin()))
     .build();
 // coverage:ignore-end
