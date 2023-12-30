@@ -43,8 +43,8 @@ dev_dependencies:
       path: packages/nextcloud_test
   path: ^1.9.0
   process_run: ^0.13.3
-  test: ^1.24.9
-  test_api: ^0.6.1
+  test: ^1.25.0
+  test_api: ^0.7.0
   xml_serializable: ^2.4.1
 
 platforms:
