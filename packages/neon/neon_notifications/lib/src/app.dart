@@ -28,7 +28,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   late final NotificationsOptions options = NotificationsOptions(storage);
 
   @override
-  NotificationsBloc buildBloc(final Account account) => NotificationsBloc(
+  NotificationsBloc buildBloc(Account account) => NotificationsBloc(
         options,
         account,
       );
@@ -40,5 +40,5 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   final RouteBase route = $notificationsAppRoute;
 
   @override
-  BehaviorSubject<int> getUnreadCounter(final NotificationsBloc bloc) => bloc.unreadCounter;
+  BehaviorSubject<int> getUnreadCounter(NotificationsBloc bloc) => bloc.unreadCounter;
 }
