@@ -5,15 +5,22 @@ List<Spec> buildSerializer(final State state) => [
       const Code('// coverage:ignore-start\n'),
       Field((final b) {
         b
-          ..docs.add('''
+          ..docs.add(r'''
 /// Serializer for all values in this library.
 /// 
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.''')
+/// See: [$jsonSerializers] for serializing into json.''')
           ..annotations.add(refer('visibleForTesting'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
-          ..name = 'serializers';
+          ..name = r'$serializers'
+          ..assignment = const Code(r'_$serializers');
+      }),
+      Field((final b) {
+        b
+          ..modifier = FieldModifier.final$
+          ..type = refer('Serializers')
+          ..name = r'_$serializers';
 
         final serializers =
             state.resolvedTypes.map((final type) => type.serializers).expand((final element) => element).toSet();
@@ -31,15 +38,22 @@ List<Spec> buildSerializer(final State state) => [
       }),
       Field((final b) {
         b
-          ..docs.add('''
+          ..docs.add(r'''
 /// Serializer for all values in this library.
 /// 
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.''')
+/// See: [$serializers] for serializing into the `built_value` wire format.''')
           ..annotations.add(refer('visibleForTesting'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
-          ..name = 'jsonSerializers';
+          ..name = r'$jsonSerializers'
+          ..assignment = const Code(r'_$jsonSerializers');
+      }),
+      Field((final b) {
+        b
+          ..modifier = FieldModifier.final$
+          ..type = refer('Serializers')
+          ..name = r'_$jsonSerializers';
 
         const serializers = [
           '..add(DynamiteDoubleSerializer())',
@@ -49,7 +63,7 @@ List<Spec> buildSerializer(final State state) => [
         ];
 
         final bodyBuilder = StringBuffer()
-          ..writeln('(serializers.toBuilder()')
+          ..writeln(r'(_$serializers.toBuilder()')
           ..writeAll(serializers, '\n')
           ..writeln(').build()');
 

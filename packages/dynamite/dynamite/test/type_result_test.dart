@@ -16,11 +16,11 @@ void main() {
       );
       expect(
         type.serialize('value'),
-        'jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))',
+        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))',
       );
       expect(
         type.deserialize('value'),
-        'jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>',
+        r'_$jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>',
       );
     });
 
@@ -40,11 +40,11 @@ void main() {
       );
       expect(
         type.serialize('value'),
-        'jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]))',
+        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]))',
       );
       expect(
         type.deserialize('value'),
-        'jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]))! as BuiltList<BuiltList<String>>',
+        r'_$jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]))! as BuiltList<BuiltList<String>>',
       );
     });
 
@@ -75,11 +75,11 @@ void main() {
       );
       expect(
         type.serialize('value'),
-        'jsonSerializers.serialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]))',
+        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]))',
       );
       expect(
         type.deserialize('value'),
-        'jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]))! as BuiltMap<String, int>',
+        r'_$jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]))! as BuiltMap<String, int>',
       );
     });
 
@@ -102,11 +102,11 @@ void main() {
       );
       expect(
         type.serialize('value'),
-        'jsonSerializers.serialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]))',
+        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]))',
       );
       expect(
         type.deserialize('value'),
-        'jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]))! as BuiltMap<String, BuiltMap<String, int>>',
+        r'_$jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]))! as BuiltMap<String, BuiltMap<String, int>>',
       );
     });
 
@@ -138,11 +138,11 @@ void main() {
       );
       expect(
         type.serialize('value'),
-        'jsonSerializers.serialize(value, specifiedType: const FullType(CustomType, [FullType(String)]))',
+        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(CustomType, [FullType(String)]))',
       );
       expect(
         type.deserialize('value'),
-        'jsonSerializers.deserialize(value, specifiedType: const FullType(CustomType, [FullType(String)]))! as CustomType<String>',
+        r'_$jsonSerializers.deserialize(value, specifiedType: const FullType(CustomType, [FullType(String)]))! as CustomType<String>',
       );
     });
 
@@ -158,11 +158,11 @@ void main() {
       ]);
       expect(
         type.serialize('value'),
-        'jsonSerializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)]))',
+        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)]))',
       );
       expect(
         type.deserialize('value'),
-        'jsonSerializers.deserialize(value, specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>',
+        r'_$jsonSerializers.deserialize(value, specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>',
       );
     });
 
@@ -187,11 +187,11 @@ void main() {
       expect(type.serializers.toList(), const <String>[]);
       expect(
         type.serialize('value'),
-        'jsonSerializers.serialize(value, specifiedType: const FullType(String))',
+        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(String))',
       );
       expect(
         type.deserialize('value'),
-        'jsonSerializers.deserialize(value, specifiedType: const FullType(String))! as String',
+        r'_$jsonSerializers.deserialize(value, specifiedType: const FullType(String))! as String',
       );
     });
 

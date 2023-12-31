@@ -131,25 +131,25 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $category = jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    final $category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
     _parameters['category'] = $category;
 
-    var $exclude = jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
+    var $exclude = _$jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
     $exclude ??= '';
     _parameters['exclude'] = $exclude;
 
-    var $pruneBefore = jsonSerializers.serialize(pruneBefore, specifiedType: const FullType(int));
+    var $pruneBefore = _$jsonSerializers.serialize(pruneBefore, specifiedType: const FullType(int));
     $pruneBefore ??= 0;
     _parameters['pruneBefore'] = $pruneBefore;
 
-    var $chunkSize = jsonSerializers.serialize(chunkSize, specifiedType: const FullType(int));
+    var $chunkSize = _$jsonSerializers.serialize(chunkSize, specifiedType: const FullType(int));
     $chunkSize ??= 0;
     _parameters['chunkSize'] = $chunkSize;
 
-    final $chunkCursor = jsonSerializers.serialize(chunkCursor, specifiedType: const FullType(String));
+    final $chunkCursor = _$jsonSerializers.serialize(chunkCursor, specifiedType: const FullType(String));
     _parameters['chunkCursor'] = $chunkCursor;
 
-    final $ifNoneMatch = jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
+    final $ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
     if ($ifNoneMatch != null) {
       _headers['If-None-Match'] = const dynamite_utils.HeaderEncoder().convert($ifNoneMatch);
     }
@@ -167,7 +167,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(BuiltList, [FullType(Note)]),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -251,23 +251,23 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    var $category = jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    var $category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
     $category ??= '';
     _parameters['category'] = $category;
 
-    var $title = jsonSerializers.serialize(title, specifiedType: const FullType(String));
+    var $title = _$jsonSerializers.serialize(title, specifiedType: const FullType(String));
     $title ??= '';
     _parameters['title'] = $title;
 
-    var $content = jsonSerializers.serialize(content, specifiedType: const FullType(String));
+    var $content = _$jsonSerializers.serialize(content, specifiedType: const FullType(String));
     $content ??= '';
     _parameters['content'] = $content;
 
-    var $modified = jsonSerializers.serialize(modified, specifiedType: const FullType(int));
+    var $modified = _$jsonSerializers.serialize(modified, specifiedType: const FullType(int));
     $modified ??= 0;
     _parameters['modified'] = $modified;
 
-    var $favorite = jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
+    var $favorite = _$jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
     $favorite ??= 0;
     _parameters['favorite'] = $favorite;
 
@@ -283,7 +283,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(Note),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -355,14 +355,14 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    var $exclude = jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
+    var $exclude = _$jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
     $exclude ??= '';
     _parameters['exclude'] = $exclude;
 
-    final $ifNoneMatch = jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
+    final $ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
     if ($ifNoneMatch != null) {
       _headers['If-None-Match'] = const dynamite_utils.HeaderEncoder().convert($ifNoneMatch);
     }
@@ -378,7 +378,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(Note),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -470,25 +470,25 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    final $content = jsonSerializers.serialize(content, specifiedType: const FullType(String));
+    final $content = _$jsonSerializers.serialize(content, specifiedType: const FullType(String));
     _parameters['content'] = $content;
 
-    final $modified = jsonSerializers.serialize(modified, specifiedType: const FullType(int));
+    final $modified = _$jsonSerializers.serialize(modified, specifiedType: const FullType(int));
     _parameters['modified'] = $modified;
 
-    final $title = jsonSerializers.serialize(title, specifiedType: const FullType(String));
+    final $title = _$jsonSerializers.serialize(title, specifiedType: const FullType(String));
     _parameters['title'] = $title;
 
-    final $category = jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    final $category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
     _parameters['category'] = $category;
 
-    final $favorite = jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
+    final $favorite = _$jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
     _parameters['favorite'] = $favorite;
 
-    final $ifMatch = jsonSerializers.serialize(ifMatch, specifiedType: const FullType(String));
+    final $ifMatch = _$jsonSerializers.serialize(ifMatch, specifiedType: const FullType(String));
     if ($ifMatch != null) {
       _headers['If-Match'] = const dynamite_utils.HeaderEncoder().convert($ifMatch);
     }
@@ -505,7 +505,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(Note),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -559,7 +559,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
     final _path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(_parameters);
@@ -573,7 +573,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(String),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -635,7 +635,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(Settings),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -690,7 +690,7 @@ class $Client extends DynamiteClient {
 
 // coverage:ignore-end
     _headers['Content-Type'] = 'application/json';
-    _body = utf8.encode(json.encode(jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))));
+    _body = utf8.encode(json.encode(_$jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))));
     const _path = '/index.php/apps/notes/api/v1/settings';
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
@@ -702,7 +702,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(Settings),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -733,14 +733,14 @@ abstract class Note implements $NoteInterface, Built<Note, NoteBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Note.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Note.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Note.
@@ -768,7 +768,7 @@ class Settings_NoteMode extends EnumClass {
   static Settings_NoteMode valueOf(String name) => _$valueOfSettings_NoteMode(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for Settings_NoteMode.
   @BuiltValueSerializer(custom: true)
@@ -832,14 +832,14 @@ abstract class Settings implements $SettingsInterface, Built<Settings, SettingsB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Settings.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Settings.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Settings.
@@ -866,14 +866,15 @@ abstract class Capabilities_Notes
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Notes.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Notes.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities_Notes.
@@ -897,14 +898,14 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Capabilities.
@@ -932,14 +933,14 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for OCSMeta.
@@ -964,14 +965,14 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for EmptyOCS_Ocs.
@@ -995,14 +996,14 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory EmptyOCS.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for EmptyOCS.
@@ -1013,9 +1014,10 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Note), NoteBuilder.new)
       ..add(Note.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Note)]), ListBuilder<Note>.new)
@@ -1039,9 +1041,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

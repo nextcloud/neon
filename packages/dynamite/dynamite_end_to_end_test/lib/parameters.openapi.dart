@@ -150,7 +150,7 @@ class $Client extends DynamiteClient {
       'Accept': 'application/json',
     };
 
-    final $contentString = jsonSerializers.serialize(
+    final $contentString = _$jsonSerializers.serialize(
       contentString,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -158,7 +158,7 @@ class $Client extends DynamiteClient {
     );
     _parameters['content_string'] = $contentString;
 
-    final $contentParameter = jsonSerializers.serialize(
+    final $contentParameter = _$jsonSerializers.serialize(
       contentParameter,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -166,41 +166,41 @@ class $Client extends DynamiteClient {
     );
     _parameters['content_parameter'] = $contentParameter;
 
-    final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
+    final $array = _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
     _parameters['array'] = $array;
 
     final $arrayString =
-        jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
+        _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['array_string'] = $arrayString;
 
-    final $$bool = jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
+    final $$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
     _parameters['bool'] = $$bool;
 
-    final $string = jsonSerializers.serialize(string, specifiedType: const FullType(String));
+    final $string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
     _parameters['string'] = $string;
 
-    final $stringBinary = jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
+    final $stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
     _parameters['string_binary'] = $stringBinary;
 
-    final $$int = jsonSerializers.serialize($int, specifiedType: const FullType(int));
+    final $$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
     _parameters['int'] = $$int;
 
-    final $$double = jsonSerializers.serialize($double, specifiedType: const FullType(double));
+    final $$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
     _parameters['double'] = $$double;
 
-    final $$num = jsonSerializers.serialize($num, specifiedType: const FullType(num));
+    final $$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
     _parameters['num'] = $$num;
 
-    final $object = jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
+    final $object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
     _parameters['object'] = $object;
 
-    final $oneOf = jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetOneOf));
+    final $oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetOneOf));
     _parameters['oneOf'] = $oneOf;
 
-    final $anyOf = jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetAnyOf));
+    final $anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetAnyOf));
     _parameters['anyOf'] = $anyOf;
 
-    final $enumPattern = jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
+    final $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
     dynamite_utils.checkPattern($enumPattern as String?, RegExp('[a-z]'), 'enumPattern');
     _parameters['enum_pattern'] = $enumPattern;
 
@@ -217,7 +217,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -328,7 +328,7 @@ class $Client extends DynamiteClient {
       'Accept': 'application/json',
     };
 
-    final $contentString = jsonSerializers.serialize(
+    final $contentString = _$jsonSerializers.serialize(
       contentString,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -338,7 +338,7 @@ class $Client extends DynamiteClient {
       _headers['content_string'] = const dynamite_utils.HeaderEncoder().convert($contentString);
     }
 
-    final $contentParameter = jsonSerializers.serialize(
+    final $contentParameter = _$jsonSerializers.serialize(
       contentParameter,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -348,63 +348,63 @@ class $Client extends DynamiteClient {
       _headers['content_parameter'] = const dynamite_utils.HeaderEncoder().convert($contentParameter);
     }
 
-    final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
+    final $array = _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
     if ($array != null) {
       _headers['array'] = const dynamite_utils.HeaderEncoder().convert($array);
     }
 
     final $arrayString =
-        jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
+        _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
     if ($arrayString != null) {
       _headers['array_string'] = const dynamite_utils.HeaderEncoder().convert($arrayString);
     }
 
-    final $$bool = jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
+    final $$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
     if ($$bool != null) {
       _headers['bool'] = const dynamite_utils.HeaderEncoder().convert($$bool);
     }
 
-    final $string = jsonSerializers.serialize(string, specifiedType: const FullType(String));
+    final $string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
     if ($string != null) {
       _headers['string'] = const dynamite_utils.HeaderEncoder().convert($string);
     }
 
-    final $stringBinary = jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
+    final $stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
     if ($stringBinary != null) {
       _headers['string_binary'] = const dynamite_utils.HeaderEncoder().convert($stringBinary);
     }
 
-    final $$int = jsonSerializers.serialize($int, specifiedType: const FullType(int));
+    final $$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
     if ($$int != null) {
       _headers['int'] = const dynamite_utils.HeaderEncoder().convert($$int);
     }
 
-    final $$double = jsonSerializers.serialize($double, specifiedType: const FullType(double));
+    final $$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
     if ($$double != null) {
       _headers['double'] = const dynamite_utils.HeaderEncoder().convert($$double);
     }
 
-    final $$num = jsonSerializers.serialize($num, specifiedType: const FullType(num));
+    final $$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
     if ($$num != null) {
       _headers['num'] = const dynamite_utils.HeaderEncoder().convert($$num);
     }
 
-    final $object = jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
+    final $object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
     if ($object != null) {
       _headers['object'] = const dynamite_utils.HeaderEncoder().convert($object);
     }
 
-    final $oneOf = jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetHeadersOneOf));
+    final $oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetHeadersOneOf));
     if ($oneOf != null) {
       _headers['oneOf'] = const dynamite_utils.HeaderEncoder().convert($oneOf);
     }
 
-    final $anyOf = jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetHeadersAnyOf));
+    final $anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetHeadersAnyOf));
     if ($anyOf != null) {
       _headers['anyOf'] = const dynamite_utils.HeaderEncoder().convert($anyOf);
     }
 
-    final $enumPattern = jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetHeadersEnumPattern));
+    final $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetHeadersEnumPattern));
     dynamite_utils.checkPattern($enumPattern as String?, RegExp('[a-z]'), 'enumPattern');
     if ($enumPattern != null) {
       _headers['enum_pattern'] = const dynamite_utils.HeaderEncoder().convert($enumPattern);
@@ -421,7 +421,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -458,7 +458,7 @@ class $Client extends DynamiteClient {
       'Accept': 'application/json',
     };
 
-    final $pathParameter = jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
+    final $pathParameter = _$jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
     _parameters['path_parameter'] = $pathParameter;
 
     final _path = UriTemplate('/{path_parameter}').expand(_parameters);
@@ -472,7 +472,94 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
+    );
+  }
+
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNamingCollisionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<JsonObject, void>> getNamingCollisions({
+    required String jsonSerializers,
+    required String serializers,
+    required String body,
+    required String parameters,
+    required String headers,
+  }) async {
+    final rawResponse = getNamingCollisionsRaw(
+      jsonSerializers: jsonSerializers,
+      serializers: serializers,
+      body: body,
+      parameters: parameters,
+      headers: headers,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNamingCollisions] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
+    required String jsonSerializers,
+    required String serializers,
+    required String body,
+    required String parameters,
+    required String headers,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+    final $jsonSerializers = _$jsonSerializers.serialize(jsonSerializers, specifiedType: const FullType(String));
+    _parameters['%24jsonSerializers'] = $jsonSerializers;
+
+    final $serializers = _$jsonSerializers.serialize(serializers, specifiedType: const FullType(String));
+    if ($serializers != null) {
+      _headers['%24serializers'] = const dynamite_utils.HeaderEncoder().convert($serializers);
+    }
+
+    final $body = _$jsonSerializers.serialize(body, specifiedType: const FullType(String));
+    if ($body != null) {
+      _headers['_body'] = const dynamite_utils.HeaderEncoder().convert($body);
+    }
+
+    final $parameters = _$jsonSerializers.serialize(parameters, specifiedType: const FullType(String));
+    if ($parameters != null) {
+      _headers['_parameters'] = const dynamite_utils.HeaderEncoder().convert($parameters);
+    }
+
+    final $headers = _$jsonSerializers.serialize(headers, specifiedType: const FullType(String));
+    if ($headers != null) {
+      _headers['_headers'] = const dynamite_utils.HeaderEncoder().convert($headers);
+    }
+
+    final _path = UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
+    return DynamiteRawResponse<JsonObject, void>(
+      response: executeRequest(
+        'get',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(JsonObject),
+      headersType: null,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -497,7 +584,7 @@ class GetEnumPattern extends EnumClass {
   static GetEnumPattern valueOf(String name) => _$valueOfGetEnumPattern(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for GetEnumPattern.
   @BuiltValueSerializer(custom: true)
@@ -560,7 +647,7 @@ class GetHeadersEnumPattern extends EnumClass {
   static GetHeadersEnumPattern valueOf(String name) => _$valueOfGetHeadersEnumPattern(name);
 
   /// Returns the serialized value of this enum value.
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for GetHeadersEnumPattern.
   @BuiltValueSerializer(custom: true)
@@ -666,12 +753,12 @@ extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c
   static Serializer<_$93403da1a64cb6a7b1597c7a05e9b2be> get _serializer =>
       const _$93403da1a64cb6a7b1597c7a05e9b2beSerializer();
   static _$93403da1a64cb6a7b1597c7a05e9b2be _fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(_serializer, json)!;
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
 class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerializer<_$93403da1a64cb6a7b1597c7a05e9b2be> {
@@ -724,9 +811,10 @@ class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerialize
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         MapBuilder<String, JsonObject>.new,
@@ -748,9 +836,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

@@ -131,7 +131,7 @@ Iterable<Spec> generateSomeOf(
         ),
       )
       ..lambda = true
-      ..body = const Code('jsonSerializers.deserializeWith(_serializer, json)!'),
+      ..body = const Code(r'_$jsonSerializers.deserializeWith(_serializer, json)!'),
   );
 
   final toJson = Method(
@@ -144,7 +144,7 @@ Iterable<Spec> generateSomeOf(
       ..name = 'toJson'
       ..returns = refer('Object?')
       ..lambda = true
-      ..body = const Code('jsonSerializers.serializeWith(_serializer, this)'),
+      ..body = const Code(r'_$jsonSerializers.serializeWith(_serializer, this)'),
   );
 
   yield Extension(

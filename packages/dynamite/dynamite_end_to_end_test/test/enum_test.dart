@@ -12,14 +12,14 @@ void main() {
       };
 
       for (final result in results.entries) {
-        final serialized = serializers.serialize(
+        final serialized = $serializers.serialize(
           result.key,
           specifiedType: const FullType(EnumString),
         );
 
         expect(serialized, result.value);
 
-        final deserialized = serializers.deserialize(
+        final deserialized = $serializers.deserialize(
           result.value,
           specifiedType: const FullType(EnumString),
         );
@@ -43,14 +43,14 @@ void main() {
       };
 
       for (final result in results.entries) {
-        final serialized = serializers.serialize(
+        final serialized = $serializers.serialize(
           result.key,
           specifiedType: const FullType(EnumInt),
         );
 
         expect(serialized, result.value);
 
-        final deserialized = serializers.deserialize(
+        final deserialized = $serializers.deserialize(
           result.value,
           specifiedType: const FullType(EnumInt),
         );
@@ -74,14 +74,14 @@ void main() {
       };
 
       for (final result in results.entries) {
-        final serialized = serializers.serialize(
+        final serialized = $serializers.serialize(
           result.key,
           specifiedType: const FullType(EnumDynamic),
         );
 
         expect(serialized, equals(result.value));
 
-        final deserialized = serializers.deserialize(
+        final deserialized = $serializers.deserialize(
           result.value,
           specifiedType: const FullType(EnumDynamic),
         );

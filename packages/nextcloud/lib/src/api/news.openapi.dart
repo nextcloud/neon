@@ -100,7 +100,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(SupportedAPIVersions),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -162,7 +162,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListFolders),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -222,7 +222,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $name = jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
     _parameters['name'] = $name;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
@@ -236,7 +236,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListFolders),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -301,10 +301,10 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
-    final $name = jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
     _parameters['name'] = $name;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
@@ -318,7 +318,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -370,7 +370,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
@@ -384,7 +384,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -449,10 +449,10 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
-    final $newestItemId = jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
+    final $newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
     _parameters['newestItemId'] = $newestItemId;
 
     final _path =
@@ -467,7 +467,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -529,7 +529,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListFeeds),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -598,10 +598,10 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $url = jsonSerializers.serialize(url, specifiedType: const FullType(String));
+    final $url = _$jsonSerializers.serialize(url, specifiedType: const FullType(String));
     _parameters['url'] = $url;
 
-    final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
@@ -615,7 +615,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListFeeds),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -667,7 +667,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
+    final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = $feedId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
@@ -681,7 +681,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -746,10 +746,10 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
+    final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = $feedId;
 
-    final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
@@ -763,7 +763,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -828,10 +828,10 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
+    final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = $feedId;
 
-    final $feedTitle = jsonSerializers.serialize(feedTitle, specifiedType: const FullType(String));
+    final $feedTitle = _$jsonSerializers.serialize(feedTitle, specifiedType: const FullType(String));
     _parameters['feedTitle'] = $feedTitle;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
@@ -845,7 +845,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -910,10 +910,10 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
+    final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = $feedId;
 
-    final $newestItemId = jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
+    final $newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
     _parameters['newestItemId'] = $newestItemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
@@ -927,7 +927,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1016,27 +1016,27 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    var $type = jsonSerializers.serialize(type, specifiedType: const FullType(int));
+    var $type = _$jsonSerializers.serialize(type, specifiedType: const FullType(int));
     $type ??= 3;
     _parameters['type'] = $type;
 
-    var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    var $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     $id ??= 0;
     _parameters['id'] = $id;
 
-    var $getRead = jsonSerializers.serialize(getRead, specifiedType: const FullType(int));
+    var $getRead = _$jsonSerializers.serialize(getRead, specifiedType: const FullType(int));
     $getRead ??= 1;
     _parameters['getRead'] = $getRead;
 
-    var $batchSize = jsonSerializers.serialize(batchSize, specifiedType: const FullType(int));
+    var $batchSize = _$jsonSerializers.serialize(batchSize, specifiedType: const FullType(int));
     $batchSize ??= -1;
     _parameters['batchSize'] = $batchSize;
 
-    var $offset = jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
     $offset ??= 0;
     _parameters['offset'] = $offset;
 
-    var $oldestFirst = jsonSerializers.serialize(oldestFirst, specifiedType: const FullType(int));
+    var $oldestFirst = _$jsonSerializers.serialize(oldestFirst, specifiedType: const FullType(int));
     $oldestFirst ??= 0;
     _parameters['oldestFirst'] = $oldestFirst;
 
@@ -1053,7 +1053,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListArticles),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1127,15 +1127,15 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    var $type = jsonSerializers.serialize(type, specifiedType: const FullType(int));
+    var $type = _$jsonSerializers.serialize(type, specifiedType: const FullType(int));
     $type ??= 3;
     _parameters['type'] = $type;
 
-    var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    var $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     $id ??= 0;
     _parameters['id'] = $id;
 
-    var $lastModified = jsonSerializers.serialize(lastModified, specifiedType: const FullType(int));
+    var $lastModified = _$jsonSerializers.serialize(lastModified, specifiedType: const FullType(int));
     $lastModified ??= 0;
     _parameters['lastModified'] = $lastModified;
 
@@ -1151,7 +1151,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListArticles),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1203,7 +1203,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
+    final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
@@ -1217,7 +1217,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1269,7 +1269,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
+    final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
@@ -1283,7 +1283,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1335,7 +1335,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
+    final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
@@ -1349,7 +1349,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -1401,7 +1401,7 @@ class $Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
+    final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
     final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
@@ -1415,7 +1415,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -1439,14 +1439,14 @@ abstract class SupportedAPIVersions
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory SupportedAPIVersions.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+      _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for SupportedAPIVersions.
@@ -1489,14 +1489,14 @@ abstract class Article implements $ArticleInterface, Built<Article, ArticleBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Article.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Article.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Article.
@@ -1532,14 +1532,14 @@ abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Feed.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Feed.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Feed.
@@ -1568,14 +1568,14 @@ abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Folder.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Folder.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for Folder.
@@ -1599,14 +1599,14 @@ abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ListFolders.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListFolders.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ListFolders.
@@ -1632,14 +1632,14 @@ abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFe
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ListFeeds.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListFeeds.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ListFeeds.
@@ -1663,14 +1663,14 @@ abstract class ListArticles implements $ListArticlesInterface, Built<ListArticle
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ListArticles.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListArticles.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for ListArticles.
@@ -1698,14 +1698,14 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for OCSMeta.
@@ -1730,14 +1730,14 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for EmptyOCS_Ocs.
@@ -1761,14 +1761,14 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory EmptyOCS.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   /// Serializer for EmptyOCS.
@@ -1779,9 +1779,10 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(SupportedAPIVersions), SupportedAPIVersionsBuilder.new)
       ..add(SupportedAPIVersions.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
@@ -1812,9 +1813,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())

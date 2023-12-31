@@ -411,7 +411,7 @@ Iterable<Method> buildTags(
     ),
     bodyType: ${dataType?.fullType},
     headersType: ${headersType?.fullType},
-    serializers: jsonSerializers,
+    serializers: _\$jsonSerializers,
   );
 ''');
       }

@@ -101,10 +101,10 @@ class $Client extends DynamiteClient {
       'Accept': 'application/json',
     };
 
-    final $tags = jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final $tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['tags'] = $tags;
 
-    final $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = $limit;
 
     final _path = UriTemplate('/pets{?tags*,limit*}').expand(_parameters);
@@ -118,7 +118,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(BuiltList, [FullType(Pet)]),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -162,7 +162,7 @@ class $Client extends DynamiteClient {
     Uint8List? _body;
 
     _headers['Content-Type'] = 'application/json';
-    _body = utf8.encode(json.encode(jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
+    _body = utf8.encode(json.encode(_$jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
     const _path = '/pets';
     return DynamiteRawResponse<Pet, void>(
       response: executeRequest(
@@ -174,7 +174,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(Pet),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -223,7 +223,7 @@ class $Client extends DynamiteClient {
       'Accept': 'application/json',
     };
 
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
     final _path = UriTemplate('/pets/{id}').expand(_parameters);
@@ -237,7 +237,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: const FullType(Pet),
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 
@@ -284,7 +284,7 @@ class $Client extends DynamiteClient {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
     final _path = UriTemplate('/pets/{id}').expand(_parameters);
@@ -298,7 +298,7 @@ class $Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: jsonSerializers,
+      serializers: _$jsonSerializers,
     );
   }
 }
@@ -320,16 +320,12 @@ abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory NewPet.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  factory NewPet.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for NewPet.
   static Serializer<NewPet> get serializer => _$newPetSerializer;
@@ -354,16 +350,12 @@ abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Pet.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  factory Pet.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for Pet.
   static Serializer<Pet> get serializer => _$petSerializer;
@@ -386,16 +378,12 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Error.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  factory Error.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   /// Serializer for Error.
   static Serializer<Error> get serializer => _$errorSerializer;
@@ -405,9 +393,10 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
-/// See: [jsonSerializers] for serializing into json.
+/// See: [$jsonSerializers] for serializing into json.
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()
+final Serializers $serializers = _$serializers;
+final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(const FullType(Pet), PetBuilder.new)
       ..add(Pet.serializer)
@@ -421,9 +410,10 @@ final Serializers serializers = (Serializers().toBuilder()
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
-/// See: [serializers] for serializing into the `built_value` wire format.
+/// See: [$serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
-final Serializers jsonSerializers = (serializers.toBuilder()
+final Serializers $jsonSerializers = _$jsonSerializers;
+final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const HeaderPlugin())
