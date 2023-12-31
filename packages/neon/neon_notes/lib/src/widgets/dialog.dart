@@ -44,7 +44,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final titleField = Form(
       key: formKey,
       child: TextFormField(
@@ -53,8 +53,8 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
         decoration: InputDecoration(
           hintText: NotesLocalizations.of(context).noteTitle,
         ),
-        validator: (final input) => validateNotEmpty(context, input),
-        onFieldSubmitted: (final _) {
+        validator: (input) => validateNotEmpty(context, input),
+        onFieldSubmitted: (_) {
           submit();
         },
       ),
@@ -62,7 +62,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
 
     final folderSelector = ResultBuilder<List<notes.Note>>.behaviorSubject(
       subject: widget.bloc.notesList,
-      builder: (final context, final notes) {
+      builder: (context, notes) {
         if (notes.hasError) {
           return Center(
             child: NeonError(
@@ -80,8 +80,8 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
         }
 
         return NotesCategorySelect(
-          categories: notes.requireData.map((final note) => note.category).toSet().toList(),
-          onChanged: (final category) {
+          categories: notes.requireData.map((note) => note.category).toSet().toList(),
+          onChanged: (category) {
             selectedCategory = category;
           },
           onSubmitted: submit,
@@ -147,10 +147,10 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final folderSelector = ResultBuilder<List<notes.Note>>.behaviorSubject(
       subject: widget.bloc.notesList,
-      builder: (final context, final notes) {
+      builder: (context, notes) {
         if (notes.hasError) {
           return Center(
             child: NeonError(
@@ -170,9 +170,9 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
         return Form(
           key: formKey,
           child: NotesCategorySelect(
-            categories: notes.requireData.map((final note) => note.category).toSet().toList(),
+            categories: notes.requireData.map((note) => note.category).toSet().toList(),
             initialValue: widget.initialCategory,
-            onChanged: (final category) {
+            onChanged: (category) {
               selectedCategory = category;
             },
             onSubmitted: submit,

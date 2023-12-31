@@ -12,8 +12,8 @@ import 'package:rxdart/rxdart.dart';
 sealed class NotesBloc implements InteractiveBloc {
   @internal
   factory NotesBloc(
-    final NotesOptions options,
-    final Account account,
+    NotesOptions options,
+    Account account,
   ) =>
       _NotesBloc(
         options,
@@ -21,20 +21,20 @@ sealed class NotesBloc implements InteractiveBloc {
       );
 
   void createNote({
-    final String title = '',
-    final String category = '',
+    String title = '',
+    String category = '',
   });
 
   void updateNote(
-    final int id,
-    final String etag, {
-    final String? title,
-    final String? category,
-    final String? content,
-    final bool? favorite,
+    int id,
+    String etag, {
+    String? title,
+    String? category,
+    String? content,
+    bool? favorite,
   });
 
-  void deleteNote(final int id);
+  void deleteNote(int id);
 
   BehaviorSubject<Result<List<notes.Note>>> get notesList;
 
@@ -69,12 +69,12 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
       'notes-notes',
       notesList,
       account.client.notes.getNotesRaw(),
-      (final response) => List<notes.Note>.from(response.body),
+      (response) => List<notes.Note>.from(response.body),
     );
   }
 
   @override
-  void createNote({final String title = '', final String category = ''}) {
+  void createNote({String title = '', String category = ''}) {
     wrapAction(
       () async => account.client.notes.createNote(
         title: title,
@@ -84,18 +84,18 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
   }
 
   @override
-  void deleteNote(final int id) {
+  void deleteNote(int id) {
     wrapAction(() async => account.client.notes.deleteNote(id: id));
   }
 
   @override
   void updateNote(
-    final int id,
-    final String etag, {
-    final String? title,
-    final String? category,
-    final String? content,
-    final bool? favorite,
+    int id,
+    String etag, {
+    String? title,
+    String? category,
+    String? content,
+    bool? favorite,
   }) {
     wrapAction(
       () async => account.client.notes.updateNote(

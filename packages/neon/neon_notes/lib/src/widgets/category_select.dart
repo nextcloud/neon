@@ -28,23 +28,23 @@ class NotesCategorySelect extends StatelessWidget {
   final VoidCallback onSubmitted;
 
   @override
-  Widget build(final BuildContext context) => Autocomplete<String>(
+  Widget build(BuildContext context) => Autocomplete<String>(
         initialValue: initialValue != null
             ? TextEditingValue(
                 text: initialValue!,
               )
             : null,
-        optionsBuilder: (final value) {
+        optionsBuilder: (value) {
           if (value.text.isEmpty) {
             return categories;
           }
-          return categories.where((final category) => category.toLowerCase().contains(value.text.toLowerCase()));
+          return categories.where((category) => category.toLowerCase().contains(value.text.toLowerCase()));
         },
         fieldViewBuilder: (
-          final context,
-          final textEditingController,
-          final focusNode,
-          final onFieldSubmitted,
+          context,
+          textEditingController,
+          focusNode,
+          onFieldSubmitted,
         ) =>
             TextFormField(
           controller: textEditingController,
@@ -52,14 +52,14 @@ class NotesCategorySelect extends StatelessWidget {
           decoration: InputDecoration(
             hintText: NotesLocalizations.of(context).category,
           ),
-          onFieldSubmitted: (final value) {
+          onFieldSubmitted: (value) {
             onChanged(value);
             onSubmitted();
             onFieldSubmitted();
           },
           onChanged: onChanged,
         ),
-        optionsViewBuilder: (final context, final onSelected, final options) => Align(
+        optionsViewBuilder: (context, onSelected, options) => Align(
           alignment: Alignment.topLeft,
           child: Material(
             elevation: 4,
@@ -69,7 +69,7 @@ class NotesCategorySelect extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 itemCount: options.length,
-                itemBuilder: (final context, final index) {
+                itemBuilder: (context, index) {
                   final option = options.elementAt(index);
                   return ListTile(
                     leading: Icon(
@@ -88,7 +88,7 @@ class NotesCategorySelect extends StatelessWidget {
             ),
           ),
         ),
-        onSelected: (final value) {
+        onSelected: (value) {
           if (categories.contains(value)) {
             onChanged(value);
           }

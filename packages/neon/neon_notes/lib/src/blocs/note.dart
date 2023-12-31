@@ -14,9 +14,9 @@ import 'package:rxdart/rxdart.dart';
 sealed class NotesNoteBloc implements InteractiveBloc {
   @internal
   factory NotesNoteBloc(
-    final NotesBloc notesBloc,
-    final Account account,
-    final notes.Note note,
+    NotesBloc notesBloc,
+    Account account,
+    notes.Note note,
   ) =>
       _NotesNoteBloc(
         notesBloc,
@@ -24,11 +24,11 @@ sealed class NotesNoteBloc implements InteractiveBloc {
         note,
       );
 
-  void updateContent(final String content);
+  void updateContent(String content);
 
-  void updateTitle(final String title);
+  void updateTitle(String title);
 
-  void updateCategory(final String category);
+  void updateCategory(String category);
 
   BehaviorSubject<String> get category;
 
@@ -43,7 +43,7 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   _NotesNoteBloc(
     this.notesBloc,
     this.account,
-    final notes.Note note,
+    notes.Note note,
   ) {
     emitNote(note);
     id = note.id;
@@ -51,13 +51,13 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
     initialTitle = note.title;
   }
 
-  void emitNote(final notes.Note note) {
+  void emitNote(notes.Note note) {
     category.add(note.category);
     etag = note.etag;
   }
 
   // ignore: avoid_void_async
-  void wrapNoteAction(final Future<DynamiteResponse<notes.Note, dynamic>> Function(String etag) call) async {
+  void wrapNoteAction(Future<DynamiteResponse<notes.Note, dynamic>> Function(String etag) call) async {
     await updateQueue.add(() async {
       try {
         final response = await call(etag);
@@ -98,9 +98,9 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   Future<void> refresh() async {}
 
   @override
-  void updateCategory(final String category) {
+  void updateCategory(String category) {
     wrapNoteAction(
-      (final etag) async => account.client.notes.updateNote(
+      (etag) async => account.client.notes.updateNote(
         id: id,
         category: category,
         ifMatch: '"$etag"',
@@ -109,9 +109,9 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   }
 
   @override
-  void updateContent(final String content) {
+  void updateContent(String content) {
     wrapNoteAction(
-      (final etag) async => account.client.notes.updateNote(
+      (etag) async => account.client.notes.updateNote(
         id: id,
         content: content,
         ifMatch: '"$etag"',
@@ -120,9 +120,9 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   }
 
   @override
-  void updateTitle(final String title) {
+  void updateTitle(String title) {
     wrapNoteAction(
-      (final etag) async => account.client.notes.updateNote(
+      (etag) async => account.client.notes.updateNote(
         id: id,
         title: title,
         ifMatch: '"$etag"',
