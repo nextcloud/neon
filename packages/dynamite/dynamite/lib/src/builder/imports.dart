@@ -3,7 +3,7 @@ import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:path/path.dart' as p;
 
-Iterable<Spec> generateImports(final AssetId outputId, final State state) sync* {
+Iterable<Spec> generateImports(AssetId outputId, State state) sync* {
   final analyzerIgnores = state.buildConfig.analyzerIgnores;
   if (analyzerIgnores != null) {
     for (final rule in analyzerIgnores) {

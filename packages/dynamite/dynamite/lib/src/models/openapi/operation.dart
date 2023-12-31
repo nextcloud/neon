@@ -9,7 +9,7 @@ import 'package:dynamite/src/models/openapi/response.dart';
 part 'operation.g.dart';
 
 abstract class Operation implements Built<Operation, OperationBuilder> {
-  factory Operation([final void Function(OperationBuilder) updates]) = _$Operation;
+  factory Operation([void Function(OperationBuilder) updates]) = _$Operation;
 
   const Operation._();
 
@@ -36,14 +36,14 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
   BuiltList<BuiltMap<String, BuiltList<String>>>? get security;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _defaults(final OperationBuilder b) {
+  static void _defaults(OperationBuilder b) {
     b.deprecated ??= false;
   }
 
   Iterable<String> formattedDescription(
-    final String methodName, {
-    final bool isRawRequest = false,
-    final bool requiresAuth = false,
+    String methodName, {
+    bool isRawRequest = false,
+    bool requiresAuth = false,
   }) sync* {
     if (summary != null && summary!.isNotEmpty) {
       yield* descriptionToDocs(summary);

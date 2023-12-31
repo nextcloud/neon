@@ -4,7 +4,7 @@ part of 'type_result.dart';
 class TypeResultList extends TypeResult {
   TypeResultList(
     super.className,
-    final TypeResult subType, {
+    TypeResult subType, {
     super.nullable,
     super.isTypeDef,
     super.builderName = 'ListBuilder',
@@ -19,7 +19,7 @@ class TypeResultList extends TypeResult {
   TypeResultList get dartType => TypeResultList('List', subType, nullable: nullable);
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is TypeResultList && other.className == className && other.generics == generics && other.subType == subType;
 
   @override

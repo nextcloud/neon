@@ -1,9 +1,9 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/builder/state.dart';
 
-List<Spec> buildSerializer(final State state) => [
+List<Spec> buildSerializer(State state) => [
       const Code('// coverage:ignore-start\n'),
-      Field((final b) {
+      Field((b) {
         b
           ..docs.add(r'''
 /// Serializer for all values in this library.
@@ -16,14 +16,13 @@ List<Spec> buildSerializer(final State state) => [
           ..name = r'$serializers'
           ..assignment = const Code(r'_$serializers');
       }),
-      Field((final b) {
+      Field((b) {
         b
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
           ..name = r'_$serializers';
 
-        final serializers =
-            state.resolvedTypes.map((final type) => type.serializers).expand((final element) => element).toSet();
+        final serializers = state.resolvedTypes.map((type) => type.serializers).expand((element) => element).toSet();
 
         if (serializers.isEmpty) {
           b.assignment = const Code('Serializers()');
@@ -36,7 +35,7 @@ List<Spec> buildSerializer(final State state) => [
           b.assignment = Code(bodyBuilder.toString());
         }
       }),
-      Field((final b) {
+      Field((b) {
         b
           ..docs.add(r'''
 /// Serializer for all values in this library.
@@ -49,7 +48,7 @@ List<Spec> buildSerializer(final State state) => [
           ..name = r'$jsonSerializers'
           ..assignment = const Code(r'_$jsonSerializers');
       }),
-      Field((final b) {
+      Field((b) {
         b
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')

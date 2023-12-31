@@ -9,10 +9,10 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 TypeResultObject resolveInterface(
-  final openapi.OpenAPI spec,
-  final State state,
-  final String identifier,
-  final openapi.Schema schema,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  openapi.Schema schema,
 ) {
   final properties = schema.properties?.entries;
 
@@ -27,9 +27,9 @@ TypeResultObject resolveInterface(
   if (state.resolvedInterfaces.add(result)) {
     final $interface = buildInterface(
       identifier,
-      methods: BuiltList.build((final b) {
+      methods: BuiltList.build((b) {
         b.addAll(
-          properties.map((final property) {
+          properties.map((property) {
             final propertyName = property.key;
             final propertySchema = property.value;
 
@@ -61,12 +61,12 @@ TypeResultObject resolveInterface(
 }
 
 Method generateProperty(
-  final TypeResult type,
-  final String propertyName,
-  final Iterable<String> description,
+  TypeResult type,
+  String propertyName,
+  Iterable<String> description,
 ) =>
     Method(
-      (final b) {
+      (b) {
         final name = toFieldName(toDartName(propertyName), type.name);
         b
           ..name = name
@@ -93,14 +93,14 @@ Method generateProperty(
     );
 
 Spec buildInterface(
-  final String identifier, {
-  final BuiltList<Method>? methods,
-  final Iterable<TypeResultObject>? interfaces,
+  String identifier, {
+  BuiltList<Method>? methods,
+  Iterable<TypeResultObject>? interfaces,
 }) {
   assert((interfaces == null) != (methods == null), 'Either provide an interface or methods.');
   final className = '\$$identifier$interfaceSuffix';
 
-  return Class((final b) {
+  return Class((b) {
     b
       ..abstract = true
       ..modifier = ClassModifier.interface
@@ -109,7 +109,7 @@ Spec buildInterface(
 
     if (interfaces != null) {
       b.implements.addAll(
-        interfaces.map((final i) => refer('\$${i.name}$interfaceSuffix')),
+        interfaces.map((i) => refer('\$${i.name}$interfaceSuffix')),
       );
     }
 

@@ -6,7 +6,7 @@ import 'package:dynamite/src/models/openapi/media_type.dart';
 part 'request_body.g.dart';
 
 abstract class RequestBody implements Built<RequestBody, RequestBodyBuilder> {
-  factory RequestBody([final void Function(RequestBodyBuilder) updates]) = _$RequestBody;
+  factory RequestBody([void Function(RequestBodyBuilder) updates]) = _$RequestBody;
 
   const RequestBody._();
 
@@ -20,7 +20,7 @@ abstract class RequestBody implements Built<RequestBody, RequestBodyBuilder> {
   bool get required;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _defaults(final RequestBodyBuilder b) {
+  static void _defaults(RequestBodyBuilder b) {
     b.required ??= false;
   }
 }

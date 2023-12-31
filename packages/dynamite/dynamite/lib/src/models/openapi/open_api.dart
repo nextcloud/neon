@@ -12,7 +12,7 @@ import 'package:uri/uri.dart';
 part 'open_api.g.dart';
 
 abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
-  factory OpenAPI([final void Function(OpenAPIBuilder) updates]) = _$OpenAPI;
+  factory OpenAPI([void Function(OpenAPIBuilder) updates]) = _$OpenAPI;
 
   const OpenAPI._();
 
@@ -36,11 +36,11 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
   bool get hasAnySecurity => components?.securitySchemes?.isNotEmpty ?? false;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _defaults(final OpenAPIBuilder b) {
+  static void _defaults(OpenAPIBuilder b) {
     if (b.servers.isEmpty) {
       b.servers.add(
         Server(
-          (final b) => b.url = '/',
+          (b) => b.url = '/',
         ),
       );
     }

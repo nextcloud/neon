@@ -16,10 +16,10 @@ part 'some_of.dart';
 sealed class TypeResult {
   TypeResult(
     this.className, {
-    final BuiltList<TypeResult>? generics,
+    BuiltList<TypeResult>? generics,
     this.nullable = false,
     this.isTypeDef = false,
-    final String? builderName,
+    String? builderName,
   })  : builderName = builderName ?? className,
         generics = generics ?? BuiltList(),
         assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
@@ -37,7 +37,7 @@ sealed class TypeResult {
   String get name {
     if (generics.isNotEmpty) {
       final buffer = StringBuffer('$className<')
-        ..writeAll(generics.map((final c) => c.name), ', ')
+        ..writeAll(generics.map((c) => c.name), ', ')
         ..write('>');
       return buffer.toString();
     }
@@ -49,7 +49,7 @@ sealed class TypeResult {
   String get builder {
     if (generics.isNotEmpty) {
       final buffer = StringBuffer('$builderName<')
-        ..writeAll(generics.map((final c) => c.name), ', ')
+        ..writeAll(generics.map((c) => c.name), ', ')
         ..write('>');
       return buffer.toString();
     }
@@ -63,7 +63,7 @@ sealed class TypeResult {
   String get _fullType {
     if (generics.isNotEmpty) {
       final buffer = StringBuffer('FullType($className, [')
-        ..writeAll(generics.map((final c) => c._fullType), ', ')
+        ..writeAll(generics.map((c) => c._fullType), ', ')
         ..write('])');
 
       return buffer.toString();
@@ -97,14 +97,14 @@ sealed class TypeResult {
   ///
   /// The serialized result is an [Object]?
   @mustCallSuper
-  String serialize(final String object, [final String? serializerName]) =>
+  String serialize(String object, [String? serializerName]) =>
       '${serializerName ?? r'_$jsonSerializers'}.serialize($object, specifiedType: $fullType)';
 
   /// Deserializes the variable named [object].
   ///
   /// The serialized result will be of [name].
   @mustCallSuper
-  String deserialize(final String object, [final String? serializerName]) {
+  String deserialize(String object, [String? serializerName]) {
     final buffer = StringBuffer()
       ..write(serializerName ?? r'_$jsonSerializers')
       ..write('.deserialize(')
@@ -119,12 +119,12 @@ sealed class TypeResult {
   }
 
   /// Decodes the variable named [object].
-  String decode(final String object) => 'json.decode($object as String)';
+  String decode(String object) => 'json.decode($object as String)';
 
   /// Encodes the variable named [object].
   String encode(
-    final String object, {
-    required final String mimeType,
+    String object, {
+    required String mimeType,
   }) {
     final serialized = serialize(object);
 
@@ -191,8 +191,7 @@ sealed class TypeResult {
   }
 
   @override
-  bool operator ==(final Object other) =>
-      other is TypeResult && other.className == className && other.generics == generics;
+  bool operator ==(Object other) => other is TypeResult && other.className == className && other.generics == generics;
 
   @override
   int get hashCode => className.hashCode + generics.hashCode;

@@ -6,7 +6,7 @@ import 'package:dynamite/src/models/openapi/server_variable.dart';
 part 'server.g.dart';
 
 abstract class Server implements Built<Server, ServerBuilder> {
-  factory Server([final void Function(ServerBuilder) updates]) = _$Server;
+  factory Server([void Function(ServerBuilder) updates]) = _$Server;
 
   const Server._();
 

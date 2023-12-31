@@ -5,7 +5,7 @@ import 'package:dynamite/src/helpers/docs.dart';
 part 'tag.g.dart';
 
 abstract class Tag implements Built<Tag, TagBuilder> {
-  factory Tag([final void Function(TagBuilder) updates]) = _$Tag;
+  factory Tag([void Function(TagBuilder) updates]) = _$Tag;
 
   Tag._();
 

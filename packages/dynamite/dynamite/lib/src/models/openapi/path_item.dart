@@ -7,7 +7,7 @@ import 'package:dynamite/src/models/openapi/parameter.dart';
 part 'path_item.g.dart';
 
 abstract class PathItem implements Built<PathItem, PathItemBuilder> {
-  factory PathItem([final void Function(PathItemBuilder) updates]) = _$PathItem;
+  factory PathItem([void Function(PathItemBuilder) updates]) = _$PathItem;
 
   const PathItem._();
 

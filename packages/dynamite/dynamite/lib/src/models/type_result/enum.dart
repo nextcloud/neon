@@ -15,7 +15,7 @@ class TypeResultEnum extends TypeResult {
   String? get _builderFactory => null;
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is TypeResultEnum && other.className == className && other.generics == generics && other.subType == subType;
 
   @override

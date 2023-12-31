@@ -3,7 +3,7 @@
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 
-String filterMethodName(final String operationId, final String tag) {
+String filterMethodName(String operationId, String tag) {
   final expandedTag = tag.split('/').toList();
   final parts = operationId.split('-');
   final output = <String>[];
@@ -15,21 +15,21 @@ String filterMethodName(final String operationId, final String tag) {
   return output.join('-');
 }
 
-String clientName(final String tag) => '\$${toDartName(tag, uppercaseFirstCharacter: true)}Client';
+String clientName(String tag) => '\$${toDartName(tag, uppercaseFirstCharacter: true)}Client';
 
 bool isDartParameterNullable(
-  final bool required,
-  final openapi.Schema? schema,
+  bool required,
+  openapi.Schema? schema,
 ) =>
     (!required && schema?.$default == null) || (schema?.nullable ?? false);
 
 bool isRequired(
-  final bool required,
-  final openapi.Schema? schema,
+  bool required,
+  openapi.Schema? schema,
 ) =>
     required && schema?.$default == null;
 
-int sortRequiredParameters(final openapi.Parameter a, final openapi.Parameter b) {
+int sortRequiredParameters(openapi.Parameter a, openapi.Parameter b) {
   final aRequired = isRequired(a.required, a.schema);
   final bRequired = isRequired(b.required, b.schema);
 

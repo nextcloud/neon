@@ -8,11 +8,11 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 TypeResult resolveType(
-  final openapi.OpenAPI spec,
-  final State state,
-  final String identifier,
-  final openapi.Schema schema, {
-  final bool nullable = false,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  openapi.Schema schema, {
+  bool nullable = false,
 }) {
   TypeResult? result;
   if (schema.ref == null && schema.ofs == null && schema.type == null) {

@@ -4,7 +4,7 @@ import 'package:built_value/serializer.dart';
 part 'license.g.dart';
 
 abstract class License implements Built<License, LicenseBuilder> {
-  factory License([final void Function(LicenseBuilder) updates]) = _$License;
+  factory License([void Function(LicenseBuilder) updates]) = _$License;
 
   const License._();
 

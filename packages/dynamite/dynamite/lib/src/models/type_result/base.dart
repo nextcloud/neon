@@ -16,9 +16,9 @@ class TypeResultBase extends TypeResult {
 
   @override
   String encode(
-    final String object, {
-    final bool onlyChildren = false,
-    final String? mimeType,
+    String object, {
+    bool onlyChildren = false,
+    String? mimeType,
   }) {
     switch (mimeType) {
       case null:

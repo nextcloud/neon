@@ -7,12 +7,12 @@ part 'config.g.dart';
 
 /// The configuration used by the dynamite builder.
 abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBuilder> {
-  factory DynamiteConfig([final void Function(DynamiteConfigBuilder) updates]) = _$DynamiteConfig;
+  factory DynamiteConfig([void Function(DynamiteConfigBuilder) updates]) = _$DynamiteConfig;
 
   const DynamiteConfig._();
 
   /// Constructs the dynamite config from a json like map.
-  factory DynamiteConfig.fromJson(final Map<String, dynamic> json) => _serializers.deserializeWith(serializer, json)!;
+  factory DynamiteConfig.fromJson(Map<String, dynamic> json) => _serializers.deserializeWith(serializer, json)!;
 
   /// Serializes this configuration to json.
   Map<String, dynamic> toJson() => _serializers.serializeWith(serializer, this)! as Map<String, dynamic>;
@@ -44,14 +44,14 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
   bool get experimental;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(final DynamiteConfigBuilder b) {
+  static void _defaults(DynamiteConfigBuilder b) {
     b.experimental ??= false;
   }
 
   /// Gets the config for the given [uri].
   ///
   /// Returns this if no override is set.
-  DynamiteConfig configFor(final String uri) {
+  DynamiteConfig configFor(String uri) {
     if (overrides == null) {
       return this;
     }
@@ -74,12 +74,12 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
   /// Merges `this` config with the given [override].
   ///
   /// Throws a [ArgumentError] if the override has overrides itself.
-  DynamiteConfig merge(final DynamiteConfig other) {
+  DynamiteConfig merge(DynamiteConfig other) {
     if (other.overrides != null) {
       throw ArgumentError('Configs can only be merged with a config that does not have further overrides');
     }
 
-    return rebuild((final b) {
+    return rebuild((b) {
       final analyzerIgnores = other.analyzerIgnores;
       if (analyzerIgnores != null) {
         b.analyzerIgnores.replace(analyzerIgnores);

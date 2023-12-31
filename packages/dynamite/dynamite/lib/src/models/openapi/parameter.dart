@@ -11,7 +11,7 @@ import 'package:meta/meta.dart';
 part 'parameter.g.dart';
 
 abstract class Parameter implements Built<Parameter, ParameterBuilder> {
-  factory Parameter([final void Function(ParameterBuilder) updates]) = _$Parameter;
+  factory Parameter([void Function(ParameterBuilder) updates]) = _$Parameter;
 
   const Parameter._();
 
@@ -49,7 +49,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         print('Can not work with multiple mime types right now. Using the first supported.');
       }
       return Schema(
-        (final b) => b
+        (b) => b
           ..type = SchemaType.string
           ..contentMediaType = content!.entries.first.key
           ..contentSchema = content!.entries.first.value.schema!.toBuilder(),
@@ -66,8 +66,8 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   ///
   /// Returns `null` if the parameter does not support a uri template.
   String? uriTemplate({
-    final bool isFirst = true,
-    final bool withPrefix = true,
+    bool isFirst = true,
+    bool withPrefix = true,
   }) {
     final buffer = StringBuffer();
 
@@ -104,7 +104,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   String get pctEncodedName => Uri.encodeQueryComponent(name);
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _defaults(final ParameterBuilder b) {
+  static void _defaults(ParameterBuilder b) {
     b.required ??= false;
     b._allowReserved ??= false;
     b._explode ??= switch (b.$in!) {
@@ -215,7 +215,7 @@ class ParameterType extends EnumClass {
 
   static BuiltSet<ParameterType> get values => _$parameterTypeValues;
 
-  static ParameterType valueOf(final String name) => _$parameterType(name);
+  static ParameterType valueOf(String name) => _$parameterType(name);
 
   static Serializer<ParameterType> get serializer => _$parameterTypeSerializer;
 }
@@ -233,7 +233,7 @@ class ParameterStyle extends EnumClass {
 
   static BuiltSet<ParameterStyle> get values => _$parameterStyleValues;
 
-  static ParameterStyle valueOf(final String name) => _$parameterStyle(name);
+  static ParameterStyle valueOf(String name) => _$parameterStyle(name);
 
   static Serializer<ParameterStyle> get serializer => _$parameterStyleSerializer;
 }

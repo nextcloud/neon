@@ -5,7 +5,7 @@ import 'package:built_value/serializer.dart';
 part 'server_variable.g.dart';
 
 abstract class ServerVariable implements Built<ServerVariable, ServerVariableBuilder> {
-  factory ServerVariable([final void Function(ServerVariableBuilder) updates]) = _$ServerVariable;
+  factory ServerVariable([void Function(ServerVariableBuilder) updates]) = _$ServerVariable;
 
   const ServerVariable._();
 

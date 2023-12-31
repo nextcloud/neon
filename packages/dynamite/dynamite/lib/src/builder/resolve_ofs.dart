@@ -9,15 +9,15 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 TypeResult resolveSomeOf(
-  final openapi.OpenAPI spec,
-  final State state,
-  final String identifier,
-  final openapi.Schema schema, {
-  final bool nullable = false,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  openapi.Schema schema, {
+  bool nullable = false,
 }) {
   final subResults = schema.ofs!
       .mapIndexed(
-        (final index, final s) => resolveType(
+        (index, s) => resolveType(
           spec,
           state,
           '$identifier$index',
@@ -45,7 +45,7 @@ TypeResult resolveSomeOf(
   }
 
   if (state.resolvedTypes.add(result) && !result.isSingleValue) {
-    final $typedef = TypeDef((final b) {
+    final $typedef = TypeDef((b) {
       b
         ..docs.addAll(schema.formattedDescription)
         ..name = result.className
@@ -59,11 +59,11 @@ TypeResult resolveSomeOf(
 }
 
 TypeResult resolveAllOf(
-  final openapi.OpenAPI spec,
-  final State state,
-  final String identifier,
-  final openapi.Schema schema, {
-  final bool nullable = false,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  openapi.Schema schema, {
+  bool nullable = false,
 }) {
   final result = TypeResultObject(
     identifier,

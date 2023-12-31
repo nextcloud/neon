@@ -7,7 +7,7 @@ import 'package:dynamite/src/models/openapi/media_type.dart';
 part 'response.g.dart';
 
 abstract class Response implements Built<Response, ResponseBuilder> {
-  factory Response([final void Function(ResponseBuilder) updates]) = _$Response;
+  factory Response([void Function(ResponseBuilder) updates]) = _$Response;
 
   const Response._();
 

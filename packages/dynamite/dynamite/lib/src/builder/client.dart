@@ -15,8 +15,8 @@ import 'package:source_helper/source_helper.dart';
 import 'package:uri/uri.dart';
 
 Iterable<Class> generateClients(
-  final openapi.OpenAPI spec,
-  final State state,
+  openapi.OpenAPI spec,
+  State state,
 ) sync* {
   if (spec.paths == null || spec.paths!.isEmpty) {
     return;
@@ -31,13 +31,13 @@ Iterable<Class> generateClients(
 }
 
 Class buildRootClient(
-  final openapi.OpenAPI spec,
-  final State state,
-  final Set<openapi.Tag> tags,
+  openapi.OpenAPI spec,
+  State state,
+  Set<openapi.Tag> tags,
 ) =>
     Class(
-      (final b) {
-        final rootTag = spec.tags?.firstWhereOrNull((final tag) => tag.name.isEmpty);
+      (b) {
+        final rootTag = spec.tags?.firstWhereOrNull((tag) => tag.name.isEmpty);
         if (rootTag != null) {
           b.docs.addAll(rootTag.formattedDescription);
         }
@@ -47,43 +47,43 @@ Class buildRootClient(
           ..name = r'$Client'
           ..constructors.addAll([
             Constructor(
-              (final b) => b
+              (b) => b
                 ..docs.add('/// Creates a new [DynamiteClient] for untagged requests.')
                 ..requiredParameters.add(
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = 'baseURL'
                       ..toSuper = true,
                   ),
                 )
                 ..optionalParameters.addAll([
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = 'baseHeaders'
                       ..toSuper = true
                       ..named = true,
                   ),
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = 'userAgent'
                       ..toSuper = true
                       ..named = true,
                   ),
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = 'httpClient'
                       ..toSuper = true
                       ..named = true,
                   ),
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = 'cookieJar'
                       ..toSuper = true
                       ..named = true,
                   ),
                   if (spec.hasAnySecurity) ...[
                     Parameter(
-                      (final b) => b
+                      (b) => b
                         ..name = 'authentications'
                         ..toSuper = true
                         ..named = true,
@@ -92,12 +92,12 @@ Class buildRootClient(
                 ]),
             ),
             Constructor(
-              (final b) => b
+              (b) => b
                 ..docs.add(r'/// Creates a new [$Client] from another [client].')
                 ..name = 'fromClient'
                 ..requiredParameters.add(
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = 'client'
                       ..type = refer('DynamiteClient'),
                   ),
@@ -121,7 +121,7 @@ super(
 
           b.methods.add(
             Method(
-              (final b) => b
+              (b) => b
                 ..docs.addAll(tag.formattedDescription)
                 ..name = toDartName(tag.name)
                 ..lambda = true
@@ -137,23 +137,23 @@ super(
     );
 
 Class buildClient(
-  final openapi.OpenAPI spec,
-  final State state,
-  final openapi.Tag tag,
+  openapi.OpenAPI spec,
+  State state,
+  openapi.Tag tag,
 ) =>
     Class(
-      (final b) {
+      (b) {
         final name = clientName(tag.name);
         b
           ..docs.addAll(tag.formattedDescription)
           ..name = name
           ..constructors.add(
             Constructor(
-              (final b) => b
+              (b) => b
                 ..docs.add('/// Creates a new [DynamiteClient] for ${tag.name} requests.')
                 ..requiredParameters.add(
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = '_rootClient'
                       ..toThis = true,
                   ),
@@ -162,7 +162,7 @@ Class buildClient(
           )
           ..fields.add(
             Field(
-              (final b) => b
+              (b) => b
                 ..name = '_rootClient'
                 ..type = refer(r'$Client')
                 ..modifier = FieldModifier.final$,
@@ -174,9 +174,9 @@ Class buildClient(
     );
 
 Iterable<Method> buildTags(
-  final openapi.OpenAPI spec,
-  final State state,
-  final String? tag,
+  openapi.OpenAPI spec,
+  State state,
+  String? tag,
 ) sync* {
   final client = tag == null ? 'this' : '_rootClient';
   final paths = generatePaths(spec, tag);
@@ -229,9 +229,9 @@ Iterable<Method> buildTags(
 
       final code = StringBuffer();
       final acceptHeader = responses.keys
-          .map((final response) => response.content?.keys)
+          .map((response) => response.content?.keys)
           .whereNotNull()
-          .expand((final element) => element)
+          .expand((element) => element)
           .toSet()
           .join(',');
 
@@ -286,7 +286,7 @@ Iterable<Method> buildTags(
 
         operationParameters.add(
           Parameter(
-            (final b) {
+            (b) {
               b
                 ..named = true
                 ..name = toDartName(parameter.name)
@@ -319,10 +319,10 @@ Iterable<Method> buildTags(
             state,
             identifierBuilder.toString(),
             openapi.Schema(
-              (final b) => b
+              (b) => b
                 ..properties.replace(
                   response.headers!.map(
-                    (final headerName, final value) => MapEntry(
+                    (headerName, value) => MapEntry(
                       headerName.toLowerCase(),
                       value.schema!,
                     ),
@@ -416,7 +416,7 @@ Iterable<Method> buildTags(
 ''');
       }
 
-      yield Method((final b) {
+      yield Method((b) {
         b
           ..name = name
           ..modifier = MethodModifier.async
@@ -427,7 +427,7 @@ Iterable<Method> buildTags(
         }
 
         final parameters = operationParameters.build();
-        final rawParameters = parameters.map((final p) => '${p.name}: ${p.name},').join('\n');
+        final rawParameters = parameters.map((p) => '${p.name}: ${p.name},').join('\n');
 
         b
           ..optionalParameters.addAll(parameters)
@@ -442,7 +442,7 @@ return rawResponse.future;
       });
 
       yield Method(
-        (final b) {
+        (b) {
           b
             ..name = '${name}Raw'
             ..docs.addAll(operation.formattedDescription(name, isRawRequest: true))
@@ -463,8 +463,8 @@ return rawResponse.future;
 }
 
 String buildParameterSerialization(
-  final TypeResult result,
-  final openapi.Parameter parameter,
+  TypeResult result,
+  openapi.Parameter parameter,
 ) {
   final $default = parameter.schema?.$default;
   var defaultValueCode = $default?.value;
@@ -507,25 +507,25 @@ String buildParameterSerialization(
 }
 
 bool needsAuthCheck(
-  final MapEntry<String, openapi.PathItem> pathEntry,
-  final openapi.Operation operation,
-  final openapi.OpenAPI spec,
-  final String client,
+  MapEntry<String, openapi.PathItem> pathEntry,
+  openapi.Operation operation,
+  openapi.OpenAPI spec,
+  String client,
 ) {
   final security = operation.security ?? spec.security ?? BuiltList();
-  final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
+  final securityRequirements = security.where((requirement) => requirement.isNotEmpty);
 
   return securityRequirements.isNotEmpty;
 }
 
 Iterable<String> buildAuthCheck(
-  final MapEntry<String, openapi.PathItem> pathEntry,
-  final openapi.Operation operation,
-  final openapi.OpenAPI spec,
-  final String client,
+  MapEntry<String, openapi.PathItem> pathEntry,
+  openapi.Operation operation,
+  openapi.OpenAPI spec,
+  String client,
 ) sync* {
   final security = operation.security ?? spec.security ?? BuiltList();
-  final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
+  final securityRequirements = security.where((requirement) => requirement.isNotEmpty);
   final isOptionalSecurity = securityRequirements.length != security.length;
 
   if (securityRequirements.isEmpty) {
@@ -538,7 +538,7 @@ final authentication = $client.authentications.firstWhereOrNull(
     (auth) => switch (auth) {
 ''';
 
-  yield* securityRequirements.map((final requirement) {
+  yield* securityRequirements.map((requirement) {
     final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
     final dynamiteAuth = toDartName(
       'Dynamite-${securityScheme.fullName.join('-')}-Authentication',
@@ -565,14 +565,14 @@ if(authentication != null) {
   if (!isOptionalSecurity) {
     yield '''
 else {
-  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
+  throw Exception('Missing authentication for ${securityRequirements.map((r) => r.keys.single).join(' or ')}');
 }
 ''';
   }
   yield '// coverage:ignore-end';
 }
 
-Map<String, openapi.PathItem> generatePaths(final openapi.OpenAPI spec, final String? tag) {
+Map<String, openapi.PathItem> generatePaths(openapi.OpenAPI spec, String? tag) {
   final paths = <String, openapi.PathItem>{};
 
   if (spec.paths != null) {
@@ -582,7 +582,7 @@ Map<String, openapi.PathItem> generatePaths(final openapi.OpenAPI spec, final St
         if ((operation.tags != null && operation.tags!.contains(tag)) ||
             (tag == null && (operation.tags == null || operation.tags!.isEmpty))) {
           paths[path.key] ??= path.value;
-          paths[path.key]!.rebuild((final b) {
+          paths[path.key]!.rebuild((b) {
             switch (operationEntry.key) {
               case openapi.PathItemOperation.get:
                 b.get.replace(operation);
@@ -610,7 +610,7 @@ Map<String, openapi.PathItem> generatePaths(final openapi.OpenAPI spec, final St
   return paths;
 }
 
-Set<openapi.Tag> generateTags(final openapi.OpenAPI spec) {
+Set<openapi.Tag> generateTags(openapi.OpenAPI spec) {
   final tags = <openapi.Tag>[];
 
   if (spec.paths != null) {
@@ -618,9 +618,9 @@ Set<openapi.Tag> generateTags(final openapi.OpenAPI spec) {
       for (final operation in pathItem.operations.values) {
         if (operation.tags != null) {
           tags.addAll(
-            operation.tags!.map((final name) {
-              final tag = spec.tags?.firstWhereOrNull((final tag) => tag.name == name);
-              return tag ?? openapi.Tag((final b) => b..name = name);
+            operation.tags!.map((name) {
+              final tag = spec.tags?.firstWhereOrNull((tag) => tag.name == name);
+              return tag ?? openapi.Tag((b) => b..name = name);
             }),
           );
         }
@@ -628,6 +628,6 @@ Set<openapi.Tag> generateTags(final openapi.OpenAPI spec) {
     }
   }
 
-  tags.sort((final a, final b) => a.name.compareTo(b.name));
+  tags.sort((a, b) => a.name.compareTo(b.name));
   return tags.toSet();
 }

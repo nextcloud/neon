@@ -12,12 +12,12 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 TypeResultObject resolveObject(
-  final openapi.OpenAPI spec,
-  final State state,
-  final String identifier,
-  final openapi.Schema schema, {
-  final bool nullable = false,
-  final bool isHeader = false,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  openapi.Schema schema, {
+  bool nullable = false,
+  bool isHeader = false,
 }) {
   final result = TypeResultObject(
     identifier,

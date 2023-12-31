@@ -17,7 +17,7 @@ final devDependencies = {
 };
 
 /// Checks whether the correct version of the dependencies are present in the pubspec.yaml file.
-Future<({bool hasFatal, String messages})> helperVersionCheck(final BuildStep buildStep) async {
+Future<({bool hasFatal, String messages})> helperVersionCheck(BuildStep buildStep) async {
   final pubspecAsset = AssetId(buildStep.inputId.package, 'pubspec.yaml');
 
   if (!await buildStep.canRead(pubspecAsset)) {
@@ -61,9 +61,9 @@ Future<({bool hasFatal, String messages})> helperVersionCheck(final BuildStep bu
 }
 
 ({bool isFatal, String? message}) _validateVersion(
-  final Map<String, Dependency> dependencies,
-  final String packageName,
-  final Version minVersion,
+  Map<String, Dependency> dependencies,
+  String packageName,
+  Version minVersion,
 ) {
   final dependency = dependencies[packageName];
   final maxVersion = minVersion.nextBreaking;

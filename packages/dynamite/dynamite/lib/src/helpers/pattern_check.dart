@@ -2,9 +2,9 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/openapi/schema.dart';
 
 Iterable<String> buildPatternCheck(
-  final openapi.Schema schema,
-  final String value,
-  final String name,
+  openapi.Schema schema,
+  String value,
+  String name,
 ) sync* {
   if (schema.type == SchemaType.string) {
     if (schema.pattern != null) {
