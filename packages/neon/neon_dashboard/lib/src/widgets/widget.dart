@@ -18,7 +18,7 @@ class DashboardWidget extends StatelessWidget {
   final List<Widget> children;
 
   @override
-  Widget build(final BuildContext context) => Card(
+  Widget build(BuildContext context) => Card(
         child: InkWell(
           onTap: widget.widgetUrl != null && widget.widgetUrl!.isNotEmpty ? () => context.go(widget.widgetUrl!) : null,
           borderRadius: const BorderRadius.all(Radius.circular(12)),

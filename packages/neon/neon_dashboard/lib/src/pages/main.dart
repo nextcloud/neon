@@ -21,13 +21,13 @@ class DashboardMainPage extends StatelessWidget {
   });
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final bloc = NeonProvider.of<DashboardBloc>(context);
 
     return NeonCustomBackground(
       child: ResultBuilder.behaviorSubject(
         subject: bloc.widgets,
-        builder: (final context, final snapshot) {
+        builder: (context, snapshot) {
           Widget? child;
           if (snapshot.hasData) {
             var minHeight = 504.0;
@@ -40,7 +40,7 @@ class DashboardMainPage extends StatelessWidget {
                 items: widget.value,
               ).toList();
 
-              final height = items.map((final i) => i.height!).reduce((final a, final b) => a + b);
+              final height = items.map((i) => i.height!).reduce((a, b) => a + b);
               minHeight = max(minHeight, height);
 
               children.add(
@@ -57,7 +57,7 @@ class DashboardMainPage extends StatelessWidget {
               runSpacing: 8,
               children: children
                   .map(
-                    (final widget) => SizedBox(
+                    (widget) => SizedBox(
                       width: 320,
                       height: minHeight + 24,
                       child: widget,
@@ -89,9 +89,9 @@ class DashboardMainPage extends StatelessWidget {
   /// Builds the list of messages, [items] and buttons for a [widget].
   @visibleForTesting
   static Iterable<SizedBox> buildWidgetItems({
-    required final BuildContext context,
-    required final dashboard.Widget widget,
-    required final dashboard.WidgetItems? items,
+    required BuildContext context,
+    required dashboard.Widget widget,
+    required dashboard.WidgetItems? items,
   }) sync* {
     yield SizedBox(
       height: 64,
@@ -161,8 +161,8 @@ class DashboardMainPage extends StatelessWidget {
   }
 
   static Widget _buildWidgetIcon({
-    required final BuildContext context,
-    required final dashboard.Widget widget,
+    required BuildContext context,
+    required dashboard.Widget widget,
   }) {
     final colorFilter = ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn);
 
@@ -189,7 +189,7 @@ class DashboardMainPage extends StatelessWidget {
     );
   }
 
-  static SizedBox? _buildMessage(final String? message) {
+  static SizedBox? _buildMessage(String? message) {
     if (message == null || message.isEmpty) {
       return null;
     }

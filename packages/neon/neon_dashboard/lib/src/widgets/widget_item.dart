@@ -20,7 +20,7 @@ class DashboardWidgetItem extends StatelessWidget {
   final bool roundIcon;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     Widget leading = SizedBox.square(
       dimension: largeIconSize,
       child: NeonImageWrapper(
