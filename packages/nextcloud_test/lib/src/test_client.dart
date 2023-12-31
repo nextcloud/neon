@@ -14,8 +14,8 @@ extension TestNextcloudClient on NextcloudClient {
   /// It is expected that the password of the user matches the its [username].
   /// This is the case for the available test docker containers.
   static Future<NextcloudClient> create(
-    final DockerContainer container, {
-    final String? username = 'user1',
+    DockerContainer container, {
+    String? username = 'user1',
   }) async {
     String? appPassword;
     if (username != null) {

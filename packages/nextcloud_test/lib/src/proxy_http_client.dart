@@ -23,7 +23,7 @@ class ByteStreamFake extends Fake implements Stream<List<int>> {}
 /// Gets a mocked [HttpClient] that proxies the request to a real [HttpClient].
 /// For every requests it calls [onRequest] which contains the formatted request.
 HttpClient getProxyHttpClient({
-  required final void Function(String data) onRequest,
+  required void Function(String data) onRequest,
 }) {
   registerFallbackValue(Uri());
   registerFallbackValue(ByteStreamFake());
@@ -32,7 +32,7 @@ HttpClient getProxyHttpClient({
   final realClient = HttpClient();
 
   // ignore: discarded_futures
-  when(() => mockClient.openUrl(any(), any())).thenAnswer((final invocation) async {
+  when(() => mockClient.openUrl(any(), any())).thenAnswer((invocation) async {
     final mockRequest = MockHttpRequest();
     final realRequest = await realClient.openUrl(
       invocation.positionalArguments[0]! as String,
@@ -43,21 +43,21 @@ HttpClient getProxyHttpClient({
 
     when(() => mockRequest.headers).thenReturn(realRequest.headers);
     when(() => mockRequest.cookies).thenReturn(realRequest.cookies);
-    when(() => mockRequest.add(any())).thenAnswer((final invocation) {
+    when(() => mockRequest.add(any())).thenAnswer((invocation) {
       final chunk = invocation.positionalArguments[0] as List<int>;
       bodyBytes.add(chunk);
       return realRequest.add(chunk);
     });
-    when(() => mockRequest.addStream(any())).thenAnswer((final invocation) {
+    when(() => mockRequest.addStream(any())).thenAnswer((invocation) {
       final stream = invocation.positionalArguments[0] as Stream<List<int>>;
       return realRequest.addStream(
-        stream.map((final chunk) {
+        stream.map((chunk) {
           bodyBytes.add(chunk);
           return chunk;
         }),
       );
     });
-    when(mockRequest.close).thenAnswer((final invocation) async {
+    when(mockRequest.close).thenAnswer((invocation) async {
       onRequest(_formatHttpRequest(realRequest, bodyBytes.toBytes()));
 
       final mockResponse = MockHttpResponse();
@@ -68,20 +68,19 @@ HttpClient getProxyHttpClient({
       when(() => mockResponse.contentLength).thenReturn(realResponse.contentLength);
       when(() => mockResponse.statusCode).thenReturn(realResponse.statusCode);
       when(() => mockResponse.forEach(any())).thenAnswer(
-        (final invocation) async =>
-            realResponse.forEach(invocation.positionalArguments[0]! as void Function(List<int>)),
+        (invocation) async => realResponse.forEach(invocation.positionalArguments[0]! as void Function(List<int>)),
       );
       when(() => mockResponse.listen(any())).thenAnswer(
-        (final invocation) => realResponse.listen(invocation.positionalArguments[0]! as void Function(List<int>)),
+        (invocation) => realResponse.listen(invocation.positionalArguments[0]! as void Function(List<int>)),
       );
       when(() => mockResponse.transform(utf8.decoder)).thenAnswer(
-        (final _) => realResponse.transform(utf8.decoder),
+        (_) => realResponse.transform(utf8.decoder),
       );
       when(() => mockResponse.transform(jsonBytesConverter)).thenAnswer(
-        (final _) => realResponse.transform(jsonBytesConverter),
+        (_) => realResponse.transform(jsonBytesConverter),
       );
       when(() => mockResponse.transform(xmlBytesConverter)).thenAnswer(
-        (final _) => realResponse.transform(xmlBytesConverter),
+        (_) => realResponse.transform(xmlBytesConverter),
       );
 
       return mockResponse;
@@ -93,10 +92,10 @@ HttpClient getProxyHttpClient({
   return mockClient;
 }
 
-String _formatHttpRequest(final HttpClientRequest request, final Uint8List body) {
+String _formatHttpRequest(HttpClientRequest request, Uint8List body) {
   final buffer = StringBuffer('${request.method} ${request.uri.replace(port: 80)}');
 
-  request.headers.forEach((final name, final values) {
+  request.headers.forEach((name, values) {
     if (name == HttpHeaders.hostHeader) {
       return;
     }

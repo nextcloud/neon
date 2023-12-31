@@ -8,14 +8,14 @@ import 'package:universal_io/io.dart';
 final _fixture = <String>[];
 
 /// Appends some [data] to the current fixture.
-void appendFixture(final String data) {
+void appendFixture(String data) {
   _fixture.add(data);
 }
 
 /// Validates that the requests match the stored fixtures.
 ///
 /// If there is no stored fixture a new one is created.
-void validateFixture(final Preset preset) {
+void validateFixture(Preset preset) {
   if (_fixture.isEmpty) {
     return;
   }
@@ -75,4 +75,4 @@ void validateFixture(final Preset preset) {
   }
 }
 
-String _formatName(final String name) => name.toLowerCase().replaceAll(' ', '_');
+String _formatName(String name) => name.toLowerCase().replaceAll(' ', '_');

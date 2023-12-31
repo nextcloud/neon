@@ -77,7 +77,7 @@ Future<void> main() async {
   httpClient.close(force: true);
 }
 
-Future<List<Version>> _getServerVersions(final HttpClient httpClient) async {
+Future<List<Version>> _getServerVersions(HttpClient httpClient) async {
   final versions = <Version, Version>{};
   String? next = 'https://hub.docker.com/v2/repositories/library/nextcloud/tags?page_size=1000';
 
@@ -116,7 +116,7 @@ Future<List<Version>> _getServerVersions(final HttpClient httpClient) async {
   return versions.values.toList();
 }
 
-Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClient) async {
+Future<List<App>> _getApps(List<String> appIDs, HttpClient httpClient) async {
   final apps = <App>[];
 
   final request = await httpClient.openUrl('GET', Uri.parse('https://apps.nextcloud.com/api/v1/apps.json'));
@@ -181,6 +181,6 @@ Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClien
     );
   }
 
-  apps.sort((final a, final b) => a.id.compareTo(b.id));
+  apps.sort((a, b) => a.id.compareTo(b.id));
   return apps;
 }
