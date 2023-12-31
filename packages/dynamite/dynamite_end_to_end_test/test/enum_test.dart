@@ -113,4 +113,17 @@ void main() {
       expect(WrappedEnum.fromJson(json), equals(object));
     });
   });
+
+  test('EnumReference', () {
+    final object = EnumReference(
+      (b) => b..string = EnumString.$default,
+    );
+
+    const json = {
+      'string': 'default',
+    };
+
+    expect(object.toJson(), equals(json));
+    expect(EnumReference.fromJson(json), equals(object));
+  });
 }

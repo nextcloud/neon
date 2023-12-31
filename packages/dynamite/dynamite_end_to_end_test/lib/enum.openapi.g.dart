@@ -120,6 +120,7 @@ final BuiltSet<WrappedEnum_Integer> _$wrappedEnumIntegerValues =
 ]);
 
 Serializer<WrappedEnum> _$wrappedEnumSerializer = _$WrappedEnumSerializer();
+Serializer<EnumReference> _$enumReferenceSerializer = _$EnumReferenceSerializer();
 
 class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
   @override
@@ -158,6 +159,44 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
         case 'integer':
           result.integer = serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_Integer))!
               as WrappedEnum_Integer;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$EnumReferenceSerializer implements StructuredSerializer<EnumReference> {
+  @override
+  final Iterable<Type> types = const [EnumReference, _$EnumReference];
+  @override
+  final String wireName = 'EnumReference';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, EnumReference object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'string',
+      serializers.serialize(object.string, specifiedType: const FullType(EnumString)),
+    ];
+
+    return result;
+  }
+
+  @override
+  EnumReference deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = EnumReferenceBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'string':
+          result.string = serializers.deserialize(value, specifiedType: const FullType(EnumString))! as EnumString;
           break;
       }
     }
@@ -262,6 +301,90 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
         _$WrappedEnum._(
             customString: BuiltValueNullFieldError.checkNotNull(customString, r'WrappedEnum', 'customString'),
             integer: BuiltValueNullFieldError.checkNotNull(integer, r'WrappedEnum', 'integer'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $EnumReferenceInterfaceBuilder {
+  void replace($EnumReferenceInterface other);
+  void update(void Function($EnumReferenceInterfaceBuilder) updates);
+  EnumString? get string;
+  set string(EnumString? string);
+}
+
+class _$EnumReference extends EnumReference {
+  @override
+  final EnumString string;
+
+  factory _$EnumReference([void Function(EnumReferenceBuilder)? updates]) =>
+      (EnumReferenceBuilder()..update(updates))._build();
+
+  _$EnumReference._({required this.string}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string');
+  }
+
+  @override
+  EnumReference rebuild(void Function(EnumReferenceBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  EnumReferenceBuilder toBuilder() => EnumReferenceBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is EnumReference && string == other.string;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, string.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'EnumReference')..add('string', string)).toString();
+  }
+}
+
+class EnumReferenceBuilder implements Builder<EnumReference, EnumReferenceBuilder>, $EnumReferenceInterfaceBuilder {
+  _$EnumReference? _$v;
+
+  EnumString? _string;
+  EnumString? get string => _$this._string;
+  set string(covariant EnumString? string) => _$this._string = string;
+
+  EnumReferenceBuilder();
+
+  EnumReferenceBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _string = $v.string;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant EnumReference other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$EnumReference;
+  }
+
+  @override
+  void update(void Function(EnumReferenceBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  EnumReference build() => _build();
+
+  _$EnumReference _build() {
+    final _$result =
+        _$v ?? _$EnumReference._(string: BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string'));
     replace(_$result);
     return _$result;
   }

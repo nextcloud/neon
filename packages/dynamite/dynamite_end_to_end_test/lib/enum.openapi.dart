@@ -368,6 +368,31 @@ abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, 
   static Serializer<WrappedEnum> get serializer => _$wrappedEnumSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $EnumReferenceInterface {
+  EnumString get string;
+}
+
+abstract class EnumReference implements $EnumReferenceInterface, Built<EnumReference, EnumReferenceBuilder> {
+  /// Creates a new EnumReference object using the builder pattern.
+  factory EnumReference([void Function(EnumReferenceBuilder)? b]) = _$EnumReference;
+
+  const EnumReference._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory EnumReference.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for EnumReference.
+  static Serializer<EnumReference> get serializer => _$enumReferenceSerializer;
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -381,7 +406,9 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(WrappedEnum), WrappedEnumBuilder.new)
       ..add(WrappedEnum.serializer)
       ..add(WrappedEnum_CustomString.serializer)
-      ..add(WrappedEnum_Integer.serializer))
+      ..add(WrappedEnum_Integer.serializer)
+      ..addBuilderFactory(const FullType(EnumReference), EnumReferenceBuilder.new)
+      ..add(EnumReference.serializer))
     .build();
 
 /// Serializer for all values in this library.

@@ -54,6 +54,17 @@
                         ]
                     }
                 }
+            },
+            "enum-reference": {
+                "type": "object",
+                "required": [
+                    "string"
+                ],
+                "properties": {
+                    "string": {
+                        "$ref": "#/components/schemas/enum-string"
+                    }
+                }
             }
         }
     },

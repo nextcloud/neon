@@ -3,6 +3,7 @@ import 'package:dynamite/src/builder/resolve_enum.dart';
 import 'package:dynamite/src/builder/resolve_object.dart';
 import 'package:dynamite/src/builder/resolve_ofs.dart';
 import 'package:dynamite/src/builder/state.dart';
+import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -25,7 +26,7 @@ TypeResult resolveType(
     final subResult = resolveType(
       spec,
       state,
-      name,
+      toDartName(name, uppercaseFirstCharacter: true),
       spec.components!.schemas![name]!,
       nullable: nullable,
     );
