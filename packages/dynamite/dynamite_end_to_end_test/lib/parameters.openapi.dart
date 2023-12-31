@@ -475,6 +475,93 @@ class $Client extends DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNamingCollisionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<JsonObject, void>> getNamingCollisions({
+    required String jsonSerializers,
+    required String serializers,
+    required String body,
+    required String parameters,
+    required String headers,
+  }) async {
+    final rawResponse = getNamingCollisionsRaw(
+      jsonSerializers: jsonSerializers,
+      serializers: serializers,
+      body: body,
+      parameters: parameters,
+      headers: headers,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getNamingCollisions] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
+    required String jsonSerializers,
+    required String serializers,
+    required String body,
+    required String parameters,
+    required String headers,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+    final $jsonSerializers = _$jsonSerializers.serialize(jsonSerializers, specifiedType: const FullType(String));
+    _parameters['%24jsonSerializers'] = $jsonSerializers;
+
+    final $serializers = _$jsonSerializers.serialize(serializers, specifiedType: const FullType(String));
+    if ($serializers != null) {
+      _headers['%24serializers'] = const dynamite_utils.HeaderEncoder().convert($serializers);
+    }
+
+    final $body = _$jsonSerializers.serialize(body, specifiedType: const FullType(String));
+    if ($body != null) {
+      _headers['_body'] = const dynamite_utils.HeaderEncoder().convert($body);
+    }
+
+    final $parameters = _$jsonSerializers.serialize(parameters, specifiedType: const FullType(String));
+    if ($parameters != null) {
+      _headers['_parameters'] = const dynamite_utils.HeaderEncoder().convert($parameters);
+    }
+
+    final $headers = _$jsonSerializers.serialize(headers, specifiedType: const FullType(String));
+    if ($headers != null) {
+      _headers['_headers'] = const dynamite_utils.HeaderEncoder().convert($headers);
+    }
+
+    final _path = UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
+    return DynamiteRawResponse<JsonObject, void>(
+      response: executeRequest(
+        'get',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(JsonObject),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
 }
 
 typedef GetOneOf = ({bool? $bool, String? string});

@@ -278,4 +278,37 @@ void main() {
       expect(() => client.getHeaders(enumPattern: GetHeadersEnumPattern.$0), throwsA(isA<FormatException>()));
     });
   });
+
+  test('Naming Collisions', () async {
+    await client.getNamingCollisions(
+      jsonSerializers: r'jsonSerializers value$',
+      serializers: r'serializers$ value',
+      body: r'$body value',
+      parameters: r'parameters value$$$',
+      headers: r'headers$',
+    );
+
+    final captured = verify(headers.add(captureAny, captureAny)).captured;
+    final capturedHeaders = <Object?, Object?>{};
+    for (var i = 0; i < captured.length; i += 2) {
+      capturedHeaders[captured[i]] = captured[i + 1];
+    }
+    final capturedUrl = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
+
+    expect(capturedHeaders, {
+      'Accept': 'application/json',
+      '%24serializers': r'serializers$ value',
+      '_body': r'$body value',
+      '_parameters': r'parameters value$$$',
+      '_headers': r'headers$',
+    });
+
+    expect(
+      capturedUrl,
+      equals([
+        'get',
+        Uri.parse('example.com/naming_collisions?%24jsonSerializers=jsonSerializers%20value%24'),
+      ]),
+    );
+  });
 }
