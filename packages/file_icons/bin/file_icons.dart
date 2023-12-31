@@ -100,7 +100,7 @@ void generateData() {
     '// Code points',
     // This filters unused code points.
     for (final type in codePoints.keys
-        .where((final type) => iconSet.keys.map((final pattern) => iconSet[pattern]![0] == type).contains(true))) ...[
+        .where((type) => iconSet.keys.map((pattern) => iconSet[pattern]![0] == type).contains(true))) ...[
       'const ${_toVariableName(type)} = ${codePoints[type]};',
     ],
     '',
@@ -117,7 +117,7 @@ void generateData() {
     // This filters icons where the code points are missing. That indicates the fonts in seti-ui are not up-to-date.
     // Run `gulp icons` in the seti-ui repository and everything should be there.
     // Please submit the changes upstream if you can.
-    for (final pattern in iconSet.keys.where((final pattern) => codePoints.keys.contains(iconSet[pattern]![0]))) ...[
+    for (final pattern in iconSet.keys.where((pattern) => codePoints.keys.contains(iconSet[pattern]![0]))) ...[
       "  '$pattern': SetiMeta(",
       '    IconData(',
       '      ${_toVariableName(iconSet[pattern]![0])},',
@@ -131,10 +131,10 @@ void generateData() {
     '',
   ];
 
-  final missingCodePoints = iconSet.keys.where((final pattern) => !codePoints.keys.contains(iconSet[pattern]![0]));
+  final missingCodePoints = iconSet.keys.where((pattern) => !codePoints.keys.contains(iconSet[pattern]![0]));
   if (missingCodePoints.isNotEmpty) {
     print(
-      'WARNING: Missing code points for ${missingCodePoints.map((final pattern) => iconSet[pattern]![0]).toSet().join(', ')}',
+      'WARNING: Missing code points for ${missingCodePoints.map((pattern) => iconSet[pattern]![0]).toSet().join(', ')}',
     );
   }
 
@@ -147,7 +147,7 @@ void generateData() {
   ).writeAsStringSync(code.join('\n'));
 }
 
-String _toVariableName(final String key) {
+String _toVariableName(String key) {
   final result = StringBuffer('_');
 
   final parts = key.split('');
