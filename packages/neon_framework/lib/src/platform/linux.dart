@@ -1,9 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/android.dart';
 import 'package:neon_framework/src/platform/platform.dart';
-import 'package:path/path.dart' as p;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:universal_io/io.dart';
 
 /// Linux specific platform information.
 ///
@@ -36,9 +34,6 @@ class LinuxNeonPlatform implements NeonPlatform {
 
   @override
   bool get shouldUseFileDialog => false;
-
-  @override
-  String get userAccessibleAppDataPath => p.join(Platform.environment['HOME']!, 'Neon');
 
   @override
   void init() {

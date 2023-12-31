@@ -113,12 +113,6 @@ abstract class FilesLocalizations {
   /// **'Copy'**
   String get actionCopy;
 
-  /// No description provided for @actionSync.
-  ///
-  /// In en, this message translates to:
-  /// **'Sync'**
-  String get actionSync;
-
   /// No description provided for @actionShare.
   ///
   /// In en, this message translates to:

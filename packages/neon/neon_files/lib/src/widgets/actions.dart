@@ -18,7 +18,6 @@ class FileActions extends StatelessWidget {
 
   Future<void> onSelected(final BuildContext context, final FilesFileAction action) async {
     final bloc = NeonProvider.of<FilesBloc>(context);
-    final browserBloc = bloc.browser;
     switch (action) {
       case FilesFileAction.share:
         bloc.shareFileNative(details.uri, details.etag!);
@@ -69,19 +68,6 @@ class FileActions extends StatelessWidget {
         if (result != null) {
           bloc.copy(details.uri, result.join(PathUri.parse(details.name)));
         }
-      case FilesFileAction.sync:
-        if (!context.mounted) {
-          return;
-        }
-        final sizeWarning = browserBloc.options.downloadSizeWarning.value;
-        if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
-          final decision = await showDownloadConfirmationDialog(context, sizeWarning, details.size!);
-
-          if (!decision) {
-            return;
-          }
-        }
-        bloc.syncFile(details.uri);
       case FilesFileAction.delete:
         if (!context.mounted) {
           return;
@@ -110,7 +96,6 @@ class FileActions extends StatelessWidget {
                     : FilesLocalizations.of(context).addToFavorites,
               ),
             ),
-
           PopupMenuItem(
             value: FilesFileAction.details,
             child: Text(FilesLocalizations.of(context).details),
@@ -127,13 +112,6 @@ class FileActions extends StatelessWidget {
             value: FilesFileAction.copy,
             child: Text(FilesLocalizations.of(context).actionCopy),
           ),
-          // TODO: https://github.com/provokateurin/nextcloud-neon/issues/4
-          if (!details.isDirectory)
-            PopupMenuItem(
-              value: FilesFileAction.sync,
-              child: Text(FilesLocalizations.of(context).actionSync),
-            ),
-
           PopupMenuItem(
             value: FilesFileAction.delete,
             child: Text(FilesLocalizations.of(context).actionDelete),
@@ -150,6 +128,5 @@ enum FilesFileAction {
   rename,
   move,
   copy,
-  sync,
   delete,
 }

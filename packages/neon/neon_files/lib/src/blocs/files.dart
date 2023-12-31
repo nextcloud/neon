@@ -8,7 +8,6 @@ import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/utils/task.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
-import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:open_file/open_file.dart';
@@ -31,8 +30,6 @@ sealed class FilesBloc implements InteractiveBloc {
       );
 
   void uploadFile(final PathUri uri, final String localPath);
-
-  void syncFile(final PathUri uri);
 
   void openFile(final PathUri uri, final String etag, final String? mimeType);
 
@@ -166,27 +163,6 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
         uri,
         uri.rename(name),
       ),
-    );
-  }
-
-  @override
-  void syncFile(final PathUri uri) {
-    wrapAction(
-      () async {
-        final file = File(
-          p.joinAll([
-            await NeonPlatform.instance.userAccessibleAppDataPath,
-            account.humanReadableID,
-            'files',
-            ...uri.pathSegments,
-          ]),
-        );
-        if (!file.parent.existsSync()) {
-          file.parent.createSync(recursive: true);
-        }
-        await downloadFile(uri, file);
-      },
-      disableTimeout: true,
     );
   }
 
