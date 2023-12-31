@@ -11,9 +11,9 @@ import 'package:rxdart/rxdart.dart';
 sealed class NewsArticleBloc implements InteractiveBloc {
   @internal
   factory NewsArticleBloc(
-    final NewsArticlesBloc articlesBloc,
-    final Account account,
-    final news.Article article,
+    NewsArticlesBloc articlesBloc,
+    Account account,
+    news.Article article,
   ) =>
       _NewsArticleBloc(
         articlesBloc,
@@ -38,7 +38,7 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   _NewsArticleBloc(
     this.newsArticlesBloc,
     this.account,
-    final news.Article article,
+    news.Article article,
   ) {
     id = article.id;
     unread.add(article.unread);
@@ -98,7 +98,7 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
     });
   }
 
-  void wrapArticleAction(final AsyncCallback call) => wrapAction(
+  void wrapArticleAction(AsyncCallback call) => wrapAction(
         call,
         refresh: () async {
           await newsArticlesBloc.refresh();

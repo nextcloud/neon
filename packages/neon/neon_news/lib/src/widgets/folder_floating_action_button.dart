@@ -12,7 +12,7 @@ class NewsFolderFloatingActionButton extends StatelessWidget {
   final NewsBloc bloc;
 
   @override
-  Widget build(final BuildContext context) => FloatingActionButton(
+  Widget build(BuildContext context) => FloatingActionButton(
         onPressed: () async {
           final result = await showFolderCreateDialog(context: context);
 

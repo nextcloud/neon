@@ -14,11 +14,11 @@ class NewsFeedFloatingActionButton extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(final BuildContext context) => FloatingActionButton(
+  Widget build(BuildContext context) => FloatingActionButton(
         onPressed: () async {
           final result = await showAdaptiveDialog<(String, int?)>(
             context: context,
-            builder: (final context) => NewsAddFeedDialog(
+            builder: (context) => NewsAddFeedDialog(
               bloc: bloc,
               folderID: folderID,
             ),

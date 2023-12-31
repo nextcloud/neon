@@ -29,7 +29,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsOptions> {
   late final NewsOptions options = NewsOptions(storage);
 
   @override
-  NewsBloc buildBloc(final Account account) => NewsBloc(
+  NewsBloc buildBloc(Account account) => NewsBloc(
         options,
         account,
       );
@@ -41,12 +41,12 @@ class NewsApp extends AppImplementation<NewsBloc, NewsOptions> {
   final RouteBase route = $newsAppRoute;
 
   @override
-  BehaviorSubject<int> getUnreadCounter(final NewsBloc bloc) => bloc.unreadCounter;
+  BehaviorSubject<int> getUnreadCounter(NewsBloc bloc) => bloc.unreadCounter;
 
   @override
   Future<VersionCheck> getVersionCheck(
-    final Account account,
-    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+    Account account,
+    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   ) =>
       account.client.news.getVersionCheck();
 }

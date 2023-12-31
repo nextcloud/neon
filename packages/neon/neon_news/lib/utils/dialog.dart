@@ -8,12 +8,12 @@ import 'package:nextcloud/news.dart';
 /// Displays a [NeonConfirmationDialog] to confirm the deletion of the given [feed].
 ///
 /// Returns a future whether the action has been accepted.
-Future<bool> showDeleteFeedDialog(final BuildContext context, final Feed feed) async {
+Future<bool> showDeleteFeedDialog(BuildContext context, Feed feed) async {
   final content = NewsLocalizations.of(context).feedRemoveConfirm(feed.title);
 
   final result = await showAdaptiveDialog<bool>(
     context: context,
-    builder: (final context) => NeonConfirmationDialog(
+    builder: (context) => NeonConfirmationDialog(
       title: NewsLocalizations.of(context).actionDeleteTitle,
       content: Text(content),
     ),
@@ -26,25 +26,25 @@ Future<bool> showDeleteFeedDialog(final BuildContext context, final Feed feed) a
 ///
 /// Returns a future with the folder name split by `/`.
 Future<String?> showFolderCreateDialog({
-  required final BuildContext context,
+  required BuildContext context,
 }) =>
     showAdaptiveDialog<String>(
       context: context,
-      builder: (final context) => const NewsCreateFolderDialog(),
+      builder: (context) => const NewsCreateFolderDialog(),
     );
 
 /// Displays a [NeonConfirmationDialog] for deleting a folder.
 ///
 /// Returns a future whether the action has been accepted.
 Future<bool> showFolderDeleteDialog({
-  required final BuildContext context,
-  required final String folderName,
+  required BuildContext context,
+  required String folderName,
 }) async {
   final content = NewsLocalizations.of(context).folderDeleteConfirm(folderName);
 
   final result = await showAdaptiveDialog<bool>(
     context: context,
-    builder: (final context) => NeonConfirmationDialog(
+    builder: (context) => NeonConfirmationDialog(
       title: NewsLocalizations.of(context).actionDeleteTitle,
       content: Text(content),
     ),
@@ -57,8 +57,8 @@ Future<bool> showFolderDeleteDialog({
 ///
 /// Returns a future with the new name of name.
 Future<String?> showFolderRenameDialog({
-  required final BuildContext context,
-  required final String folderName,
+  required BuildContext context,
+  required String folderName,
 }) async =>
     showRenameDialog(
       context: context,

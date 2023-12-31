@@ -37,22 +37,22 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((final error) {
+    widget.bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<news.Feed>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<List<news.Feed>>.behaviorSubject(
         subject: widget.newsBloc.feeds,
-        builder: (final context, final feeds) => ResultBuilder<List<news.Article>>.behaviorSubject(
+        builder: (context, feeds) => ResultBuilder<List<news.Article>>.behaviorSubject(
           subject: widget.bloc.articles,
-          builder: (final context, final articles) => SortBoxBuilder<ArticlesSortProperty, news.Article>(
+          builder: (context, articles) => SortBoxBuilder<ArticlesSortProperty, news.Article>(
             sortBox: articlesSortBox,
             sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
             sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
             input: articles.data,
-            builder: (final context, final sorted) => NeonListView(
+            builder: (context, sorted) => NeonListView(
               scrollKey: 'news-articles',
               isLoading: articles.isLoading || feeds.isLoading,
               error: articles.error ?? feeds.error,
@@ -63,19 +63,19 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 ]);
               },
               itemCount: feeds.hasData ? sorted.length : null,
-              itemBuilder: (final context, final index) {
+              itemBuilder: (context, index) {
                 final article = sorted[index];
 
                 return _buildArticle(
                   context,
                   article,
-                  feeds.requireData.singleWhere((final feed) => feed.id == article.feedId),
+                  feeds.requireData.singleWhere((feed) => feed.id == article.feedId),
                 );
               },
               topFixedChildren: [
                 StreamBuilder<FilterType>(
                   stream: widget.bloc.filterType,
-                  builder: (final context, final selectedFilterTypeSnapshot) => Container(
+                  builder: (context, selectedFilterTypeSnapshot) => Container(
                     margin: const EdgeInsets.symmetric(horizontal: 15),
                     child: DropdownButton<FilterType>(
                       isExpanded: true,
@@ -87,7 +87,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                           FilterType.starred,
                         ],
                       ].map<DropdownMenuItem<FilterType>>(
-                        (final a) {
+                        (a) {
                           late final String label;
                           switch (a) {
                             case FilterType.all:
@@ -105,7 +105,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                           );
                         },
                       ).toList(),
-                      onChanged: (final value) {
+                      onChanged: (value) {
                         widget.bloc.setFilterType(value!);
                       },
                     ),
@@ -118,9 +118,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
       );
 
   Widget _buildArticle(
-    final BuildContext context,
-    final news.Article article,
-    final news.Feed feed,
+    BuildContext context,
+    news.Article article,
+    news.Feed feed,
   ) =>
       ListTile(
         title: Row(
@@ -213,7 +213,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
             await Navigator.of(context).push(
               MaterialPageRoute<void>(
-                builder: (final context) => NewsArticlePage(
+                builder: (context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
                     widget.bloc,
                     account,
@@ -231,7 +231,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               NeonPlatform.instance.canUseWebView) {
             await Navigator.of(context).push(
               MaterialPageRoute<void>(
-                builder: (final context) => NewsArticlePage(
+                builder: (context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
                     widget.bloc,
                     account,
@@ -257,9 +257,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
         },
       );
 
-  String _fixArticleBody(final String b) => _fixArticleBodyElement(html_parser.parse(b).documentElement!).outerHtml;
+  String _fixArticleBody(String b) => _fixArticleBodyElement(html_parser.parse(b).documentElement!).outerHtml;
 
-  html_dom.Element _fixArticleBodyElement(final html_dom.Element element) {
+  html_dom.Element _fixArticleBodyElement(html_dom.Element element) {
     for (final attributeName in ['src', 'href']) {
       final attributeValue = element.attributes[attributeName];
       if (attributeValue != null && attributeValue.startsWith('//')) {

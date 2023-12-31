@@ -15,5 +15,5 @@ class NewsAppRoute extends NeonBaseAppRoute {
   const NewsAppRoute();
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => const NewsMainPage();
+  Widget build(BuildContext context, GoRouterState state) => const NewsMainPage();
 }
