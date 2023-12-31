@@ -17,9 +17,6 @@ class FilesLocalizationsEn extends FilesLocalizations {
   String get actionCopy => 'Copy';
 
   @override
-  String get actionSync => 'Sync';
-
-  @override
   String get actionShare => 'Share';
 
   @override

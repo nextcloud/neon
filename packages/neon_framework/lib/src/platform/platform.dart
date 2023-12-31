@@ -87,10 +87,6 @@ abstract interface class NeonPlatform {
   /// This is needed to compensate lacking support of `https://pub.dev/packages/file_picker`.
   abstract final bool shouldUseFileDialog;
 
-  /// Returns the path to a directory where the application may access top
-  /// level storage which can also be easily accessed by the user outside of the app.
-  FutureOr<String> get userAccessibleAppDataPath;
-
   /// Initializes this platform.
   FutureOr<void> init();
 }
