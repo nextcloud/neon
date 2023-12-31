@@ -10,7 +10,7 @@ import 'package:universal_io/io.dart';
 /// Set the the suggested [fileName] to use when saving the file.
 ///
 /// Returns the path of the saved file or `null` if the operation was cancelled.
-Future<String?> saveFileWithPickDialog(final String fileName, final Uint8List data) async {
+Future<String?> saveFileWithPickDialog(String fileName, Uint8List data) async {
   if (NeonPlatform.instance.shouldUseFileDialog) {
     // TODO: https://github.com/nextcloud/neon/issues/8
     return FlutterFileDialog.saveFile(

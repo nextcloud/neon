@@ -26,7 +26,7 @@ class NeonLinearProgressIndicator extends StatelessWidget {
   final Color? backgroundColor;
 
   @override
-  Widget build(final BuildContext context) => Container(
+  Widget build(BuildContext context) => Container(
         margin: margin,
         constraints: BoxConstraints.tight(const Size.fromHeight(3)),
         child: visible

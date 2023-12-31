@@ -15,7 +15,7 @@ abstract interface class SettingsStorage {
   /// {@template NeonStorage.getString}
   /// Reads a value from persistent storage, throwing an `Exception` if it's not a `String`.
   /// {@endtemplate}
-  String? getString(final String key);
+  String? getString(String key);
 
   /// {@template NeonStorage.setString}
   /// Saves a `String` [value] to persistent storage in the background.
@@ -27,24 +27,24 @@ abstract interface class SettingsStorage {
   /// - 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBCaWdJbnRlZ2Vy'
   /// - 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBEb3VibGUu'
   /// {@endtemplate}
-  Future<bool> setString(final String key, final String value);
+  Future<bool> setString(String key, String value);
 
   /// {@template NeonStorage.getBool}
   /// Reads a value from persistent storage, throwing an `Exception` if it's not a `bool`.
   /// {@endtemplate}
-  bool? getBool(final String key);
+  bool? getBool(String key);
 
   /// {@template NeonStorage.setBool}
   /// Saves a `bool` [value] to persistent storage in the background.
   /// {@endtemplate}
   // ignore: avoid_positional_boolean_parameters
   // ignore: avoid_positional_boolean_parameters
-  Future<bool> setBool(final String key, final bool value);
+  Future<bool> setBool(String key, bool value);
 
   /// {@template NeonStorage.remove}
   /// Removes an entry from persistent storage.
   /// {@endtemplate}
-  Future<bool> remove(final String key);
+  Future<bool> remove(String key);
 }
 
 /// Interface of a storable element.
@@ -112,7 +112,7 @@ final class NeonStorage {
   /// Initializes the database instance with a mocked value.
   @visibleForTesting
   // ignore: use_setters_to_change_properties
-  static void mock(final SharedPreferences mock) => _sharedPreferences = mock;
+  static void mock(SharedPreferences mock) => _sharedPreferences = mock;
 
   /// Sets up the [SharedPreferences] instance.
   ///
@@ -167,20 +167,20 @@ final class SingleValueStorage {
   String? getString() => NeonStorage.database.getString(key.value);
 
   /// {@macro NeonStorage.setString}
-  Future<bool> setString(final String value) => NeonStorage.database.setString(key.value, value);
+  Future<bool> setString(String value) => NeonStorage.database.setString(key.value, value);
 
   /// {@macro NeonStorage.getBool}
   bool? getBool() => NeonStorage.database.getBool(key.value);
 
   /// {@macro NeonStorage.setBool}
   // ignore: avoid_positional_boolean_parameters
-  Future<bool> setBool(final bool value) => NeonStorage.database.setBool(key.value, value);
+  Future<bool> setBool(bool value) => NeonStorage.database.setBool(key.value, value);
 
   /// {@macro NeonStorage.getStringList}
   List<String>? getStringList() => NeonStorage.database.getStringList(key.value);
 
   /// {@macro NeonStorage.setStringList}
-  Future<bool> setStringList(final List<String> value) => NeonStorage.database.setStringList(key.value, value);
+  Future<bool> setStringList(List<String> value) => NeonStorage.database.setStringList(key.value, value);
 }
 
 /// A storage that can save a group of values.
@@ -220,7 +220,7 @@ final class AppStorage implements SettingsStorage {
   /// Concatenates the [groupKey], [suffix] and [key] to build a unique key
   /// used in the storage backend.
   @visibleForTesting
-  String formatKey(final String key) {
+  String formatKey(String key) {
     if (suffix != null) {
       return '${groupKey.value}-$suffix-$key';
     }
@@ -231,31 +231,31 @@ final class AppStorage implements SettingsStorage {
   /// {@template NeonStorage.containsKey}
   /// Returns true if the persistent storage contains the given [key].
   /// {@endtemplate}
-  bool containsKey(final String key) => NeonStorage.database.containsKey(formatKey(key));
+  bool containsKey(String key) => NeonStorage.database.containsKey(formatKey(key));
 
   @override
-  Future<bool> remove(final String key) => NeonStorage.database.remove(formatKey(key));
+  Future<bool> remove(String key) => NeonStorage.database.remove(formatKey(key));
 
   @override
-  String? getString(final String key) => NeonStorage.database.getString(formatKey(key));
+  String? getString(String key) => NeonStorage.database.getString(formatKey(key));
 
   @override
-  Future<bool> setString(final String key, final String value) => NeonStorage.database.setString(formatKey(key), value);
+  Future<bool> setString(String key, String value) => NeonStorage.database.setString(formatKey(key), value);
 
   @override
-  bool? getBool(final String key) => NeonStorage.database.getBool(formatKey(key));
+  bool? getBool(String key) => NeonStorage.database.getBool(formatKey(key));
 
   @override
-  Future<bool> setBool(final String key, final bool value) => NeonStorage.database.setBool(formatKey(key), value);
+  Future<bool> setBool(String key, bool value) => NeonStorage.database.setBool(formatKey(key), value);
 
   /// {@template NeonStorage.getStringList}
   /// Reads a set of string values from persistent storage, throwing an `Exception` if it's not a `String` set.
   /// {@endtemplate}
-  List<String>? getStringList(final String key) => NeonStorage.database.getStringList(formatKey(key));
+  List<String>? getStringList(String key) => NeonStorage.database.getStringList(formatKey(key));
 
   /// {@template NeonStorage.setStringList}
   /// Saves a list of `String` [value]s to persistent storage in the background.
   /// {@endtemplate}
-  Future<bool> setStringList(final String key, final List<String> value) =>
+  Future<bool> setStringList(String key, List<String> value) =>
       NeonStorage.database.setStringList(formatKey(key), value);
 }

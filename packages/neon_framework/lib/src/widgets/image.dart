@@ -42,10 +42,10 @@ class NeonCachedImage extends StatefulWidget {
   /// It is possible to provide custom [reviver] and [writeCache] functions to
   /// adjust the caching.
   NeonCachedImage({
-    required final ImageDownloader getImage,
-    required final String cacheKey,
-    final CacheReviver? reviver,
-    final CacheWriter? writeCache,
+    required ImageDownloader getImage,
+    required String cacheKey,
+    CacheReviver? reviver,
+    CacheWriter? writeCache,
     this.isSvgHint = false,
     this.size,
     this.fit,
@@ -90,10 +90,10 @@ class NeonCachedImage extends StatefulWidget {
   final ErrorWidgetBuilder? errorBuilder;
 
   static Future<Uint8List> _customImageGetter(
-    final CacheReviver? checkCache,
-    final ImageDownloader getImage,
-    final CacheWriter? writeCache,
-    final String cacheKey,
+    CacheReviver? checkCache,
+    ImageDownloader getImage,
+    CacheWriter? writeCache,
+    String cacheKey,
   ) async {
     final cached = await checkCache?.call(cacheManager) ?? await _defaultCacheReviver(cacheKey);
     if (cached != null) {
@@ -107,7 +107,7 @@ class NeonCachedImage extends StatefulWidget {
     return data;
   }
 
-  static Future<Uint8List?> _defaultCacheReviver(final String cacheKey) async {
+  static Future<Uint8List?> _defaultCacheReviver(String cacheKey) async {
     final cacheFile = await cacheManager.getFileFromCache(cacheKey);
     if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
       return cacheFile.file.readAsBytes();
@@ -117,8 +117,8 @@ class NeonCachedImage extends StatefulWidget {
   }
 
   static Future<void> _defaultCacheWriter(
-    final Uint8List data,
-    final String cacheKey,
+    Uint8List data,
+    String cacheKey,
   ) async {
     await cacheManager.putFile(
       cacheKey,
@@ -137,9 +137,9 @@ class NeonCachedImage extends StatefulWidget {
 
 class _NeonCachedImageState extends State<NeonCachedImage> {
   @override
-  Widget build(final BuildContext context) => FutureBuilder(
+  Widget build(BuildContext context) => FutureBuilder(
         future: widget.image,
-        builder: (final context, final fileSnapshot) {
+        builder: (context, fileSnapshot) {
           if (fileSnapshot.hasError) {
             return _buildError(fileSnapshot.error);
           }
@@ -174,12 +174,12 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
             width: widget.size?.width,
             fit: widget.fit,
             gaplessPlayback: true,
-            errorBuilder: (final context, final error, final stacktrace) => _buildError(error),
+            errorBuilder: (context, error, stacktrace) => _buildError(error),
           );
         },
       );
 
-  Widget _buildError(final Object? error) =>
+  Widget _buildError(Object? error) =>
       widget.errorBuilder?.call(context, error) ??
       NeonError(
         error,
@@ -264,7 +264,7 @@ class NeonApiImage extends StatelessWidget {
   final ErrorWidgetBuilder? errorBuilder;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     return NeonCachedImage(
@@ -352,7 +352,7 @@ class NeonUrlImage extends StatelessWidget {
   final ErrorWidgetBuilder? errorBuilder;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     final uri = Uri.parse(url);
@@ -434,7 +434,7 @@ class NeonImageWrapper extends StatelessWidget {
   final BorderRadius? borderRadius;
 
   @override
-  Widget build(final BuildContext context) => Container(
+  Widget build(BuildContext context) => Container(
         height: size?.height,
         width: size?.width,
         alignment: Alignment.center,

@@ -31,7 +31,7 @@ class _RelativeTimeState extends State<RelativeTime> {
   void initState() {
     timer = Timer.periodic(
       const Duration(minutes: 1),
-      (final _) => setState(() {}),
+      (_) => setState(() {}),
     );
 
     super.initState();
@@ -45,7 +45,7 @@ class _RelativeTimeState extends State<RelativeTime> {
   }
 
   @override
-  Widget build(final BuildContext context) => Text(
+  Widget build(BuildContext context) => Text(
         widget.date.formatRelative(),
         style: widget.style,
       );

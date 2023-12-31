@@ -14,8 +14,8 @@ import 'package:rxdart/rxdart.dart';
 sealed class UnifiedSearchBloc implements InteractiveBloc {
   @internal
   factory UnifiedSearchBloc(
-    final AppsBloc appsBloc,
-    final Account account,
+    AppsBloc appsBloc,
+    Account account,
   ) =>
       _UnifiedSearchBloc(
         appsBloc,
@@ -23,7 +23,7 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
       );
 
   /// Search for a [term].
-  void search(final String term);
+  void search(String term);
 
   /// Enable unified search.
   void enable();
@@ -43,7 +43,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     this.appsBloc,
     this.account,
   ) {
-    appsBloc.activeApp.listen((final _) {
+    appsBloc.activeApp.listen((_) {
       if (enabled.value) {
         disable();
       }
@@ -93,7 +93,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   }
 
   @override
-  Future<void> search(final String term) async {
+  Future<void> search(String term) async {
     this.term = term.trim();
     await refresh();
   }
@@ -111,14 +111,14 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   }
 
   Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> getLoadingProviders(
-    final Iterable<core.UnifiedSearchProvider> providers,
+    Iterable<core.UnifiedSearchProvider> providers,
   ) sync* {
     for (final provider in providers) {
       yield MapEntry(provider, Result.loading());
     }
   }
 
-  Future<void> searchProvider(final core.UnifiedSearchProvider provider) async {
+  Future<void> searchProvider(core.UnifiedSearchProvider provider) async {
     updateResults(provider, Result.loading());
     try {
       final response = await account.client.core.unifiedSearch.search(
@@ -133,8 +133,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     }
   }
 
-  void updateResults(final core.UnifiedSearchProvider provider, final Result<core.UnifiedSearchResult> result) =>
-      results.add(
+  void updateResults(core.UnifiedSearchProvider provider, Result<core.UnifiedSearchResult> result) => results.add(
         Result.success(
           Map.fromEntries(
             sortResults({
@@ -146,25 +145,24 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
       );
 
   Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> sortResults(
-    final Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>> results,
+    Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>> results,
   ) sync* {
     final activeApp = appsBloc.activeApp.value;
 
     yield* results.entries
-        .where((final entry) => providerMatchesApp(entry.key, activeApp))
-        .sorted((final a, final b) => sortEntriesCount(a.value, b.value));
+        .where((entry) => providerMatchesApp(entry.key, activeApp))
+        .sorted((a, b) => sortEntriesCount(a.value, b.value));
     yield* results.entries
-        .whereNot((final entry) => providerMatchesApp(entry.key, activeApp))
-        .where((final entry) => hasEntries(entry.value))
-        .sorted((final a, final b) => sortEntriesCount(a.value, b.value));
+        .whereNot((entry) => providerMatchesApp(entry.key, activeApp))
+        .where((entry) => hasEntries(entry.value))
+        .sorted((a, b) => sortEntriesCount(a.value, b.value));
   }
 
-  bool providerMatchesApp(final core.UnifiedSearchProvider provider, final AppImplementation app) =>
+  bool providerMatchesApp(core.UnifiedSearchProvider provider, AppImplementation app) =>
       provider.id == app.id || provider.id.startsWith('${app.id}_');
 
-  bool hasEntries(final Result<core.UnifiedSearchResult> result) =>
-      !result.hasData || result.requireData.entries.isNotEmpty;
+  bool hasEntries(Result<core.UnifiedSearchResult> result) => !result.hasData || result.requireData.entries.isNotEmpty;
 
-  int sortEntriesCount(final Result<core.UnifiedSearchResult> a, final Result<core.UnifiedSearchResult> b) =>
+  int sortEntriesCount(Result<core.UnifiedSearchResult> a, Result<core.UnifiedSearchResult> b) =>
       (b.data?.entries.length ?? 0).compareTo(a.data?.entries.length ?? 0);
 }

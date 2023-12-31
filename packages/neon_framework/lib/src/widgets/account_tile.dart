@@ -43,7 +43,7 @@ class NeonAccountTile extends StatelessWidget {
   final bool showStatus;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final userDetailsBloc = NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(account);
 
     return AdaptiveListTile(
@@ -55,7 +55,7 @@ class NeonAccountTile extends StatelessWidget {
       trailing: trailing,
       title: ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
         subject: userDetailsBloc.userDetails,
-        builder: (final context, final userDetails) => Row(
+        builder: (context, userDetails) => Row(
           children: [
             if (userDetails.hasData)
               Flexible(

@@ -21,7 +21,7 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
   String? _lastErrorURL;
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(),
         body: SafeArea(
           child: ReaderWidget(
@@ -32,7 +32,7 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
             tryHarder: true,
             cropPercent: 0,
             scanDelaySuccess: const Duration(seconds: 3),
-            onScan: (final code) async {
+            onScan: (code) async {
               String? url;
               try {
                 url = code.text;
@@ -72,6 +72,6 @@ class InvalidQRcodeException extends NeonException {
 
   @override
   NeonExceptionDetails get details => NeonExceptionDetails(
-        getText: (final context) => NeonLocalizations.of(context).errorInvalidQRcode,
+        getText: (context) => NeonLocalizations.of(context).errorInvalidQRcode,
       );
 }

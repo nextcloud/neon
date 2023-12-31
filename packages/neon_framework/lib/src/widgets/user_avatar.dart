@@ -14,7 +14,7 @@ class NeonUserAvatar extends StatefulWidget {
   /// Creates a new Neon user avatar.
   NeonUserAvatar({
     required this.account,
-    final String? username,
+    String? username,
     this.showStatus = true,
     this.size,
     this.backgroundColor,
@@ -59,8 +59,8 @@ class _UserAvatarState extends State<NeonUserAvatar> {
   }
 
   @override
-  Widget build(final BuildContext context) => LayoutBuilder(
-        builder: (final context, final constraints) {
+  Widget build(BuildContext context) => LayoutBuilder(
+        builder: (context, constraints) {
           final brightness = Theme.of(context).brightness;
           size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
           final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
@@ -72,7 +72,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
               child: NeonApiImage.withAccount(
                 account: widget.account,
                 cacheKey: 'avatar-${widget.username}-$brightness$pixelSize',
-                getImage: (final client) async => switch (brightness) {
+                getImage: (client) async => switch (brightness) {
                   Brightness.dark => client.core.avatar.getAvatarDark(
                       userId: widget.username,
                       size: pixelSize,
@@ -95,7 +95,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
               avatar,
               ResultBuilder(
                 stream: _userStatusBloc.statuses.map(
-                  (final statuses) => statuses[widget.username] ?? Result<user_status.$PublicInterface>.loading(),
+                  (statuses) => statuses[widget.username] ?? Result<user_status.$PublicInterface>.loading(),
                 ),
                 builder: _userStatusIconBuilder,
               ),
@@ -104,7 +104,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         },
       );
 
-  Widget _userStatusIconBuilder(final BuildContext context, final Result<user_status.$PublicInterface> result) {
+  Widget _userStatusIconBuilder(BuildContext context, Result<user_status.$PublicInterface> result) {
     final hasEmoji = result.data?.icon != null;
     final scaledSize = size / (hasEmoji ? 2 : 2.5);
 

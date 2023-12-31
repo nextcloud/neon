@@ -49,7 +49,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   }
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(),
         body: SafeArea(
           child: Center(
@@ -59,7 +59,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                 constraints: NeonDialogTheme.of(context).constraints,
                 child: ResultBuilder.behaviorSubject(
                   subject: bloc.state,
-                  builder: (final context, final state) {
+                  builder: (context, state) {
                     final success =
                         state.hasData && _isServerVersionAllowed(state.requireData) && !state.requireData.maintenance;
 
@@ -107,10 +107,10 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     }
   }
 
-  bool _isServerVersionAllowed(final core.Status status) =>
+  bool _isServerVersionAllowed(core.Status status) =>
       status.versionCheck.isSupported || status.versionstring.contains('dev');
 
-  Widget _buildServerVersionTile(final Result<core.Status> result) {
+  Widget _buildServerVersionTile(Result<core.Status> result) {
     if (result.hasError) {
       return NeonValidationTile(
         title: NeonLocalizations.of(context).loginCheckingServerVersion,
@@ -138,7 +138,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     );
   }
 
-  Widget _buildMaintenanceModeTile(final Result<core.Status> result) {
+  Widget _buildMaintenanceModeTile(Result<core.Status> result) {
     if (result.hasError) {
       return NeonValidationTile(
         title: NeonLocalizations.of(context).loginCheckingMaintenanceMode,

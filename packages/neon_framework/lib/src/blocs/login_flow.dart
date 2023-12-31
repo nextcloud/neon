@@ -12,7 +12,7 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc for running the Nextcloud Login Flow V2.
 sealed class LoginFlowBloc implements InteractiveBloc {
   @internal
-  factory LoginFlowBloc(final Uri serverURL) => _LoginFlowBloc(serverURL);
+  factory LoginFlowBloc(Uri serverURL) => _LoginFlowBloc(serverURL);
 
   /// Contains the initialization of the login flow.
   BehaviorSubject<Result<core.LoginFlowV2>> get init;
@@ -61,7 +61,7 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
       init.add(Result.success(initResponse.body));
 
       cancelPollTimer();
-      pollTimer = Timer.periodic(const Duration(seconds: 1), (final _) async {
+      pollTimer = Timer.periodic(const Duration(seconds: 1), (_) async {
         try {
           final resultResponse = await client.core.clientFlowLoginV2.poll(token: initResponse.body.poll.token);
           cancelPollTimer();

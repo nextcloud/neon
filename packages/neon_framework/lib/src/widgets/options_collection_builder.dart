@@ -48,7 +48,7 @@ class _OptionsCollectionBuilderState<T extends OptionsCollection> extends State<
   }
 
   @override
-  void didUpdateWidget(final OptionsCollectionBuilder<T> oldWidget) {
+  void didUpdateWidget(OptionsCollectionBuilder<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.valueListenable != widget.valueListenable) {
       oldWidget.valueListenable.listenable.removeListener(_valueChanged);
@@ -67,5 +67,5 @@ class _OptionsCollectionBuilderState<T extends OptionsCollection> extends State<
   }
 
   @override
-  Widget build(final BuildContext context) => widget.builder(context, widget.valueListenable, widget.child);
+  Widget build(BuildContext context) => widget.builder(context, widget.valueListenable, widget.child);
 }

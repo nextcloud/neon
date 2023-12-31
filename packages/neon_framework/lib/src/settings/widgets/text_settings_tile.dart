@@ -14,7 +14,7 @@ class TextSettingsTile extends SettingsTile {
   final TextStyle? style;
 
   @override
-  Widget build(final BuildContext context) => Padding(
+  Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
         ),

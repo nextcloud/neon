@@ -7,7 +7,7 @@ import 'package:neon_framework/src/settings/models/storage.dart';
 class OptionMock extends Mock implements ToggleOption {}
 
 class Collection extends AppImplementationOptions {
-  Collection(final List<Option<Object>> options) : super(const AppStorage(StorageKeys.apps)) {
+  Collection(List<Option<Object>> options) : super(const AppStorage(StorageKeys.apps)) {
     super.options = options;
   }
 }

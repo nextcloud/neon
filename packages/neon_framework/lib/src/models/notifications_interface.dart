@@ -19,5 +19,5 @@ abstract interface class NotificationsAppInterface<T extends NotificationsBlocIn
 /// The interface of the bloc used by the notifications client.
 abstract interface class NotificationsBlocInterface extends InteractiveBloc {
   /// Deletes the notification with the given [id].
-  void deleteNotification(final int id);
+  void deleteNotification(int id);
 }

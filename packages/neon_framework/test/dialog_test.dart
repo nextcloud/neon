@@ -5,7 +5,7 @@ import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/utils.dart';
 
-Widget wrapDialog(final Widget dialog, [final TargetPlatform platform = TargetPlatform.android]) {
+Widget wrapDialog(Widget dialog, [TargetPlatform platform = TargetPlatform.android]) {
   final theme = AppTheme.test(platform: platform);
   const locale = Locale('en');
 
@@ -21,7 +21,7 @@ Widget wrapDialog(final Widget dialog, [final TargetPlatform platform = TargetPl
 void main() {
   group('dialog', () {
     group('NeonConfirmationDialog', () {
-      testWidgets('NeonConfirmationDialog widget', (final widgetTester) async {
+      testWidgets('NeonConfirmationDialog widget', (widgetTester) async {
         const title = 'My Title';
         var dialog = const NeonConfirmationDialog(title: title);
         await widgetTester.pumpWidget(wrapDialog(dialog));
@@ -62,7 +62,7 @@ void main() {
         expect(find.byKey(const Key('declineAction')), findsOneWidget);
       });
 
-      testWidgets('NeonConfirmationDialog actions', (final widgetTester) async {
+      testWidgets('NeonConfirmationDialog actions', (widgetTester) async {
         const title = 'My Title';
         await widgetTester.pumpWidget(wrapDialog(const Placeholder()));
         final context = widgetTester.element(find.byType(Placeholder));
@@ -88,7 +88,7 @@ void main() {
     });
 
     group('NeonRenameDialog', () {
-      testWidgets('NeonRenameDialog widget', (final widgetTester) async {
+      testWidgets('NeonRenameDialog widget', (widgetTester) async {
         const title = 'My Title';
         const value = 'My value';
         const dialog = NeonRenameDialog(title: title, value: value);
@@ -99,7 +99,7 @@ void main() {
         expect(find.byType(TextFormField), findsOneWidget);
       });
 
-      testWidgets('NeonRenameDialog actions', (final widgetTester) async {
+      testWidgets('NeonRenameDialog actions', (widgetTester) async {
         const title = 'My Title';
         const value = 'My value';
         await widgetTester.pumpWidget(wrapDialog(const Placeholder()));
@@ -134,7 +134,7 @@ void main() {
     });
 
     group('NeonErrorDialog', () {
-      testWidgets('NeonErrorDialog widget', (final widgetTester) async {
+      testWidgets('NeonErrorDialog widget', (widgetTester) async {
         const title = 'My Title';
         const content = 'My content';
         var dialog = const NeonErrorDialog(content: content, title: title);
@@ -151,7 +151,7 @@ void main() {
         expect(find.text(NeonLocalizationsEn().errorDialog), findsOneWidget);
       });
 
-      testWidgets('NeonErrorDialog actions', (final widgetTester) async {
+      testWidgets('NeonErrorDialog actions', (widgetTester) async {
         const content = 'My content';
         await widgetTester.pumpWidget(wrapDialog(const Placeholder()));
         final context = widgetTester.element(find.byType(Placeholder));
@@ -163,7 +163,7 @@ void main() {
       });
     });
 
-    testWidgets('UnimplementedDialog', (final widgetTester) async {
+    testWidgets('UnimplementedDialog', (widgetTester) async {
       const title = 'My Title';
       await widgetTester.pumpWidget(wrapDialog(const Placeholder()));
       final context = widgetTester.element(find.byType(Placeholder));
@@ -174,7 +174,7 @@ void main() {
       await result;
     });
 
-    testWidgets('NeonDialog', (final widgetTester) async {
+    testWidgets('NeonDialog', (widgetTester) async {
       var dialog = const NeonDialog(
         actions: [],
       );

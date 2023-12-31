@@ -19,7 +19,7 @@ class AppImplementationSettingsPage extends StatelessWidget {
   final AppImplementation appImplementation;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final appBar = AppBar(
       title: Text(appImplementation.name(context)),
       actions: [
@@ -30,7 +30,7 @@ class AppImplementationSettingsPage extends StatelessWidget {
 
             final decision = await showAdaptiveDialog<bool>(
               context: context,
-              builder: (final context) => NeonConfirmationDialog(
+              builder: (context) => NeonConfirmationDialog(
                 icon: const Icon(Icons.restart_alt),
                 title: NeonLocalizations.of(context).settingsReset,
                 content: Text(content),
@@ -50,14 +50,14 @@ class AppImplementationSettingsPage extends StatelessWidget {
     final body = SettingsList(
       categories: [
         for (final category in [...appImplementation.options.categories, null]) ...[
-          if (appImplementation.options.options.where((final option) => option.category == category).isNotEmpty) ...[
+          if (appImplementation.options.options.where((option) => option.category == category).isNotEmpty) ...[
             SettingsCategory(
               title: Text(
                 category != null ? category.name(context) : NeonLocalizations.of(context).optionsCategoryOther,
               ),
               tiles: [
                 for (final option
-                    in appImplementation.options.options.where((final option) => option.category == category)) ...[
+                    in appImplementation.options.options.where((option) => option.category == category)) ...[
                   OptionSettingsTile(option: option),
                 ],
               ],

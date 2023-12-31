@@ -7,7 +7,7 @@ String? _userAgent;
 ///
 /// It can be accessed with [neonUserAgent].
 @internal
-void buildUserAgent(final PackageInfo packageInfo) {
+void buildUserAgent(PackageInfo packageInfo) {
   var buildNumber = packageInfo.buildNumber;
   if (buildNumber.isEmpty) {
     buildNumber = '1';

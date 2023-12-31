@@ -19,8 +19,7 @@ class NeonNavigationDestination {
 
 @internal
 extension NavigationDestinationExtension on NavigationDestination {
-  static NavigationDestination fromNeonDestination(final NeonNavigationDestination neonDestination) =>
-      NavigationDestination(
+  static NavigationDestination fromNeonDestination(NeonNavigationDestination neonDestination) => NavigationDestination(
         label: neonDestination.label,
         icon: neonDestination.icon(),
         selectedIcon: neonDestination.selectedIcon,
@@ -29,11 +28,11 @@ extension NavigationDestinationExtension on NavigationDestination {
 
 @internal
 extension NavigationRailDestinationExtension on NavigationRailDestination {
-  static NavigationRailDestination fromNeonDestination(final NeonNavigationDestination neonDestination) {
+  static NavigationRailDestination fromNeonDestination(NeonNavigationDestination neonDestination) {
     final iconWidget = StreamBuilder(
       stream: neonDestination.notificationCount,
       initialData: 0,
-      builder: (final context, final snapshot) {
+      builder: (context, snapshot) {
         final colorScheme = Theme.of(context).colorScheme;
 
         final color = snapshot.requireData > 0 ? colorScheme.primary : colorScheme.onBackground;
@@ -48,7 +47,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
         }
 
         final notificationIndicator = Builder(
-          builder: (final context) {
+          builder: (context) {
             final style = TextStyle(
               color: Theme.of(context).colorScheme.primary,
               fontWeight: FontWeight.bold,
@@ -81,11 +80,11 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
 
 @internal
 extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
-  static NavigationDrawerDestination fromNeonDestination(final NeonNavigationDestination neonDestination) {
+  static NavigationDrawerDestination fromNeonDestination(NeonNavigationDestination neonDestination) {
     final labelWidget = StreamBuilder(
       stream: neonDestination.notificationCount,
       initialData: 0,
-      builder: (final context, final snapshot) {
+      builder: (context, snapshot) {
         final label = Text(neonDestination.label);
 
         if (snapshot.requireData <= 0) {
@@ -95,7 +94,7 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
         final notificationIndicator = Padding(
           padding: const EdgeInsets.only(left: 12, right: 24),
           child: Builder(
-            builder: (final context) {
+            builder: (context) {
               final style = TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold,
@@ -132,7 +131,7 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
 
 @internal
 extension TabExtension on Tab {
-  static Tab fromNeonDestination(final NeonNavigationDestination neonDestination) => Tab(
+  static Tab fromNeonDestination(NeonNavigationDestination neonDestination) => Tab(
         text: neonDestination.label,
         icon: neonDestination.icon(),
       );

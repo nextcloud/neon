@@ -18,21 +18,21 @@ class NeonColorScheme {
   /// Creates a copy of this object but with the given fields replaced with the
   /// new values.
   NeonColorScheme copyWith({
-    final Color? primary,
-    final Color? oledBackground,
+    Color? primary,
+    Color? oledBackground,
   }) =>
       NeonColorScheme(
         primary: primary ?? this.primary,
       );
 
   /// The data from the closest [NeonColorScheme] instance given the build context.
-  static NeonColorScheme of(final BuildContext context) => Theme.of(context).extension<NeonTheme>()!.colorScheme;
+  static NeonColorScheme of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.colorScheme;
 
   /// Linearly interpolate between two [NeonColorScheme]s.
   ///
   /// {@macro dart.ui.shadow.lerp}
   // ignore: prefer_constructors_over_static_methods
-  static NeonColorScheme lerp(final NeonColorScheme a, final NeonColorScheme b, final double t) {
+  static NeonColorScheme lerp(NeonColorScheme a, NeonColorScheme b, double t) {
     if (identical(a, b)) {
       return a;
     }
@@ -47,7 +47,7 @@ class NeonColorScheme {
       ]);
 
   @override
-  bool operator ==(final Object other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }

@@ -9,9 +9,9 @@ class NeonListView extends StatelessWidget {
     required this.isLoading,
     required this.error,
     required this.onRefresh,
-    required final NullableIndexedWidgetBuilder itemBuilder,
+    required NullableIndexedWidgetBuilder itemBuilder,
     required this.scrollKey,
-    final int? itemCount,
+    int? itemCount,
     this.topFixedChildren,
     this.topScrollingChildren,
     super.key,
@@ -40,7 +40,7 @@ class NeonListView extends StatelessWidget {
   final Widget sliver;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
     final hasFloatingActionButton = Scaffold.maybeOf(context)?.hasFloatingActionButton ?? false;
 
@@ -54,7 +54,7 @@ class NeonListView extends StatelessWidget {
           if (topFixedChildren != null)
             SliverList.builder(
               itemCount: topFixedChildren!.length,
-              itemBuilder: (final context, final index) => topFixedChildren![index],
+              itemBuilder: (context, index) => topFixedChildren![index],
             ),
           SliverToBoxAdapter(
             child: NeonLinearProgressIndicator(
@@ -74,7 +74,7 @@ class NeonListView extends StatelessWidget {
           if (topScrollingChildren != null)
             SliverList.builder(
               itemCount: topScrollingChildren!.length,
-              itemBuilder: (final context, final index) => topScrollingChildren![index],
+              itemBuilder: (context, index) => topScrollingChildren![index],
             ),
           SliverPadding(
             padding: hasFloatingActionButton ? const EdgeInsets.only(bottom: 88) : EdgeInsets.zero,

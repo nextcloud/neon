@@ -54,7 +54,7 @@ class PushUtils {
   }
 
   static Future<FlutterLocalNotificationsPlugin> initLocalNotifications({
-    final DidReceiveNotificationResponseCallback? onDidReceiveNotificationResponse,
+    DidReceiveNotificationResponseCallback? onDidReceiveNotificationResponse,
   }) async {
     final localNotificationsPlugin = FlutterLocalNotificationsPlugin();
     await localNotificationsPlugin.initialize(
@@ -70,11 +70,11 @@ class PushUtils {
     return localNotificationsPlugin;
   }
 
-  static Future<void> onMessage(final Uint8List messages, final String instance) async {
+  static Future<void> onMessage(Uint8List messages, String instance) async {
     WidgetsFlutterBinding.ensureInitialized();
 
     final localNotificationsPlugin = await initLocalNotifications(
-      onDidReceiveNotificationResponse: (final notification) async {
+      onDidReceiveNotificationResponse: (notification) async {
         if (onLocalNotificationClicked != null && notification.payload != null) {
           await onLocalNotificationClicked!(
             PushNotification.fromJson(
@@ -188,8 +188,8 @@ class PushUtils {
   }
 
   static int _getNotificationID(
-    final String instance,
-    final PushNotification notification,
+    String instance,
+    PushNotification notification,
   ) =>
-      sha256.convert(utf8.encode('$instance${notification.subject.nid}')).bytes.reduce((final a, final b) => a + b);
+      sha256.convert(utf8.encode('$instance${notification.subject.nid}')).bytes.reduce((a, b) => a + b);
 }

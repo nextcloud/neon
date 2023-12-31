@@ -48,7 +48,7 @@ abstract class OptionsCollection implements Exportable, Disposable {
   }
 
   @override
-  void import(final Map<String, Object?> data) {
+  void import(Map<String, Object?> data) {
     final values = data[storage.id] as Map<String, Object?>?;
 
     if (values != null) {

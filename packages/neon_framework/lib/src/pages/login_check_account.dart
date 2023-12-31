@@ -52,7 +52,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
   }
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(),
         body: SafeArea(
           child: Center(
@@ -62,12 +62,12 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                 constraints: NeonDialogTheme.of(context).constraints,
                 child: ResultBuilder.behaviorSubject(
                   subject: bloc.state,
-                  builder: (final context, final state) => Column(
+                  builder: (context, state) => Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       if (state.hasError) ...[
                         Builder(
-                          builder: (final context) {
+                          builder: (context) {
                             final details = NeonError.getDetails(state.error);
                             return NeonValidationTile(
                               title: details.isUnauthorized
@@ -114,7 +114,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
         ),
       );
 
-  Widget _buildAccountTile(final Result<Account> result) {
+  Widget _buildAccountTile(Result<Account> result) {
     if (result.hasError) {
       return NeonValidationTile(
         title: NeonLocalizations.of(context).loginCheckingAccount,

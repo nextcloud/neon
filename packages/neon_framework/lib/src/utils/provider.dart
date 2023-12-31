@@ -8,7 +8,7 @@ import 'package:provider/single_child_widget.dart';
 class NeonProvider<T extends Disposable> extends SingleChildStatelessWidget {
   /// Creates a value, stores it, and exposes it to its descendants.
   const NeonProvider({
-    required final Create<T> create,
+    required Create<T> create,
     super.key,
     this.child,
     this.lazy = true,
@@ -20,7 +20,7 @@ class NeonProvider<T extends Disposable> extends SingleChildStatelessWidget {
   ///
   /// {@macro provider.updateshouldnotify}
   const NeonProvider.value({
-    required final T value,
+    required T value,
     super.key,
     this.child,
   })  : _value = value,
@@ -58,8 +58,8 @@ class NeonProvider<T extends Disposable> extends SingleChildStatelessWidget {
   /// NeonProvider.of<DisposableA>(context);
   /// ```
   static T of<T>(
-    final BuildContext context, {
-    final bool listen = false,
+    BuildContext context, {
+    bool listen = false,
   }) {
     try {
       return Provider.of<T>(context, listen: listen);
@@ -81,7 +81,7 @@ class NeonProvider<T extends Disposable> extends SingleChildStatelessWidget {
   }
 
   @override
-  Widget buildWithChild(final BuildContext context, final Widget? child) {
+  Widget buildWithChild(BuildContext context, Widget? child) {
     assert(
       child != null,
       '$runtimeType used outside of MultiBlocProvider must specify a child',
@@ -95,7 +95,7 @@ class NeonProvider<T extends Disposable> extends SingleChildStatelessWidget {
           )
         : InheritedProvider<T>(
             create: _create,
-            dispose: (final _, final value) => value.dispose(),
+            dispose: (_, value) => value.dispose(),
             lazy: lazy,
             child: child,
           );

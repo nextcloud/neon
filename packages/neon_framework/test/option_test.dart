@@ -32,20 +32,20 @@ enum SelectValues {
 void main() {
   final storage = MockStorage();
   const key = StorageKey.key;
-  String labelBuilder(final _) => 'label';
+  String labelBuilder(_) => 'label';
 
   group('SelectOption', () {
     final valuesLabel = {
-      SelectValues.first: (final _) => 'first',
-      SelectValues.second: (final _) => 'second',
-      SelectValues.third: (final _) => 'third',
+      SelectValues.first: (_) => 'first',
+      SelectValues.second: (_) => 'second',
+      SelectValues.third: (_) => 'third',
     };
 
     late SelectOption<SelectValues> option;
 
     setUp(() {
-      when(() => storage.setString(key.value, any())).thenAnswer((final _) async => true);
-      when(() => storage.remove(key.value)).thenAnswer((final _) async => true);
+      when(() => storage.setString(key.value, any())).thenAnswer((_) async => true);
+      when(() => storage.remove(key.value)).thenAnswer((_) async => true);
 
       option = SelectOption<SelectValues>(
         storage: storage,
@@ -134,8 +134,8 @@ void main() {
       expect(option.values, equals(valuesLabel));
 
       final newValues = {
-        SelectValues.second: (final _) => 'second',
-        SelectValues.third: (final _) => 'third',
+        SelectValues.second: (_) => 'second',
+        SelectValues.third: (_) => 'third',
       };
 
       option.values = newValues;
@@ -153,8 +153,8 @@ void main() {
       option
         ..value = SelectValues.second
         ..values = {
-          SelectValues.first: (final _) => 'first',
-          SelectValues.third: (final _) => 'third',
+          SelectValues.first: (_) => 'first',
+          SelectValues.third: (_) => 'third',
         };
       expect(option.value, SelectValues.first, reason: 'Invalid value.');
 
@@ -223,8 +223,8 @@ void main() {
     late ToggleOption option;
 
     setUp(() {
-      when(() => storage.setBool(key.value, any())).thenAnswer((final _) async => true);
-      when(() => storage.remove(key.value)).thenAnswer((final _) async => true);
+      when(() => storage.setBool(key.value, any())).thenAnswer((_) async => true);
+      when(() => storage.remove(key.value)).thenAnswer((_) async => true);
 
       option = ToggleOption(
         storage: storage,

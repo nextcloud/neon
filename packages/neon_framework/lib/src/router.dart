@@ -27,15 +27,15 @@ part 'router.g.dart';
 /// Internal router for the Neon framework.
 @internal
 GoRouter buildAppRouter({
-  required final GlobalKey<NavigatorState> navigatorKey,
-  required final AccountsBloc accountsBloc,
+  required GlobalKey<NavigatorState> navigatorKey,
+  required AccountsBloc accountsBloc,
 }) =>
     GoRouter(
       debugLogDiagnostics: kDebugMode,
       navigatorKey: navigatorKey,
       initialLocation: const HomeRoute().location,
       errorPageBuilder: _buildErrorPage,
-      redirect: (final context, final state) {
+      redirect: (context, state) {
         final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
         if (loginQRcode != null) {
           return LoginCheckServerStatusRoute.withCredentials(
@@ -63,7 +63,7 @@ GoRouter buildAppRouter({
       routes: $appRoutes,
     );
 
-Page<void> _buildErrorPage(final BuildContext context, final GoRouterState state) => MaterialPage(
+Page<void> _buildErrorPage(BuildContext context, GoRouterState state) => MaterialPage(
       child: RouteNotFoundPage(
         uri: state.uri,
       ),
@@ -85,7 +85,7 @@ class AccountSettingsRoute extends GoRouteData {
   final String accountID;
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) {
+  Widget build(BuildContext context, GoRouterState state) {
     final bloc = NeonProvider.of<AccountsBloc>(context);
     final account = bloc.accounts.value.find(accountID);
 
@@ -143,11 +143,11 @@ class HomeRoute extends GoRouteData {
   const HomeRoute();
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) {
+  Widget build(BuildContext context, GoRouterState state) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     return StreamBuilder(
       stream: accountsBloc.activeAccount,
-      builder: (final context, final snapshot) {
+      builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const SizedBox.shrink();
         }
@@ -193,10 +193,10 @@ class LoginRoute extends GoRouteData {
   const LoginRoute();
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => const LoginPage();
+  Widget build(BuildContext context, GoRouterState state) => const LoginPage();
 
   @override
-  FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
+  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
     final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
@@ -226,10 +226,10 @@ class LoginFlowRoute extends GoRouteData {
   final Uri serverUrl;
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => LoginFlowPage(serverURL: serverUrl);
+  Widget build(BuildContext context, GoRouterState state) => LoginFlowPage(serverURL: serverUrl);
 
   @override
-  FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
+  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
     final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
@@ -252,10 +252,10 @@ class LoginQRcodeRoute extends GoRouteData {
   const LoginQRcodeRoute();
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => const LoginQRcodePage();
+  Widget build(BuildContext context, GoRouterState state) => const LoginQRcodePage();
 
   @override
-  FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
+  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
     final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
@@ -310,7 +310,7 @@ class LoginCheckServerStatusRoute extends GoRouteData {
   final String? password;
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) {
+  Widget build(BuildContext context, GoRouterState state) {
     if (loginName != null && password != null) {
       return LoginCheckServerStatusPage.withCredentials(
         serverURL: serverUrl,
@@ -325,7 +325,7 @@ class LoginCheckServerStatusRoute extends GoRouteData {
   }
 
   @override
-  FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
+  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
     final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
@@ -371,14 +371,14 @@ class LoginCheckAccountRoute extends GoRouteData {
   final String password;
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => LoginCheckAccountPage(
+  Widget build(BuildContext context, GoRouterState state) => LoginCheckAccountPage(
         serverURL: serverUrl,
         loginName: loginName,
         password: password,
       );
 
   @override
-  FutureOr<String?> redirect(final BuildContext context, final GoRouterState state) {
+  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
     final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
@@ -463,7 +463,7 @@ class AppImplementationSettingsRoute extends GoRouteData {
   final String appid;
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) {
+  Widget build(BuildContext context, GoRouterState state) {
     final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
     final appImplementation = appImplementations.tryFind(appid)!;
 
@@ -485,5 +485,5 @@ class SettingsRoute extends GoRouteData {
   final SettingsCategories? initialCategory;
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => SettingsPage(initialCategory: initialCategory);
+  Widget build(BuildContext context, GoRouterState state) => SettingsPage(initialCategory: initialCategory);
 }

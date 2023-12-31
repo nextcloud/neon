@@ -16,7 +16,7 @@ import 'package:universal_io/io.dart';
 abstract interface class NeonPlatform {
   /// Initializes the platform with the given mocked [platform].
   @visibleForTesting
-  factory NeonPlatform.mocked(final NeonPlatform platform) => _platform = platform;
+  factory NeonPlatform.mocked(NeonPlatform platform) => _platform = platform;
 
   static NeonPlatform? _platform;
 

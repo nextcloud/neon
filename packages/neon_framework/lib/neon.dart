@@ -24,12 +24,12 @@ import 'package:provider/provider.dart';
 ///
 /// Optionally provide a [theme] to set the default style.
 Future<void> runNeon({
-  required final Set<AppImplementation> appImplementations,
-  required final NeonTheme theme,
-  @visibleForTesting final WidgetsBinding? bindingOverride,
-  @visibleForTesting final Account? account,
-  @visibleForTesting final bool firstLaunchDisabled = false,
-  @visibleForTesting final bool nextPushDisabled = false,
+  required Set<AppImplementation> appImplementations,
+  required NeonTheme theme,
+  @visibleForTesting WidgetsBinding? bindingOverride,
+  @visibleForTesting Account? account,
+  @visibleForTesting bool firstLaunchDisabled = false,
+  @visibleForTesting bool nextPushDisabled = false,
 }) async {
   final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);
@@ -75,8 +75,8 @@ Future<void> runNeon({
         NeonProvider<FirstLaunchBloc>.value(value: firstLaunchBloc),
         NeonProvider<NextPushBloc>.value(value: nextPushBloc),
         Provider<Iterable<AppImplementation>>(
-          create: (final _) => appImplementations,
-          dispose: (final _, final appImplementations) => appImplementations.disposeAll(),
+          create: (_) => appImplementations,
+          dispose: (_, appImplementations) => appImplementations.disposeAll(),
         ),
         Provider<PackageInfo>.value(value: packageInfo),
       ],

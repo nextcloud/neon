@@ -9,7 +9,7 @@ sealed class TimerBloc extends Bloc {
   factory TimerBloc() => _instance ??= _TimerBloc._();
 
   @visibleForTesting
-  factory TimerBloc.mocked(final TimerBloc mock) => _instance ??= mock;
+  factory TimerBloc.mocked(TimerBloc mock) => _instance ??= mock;
 
   static TimerBloc? _instance;
 
@@ -21,11 +21,11 @@ sealed class TimerBloc extends Bloc {
 
   /// Register a [callback] that will be called periodically.
   /// The time between the executions is defined by the [duration].
-  NeonTimer registerTimer(final Duration duration, final VoidCallback callback);
+  NeonTimer registerTimer(Duration duration, VoidCallback callback);
 
   /// Unregister a timer that has been previously registered with the bloc.
   /// You can also use [NeonTimer.cancel].
-  void unregisterTimer(final NeonTimer timer);
+  void unregisterTimer(NeonTimer timer);
 
   /// Registered timers.
   @visibleForTesting
@@ -59,9 +59,9 @@ class _TimerBloc implements TimerBloc {
   }
 
   @override
-  NeonTimer registerTimer(final Duration duration, final VoidCallback callback) {
+  NeonTimer registerTimer(Duration duration, VoidCallback callback) {
     if (timers[duration.inSeconds] == null) {
-      timers[duration.inSeconds] = Timer.periodic(duration, (final _) {
+      timers[duration.inSeconds] = Timer.periodic(duration, (_) {
         for (final callback in callbacks[duration.inSeconds]!) {
           callback();
         }
@@ -74,7 +74,7 @@ class _TimerBloc implements TimerBloc {
   }
 
   @override
-  void unregisterTimer(final NeonTimer timer) {
+  void unregisterTimer(NeonTimer timer) {
     if (timers[timer.duration.inSeconds] != null) {
       callbacks[timer.duration.inSeconds]!.remove(timer.callback);
     }

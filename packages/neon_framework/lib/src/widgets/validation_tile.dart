@@ -22,7 +22,7 @@ class NeonValidationTile extends StatelessWidget {
   final ValidationState state;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     const size = 32.0;
 
     final leading = switch (state) {

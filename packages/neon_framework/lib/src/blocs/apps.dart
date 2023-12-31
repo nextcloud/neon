@@ -21,10 +21,10 @@ import 'package:rxdart/rxdart.dart';
 sealed class AppsBloc implements InteractiveBloc {
   @internal
   factory AppsBloc(
-    final CapabilitiesBloc capabilitiesBloc,
-    final AccountsBloc accountsBloc,
-    final Account account,
-    final Iterable<AppImplementation> allAppImplementations,
+    CapabilitiesBloc capabilitiesBloc,
+    AccountsBloc accountsBloc,
+    Account account,
+    Iterable<AppImplementation> allAppImplementations,
   ) =>
       _AppsBloc(
         capabilitiesBloc,
@@ -37,7 +37,7 @@ sealed class AppsBloc implements InteractiveBloc {
   ///
   /// If the app is already the active app nothing will happen.
   /// When using [skipAlreadySet] nothing will be done if there already is an active app.
-  void setActiveApp(final String appID, {final bool skipAlreadySet = false});
+  void setActiveApp(String appID, {bool skipAlreadySet = false});
 
   /// A collection of clients used in the app drawer.
   ///
@@ -59,7 +59,7 @@ sealed class AppsBloc implements InteractiveBloc {
   /// Returns the active [Bloc] for the given [appImplementation].
   ///
   /// If no bloc exists yet a new one will be instantiated and cached in [AppImplementation.blocsCache].
-  T getAppBloc<T extends Bloc>(final AppImplementation<T, dynamic> appImplementation);
+  T getAppBloc<T extends Bloc>(AppImplementation<T, dynamic> appImplementation);
 
   /// Returns the active [Bloc] for every registered [AppImplementation] wrapped in a Provider.
   List<Provider<Bloc>> get appBlocProviders;
@@ -74,18 +74,18 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     this.account,
     this.allAppImplementations,
   ) {
-    apps.listen((final result) {
-      appImplementations.add(result.transform((final data) => filteredAppImplementations(data.map((final a) => a.id))));
+    apps.listen((result) {
+      appImplementations.add(result.transform((data) => filteredAppImplementations(data.map((a) => a.id))));
 
       if (result.hasData) {
         unawaited(updateApps());
       }
     });
 
-    capabilitiesBloc.capabilities.listen((final result) {
+    capabilitiesBloc.capabilities.listen((result) {
       notificationsAppImplementation.add(
         result.transform(
-          (final data) => data.capabilities.notificationsCapabilities?.notifications != null
+          (data) => data.capabilities.notificationsCapabilities?.notifications != null
               ? findAppImplementation(AppIDs.notifications)
               : null,
         ),
@@ -198,7 +198,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     }
   }
 
-  T? findAppImplementation<T extends AppImplementation>(final String id) {
+  T? findAppImplementation<T extends AppImplementation>(String id) {
     final matches = filteredAppImplementations([id]);
     if (matches.isNotEmpty) {
       return matches.single as T;
@@ -207,8 +207,8 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     return null;
   }
 
-  Iterable<AppImplementation> filteredAppImplementations(final Iterable<String> appIds) =>
-      allAppImplementations.where((final a) => appIds.contains(a.id));
+  Iterable<AppImplementation> filteredAppImplementations(Iterable<String> appIds) =>
+      allAppImplementations.where((a) => appIds.contains(a.id));
 
   final CapabilitiesBloc capabilitiesBloc;
   final AccountsBloc accountsBloc;
@@ -251,18 +251,18 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       'apps-apps',
       apps,
       account.client.core.navigation.getAppsNavigationRaw(),
-      (final response) => response.body.ocs.data.toList(),
+      (response) => response.body.ocs.data.toList(),
     );
   }
 
   @override
-  Future<void> setActiveApp(final String appID, {final bool skipAlreadySet = false}) async {
+  Future<void> setActiveApp(String appID, {bool skipAlreadySet = false}) async {
     if (appID == AppIDs.notifications) {
       openNotifications.add(null);
       return;
     }
 
-    final apps = await appImplementations.firstWhere((final a) => a.hasData);
+    final apps = await appImplementations.firstWhere((a) => a.hasData);
     final app = apps.requireData.tryFind(appID);
     if (app != null) {
       if ((!activeApp.hasValue || !skipAlreadySet) && activeApp.valueOrNull?.id != appID) {
@@ -274,10 +274,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   }
 
   @override
-  T getAppBloc<T extends Bloc>(final AppImplementation<T, dynamic> appImplementation) =>
-      appImplementation.getBloc(account);
+  T getAppBloc<T extends Bloc>(AppImplementation<T, dynamic> appImplementation) => appImplementation.getBloc(account);
 
   @override
   List<Provider<Bloc>> get appBlocProviders =>
-      allAppImplementations.map((final appImplementation) => appImplementation.blocProvider).toList();
+      allAppImplementations.map((appImplementation) => appImplementation.blocProvider).toList();
 }

@@ -21,9 +21,9 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
     required this.key,
     required this.label,
     required this.defaultValue,
-    final bool enabled = true,
+    bool enabled = true,
     this.category,
-    final T? initialValue,
+    T? initialValue,
   })  : _value = initialValue ?? defaultValue,
         _enabled = enabled;
 
@@ -33,9 +33,9 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
     required this.key,
     required this.label,
     required this.defaultValue,
-    required final ValueListenable<bool> enabled,
+    required ValueListenable<bool> enabled,
     this.category,
-    final T? initialValue,
+    T? initialValue,
   })  : _value = initialValue ?? defaultValue,
         _enabled = enabled.value {
     enabled.addListener(() {
@@ -73,7 +73,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
   T get value => _value;
 
   @mustCallSuper
-  set value(final T newValue) {
+  set value(T newValue) {
     if (_value == newValue) {
       return;
     }
@@ -91,7 +91,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
   bool get enabled => _enabled;
 
   @mustCallSuper
-  set enabled(final bool newValue) {
+  set enabled(bool newValue) {
     if (_enabled == newValue) {
       return;
     }
@@ -106,7 +106,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
   }
 
   /// Loads [data] into [value] by calling [deserialize] on it.
-  void load(final Object? data) {
+  void load(Object? data) {
     final value = deserialize(data);
 
     if (value != null) {
@@ -117,7 +117,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
   }
 
   /// Deserializes the data.
-  T? deserialize(final Object? data);
+  T? deserialize(Object? data);
 
   /// Serializes the [value].
   Object? serialize();
@@ -158,13 +158,13 @@ class SelectOption<T> extends Option<T> {
     required super.key,
     required super.label,
     required super.defaultValue,
-    required final Map<T, LabelBuilder> values,
+    required Map<T, LabelBuilder> values,
 
     /// Force loading the stored value.
     ///
     /// This is needed when [values] is empty but the stored value should still be loaded.
     /// This only works when [T] is of type String?.
-    final bool forceLoadValue = true,
+    bool forceLoadValue = true,
     super.category,
     super.enabled,
   })  : _values = values,
@@ -176,19 +176,19 @@ class SelectOption<T> extends Option<T> {
     required super.key,
     required super.label,
     required super.defaultValue,
-    required final Map<T, LabelBuilder> values,
+    required Map<T, LabelBuilder> values,
     required super.enabled,
 
     /// Force loading the stored value.
     ///
     /// This is needed when [values] is empty but the stored value should still be loaded.
     /// This only works when [T] is of type String?.
-    final bool forceLoadValue = true,
+    bool forceLoadValue = true,
     super.category,
   })  : _values = values,
         super.depend(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
 
-  static T? _loadValue<T>(final Map<T, LabelBuilder> vs, final String? stored, {final bool forceLoad = true}) {
+  static T? _loadValue<T>(Map<T, LabelBuilder> vs, String? stored, {bool forceLoad = true}) {
     if (forceLoad && vs.isEmpty && stored is T) {
       return stored as T;
     }
@@ -206,7 +206,7 @@ class SelectOption<T> extends Option<T> {
   Map<T, LabelBuilder> _values;
 
   @override
-  set value(final T value) {
+  set value(T value) {
     if (_values.keys.contains(value)) {
       super.value = value;
 
@@ -227,7 +227,7 @@ class SelectOption<T> extends Option<T> {
   /// Updates the collection of possible values.
   ///
   /// If the current [value] is no longer supported the option will reset to the [defaultValue].
-  set values(final Map<T, LabelBuilder> newValues) {
+  set values(Map<T, LabelBuilder> newValues) {
     if (_values == newValues) {
       return;
     }
@@ -242,17 +242,17 @@ class SelectOption<T> extends Option<T> {
   @override
   String? serialize() => _serialize(value);
 
-  static String? _serialize<T>(final T value) => value?.toString();
+  static String? _serialize<T>(T value) => value?.toString();
 
   @override
-  T? deserialize(final Object? data) => _deserialize(_values, data as String?);
+  T? deserialize(Object? data) => _deserialize(_values, data as String?);
 
-  static T? _deserialize<T>(final Map<T, LabelBuilder> vs, final String? valueStr) {
+  static T? _deserialize<T>(Map<T, LabelBuilder> vs, String? valueStr) {
     if (valueStr == null) {
       return null;
     }
 
-    return vs.keys.firstWhereOrNull((final e) => _serialize(e) == valueStr);
+    return vs.keys.firstWhereOrNull((e) => _serialize(e) == valueStr);
   }
 }
 
@@ -266,7 +266,7 @@ class ToggleOption extends Option<bool> {
     required super.storage,
     required super.key,
     required super.label,
-    required final bool defaultValue,
+    required bool defaultValue,
     super.category,
     super.enabled,
   }) : super(defaultValue: storage.getBool(key.value) ?? defaultValue);
@@ -276,7 +276,7 @@ class ToggleOption extends Option<bool> {
     required super.storage,
     required super.key,
     required super.label,
-    required final bool defaultValue,
+    required bool defaultValue,
     required super.enabled,
     super.category,
   }) : super.depend(
@@ -291,7 +291,7 @@ class ToggleOption extends Option<bool> {
   }
 
   @override
-  set value(final bool value) {
+  set value(bool value) {
     super.value = value;
 
     unawaited(storage.setBool(key.value, serialize()));
@@ -301,5 +301,5 @@ class ToggleOption extends Option<bool> {
   bool serialize() => value;
 
   @override
-  bool? deserialize(final Object? data) => data as bool?;
+  bool? deserialize(Object? data) => data as bool?;
 }

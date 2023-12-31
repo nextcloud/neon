@@ -41,10 +41,10 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// Default localized app name used in [name].
   ///
   /// Defaults to the frameworks mapping of the [id] to a localized name.
-  String nameFromLocalization(final NeonLocalizations localizations) => localizations.appImplementationName(id);
+  String nameFromLocalization(NeonLocalizations localizations) => localizations.appImplementationName(id);
 
   /// Localized name of this app.
-  String name(final BuildContext context) => nameFromLocalization(NeonLocalizations.of(context));
+  String name(BuildContext context) => nameFromLocalization(NeonLocalizations.of(context));
 
   /// The [SettingsStorage] for this app.
   @protected
@@ -63,8 +63,8 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// This is the case for apps that depend on the server version like files and we assume that the app is supported.
   /// The server support is handled differently.
   FutureOr<VersionCheck?> getVersionCheck(
-    final Account account,
-    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+    Account account,
+    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   ) =>
       null;
 
@@ -74,21 +74,21 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   final blocsCache = AccountCache<T>();
 
   /// Returns a bloc [T] from the [blocsCache] or builds a new one if absent.
-  T getBloc(final Account account) => blocsCache[account] ??= buildBloc(account);
+  T getBloc(Account account) => blocsCache[account] ??= buildBloc(account);
 
   /// Build the bloc [T] for the given [account].
   ///
   /// Blocs are long lived and should not be rebuilt for subsequent calls.
   /// Use [getBloc] which also handles caching.
   @protected
-  T buildBloc(final Account account);
+  T buildBloc(Account account);
 
   /// The [Provider] building the bloc [T] the currently active account.
   ///
   /// Blocs will not be disposed on disposal of the provider. You must handle
   /// the [blocsCache] manually.
   Provider<T> get blocProvider => Provider<T>(
-        create: (final context) {
+        create: (context) {
           final accountsBloc = NeonProvider.of<AccountsBloc>(context);
           final account = accountsBloc.activeAccount.value!;
 
@@ -99,7 +99,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// The count of unread notifications.
   ///
   /// If `null` no label will be displayed.
-  BehaviorSubject<int>? getUnreadCounter(final T bloc) => null;
+  BehaviorSubject<int>? getUnreadCounter(T bloc) => null;
 
   /// The main page of this app.
   ///
@@ -107,7 +107,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   Widget get page;
 
   /// The drawer destination used in widgets like [NavigationDrawer].
-  NeonNavigationDestination destination(final BuildContext context) {
+  NeonNavigationDestination destination(BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final account = accountsBloc.activeAccount.value!;
     final bloc = getBloc(account);
@@ -152,11 +152,11 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// It is mandatory to provide a precompiled SVG under `assets/app.svg.vec`.
   /// SVGs can be precompiled with `https://pub.dev/packages/vector_graphics_compiler`
   Widget buildIcon({
-    final double? size,
-    final Color? color,
+    double? size,
+    Color? color,
   }) =>
       Builder(
-        builder: (final context) {
+        builder: (context) {
           final realSize = size ?? IconTheme.of(context).size;
           return VectorGraphic(
             width: realSize,
@@ -184,7 +184,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   final ThemeExtension? theme = null;
 
   @override
-  bool operator ==(final Object other) => other is AppImplementation && other.id == id;
+  bool operator ==(Object other) => other is AppImplementation && other.id == id;
 
   @override
   int get hashCode => id.hashCode;

@@ -45,7 +45,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
   void initState() {
     super.initState();
 
-    unifiedSearchBloc.enabled.listen((final enabled) {
+    unifiedSearchBloc.enabled.listen((enabled) {
       if (enabled) {
         _searchBarFocusNode.requestFocus();
       }
@@ -64,13 +64,13 @@ class _NeonAppBarState extends State<NeonAppBar> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
         subject: appsBloc.appImplementations,
-        builder: (final context, final appImplementations) => StreamBuilder(
+        builder: (context, appImplementations) => StreamBuilder(
           stream: appsBloc.activeApp,
-          builder: (final context, final activeAppSnapshot) => StreamBuilder(
+          builder: (context, activeAppSnapshot) => StreamBuilder(
             stream: unifiedSearchBloc.enabled,
-            builder: (final context, final unifiedSearchEnabledSnapshot) {
+            builder: (context, unifiedSearchEnabledSnapshot) {
               final unifiedSearchEnabled = unifiedSearchEnabledSnapshot.data ?? false;
               return AppBar(
                 title: unifiedSearchEnabled
@@ -160,7 +160,7 @@ class SearchIconButton extends StatelessWidget {
   });
 
   @override
-  Widget build(final BuildContext context) => IconButton(
+  Widget build(BuildContext context) => IconButton(
         onPressed: () {
           NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc.enable();
         },
@@ -198,7 +198,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
     _accounts = _accountsBloc.accounts.value;
     _account = _accountsBloc.activeAccount.value!;
 
-    notificationSubscription = _appsBloc.openNotifications.listen((final _) async {
+    notificationSubscription = _appsBloc.openNotifications.listen((_) async {
       final notificationsAppImplementation = _appsBloc.notificationsAppImplementation.valueOrNull;
       if (notificationsAppImplementation != null && notificationsAppImplementation.hasData) {
         await _openNotifications(notificationsAppImplementation.data!);
@@ -215,7 +215,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
 
   // TODO: migrate to go_router with a separate page
   Future<void> _openNotifications(
-    final NotificationsAppInterface app,
+    NotificationsAppInterface app,
   ) async {
     final page = Scaffold(
       resizeToAvoidBottomInset: false,
@@ -240,8 +240,8 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
 
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (final context) => Provider<NotificationsBlocInterface>(
-          create: (final context) => app.getBloc(_account),
+        builder: (context) => Provider<NotificationsBlocInterface>(
+          create: (context) => app.getBloc(_account),
           child: page,
         ),
       ),
@@ -249,9 +249,9 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NotificationsAppInterface?>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<NotificationsAppInterface?>.behaviorSubject(
         subject: _appsBloc.notificationsAppImplementation,
-        builder: (final context, final notificationsAppImplementation) {
+        builder: (context, notificationsAppImplementation) {
           if (!notificationsAppImplementation.hasData) {
             return const SizedBox.shrink();
           }
@@ -267,7 +267,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
             tooltip: NeonLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
             icon: StreamBuilder<int>(
               stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
-              builder: (final context, final unreadCounterSnapshot) => NeonAppImplementationIcon(
+              builder: (context, unreadCounterSnapshot) => NeonAppImplementationIcon(
                 appImplementation: notificationsImplementationData,
                 unreadCount: unreadCounterSnapshot.data,
               ),

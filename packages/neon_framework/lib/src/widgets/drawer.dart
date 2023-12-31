@@ -25,13 +25,13 @@ class NeonDrawer extends StatelessWidget {
   });
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final appsBloc = accountsBloc.activeAppsBloc;
 
     return ResultBuilder.behaviorSubject(
       subject: appsBloc.appImplementations,
-      builder: (final context, final snapshot) {
+      builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const SizedBox.shrink();
         }
@@ -70,10 +70,10 @@ class __NeonDrawerState extends State<_NeonDrawer> {
     _appsBloc = _accountsBloc.activeAppsBloc;
 
     _apps = widget.apps.toList();
-    _activeApp = _apps.indexWhere((final app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
+    _activeApp = _apps.indexWhere((app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
   }
 
-  void onAppChange(final int index) {
+  void onAppChange(int index) {
     Scaffold.maybeOf(context)?.closeDrawer();
 
     // selected item is not a registered app like the SettingsPage
@@ -91,9 +91,9 @@ class __NeonDrawerState extends State<_NeonDrawer> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final appDestinations = _apps.map(
-      (final app) => NavigationDrawerDestinationExtension.fromNeonDestination(
+      (app) => NavigationDrawerDestinationExtension.fromNeonDestination(
         app.destination(context),
       ),
     );
@@ -126,13 +126,13 @@ class NeonDrawerHeader extends StatelessWidget {
   const NeonDrawerHeader({super.key});
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final capabilitiesBloc = accountsBloc.activeCapabilitiesBloc;
 
     final branding = ResultBuilder<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>.behaviorSubject(
       subject: capabilitiesBloc.capabilities,
-      builder: (final context, final capabilities) {
+      builder: (context, capabilities) {
         if (!capabilities.hasData) {
           return NeonLinearProgressIndicator(
             visible: capabilities.isLoading,

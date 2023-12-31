@@ -24,7 +24,7 @@ class GlobalPopups {
   ///
   /// Instantiates a new one with a [mock]ed value if not yet present.
   @visibleForTesting
-  factory GlobalPopups.mocked(final GlobalPopups mock) => instance ??= mock;
+  factory GlobalPopups.mocked(GlobalPopups mock) => instance ??= mock;
 
   GlobalPopups._();
 
@@ -51,7 +51,7 @@ class GlobalPopups {
   /// Registers the global backups to the given [context].
   ///
   /// Subsequent calls will update the cached `context` but will not run the registration again.
-  void register(final BuildContext context) {
+  void register(BuildContext context) {
     _context = context;
     if (_registered) {
       return;
@@ -64,7 +64,7 @@ class GlobalPopups {
     final nextPushBloc = NeonProvider.of<NextPushBloc>(context);
     if (NeonPlatform.instance.canUsePushNotifications) {
       _subscriptions.addAll([
-        firstLaunchBloc.onFirstLaunch.listen((final _) {
+        firstLaunchBloc.onFirstLaunch.listen((_) {
           assert(context.mounted, 'Context should be mounted');
           if (!globalOptions.pushNotificationsEnabled.enabled) {
             return;
@@ -82,7 +82,7 @@ class GlobalPopups {
             ),
           );
         }),
-        nextPushBloc.onNextPushSupported.listen((final _) async {
+        nextPushBloc.onNextPushSupported.listen((_) async {
           assert(context.mounted, 'Context should be mounted');
           if (!globalOptions.pushNotificationsEnabled.enabled) {
             return;
@@ -90,7 +90,7 @@ class GlobalPopups {
 
           await showAdaptiveDialog<void>(
             context: _context,
-            builder: (final context) => const NeonUnifiedPushDialog(),
+            builder: (context) => const NeonUnifiedPushDialog(),
           );
         }),
       ]);

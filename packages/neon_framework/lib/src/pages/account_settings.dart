@@ -36,7 +36,7 @@ class AccountSettingsPage extends StatelessWidget {
   final Account account;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final options = bloc.getOptionsFor(account);
     final userDetailsBloc = bloc.getUserDetailsBlocFor(account);
     final name = account.humanReadableID;
@@ -48,7 +48,7 @@ class AccountSettingsPage extends StatelessWidget {
           onPressed: () async {
             final decision = await showAdaptiveDialog<bool>(
               context: context,
-              builder: (final context) => NeonConfirmationDialog(
+              builder: (context) => NeonConfirmationDialog(
                 icon: const Icon(Icons.logout),
                 title: NeonLocalizations.of(context).accountOptionsRemove,
                 content: Text(
@@ -83,7 +83,7 @@ class AccountSettingsPage extends StatelessWidget {
                 '${NeonLocalizations.of(context).settingsResetForConfirmation(name)} ${NeonLocalizations.of(context).settingsResetForExplanation}';
             final decision = await showAdaptiveDialog<bool>(
               context: context,
-              builder: (final context) => NeonConfirmationDialog(
+              builder: (context) => NeonConfirmationDialog(
                 icon: const Icon(Icons.restart_alt),
                 title: NeonLocalizations.of(context).settingsReset,
                 content: Text(content),
@@ -107,7 +107,7 @@ class AccountSettingsPage extends StatelessWidget {
           tiles: [
             ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
               subject: userDetailsBloc.userDetails,
-              builder: (final context, final userDetails) {
+              builder: (context, userDetails) {
                 if (userDetails.hasError) {
                   return NeonError(
                     userDetails.error ?? 'Something went wrong',

@@ -30,7 +30,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
 
     bloc = LoginFlowBloc(widget.serverURL);
 
-    bloc.init.listen((final result) async {
+    bloc.init.listen((result) async {
       if (result.hasData) {
         await launchUrlString(
           result.requireData.login,
@@ -39,7 +39,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
       }
     });
 
-    bloc.result.listen((final result) {
+    bloc.result.listen((result) {
       LoginCheckAccountRoute(
         serverUrl: Uri.parse(result.server),
         loginName: result.loginName,
@@ -55,7 +55,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
   }
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(),
         body: SafeArea(
           child: Center(
@@ -63,7 +63,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
               padding: const EdgeInsets.all(10),
               child: ResultBuilder.behaviorSubject(
                 subject: bloc.init,
-                builder: (final context, final init) => Column(
+                builder: (context, init) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     NeonLinearProgressIndicator(

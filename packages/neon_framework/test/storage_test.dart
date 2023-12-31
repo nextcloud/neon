@@ -40,7 +40,7 @@ void main() {
       expect(result, equals(true));
       verify(() => sharedPreferences.containsKey(formattedKey)).called(1);
 
-      when(() => sharedPreferences.remove(formattedKey)).thenAnswer((final _) => Future.value(false));
+      when(() => sharedPreferences.remove(formattedKey)).thenAnswer((_) => Future.value(false));
       result = await appStorage.remove(key);
       expect(result, equals(false));
       verify(() => sharedPreferences.remove(formattedKey)).called(1);
@@ -50,7 +50,7 @@ void main() {
       expect(result, isNull);
       verify(() => sharedPreferences.getString(formattedKey)).called(1);
 
-      when(() => sharedPreferences.setString(formattedKey, 'value')).thenAnswer((final _) => Future.value(false));
+      when(() => sharedPreferences.setString(formattedKey, 'value')).thenAnswer((_) => Future.value(false));
       result = await appStorage.setString(key, 'value');
       expect(result, false);
       verify(() => sharedPreferences.setString(formattedKey, 'value')).called(1);
@@ -60,7 +60,7 @@ void main() {
       expect(result, equals(true));
       verify(() => sharedPreferences.getBool(formattedKey)).called(1);
 
-      when(() => sharedPreferences.setBool(formattedKey, true)).thenAnswer((final _) => Future.value(true));
+      when(() => sharedPreferences.setBool(formattedKey, true)).thenAnswer((_) => Future.value(true));
       result = await appStorage.setBool(key, true);
       expect(result, true);
       verify(() => sharedPreferences.setBool(formattedKey, true)).called(1);
@@ -70,8 +70,7 @@ void main() {
       expect(result, equals(['hi there']));
       verify(() => sharedPreferences.getStringList(formattedKey)).called(1);
 
-      when(() => sharedPreferences.setStringList(formattedKey, ['hi there']))
-          .thenAnswer((final _) => Future.value(false));
+      when(() => sharedPreferences.setStringList(formattedKey, ['hi there'])).thenAnswer((_) => Future.value(false));
       result = await appStorage.setStringList(key, ['hi there']);
       expect(result, false);
       verify(() => sharedPreferences.setStringList(formattedKey, ['hi there'])).called(1);
@@ -89,7 +88,7 @@ void main() {
     expect(result, equals(true));
     verify(() => sharedPreferences.containsKey(key)).called(1);
 
-    when(() => sharedPreferences.remove(key)).thenAnswer((final _) => Future.value(false));
+    when(() => sharedPreferences.remove(key)).thenAnswer((_) => Future.value(false));
     result = await storage.remove();
     expect(result, equals(false));
     verify(() => sharedPreferences.remove(key)).called(1);
@@ -99,7 +98,7 @@ void main() {
     expect(result, isNull);
     verify(() => sharedPreferences.getString(key)).called(1);
 
-    when(() => sharedPreferences.setString(key, 'value')).thenAnswer((final _) => Future.value(false));
+    when(() => sharedPreferences.setString(key, 'value')).thenAnswer((_) => Future.value(false));
     result = await storage.setString('value');
     expect(result, false);
     verify(() => sharedPreferences.setString(key, 'value')).called(1);
@@ -109,7 +108,7 @@ void main() {
     expect(result, equals(true));
     verify(() => sharedPreferences.getBool(key)).called(1);
 
-    when(() => sharedPreferences.setBool(key, true)).thenAnswer((final _) => Future.value(true));
+    when(() => sharedPreferences.setBool(key, true)).thenAnswer((_) => Future.value(true));
     result = await storage.setBool(true);
     expect(result, true);
     verify(() => sharedPreferences.setBool(key, true)).called(1);
@@ -119,7 +118,7 @@ void main() {
     expect(result, equals(['hi there']));
     verify(() => sharedPreferences.getStringList(key)).called(1);
 
-    when(() => sharedPreferences.setStringList(key, ['hi there'])).thenAnswer((final _) => Future.value(false));
+    when(() => sharedPreferences.setStringList(key, ['hi there'])).thenAnswer((_) => Future.value(false));
     result = await storage.setStringList(['hi there']);
     expect(result, false);
     verify(() => sharedPreferences.setStringList(key, ['hi there'])).called(1);

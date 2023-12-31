@@ -27,7 +27,7 @@ class AccountSettingsTile extends SettingsTile {
   final FutureOr<void> Function()? onTap;
 
   @override
-  Widget build(final BuildContext context) => NeonAccountTile(
+  Widget build(BuildContext context) => NeonAccountTile(
         account: account,
         trailing: trailing,
         onTap: onTap,

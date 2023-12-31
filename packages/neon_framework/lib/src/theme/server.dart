@@ -14,14 +14,14 @@ class ServerTheme extends ThemeExtension<ServerTheme> {
 
   @override
   ServerTheme copyWith({
-    final core.ThemingPublicCapabilities_Theming? nextcloudTheme,
+    core.ThemingPublicCapabilities_Theming? nextcloudTheme,
   }) =>
       ServerTheme(
         nextcloudTheme: nextcloudTheme,
       );
 
   @override
-  ServerTheme lerp(final ServerTheme? other, final double t) {
+  ServerTheme lerp(ServerTheme? other, double t) {
     if (other is! ServerTheme) {
       return this;
     }
@@ -37,7 +37,7 @@ class ServerTheme extends ThemeExtension<ServerTheme> {
       ]);
 
   @override
-  bool operator ==(final Object other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }

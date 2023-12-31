@@ -97,7 +97,7 @@ class Result<T> {
   /// Transforms the subtype of the Result by applying [callback].
   ///
   /// If the result has no data `callback` will not be called.
-  Result<R> transform<R>(final R? Function(T data) callback) => Result(
+  Result<R> transform<R>(R? Function(T data) callback) => Result(
         hasData ? callback(data as T) : null,
         error,
         isLoading: isLoading,
@@ -109,10 +109,10 @@ class Result<T> {
 
   /// Copies this Result and optionally replaces the [data], [error], [isLoading] and [isCached].
   Result<T> copyWith({
-    final T? data,
-    final Object? error,
-    final bool? isLoading,
-    final bool? isCached,
+    T? data,
+    Object? error,
+    bool? isLoading,
+    bool? isCached,
   }) =>
       Result(
         data ?? this.data,
@@ -150,7 +150,7 @@ class Result<T> {
   }
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is Result && other.isLoading == isLoading && other.data == data && other.error == error;
 
   @override
@@ -195,7 +195,7 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
   /// The [initialData] will be set to the current value of the subject.
   ResultBuilder.behaviorSubject({
     required this.builder,
-    final BehaviorSubject<Result<T>>? subject,
+    BehaviorSubject<Result<T>>? subject,
     super.key,
   })  : initialData = subject?.valueOrNull,
         super(stream: subject);
@@ -220,7 +220,7 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
   Result<T> initial() => initialData?.asLoading() ?? Result<T>.loading();
 
   @override
-  Result<T> afterData(final Result<T> current, final Result<T> data) {
+  Result<T> afterData(Result<T> current, Result<T> data) {
     // prevent rebuild when only the cache state changes
     if (current == data) {
       return current;
@@ -230,7 +230,7 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
   }
 
   @override
-  Result<T> afterError(final Result<T> current, final Object error, final StackTrace stackTrace) {
+  Result<T> afterError(Result<T> current, Object error, StackTrace stackTrace) {
     if (current.hasError) {
       return current;
     }
@@ -244,5 +244,5 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
   }
 
   @override
-  Widget build(final BuildContext context, final Result<T> currentSummary) => builder(context, currentSummary);
+  Widget build(BuildContext context, Result<T> currentSummary) => builder(context, currentSummary);
 }

@@ -17,7 +17,7 @@ class OptionSettingsTile extends InputSettingsTile {
   });
 
   @override
-  Widget build(final BuildContext context) => switch (option) {
+  Widget build(BuildContext context) => switch (option) {
         ToggleOption() => ToggleSettingsTile(option: option as ToggleOption),
         SelectOption() => SelectSettingsTile(option: option as SelectOption),
       };
@@ -31,12 +31,12 @@ class ToggleSettingsTile extends InputSettingsTile<ToggleOption> {
   });
 
   @override
-  Widget build(final BuildContext context) => ValueListenableBuilder(
+  Widget build(BuildContext context) => ValueListenableBuilder(
         valueListenable: option,
-        builder: (final context, final value, final child) => SwitchListTile.adaptive(
+        builder: (context, value, child) => SwitchListTile.adaptive(
           title: child,
           value: value,
-          onChanged: option.enabled ? (final value) => option.value = value : null,
+          onChanged: option.enabled ? (value) => option.value = value : null,
         ),
         child: Text(option.label(context)),
       );
@@ -53,9 +53,9 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
   final bool immediateSelection;
 
   @override
-  Widget build(final BuildContext context) => ValueListenableBuilder(
+  Widget build(BuildContext context) => ValueListenableBuilder(
         valueListenable: option,
-        builder: (final context, final value, final child) {
+        builder: (context, value, child) {
           final valueText = option.values[value]?.call(context);
           return AdaptiveListTile.additionalInfo(
             enabled: option.enabled,
@@ -69,13 +69,13 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
                 await Navigator.push(
                   context,
                   CupertinoPageRoute<void>(
-                    builder: (final _) => SelectSettingsTileScreen(option: option),
+                    builder: (_) => SelectSettingsTileScreen(option: option),
                   ),
                 );
               } else {
                 final result = await showAdaptiveDialog<T>(
                   context: context,
-                  builder: (final context) => SelectSettingsTileDialog(
+                  builder: (context) => SelectSettingsTileDialog(
                     option: option,
                     immediateSelection: immediateSelection,
                   ),
@@ -125,19 +125,19 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
   void cancel() => Navigator.pop(context);
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final content = SingleChildScrollView(
       child: Column(
         children: [
           ...option.values.keys.map(
-            (final k) => RadioListTile(
+            (k) => RadioListTile(
               title: Text(
                 option.values[k]!(context),
                 overflow: TextOverflow.ellipsis,
               ),
               value: k,
               groupValue: value,
-              onChanged: (final value) {
+              onChanged: (value) {
                 setState(() {
                   this.value = value as T;
                 });
@@ -183,17 +183,17 @@ class SelectSettingsTileScreen<T> extends StatelessWidget {
   final SelectOption<T> option;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final dialogTheme = NeonDialogTheme.of(context);
 
     final selector = ValueListenableBuilder(
       valueListenable: option,
-      builder: (final context, final value, final child) => CupertinoListSection.insetGrouped(
+      builder: (context, value, child) => CupertinoListSection.insetGrouped(
         hasLeading: false,
         header: child,
         children: [
           ...option.values.keys.map(
-            (final k) => RadioListTile.adaptive(
+            (k) => RadioListTile.adaptive(
               controlAffinity: ListTileControlAffinity.trailing,
               title: Text(
                 option.values[k]!(context),
@@ -201,7 +201,7 @@ class SelectSettingsTileScreen<T> extends StatelessWidget {
               ),
               value: k,
               groupValue: value,
-              onChanged: (final value) {
+              onChanged: (value) {
                 option.value = value as T;
               },
             ),
