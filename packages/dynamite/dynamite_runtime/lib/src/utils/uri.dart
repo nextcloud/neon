@@ -7,7 +7,7 @@ extension UriExtension on Uri {
   Uri normalizeEmptyPath() {
     final normalized = normalizePath();
     if (normalized.path.endsWith('/')) {
-      return normalized.replace(pathSegments: normalized.pathSegments.where((final s) => s.isNotEmpty));
+      return normalized.replace(pathSegments: normalized.pathSegments.where((s) => s.isNotEmpty));
     }
 
     return normalized;
