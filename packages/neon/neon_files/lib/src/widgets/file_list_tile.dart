@@ -23,7 +23,7 @@ class FileListTile extends StatelessWidget {
   final FilesBrowserBloc browserBloc;
   final FileDetails details;
 
-  Future<void> _onTap(final BuildContext context, final FileDetails details) async {
+  Future<void> _onTap(BuildContext context, FileDetails details) async {
     if (details.isDirectory) {
       browserBloc.setPath(details.uri);
     } else if (browserBloc.mode == FilesBrowserMode.browser) {
@@ -40,7 +40,7 @@ class FileListTile extends StatelessWidget {
   }
 
   @override
-  Widget build(final BuildContext context) => ListTile(
+  Widget build(BuildContext context) => ListTile(
         // When the ETag is null it means we are uploading this file right now
         onTap: details.isDirectory || details.etag != null ? () async => _onTap(context, details) : null,
         title: Text(
@@ -88,12 +88,12 @@ class _FileIcon extends StatelessWidget {
   final FilesBloc bloc;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     Widget icon = Center(
       child: details.hasTask
           ? StreamBuilder<double>(
               stream: details.task!.progress,
-              builder: (final context, final progress) => Column(
+              builder: (context, progress) => Column(
                 children: [
                   Icon(
                     switch (details.task!) {

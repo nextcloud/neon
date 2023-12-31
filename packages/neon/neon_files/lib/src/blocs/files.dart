@@ -21,31 +21,31 @@ import 'package:universal_io/io.dart';
 sealed class FilesBloc implements InteractiveBloc {
   @internal
   factory FilesBloc(
-    final FilesOptions options,
-    final Account account,
+    FilesOptions options,
+    Account account,
   ) =>
       _FilesBloc(
         options,
         account,
       );
 
-  void uploadFile(final PathUri uri, final String localPath);
+  void uploadFile(PathUri uri, String localPath);
 
-  void openFile(final PathUri uri, final String etag, final String? mimeType);
+  void openFile(PathUri uri, String etag, String? mimeType);
 
-  void shareFileNative(final PathUri uri, final String etag);
+  void shareFileNative(PathUri uri, String etag);
 
-  void delete(final PathUri uri);
+  void delete(PathUri uri);
 
-  void rename(final PathUri uri, final String name);
+  void rename(PathUri uri, String name);
 
-  void move(final PathUri uri, final PathUri destination);
+  void move(PathUri uri, PathUri destination);
 
-  void copy(final PathUri uri, final PathUri destination);
+  void copy(PathUri uri, PathUri destination);
 
-  void addFavorite(final PathUri uri);
+  void addFavorite(PathUri uri);
 
-  void removeFavorite(final PathUri uri);
+  void removeFavorite(PathUri uri);
 
   BehaviorSubject<List<FilesTask>> get tasks;
 
@@ -53,7 +53,7 @@ sealed class FilesBloc implements InteractiveBloc {
 
   FilesBrowserBloc get browser;
 
-  FilesBrowserBloc getNewFilesBrowserBloc({final PathUri? initialUri, final FilesBrowserMode? mode});
+  FilesBrowserBloc getNewFilesBrowserBloc({PathUri? initialUri, FilesBrowserMode? mode});
 }
 
 class _FilesBloc extends InteractiveBloc implements FilesBloc {
@@ -90,7 +90,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   BehaviorSubject<List<FilesTask>> tasks = BehaviorSubject<List<FilesTask>>.seeded([]);
 
   @override
-  void addFavorite(final PathUri uri) {
+  void addFavorite(PathUri uri) {
     wrapAction(
       () async => account.client.webdav.proppatch(
         uri,
@@ -100,22 +100,22 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void copy(final PathUri uri, final PathUri destination) {
+  void copy(PathUri uri, PathUri destination) {
     wrapAction(() async => account.client.webdav.copy(uri, destination));
   }
 
   @override
-  void delete(final PathUri uri) {
+  void delete(PathUri uri) {
     wrapAction(() async => account.client.webdav.delete(uri));
   }
 
   @override
-  void move(final PathUri uri, final PathUri destination) {
+  void move(PathUri uri, PathUri destination) {
     wrapAction(() async => account.client.webdav.move(uri, destination));
   }
 
   @override
-  void openFile(final PathUri uri, final String etag, final String? mimeType) {
+  void openFile(PathUri uri, String etag, String? mimeType) {
     wrapAction(
       () async {
         final file = await cacheFile(uri, etag);
@@ -130,7 +130,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void shareFileNative(final PathUri uri, final String etag) {
+  void shareFileNative(PathUri uri, String etag) {
     wrapAction(
       () async {
         final file = await cacheFile(uri, etag);
@@ -147,7 +147,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void removeFavorite(final PathUri uri) {
+  void removeFavorite(PathUri uri) {
     wrapAction(
       () async => account.client.webdav.proppatch(
         uri,
@@ -157,7 +157,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void rename(final PathUri uri, final String name) {
+  void rename(PathUri uri, String name) {
     wrapAction(
       () async => account.client.webdav.move(
         uri,
@@ -167,7 +167,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void uploadFile(final PathUri uri, final String localPath) {
+  void uploadFile(PathUri uri, String localPath) {
     wrapAction(
       () async {
         final task = FilesUploadTask(
@@ -182,7 +182,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     );
   }
 
-  Future<File> cacheFile(final PathUri uri, final String etag) async {
+  Future<File> cacheFile(PathUri uri, String etag) async {
     final cacheDir = await getApplicationCacheDirectory();
     final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name));
 
@@ -198,8 +198,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   Future<void> downloadFile(
-    final PathUri uri,
-    final File file,
+    PathUri uri,
+    File file,
   ) async {
     final task = FilesDownloadTask(
       uri: uri,
@@ -211,8 +211,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  FilesBrowserBloc getNewFilesBrowserBloc({final PathUri? initialUri, final FilesBrowserMode? mode}) =>
-      FilesBrowserBloc(
+  FilesBrowserBloc getNewFilesBrowserBloc({PathUri? initialUri, FilesBrowserMode? mode}) => FilesBrowserBloc(
         options,
         account,
         initialPath: initialUri,
@@ -234,6 +233,6 @@ class UnableToOpenFileException extends NeonException {
 
   @override
   NeonExceptionDetails get details => NeonExceptionDetails(
-        getText: (final context) => FilesLocalizations.of(context).errorUnableToOpenFile,
+        getText: (context) => FilesLocalizations.of(context).errorUnableToOpenFile,
       );
 }

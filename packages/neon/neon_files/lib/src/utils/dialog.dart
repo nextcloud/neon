@@ -14,11 +14,11 @@ import 'package:nextcloud/nextcloud.dart';
 ///
 /// Returns a future with the folder name split by `/`.
 Future<String?> showFolderCreateDialog({
-  required final BuildContext context,
+  required BuildContext context,
 }) =>
     showAdaptiveDialog<String>(
       context: context,
-      builder: (final context) => const FilesCreateFolderDialog(),
+      builder: (context) => const FilesCreateFolderDialog(),
     );
 
 /// Displays a [NeonConfirmationDialog] to confirm downloading a file larger
@@ -26,13 +26,13 @@ Future<String?> showFolderCreateDialog({
 ///
 /// Returns a future whether the action has been accepted.
 Future<bool> showDownloadConfirmationDialog(
-  final BuildContext context,
-  final int warningSize,
-  final int actualSize,
+  BuildContext context,
+  int warningSize,
+  int actualSize,
 ) async =>
     await showAdaptiveDialog<bool>(
       context: context,
-      builder: (final context) => NeonConfirmationDialog(
+      builder: (context) => NeonConfirmationDialog(
         title: FilesLocalizations.of(context).optionsDownloadSizeWarning,
         content: Text(
           FilesLocalizations.of(context).downloadConfirmSizeWarning(
@@ -49,13 +49,13 @@ Future<bool> showDownloadConfirmationDialog(
 ///
 /// Returns a future whether the action has been accepted.
 Future<bool> showUploadConfirmationDialog(
-  final BuildContext context,
-  final int warningSize,
-  final int actualSize,
+  BuildContext context,
+  int warningSize,
+  int actualSize,
 ) async =>
     await showAdaptiveDialog<bool>(
       context: context,
-      builder: (final context) => NeonConfirmationDialog(
+      builder: (context) => NeonConfirmationDialog(
         title: FilesLocalizations.of(context).optionsUploadSizeWarning,
         content: Text(
           FilesLocalizations.of(context).uploadConfirmSizeWarning(
@@ -70,7 +70,7 @@ Future<bool> showUploadConfirmationDialog(
 /// Displays a [FilesChooseFolderDialog] to choose a new location for a file with the given [details].
 ///
 /// Returns a future with the new location.
-Future<PathUri?> showChooseFolderDialog(final BuildContext context, final FileDetails details) async {
+Future<PathUri?> showChooseFolderDialog(BuildContext context, FileDetails details) async {
   final bloc = NeonProvider.of<FilesBloc>(context);
 
   final originalUri = details.uri;
@@ -81,7 +81,7 @@ Future<PathUri?> showChooseFolderDialog(final BuildContext context, final FileDe
 
   final result = await showDialog<PathUri>(
     context: context,
-    builder: (final context) => FilesChooseFolderDialog(
+    builder: (context) => FilesChooseFolderDialog(
       bloc: b,
       filesBloc: bloc,
       originalPath: originalUri,
@@ -95,10 +95,10 @@ Future<PathUri?> showChooseFolderDialog(final BuildContext context, final FileDe
 /// Displays a [NeonConfirmationDialog] to confirm deleting a file or folder with the given [details].
 ///
 /// Returns a future whether the action has been accepted.
-Future<bool> showDeleteConfirmationDialog(final BuildContext context, final FileDetails details) async =>
+Future<bool> showDeleteConfirmationDialog(BuildContext context, FileDetails details) async =>
     await showAdaptiveDialog<bool>(
       context: context,
-      builder: (final context) => NeonConfirmationDialog(
+      builder: (context) => NeonConfirmationDialog(
         title: FilesLocalizations.of(context).actionDeleteTitle,
         icon: const Icon(Icons.delete_outlined),
         content: Text(
@@ -111,7 +111,7 @@ Future<bool> showDeleteConfirmationDialog(final BuildContext context, final File
     false;
 
 /// Displays an adaptive modal to select or create a file.
-Future<void> showFilesCreateModal(final BuildContext context) {
+Future<void> showFilesCreateModal(BuildContext context) {
   final theme = Theme.of(context);
   final bloc = NeonProvider.of<FilesBloc>(context);
 
@@ -122,14 +122,14 @@ Future<void> showFilesCreateModal(final BuildContext context) {
     case TargetPlatform.windows:
       return showModalBottomSheet(
         context: context,
-        builder: (final _) => FilesChooseCreateModal(bloc: bloc),
+        builder: (_) => FilesChooseCreateModal(bloc: bloc),
       );
 
     case TargetPlatform.iOS:
     case TargetPlatform.macOS:
       return showCupertinoModalPopup(
         context: context,
-        builder: (final _) => FilesChooseCreateModal(bloc: bloc),
+        builder: (_) => FilesChooseCreateModal(bloc: bloc),
       );
   }
 }

@@ -24,7 +24,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
   late final FilesOptions options = FilesOptions(storage);
 
   @override
-  FilesBloc buildBloc(final Account account) => FilesBloc(
+  FilesBloc buildBloc(Account account) => FilesBloc(
         options,
         account,
       );

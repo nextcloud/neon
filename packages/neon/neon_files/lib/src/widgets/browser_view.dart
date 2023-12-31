@@ -30,7 +30,7 @@ class FilesBrowserView extends StatefulWidget {
 class _FilesBrowserViewState extends State<FilesBrowserView> {
   @override
   void initState() {
-    widget.bloc.errors.listen((final error) {
+    widget.bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
 
@@ -38,13 +38,13 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<WebDavFile>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<List<WebDavFile>>.behaviorSubject(
         subject: widget.bloc.files,
-        builder: (final context, final filesSnapshot) => StreamBuilder<PathUri>(
+        builder: (context, filesSnapshot) => StreamBuilder<PathUri>(
           stream: widget.bloc.uri,
-          builder: (final context, final uriSnapshot) => StreamBuilder<List<FilesTask>>(
+          builder: (context, uriSnapshot) => StreamBuilder<List<FilesTask>>(
             stream: widget.filesBloc.tasks,
-            builder: (final context, final tasksSnapshot) {
+            builder: (context, tasksSnapshot) {
               if (!uriSnapshot.hasData || !tasksSnapshot.hasData) {
                 return const SizedBox();
               }
@@ -65,16 +65,16 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                     (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
                   },
                   input: filesSnapshot.data,
-                  builder: (final context, final sorted) {
+                  builder: (context, sorted) {
                     final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
 
                     return NeonListView(
                       scrollKey: 'files-${uriSnapshot.requireData.path}',
                       itemCount: sorted.length,
-                      itemBuilder: (final context, final index) {
+                      itemBuilder: (context, index) {
                         final file = sorted[index];
                         final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
-                          (final task) => file.name == task.uri.name && widget.bloc.uri.value == task.uri.parent,
+                          (task) => file.name == task.uri.name && widget.bloc.uri.value == task.uri.parent,
                         );
 
                         final details = matchingTask != null
@@ -111,7 +111,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
         ),
       );
 
-  Iterable<Widget> buildUploadTasks(final List<FilesTask> tasks, final List<WebDavFile> files) sync* {
+  Iterable<Widget> buildUploadTasks(List<FilesTask> tasks, List<WebDavFile> files) sync* {
     for (final task in tasks) {
       if (task is! FilesUploadTask) {
         continue;

@@ -25,10 +25,10 @@ enum FilesBrowserMode {
 sealed class FilesBrowserBloc implements InteractiveBloc {
   @internal
   factory FilesBrowserBloc(
-    final FilesOptions options,
-    final Account account, {
-    final PathUri? initialPath,
-    final FilesBrowserMode? mode,
+    FilesOptions options,
+    Account account, {
+    PathUri? initialPath,
+    FilesBrowserMode? mode,
   }) =>
       _FilesBrowserBloc(
         options,
@@ -37,9 +37,9 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
         mode: mode,
       );
 
-  void setPath(final PathUri uri);
+  void setPath(PathUri uri);
 
-  void createFolder(final PathUri uri);
+  void createFolder(PathUri uri);
 
   BehaviorSubject<Result<List<WebDavFile>>> get files;
 
@@ -56,7 +56,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
     this.options,
     this.account, {
     this.initialPath,
-    final FilesBrowserMode? mode,
+    FilesBrowserMode? mode,
   }) : mode = mode ?? FilesBrowserMode.browser {
     final parent = initialPath?.parent;
     if (parent != null) {
@@ -110,10 +110,10 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
         ),
         depth: WebDavDepth.one,
       ),
-      (final response) {
+      (response) {
         final unwrapped = response.toWebDavFiles().sublist(1);
 
-        return unwrapped.where((final file) {
+        return unwrapped.where((file) {
           // Do not show files when selecting a directory
           if (mode == FilesBrowserMode.selectDirectory && !file.isDirectory) {
             return false;
@@ -137,13 +137,13 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   }
 
   @override
-  void setPath(final PathUri uri) {
+  void setPath(PathUri uri) {
     this.uri.add(uri);
     unawaited(refresh());
   }
 
   @override
-  void createFolder(final PathUri uri) {
+  void createFolder(PathUri uri) {
     wrapAction(() async => account.client.webdav.mkcol(uri));
   }
 }

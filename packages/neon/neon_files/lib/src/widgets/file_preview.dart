@@ -29,13 +29,13 @@ class FilePreview extends StatelessWidget {
   final bool withBackground;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final color = this.color ?? Theme.of(context).colorScheme.primary;
 
     return SizedBox.fromSize(
       size: size,
       child: Builder(
-        builder: (final context) {
+        builder: (context) {
           if (details.isDirectory) {
             return Icon(
               MdiIcons.folder,
@@ -46,7 +46,7 @@ class FilePreview extends StatelessWidget {
 
           return ValueListenableBuilder<bool>(
             valueListenable: bloc.options.showPreviewsOption,
-            builder: (final context, final showPreviews, final _) {
+            builder: (context, showPreviews, _) {
               if (showPreviews && (details.hasPreview ?? false)) {
                 final preview = FilePreviewImage(
                   file: details,
@@ -78,8 +78,8 @@ class FilePreview extends StatelessWidget {
 
 class FilePreviewImage extends NeonApiImage {
   factory FilePreviewImage({
-    required final FileDetails file,
-    required final Size size,
+    required FileDetails file,
+    required Size size,
   }) {
     final width = size.width.toInt();
     final height = size.height.toInt();
@@ -95,18 +95,18 @@ class FilePreviewImage extends NeonApiImage {
   }
 
   FilePreviewImage._({
-    required final FileDetails file,
+    required FileDetails file,
     required Size super.size,
     required super.cacheKey,
-    required final int width,
-    required final int height,
+    required int width,
+    required int height,
   }) : super(
-          getImage: (final client) async => client.core.preview.getPreview(
+          getImage: (client) async => client.core.preview.getPreview(
             file: file.uri.path,
             x: width,
             y: height,
           ),
-          writeCache: (final cacheManager, final data) async {
+          writeCache: (cacheManager, data) async {
             await cacheManager.putFile(
               cacheKey,
               data,
