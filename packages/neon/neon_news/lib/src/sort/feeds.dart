@@ -4,8 +4,8 @@ import 'package:nextcloud/news.dart' as news;
 
 final feedsSortBox = SortBox<FeedsSortProperty, news.Feed>(
   {
-    FeedsSortProperty.alphabetical: (final feed) => feed.title.toLowerCase(),
-    FeedsSortProperty.unreadCount: (final feed) => feed.unreadCount ?? 0,
+    FeedsSortProperty.alphabetical: (feed) => feed.title.toLowerCase(),
+    FeedsSortProperty.unreadCount: (feed) => feed.unreadCount ?? 0,
   },
   {
     FeedsSortProperty.alphabetical: {

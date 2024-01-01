@@ -25,32 +25,31 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
         subject: bloc.notesList,
-        builder: (final context, final notesList) => SortBoxBuilder<NotesSortProperty, notes.Note>(
+        builder: (context, notesList) => SortBoxBuilder<NotesSortProperty, notes.Note>(
           sortBox: notesSortBox,
           presort: const {
             (property: NotesSortProperty.favorite, order: SortBoxOrder.ascending),
           },
           sortProperty: bloc.options.notesSortPropertyOption,
           sortBoxOrder: bloc.options.notesSortBoxOrderOption,
-          input: category != null
-              ? notesList.data?.where((final note) => note.category == category).toList()
-              : notesList.data,
-          builder: (final context, final sorted) => NeonListView(
+          input:
+              category != null ? notesList.data?.where((note) => note.category == category).toList() : notesList.data,
+          builder: (context, sorted) => NeonListView(
             scrollKey: 'notes-notes',
             isLoading: notesList.isLoading,
             error: notesList.error,
             onRefresh: bloc.refresh,
             itemCount: sorted.length,
-            itemBuilder: (final context, final index) => _buildNote(context, sorted[index]),
+            itemBuilder: (context, index) => _buildNote(context, sorted[index]),
           ),
         ),
       );
 
   Widget _buildNote(
-    final BuildContext context,
-    final notes.Note note,
+    BuildContext context,
+    notes.Note note,
   ) =>
       ListTile(
         title: Text(note.title),
@@ -92,7 +91,7 @@ class NotesView extends StatelessWidget {
         onTap: () async {
           await Navigator.of(context).push(
             MaterialPageRoute<void>(
-              builder: (final context) => NotesNotePage(
+              builder: (context) => NotesNotePage(
                 bloc: NotesNoteBloc(
                   bloc,
                   NeonProvider.of<AccountsBloc>(context).activeAccount.value!,

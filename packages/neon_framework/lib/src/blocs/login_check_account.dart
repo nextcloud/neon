@@ -14,9 +14,9 @@ import 'package:rxdart/rxdart.dart';
 sealed class LoginCheckAccountBloc implements InteractiveBloc {
   @internal
   factory LoginCheckAccountBloc(
-    final Uri serverURL,
-    final String loginName,
-    final String password,
+    Uri serverURL,
+    String loginName,
+    String password,
   ) =>
       _LoginCheckAccountBloc(
         serverURL,

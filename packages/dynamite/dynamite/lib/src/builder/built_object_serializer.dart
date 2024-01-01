@@ -8,23 +8,23 @@ import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
 Spec buildBuiltClassSerializer(
-  final State state,
-  final String identifier,
-  final openapi.OpenAPI spec,
-  final openapi.Schema schema,
+  State state,
+  String identifier,
+  openapi.OpenAPI spec,
+  openapi.Schema schema,
 ) =>
     Class(
-      (final b) => b
+      (b) => b
         ..name = '_\$${identifier}Serializer'
         ..implements.add(refer('StructuredSerializer<$identifier>'))
         ..constructors.add(
           Constructor(
-            (final b) => b..constant = true,
+            (b) => b..constant = true,
           ),
         )
         ..methods.addAll([
           Method(
-            (final b) => b
+            (b) => b
               ..name = 'types'
               ..type = MethodType.getter
               ..lambda = true
@@ -33,7 +33,7 @@ Spec buildBuiltClassSerializer(
               ..body = Code('const [$identifier, _\$$identifier]'),
           ),
           Method(
-            (final b) => b
+            (b) => b
               ..name = 'wireName'
               ..type = MethodType.getter
               ..lambda = true
@@ -41,26 +41,26 @@ Spec buildBuiltClassSerializer(
               ..annotations.add(refer('override'))
               ..body = Code(escapeDartString(identifier)),
           ),
-          Method((final b) {
+          Method((b) {
             b
               ..name = 'serialize'
               ..returns = refer('Iterable<Object?>')
               ..annotations.add(refer('override'))
               ..requiredParameters.addAll([
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'serializers'
                     ..type = refer('Serializers'),
                 ),
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'object'
                     ..type = refer(identifier),
                 ),
               ])
               ..optionalParameters.add(
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'specifiedType'
                     ..type = refer('FullType')
                     ..named = true
@@ -87,26 +87,26 @@ Spec buildBuiltClassSerializer(
 
             b.body = Code(buffer.toString());
           }),
-          Method((final b) {
+          Method((b) {
             b
               ..name = 'deserialize'
               ..returns = refer(identifier)
               ..annotations.add(refer('override'))
               ..requiredParameters.addAll([
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'serializers'
                     ..type = refer('Serializers'),
                 ),
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'serialized'
                     ..type = refer('Iterable<Object?>'),
                 ),
               ])
               ..optionalParameters.add(
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'specifiedType'
                     ..type = refer('FullType')
                     ..named = true
@@ -133,10 +133,10 @@ return result.build();
     );
 
 Iterable<String> deserializeProperty(
-  final State state,
-  final String identifier,
-  final openapi.OpenAPI spec,
-  final openapi.Schema schema,
+  State state,
+  String identifier,
+  openapi.OpenAPI spec,
+  openapi.Schema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
     final propertyName = property.key;
@@ -162,10 +162,10 @@ Iterable<String> deserializeProperty(
 }
 
 Iterable<String> serializePropertyNullable(
-  final State state,
-  final String identifier,
-  final openapi.OpenAPI spec,
-  final openapi.Schema schema,
+  State state,
+  String identifier,
+  openapi.OpenAPI spec,
+  openapi.Schema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
     final propertyName = property.key;
@@ -194,10 +194,10 @@ if (value != null) {
 }
 
 Iterable<String> serializeProperty(
-  final State state,
-  final String identifier,
-  final openapi.OpenAPI spec,
-  final openapi.Schema schema,
+  State state,
+  String identifier,
+  openapi.OpenAPI spec,
+  openapi.Schema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
     final propertyName = property.key;

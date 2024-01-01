@@ -7,8 +7,8 @@ import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
 Iterable<Spec> buildOfsExtensions(
-  final openapi.OpenAPI spec,
-  final State state,
+  openapi.OpenAPI spec,
+  State state,
 ) sync* {
   final typeResults = state.resolvedTypes.whereType<TypeResultSomeOf>().toSet();
 
@@ -20,7 +20,7 @@ Iterable<Spec> buildOfsExtensions(
     final serializerMethod = buildSerializer(result.className, '${result.typeName}Extension._serializer');
 
     final toJson = Method(
-      (final b) => b
+      (b) => b
         ..docs.addAll([
           '/// Creates a new object from the given [json] data.',
           '///',
@@ -31,7 +31,7 @@ Iterable<Spec> buildOfsExtensions(
         ..name = 'fromJson'
         ..requiredParameters.add(
           Parameter(
-            (final b) => b
+            (b) => b
               ..name = 'json'
               ..type = refer('Object?'),
           ),
@@ -41,7 +41,7 @@ Iterable<Spec> buildOfsExtensions(
     );
 
     yield Extension(
-      (final b) => b
+      (b) => b
         ..docs.add('/// Serialization extension for `${result.className}`.')
         ..name = '\$${result.className}Extension'
         ..on = refer(result.className)
@@ -57,7 +57,7 @@ Iterable<Spec> buildOfsExtensions(
       continue;
     }
 
-    yield TypeDef((final b) {
+    yield TypeDef((b) {
       b
         ..name = '_${result.typeName}'
         ..definition = refer(result.dartType.name);
@@ -68,7 +68,7 @@ Iterable<Spec> buildOfsExtensions(
 }
 
 Iterable<Spec> generateSomeOf(
-  final TypeResultSomeOf result,
+  TypeResultSomeOf result,
 ) sync* {
   final identifier = '_${result.typeName}';
   final results = result.optimizedSubTypes;
@@ -81,7 +81,7 @@ Iterable<Spec> generateSomeOf(
     fields[result] = toFieldName(dartName, result.className);
   }
 
-  final values = Method((final b) {
+  final values = Method((b) {
     b
       ..returns = refer('List<dynamic>')
       ..type = MethodType.getter
@@ -90,7 +90,7 @@ Iterable<Spec> generateSomeOf(
       ..body = Code('[${fields.values.join(',')}]');
   });
 
-  final oneOfValidator = Method((final b) {
+  final oneOfValidator = Method((b) {
     b
       ..docs.add('/// {@macro Dynamite.validateOneOf}')
       ..name = 'validateOneOf'
@@ -99,7 +99,7 @@ Iterable<Spec> generateSomeOf(
       ..body = const Code('dynamite_utils.validateOneOf(_values)');
   });
 
-  final anyOfValidator = Method((final b) {
+  final anyOfValidator = Method((b) {
     b
       ..docs.add('/// {@macro Dynamite.validateAnyOf}')
       ..name = 'validateAnyOf'
@@ -109,7 +109,7 @@ Iterable<Spec> generateSomeOf(
   });
 
   final serializerMethod = Method(
-    (final b) => b
+    (b) => b
       ..static = true
       ..returns = refer('Serializer<$identifier>')
       ..type = MethodType.getter
@@ -119,13 +119,13 @@ Iterable<Spec> generateSomeOf(
   );
 
   final fromJson = Method(
-    (final b) => b
+    (b) => b
       ..static = true
       ..returns = refer(identifier)
       ..name = '_fromJson'
       ..requiredParameters.add(
         Parameter(
-          (final b) => b
+          (b) => b
             ..name = 'json'
             ..type = refer('Object?'),
         ),
@@ -135,7 +135,7 @@ Iterable<Spec> generateSomeOf(
   );
 
   final toJson = Method(
-    (final b) => b
+    (b) => b
       ..docs.addAll([
         '/// Parses this object into a json like map.',
         '///',
@@ -148,7 +148,7 @@ Iterable<Spec> generateSomeOf(
   );
 
   yield Extension(
-    (final b) => b
+    (b) => b
       ..name = '${identifier}Extension'.nonPrivate
       ..on = refer(identifier)
       ..docs.addAll([
@@ -166,13 +166,13 @@ Iterable<Spec> generateSomeOf(
   );
 
   yield Class(
-    (final b) => b
+    (b) => b
       ..name = serializerName
       ..implements.add(refer('PrimitiveSerializer<$identifier>'))
-      ..constructors.add(Constructor((final b) => b.constant = true))
+      ..constructors.add(Constructor((b) => b.constant = true))
       ..methods.addAll([
         Method(
-          (final b) => b
+          (b) => b
             ..annotations.add(refer('override'))
             ..returns = refer('Iterable<Type>')
             ..type = MethodType.getter
@@ -181,7 +181,7 @@ Iterable<Spec> generateSomeOf(
             ..body = Code('const [$identifier]'),
         ),
         Method(
-          (final b) => b
+          (b) => b
             ..annotations.add(refer('override'))
             ..returns = refer('String')
             ..type = MethodType.getter
@@ -189,26 +189,26 @@ Iterable<Spec> generateSomeOf(
             ..lambda = true
             ..body = Code(escapeDartString(identifier)),
         ),
-        Method((final b) {
+        Method((b) {
           b
             ..name = 'serialize'
             ..returns = refer('Object')
             ..annotations.add(refer('override'))
             ..requiredParameters.addAll([
               Parameter(
-                (final b) => b
+                (b) => b
                   ..name = 'serializers'
                   ..type = refer('Serializers'),
               ),
               Parameter(
-                (final b) => b
+                (b) => b
                   ..name = 'object'
                   ..type = refer(identifier),
               ),
             ])
             ..optionalParameters.add(
               Parameter(
-                (final b) => b
+                (b) => b
                   ..name = 'specifiedType'
                   ..type = refer('FullType')
                   ..named = true
@@ -238,26 +238,26 @@ Iterable<Spec> generateSomeOf(
 
           b.body = Code(bodyBuilder.toString());
         }),
-        Method((final b) {
+        Method((b) {
           b
             ..name = 'deserialize'
             ..returns = refer(identifier)
             ..annotations.add(refer('override'))
             ..requiredParameters.addAll([
               Parameter(
-                (final b) => b
+                (b) => b
                   ..name = 'serializers'
                   ..type = refer('Serializers'),
               ),
               Parameter(
-                (final b) => b
+                (b) => b
                   ..name = 'data'
                   ..type = refer('Object'),
               ),
             ])
             ..optionalParameters.add(
               Parameter(
-                (final b) => b
+                (b) => b
                   ..name = 'specifiedType'
                   ..type = refer('FullType')
                   ..named = true
@@ -282,7 +282,7 @@ try {
           buffer
             ..write('return (')
             ..writeAll(
-              fields.values.map((final fieldName) => '$fieldName: $fieldName'),
+              fields.values.map((fieldName) => '$fieldName: $fieldName'),
               ',',
             )
             ..write(');');

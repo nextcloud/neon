@@ -51,7 +51,7 @@ class _RouteNotFoundPageState extends State<RouteNotFoundPage> {
   }
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           leading: CloseButton(
             onPressed: () {

@@ -49,7 +49,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
     super.initState();
 
     unawaited(
-      Clipboard.getData(Clipboard.kTextPlain).then((final clipboardContent) {
+      Clipboard.getData(Clipboard.kTextPlain).then((clipboardContent) {
         if (clipboardContent != null && clipboardContent.text != null) {
           final uri = Uri.tryParse(clipboardContent.text!);
           if (uri != null && (uri.scheme == 'http' || uri.scheme == 'https')) {
@@ -67,7 +67,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final urlField = Form(
       key: formKey,
       child: TextFormField(
@@ -77,8 +77,8 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
           hintText: 'https://...',
         ),
         keyboardType: TextInputType.url,
-        validator: (final input) => validateHttpUrl(context, input),
-        onFieldSubmitted: (final _) {
+        validator: (input) => validateHttpUrl(context, input),
+        onFieldSubmitted: (_) {
           submit();
         },
         autofillHints: const [AutofillHints.url],
@@ -87,7 +87,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
 
     final folderSelector = ResultBuilder<List<news.Folder>>.behaviorSubject(
       subject: widget.bloc.folders,
-      builder: (final context, final folders) {
+      builder: (context, folders) {
         if (folders.hasError) {
           return Center(
             child: NeonError(
@@ -107,7 +107,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
         return NewsFolderSelect(
           folders: folders.requireData,
           value: folder,
-          onChanged: (final f) {
+          onChanged: (f) {
             setState(() {
               folder = f;
             });
@@ -154,7 +154,7 @@ class NewsFeedShowURLDialog extends StatelessWidget {
   final news.Feed feed;
 
   @override
-  Widget build(final BuildContext context) => NeonDialog(
+  Widget build(BuildContext context) => NeonDialog(
         title: Text(feed.url),
         actions: [
           NeonDialogAction(
@@ -201,7 +201,7 @@ class NewsFeedUpdateErrorDialog extends StatelessWidget {
   final news.Feed feed;
 
   @override
-  Widget build(final BuildContext context) => NeonDialog(
+  Widget build(BuildContext context) => NeonDialog(
         title: Text(feed.lastUpdateError!),
         actions: [
           NeonDialogAction(
@@ -273,13 +273,13 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
 
   @override
   void initState() {
-    folder = widget.folders.singleWhereOrNull((final folder) => folder.id == widget.feed.folderId);
+    folder = widget.folders.singleWhereOrNull((folder) => folder.id == widget.feed.folderId);
 
     super.initState();
   }
 
   @override
-  Widget build(final BuildContext context) => NeonDialog(
+  Widget build(BuildContext context) => NeonDialog(
         title: Text(NewsLocalizations.of(context).feedMove),
         content: Material(
           child: Form(
@@ -287,7 +287,7 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
             child: NewsFolderSelect(
               folders: widget.folders,
               value: folder,
-              onChanged: (final f) {
+              onChanged: (f) {
                 setState(() {
                   folder = f;
                 });
@@ -340,7 +340,7 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final content = Material(
       child: TextFormField(
         controller: controller,
@@ -348,8 +348,8 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
           hintText: NewsLocalizations.of(context).folderCreateName,
         ),
         autofocus: true,
-        validator: (final input) => validateNotEmpty(context, input),
-        onFieldSubmitted: (final _) {
+        validator: (input) => validateNotEmpty(context, input),
+        onFieldSubmitted: (_) {
           submit();
         },
       ),

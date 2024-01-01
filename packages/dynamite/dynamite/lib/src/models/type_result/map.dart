@@ -4,7 +4,7 @@ part of 'type_result.dart';
 class TypeResultMap extends TypeResult {
   TypeResultMap(
     super.className,
-    final TypeResult subType, {
+    TypeResult subType, {
     super.nullable,
     super.isTypeDef,
     super.builderName = 'MapBuilder',
@@ -19,7 +19,7 @@ class TypeResultMap extends TypeResult {
   TypeResultMap get dartType => TypeResultMap('Map', subType, nullable: nullable);
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is TypeResultMap && other.className == className && other.generics == generics && other.subType == subType;
 
   @override

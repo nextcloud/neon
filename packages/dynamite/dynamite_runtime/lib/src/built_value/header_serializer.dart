@@ -12,10 +12,10 @@ class HeaderPlugin implements SerializerPlugin {
   const HeaderPlugin();
 
   @override
-  Object? afterDeserialize(final Object? object, final FullType specifiedType) => object;
+  Object? afterDeserialize(Object? object, FullType specifiedType) => object;
 
   @override
-  Object? afterSerialize(final Object? object, final FullType specifiedType) {
+  Object? afterSerialize(Object? object, FullType specifiedType) {
     if (specifiedType.root != Header) {
       return object;
     }
@@ -34,7 +34,7 @@ class HeaderPlugin implements SerializerPlugin {
   }
 
   @override
-  Object? beforeDeserialize(final Object? object, final FullType specifiedType) {
+  Object? beforeDeserialize(Object? object, FullType specifiedType) {
     if (specifiedType.root != Header) {
       return object;
     }
@@ -55,5 +55,5 @@ class HeaderPlugin implements SerializerPlugin {
   }
 
   @override
-  Object? beforeSerialize(final Object? object, final FullType specifiedType) => object;
+  Object? beforeSerialize(Object? object, FullType specifiedType) => object;
 }

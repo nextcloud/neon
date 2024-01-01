@@ -9,12 +9,12 @@ import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
 TypeResult resolveEnum(
-  final openapi.OpenAPI spec,
-  final State state,
-  final String identifier,
-  final openapi.Schema schema,
-  final TypeResult subResult, {
-  final bool nullable = false,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  openapi.Schema schema,
+  TypeResult subResult, {
+  bool nullable = false,
 }) {
   if (state.resolvedTypes.add(TypeResultEnum(identifier, subResult))) {
     final values = <({String dartName, Object? value, String name})>[];
@@ -30,18 +30,18 @@ TypeResult resolveEnum(
     }
 
     final $class = Class(
-      (final b) => b
+      (b) => b
         ..docs.addAll(schema.formattedDescription)
         ..name = identifier
         ..extend = refer('EnumClass')
         ..constructors.add(
           Constructor(
-            (final b) => b
+            (b) => b
               ..name = '_'
               ..constant = true
               ..requiredParameters.add(
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'name'
                     ..toSuper = true,
                 ),
@@ -50,8 +50,8 @@ TypeResult resolveEnum(
         )
         ..fields.addAll(
           values.map(
-            (final enumValue) => Field(
-              (final b) {
+            (enumValue) => Field(
+              (b) {
                 b
                   ..docs.add('/// `${enumValue.name}`')
                   ..name = enumValue.dartName
@@ -75,7 +75,7 @@ TypeResult resolveEnum(
         )
         ..methods.addAll([
           Method(
-            (final b) => b
+            (b) => b
               ..docs.add('/// Returns a set with all values this enum contains.')
               ..name = 'values'
               ..returns = refer('BuiltSet<$identifier>')
@@ -85,7 +85,7 @@ TypeResult resolveEnum(
               ..type = MethodType.getter,
           ),
           Method(
-            (final b) => b
+            (b) => b
               ..docs.add('/// Returns the enum value associated to the [name].')
               ..name = 'valueOf'
               ..returns = refer(identifier)
@@ -93,7 +93,7 @@ TypeResult resolveEnum(
               ..static = true
               ..requiredParameters.add(
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'name'
                     ..type = refer('String'),
                 ),
@@ -101,7 +101,7 @@ TypeResult resolveEnum(
               ..body = Code('_\$valueOf$identifier(name)'),
           ),
           Method(
-            (final b) => b
+            (b) => b
               ..docs.add('/// Returns the serialized value of this enum value.')
               ..returns = refer(subResult.dartType.className)
               ..name = 'value'
@@ -114,16 +114,16 @@ TypeResult resolveEnum(
     );
 
     final serializer = Class(
-      (final b) => b
+      (b) => b
         ..name = '_\$${identifier}Serializer'
         ..implements.add(refer('PrimitiveSerializer<$identifier>'))
         ..constructors.add(
           Constructor(
-            (final b) => b..constant = true,
+            (b) => b..constant = true,
           ),
         )
         ..fields.addAll([
-          Field((final b) {
+          Field((b) {
             b
               ..static = true
               ..modifier = FieldModifier.constant
@@ -132,7 +132,7 @@ TypeResult resolveEnum(
             final buffer = StringBuffer()
               ..writeln('<$identifier, Object>{')
               ..writeAll(
-                values.map((final enumValue) => '$identifier.${enumValue.dartName}: ${enumValue.value}'),
+                values.map((enumValue) => '$identifier.${enumValue.dartName}: ${enumValue.value}'),
                 ',\n',
               )
               ..writeln(',')
@@ -140,7 +140,7 @@ TypeResult resolveEnum(
 
             b.assignment = Code(buffer.toString());
           }),
-          Field((final b) {
+          Field((b) {
             b
               ..static = true
               ..modifier = FieldModifier.constant
@@ -149,7 +149,7 @@ TypeResult resolveEnum(
             final buffer = StringBuffer()
               ..writeln('<Object, $identifier>{')
               ..writeAll(
-                values.map((final enumValue) => '${enumValue.value}: $identifier.${enumValue.dartName}'),
+                values.map((enumValue) => '${enumValue.value}: $identifier.${enumValue.dartName}'),
                 ',\n',
               )
               ..writeln(',')
@@ -160,7 +160,7 @@ TypeResult resolveEnum(
         ])
         ..methods.addAll([
           Method(
-            (final b) => b
+            (b) => b
               ..name = 'types'
               ..lambda = true
               ..type = MethodType.getter
@@ -169,7 +169,7 @@ TypeResult resolveEnum(
               ..body = Code('const [$identifier]'),
           ),
           Method(
-            (final b) => b
+            (b) => b
               ..name = 'wireName'
               ..lambda = true
               ..type = MethodType.getter
@@ -177,7 +177,7 @@ TypeResult resolveEnum(
               ..annotations.add(refer('override'))
               ..body = Code(escapeDartString(identifier)),
           ),
-          Method((final b) {
+          Method((b) {
             b
               ..name = 'serialize'
               ..returns = refer('Object')
@@ -185,19 +185,19 @@ TypeResult resolveEnum(
               ..lambda = true
               ..requiredParameters.addAll([
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'serializers'
                     ..type = refer('Serializers'),
                 ),
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'object'
                     ..type = refer(identifier),
                 ),
               ])
               ..optionalParameters.add(
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'specifiedType'
                     ..type = refer('FullType')
                     ..named = true
@@ -206,7 +206,7 @@ TypeResult resolveEnum(
               )
               ..body = const Code('_toWire[object]!');
           }),
-          Method((final b) {
+          Method((b) {
             b
               ..name = 'deserialize'
               ..returns = refer(identifier)
@@ -214,19 +214,19 @@ TypeResult resolveEnum(
               ..lambda = true
               ..requiredParameters.addAll([
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'serializers'
                     ..type = refer('Serializers'),
                 ),
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'serialized'
                     ..type = refer('Object'),
                 ),
               ])
               ..optionalParameters.add(
                 Parameter(
-                  (final b) => b
+                  (b) => b
                     ..name = 'specifiedType'
                     ..type = refer('FullType')
                     ..named = true

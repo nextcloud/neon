@@ -7,7 +7,7 @@ import 'package:dynamite/src/models/openapi/security_scheme.dart';
 part 'components.g.dart';
 
 abstract class Components implements Built<Components, ComponentsBuilder> {
-  factory Components([final void Function(ComponentsBuilder) updates]) = _$Components;
+  factory Components([void Function(ComponentsBuilder) updates]) = _$Components;
 
   const Components._();
 

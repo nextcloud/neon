@@ -43,7 +43,7 @@ class NeonServerIcon extends StatelessWidget {
   final double? size;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final iconTheme = Theme.of(context).iconTheme;
 
     final size = this.size ?? iconTheme.size;

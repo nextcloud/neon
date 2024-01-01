@@ -12,31 +12,31 @@ import 'package:rxdart/rxdart.dart';
 sealed class NewsBloc implements InteractiveBloc {
   @internal
   factory NewsBloc(
-    final NewsOptions options,
-    final Account account,
+    NewsOptions options,
+    Account account,
   ) =>
       _NewsBloc(
         options,
         account,
       );
 
-  void addFeed(final String url, final int? folderId);
+  void addFeed(String url, int? folderId);
 
-  void removeFeed(final int feedId);
+  void removeFeed(int feedId);
 
-  void renameFeed(final int feedId, final String feedTitle);
+  void renameFeed(int feedId, String feedTitle);
 
-  void moveFeed(final int feedId, final int? folderId);
+  void moveFeed(int feedId, int? folderId);
 
-  void markFeedAsRead(final int feedId);
+  void markFeedAsRead(int feedId);
 
-  void createFolder(final String name);
+  void createFolder(String name);
 
-  void deleteFolder(final int folderId);
+  void deleteFolder(int folderId);
 
-  void renameFolder(final int folderId, final String name);
+  void renameFolder(int folderId, String name);
 
-  void markFolderAsRead(final int folderId);
+  void markFolderAsRead(int folderId);
 
   BehaviorSubject<Result<List<news.Folder>>> get folders;
 
@@ -54,11 +54,10 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
     this.options,
     this.account,
   ) {
-    mainArticlesBloc.articles.listen((final result) {
+    mainArticlesBloc.articles.listen((result) {
       if (result.hasData) {
         final type = mainArticlesBloc.filterType.valueOrNull;
-        unreadCounter
-            .add(result.requireData.where((final a) => type == FilterType.starred ? a.starred : a.unread).length);
+        unreadCounter.add(result.requireData.where((a) => type == FilterType.starred ? a.starred : a.unread).length);
       }
     });
 
@@ -116,14 +115,14 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
         'news-folders',
         folders,
         account.client.news.listFoldersRaw(),
-        (final response) => response.body.folders.toList(),
+        (response) => response.body.folders.toList(),
       ),
       RequestManager.instance.wrapNextcloud<List<news.Feed>, news.ListFeeds, void>(
         account.id,
         'news-feeds',
         feeds,
         account.client.news.listFeedsRaw(),
-        (final response) {
+        (response) {
           if (response.body.newestItemId != null) {
             newestItemId = response.body.newestItemId!;
           }
@@ -135,72 +134,72 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
   }
 
   @override
-  void addFeed(final String url, final int? folderId) {
+  void addFeed(String url, int? folderId) {
     wrapAction(() async => account.client.news.addFeed(url: url, folderId: folderId));
   }
 
   @override
-  void createFolder(final String name) {
+  void createFolder(String name) {
     wrapAction(() async => account.client.news.createFolder(name: name));
   }
 
   @override
-  void deleteFolder(final int folderId) {
+  void deleteFolder(int folderId) {
     wrapAction(() async => account.client.news.deleteFolder(folderId: folderId));
   }
 
   @override
-  void markFeedAsRead(final int feedId) {
+  void markFeedAsRead(int feedId) {
     wrapAction(() async => account.client.news.markFeedAsRead(feedId: feedId, newestItemId: newestItemId));
   }
 
   @override
-  void markFolderAsRead(final int folderId) {
+  void markFolderAsRead(int folderId) {
     wrapAction(() async => account.client.news.markFolderAsRead(folderId: folderId, newestItemId: newestItemId));
   }
 
   @override
-  void moveFeed(final int feedId, final int? folderId) {
+  void moveFeed(int feedId, int? folderId) {
     wrapAction(() async => account.client.news.moveFeed(feedId: feedId, folderId: folderId));
   }
 
   @override
-  void removeFeed(final int feedId) {
+  void removeFeed(int feedId) {
     wrapAction(() async => account.client.news.deleteFeed(feedId: feedId));
   }
 
   @override
-  void renameFeed(final int feedId, final String feedTitle) {
+  void renameFeed(int feedId, String feedTitle) {
     wrapAction(() async => account.client.news.renameFeed(feedId: feedId, feedTitle: feedTitle));
   }
 
   @override
-  void renameFolder(final int folderId, final String name) {
+  void renameFolder(int folderId, String name) {
     wrapAction(() async => account.client.news.renameFolder(folderId: folderId, name: name));
   }
 
   @override
-  void markArticleAsRead(final news.Article article) {
+  void markArticleAsRead(news.Article article) {
     mainArticlesBloc.markArticleAsRead(article);
   }
 
   @override
-  void markArticleAsUnread(final news.Article article) {
+  void markArticleAsUnread(news.Article article) {
     mainArticlesBloc.markArticleAsUnread(article);
   }
 
   @override
-  void setFilterType(final FilterType type) {
+  void setFilterType(FilterType type) {
     mainArticlesBloc.setFilterType(type);
   }
 
   @override
-  void starArticle(final news.Article article) {
+  void starArticle(news.Article article) {
     mainArticlesBloc.starArticle(article);
   }
 
   @override
-  void unstarArticle(final news.Article article) {
+  void unstarArticle(news.Article article) {
     mainArticlesBloc.unstarArticle(article);
   }
 

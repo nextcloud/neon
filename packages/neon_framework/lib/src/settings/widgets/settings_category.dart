@@ -19,7 +19,7 @@ class SettingsCategory extends StatelessWidget {
   final bool hasLeading;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     if (isCupertino(context)) {
       return CupertinoListSection.insetGrouped(
         hasLeading: hasLeading,
@@ -48,7 +48,7 @@ class MaterialSettingsCategory extends StatelessWidget {
   final List<Widget> children;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = Theme.of(context).textTheme;
 

@@ -9,7 +9,7 @@ import 'package:dynamite/src/models/openapi/discriminator.dart';
 part 'schema.g.dart';
 
 abstract class Schema implements Built<Schema, SchemaBuilder> {
-  factory Schema([final void Function(SchemaBuilder) updates]) = _$Schema;
+  factory Schema([void Function(SchemaBuilder) updates]) = _$Schema;
 
   const Schema._();
 
@@ -69,7 +69,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   Iterable<String> get formattedDescription => descriptionToDocs(description);
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _defaults(final SchemaBuilder b) {
+  static void _defaults(SchemaBuilder b) {
     b
       ..deprecated ??= false
       ..nullable ??= false;
@@ -103,7 +103,7 @@ class SchemaType extends EnumClass {
 
   static BuiltSet<SchemaType> get values => _$schemaTypeValues;
 
-  static SchemaType valueOf(final String name) => _$schemaType(name);
+  static SchemaType valueOf(String name) => _$schemaType(name);
 
   static Serializer<SchemaType> get serializer => _$schemaTypeSerializer;
 }

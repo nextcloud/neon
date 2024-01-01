@@ -27,7 +27,7 @@ class _NewsFolderViewState extends State<NewsFolderView> {
   late DefaultFolderViewType _viewType = option.value;
 
   @override
-  Widget build(final BuildContext context) => Column(
+  Widget build(BuildContext context) => Column(
         children: [
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15),
@@ -36,13 +36,13 @@ class _NewsFolderViewState extends State<NewsFolderView> {
               value: _viewType,
               items: option.values.keys
                   .map(
-                    (final key) => DropdownMenuItem<DefaultFolderViewType>(
+                    (key) => DropdownMenuItem<DefaultFolderViewType>(
                       value: key,
                       child: Text(option.values[key]!(context)),
                     ),
                   )
                   .toList(),
-              onChanged: (final value) {
+              onChanged: (value) {
                 setState(() {
                   _viewType = value!;
                 });

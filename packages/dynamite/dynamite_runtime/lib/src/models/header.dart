@@ -8,7 +8,7 @@ part 'header.g.dart';
 /// Encoding follows [OpenAPI-Specification](https://swagger.io/docs/specification/serialization/).
 abstract class Header<T> implements Built<Header<T>, HeaderBuilder<T>> {
   /// Creates a new header object.
-  factory Header([final void Function(HeaderBuilder<T>)? b]) = _$Header<T>;
+  factory Header([void Function(HeaderBuilder<T>)? b]) = _$Header<T>;
   const Header._();
 
   /// The decoded value of the header.

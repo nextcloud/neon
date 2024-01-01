@@ -8,10 +8,10 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 TypeResult? resolveMimeTypeDecode(
-  final openapi.Response response,
-  final openapi.OpenAPI spec,
-  final State state,
-  final String identifier,
+  openapi.Response response,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
 ) {
   if (response.content != null) {
     if (response.content!.length > 1) {
@@ -43,11 +43,11 @@ TypeResult? resolveMimeTypeDecode(
 }
 
 Iterable<String> resolveMimeTypeEncode(
-  final openapi.Operation operation,
-  final openapi.OpenAPI spec,
-  final State state,
-  final String identifier,
-  final ListBuilder<Parameter> b,
+  openapi.Operation operation,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  ListBuilder<Parameter> b,
 ) sync* {
   if (operation.requestBody != null) {
     if (operation.requestBody!.content!.length > 1) {
@@ -81,7 +81,7 @@ Iterable<String> resolveMimeTypeEncode(
           );
           b.add(
             Parameter(
-              (final b) => b
+              (b) => b
                 ..name = parameterName
                 ..type = refer(result.nullableName)
                 ..named = true
@@ -104,7 +104,7 @@ Iterable<String> resolveMimeTypeEncode(
           );
           b.add(
             Parameter(
-              (final b) => b
+              (b) => b
                 ..name = parameterName
                 ..type = refer(result.nullableName)
                 ..named = true

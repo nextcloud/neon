@@ -16,7 +16,7 @@ class NewsFeedIcon extends StatelessWidget {
   final BorderRadius? borderRadius;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final faviconLink = feed.faviconLink;
 
     return NeonImageWrapper(

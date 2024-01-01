@@ -3,8 +3,8 @@ import 'package:neon_notes/src/options.dart';
 
 final categoriesSortBox = SortBox<CategoriesSortProperty, NoteCategory>(
   {
-    CategoriesSortProperty.alphabetical: (final category) => category.name.toLowerCase(),
-    CategoriesSortProperty.notesCount: (final category) => category.count,
+    CategoriesSortProperty.alphabetical: (category) => category.name.toLowerCase(),
+    CategoriesSortProperty.notesCount: (category) => category.count,
   },
   {
     CategoriesSortProperty.notesCount: {

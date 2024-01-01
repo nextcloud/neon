@@ -63,7 +63,7 @@ class AppTheme {
   @visibleForTesting
   final TargetPlatform? platform;
 
-  ColorScheme _buildColorScheme(final Brightness brightness) {
+  ColorScheme _buildColorScheme(Brightness brightness) {
     ColorScheme? colorScheme;
 
     if (serverTheme.nextcloudTheme != null && useNextcloudTheme) {
@@ -99,7 +99,7 @@ class AppTheme {
     return colorScheme;
   }
 
-  ThemeData _getTheme(final Brightness brightness) {
+  ThemeData _getTheme(Brightness brightness) {
     final colorScheme = _buildColorScheme(brightness);
 
     return ThemeData(

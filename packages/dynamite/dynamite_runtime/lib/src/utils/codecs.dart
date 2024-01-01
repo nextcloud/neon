@@ -55,9 +55,9 @@ final class HeaderDecoder extends Converter<String, Object?> {
   final FullType specifiedType;
 
   @override
-  Object? convert(final String input) => _decode(input, specifiedType);
+  Object? convert(String input) => _decode(input, specifiedType);
 
-  Object? _decode(final String content, final FullType specifiedType) {
+  Object? _decode(String content, FullType specifiedType) {
     if (explode) {
       throw UnimplementedError();
     }
@@ -81,7 +81,7 @@ final class HeaderDecoder extends Converter<String, Object?> {
       case const (List) || const (BuiltList):
         final elementType = specifiedType.parameters.isEmpty ? FullType.unspecified : specifiedType.parameters[0];
 
-        return content.split(',').map((final value) => _decode(value, elementType)).toList();
+        return content.split(',').map((value) => _decode(value, elementType)).toList();
       default:
         if (specifiedType.root == String) {
           return content;
@@ -105,14 +105,14 @@ final class HeaderEncoder extends Converter<Object?, String> {
   final bool explode;
 
   @override
-  String convert(final Object? input) {
+  String convert(Object? input) {
     if (explode) {
       throw UnimplementedError();
     }
 
     switch (input) {
       case Map():
-        return input.entries.map((final entry) => '${entry.key},${convert(entry.value)}').join(',');
+        return input.entries.map((entry) => '${entry.key},${convert(entry.value)}').join(',');
       case List():
         return input.map(convert).join(',');
 

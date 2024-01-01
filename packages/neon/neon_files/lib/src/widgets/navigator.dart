@@ -14,7 +14,7 @@ class FilesBrowserNavigator extends StatelessWidget {
   final FilesBrowserBloc bloc;
 
   @override
-  Widget build(final BuildContext context) => SizedBox(
+  Widget build(BuildContext context) => SizedBox(
         height: ButtonTheme.of(context).height,
         child: ListView.separated(
           padding: const EdgeInsets.symmetric(
@@ -22,7 +22,7 @@ class FilesBrowserNavigator extends StatelessWidget {
           ),
           scrollDirection: Axis.horizontal,
           itemCount: uri.pathSegments.length + 1,
-          itemBuilder: (final context, final index) {
+          itemBuilder: (context, index) {
             if (index == 0) {
               return IconButton(
                 padding: EdgeInsets.zero,
@@ -53,7 +53,7 @@ class FilesBrowserNavigator extends StatelessWidget {
               ),
             );
           },
-          separatorBuilder: (final context, final index) => const Icon(Icons.keyboard_arrow_right),
+          separatorBuilder: (context, index) => const Icon(Icons.keyboard_arrow_right),
         ),
       );
 }

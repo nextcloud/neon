@@ -6,8 +6,8 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 Iterable<Spec> generateSchemas(
-  final openapi.OpenAPI spec,
-  final State state,
+  openapi.OpenAPI spec,
+  State state,
 ) sync* {
   if (spec.components?.schemas != null) {
     for (final schema in spec.components!.schemas!.entries) {
@@ -22,7 +22,7 @@ Iterable<Spec> generateSchemas(
       // TypeDefs should only be generated for top level schemas.
       if (result is TypeResultBase || result.isTypeDef) {
         yield TypeDef(
-          (final b) => b
+          (b) => b
             ..name = identifier
             ..definition = refer(result.dartType.name),
         );

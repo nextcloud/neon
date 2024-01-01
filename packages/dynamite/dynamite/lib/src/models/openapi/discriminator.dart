@@ -5,7 +5,7 @@ import 'package:built_value/serializer.dart';
 part 'discriminator.g.dart';
 
 abstract class Discriminator implements Built<Discriminator, DiscriminatorBuilder> {
-  factory Discriminator([final void Function(DiscriminatorBuilder) updates]) = _$Discriminator;
+  factory Discriminator([void Function(DiscriminatorBuilder) updates]) = _$Discriminator;
 
   const Discriminator._();
 

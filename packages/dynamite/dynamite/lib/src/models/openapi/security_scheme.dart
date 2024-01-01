@@ -5,7 +5,7 @@ import 'package:collection/collection.dart';
 part 'security_scheme.g.dart';
 
 abstract class SecurityScheme implements Built<SecurityScheme, SecuritySchemeBuilder> {
-  factory SecurityScheme([final void Function(SecuritySchemeBuilder) updates]) = _$SecurityScheme;
+  factory SecurityScheme([void Function(SecuritySchemeBuilder) updates]) = _$SecurityScheme;
 
   const SecurityScheme._();
 

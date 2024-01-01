@@ -22,7 +22,7 @@ class MockAccountsBloc extends Mock implements AccountsBloc {}
 
 class MockCacheManager extends Mock implements DefaultCacheManager {}
 
-Widget wrapWidget(final AccountsBloc accountsBloc, final Widget child) => MaterialApp(
+Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
       localizationsDelegates: DashboardLocalizations.localizationsDelegates,
       supportedLocales: DashboardLocalizations.supportedLocales,
       home: Scaffold(
@@ -39,7 +39,7 @@ void main() {
 
   final accountsBloc = MockAccountsBloc();
   when(() => accountsBloc.activeAccount).thenAnswer(
-    (final invocation) => BehaviorSubject.seeded(
+    (invocation) => BehaviorSubject.seeded(
       Account(
         serverURL: Uri(),
         username: 'example',
@@ -49,7 +49,7 @@ void main() {
 
   group('Widget item', () {
     final item = dashboard.WidgetItem(
-      (final b) => b
+      (b) => b
         ..title = 'Widget item title'
         ..subtitle = 'Widget item subtitle'
         ..link = 'https://example.com/link'
@@ -58,7 +58,7 @@ void main() {
         ..sinceId = '',
     );
 
-    testWidgets('Everything filled', (final tester) async {
+    testWidgets('Everything filled', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
@@ -75,7 +75,7 @@ void main() {
       expect(
         tester.widget(find.byType(InkWell)),
         isA<InkWell>().having(
-          (final a) => a.onTap,
+          (a) => a.onTap,
           'onTap is not null',
           isNotNull,
         ),
@@ -84,7 +84,7 @@ void main() {
       expect(
         tester.widget(find.byType(NeonImageWrapper)),
         isA<NeonImageWrapper>().having(
-          (final a) => a.borderRadius,
+          (a) => a.borderRadius,
           'borderRadius is correct',
           BorderRadius.circular(largeIconSize),
         ),
@@ -94,7 +94,7 @@ void main() {
       await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item.png'));
     });
 
-    testWidgets('Not round', (final tester) async {
+    testWidgets('Not round', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
@@ -108,7 +108,7 @@ void main() {
       expect(
         tester.widget(find.byType(NeonImageWrapper)),
         isA<NeonImageWrapper>().having(
-          (final a) => a.borderRadius,
+          (a) => a.borderRadius,
           'borderRadius is null',
           null,
         ),
@@ -117,12 +117,12 @@ void main() {
       await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item_not_round.png'));
     });
 
-    testWidgets('Without link', (final tester) async {
+    testWidgets('Without link', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           DashboardWidgetItem(
-            item: item.rebuild((final b) => b..link = ''),
+            item: item.rebuild((b) => b..link = ''),
             roundIcon: true,
           ),
         ),
@@ -131,19 +131,19 @@ void main() {
       expect(
         tester.widget(find.byType(InkWell)),
         isA<InkWell>().having(
-          (final a) => a.onTap,
+          (a) => a.onTap,
           'onTap is null',
           isNull,
         ),
       );
     });
 
-    testWidgets('Without overlayIconUrl', (final tester) async {
+    testWidgets('Without overlayIconUrl', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           DashboardWidgetItem(
-            item: item.rebuild((final b) => b..overlayIconUrl = ''),
+            item: item.rebuild((b) => b..overlayIconUrl = ''),
             roundIcon: true,
           ),
         ),
@@ -155,13 +155,13 @@ void main() {
 
   group('Widget button', () {
     final button = dashboard.Widget_Buttons(
-      (final b) => b
+      (b) => b
         ..type = 'new'
         ..text = 'Button'
         ..link = 'https://example.com/link',
     );
 
-    testWidgets('New', (final tester) async {
+    testWidgets('New', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
@@ -177,12 +177,12 @@ void main() {
       await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_new.png'));
     });
 
-    testWidgets('More', (final tester) async {
+    testWidgets('More', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           DashboardWidgetButton(
-            button: button.rebuild((final b) => b.type = 'more'),
+            button: button.rebuild((b) => b.type = 'more'),
           ),
         ),
       );
@@ -193,12 +193,12 @@ void main() {
       await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_more.png'));
     });
 
-    testWidgets('Setup', (final tester) async {
+    testWidgets('Setup', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           DashboardWidgetButton(
-            button: button.rebuild((final b) => b.type = 'setup'),
+            button: button.rebuild((b) => b.type = 'setup'),
           ),
         ),
       );
@@ -209,12 +209,12 @@ void main() {
       await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_setup.png'));
     });
 
-    testWidgets('Invalid', (final tester) async {
+    testWidgets('Invalid', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           DashboardWidgetButton(
-            button: button.rebuild((final b) => b.type = 'test'),
+            button: button.rebuild((b) => b.type = 'test'),
           ),
         ),
       );
@@ -228,7 +228,7 @@ void main() {
 
   group('Widget', () {
     final item = dashboard.WidgetItem(
-      (final b) => b
+      (b) => b
         ..title = 'Widget item title'
         ..subtitle = 'Widget item subtitle'
         ..link = 'https://example.com/link'
@@ -237,19 +237,19 @@ void main() {
         ..sinceId = '',
     );
     final items = dashboard.WidgetItems(
-      (final b) => b
+      (b) => b
         ..items = BuiltList<dashboard.WidgetItem>.from([item]).toBuilder()
         ..emptyContentMessage = ''
         ..halfEmptyContentMessage = '',
     );
     final button = dashboard.Widget_Buttons(
-      (final b) => b
+      (b) => b
         ..type = 'new'
         ..text = 'Button'
         ..link = 'https://example.com/link',
     );
     final widget = dashboard.Widget(
-      (final b) => b
+      (b) => b
         ..id = 'id'
         ..title = 'Widget title'
         ..order = 0
@@ -262,12 +262,12 @@ void main() {
         ..buttons = BuiltList<dashboard.Widget_Buttons>.from([button]).toBuilder(),
     );
 
-    testWidgets('Everything filled', (final tester) async {
+    testWidgets('Everything filled', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           Builder(
-            builder: (final context) => DashboardWidget(
+            builder: (context) => DashboardWidget(
               widget: widget,
               children: DashboardMainPage.buildWidgetItems(
                 context: context,
@@ -284,7 +284,7 @@ void main() {
       expect(
         tester.widget(find.byType(InkWell).first),
         isA<InkWell>().having(
-          (final a) => a.onTap,
+          (a) => a.onTap,
           'onTap is not null',
           isNotNull,
         ),
@@ -293,7 +293,7 @@ void main() {
       expect(
         tester.widget(find.byType(NeonImageWrapper)),
         isA<NeonImageWrapper>().having(
-          (final a) => a.borderRadius,
+          (a) => a.borderRadius,
           'borderRadius is correct',
           BorderRadius.circular(largeIconSize),
         ),
@@ -307,13 +307,13 @@ void main() {
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget.png'));
     });
 
-    testWidgets('Without widgetUrl', (final tester) async {
-      final widgetEmptyURL = widget.rebuild((final b) => b.widgetUrl = '');
+    testWidgets('Without widgetUrl', (tester) async {
+      final widgetEmptyURL = widget.rebuild((b) => b.widgetUrl = '');
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           Builder(
-            builder: (final context) => DashboardWidget(
+            builder: (context) => DashboardWidget(
               widget: widgetEmptyURL,
               children: DashboardMainPage.buildWidgetItems(
                 context: context,
@@ -328,20 +328,20 @@ void main() {
       expect(
         tester.widget(find.byType(InkWell).first),
         isA<InkWell>().having(
-          (final a) => a.onTap,
+          (a) => a.onTap,
           'onTap is null',
           isNull,
         ),
       );
     });
 
-    testWidgets('Not round', (final tester) async {
-      final widgetNotRound = widget.rebuild((final b) => b.itemIconsRound = false);
+    testWidgets('Not round', (tester) async {
+      final widgetNotRound = widget.rebuild((b) => b.itemIconsRound = false);
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           Builder(
-            builder: (final context) => DashboardWidget(
+            builder: (context) => DashboardWidget(
               widget: widgetNotRound,
               children: DashboardMainPage.buildWidgetItems(
                 context: context,
@@ -356,7 +356,7 @@ void main() {
       expect(
         tester.widget(find.byType(NeonImageWrapper)),
         isA<NeonImageWrapper>().having(
-          (final a) => a.borderRadius,
+          (a) => a.borderRadius,
           'borderRadius is null',
           null,
         ),
@@ -365,17 +365,17 @@ void main() {
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_not_round.png'));
     });
 
-    testWidgets('With halfEmptyContentMessage', (final tester) async {
+    testWidgets('With halfEmptyContentMessage', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           Builder(
-            builder: (final context) => DashboardWidget(
+            builder: (context) => DashboardWidget(
               widget: widget,
               children: DashboardMainPage.buildWidgetItems(
                 context: context,
                 widget: widget,
-                items: items.rebuild((final b) => b.halfEmptyContentMessage = 'Half empty'),
+                items: items.rebuild((b) => b.halfEmptyContentMessage = 'Half empty'),
               ).toList(),
             ),
           ),
@@ -388,17 +388,17 @@ void main() {
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_half_empty.png'));
     });
 
-    testWidgets('With emptyContentMessage', (final tester) async {
+    testWidgets('With emptyContentMessage', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           Builder(
-            builder: (final context) => DashboardWidget(
+            builder: (context) => DashboardWidget(
               widget: widget,
               children: DashboardMainPage.buildWidgetItems(
                 context: context,
                 widget: widget,
-                items: items.rebuild((final b) => b.emptyContentMessage = 'Empty'),
+                items: items.rebuild((b) => b.emptyContentMessage = 'Empty'),
               ).toList(),
             ),
           ),
@@ -411,12 +411,12 @@ void main() {
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_empty.png'));
     });
 
-    testWidgets('Without items', (final tester) async {
+    testWidgets('Without items', (tester) async {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           Builder(
-            builder: (final context) => DashboardWidget(
+            builder: (context) => DashboardWidget(
               widget: widget,
               children: DashboardMainPage.buildWidgetItems(
                 context: context,
@@ -434,13 +434,13 @@ void main() {
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_items.png'));
     });
 
-    testWidgets('Without buttons', (final tester) async {
-      final widgetWithoutButtons = widget.rebuild((final b) => b.buttons.clear());
+    testWidgets('Without buttons', (tester) async {
+      final widgetWithoutButtons = widget.rebuild((b) => b.buttons.clear());
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
           Builder(
-            builder: (final context) => DashboardWidget(
+            builder: (context) => DashboardWidget(
               widget: widgetWithoutButtons,
               children: DashboardMainPage.buildWidgetItems(
                 context: context,

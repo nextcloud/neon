@@ -26,7 +26,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesOptions> {
   late final NotesOptions options = NotesOptions(storage);
 
   @override
-  NotesBloc buildBloc(final Account account) => NotesBloc(
+  NotesBloc buildBloc(Account account) => NotesBloc(
         options,
         account,
       );
@@ -39,8 +39,8 @@ class NotesApp extends AppImplementation<NotesBloc, NotesOptions> {
 
   @override
   VersionCheck getVersionCheck(
-    final Account account,
-    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+    Account account,
+    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   ) =>
       account.client.notes.getVersionCheck(capabilities);
 }

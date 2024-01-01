@@ -7,14 +7,14 @@ const interfaceSuffix = 'Interface';
 ///
 /// Attributes must be defined in a separate interface called `\$$className$interfaceSuffix`.
 Spec buildBuiltClass(
-  final String className, {
-  final Iterable<String>? documentation,
-  final Iterable<String>? defaults,
-  final Iterable<String>? validators,
-  final Iterable<Method>? methods,
+  String className, {
+  Iterable<String>? documentation,
+  Iterable<String>? defaults,
+  Iterable<String>? validators,
+  Iterable<Method>? methods,
 }) =>
     Class(
-      (final b) {
+      (b) {
         b
           ..name = className
           ..abstract = true
@@ -45,7 +45,7 @@ Spec buildBuiltClass(
         if (defaults != null && defaults.isNotEmpty) {
           b.methods.add(
             Method(
-              (final b) => b
+              (b) => b
                 ..name = '_defaults'
                 ..returns = refer('void')
                 ..static = true
@@ -57,7 +57,7 @@ Spec buildBuiltClass(
                 )
                 ..requiredParameters.add(
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = 'b'
                       ..type = refer('${className}Builder'),
                   ),
@@ -74,7 +74,7 @@ Spec buildBuiltClass(
 
         if (validators != null && validators.isNotEmpty) {
           b.methods.add(
-            Method((final b) {
+            Method((b) {
               b
                 ..name = '_validate'
                 ..returns = refer('void')
@@ -84,7 +84,7 @@ Spec buildBuiltClass(
                 ..static = true
                 ..requiredParameters.add(
                   Parameter(
-                    (final b) => b
+                    (b) => b
                       ..name = 'b'
                       ..type = refer('${className}Builder'),
                   ),
@@ -97,7 +97,7 @@ Spec buildBuiltClass(
     );
 
 Method get toJsonMethod => Method(
-      (final b) => b
+      (b) => b
         ..docs.addAll([
           '/// Parses this object into a json like map.',
           '///',
@@ -110,7 +110,7 @@ Method get toJsonMethod => Method(
     );
 
 /// Builds the serializer getter for a built class.
-Method buildSerializer(final String className, [final String? serializerName]) => Method((final b) {
+Method buildSerializer(String className, [String? serializerName]) => Method((b) {
       b
         ..docs.add('/// Serializer for $className.')
         ..name = 'serializer'
@@ -126,14 +126,14 @@ Method buildSerializer(final String className, [final String? serializerName]) =
       }
     });
 
-Constructor builtValueConstructor(final String className) => Constructor(
-      (final b) => b
+Constructor builtValueConstructor(String className) => Constructor(
+      (b) => b
         ..docs.add('/// Creates a new $className object using the builder pattern.')
         ..factory = true
         ..lambda = true
         ..optionalParameters.add(
           Parameter(
-            (final b) => b
+            (b) => b
               ..name = 'b'
               ..type = refer('void Function(${className}Builder)?'),
           ),
@@ -142,13 +142,13 @@ Constructor builtValueConstructor(final String className) => Constructor(
     );
 
 Constructor get hiddenConstructor => Constructor(
-      (final b) => b
+      (b) => b
         ..name = '_'
         ..constant = true,
     );
 
 Constructor get fromJsonConstructor => Constructor(
-      (final b) => b
+      (b) => b
         ..docs.addAll([
           '/// Creates a new object from the given [json] data.',
           '///',
@@ -159,7 +159,7 @@ Constructor get fromJsonConstructor => Constructor(
         ..lambda = true
         ..requiredParameters.add(
           Parameter(
-            (final b) => b
+            (b) => b
               ..name = 'json'
               ..type = refer('Map<String, dynamic>'),
           ),

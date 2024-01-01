@@ -17,8 +17,8 @@ class TypeResultObject extends TypeResult {
 
   @override
   String encode(
-    final String object, {
-    required final String mimeType,
+    String object, {
+    required String mimeType,
   }) {
     if (className == _contentString && mimeType != 'application/json') {
       throw StateError('$_contentString should have a mimeType of application/json');

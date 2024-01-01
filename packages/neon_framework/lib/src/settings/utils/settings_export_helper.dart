@@ -35,7 +35,7 @@ class SettingsExportHelper {
   ///
   /// See:
   /// * [applyFromJson] to import a json map.
-  Future<void> applyFromFile(final Stream<List<int>>? file) async {
+  Future<void> applyFromFile(Stream<List<int>>? file) async {
     final transformer = const Utf8Decoder().fuse(const JsonDecoder());
 
     final data = await file?.transform(transformer).single;
@@ -51,7 +51,7 @@ class SettingsExportHelper {
   ///
   /// See:
   /// * [applyFromFile] to import data from a [Stream<Uint8List>].
-  Future<void> applyFromJson(final Map<String, Object?> json) async {
+  Future<void> applyFromJson(Map<String, Object?> json) async {
     for (final exportable in exportables) {
       await exportable.import(json);
     }
@@ -72,7 +72,7 @@ class SettingsExportHelper {
   ///
   /// See:
   /// * [exportToFile] to export data to a [Uint8List].
-  Map<String, Object?> exportToJson() => Map.fromEntries(exportables.map((final e) => e.export()));
+  Map<String, Object?> exportToJson() => Map.fromEntries(exportables.map((e) => e.export()));
 }
 
 /// Helper class to export [AppImplementation]s implementing the [Exportable] interface.
@@ -91,11 +91,11 @@ class AppImplementationsExporter implements Exportable {
   @override
   MapEntry<String, Object?> export() => MapEntry(
         _key,
-        Map.fromEntries(appImplementations.map((final app) => app.options.export())),
+        Map.fromEntries(appImplementations.map((app) => app.options.export())),
       );
 
   @override
-  void import(final Map<String, Object?> data) {
+  void import(Map<String, Object?> data) {
     final values = data[_key] as Map<String, Object?>?;
 
     if (values == null) {
@@ -135,7 +135,7 @@ class AccountsBlocExporter implements Exportable {
   }
 
   @override
-  void import(final Map<String, Object?> data) {
+  void import(Map<String, Object?> data) {
     final values = data[_key] as Map<String, Object?>?;
 
     if (values == null) {

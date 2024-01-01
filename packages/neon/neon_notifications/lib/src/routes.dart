@@ -15,5 +15,5 @@ class NotificationsAppRoute extends NeonBaseAppRoute {
   const NotificationsAppRoute();
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => const NotificationsMainPage();
+  Widget build(BuildContext context, GoRouterState state) => const NotificationsMainPage();
 }

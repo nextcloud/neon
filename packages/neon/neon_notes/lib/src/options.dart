@@ -20,26 +20,26 @@ class NotesOptions extends AppImplementationOptions {
   }
 
   final generalCategory = OptionsCategory(
-    name: (final context) => NotesLocalizations.of(context).general,
+    name: (context) => NotesLocalizations.of(context).general,
   );
 
   final notesCategory = OptionsCategory(
-    name: (final context) => NotesLocalizations.of(context).notes,
+    name: (context) => NotesLocalizations.of(context).notes,
   );
 
   final categoriesCategory = OptionsCategory(
-    name: (final context) => NotesLocalizations.of(context).categories,
+    name: (context) => NotesLocalizations.of(context).categories,
   );
 
   late final defaultCategoryOption = SelectOption<DefaultCategory>(
     storage: super.storage,
     category: generalCategory,
     key: NotesOptionKeys.defaultCategory,
-    label: (final context) => NotesLocalizations.of(context).optionsDefaultCategory,
+    label: (context) => NotesLocalizations.of(context).optionsDefaultCategory,
     defaultValue: DefaultCategory.notes,
     values: {
-      DefaultCategory.notes: (final context) => NotesLocalizations.of(context).notes,
-      DefaultCategory.categories: (final context) => NotesLocalizations.of(context).categories,
+      DefaultCategory.notes: (context) => NotesLocalizations.of(context).notes,
+      DefaultCategory.categories: (context) => NotesLocalizations.of(context).categories,
     },
   );
 
@@ -47,11 +47,11 @@ class NotesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: generalCategory,
     key: NotesOptionKeys.defaultNoteViewType,
-    label: (final context) => NotesLocalizations.of(context).optionsDefaultNoteViewType,
+    label: (context) => NotesLocalizations.of(context).optionsDefaultNoteViewType,
     defaultValue: DefaultNoteViewType.preview,
     values: {
-      DefaultNoteViewType.preview: (final context) => NotesLocalizations.of(context).optionsDefaultNoteViewTypePreview,
-      DefaultNoteViewType.edit: (final context) => NotesLocalizations.of(context).optionsDefaultNoteViewTypeEdit,
+      DefaultNoteViewType.preview: (context) => NotesLocalizations.of(context).optionsDefaultNoteViewTypePreview,
+      DefaultNoteViewType.edit: (context) => NotesLocalizations.of(context).optionsDefaultNoteViewTypeEdit,
     },
   );
 
@@ -59,13 +59,11 @@ class NotesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: notesCategory,
     key: NotesOptionKeys.notesSortProperty,
-    label: (final context) => NotesLocalizations.of(context).optionsNotesSortProperty,
+    label: (context) => NotesLocalizations.of(context).optionsNotesSortProperty,
     defaultValue: NotesSortProperty.lastModified,
     values: {
-      NotesSortProperty.lastModified: (final context) =>
-          NotesLocalizations.of(context).optionsNotesSortPropertyLastModified,
-      NotesSortProperty.alphabetical: (final context) =>
-          NotesLocalizations.of(context).optionsNotesSortPropertyAlphabetical,
+      NotesSortProperty.lastModified: (context) => NotesLocalizations.of(context).optionsNotesSortPropertyLastModified,
+      NotesSortProperty.alphabetical: (context) => NotesLocalizations.of(context).optionsNotesSortPropertyAlphabetical,
     },
   );
 
@@ -73,7 +71,7 @@ class NotesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: notesCategory,
     key: NotesOptionKeys.notesSortBoxOrder,
-    label: (final context) => NotesLocalizations.of(context).optionsNotesSortOrder,
+    label: (context) => NotesLocalizations.of(context).optionsNotesSortOrder,
     defaultValue: SortBoxOrder.descending,
     values: sortBoxOrderOptionValues,
   );
@@ -82,12 +80,12 @@ class NotesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: categoriesCategory,
     key: NotesOptionKeys.categoriesSortProperty,
-    label: (final context) => NotesLocalizations.of(context).optionsCategoriesSortProperty,
+    label: (context) => NotesLocalizations.of(context).optionsCategoriesSortProperty,
     defaultValue: CategoriesSortProperty.alphabetical,
     values: {
-      CategoriesSortProperty.alphabetical: (final context) =>
+      CategoriesSortProperty.alphabetical: (context) =>
           NotesLocalizations.of(context).optionsCategoriesSortPropertyAlphabetical,
-      CategoriesSortProperty.notesCount: (final context) =>
+      CategoriesSortProperty.notesCount: (context) =>
           NotesLocalizations.of(context).optionsCategoriesSortPropertyNotesCount,
     },
   );
@@ -96,7 +94,7 @@ class NotesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: categoriesCategory,
     key: NotesOptionKeys.categoriesSortBoxOrder,
-    label: (final context) => NotesLocalizations.of(context).optionsCategoriesSortOrder,
+    label: (context) => NotesLocalizations.of(context).optionsCategoriesSortOrder,
     defaultValue: SortBoxOrder.ascending,
     values: sortBoxOrderOptionValues,
   );

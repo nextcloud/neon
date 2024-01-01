@@ -21,20 +21,19 @@ class FilesOptions extends AppImplementationOptions {
   }
 
   final generalCategory = OptionsCategory(
-    name: (final context) => FilesLocalizations.of(context).general,
+    name: (context) => FilesLocalizations.of(context).general,
   );
 
   late final filesSortPropertyOption = SelectOption<FilesSortProperty>(
     storage: super.storage,
     category: generalCategory,
     key: FilesOptionKeys.sortProperty,
-    label: (final context) => FilesLocalizations.of(context).optionsFilesSortProperty,
+    label: (context) => FilesLocalizations.of(context).optionsFilesSortProperty,
     defaultValue: FilesSortProperty.name,
     values: {
-      FilesSortProperty.name: (final context) => FilesLocalizations.of(context).optionsFilesSortPropertyName,
-      FilesSortProperty.modifiedDate: (final context) =>
-          FilesLocalizations.of(context).optionsFilesSortPropertyModifiedDate,
-      FilesSortProperty.size: (final context) => FilesLocalizations.of(context).optionsFilesSortPropertySize,
+      FilesSortProperty.name: (context) => FilesLocalizations.of(context).optionsFilesSortPropertyName,
+      FilesSortProperty.modifiedDate: (context) => FilesLocalizations.of(context).optionsFilesSortPropertyModifiedDate,
+      FilesSortProperty.size: (context) => FilesLocalizations.of(context).optionsFilesSortPropertySize,
     },
   );
 
@@ -42,7 +41,7 @@ class FilesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: generalCategory,
     key: FilesOptionKeys.sortOrder,
-    label: (final context) => FilesLocalizations.of(context).optionsFilesSortOrder,
+    label: (context) => FilesLocalizations.of(context).optionsFilesSortOrder,
     defaultValue: SortBoxOrder.ascending,
     values: sortBoxOrderOptionValues,
   );
@@ -51,7 +50,7 @@ class FilesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: generalCategory,
     key: FilesOptionKeys.showHiddenFiles,
-    label: (final context) => FilesLocalizations.of(context).optionsShowHiddenFiles,
+    label: (context) => FilesLocalizations.of(context).optionsShowHiddenFiles,
     defaultValue: false,
   );
 
@@ -59,7 +58,7 @@ class FilesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: generalCategory,
     key: FilesOptionKeys.showPreviews,
-    label: (final context) => FilesLocalizations.of(context).optionsShowPreviews,
+    label: (context) => FilesLocalizations.of(context).optionsShowPreviews,
     defaultValue: true,
   );
 
@@ -67,11 +66,11 @@ class FilesOptions extends AppImplementationOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.uploadQueueParallelism,
-    label: (final context) => FilesLocalizations.of(context).optionsUploadQueueParallelism,
+    label: (context) => FilesLocalizations.of(context).optionsUploadQueueParallelism,
     defaultValue: 4,
     values: {
       for (var i = 1; i <= 16; i = i * 2) ...{
-        i: (final _) => i.toString(),
+        i: (_) => i.toString(),
       },
     },
   );
@@ -80,18 +79,18 @@ class FilesOptions extends AppImplementationOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.downloadQueueParallelism,
-    label: (final context) => FilesLocalizations.of(context).optionsDownloadQueueParallelism,
+    label: (context) => FilesLocalizations.of(context).optionsDownloadQueueParallelism,
     defaultValue: 4,
     values: {
       for (var i = 1; i <= 16; i = i * 2) ...{
-        i: (final _) => i.toString(),
+        i: (_) => i.toString(),
       },
     },
   );
 
   late final _sizeWarningValues = <int?, LabelBuilder>{
-    null: (final context) => FilesLocalizations.of(context).optionsSizeWarningDisabled,
-    for (final i in [
+    null: (context) => FilesLocalizations.of(context).optionsSizeWarningDisabled,
+    for (var i in [
       1,
       10,
       100,
@@ -100,17 +99,17 @@ class FilesOptions extends AppImplementationOptions {
       6 * 1024,
       10 * 1024,
     ]) ...{
-      _mb(i): (final _) => filesize(_mb(i)),
+      _mb(i): (_) => filesize(_mb(i)),
     },
   };
 
-  int _mb(final int i) => i * 1024 * 1024;
+  int _mb(int i) => i * 1024 * 1024;
 
   late final uploadSizeWarning = SelectOption<int?>(
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.uploadSizeWarning,
-    label: (final context) => FilesLocalizations.of(context).optionsUploadSizeWarning,
+    label: (context) => FilesLocalizations.of(context).optionsUploadSizeWarning,
     defaultValue: _mb(10),
     values: _sizeWarningValues,
   );
@@ -119,7 +118,7 @@ class FilesOptions extends AppImplementationOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.downloadSizeWarning,
-    label: (final context) => FilesLocalizations.of(context).optionsDownloadSizeWarning,
+    label: (context) => FilesLocalizations.of(context).optionsDownloadSizeWarning,
     defaultValue: _mb(10),
     values: _sizeWarningValues,
   );

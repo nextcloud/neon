@@ -43,7 +43,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
     super.initState();
   }
 
-  Future<void> uploadFromPick(final FileType type) async {
+  Future<void> uploadFromPick(FileType type) async {
     final result = await FilePicker.platform.pickFiles(
       allowMultiple: true,
       type: type,
@@ -60,7 +60,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
     }
   }
 
-  Future<void> upload(final File file) async {
+  Future<void> upload(File file) async {
     final sizeWarning = widget.bloc.options.uploadSizeWarning.value;
     if (sizeWarning != null) {
       final stat = file.statSync();
@@ -79,9 +79,9 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
   }
 
   Widget wrapAction({
-    required final Widget icon,
-    required final Widget message,
-    required final VoidCallback onPressed,
+    required Widget icon,
+    required Widget message,
+    required VoidCallback onPressed,
   }) {
     final theme = Theme.of(context);
 
@@ -106,7 +106,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final title = FilesLocalizations.of(context).filesChooseCreate;
 
@@ -168,7 +168,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
       case TargetPlatform.windows:
         return BottomSheet(
           onClosing: () {},
-          builder: (final context) => Padding(
+          builder: (context) => Padding(
             padding: const EdgeInsets.all(24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -223,12 +223,12 @@ class FilesChooseFolderDialog extends StatelessWidget {
   final PathUri? originalPath;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final dialogTheme = NeonDialogTheme.of(context);
 
     return StreamBuilder<PathUri>(
       stream: bloc.uri,
-      builder: (final context, final uriSnapshot) {
+      builder: (context, uriSnapshot) {
         final actions = [
           OutlinedButton(
             onPressed: () async {
@@ -303,7 +303,7 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final content = Material(
       child: TextFormField(
         controller: controller,
@@ -311,8 +311,8 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
           hintText: FilesLocalizations.of(context).folderName,
         ),
         autofocus: true,
-        validator: (final input) => validateNotEmpty(context, input),
-        onFieldSubmitted: (final _) {
+        validator: (input) => validateNotEmpty(context, input),
+        onFieldSubmitted: (_) {
           submit();
         },
       ),

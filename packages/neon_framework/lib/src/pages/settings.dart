@@ -82,7 +82,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
@@ -97,7 +97,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 '${NeonLocalizations.of(context).settingsResetAllConfirmation} ${NeonLocalizations.of(context).settingsResetAllExplanation}';
             final decision = await showAdaptiveDialog<bool>(
               context: context,
-              builder: (final context) => NeonConfirmationDialog(
+              builder: (context) => NeonConfirmationDialog(
                 icon: const Icon(Icons.restart_alt),
                 title: NeonLocalizations.of(context).settingsReset,
                 content: Text(content),
@@ -319,7 +319,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     return ValueListenableBuilder(
       valueListenable: globalOptions.pushNotificationsEnabled,
-      builder: (final context, final _, final __) => SettingsCategory(
+      builder: (context, _, __) => SettingsCategory(
         title: Text(NeonLocalizations.of(context).optionsCategoryPushNotifications),
         key: ValueKey(SettingsCategories.pushNotifications.name),
         tiles: [
@@ -352,7 +352,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final title = Text(NeonLocalizations.of(context).optionsCategoryAccounts);
     final key = ValueKey(SettingsCategories.accounts.name);
     final accountTiles = accounts.map(
-      (final account) => AccountSettingsTile(
+      (account) => AccountSettingsTile(
         account: account,
         onTap: () => AccountSettingsRoute(accountID: account.id).go(context),
       ),
@@ -413,7 +413,7 @@ class _SettingsPageState extends State<SettingsPage> {
     }
   }
 
-  SettingsExportHelper _buildSettingsExportHelper(final BuildContext context) {
+  SettingsExportHelper _buildSettingsExportHelper(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);

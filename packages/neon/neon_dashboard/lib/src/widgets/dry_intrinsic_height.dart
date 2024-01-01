@@ -16,12 +16,12 @@ class DryIntrinsicHeight extends SingleChildRenderObjectWidget {
   });
 
   @override
-  RenderDryIntrinsicHeight createRenderObject(final BuildContext context) => RenderDryIntrinsicHeight();
+  RenderDryIntrinsicHeight createRenderObject(BuildContext context) => RenderDryIntrinsicHeight();
 }
 
 class RenderDryIntrinsicHeight extends RenderIntrinsicHeight {
   @override
-  Size computeDryLayout(final BoxConstraints constraints) {
+  Size computeDryLayout(BoxConstraints constraints) {
     if (child != null) {
       final height = child!.computeMinIntrinsicHeight(constraints.maxWidth);
       final width = child!.computeMinIntrinsicWidth(height);

@@ -18,8 +18,8 @@ import 'package:unifiedpush/unifiedpush.dart';
 sealed class PushNotificationsBloc {
   @internal
   factory PushNotificationsBloc(
-    final AccountsBloc accountsBloc,
-    final GlobalOptions globalOptions,
+    AccountsBloc accountsBloc,
+    GlobalOptions globalOptions,
   ) =>
       _PushNotificationsBloc(
         accountsBloc,
@@ -70,7 +70,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     final keypair = PushUtils.loadRSAKeypair();
 
     await UnifiedPush.initialize(
-      onNewEndpoint: (final endpoint, final instance) async {
+      onNewEndpoint: (endpoint, instance) async {
         final account = accountsBloc.accounts.value.tryFind(instance);
         if (account == null) {
           debugPrint('Account for $instance not found, can not process endpoint');
@@ -117,7 +117,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     }
   }
 
-  Future<void> unregisterUnifiedPushInstances(final List<Account> accounts) async {
+  Future<void> unregisterUnifiedPushInstances(List<Account> accounts) async {
     for (final account in accounts) {
       try {
         await account.client.notifications.push.removeDevice();
@@ -129,9 +129,9 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     }
   }
 
-  Future<void> registerUnifiedPushInstances(final List<Account> accounts) async {
+  Future<void> registerUnifiedPushInstances(List<Account> accounts) async {
     // Notifications will only work on accounts with app password
-    for (final account in accounts.where((final a) => a.password != null)) {
+    for (final account in accounts.where((a) => a.password != null)) {
       await UnifiedPush.registerApp(account.id);
     }
   }

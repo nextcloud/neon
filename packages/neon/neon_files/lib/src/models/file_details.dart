@@ -15,7 +15,7 @@ class FileDetails {
   }) : task = null;
 
   FileDetails.fromWebDav({
-    required final WebDavFile file,
+    required WebDavFile file,
   })  : uri = file.path,
         size = file.size,
         etag = file.etag,
@@ -37,7 +37,7 @@ class FileDetails {
 
   FileDetails.fromDownloadTask({
     required FilesDownloadTask this.task,
-    required final WebDavFile file,
+    required WebDavFile file,
   })  : uri = task.uri,
         size = file.size,
         etag = file.etag,
@@ -47,8 +47,8 @@ class FileDetails {
         isFavorite = file.favorite;
 
   factory FileDetails.fromTask({
-    required final FilesTask task,
-    required final WebDavFile file,
+    required FilesTask task,
+    required WebDavFile file,
   }) {
     switch (task) {
       case FilesUploadTask():

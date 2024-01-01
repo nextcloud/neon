@@ -57,7 +57,7 @@ final Serializers invalidSerializers = (_$serializers.toBuilder()
 
 void main() {
   group('Header with known specifiedType holding bool', () {
-    final data = Header<bool>((final b) => b..content = true);
+    final data = Header<bool>((b) => b..content = true);
     final serialized = json.encode(true);
     const specifiedType = FullType(Header, [FullType(bool)]);
 
@@ -71,7 +71,7 @@ void main() {
   });
 
   group('Header with unknown specifiedType holding bool', () {
-    final data = Header((final b) => b..content = true);
+    final data = Header((b) => b..content = true);
     final serialized = json.decode(
       json.encode({
         r'$': 'Header',
@@ -90,7 +90,7 @@ void main() {
   });
 
   group('Header with known specifiedType holding double', () {
-    final data = Header<double>((final b) => b..content = 42.5);
+    final data = Header<double>((b) => b..content = 42.5);
     final serialized = json.encode(42.5);
     const specifiedType = FullType(Header, [FullType(double)]);
 
@@ -104,7 +104,7 @@ void main() {
   });
 
   group('Header with unknown specifiedType holding double', () {
-    final data = Header((final b) => b..content = 42.5);
+    final data = Header((b) => b..content = 42.5);
     final serialized = json.decode(
       json.encode({
         r'$': 'Header',
@@ -124,7 +124,7 @@ void main() {
 
   group('Header with known specifiedType holding list', () {
     test('integer list', () {
-      final Header<BuiltList<Object>> data = Header<BuiltList<int>>((final b) => b..content = BuiltList([1, 2, 3]));
+      final Header<BuiltList<Object>> data = Header<BuiltList<int>>((b) => b..content = BuiltList([1, 2, 3]));
       const serialized = '1,2,3';
       const specifiedType = FullType(Header, [
         FullType(BuiltList, [FullType(int)]),
@@ -135,7 +135,7 @@ void main() {
     });
 
     test('string list', () {
-      final data = Header<BuiltList<String>>((final b) => b..content = BuiltList(['1', '2', '3']));
+      final data = Header<BuiltList<String>>((b) => b..content = BuiltList(['1', '2', '3']));
       const serialized = '1,2,3';
       const specifiedType = FullType(Header, [
         FullType(BuiltList, [FullType(String)]),
@@ -147,7 +147,7 @@ void main() {
   });
 
   group('Header with unknown specifiedType holding list', () {
-    final data = Header((final b) => b..content = BuiltList<int>([1, 2, 3]));
+    final data = Header((b) => b..content = BuiltList<int>([1, 2, 3]));
     final serialized = json.decode(
       json.encode({
         r'$': 'Header',
@@ -173,7 +173,7 @@ void main() {
   });
 
   group('Header with known specifiedType holding map', () {
-    final data = Header<BuiltMap<String, int>>((final b) => b..content = BuiltMap({'one': 1, 'two': 2, 'three': 3}));
+    final data = Header<BuiltMap<String, int>>((b) => b..content = BuiltMap({'one': 1, 'two': 2, 'three': 3}));
     const serialized = 'one,1,two,2,three,3';
     const specifiedType = FullType(Header, [
       FullType(BuiltMap, [FullType(String), FullType(int)]),
@@ -189,7 +189,7 @@ void main() {
   });
 
   group('Header with unknown specifiedType holding map', () {
-    final data = Header((final b) => b..content = BuiltMap<String, int>({'one': 1, 'two': 2, 'three': 3}));
+    final data = Header((b) => b..content = BuiltMap<String, int>({'one': 1, 'two': 2, 'three': 3}));
     final serialized = json.decode(
       json.encode({
         r'$': 'Header',
@@ -215,7 +215,7 @@ void main() {
   group(
     'Header with known specifiedType holding int',
     () {
-      final data = Header<int>((final b) => b..content = 42);
+      final data = Header<int>((b) => b..content = 42);
       final serialized = json.encode(42);
       const specifiedType = FullType(Header, [FullType(int)]);
 
@@ -230,7 +230,7 @@ void main() {
   );
 
   group('Header with unknown specifiedType holding int', () {
-    final data = Header((final b) => b..content = 42);
+    final data = Header((b) => b..content = 42);
     final serialized = json.decode(
       json.encode({
         r'$': 'Header',
@@ -249,7 +249,7 @@ void main() {
   });
 
   group('Header with known specifiedType holding String', () {
-    final data = Header<String>((final b) => b..content = 'test');
+    final data = Header<String>((b) => b..content = 'test');
     const serialized = 'test';
     const specifiedType = FullType(Header, [FullType(String)]);
 
@@ -263,7 +263,7 @@ void main() {
   });
 
   group('Header with unknown specifiedType holding String', () {
-    final data = Header((final b) => b..content = 'test');
+    final data = Header((b) => b..content = 'test');
     final serialized = json.decode(
       json.encode({
         r'$': 'Header',
@@ -283,9 +283,9 @@ void main() {
 
   group('Header with known specifiedType holding Header', () {
     final data = Header<Header<String>>(
-      (final b) => b
+      (b) => b
         ..content = Header<String>(
-          (final b) => b..content = 'test',
+          (b) => b..content = 'test',
         ),
     );
     const serialized = 'test';
@@ -304,9 +304,9 @@ void main() {
 
   group('Header with unknown specifiedType holding Header', () {
     final data = Header<Header<String>>(
-      (final b) => b
+      (b) => b
         ..content = Header<String>(
-          (final b) => b..content = 'test',
+          (b) => b..content = 'test',
         ),
     );
     final serialized = json.decode(
@@ -330,7 +330,7 @@ void main() {
   });
 
   group('Serialize without registered StandardJsonPlugin', () {
-    final data = Header<bool>((final b) => b..content = true);
+    final data = Header<bool>((b) => b..content = true);
     const serialized = true;
     const specifiedType = FullType(Header, [FullType(bool)]);
 

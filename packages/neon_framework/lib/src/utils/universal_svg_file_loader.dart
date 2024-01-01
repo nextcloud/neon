@@ -19,12 +19,12 @@ class UniversalSvgFileLoader extends SvgLoader<void> {
   final File file;
 
   @override
-  String provideSvg(final void message) => utf8.decode(file.readAsBytesSync(), allowMalformed: true);
+  String provideSvg(void message) => utf8.decode(file.readAsBytesSync(), allowMalformed: true);
 
   @override
   int get hashCode => Object.hash(file, theme, colorMapper);
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is UniversalSvgFileLoader && other.file == file && other.theme == theme && other.colorMapper == colorMapper;
 }

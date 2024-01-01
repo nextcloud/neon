@@ -18,7 +18,7 @@ import 'package:version/version.dart';
 
 class OpenAPIBuilder implements Builder {
   OpenAPIBuilder(
-    final BuilderOptions options,
+    BuilderOptions options,
   ) : buildConfig = DynamiteConfig.fromJson(options.config);
 
   @override
@@ -37,7 +37,7 @@ class OpenAPIBuilder implements Builder {
   final DynamiteConfig buildConfig;
 
   @override
-  Future<void> build(final BuildStep buildStep) async {
+  Future<void> build(BuildStep buildStep) async {
     final result = await helperVersionCheck(buildStep);
 
     if (result.messages.isNotEmpty) {
@@ -65,7 +65,7 @@ class OpenAPIBuilder implements Builder {
           )!,
         '.yaml' => checkedYamlDecode(
             await buildStep.readAsString(inputId),
-            (final m) => openapi.serializers.deserializeWith(openapi.OpenAPI.serializer, m)!,
+            (m) => openapi.serializers.deserializeWith(openapi.OpenAPI.serializer, m)!,
           ),
         _ => throw StateError('Openapi specs can only be yaml or json.'),
       };
@@ -78,7 +78,7 @@ class OpenAPIBuilder implements Builder {
       final config = buildConfig.configFor(inputId.path);
       final state = State(config);
 
-      final output = Library((final b) {
+      final output = Library((b) {
         final analyzerIgnores = state.buildConfig.analyzerIgnores;
         if (analyzerIgnores != null) {
           b.ignoreForFile.addAll(analyzerIgnores);
@@ -131,7 +131,7 @@ class OpenAPIBuilder implements Builder {
 
           outputString = outputString.replaceAllMapped(
             pattern,
-            (final match) => '  // coverage:ignore-start\n${match.group(0)}\n  // coverage:ignore-end',
+            (match) => '  // coverage:ignore-start\n${match.group(0)}\n  // coverage:ignore-end',
           );
         }
       }

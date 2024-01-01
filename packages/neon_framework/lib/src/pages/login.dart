@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void login(final String url) {
+  void login(String url) {
     if (_formKey.currentState!.validate()) {
       final uri = Uri.parse(url);
 
@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final branding = Branding.of(context);
 
     return Scaffold(
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       keyboardType: TextInputType.url,
-                      validator: (final input) => validateHttpUrl(context, input),
+                      validator: (input) => validateHttpUrl(context, input),
                       onFieldSubmitted: login,
                       autofillHints: const [AutofillHints.url],
                     ),

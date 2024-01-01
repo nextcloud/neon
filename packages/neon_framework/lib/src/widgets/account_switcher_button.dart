@@ -16,12 +16,12 @@ class AccountSwitcherButton extends StatelessWidget {
     super.key,
   });
 
-  Future<void> _onPressed(final BuildContext context) async {
+  Future<void> _onPressed(BuildContext context) async {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
 
     final account = await showDialog<Account>(
       context: context,
-      builder: (final context) => NeonAccountSelectionDialog(
+      builder: (context) => NeonAccountSelectionDialog(
         highlightActiveAccount: true,
         children: [
           AdaptiveListTile(
@@ -42,7 +42,7 @@ class AccountSwitcherButton extends StatelessWidget {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final account = accountsBloc.activeAccount.value!;
 

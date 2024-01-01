@@ -6,12 +6,12 @@ import 'package:neon_framework/src/widgets/dialog.dart';
 ///
 /// Returns a future whether the action has been accepted.
 Future<bool> showConfirmationDialog({
-  required final BuildContext context,
-  required final String title,
+  required BuildContext context,
+  required String title,
 }) async =>
     await showAdaptiveDialog<bool>(
       context: context,
-      builder: (final context) => NeonConfirmationDialog(title: title),
+      builder: (context) => NeonConfirmationDialog(title: title),
     ) ??
     false;
 
@@ -19,13 +19,13 @@ Future<bool> showConfirmationDialog({
 ///
 /// Returns a future with the new name of name.
 Future<String?> showRenameDialog({
-  required final BuildContext context,
-  required final String title,
-  required final String initialValue,
+  required BuildContext context,
+  required String title,
+  required String initialValue,
 }) async =>
     showAdaptiveDialog<String?>(
       context: context,
-      builder: (final context) => NeonRenameDialog(
+      builder: (context) => NeonRenameDialog(
         title: title,
         value: initialValue,
       ),
@@ -33,24 +33,24 @@ Future<String?> showRenameDialog({
 
 /// Displays a [NeonErrorDialog] with the given [message].
 Future<void> showErrorDialog({
-  required final BuildContext context,
-  required final String message,
-  final String? title,
+  required BuildContext context,
+  required String message,
+  String? title,
 }) =>
     showAdaptiveDialog<void>(
       context: context,
-      builder: (final context) => NeonErrorDialog(content: message),
+      builder: (context) => NeonErrorDialog(content: message),
     );
 
 /// Displays a [NeonDialog] with the given [title] informing the user that a
 /// feature is not implemented yet.
 Future<void> showUnimplementedDialog({
-  required final BuildContext context,
-  required final String title,
+  required BuildContext context,
+  required String title,
 }) =>
     showAdaptiveDialog<void>(
       context: context,
-      builder: (final context) => NeonDialog(
+      builder: (context) => NeonDialog(
         automaticallyShowCancel: false,
         title: Text(title),
         actions: [

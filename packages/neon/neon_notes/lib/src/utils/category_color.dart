@@ -9,7 +9,7 @@ class NotesCategoryColor {
 
   static final Map<String, Color> _colors = {};
 
-  static Color compute(final String category) {
+  static Color compute(String category) {
     if (_colors.containsKey(category)) {
       return _colors[category]!;
     }

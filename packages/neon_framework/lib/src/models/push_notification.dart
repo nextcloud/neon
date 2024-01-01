@@ -31,15 +31,15 @@ class PushNotification {
   /// Creates a new PushNotification object from the given [json] data.
   ///
   /// Use [PushNotification.fromEncrypted] when you the [subject] is still encrypted.
-  factory PushNotification.fromJson(final Map<String, dynamic> json) => _$PushNotificationFromJson(json);
+  factory PushNotification.fromJson(Map<String, dynamic> json) => _$PushNotificationFromJson(json);
 
   /// Creates a new PushNotification object from the given [json] data containing an encrypted [subject].
   ///
   /// Use [PushNotification.fromJson] when the [subject] is not encrypted.
   factory PushNotification.fromEncrypted(
-    final Map<String, dynamic> json,
-    final String accountID,
-    final RSAPrivateKey privateKey,
+    Map<String, dynamic> json,
+    String accountID,
+    RSAPrivateKey privateKey,
   ) {
     final subject = decryptPushNotificationSubject(privateKey, json[_subjectKey] as String);
 

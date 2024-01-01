@@ -63,13 +63,13 @@ void main() {
         'accounts': {'accountID': 'value'},
       };
 
-      when(() => bloc.accounts).thenAnswer((final _) => BehaviorSubject.seeded([]));
+      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded([]));
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'accounts': <String, dynamic>{}});
 
       final fakeAccount = FakeAccount();
       final fakeOptions = AccountOptionsMock();
-      when(() => bloc.accounts).thenAnswer((final _) => BehaviorSubject.seeded([fakeAccount]));
+      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded([fakeAccount]));
       when(() => bloc.getOptionsFor(fakeAccount)).thenReturn(fakeOptions);
       when(fakeOptions.export).thenReturn(accountValue);
       when(() => fakeAccount.id).thenReturn('accountID');
@@ -94,7 +94,7 @@ void main() {
       const value = MapEntry('exportableKey', 'value');
       const export = {'exportableKey': 'value'};
 
-      when(exportable.export).thenAnswer((final _) => value);
+      when(exportable.export).thenAnswer((_) => value);
 
       expect(settingsExporter.exportToJson(), equals(export));
 
@@ -114,7 +114,7 @@ void main() {
       const jsonExport = {'exportableKey': 'value'};
       final export = JsonUtf8Encoder().convert(jsonExport) as Uint8List;
 
-      when(exportable.export).thenAnswer((final _) => value);
+      when(exportable.export).thenAnswer((_) => value);
 
       expect(settingsExporter.exportToFile(), equals(export));
 
@@ -124,6 +124,6 @@ void main() {
   });
 }
 
-Stream<T> _streamValue<T>(final T value) async* {
+Stream<T> _streamValue<T>(T value) async* {
   yield value;
 }

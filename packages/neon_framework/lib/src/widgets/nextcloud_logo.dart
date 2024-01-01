@@ -18,7 +18,7 @@ class NextcloudLogo extends StatelessWidget {
   final double size;
 
   @override
-  Widget build(final BuildContext context) => VectorGraphic(
+  Widget build(BuildContext context) => VectorGraphic(
         width: size,
         height: size,
         loader: const AssetBytesLoader(

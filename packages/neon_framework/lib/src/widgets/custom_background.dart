@@ -21,13 +21,13 @@ class NeonCustomBackground extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
 
     return OptionsCollectionBuilder(
       valueListenable: globalOptions,
       child: child,
-      builder: (final context, final options, final child) {
+      builder: (context, options, child) {
         if (!options.themeUseNextcloudTheme.value || !options.themeCustomBackground.value) {
           return child!;
         }

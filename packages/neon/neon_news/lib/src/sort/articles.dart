@@ -4,9 +4,9 @@ import 'package:nextcloud/news.dart' as news;
 
 final articlesSortBox = SortBox<ArticlesSortProperty, news.Article>(
   {
-    ArticlesSortProperty.publishDate: (final article) => article.pubDate,
-    ArticlesSortProperty.alphabetical: (final article) => article.title.toLowerCase(),
-    ArticlesSortProperty.byFeed: (final article) => article.feedId,
+    ArticlesSortProperty.publishDate: (article) => article.pubDate,
+    ArticlesSortProperty.alphabetical: (article) => article.title.toLowerCase(),
+    ArticlesSortProperty.byFeed: (article) => article.feedId,
   },
   {
     ArticlesSortProperty.alphabetical: {

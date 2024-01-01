@@ -15,7 +15,7 @@ class DockerContainer {
   });
 
   /// Creates a new docker container and returns its representation.
-  static Future<DockerContainer> create(final Preset preset) async {
+  static Future<DockerContainer> create(Preset preset) async {
     final dockerImageName = 'ghcr.io/nextcloud/neon/dev:${preset.name}-${preset.version.major}.${preset.version.minor}';
 
     var result = await runExecutableArguments(

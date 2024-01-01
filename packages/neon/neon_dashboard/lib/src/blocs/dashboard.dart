@@ -13,7 +13,7 @@ import 'package:rxdart/rxdart.dart';
 sealed class DashboardBloc implements InteractiveBloc {
   /// Creates a new Dashboard Bloc instance.
   @internal
-  factory DashboardBloc(final Account account) => _DashboardBloc(account);
+  factory DashboardBloc(Account account) => _DashboardBloc(account);
 
   /// Dashboard widgets that are displayed.
   BehaviorSubject<Result<Map<dashboard.Widget, dashboard.WidgetItems?>>> get widgets;
@@ -76,7 +76,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         );
         for (final entry in response.body.ocs.data.entries) {
           widgets[entry.key] = dashboard.WidgetItems(
-            (final b) => b
+            (b) => b
               ..items = entry.value.sublist(0, min(entry.value.length, maxItems)).toBuilder()
               ..emptyContentMessage = ''
               ..halfEmptyContentMessage = '',
@@ -94,9 +94,9 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         );
         widgets.addEntries(
           response.body.ocs.data.entries.map(
-            (final entry) => MapEntry(
+            (entry) => MapEntry(
               entry.key,
-              entry.value.rebuild((final b) {
+              entry.value.rebuild((b) {
                 if (b.items.length > maxItems) {
                   b.items.removeRange(maxItems, b.items.length);
                 }
@@ -109,8 +109,8 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
       this.widgets.add(
             Result.success(
               widgets.map(
-                (final id, final items) => MapEntry(
-                  response.body.ocs.data.values.firstWhere((final widget) => widget.id == id),
+                (id, items) => MapEntry(
+                  response.body.ocs.data.values.firstWhere((widget) => widget.id == id),
                   items,
                 ),
               ),

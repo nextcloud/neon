@@ -53,7 +53,7 @@ class NeonDialogAction extends StatelessWidget {
   final bool isDestructiveAction;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
 
@@ -161,7 +161,7 @@ class NeonDialog extends StatelessWidget {
   final bool automaticallyShowCancel;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final dialogTheme = NeonDialogTheme.of(context);
 
@@ -250,7 +250,7 @@ class NeonConfirmationDialog extends StatelessWidget {
   final bool isDestructive;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final confirm = confirmAction ??
         NeonDialogAction(
           isDestructiveAction: isDestructive,
@@ -341,13 +341,13 @@ class _NeonRenameDialogState extends State<NeonRenameDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final content = Material(
       child: TextFormField(
         autofocus: true,
         controller: controller,
-        validator: (final input) => validateNotEmpty(context, input),
-        onFieldSubmitted: (final _) {
+        validator: (input) => validateNotEmpty(context, input),
+        onFieldSubmitted: (_) {
           submit();
         },
       ),
@@ -390,7 +390,7 @@ class NeonErrorDialog extends StatelessWidget {
   final String content;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final title = this.title ?? NeonLocalizations.of(context).errorDialog;
 
     final closeAction = NeonDialogAction(
@@ -437,19 +437,19 @@ class NeonAccountSelectionDialog extends StatelessWidget {
   final List<Widget>? children;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final dialogTheme = NeonDialogTheme.of(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final accounts = accountsBloc.accounts.value;
     final activeAccount = accountsBloc.activeAccount.value!;
 
     final sortedAccounts = List.of(accounts)
-      ..removeWhere((final account) => account.id == activeAccount.id)
+      ..removeWhere((account) => account.id == activeAccount.id)
       ..insert(0, activeAccount);
 
     final tiles = sortedAccounts
         .map<Widget>(
-          (final account) => NeonAccountTile(
+          (account) => NeonAccountTile(
             account: account,
             trailing: highlightActiveAccount && account.id == activeAccount.id ? const Icon(Icons.check_circle) : null,
             onTap: () {
@@ -493,7 +493,7 @@ class NeonUnifiedPushDialog extends StatelessWidget {
   });
 
   @override
-  Widget build(final BuildContext context) => NeonDialog(
+  Widget build(BuildContext context) => NeonDialog(
         title: Text(NeonLocalizations.of(context).nextPushSupported),
         content: Text(NeonLocalizations.of(context).nextPushSupportedText),
         actions: [

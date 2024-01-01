@@ -25,7 +25,7 @@ class RequestManager {
   RequestManager();
 
   @visibleForTesting
-  factory RequestManager.mocked(final RequestManager requestManager) => _requestManager = requestManager;
+  factory RequestManager.mocked(RequestManager requestManager) => _requestManager = requestManager;
 
   static RequestManager? _requestManager;
 
@@ -43,12 +43,12 @@ class RequestManager {
   Cache? _cache;
 
   Future<void> wrapNextcloud<T, B, H>(
-    final String clientID,
-    final String k,
-    final BehaviorSubject<Result<T>> subject,
-    final DynamiteRawResponse<B, H> rawResponse,
-    final UnwrapCallback<T, DynamiteResponse<B, H>> unwrap, {
-    final bool disableTimeout = false,
+    String clientID,
+    String k,
+    BehaviorSubject<Result<T>> subject,
+    DynamiteRawResponse<B, H> rawResponse,
+    UnwrapCallback<T, DynamiteResponse<B, H>> unwrap, {
+    bool disableTimeout = false,
   }) async =>
       _wrap<T, DynamiteRawResponse<B, H>>(
         clientID,
@@ -59,9 +59,9 @@ class RequestManager {
 
           return rawResponse;
         },
-        (final rawResponse) => unwrap(rawResponse.response),
-        (final data) => json.encode(data),
-        (final data) => DynamiteRawResponse<B, H>.fromJson(
+        (rawResponse) => unwrap(rawResponse.response),
+        (data) => json.encode(data),
+        (data) => DynamiteRawResponse<B, H>.fromJson(
           json.decode(data) as Map<String, Object?>,
           serializers: rawResponse.serializers,
           bodyType: rawResponse.bodyType,
@@ -71,13 +71,13 @@ class RequestManager {
       );
 
   Future<void> wrapWebDav<T>(
-    final String clientID,
-    final String k,
-    final BehaviorSubject<Result<T>> subject,
-    final NextcloudApiCallback<WebDavMultistatus> call,
-    final UnwrapCallback<T, WebDavMultistatus> unwrap, {
-    final bool disableTimeout = false,
-    final bool emitEmptyCache = false,
+    String clientID,
+    String k,
+    BehaviorSubject<Result<T>> subject,
+    NextcloudApiCallback<WebDavMultistatus> call,
+    UnwrapCallback<T, WebDavMultistatus> unwrap, {
+    bool disableTimeout = false,
+    bool emitEmptyCache = false,
   }) async =>
       _wrap<T, WebDavMultistatus>(
         clientID,
@@ -85,23 +85,23 @@ class RequestManager {
         subject,
         call,
         unwrap,
-        (final data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
-        (final data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
+        (data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
+        (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
         disableTimeout,
         emitEmptyCache,
       );
 
   Future<void> _wrap<T, R>(
-    final String clientID,
-    final String k,
-    final BehaviorSubject<Result<T>> subject,
-    final NextcloudApiCallback<R> call,
-    final UnwrapCallback<T, R> unwrap,
-    final SerializeCallback<R> serialize,
-    final DeserializeCallback<R> deserialize, [
-    final bool disableTimeout = false,
-    final bool emitEmptyCache = false,
-    final int retries = 0,
+    String clientID,
+    String k,
+    BehaviorSubject<Result<T>> subject,
+    NextcloudApiCallback<R> call,
+    UnwrapCallback<T, R> unwrap,
+    SerializeCallback<R> serialize,
+    DeserializeCallback<R> deserialize, [
+    bool disableTimeout = false,
+    bool emitEmptyCache = false,
+    int retries = 0,
   ]) async {
     // emit loading state with the current value if present
     final value = subject.valueOrNull?.asLoading() ?? Result.loading();
@@ -159,19 +159,19 @@ class RequestManager {
   ///
   /// Defaults to a [Result.error] if none has been emitted yet.
   void _emitError<T>(
-    final Object error,
-    final BehaviorSubject<Result<T>> subject,
+    Object error,
+    BehaviorSubject<Result<T>> subject,
   ) {
     final value = subject.valueOrNull?.copyWith(error: error, isLoading: false) ?? Result.error(error);
     subject.add(value);
   }
 
   Future<bool> _emitCached<T, R>(
-    final String key,
-    final BehaviorSubject<Result<T>> subject,
-    final UnwrapCallback<T, R> unwrap,
-    final DeserializeCallback<R> deserialize,
-    final bool emitEmptyCache,
+    String key,
+    BehaviorSubject<Result<T>> subject,
+    UnwrapCallback<T, R> unwrap,
+    DeserializeCallback<R> deserialize,
+    bool emitEmptyCache,
   ) async {
     if (_cache != null && await _cache!.has(key)) {
       try {
@@ -212,9 +212,9 @@ class RequestManager {
   }
 
   Future<T> timeout<T>(
-    final NextcloudApiCallback<T> call, {
-    final bool disableTimeout = false,
-    final Duration timeout = const Duration(seconds: 30),
+    NextcloudApiCallback<T> call, {
+    bool disableTimeout = false,
+    Duration timeout = const Duration(seconds: 30),
   }) {
     if (disableTimeout) {
       return call();
@@ -237,7 +237,7 @@ class Cache {
     _database = await openDatabase(
       p.join(cacheDir.path, 'cache.db'),
       version: 1,
-      onCreate: (final db, final version) async {
+      onCreate: (db, version) async {
         await db.execute('CREATE TABLE cache (id INTEGER PRIMARY KEY, key TEXT, value TEXT, UNIQUE(key))');
       },
     );
@@ -254,13 +254,13 @@ class Cache {
     return database;
   }
 
-  Future<bool> has(final String key) async =>
+  Future<bool> has(String key) async =>
       Sqflite.firstIntValue(await _requireDatabase.rawQuery('SELECT COUNT(*) FROM cache WHERE key = ?', [key])) == 1;
 
-  Future<String?> get(final String key) async =>
+  Future<String?> get(String key) async =>
       (await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]))[0]['value'] as String?;
 
-  Future<void> set(final String key, final String value) async => _requireDatabase.rawQuery(
+  Future<void> set(String key, String value) async => _requireDatabase.rawQuery(
         'INSERT INTO cache (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
         [key, value],
       );

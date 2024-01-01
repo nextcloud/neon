@@ -36,7 +36,7 @@ abstract class TypeResultSomeOf extends TypeResult {
       return optimizedSubTypes.single;
     }
 
-    final record = optimizedSubTypes.map((final type) {
+    final record = optimizedSubTypes.map((type) {
       final dartType = type.nullableName;
       final dartName = toDartName(dartType);
       final fieldName = toFieldName(dartName, type.className);
@@ -62,7 +62,7 @@ abstract class TypeResultSomeOf extends TypeResult {
   }
 
   BuiltList<TypeResult> get _optimizedSubTypes {
-    final subTypes = BuiltSet<TypeResult>.build((final b) {
+    final subTypes = BuiltSet<TypeResult>.build((b) {
       for (final type in this.subTypes) {
         if (type is TypeResultAnyOf && this is TypeResultAnyOf) {
           b.addAll(type.optimizedSubTypes);
@@ -82,7 +82,7 @@ abstract class TypeResultSomeOf extends TypeResult {
     }
 
     optimized.addAll(
-      subTypes.where((final type) {
+      subTypes.where((type) {
         if (!optimizeNum) {
           return true;
         }
@@ -92,17 +92,17 @@ abstract class TypeResultSomeOf extends TypeResult {
     );
 
     // ignore: cascade_invocations
-    optimized.sort((final a, final b) => a.className.toLowerCase().compareTo(b.className.toLowerCase()));
+    optimized.sort((a, b) => a.className.toLowerCase().compareTo(b.className.toLowerCase()));
     return optimized.build();
   }
 
-  bool _isNumber(final TypeResult type) => switch (type.className) {
+  bool _isNumber(TypeResult type) => switch (type.className) {
         'int' || 'double' || 'num' => true,
         _ => false,
       };
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is TypeResultSomeOf &&
       other.className == className &&
       other.generics == generics &&
@@ -120,11 +120,11 @@ class TypeResultAnyOf extends TypeResultSomeOf {
   });
 
   @override
-  String deserialize(final String object, [final String? serializerName]) =>
+  String deserialize(String object, [String? serializerName]) =>
       '(${super.deserialize(object, serializerName)})..validateAnyOf()';
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is TypeResultAnyOf &&
       other.className == className &&
       other.generics == generics &&
@@ -142,11 +142,11 @@ class TypeResultOneOf extends TypeResultSomeOf {
   });
 
   @override
-  String deserialize(final String object, [final String? serializerName]) =>
+  String deserialize(String object, [String? serializerName]) =>
       '(${super.deserialize(object, serializerName)})..validateOneOf()';
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is TypeResultOneOf &&
       other.className == className &&
       other.generics == generics &&

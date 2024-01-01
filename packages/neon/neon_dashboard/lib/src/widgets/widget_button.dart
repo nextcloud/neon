@@ -14,7 +14,7 @@ class DashboardWidgetButton extends StatelessWidget {
   final dashboard.Widget_Buttons button;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     void onPressed() => context.go(button.link);
     final label = Text(button.text);
     final icon = switch (button.type) {

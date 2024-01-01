@@ -20,30 +20,30 @@ class NewsFoldersView extends StatelessWidget {
   final NewsBloc bloc;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
         subject: bloc.folders,
-        builder: (final context, final folders) => ResultBuilder<List<news.Feed>>.behaviorSubject(
+        builder: (context, folders) => ResultBuilder<List<news.Feed>>.behaviorSubject(
           subject: bloc.feeds,
-          builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
+          builder: (context, feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
             sortBox: foldersSortBox,
             sortProperty: bloc.options.foldersSortPropertyOption,
             sortBoxOrder: bloc.options.foldersSortBoxOrderOption,
             input: feeds.hasData
-                ? folders.data?.map((final folder) {
-                    final feedsInFolder = feeds.requireData.where((final feed) => feed.folderId == folder.id);
+                ? folders.data?.map((folder) {
+                    final feedsInFolder = feeds.requireData.where((feed) => feed.folderId == folder.id);
                     final feedCount = feedsInFolder.length;
-                    final unreadCount = feedsInFolder.fold(0, (final a, final b) => a + b.unreadCount!);
+                    final unreadCount = feedsInFolder.fold(0, (a, b) => a + b.unreadCount!);
 
                     return (folder: folder, feedCount: feedCount, unreadCount: unreadCount);
                   }).toList()
                 : null,
-            builder: (final context, final sorted) => NeonListView(
+            builder: (context, sorted) => NeonListView(
               scrollKey: 'news-folders',
               isLoading: feeds.isLoading || folders.isLoading,
               error: feeds.error ?? folders.error,
               onRefresh: bloc.refresh,
               itemCount: sorted.length,
-              itemBuilder: (final context, final index) => _buildFolder(
+              itemBuilder: (context, index) => _buildFolder(
                 context,
                 sorted[index],
               ),
@@ -53,8 +53,8 @@ class NewsFoldersView extends StatelessWidget {
       );
 
   Widget _buildFolder(
-    final BuildContext context,
-    final FolderFeedsWrapper folderFeedsWrapper,
+    BuildContext context,
+    FolderFeedsWrapper folderFeedsWrapper,
   ) {
     final (folder: folder, feedCount: feedCount, unreadCount: unreadCount) = folderFeedsWrapper;
     return ListTile(
@@ -86,7 +86,7 @@ class NewsFoldersView extends StatelessWidget {
         ),
       ),
       trailing: PopupMenuButton<NewsFolderAction>(
-        itemBuilder: (final context) => [
+        itemBuilder: (context) => [
           PopupMenuItem(
             value: NewsFolderAction.delete,
             child: Text(NewsLocalizations.of(context).actionDelete),
@@ -96,7 +96,7 @@ class NewsFoldersView extends StatelessWidget {
             child: Text(NewsLocalizations.of(context).actionRename),
           ),
         ],
-        onSelected: (final action) async {
+        onSelected: (action) async {
           switch (action) {
             case NewsFolderAction.delete:
               final result = await showFolderDeleteDialog(context: context, folderName: folder.name);
@@ -122,7 +122,7 @@ class NewsFoldersView extends StatelessWidget {
       onTap: () async {
         await Navigator.of(context).push(
           MaterialPageRoute<void>(
-            builder: (final context) => NewsFolderPage(
+            builder: (context) => NewsFolderPage(
               bloc: bloc,
               folder: folder,
             ),

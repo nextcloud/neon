@@ -5,7 +5,7 @@ import 'package:dynamite/src/models/openapi/schema.dart';
 part 'header.g.dart';
 
 abstract class Header implements Built<Header, HeaderBuilder> {
-  factory Header([final void Function(HeaderBuilder) updates]) = _$Header;
+  factory Header([void Function(HeaderBuilder) updates]) = _$Header;
 
   const Header._();
 
@@ -19,7 +19,7 @@ abstract class Header implements Built<Header, HeaderBuilder> {
   Schema? get schema;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _defaults(final HeaderBuilder b) {
+  static void _defaults(HeaderBuilder b) {
     b.required ??= false;
   }
 }

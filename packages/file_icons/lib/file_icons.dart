@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 class FileIcon extends StatelessWidget {
   // ignore: public_member_api_docs
   FileIcon(
-    final String fileName, {
+    String fileName, {
     this.size,
     this.color,
     super.key,
@@ -21,7 +21,7 @@ class FileIcon extends StatelessWidget {
   final Color? color;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     String? key;
 
     if (iconSetMap.containsKey(fileName)) {

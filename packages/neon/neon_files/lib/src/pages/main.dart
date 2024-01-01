@@ -23,13 +23,13 @@ class _FilesMainPageState extends State<FilesMainPage> {
     super.initState();
     bloc = NeonProvider.of<FilesBloc>(context);
 
-    bloc.errors.listen((final error) {
+    bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
   }
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         body: FilesBrowserView(
           bloc: bloc.browser,
           filesBloc: bloc,

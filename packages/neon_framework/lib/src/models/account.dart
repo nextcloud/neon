@@ -42,7 +42,7 @@ class Account implements Credentials, Findable {
         );
 
   /// Creates a new account object from the given [json] data.
-  factory Account.fromJson(final Map<String, dynamic> json) => _$AccountFromJson(json);
+  factory Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
 
   /// Parses this object into a json like map.
   Map<String, dynamic> toJson() => _$AccountToJson(this);
@@ -58,7 +58,7 @@ class Account implements Credentials, Findable {
   final String? userAgent;
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is Account &&
       other.serverURL == serverURL &&
       other.username == username &&
@@ -106,7 +106,7 @@ class Account implements Credentials, Findable {
   ///
   /// The paths of the [serverURL] and the [uri] need to be join to get the full path, unless the [uri] path is already an absolute path.
   /// In that case an instance hosted at a sub folder will already contain the sub folder part in the [uri].
-  Uri completeUri(final Uri uri) {
+  Uri completeUri(Uri uri) {
     final result = serverURL.resolveUri(uri);
     if (!uri.hasAbsolutePath) {
       return result.replace(path: '${serverURL.path}/${uri.path}');
@@ -117,7 +117,7 @@ class Account implements Credentials, Findable {
   /// Removes the [serverURL] part from the [uri].
   ///
   /// Should be used when trying to push a [uri] from an API to the router as it might contain the scheme, host and sub path of the instance which will not work with the router.
-  Uri stripUri(final Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
+  Uri stripUri(Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
 }
 
 /// Global [Account.id] cache.
@@ -168,7 +168,7 @@ class LoginQRcode implements Credentials {
   ///
   /// LoginQRcode.parse('::Not valid LoginQRcode::'); // Throws FormatException.
   /// ```
-  static LoginQRcode parse(final String url) {
+  static LoginQRcode parse(String url) {
     for (final regex in [_loginQRcodeUrlRegex, _loginQRcodePathRegex]) {
       final matches = regex.allMatches(url);
       if (matches.isEmpty) {
@@ -205,7 +205,7 @@ class LoginQRcode implements Credentials {
   /// final notLoginQRcode = LoginQRcode.tryParse('::Not valid LoginQRcode::');
   /// print(notLoginQRcode); // null
   /// ```
-  static LoginQRcode? tryParse(final String url) {
+  static LoginQRcode? tryParse(String url) {
     try {
       return parse(url);
     } on FormatException {
@@ -214,7 +214,7 @@ class LoginQRcode implements Credentials {
   }
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is LoginQRcode && other.serverURL == serverURL && other.username == username && other.password == password;
 
   @override

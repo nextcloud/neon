@@ -21,8 +21,8 @@ class AccountCache<T extends Disposable> implements Disposable {
   ///
   /// Every cache entry with an account no longer in [accounts] is removed and
   /// disposed. This method is in O(N²).
-  void pruneAgainst(final Iterable<Account> accounts) {
-    _cache.removeWhere((final key, final value) {
+  void pruneAgainst(Iterable<Account> accounts) {
+    _cache.removeWhere((key, value) {
       if (accounts.tryFind(key) == null) {
         value.dispose();
         return true;
@@ -35,17 +35,17 @@ class AccountCache<T extends Disposable> implements Disposable {
   /// Removes [account] and its associated value, if present, from the cache.
   ///
   /// If present the value associated with `account` is disposed.
-  void remove(final Account? account) {
+  void remove(Account? account) {
     final removed = _cache.remove(account?.id);
     removed?.dispose();
   }
 
   /// The value for the given [account], or `null` if [account] is not in the cache.
-  T? operator [](final Account account) => _cache[account.id];
+  T? operator [](Account account) => _cache[account.id];
 
   /// Associates the [account] with the given [value].
   ///
   /// If the account was already in the cache, its associated value is changed.
   /// Otherwise the account/value pair is added to the cache.
-  void operator []=(final Account account, final T value) => _cache[account.id] = value;
+  void operator []=(Account account, T value) => _cache[account.id] = value;
 }

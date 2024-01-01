@@ -23,12 +23,12 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   });
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final bloc = accountsBloc.activeUnifiedSearchBloc;
     return ResultBuilder.behaviorSubject(
       subject: bloc.results,
-      builder: (final context, final results) {
+      builder: (context, results) {
         final values = results.data?.entries.toList();
 
         return NeonListView(
@@ -37,7 +37,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
           error: results.error,
           onRefresh: bloc.refresh,
           itemCount: values?.length ?? 0,
-          itemBuilder: (final context, final index) {
+          itemBuilder: (context, index) {
             final snapshot = values![index];
 
             return AnimatedSize(
@@ -57,11 +57,11 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   }
 
   Widget _buildProvider(
-    final BuildContext context,
-    final AccountsBloc accountsBloc,
-    final UnifiedSearchBloc bloc,
-    final core.UnifiedSearchProvider provider,
-    final Result<core.UnifiedSearchResult> result,
+    BuildContext context,
+    AccountsBloc accountsBloc,
+    UnifiedSearchBloc bloc,
+    core.UnifiedSearchProvider provider,
+    Result<core.UnifiedSearchResult> result,
   ) {
     final entries = result.data?.entries ?? <core.UnifiedSearchResultEntry>[];
     return Card(
@@ -109,14 +109,14 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     );
   }
 
-  Widget _buildThumbnail(final BuildContext context, final Account account, final core.UnifiedSearchResultEntry entry) {
+  Widget _buildThumbnail(BuildContext context, Account account, core.UnifiedSearchResultEntry entry) {
     if (entry.thumbnailUrl.isNotEmpty) {
       return NeonUrlImage.withAccount(
         size: const Size.square(largeIconSize),
         url: entry.thumbnailUrl,
         account: account,
         // The thumbnail URL might be set but a 404 is returned because there is no preview available
-        errorBuilder: (final context, final _) => _buildFallbackIcon(context, account, entry),
+        errorBuilder: (context, _) => _buildFallbackIcon(context, account, entry),
       );
     }
 
@@ -124,9 +124,9 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   }
 
   Widget? _buildFallbackIcon(
-    final BuildContext context,
-    final Account account,
-    final core.UnifiedSearchResultEntry entry,
+    BuildContext context,
+    Account account,
+    core.UnifiedSearchResultEntry entry,
   ) {
     if (entry.icon.startsWith('/')) {
       return NeonUrlImage.withAccount(

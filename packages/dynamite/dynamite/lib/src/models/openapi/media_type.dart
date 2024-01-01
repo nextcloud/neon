@@ -5,7 +5,7 @@ import 'package:dynamite/src/models/openapi/schema.dart';
 part 'media_type.g.dart';
 
 abstract class MediaType implements Built<MediaType, MediaTypeBuilder> {
-  factory MediaType([final void Function(MediaTypeBuilder) updates]) = _$MediaType;
+  factory MediaType([void Function(MediaTypeBuilder) updates]) = _$MediaType;
 
   const MediaType._();
 

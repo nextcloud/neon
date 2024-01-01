@@ -6,7 +6,7 @@ extension RelativeTimeFormatDateTime on DateTime {
   /// Format the relative time between this and [to].
   ///
   /// If unspecified [DateTime.now] will be used.
-  String formatRelative([final DateTime? to]) => (to ?? DateTime.now()).difference(toLocal()).formatRelative();
+  String formatRelative([DateTime? to]) => (to ?? DateTime.now()).difference(toLocal()).formatRelative();
 }
 
 /// Extension for formatting difference of a [Duration].

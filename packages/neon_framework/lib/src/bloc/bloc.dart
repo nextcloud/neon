@@ -39,7 +39,7 @@ abstract class InteractiveBloc extends Bloc {
 
   /// Adds an error to the [errors] state.
   @protected
-  void addError(final Object error) {
+  void addError(Object error) {
     _errorsStreamController.add(error);
   }
 
@@ -52,9 +52,9 @@ abstract class InteractiveBloc extends Bloc {
   @protected
   // ignore: avoid_void_async
   void wrapAction(
-    final AsyncCallback action, {
-    final bool disableTimeout = false,
-    final AsyncCallback? refresh,
+    AsyncCallback action, {
+    bool disableTimeout = false,
+    AsyncCallback? refresh,
   }) async {
     try {
       if (disableTimeout) {

@@ -76,7 +76,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
       windowManager.addListener(this);
     }
 
-    WidgetsBinding.instance.addPostFrameCallback((final _) async {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       final localizations = await appLocalizationsFromSystem();
 
       if (!mounted) {
@@ -87,7 +87,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
         await quickActions.setShortcutItems(
           _appImplementations
               .map(
-                (final app) => ShortcutItem(
+                (app) => ShortcutItem(
                   type: 'app_${app.id}',
                   localizedTitle: app.nameFromLocalization(localizations),
                   icon: 'app_${app.id}',
@@ -108,7 +108,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
 
       if (NeonPlatform.instance.canUsePushNotifications) {
         final localNotificationsPlugin = await PushUtils.initLocalNotifications();
-        PushUtils.onPushNotificationReceived = (final accountID) async {
+        PushUtils.onPushNotificationReceived = (accountID) async {
           final account = _accountsBloc.accounts.value.tryFind(accountID);
           if (account == null) {
             return;
@@ -123,7 +123,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
 
           await _accountsBloc.getAppsBlocFor(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
         };
-        PushUtils.onLocalNotificationClicked = (final pushNotificationWithAccountID) async {
+        PushUtils.onLocalNotificationClicked = (pushNotificationWithAccountID) async {
           final account = _accountsBloc.accounts.value.tryFind(pushNotificationWithAccountID.accountID);
           if (account == null) {
             return;
@@ -172,7 +172,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
   @override
   Future<void> onWindowMinimize() async {}
 
-  Future<void> _handleShortcut(final String shortcutType) async {
+  Future<void> _handleShortcut(String shortcutType) async {
     final matches = _appRegex.allMatches(shortcutType);
     final activeAccount = await _accountsBloc.activeAccount.first;
     if (matches.isNotEmpty && activeAccount != null) {
@@ -180,9 +180,9 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
     }
   }
 
-  Future<void> _openAppFromExternal(final Account account, final String id) async {
+  Future<void> _openAppFromExternal(Account account, String id) async {
     _accountsBloc.getAppsBlocFor(account).setActiveApp(id);
-    _navigatorKey.currentState!.popUntil((final route) => route.settings.name == 'home');
+    _navigatorKey.currentState!.popUntil((route) => route.settings.name == 'home');
   }
 
   @override
@@ -196,18 +196,18 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
   }
 
   @override
-  Widget build(final BuildContext context) => DynamicColorBuilder(
-        builder: (final deviceThemeLight, final deviceThemeDark) => OptionsCollectionBuilder(
+  Widget build(BuildContext context) => DynamicColorBuilder(
+        builder: (deviceThemeLight, deviceThemeDark) => OptionsCollectionBuilder(
           valueListenable: _globalOptions,
-          builder: (final context, final options, final _) => StreamBuilder<Account?>(
+          builder: (context, options, _) => StreamBuilder<Account?>(
             stream: _accountsBloc.activeAccount,
-            builder: (final context, final activeAccountSnapshot) {
+            builder: (context, activeAccountSnapshot) {
               FlutterNativeSplash.remove();
               return ResultBuilder<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data?>.behaviorSubject(
                 subject: activeAccountSnapshot.hasData
                     ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
                     : null,
-                builder: (final context, final capabilitiesSnapshot) {
+                builder: (context, capabilitiesSnapshot) {
                   final appTheme = AppTheme(
                     serverTheme: ServerTheme(
                       nextcloudTheme: capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
@@ -216,19 +216,17 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                     deviceThemeLight: deviceThemeLight,
                     deviceThemeDark: deviceThemeDark,
                     oledAsDark: options.themeOLEDAsDark.value,
-                    appThemes: _appImplementations.map((final a) => a.theme).whereNotNull(),
+                    appThemes: _appImplementations.map((a) => a.theme).whereNotNull(),
                     neonTheme: widget.neonTheme,
                   );
 
                   return MaterialApp.router(
                     localizationsDelegates: [
-                      ..._appImplementations.map((final app) => app.localizationsDelegate),
+                      ..._appImplementations.map((app) => app.localizationsDelegate),
                       ...NeonLocalizations.localizationsDelegates,
                     ],
                     supportedLocales: {
-                      ..._appImplementations
-                          .map((final app) => app.supportedLocales)
-                          .expand((final element) => element),
+                      ..._appImplementations.map((app) => app.supportedLocales).expand((element) => element),
                       ...NeonLocalizations.supportedLocales,
                     },
                     themeMode: options.themeMode.value,

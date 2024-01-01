@@ -16,12 +16,12 @@ import 'package:window_manager/window_manager.dart';
 /// Bloc for managing user statuses.
 sealed class UserStatusesBloc implements Disposable {
   @internal
-  factory UserStatusesBloc(final Account account) => _UserStatusesBloc(account);
+  factory UserStatusesBloc(Account account) => _UserStatusesBloc(account);
 
   /// Load the user status of the user with the [username] on the same server.
   ///
   /// Set [force] to true to load the status even if one has already been loaded.
-  void load(final String username, {final bool force = false});
+  void load(String username, {bool force = false});
 
   /// All user status mapped by username.
   BehaviorSubject<Map<String, Result<user_status.$PublicInterface>>> get statuses;
@@ -50,11 +50,11 @@ class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
 
   @override
   Future<void> refresh() async {
-    await Future.wait(statuses.value.keys.map((final username) => load(username, force: true)));
+    await Future.wait(statuses.value.keys.map((username) => load(username, force: true)));
   }
 
   @override
-  Future<void> load(final String username, {final bool force = false}) async {
+  Future<void> load(String username, {bool force = false}) async {
     if (!force && statuses.value.containsKey(username) && !statuses.value[username]!.hasError) {
       return;
     }
@@ -97,7 +97,7 @@ class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
     }
   }
 
-  void updateStatus(final String username, final Result<user_status.$PublicInterface> result) {
+  void updateStatus(String username, Result<user_status.$PublicInterface> result) {
     statuses.add({
       ...statuses.value,
       username: result,

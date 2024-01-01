@@ -78,7 +78,7 @@ void main() {
 
       final a = Result.success(data);
 
-      String transformer(final int data) => data.toString();
+      String transformer(int data) => data.toString();
 
       expect(a.transform(transformer), equals(Result.success(data.toString())));
     });

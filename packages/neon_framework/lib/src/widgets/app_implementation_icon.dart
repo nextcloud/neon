@@ -55,7 +55,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
   final double? size;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final unreadCount = this.unreadCount ?? 0;
 
     final color = this.color ??

@@ -14,9 +14,9 @@ import 'package:rxdart/rxdart.dart';
 sealed class NextPushBloc implements Disposable {
   @internal
   factory NextPushBloc(
-    final AccountsBloc accountsBloc,
-    final GlobalOptions globalOptions, {
-    final bool disabled = false,
+    AccountsBloc accountsBloc,
+    GlobalOptions globalOptions, {
+    bool disabled = false,
   }) =>
       _NextPushBloc(
         accountsBloc,
@@ -32,7 +32,7 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
   _NextPushBloc(
     this.accountsBloc,
     this.globalOptions, {
-    final bool disabled = false,
+    bool disabled = false,
   }) {
     if (disabled) {
       return;
@@ -41,7 +41,7 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
       globalOptions.pushNotificationsEnabled.stream,
       globalOptions.pushNotificationsDistributor.stream,
       accountsBloc.accounts,
-    ]).debounceTime(const Duration(milliseconds: 100)).listen((final _) async {
+    ]).debounceTime(const Duration(milliseconds: 100)).listen((_) async {
       if (!globalOptions.pushNotificationsEnabled.enabled || !globalOptions.pushNotificationsEnabled.value) {
         return;
       }

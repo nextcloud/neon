@@ -28,19 +28,19 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
 
     bloc = NeonProvider.of<NotificationsBlocInterface>(context) as NotificationsBloc;
 
-    bloc.errors.listen((final error) {
+    bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<notifications.Notification>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<List<notifications.Notification>>.behaviorSubject(
         subject: bloc.notificationsList,
-        builder: (final context, final notifications) => Scaffold(
+        builder: (context, notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
           floatingActionButton: StreamBuilder<int>(
             stream: bloc.unreadCounter,
-            builder: (final context, final snapshot) {
+            builder: (context, snapshot) {
               final unreadCount = snapshot.data ?? 0;
               return FloatingActionButton(
                 onPressed: unreadCount > 0 ? bloc.deleteAllNotifications : null,
@@ -55,14 +55,14 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             error: notifications.error,
             onRefresh: bloc.refresh,
             itemCount: notifications.data?.length,
-            itemBuilder: (final context, final index) => _buildNotification(context, notifications.data![index]),
+            itemBuilder: (context, index) => _buildNotification(context, notifications.data![index]),
           ),
         ),
       );
 
   Widget _buildNotification(
-    final BuildContext context,
-    final notifications.Notification notification,
+    BuildContext context,
+    notifications.Notification notification,
   ) {
     final app = NeonProvider.of<Iterable<AppImplementation>>(context).tryFind(notification.app);
 

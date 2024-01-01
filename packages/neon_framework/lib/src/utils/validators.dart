@@ -6,9 +6,9 @@ import 'package:neon_framework/l10n/localizations.dart';
 /// Set [httpsOnly] if you want to only allow HTTPS URLs.
 /// Returns `null` if the URL is valid or a localized error message if not.
 String? validateHttpUrl(
-  final BuildContext context,
-  final String? input, {
-  final bool httpsOnly = false,
+  BuildContext context,
+  String? input, {
+  bool httpsOnly = false,
 }) {
   if (input == null || input.isEmpty) {
     return NeonLocalizations.of(context).errorInvalidURL;
@@ -31,7 +31,7 @@ String? validateHttpUrl(
 /// Validates that the given [input] is neither null nor empty.
 ///
 /// Returns `null` if not empty or a localized error message if empty.
-String? validateNotEmpty(final BuildContext context, final String? input) {
+String? validateNotEmpty(BuildContext context, String? input) {
   if (input == null || input.isEmpty) {
     return NeonLocalizations.of(context).errorEmptyField;
   }

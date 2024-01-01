@@ -53,18 +53,17 @@ class GlobalOptions extends OptionsCollection {
   final PackageInfo _packageInfo;
 
   late final _distributorsMap = <String, LabelBuilder>{
-    _packageInfo.packageName: (final context) =>
+    _packageInfo.packageName: (context) =>
         NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
-    'com.github.gotify.up': (final context) =>
+    'com.github.gotify.up': (context) =>
         NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorGotifyUP,
-    'eu.siacs.conversations': (final context) =>
+    'eu.siacs.conversations': (context) =>
         NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorConversations,
-    'io.heckel.ntfy': (final context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNtfy,
-    'org.unifiedpush.distributor.fcm': (final context) =>
+    'io.heckel.ntfy': (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNtfy,
+    'org.unifiedpush.distributor.fcm': (context) =>
         NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorFCMUP,
-    unifiedPushNextPushID: (final context) =>
-        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNextPush,
-    'org.unifiedpush.distributor.noprovider2push': (final context) =>
+    unifiedPushNextPushID: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNextPush,
+    'org.unifiedpush.distributor.noprovider2push': (context) =>
         NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
   };
 
@@ -94,10 +93,10 @@ class GlobalOptions extends OptionsCollection {
   /// Updates the available values of [initialAccount].
   ///
   /// If the current `initialAccount` is not supported anymore the option will be reset.
-  void updateAccounts(final List<Account> accounts) {
+  void updateAccounts(List<Account> accounts) {
     initialAccount.values = Map.fromEntries(
       accounts.map(
-        (final account) => MapEntry(account.id, (final context) => account.humanReadableID),
+        (account) => MapEntry(account.id, (context) => account.humanReadableID),
       ),
     );
   }
@@ -106,10 +105,10 @@ class GlobalOptions extends OptionsCollection {
   ///
   /// If the new `distributors` does not contain the currently active one
   /// both [pushNotificationsDistributor] and [pushNotificationsEnabled] will be reset.
-  void updateDistributors(final List<String> distributors) {
+  void updateDistributors(List<String> distributors) {
     pushNotificationsDistributor.values = Map.fromEntries(
       distributors.map(
-        (final distributor) => MapEntry(distributor, _distributorsMap[distributor] ?? (final _) => distributor),
+        (distributor) => MapEntry(distributor, _distributorsMap[distributor] ?? (_) => distributor),
       ),
     );
 
@@ -120,12 +119,12 @@ class GlobalOptions extends OptionsCollection {
   late final themeMode = SelectOption(
     storage: storage,
     key: GlobalOptionKeys.themeMode,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeMode,
+    label: (context) => NeonLocalizations.of(context).globalOptionsThemeMode,
     defaultValue: ThemeMode.system,
     values: {
-      ThemeMode.light: (final context) => NeonLocalizations.of(context).globalOptionsThemeModeLight,
-      ThemeMode.dark: (final context) => NeonLocalizations.of(context).globalOptionsThemeModeDark,
-      ThemeMode.system: (final context) => NeonLocalizations.of(context).globalOptionsThemeModeAutomatic,
+      ThemeMode.light: (context) => NeonLocalizations.of(context).globalOptionsThemeModeLight,
+      ThemeMode.dark: (context) => NeonLocalizations.of(context).globalOptionsThemeModeDark,
+      ThemeMode.system: (context) => NeonLocalizations.of(context).globalOptionsThemeModeAutomatic,
     },
   );
 
@@ -136,7 +135,7 @@ class GlobalOptions extends OptionsCollection {
   late final themeOLEDAsDark = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.themeOLEDAsDark,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeOLEDAsDark,
+    label: (context) => NeonLocalizations.of(context).globalOptionsThemeOLEDAsDark,
     defaultValue: false,
   );
 
@@ -146,7 +145,7 @@ class GlobalOptions extends OptionsCollection {
   late final themeUseNextcloudTheme = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.themeUseNextcloudTheme,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeUseNextcloudTheme,
+    label: (context) => NeonLocalizations.of(context).globalOptionsThemeUseNextcloudTheme,
     defaultValue: true,
   );
 
@@ -157,7 +156,7 @@ class GlobalOptions extends OptionsCollection {
   late final themeCustomBackground = ToggleOption.depend(
     storage: storage,
     key: GlobalOptionKeys.themeCustomBackground,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeCustomBackground,
+    label: (context) => NeonLocalizations.of(context).globalOptionsThemeCustomBackground,
     defaultValue: true,
     enabled: themeUseNextcloudTheme,
   );
@@ -171,7 +170,7 @@ class GlobalOptions extends OptionsCollection {
   late final pushNotificationsEnabled = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.pushNotificationsEnabled,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsPushNotificationsEnabled,
+    label: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsEnabled,
     defaultValue: false,
   );
 
@@ -179,7 +178,7 @@ class GlobalOptions extends OptionsCollection {
   late final pushNotificationsDistributor = SelectOption<String?>.depend(
     storage: storage,
     key: GlobalOptionKeys.pushNotificationsDistributor,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributor,
+    label: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributor,
     defaultValue: null,
     values: {},
     enabled: pushNotificationsEnabled,
@@ -194,7 +193,7 @@ class GlobalOptions extends OptionsCollection {
   late final startupMinimized = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimized,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsStartupMinimized,
+    label: (context) => NeonLocalizations.of(context).globalOptionsStartupMinimized,
     defaultValue: false,
   );
 
@@ -207,7 +206,7 @@ class GlobalOptions extends OptionsCollection {
   late final startupMinimizeInsteadOfExit = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimizeInsteadOfExit,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
+    label: (context) => NeonLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
     defaultValue: false,
   );
 
@@ -218,7 +217,7 @@ class GlobalOptions extends OptionsCollection {
   late final rememberLastUsedAccount = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.rememberLastUsedAccount,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsAccountsRememberLastUsedAccount,
+    label: (context) => NeonLocalizations.of(context).globalOptionsAccountsRememberLastUsedAccount,
     defaultValue: true,
   );
 
@@ -226,7 +225,7 @@ class GlobalOptions extends OptionsCollection {
   late final initialAccount = SelectOption<String?>(
     storage: storage,
     key: GlobalOptionKeys.initialAccount,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsAccountsInitialAccount,
+    label: (context) => NeonLocalizations.of(context).globalOptionsAccountsInitialAccount,
     defaultValue: null,
     values: {},
   );
@@ -234,12 +233,12 @@ class GlobalOptions extends OptionsCollection {
   late final navigationMode = SelectOption(
     storage: storage,
     key: GlobalOptionKeys.navigationMode,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsNavigationMode,
+    label: (context) => NeonLocalizations.of(context).globalOptionsNavigationMode,
     defaultValue: Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
     values: {
-      NavigationMode.drawer: (final context) => NeonLocalizations.of(context).globalOptionsNavigationModeDrawer,
+      NavigationMode.drawer: (context) => NeonLocalizations.of(context).globalOptionsNavigationModeDrawer,
       if (!Platform.isAndroid && !Platform.isIOS)
-        NavigationMode.drawerAlwaysVisible: (final context) =>
+        NavigationMode.drawerAlwaysVisible: (context) =>
             NeonLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
     },
   );

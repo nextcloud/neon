@@ -46,7 +46,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((final error) {
+    widget.bloc.errors.listen((error) {
       handleNotesException(context, error);
     });
 
@@ -58,7 +58,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
     _contentController.addListener(() => _contentStreamController.add(_contentController.text));
     _titleController.addListener(() => _titleStreamController.add(_titleController.text));
 
-    WidgetsBinding.instance.addPostFrameCallback((final _) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(WakelockPlus.enable());
 
       if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
@@ -83,7 +83,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
   }
 
   @override
-  Widget build(final BuildContext context) => BackButtonListener(
+  Widget build(BuildContext context) => BackButtonListener(
         onBackButtonPressed: () async {
           unawaited(WakelockPlus.disable());
 
@@ -129,14 +129,14 @@ class _NotesNotePageState extends State<NotesNotePage> {
               ),
               StreamBuilder(
                 stream: widget.bloc.category,
-                builder: (final context, final categorySnapshot) {
+                builder: (context, categorySnapshot) {
                   final category = categorySnapshot.data ?? '';
 
                   return IconButton(
                     onPressed: () async {
                       final result = await showAdaptiveDialog<String>(
                         context: context,
-                        builder: (final context) => NotesSelectCategoryDialog(
+                        builder: (context) => NotesSelectCategoryDialog(
                           bloc: widget.notesBloc,
                           initialCategory: category,
                         ),
@@ -182,7 +182,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
                     : SingleChildScrollView(
                         child: MarkdownBody(
                           data: _contentController.text,
-                          onTapLink: (final text, final href, final title) async {
+                          onTapLink: (text, href, title) async {
                             if (href != null) {
                               await launchUrlString(
                                 href,

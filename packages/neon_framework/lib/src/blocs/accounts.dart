@@ -28,8 +28,8 @@ const _keyAccounts = 'accounts';
 abstract interface class AccountsBloc implements Disposable {
   @internal
   factory AccountsBloc(
-    final GlobalOptions globalOptions,
-    final Iterable<AppImplementation> allAppImplementations,
+    GlobalOptions globalOptions,
+    Iterable<AppImplementation> allAppImplementations,
   ) =>
       _AccountsBloc(
         globalOptions,
@@ -39,23 +39,23 @@ abstract interface class AccountsBloc implements Disposable {
   /// Logs in the given [account].
   ///
   /// It will also call [setActiveAccount] when no other accounts are registered in [AccountsBloc.accounts].
-  void addAccount(final Account account);
+  void addAccount(Account account);
 
   /// Logs out the given [account].
   ///
   /// If [account] is the current [AccountsBloc.activeAccount] it will automatically activate the first one in [AccountsBloc.accounts].
   /// It is not defined whether listeners of [AccountsBloc.accounts] or [AccountsBloc.activeAccount] are informed first.
-  void removeAccount(final Account account);
+  void removeAccount(Account account);
 
   /// Updates the given [account].
   ///
   /// It triggers an event in both [AccountsBloc.accounts] and [AccountsBloc.activeAccount] to inform all listeners.
-  void updateAccount(final Account account);
+  void updateAccount(Account account);
 
   /// Sets the active [account].
   ///
   /// It triggers an event in [AccountsBloc.activeAccount] to inform all listeners.
-  void setActiveAccount(final Account account);
+  void setActiveAccount(Account account);
 
   /// All registered accounts.
   ///
@@ -79,7 +79,7 @@ abstract interface class AccountsBloc implements Disposable {
   /// The options for the specified [account].
   ///
   /// Use [activeOptions] to get them for the [activeAccount].
-  AccountOptions getOptionsFor(final Account account);
+  AccountOptions getOptionsFor(Account account);
 
   /// The appsBloc for the [activeAccount].
   ///
@@ -89,7 +89,7 @@ abstract interface class AccountsBloc implements Disposable {
   /// The appsBloc for the specified [account].
   ///
   /// Use [activeAppsBloc] to get them for the [activeAccount].
-  AppsBloc getAppsBlocFor(final Account account);
+  AppsBloc getAppsBlocFor(Account account);
 
   /// The capabilitiesBloc for the [activeAccount].
   ///
@@ -99,7 +99,7 @@ abstract interface class AccountsBloc implements Disposable {
   /// The capabilitiesBloc for the specified [account].
   ///
   /// Use [activeCapabilitiesBloc] to get them for the [activeAccount].
-  CapabilitiesBloc getCapabilitiesBlocFor(final Account account);
+  CapabilitiesBloc getCapabilitiesBlocFor(Account account);
 
   /// The userDetailsBloc for the [activeAccount].
   ///
@@ -109,7 +109,7 @@ abstract interface class AccountsBloc implements Disposable {
   /// The userDetailsBloc for the specified [account].
   ///
   /// Use [activeUserDetailsBloc] to get them for the [activeAccount].
-  UserDetailsBloc getUserDetailsBlocFor(final Account account);
+  UserDetailsBloc getUserDetailsBlocFor(Account account);
 
   /// The userStatusBloc for the [activeAccount].
   ///
@@ -119,7 +119,7 @@ abstract interface class AccountsBloc implements Disposable {
   /// The userStatusBloc for the specified [account].
   ///
   /// Use [activeUserStatusesBloc] to get them for the [activeAccount].
-  UserStatusesBloc getUserStatusesBlocFor(final Account account);
+  UserStatusesBloc getUserStatusesBlocFor(Account account);
 
   /// The UnifiedSearchBloc for the [activeAccount].
   ///
@@ -129,7 +129,7 @@ abstract interface class AccountsBloc implements Disposable {
   /// The UnifiedSearchBloc for the specified [account].
   ///
   /// Use [activeUnifiedSearchBloc] to get them for the [activeAccount].
-  UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account);
+  UnifiedSearchBloc getUnifiedSearchBlocFor(Account account);
 }
 
 /// Implementation of [AccountsBloc].
@@ -146,11 +146,11 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
     accounts
       ..add(loadAccounts())
-      ..listen((final as) async {
+      ..listen((as) async {
         globalOptions.updateAccounts(as);
         await saveAccounts(as);
       });
-    activeAccount.listen((final aa) async {
+    activeAccount.listen((aa) async {
       if (aa != null) {
         await lastUsedStorage.setString(aa.id);
       } else {
@@ -179,7 +179,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
       }
     }
 
-    accounts.listen((final accounts) {
+    accounts.listen((accounts) {
       accountsOptions.pruneAgainst(accounts);
       appsBlocs.pruneAgainst(accounts);
       capabilitiesBlocs.pruneAgainst(accounts);
@@ -221,7 +221,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   BehaviorSubject<Account?> activeAccount = BehaviorSubject();
 
   @override
-  void addAccount(final Account account) {
+  void addAccount(Account account) {
     if (activeAccount.valueOrNull == null) {
       setActiveAccount(account);
     }
@@ -229,8 +229,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   }
 
   @override
-  void removeAccount(final Account account) {
-    accounts.add(accounts.value..removeWhere((final a) => a.id == account.id));
+  void removeAccount(Account account) {
+    accounts.add(accounts.value..removeWhere((a) => a.id == account.id));
 
     final as = accounts.value;
     final aa = activeAccount.valueOrNull;
@@ -253,16 +253,16 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   }
 
   @override
-  void setActiveAccount(final Account account) {
+  void setActiveAccount(Account account) {
     if (activeAccount.valueOrNull != account) {
       activeAccount.add(account);
     }
   }
 
   @override
-  void updateAccount(final Account account) {
+  void updateAccount(Account account) {
     final as = accounts.value;
-    final index = as.indexWhere((final a) => a.id == account.id);
+    final index = as.indexWhere((a) => a.id == account.id);
     if (index == -1) {
       // TODO: Figure out how we can remove the old account without potentially race conditioning
       as.add(account);
@@ -299,7 +299,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   AccountOptions get activeOptions => getOptionsFor(aa);
 
   @override
-  AccountOptions getOptionsFor(final Account account) => accountsOptions[account] ??= AccountOptions(
+  AccountOptions getOptionsFor(Account account) => accountsOptions[account] ??= AccountOptions(
         AppStorage(StorageKeys.accounts, account.id),
         getAppsBlocFor(account),
       );
@@ -308,7 +308,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   AppsBloc get activeAppsBloc => getAppsBlocFor(aa);
 
   @override
-  AppsBloc getAppsBlocFor(final Account account) => appsBlocs[account] ??= AppsBloc(
+  AppsBloc getAppsBlocFor(Account account) => appsBlocs[account] ??= AppsBloc(
         getCapabilitiesBlocFor(account),
         this,
         account,
@@ -319,28 +319,25 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   CapabilitiesBloc get activeCapabilitiesBloc => getCapabilitiesBlocFor(aa);
 
   @override
-  CapabilitiesBloc getCapabilitiesBlocFor(final Account account) =>
-      capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
+  CapabilitiesBloc getCapabilitiesBlocFor(Account account) => capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
 
   @override
   UserDetailsBloc get activeUserDetailsBloc => getUserDetailsBlocFor(aa);
 
   @override
-  UserDetailsBloc getUserDetailsBlocFor(final Account account) =>
-      userDetailsBlocs[account] ??= UserDetailsBloc(account);
+  UserDetailsBloc getUserDetailsBlocFor(Account account) => userDetailsBlocs[account] ??= UserDetailsBloc(account);
 
   @override
   UserStatusesBloc get activeUserStatusesBloc => getUserStatusesBlocFor(aa);
 
   @override
-  UserStatusesBloc getUserStatusesBlocFor(final Account account) =>
-      userStatusesBlocs[account] ??= UserStatusesBloc(account);
+  UserStatusesBloc getUserStatusesBlocFor(Account account) => userStatusesBlocs[account] ??= UserStatusesBloc(account);
 
   @override
   UnifiedSearchBloc get activeUnifiedSearchBloc => getUnifiedSearchBlocFor(aa);
 
   @override
-  UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) => unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
+  UnifiedSearchBloc getUnifiedSearchBlocFor(Account account) => unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
         getAppsBlocFor(account),
         account,
       );
@@ -355,16 +352,16 @@ List<Account> loadAccounts() {
   if (storage.containsKey(_keyAccounts)) {
     return storage
         .getStringList(_keyAccounts)!
-        .map((final a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
+        .map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
         .toList();
   }
   return [];
 }
 
 /// Saves the given [accounts] to the storage.
-Future<void> saveAccounts(final List<Account> accounts) async {
+Future<void> saveAccounts(List<Account> accounts) async {
   const storage = AppStorage(StorageKeys.accounts);
-  final values = accounts.map((final a) => json.encode(a.toJson())).toList();
+  final values = accounts.map((a) => json.encode(a.toJson())).toList();
 
   await storage.setStringList(_keyAccounts, values);
 }

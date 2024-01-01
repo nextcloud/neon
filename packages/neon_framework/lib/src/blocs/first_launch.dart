@@ -10,7 +10,7 @@ import 'package:rxdart/rxdart.dart';
 sealed class FirstLaunchBloc implements Disposable {
   @internal
   factory FirstLaunchBloc({
-    final bool disabled = false,
+    bool disabled = false,
   }) =>
       _FirstLaunchBloc(disabled: disabled);
 
@@ -21,7 +21,7 @@ sealed class FirstLaunchBloc implements Disposable {
 @immutable
 class _FirstLaunchBloc extends Bloc implements FirstLaunchBloc {
   _FirstLaunchBloc({
-    final bool disabled = false,
+    bool disabled = false,
   }) {
     const storage = SingleValueStorage(StorageKeys.firstLaunch);
 

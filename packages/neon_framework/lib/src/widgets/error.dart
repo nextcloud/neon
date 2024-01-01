@@ -67,7 +67,7 @@ class NeonError extends StatelessWidget {
   final NeonErrorType type;
 
   /// Shows a [SnackBar] popup for the [error].
-  static void showSnackbar(final BuildContext context, final Object? error) {
+  static void showSnackbar(BuildContext context, Object? error) {
     final details = getDetails(error);
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -84,7 +84,7 @@ class NeonError extends StatelessWidget {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     if (error == null) {
       return const SizedBox();
     }
@@ -158,56 +158,56 @@ class NeonError extends StatelessWidget {
 
   /// Gets the details for a given [error].
   @internal
-  static NeonExceptionDetails getDetails(final Object? error) {
+  static NeonExceptionDetails getDetails(Object? error) {
     switch (error) {
       case String():
         return NeonExceptionDetails(
-          getText: (final _) => error,
+          getText: (_) => error,
         );
       case NeonException():
         return error.details;
       case DynamiteApiException():
         if (error.statusCode == 401) {
           return NeonExceptionDetails(
-            getText: (final context) => NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
+            getText: (context) => NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
             isUnauthorized: true,
           );
         }
         if (error.statusCode >= 500 && error.statusCode <= 599) {
           return NeonExceptionDetails(
-            getText: (final context) => NeonLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
+            getText: (context) => NeonLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
           );
         }
       case SocketException():
         return NeonExceptionDetails(
-          getText: (final context) => error.address != null
+          getText: (context) => error.address != null
               ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.address!.host)
               : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case ClientException():
         return NeonExceptionDetails(
-          getText: (final context) => error.uri != null
+          getText: (context) => error.uri != null
               ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
               : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case HttpException():
         return NeonExceptionDetails(
-          getText: (final context) => error.uri != null
+          getText: (context) => error.uri != null
               ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
               : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case TimeoutException():
         return NeonExceptionDetails(
-          getText: (final context) => NeonLocalizations.of(context).errorConnectionTimedOut,
+          getText: (context) => NeonLocalizations.of(context).errorConnectionTimedOut,
         );
     }
 
     return NeonExceptionDetails(
-      getText: (final context) => NeonLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
+      getText: (context) => NeonLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
     );
   }
 
-  static void _openLoginPage(final BuildContext context) {
+  static void _openLoginPage(BuildContext context) {
     unawaited(
       LoginCheckServerStatusRoute(
         serverUrl: NeonProvider.of<AccountsBloc>(context).activeAccount.value!.serverURL,

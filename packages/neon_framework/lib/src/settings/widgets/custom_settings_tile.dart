@@ -23,7 +23,7 @@ class CustomSettingsTile extends SettingsTile {
   final FutureOr<void> Function()? onTap;
 
   @override
-  Widget build(final BuildContext context) => AdaptiveListTile(
+  Widget build(BuildContext context) => AdaptiveListTile(
         title: title,
         subtitle: subtitle,
         leading: leading,

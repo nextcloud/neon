@@ -9,7 +9,7 @@ import 'package:rxdart/rxdart.dart';
 /// Objects need to be manually disposed.
 class StreamListenable extends ChangeNotifier {
   /// Listenable Stream
-  StreamListenable(final Stream<dynamic> stream) {
+  StreamListenable(Stream<dynamic> stream) {
     if (stream is! BehaviorSubject) {
       notifyListeners();
     }
@@ -20,13 +20,13 @@ class StreamListenable extends ChangeNotifier {
   /// Listenable for multiple Streams.
   ///
   /// Notifies it's listeners on every event emitted by any of the streams.
-  StreamListenable.multiListenable(final Iterable<Stream<dynamic>> streams) {
+  StreamListenable.multiListenable(Iterable<Stream<dynamic>> streams) {
     streams.forEach(_addSubscription);
   }
 
-  void _addSubscription(final Stream<dynamic> stream) {
+  void _addSubscription(Stream<dynamic> stream) {
     _subscriptions.add(
-      stream.asBroadcastStream().listen((final _) {
+      stream.asBroadcastStream().listen((_) {
         notifyListeners();
       }),
     );

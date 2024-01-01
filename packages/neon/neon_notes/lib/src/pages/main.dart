@@ -27,13 +27,13 @@ class _NotesMainPageState extends State<NotesMainPage> {
 
     bloc = NeonProvider.of<NotesBloc>(context);
 
-    bloc.errors.listen((final error) {
+    bloc.errors.listen((error) {
       handleNotesException(context, error);
     });
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final views = [
       NotesView(
         bloc: bloc,
@@ -52,7 +52,7 @@ class _NotesMainPageState extends State<NotesMainPage> {
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _index,
-        onTap: (final index) {
+        onTap: (index) {
           setState(() {
             _index = index;
           });

@@ -24,24 +24,23 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
         subject: bloc.folders,
-        builder: (final context, final folders) => ResultBuilder<List<news.Feed>>.behaviorSubject(
+        builder: (context, folders) => ResultBuilder<List<news.Feed>>.behaviorSubject(
           subject: bloc.feeds,
-          builder: (final context, final feeds) => SortBoxBuilder<FeedsSortProperty, news.Feed>(
+          builder: (context, feeds) => SortBoxBuilder<FeedsSortProperty, news.Feed>(
             sortBox: feedsSortBox,
             sortProperty: bloc.options.feedsSortPropertyOption,
             sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
-            input: folders.hasData
-                ? feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList()
-                : null,
-            builder: (final context, final sorted) => NeonListView(
+            input:
+                folders.hasData ? feeds.data?.where((f) => folderID == null || f.folderId == folderID).toList() : null,
+            builder: (context, sorted) => NeonListView(
               scrollKey: 'news-feeds',
               isLoading: feeds.isLoading || folders.isLoading,
               error: feeds.error ?? folders.error,
               onRefresh: bloc.refresh,
               itemCount: sorted.length,
-              itemBuilder: (final context, final index) => _buildFeed(
+              itemBuilder: (context, index) => _buildFeed(
                 context,
                 sorted[index],
                 folders.requireData,
@@ -52,9 +51,9 @@ class NewsFeedsView extends StatelessWidget {
       );
 
   Widget _buildFeed(
-    final BuildContext context,
-    final news.Feed feed,
-    final List<news.Folder> folders,
+    BuildContext context,
+    news.Feed feed,
+    List<news.Folder> folders,
   ) =>
       ListTile(
         title: Text(
@@ -74,7 +73,7 @@ class NewsFeedsView extends StatelessWidget {
               IconButton(
                 onPressed: () async => showAdaptiveDialog<void>(
                   context: context,
-                  builder: (final context) => NewsFeedUpdateErrorDialog(
+                  builder: (context) => NewsFeedUpdateErrorDialog(
                     feed: feed,
                   ),
                 ),
@@ -88,7 +87,7 @@ class NewsFeedsView extends StatelessWidget {
                 ),
               ),
             PopupMenuButton<NewsFeedAction>(
-              itemBuilder: (final context) => [
+              itemBuilder: (context) => [
                 PopupMenuItem(
                   value: NewsFeedAction.showURL,
                   child: Text(NewsLocalizations.of(context).feedShowURL),
@@ -107,12 +106,12 @@ class NewsFeedsView extends StatelessWidget {
                     child: Text(NewsLocalizations.of(context).actionMove),
                   ),
               ],
-              onSelected: (final action) async {
+              onSelected: (action) async {
                 switch (action) {
                   case NewsFeedAction.showURL:
                     await showAdaptiveDialog<void>(
                       context: context,
-                      builder: (final context) => NewsFeedShowURLDialog(
+                      builder: (context) => NewsFeedShowURLDialog(
                         feed: feed,
                       ),
                     );
@@ -143,7 +142,7 @@ class NewsFeedsView extends StatelessWidget {
                     }
                     final result = await showAdaptiveDialog<int?>(
                       context: context,
-                      builder: (final context) => NewsMoveFeedDialog(
+                      builder: (context) => NewsMoveFeedDialog(
                         folders: folders,
                         feed: feed,
                       ),
@@ -164,7 +163,7 @@ class NewsFeedsView extends StatelessWidget {
         onTap: () async {
           await Navigator.of(context).push(
             MaterialPageRoute<void>(
-              builder: (final context) => NewsFeedPage(
+              builder: (context) => NewsFeedPage(
                 bloc: bloc,
                 feed: feed,
               ),

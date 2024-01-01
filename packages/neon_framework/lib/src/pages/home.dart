@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
     _appsBloc = _accountsBloc.getAppsBlocFor(widget.account);
 
-    _versionCheckSubscription = _appsBloc.appVersionChecks.listen((final values) {
+    _versionCheckSubscription = _appsBloc.appVersionChecks.listen((values) {
       if (!mounted) {
         return;
       }
@@ -97,19 +97,19 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     const drawer = NeonDrawer();
     const appBar = NeonAppBar();
 
     final appView = StreamBuilder(
       stream: _accountsBloc.getUnifiedSearchBlocFor(widget.account).enabled,
-      builder: (final context, final unifiedSearchEnabledSnapshot) {
+      builder: (context, unifiedSearchEnabledSnapshot) {
         if (unifiedSearchEnabledSnapshot.data ?? false) {
           return const NeonUnifiedSearchResults();
         }
         return ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
           subject: _appsBloc.appImplementations,
-          builder: (final context, final appImplementations) {
+          builder: (context, appImplementations) {
             if (!appImplementations.hasData) {
               return const SizedBox();
             }
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
 
             return StreamBuilder(
               stream: _appsBloc.activeApp,
-              builder: (final context, final activeAppIDSnapshot) {
+              builder: (context, activeAppIDSnapshot) {
                 if (!activeAppIDSnapshot.hasData) {
                   return const SizedBox();
                 }
@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
 
     final body = ValueListenableBuilder(
       valueListenable: _globalOptions.navigationMode,
-      builder: (final context, final navigationMode, final _) {
+      builder: (context, navigationMode, _) {
         final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
 
         final body = Scaffold(

@@ -15,26 +15,26 @@ class SettingsList extends StatelessWidget {
   final List<Widget> categories;
   final String? initialCategory;
 
-  int? _getIndex(final String? initialCategory) {
+  int? _getIndex(String? initialCategory) {
     if (initialCategory == null) {
       return null;
     }
 
     final key = Key(initialCategory);
-    final index = categories.indexWhere((final category) => category.key == key);
+    final index = categories.indexWhere((category) => category.key == key);
 
     return index != -1 ? index : null;
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final hasPadding = !isCupertino(context);
 
     return ScrollablePositionedList.builder(
       padding: hasPadding ? const EdgeInsets.symmetric(horizontal: 20) : null,
       itemCount: categories.length,
       initialScrollIndex: _getIndex(initialCategory) ?? 0,
-      itemBuilder: (final context, final index) => categories[index],
+      itemBuilder: (context, index) => categories[index],
     );
   }
 }

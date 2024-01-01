@@ -11,13 +11,13 @@ import 'package:rxdart/rxdart.dart';
 sealed class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
   @internal
   factory NotificationsBloc(
-    final NotificationsOptions options,
-    final Account account,
+    NotificationsOptions options,
+    Account account,
   ) =>
       _NotificationsBloc(options, account);
 
   @override
-  void deleteNotification(final int id);
+  void deleteNotification(int id);
 
   void deleteAllNotifications();
 
@@ -31,7 +31,7 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
     this.options,
     this.account,
   ) {
-    notificationsList.listen((final result) {
+    notificationsList.listen((result) {
       if (result.hasData) {
         unreadCounter.add(result.requireData.length);
       }
@@ -68,7 +68,7 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
       'notifications-notifications',
       notificationsList,
       account.client.notifications.endpoint.listNotificationsRaw(),
-      (final response) => response.body.ocs.data.toList(),
+      (response) => response.body.ocs.data.toList(),
     );
   }
 
@@ -78,7 +78,7 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   }
 
   @override
-  void deleteNotification(final int id) {
+  void deleteNotification(int id) {
     wrapAction(() async => account.client.notifications.endpoint.deleteNotification(id: id));
   }
 }

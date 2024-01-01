@@ -9,7 +9,7 @@ abstract interface class Exportable {
   MapEntry<String, Object?> export();
 
   /// Imports [data] from an export.
-  FutureOr<void> import(final Map<String, Object?> data);
+  FutureOr<void> import(Map<String, Object?> data);
 }
 
 /// Serialization helpers for a collection of [Option]s.
@@ -26,9 +26,9 @@ extension SerializeOptions on Iterable<Option<dynamic>> {
   }
 
   /// Deserializes [data] and updates the [Option]s.
-  void deserialize(final Map<String, Object?> data) {
+  void deserialize(Map<String, Object?> data) {
     for (final entry in data.entries) {
-      final option = firstWhereOrNull((final option) => option.key.value == entry.key);
+      final option = firstWhereOrNull((option) => option.key.value == entry.key);
 
       if (entry.value != null) {
         option?.load(entry.value);

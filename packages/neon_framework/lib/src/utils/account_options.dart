@@ -14,14 +14,14 @@ class AccountOptions extends OptionsCollection {
     super.storage,
     this._appsBloc,
   ) {
-    _appsBloc.appImplementations.listen((final result) {
+    _appsBloc.appImplementations.listen((result) {
       if (!result.hasData) {
         return;
       }
 
       initialApp.values = {
-        null: (final context) => NeonLocalizations.of(context).accountOptionsAutomatic,
-      }..addEntries(result.requireData.map((final app) => MapEntry(app.id, app.name)));
+        null: (context) => NeonLocalizations.of(context).accountOptionsAutomatic,
+      }..addEntries(result.requireData.map((app) => MapEntry(app.id, app.name)));
     });
   }
 
@@ -38,7 +38,7 @@ class AccountOptions extends OptionsCollection {
   late final initialApp = SelectOption<String?>(
     storage: storage,
     key: AccountOptionKeys.initialApp,
-    label: (final context) => NeonLocalizations.of(context).accountOptionsInitialApp,
+    label: (context) => NeonLocalizations.of(context).accountOptionsInitialApp,
     defaultValue: null,
     values: {},
   );

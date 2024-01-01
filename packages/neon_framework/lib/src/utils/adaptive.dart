@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// Returns whether the current platform is a Cupertino one.
 ///
 /// This is true for both `TargetPlatform.iOS` and `TargetPlatform.macOS`.
-bool isCupertino(final BuildContext context) {
+bool isCupertino(BuildContext context) {
   final theme = Theme.of(context);
 
   switch (theme.platform) {

@@ -1,6 +1,6 @@
 String toDartName(
-  final String name, {
-  final bool uppercaseFirstCharacter = false,
+  String name, {
+  bool uppercaseFirstCharacter = false,
 }) {
   var result = '';
   var upperCase = uppercaseFirstCharacter;
@@ -119,11 +119,11 @@ const _reservedNames = [
   'with',
 ];
 
-bool _isNonAlphaNumericString(final String input) => !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);
+bool _isNonAlphaNumericString(String input) => !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);
 
-String toFieldName(final String dartName, final String type) => dartName == type ? '\$$dartName' : dartName;
+String toFieldName(String dartName, String type) => dartName == type ? '\$$dartName' : dartName;
 
-String toCamelCase(final String name) {
+String toCamelCase(String name) {
   var result = '';
   var upperCase = false;
   var firstCharacter = true;

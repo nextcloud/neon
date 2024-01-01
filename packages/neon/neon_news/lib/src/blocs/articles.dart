@@ -23,11 +23,11 @@ enum ListType {
 sealed class NewsArticlesBloc implements InteractiveBloc {
   @internal
   factory NewsArticlesBloc(
-    final NewsBloc newsBloc,
-    final NewsOptions options,
-    final Account account, {
-    final int? id,
-    final ListType? listType,
+    NewsBloc newsBloc,
+    NewsOptions options,
+    Account account, {
+    int? id,
+    ListType? listType,
   }) =>
       _NewsArticlesBloc(
         newsBloc,
@@ -37,15 +37,15 @@ sealed class NewsArticlesBloc implements InteractiveBloc {
         listType: listType,
       );
 
-  void setFilterType(final FilterType type);
+  void setFilterType(FilterType type);
 
-  void markArticleAsRead(final news.Article article);
+  void markArticleAsRead(news.Article article);
 
-  void markArticleAsUnread(final news.Article article);
+  void markArticleAsUnread(news.Article article);
 
-  void starArticle(final news.Article article);
+  void starArticle(news.Article article);
 
-  void unstarArticle(final news.Article article);
+  void unstarArticle(news.Article article);
 
   BehaviorSubject<Result<List<news.Article>>> get articles;
 
@@ -153,32 +153,32 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
       ),
-      (final response) => response.body.items.toList(),
+      (response) => response.body.items.toList(),
     );
   }
 
   @override
-  void markArticleAsRead(final news.Article article) {
+  void markArticleAsRead(news.Article article) {
     wrapAction(() async => account.client.news.markArticleAsRead(itemId: article.id));
   }
 
   @override
-  void markArticleAsUnread(final news.Article article) {
+  void markArticleAsUnread(news.Article article) {
     wrapAction(() async => account.client.news.markArticleAsUnread(itemId: article.id));
   }
 
   @override
-  void setFilterType(final FilterType type) {
+  void setFilterType(FilterType type) {
     wrapAction(() async => filterType.add(type));
   }
 
   @override
-  void starArticle(final news.Article article) {
+  void starArticle(news.Article article) {
     wrapAction(() async => account.client.news.starArticle(itemId: article.id));
   }
 
   @override
-  void unstarArticle(final news.Article article) {
+  void unstarArticle(news.Article article) {
     wrapAction(() async => account.client.news.unstarArticle(itemId: article.id));
   }
 }

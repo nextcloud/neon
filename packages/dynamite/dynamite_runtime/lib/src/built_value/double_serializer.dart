@@ -16,9 +16,9 @@ class DynamiteDoubleSerializer implements PrimitiveSerializer<double> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final double aDouble, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    double aDouble, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     if (aDouble.isNaN) {
       return _nan;
@@ -31,9 +31,9 @@ class DynamiteDoubleSerializer implements PrimitiveSerializer<double> {
 
   @override
   double deserialize(
-    final Serializers serializers,
-    final Object serialized, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     if (serialized == _nan) {
       return double.nan;

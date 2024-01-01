@@ -33,8 +33,8 @@ class NeonDialogTheme {
   /// Creates a copy of this object but with the given fields replaced with the
   /// new values.
   NeonDialogTheme copyWith({
-    final BoxConstraints? constraints,
-    final EdgeInsets? padding,
+    BoxConstraints? constraints,
+    EdgeInsets? padding,
   }) =>
       NeonDialogTheme(
         constraints: constraints ?? this.constraints,
@@ -42,13 +42,13 @@ class NeonDialogTheme {
       );
 
   /// The data from the closest [NeonDialogTheme] instance given the build context.
-  static NeonDialogTheme of(final BuildContext context) => Theme.of(context).extension<NeonTheme>()!.dialogTheme;
+  static NeonDialogTheme of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.dialogTheme;
 
   /// Linearly interpolate between two [NeonDialogTheme]s.
   ///
   /// {@macro dart.ui.shadow.lerp}
   // ignore: prefer_constructors_over_static_methods
-  static NeonDialogTheme lerp(final NeonDialogTheme a, final NeonDialogTheme b, final double t) {
+  static NeonDialogTheme lerp(NeonDialogTheme a, NeonDialogTheme b, double t) {
     if (identical(a, b)) {
       return a;
     }
@@ -65,7 +65,7 @@ class NeonDialogTheme {
       ]);
 
   @override
-  bool operator ==(final Object other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }

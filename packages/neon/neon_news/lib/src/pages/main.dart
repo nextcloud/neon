@@ -27,13 +27,13 @@ class _NewsMainPageState extends State<NewsMainPage> {
     super.initState();
     bloc = NeonProvider.of<NewsBloc>(context);
 
-    bloc.errors.listen((final error) {
+    bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final views = [
       NewsArticlesView(
         bloc: bloc.mainArticlesBloc,
@@ -57,7 +57,7 @@ class _NewsMainPageState extends State<NewsMainPage> {
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _index,
-        onTap: (final index) {
+        onTap: (index) {
           setState(() {
             _index = index;
           });

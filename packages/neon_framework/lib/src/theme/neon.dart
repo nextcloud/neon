@@ -34,9 +34,9 @@ class NeonTheme extends ThemeExtension<NeonTheme> {
 
   @override
   NeonTheme copyWith({
-    final Branding? branding,
-    final NeonColorScheme? colorScheme,
-    final NeonDialogTheme? dialogTheme,
+    Branding? branding,
+    NeonColorScheme? colorScheme,
+    NeonDialogTheme? dialogTheme,
   }) =>
       NeonTheme(
         branding: branding ?? this.branding,
@@ -45,7 +45,7 @@ class NeonTheme extends ThemeExtension<NeonTheme> {
       );
 
   @override
-  NeonTheme lerp(final NeonTheme? other, final double t) {
+  NeonTheme lerp(NeonTheme? other, double t) {
     if (other is! NeonTheme) {
       return this;
     }
@@ -64,7 +64,7 @@ class NeonTheme extends ThemeExtension<NeonTheme> {
       ]);
 
   @override
-  bool operator ==(final Object other) {
+  bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }

@@ -62,7 +62,7 @@ class DynamiteRawResponse<B, H> {
   /// After [future] completes the deserialized response can be accessed
   /// through [response].
   DynamiteRawResponse({
-    required final Future<HttpClientResponse> response,
+    required Future<HttpClientResponse> response,
     required this.bodyType,
     required this.headersType,
     required this.serializers,
@@ -72,7 +72,7 @@ class DynamiteRawResponse<B, H> {
 
     // ignore: discarded_futures
     response.then(
-      (final response) async {
+      (response) async {
         _rawHeaders = response.responseHeaders;
         final headers = deserializeHeaders<H>(_rawHeaders, serializers, headersType);
 
@@ -100,10 +100,10 @@ class DynamiteRawResponse<B, H> {
   /// The [future] must not be awaited and the  deserialized response can be
   /// accessed immediately through [response].
   factory DynamiteRawResponse.fromJson(
-    final Map<String, Object?> json, {
-    required final Serializers serializers,
-    final FullType? bodyType,
-    final FullType? headersType,
+    Map<String, Object?> json, {
+    required Serializers serializers,
+    FullType? bodyType,
+    FullType? headersType,
   }) {
     final statusCode = json['statusCode']! as int;
     final body = deserializeBody<B>(json['body'], serializers, bodyType);
@@ -181,7 +181,7 @@ class DynamiteRawResponse<B, H> {
   ///
   /// Most efficient if the [serialized] value is already the correct type.
   /// The [bodyType] should represent the return type [B].
-  static B? deserializeBody<B>(final Object? serialized, final Serializers serializers, final FullType? bodyType) {
+  static B? deserializeBody<B>(Object? serialized, Serializers serializers, FullType? bodyType) {
     // If we use the more efficient helpers from BytesStreamExtension the serialized value can already be correct.
     if (serialized is B) {
       return serialized;
@@ -195,7 +195,7 @@ class DynamiteRawResponse<B, H> {
   }
 
   /// Serializes the body.
-  Object? serializeBody(final B? object) {
+  Object? serializeBody(B? object) {
     if (bodyType != null && object != null) {
       return serializers.serialize(object, specifiedType: bodyType!);
     }
@@ -208,9 +208,9 @@ class DynamiteRawResponse<B, H> {
   /// Most efficient if the [serialized] value is already the correct type.
   /// The [headersType] should represent the return type [H].
   static H? deserializeHeaders<H>(
-    final Object? serialized,
-    final Serializers serializers,
-    final FullType? headersType,
+    Object? serialized,
+    Serializers serializers,
+    FullType? headersType,
   ) {
     // If we use the more efficient helpers from BytesStreamExtension the serialized value can already be correct.
     if (serialized is H) {
@@ -225,7 +225,7 @@ class DynamiteRawResponse<B, H> {
   }
 
   /// Serializes the headers.
-  Object? serializeHeaders(final H? object) {
+  Object? serializeHeaders(H? object) {
     if (headersType != null && object != null) {
       return serializers.serialize(object, specifiedType: headersType!);
     }
@@ -267,7 +267,7 @@ class DynamiteApiException implements Exception {
   /// Creates a new Exception from the given [response].
   ///
   /// Tries to decode the `response` into a string.
-  static Future<DynamiteApiException> fromResponse(final HttpClientResponse response) async {
+  static Future<DynamiteApiException> fromResponse(HttpClientResponse response) async {
     String body;
     try {
       body = await response.string;
@@ -375,10 +375,10 @@ class DynamiteClient {
   /// If [httpClient] is not provided a default one will be created.
   /// The [baseURL] will be normalized, removing any trailing `/`.
   DynamiteClient(
-    final Uri baseURL, {
+    Uri baseURL, {
     this.baseHeaders,
-    final String? userAgent,
-    final HttpClient? httpClient,
+    String? userAgent,
+    HttpClient? httpClient,
     this.cookieJar,
     this.authentications = const [],
   })  : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent,
@@ -414,11 +414,11 @@ class DynamiteClient {
   /// The [path] is resolved against the path of the [baseURL].
   /// All [baseHeaders] are added to the request.
   Future<HttpClientResponse> executeRequest(
-    final String method,
-    final String path,
-    final Map<String, String> headers,
-    final Uint8List? body,
-    final Set<int>? validStatuses,
+    String method,
+    String path,
+    Map<String, String> headers,
+    Uint8List? body,
+    Set<int>? validStatuses,
   ) {
     final uri = Uri.parse('$baseURL$path');
 
@@ -433,11 +433,11 @@ class DynamiteClient {
 
   /// Executes a HTTP request against give full [uri].
   Future<HttpClientResponse> executeRawRequest(
-    final String method,
-    final Uri uri,
-    final Map<String, String> headers,
-    final Uint8List? body,
-    final Set<int>? validStatuses,
+    String method,
+    Uri uri,
+    Map<String, String> headers,
+    Uint8List? body,
+    Set<int>? validStatuses,
   ) async {
     final request = await httpClient.openUrl(method, uri);
     request.headers.addAll(headers);

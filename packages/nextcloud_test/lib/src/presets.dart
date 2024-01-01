@@ -13,13 +13,13 @@ final Map<String, List<Version>> _presets = () {
   final presetGroups = Directory('../nextcloud_test/docker/presets')
       .listSync(followLinks: false)
       .whereType<Directory>()
-      .map((final d) => PathUri.parse(d.path).name);
+      .map((d) => PathUri.parse(d.path).name);
 
   for (final presetGroup in presetGroups) {
     final presetVersions = Directory('../nextcloud_test/docker/presets/$presetGroup')
         .listSync(followLinks: false)
         .whereType<File>()
-        .map((final f) => Version.parse(PathUri.parse(f.path).name));
+        .map((f) => Version.parse(PathUri.parse(f.path).name));
 
     presets[presetGroup] = presetVersions.toList();
   }
@@ -29,11 +29,11 @@ final Map<String, List<Version>> _presets = () {
 
 /// All tests for apps that depend on the server version must be wrapped with this method and pass along the preset.
 void presets(
-  final String presetGroup,
-  final String app,
-  final dynamic Function(Preset preset) body, {
-  final int? retry,
-  final Timeout? timeout,
+  String presetGroup,
+  String app,
+  dynamic Function(Preset preset) body, {
+  int? retry,
+  Timeout? timeout,
 }) {
   if (!_presets.containsKey(presetGroup)) {
     throw Exception('Unknown preset type "$presetGroup"');

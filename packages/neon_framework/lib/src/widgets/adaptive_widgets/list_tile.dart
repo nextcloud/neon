@@ -85,7 +85,7 @@ class AdaptiveListTile extends StatelessWidget {
   final bool enabled;
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     switch (theme.platform) {

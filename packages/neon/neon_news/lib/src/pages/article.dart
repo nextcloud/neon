@@ -41,11 +41,11 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((final error) {
+    widget.bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((final _) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(WakelockPlus.enable());
     });
 
@@ -56,7 +56,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
         // ignore: discarded_futures
         ..setNavigationDelegate(
           NavigationDelegate(
-            onPageFinished: (final _) async {
+            onPageFinished: (_) async {
               await _startMarkAsReadTimer();
             },
           ),
@@ -105,7 +105,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   }
 
   @override
-  Widget build(final BuildContext context) => BackButtonListener(
+  Widget build(BuildContext context) => BackButtonListener(
         onBackButtonPressed: () async {
           if (_webviewController != null && await _webviewController!.canGoBack()) {
             await _webviewController!.goBack();
@@ -122,7 +122,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
             actions: [
               StreamBuilder<bool>(
                 stream: widget.bloc.starred,
-                builder: (final context, final starredSnapshot) {
+                builder: (context, starredSnapshot) {
                   final starred = starredSnapshot.data ?? false;
                   return IconButton(
                     onPressed: () async {
@@ -141,7 +141,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
               ),
               StreamBuilder<bool>(
                 stream: widget.bloc.unread,
-                builder: (final context, final unreadSnapshot) {
+                builder: (context, unreadSnapshot) {
                   final unread = unreadSnapshot.data ?? false;
                   return IconButton(
                     onPressed: () async {
@@ -188,11 +188,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                     padding: const EdgeInsets.all(10),
                     child: Html(
                       data: widget.bodyData,
-                      onLinkTap: (
-                        final url,
-                        final attributes,
-                        final element,
-                      ) async {
+                      onLinkTap: (url, attributes, element) async {
                         if (url != null) {
                           await launchUrlString(
                             url,

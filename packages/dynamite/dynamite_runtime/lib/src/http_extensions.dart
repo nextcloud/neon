@@ -45,9 +45,8 @@ extension BytesStreamExtension on BytesStream {
   ///
   /// Returns the root element of this stream.
   Future<XmlElement> get xml async {
-    final element = await transform(xmlBytesConverter)
-        .expand((final events) => events)
-        .firstWhere((final element) => element is XmlElement);
+    final element =
+        await transform(xmlBytesConverter).expand((events) => events).firstWhere((element) => element is XmlElement);
 
     return element as XmlElement;
   }
@@ -58,7 +57,7 @@ extension HttpClientResponseExtension on HttpClientResponse {
   /// Returns a map of headers.
   Map<String, Object?> get responseHeaders {
     final responseHeaders = <String, Object?>{};
-    headers.forEach((final name, final values) {
+    headers.forEach((name, values) {
       responseHeaders[name] = values.last;
     });
 
@@ -69,7 +68,7 @@ extension HttpClientResponseExtension on HttpClientResponse {
 /// Extension for http headers.
 extension HttpHeadersExtension on HttpHeaders {
   /// Iteratively adds all header values.
-  void addAll(final Map<String, String> headers) {
+  void addAll(Map<String, String> headers) {
     for (final header in headers.entries) {
       add(header.key, header.value);
     }

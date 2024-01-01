@@ -16,7 +16,7 @@ class FileActions extends StatelessWidget {
 
   final FileDetails details;
 
-  Future<void> onSelected(final BuildContext context, final FilesFileAction action) async {
+  Future<void> onSelected(BuildContext context, FilesFileAction action) async {
     final bloc = NeonProvider.of<FilesBloc>(context);
     switch (action) {
       case FilesFileAction.share:
@@ -30,7 +30,7 @@ class FileActions extends StatelessWidget {
       case FilesFileAction.details:
         await Navigator.of(context).push(
           MaterialPageRoute<void>(
-            builder: (final context) => FilesDetailsPage(
+            builder: (context) => FilesDetailsPage(
               bloc: bloc,
               details: details,
             ),
@@ -80,8 +80,8 @@ class FileActions extends StatelessWidget {
   }
 
   @override
-  Widget build(final BuildContext context) => PopupMenuButton<FilesFileAction>(
-        itemBuilder: (final context) => [
+  Widget build(BuildContext context) => PopupMenuButton<FilesFileAction>(
+        itemBuilder: (context) => [
           if (!details.isDirectory && NeonPlatform.instance.canUseSharing)
             PopupMenuItem(
               value: FilesFileAction.share,
@@ -117,7 +117,7 @@ class FileActions extends StatelessWidget {
             child: Text(FilesLocalizations.of(context).actionDelete),
           ),
         ],
-        onSelected: (final action) async => onSelected(context, action),
+        onSelected: (action) async => onSelected(context, action),
       );
 }
 

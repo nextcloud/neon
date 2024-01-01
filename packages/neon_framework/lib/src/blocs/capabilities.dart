@@ -12,7 +12,7 @@ import 'package:rxdart/rxdart.dart';
 sealed class CapabilitiesBloc implements InteractiveBloc {
   /// Creates a new capabilities bloc.
   @internal
-  factory CapabilitiesBloc(final Account account) => _CapabilitiesBloc(account);
+  factory CapabilitiesBloc(Account account) => _CapabilitiesBloc(account);
 
   /// The capabilities of the server.
   BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
@@ -43,7 +43,7 @@ class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
       'capabilities',
       capabilities,
       account.client.core.ocs.getCapabilitiesRaw(),
-      (final response) => response.body.ocs.data,
+      (response) => response.body.ocs.data,
     );
   }
 }
