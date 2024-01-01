@@ -24,4 +24,4 @@ dev_dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
   test: ^1.25.0
-  universal_io: ^2.0.0
+  universal_io: ^2.2.2
