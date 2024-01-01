@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
@@ -24,9 +25,9 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<BuiltList<news.Folder>>.behaviorSubject(
         subject: bloc.folders,
-        builder: (context, folders) => ResultBuilder<List<news.Feed>>.behaviorSubject(
+        builder: (context, folders) => ResultBuilder<BuiltList<news.Feed>>.behaviorSubject(
           subject: bloc.feeds,
           builder: (context, feeds) => SortBoxBuilder<FeedsSortProperty, news.Feed>(
             sortBox: feedsSortBox,
@@ -53,7 +54,7 @@ class NewsFeedsView extends StatelessWidget {
   Widget _buildFeed(
     BuildContext context,
     news.Feed feed,
-    List<news.Folder> folders,
+    BuiltList<news.Folder> folders,
   ) =>
       ListTile(
         title: Text(

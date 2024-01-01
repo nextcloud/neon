@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -21,7 +22,7 @@ sealed class NotificationsBloc implements NotificationsBlocInterface, Interactiv
 
   void deleteAllNotifications();
 
-  BehaviorSubject<Result<List<notifications.Notification>>> get notificationsList;
+  BehaviorSubject<Result<BuiltList<notifications.Notification>>> get notificationsList;
 
   BehaviorSubject<int> get unreadCounter;
 }
@@ -54,21 +55,21 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   }
 
   @override
-  BehaviorSubject<Result<List<notifications.Notification>>> notificationsList =
-      BehaviorSubject<Result<List<notifications.Notification>>>();
+  BehaviorSubject<Result<BuiltList<notifications.Notification>>> notificationsList =
+      BehaviorSubject<Result<BuiltList<notifications.Notification>>>();
 
   @override
   BehaviorSubject<int> unreadCounter = BehaviorSubject<int>();
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud<List<notifications.Notification>,
+    await RequestManager.instance.wrapNextcloud<BuiltList<notifications.Notification>,
         notifications.EndpointListNotificationsResponseApplicationJson, void>(
       account.id,
       'notifications-notifications',
       notificationsList,
       account.client.notifications.endpoint.listNotificationsRaw(),
-      (response) => response.body.ocs.data.toList(),
+      (response) => response.body.ocs.data,
     );
   }
 

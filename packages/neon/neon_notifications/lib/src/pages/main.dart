@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon_framework/blocs.dart';
@@ -34,7 +35,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<List<notifications.Notification>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<BuiltList<notifications.Notification>>.behaviorSubject(
         subject: bloc.notificationsList,
         builder: (context, notifications) => Scaffold(
           resizeToAvoidBottomInset: false,

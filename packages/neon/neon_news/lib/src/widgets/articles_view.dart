@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
@@ -43,15 +44,15 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<List<news.Feed>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<BuiltList<news.Feed>>.behaviorSubject(
         subject: widget.newsBloc.feeds,
-        builder: (context, feeds) => ResultBuilder<List<news.Article>>.behaviorSubject(
+        builder: (context, feeds) => ResultBuilder<BuiltList<news.Article>>.behaviorSubject(
           subject: widget.bloc.articles,
           builder: (context, articles) => SortBoxBuilder<ArticlesSortProperty, news.Article>(
             sortBox: articlesSortBox,
             sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
             sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
-            input: articles.data,
+            input: articles.data?.toList(),
             builder: (context, sorted) => NeonListView(
               scrollKey: 'news-articles',
               isLoading: articles.isLoading || feeds.isLoading,

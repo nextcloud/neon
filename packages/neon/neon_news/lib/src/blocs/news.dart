@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -38,9 +39,9 @@ sealed class NewsBloc implements InteractiveBloc {
 
   void markFolderAsRead(int folderId);
 
-  BehaviorSubject<Result<List<news.Folder>>> get folders;
+  BehaviorSubject<Result<BuiltList<news.Folder>>> get folders;
 
-  BehaviorSubject<Result<List<news.Feed>>> get feeds;
+  BehaviorSubject<Result<BuiltList<news.Feed>>> get feeds;
 
   BehaviorSubject<int> get unreadCounter;
 
@@ -93,16 +94,16 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
   }
 
   @override
-  BehaviorSubject<Result<List<news.Feed>>> feeds = BehaviorSubject<Result<List<news.Feed>>>();
+  BehaviorSubject<Result<BuiltList<news.Feed>>> feeds = BehaviorSubject<Result<BuiltList<news.Feed>>>();
 
   @override
-  BehaviorSubject<Result<List<news.Folder>>> folders = BehaviorSubject<Result<List<news.Folder>>>();
+  BehaviorSubject<Result<BuiltList<news.Folder>>> folders = BehaviorSubject<Result<BuiltList<news.Folder>>>();
 
   @override
   BehaviorSubject<int> unreadCounter = BehaviorSubject<int>();
 
   @override
-  late BehaviorSubject<Result<List<news.Article>>> articles = mainArticlesBloc.articles;
+  late BehaviorSubject<Result<BuiltList<news.Article>>> articles = mainArticlesBloc.articles;
 
   @override
   late BehaviorSubject<FilterType> filterType = mainArticlesBloc.filterType;
@@ -110,14 +111,14 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
   @override
   Future<void> refresh() async {
     await Future.wait([
-      RequestManager.instance.wrapNextcloud<List<news.Folder>, news.ListFolders, void>(
+      RequestManager.instance.wrapNextcloud<BuiltList<news.Folder>, news.ListFolders, void>(
         account.id,
         'news-folders',
         folders,
         account.client.news.listFoldersRaw(),
-        (response) => response.body.folders.toList(),
+        (response) => response.body.folders,
       ),
-      RequestManager.instance.wrapNextcloud<List<news.Feed>, news.ListFeeds, void>(
+      RequestManager.instance.wrapNextcloud<BuiltList<news.Feed>, news.ListFeeds, void>(
         account.id,
         'news-feeds',
         feeds,
@@ -126,7 +127,7 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
           if (response.body.newestItemId != null) {
             newestItemId = response.body.newestItemId!;
           }
-          return response.body.feeds.toList();
+          return response.body.feeds;
         },
       ),
       mainArticlesBloc.reload(),

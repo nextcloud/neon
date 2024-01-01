@@ -36,7 +36,7 @@ sealed class NotesBloc implements InteractiveBloc {
 
   void deleteNote(int id);
 
-  BehaviorSubject<Result<List<notes.Note>>> get notesList;
+  BehaviorSubject<Result<BuiltList<notes.Note>>> get notesList;
 
   NotesOptions get options;
 }
@@ -60,16 +60,16 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
   }
 
   @override
-  BehaviorSubject<Result<List<notes.Note>>> notesList = BehaviorSubject<Result<List<notes.Note>>>();
+  BehaviorSubject<Result<BuiltList<notes.Note>>> notesList = BehaviorSubject<Result<BuiltList<notes.Note>>>();
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud<List<notes.Note>, BuiltList<notes.Note>, void>(
+    await RequestManager.instance.wrapNextcloud<BuiltList<notes.Note>, BuiltList<notes.Note>, void>(
       account.id,
       'notes-notes',
       notesList,
       account.client.notes.getNotesRaw(),
-      (response) => List<notes.Note>.from(response.body),
+      (response) => response.body,
     );
   }
 
