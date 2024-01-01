@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
@@ -214,7 +215,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   final AccountsBloc accountsBloc;
   final Account account;
   final Iterable<AppImplementation> allAppImplementations;
-  final apps = BehaviorSubject<Result<List<core.NavigationEntry>>>();
+  final apps = BehaviorSubject<Result<BuiltList<core.NavigationEntry>>>();
 
   @override
   void dispose() {
@@ -251,7 +252,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       'apps-apps',
       apps,
       account.client.core.navigation.getAppsNavigationRaw(),
-      (response) => response.body.ocs.data.toList(),
+      (response) => response.body.ocs.data,
     );
   }
 
