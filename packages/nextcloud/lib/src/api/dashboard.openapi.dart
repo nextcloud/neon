@@ -4,23 +4,24 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
+import 'package:dynamite_runtime/utils.dart' as _i2;
+import 'package:meta/meta.dart' as _i4;
+import 'package:uri/uri.dart' as _i3;
 
 part 'dashboard.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -31,7 +32,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -44,15 +45,15 @@ class $Client extends DynamiteClient {
 }
 
 class $DashboardApiClient {
-  /// Creates a new [DynamiteClient] for dashboard_api requests.
+  /// Creates a new `DynamiteClient` for dashboard_api requests.
   $DashboardApiClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get the widgets.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -61,8 +62,8 @@ class $DashboardApiClient {
   ///   * 200: Widgets returned
   ///
   /// See:
-  ///  * [getWidgetsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
+  ///  * [getWidgetsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetsRaw(
@@ -76,8 +77,8 @@ class $DashboardApiClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -86,9 +87,9 @@ class $DashboardApiClient {
   ///   * 200: Widgets returned
   ///
   /// See:
-  ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({bool? oCSAPIRequest}) {
+  ///  * [getWidgets] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -96,7 +97,7 @@ class $DashboardApiClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -112,10 +113,10 @@ class $DashboardApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
-    return DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -131,8 +132,8 @@ class $DashboardApiClient {
 
   /// Get the items for the widgets.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
@@ -144,8 +145,8 @@ class $DashboardApiClient {
   ///   * 200: Widget items returned
   ///
   /// See:
-  ///  * [getWidgetItemsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
+  ///  * [getWidgetItemsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
     ContentString<BuiltMap<String, String>>? sinceIds,
     int? limit,
     BuiltList<String>? widgets,
@@ -165,8 +166,8 @@ class $DashboardApiClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
@@ -178,9 +179,9 @@ class $DashboardApiClient {
   ///   * 200: Widget items returned
   ///
   /// See:
-  ///  * [getWidgetItems] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
+  ///  * [getWidgetItems] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
     ContentString<BuiltMap<String, String>>? sinceIds,
     int? limit,
     BuiltList<String>? widgets,
@@ -194,7 +195,7 @@ class $DashboardApiClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -226,11 +227,11 @@ class $DashboardApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
-    return DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -248,8 +249,8 @@ class $DashboardApiClient {
   ///
   /// Only available since 27.1.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
@@ -261,8 +262,8 @@ class $DashboardApiClient {
   ///   * 200: Widget items returned
   ///
   /// See:
-  ///  * [getWidgetItemsV2Raw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
+  ///  * [getWidgetItemsV2Raw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
     ContentString<BuiltMap<String, String>>? sinceIds,
     int? limit,
     BuiltList<String>? widgets,
@@ -284,8 +285,8 @@ class $DashboardApiClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
@@ -297,9 +298,9 @@ class $DashboardApiClient {
   ///   * 200: Widget items returned
   ///
   /// See:
-  ///  * [getWidgetItemsV2] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
+  ///  * [getWidgetItemsV2] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
     ContentString<BuiltMap<String, String>>? sinceIds,
     int? limit,
     BuiltList<String>? widgets,
@@ -313,7 +314,7 @@ class $DashboardApiClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -345,11 +346,11 @@ class $DashboardApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
-    return DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -788,7 +789,7 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -867,12 +868,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

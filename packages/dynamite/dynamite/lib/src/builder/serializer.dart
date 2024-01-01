@@ -10,7 +10,7 @@ List<Spec> buildSerializer(State state) => [
 /// 
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.''')
-          ..annotations.add(refer('visibleForTesting'))
+          ..annotations.add(refer('visibleForTesting', 'package:meta/meta.dart'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
           ..name = r'$serializers'
@@ -42,7 +42,7 @@ List<Spec> buildSerializer(State state) => [
 /// 
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.''')
-          ..annotations.add(refer('visibleForTesting'))
+          ..annotations.add(refer('visibleForTesting', 'package:meta/meta.dart'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
           ..name = r'$jsonSerializers'
@@ -52,21 +52,26 @@ List<Spec> buildSerializer(State state) => [
         b
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
-          ..name = r'_$jsonSerializers';
-
-        const serializers = [
-          '..add(DynamiteDoubleSerializer())',
-          '..addPlugin(StandardJsonPlugin())',
-          '..addPlugin(const HeaderPlugin())',
-          '..addPlugin(const ContentStringPlugin())',
-        ];
-
-        final bodyBuilder = StringBuffer()
-          ..writeln(r'(_$serializers.toBuilder()')
-          ..writeAll(serializers, '\n')
-          ..writeln(').build()');
-
-        b.assignment = Code(bodyBuilder.toString());
+          ..name = r'_$jsonSerializers'
+          ..assignment = refer(r'_$serializers')
+              .property('toBuilder')
+              .call(const [])
+              .cascade('add')
+              .call([
+                refer('DynamiteDoubleSerializer', 'package:dynamite_runtime/built_value.dart').newInstance(const []),
+              ])
+              .cascade('addPlugin')
+              .call([
+                refer('StandardJsonPlugin', 'package:built_value/standard_json_plugin.dart').newInstance(const []),
+              ])
+              .cascade('addPlugin')
+              .call([refer('HeaderPlugin', 'package:dynamite_runtime/built_value.dart').constInstance(const [])])
+              .cascade('addPlugin')
+              .call([refer('ContentStringPlugin', 'package:dynamite_runtime/built_value.dart').constInstance(const [])])
+              .parenthesized
+              .property('build')
+              .call(const [])
+              .code;
       }),
       const Code('// coverage:ignore-end\n'),
     ];

@@ -5,18 +5,18 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:meta/meta.dart' as _i2;
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -26,7 +26,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -35,15 +35,15 @@ class $Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * default
   ///
   /// See:
-  ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> $get({Uint8List? uint8List}) async {
+  ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> $get({Uint8List? uint8List}) async {
     final rawResponse = $getRaw(
       uint8List: uint8List,
     );
@@ -53,16 +53,16 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * default
   ///
   /// See:
-  ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<void, void> $getRaw({Uint8List? uint8List}) {
+  ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i2.experimental
+  _i1.DynamiteRawResponse<void, void> $getRaw({Uint8List? uint8List}) {
     final _headers = <String, String>{};
     Uint8List? _body;
 
@@ -71,7 +71,7 @@ class $Client extends DynamiteClient {
       _body = uint8List;
     }
     const _path = '/';
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'get',
         _path,
@@ -85,15 +85,15 @@ class $Client extends DynamiteClient {
     );
   }
 
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * default
   ///
   /// See:
-  ///  * [postRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> post({String? string}) async {
+  ///  * [postRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> post({String? string}) async {
     final rawResponse = postRaw(
       string: string,
     );
@@ -103,16 +103,16 @@ class $Client extends DynamiteClient {
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * default
   ///
   /// See:
-  ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<void, void> postRaw({String? string}) {
+  ///  * [post] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i2.experimental
+  _i1.DynamiteRawResponse<void, void> postRaw({String? string}) {
     final _headers = <String, String>{};
     Uint8List? _body;
 
@@ -121,7 +121,7 @@ class $Client extends DynamiteClient {
       _body = utf8.encode(string);
     }
     const _path = '/';
-    return DynamiteRawResponse<void, void>(
+    return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
         _path,
@@ -141,7 +141,7 @@ class $Client extends DynamiteClient {
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = Serializers();
 
@@ -149,12 +149,12 @@ final Serializers _$serializers = Serializers();
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

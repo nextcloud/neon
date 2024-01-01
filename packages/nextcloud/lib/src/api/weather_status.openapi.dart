@@ -4,22 +4,23 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:dynamite_runtime/utils.dart' as _i2;
+import 'package:meta/meta.dart' as _i4;
+import 'package:uri/uri.dart' as _i3;
 
 part 'weather_status.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -30,7 +31,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -43,15 +44,15 @@ class $Client extends DynamiteClient {
 }
 
 class $WeatherStatusClient {
-  /// Creates a new [DynamiteClient] for weather_status requests.
+  /// Creates a new `DynamiteClient` for weather_status requests.
   $WeatherStatusClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [mode] New mode.
@@ -61,8 +62,8 @@ class $WeatherStatusClient {
   ///   * 200: Weather status mode updated
   ///
   /// See:
-  ///  * [setModeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WeatherStatusSetModeResponseApplicationJson, void>> setMode({
+  ///  * [setModeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<WeatherStatusSetModeResponseApplicationJson, void>> setMode({
     required int mode,
     bool? oCSAPIRequest,
   }) async {
@@ -78,8 +79,8 @@ class $WeatherStatusClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [mode] New mode.
@@ -89,9 +90,9 @@ class $WeatherStatusClient {
   ///   * 200: Weather status mode updated
   ///
   /// See:
-  ///  * [setMode] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void> setModeRaw({
+  ///  * [setMode] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void> setModeRaw({
     required int mode,
     bool? oCSAPIRequest,
   }) {
@@ -103,7 +104,7 @@ class $WeatherStatusClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -122,10 +123,10 @@ class $WeatherStatusClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/mode{?mode*}').expand(_parameters);
-    return DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/mode{?mode*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -141,8 +142,8 @@ class $WeatherStatusClient {
 
   /// Try to use the address set in user personal settings as weather location.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -151,8 +152,8 @@ class $WeatherStatusClient {
   ///   * 200: Address updated
   ///
   /// See:
-  ///  * [usePersonalAddressRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>> usePersonalAddress({
+  ///  * [usePersonalAddressRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>> usePersonalAddress({
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = usePersonalAddressRaw(
@@ -166,8 +167,8 @@ class $WeatherStatusClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -176,9 +177,9 @@ class $WeatherStatusClient {
   ///   * 200: Address updated
   ///
   /// See:
-  ///  * [usePersonalAddress] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
+  ///  * [usePersonalAddress] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
     bool? oCSAPIRequest,
   }) {
     final _headers = <String, String>{
@@ -188,7 +189,7 @@ class $WeatherStatusClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -204,10 +205,10 @@ class $WeatherStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/use-personal';
-    return DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -223,8 +224,8 @@ class $WeatherStatusClient {
 
   /// Get stored user location.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -233,8 +234,8 @@ class $WeatherStatusClient {
   ///   * 200: Location returned
   ///
   /// See:
-  ///  * [getLocationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WeatherStatusGetLocationResponseApplicationJson, void>> getLocation({
+  ///  * [getLocationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<WeatherStatusGetLocationResponseApplicationJson, void>> getLocation({
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getLocationRaw(
@@ -248,8 +249,8 @@ class $WeatherStatusClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -258,9 +259,9 @@ class $WeatherStatusClient {
   ///   * 200: Location returned
   ///
   /// See:
-  ///  * [getLocation] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({bool? oCSAPIRequest}) {
+  ///  * [getLocation] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -268,7 +269,7 @@ class $WeatherStatusClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -284,10 +285,10 @@ class $WeatherStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/location';
-    return DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -303,8 +304,8 @@ class $WeatherStatusClient {
 
   /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [address] Any approximative or exact address.
@@ -316,8 +317,8 @@ class $WeatherStatusClient {
   ///   * 200: Location updated
   ///
   /// See:
-  ///  * [setLocationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WeatherStatusSetLocationResponseApplicationJson, void>> setLocation({
+  ///  * [setLocationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<WeatherStatusSetLocationResponseApplicationJson, void>> setLocation({
     String? address,
     double? lat,
     double? lon,
@@ -337,8 +338,8 @@ class $WeatherStatusClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [address] Any approximative or exact address.
@@ -350,9 +351,9 @@ class $WeatherStatusClient {
   ///   * 200: Location updated
   ///
   /// See:
-  ///  * [setLocation] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void> setLocationRaw({
+  ///  * [setLocation] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void> setLocationRaw({
     String? address,
     double? lat,
     double? lon,
@@ -366,7 +367,7 @@ class $WeatherStatusClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -391,11 +392,11 @@ class $WeatherStatusClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location{?address*,lat*,lon*}').expand(_parameters);
-    return DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location{?address*,lat*,lon*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -411,8 +412,8 @@ class $WeatherStatusClient {
 
   /// Get forecast for current location.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -422,8 +423,8 @@ class $WeatherStatusClient {
   ///   * 404: Forecast not found
   ///
   /// See:
-  ///  * [getForecastRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WeatherStatusGetForecastResponseApplicationJson, void>> getForecast({
+  ///  * [getForecastRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<WeatherStatusGetForecastResponseApplicationJson, void>> getForecast({
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getForecastRaw(
@@ -437,8 +438,8 @@ class $WeatherStatusClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -448,9 +449,9 @@ class $WeatherStatusClient {
   ///   * 404: Forecast not found
   ///
   /// See:
-  ///  * [getForecast] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({bool? oCSAPIRequest}) {
+  ///  * [getForecast] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -458,7 +459,7 @@ class $WeatherStatusClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -474,10 +475,10 @@ class $WeatherStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/forecast';
-    return DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -493,8 +494,8 @@ class $WeatherStatusClient {
 
   /// Get favorites list.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -503,8 +504,8 @@ class $WeatherStatusClient {
   ///   * 200: Favorites returned
   ///
   /// See:
-  ///  * [getFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>> getFavorites({
+  ///  * [getFavoritesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>> getFavorites({
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getFavoritesRaw(
@@ -518,8 +519,8 @@ class $WeatherStatusClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -528,9 +529,11 @@ class $WeatherStatusClient {
   ///   * 200: Favorites returned
   ///
   /// See:
-  ///  * [getFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({bool? oCSAPIRequest}) {
+  ///  * [getFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({
+    bool? oCSAPIRequest,
+  }) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -538,7 +541,7 @@ class $WeatherStatusClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -554,10 +557,10 @@ class $WeatherStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
-    return DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -573,8 +576,8 @@ class $WeatherStatusClient {
 
   /// Set favorites list.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [favorites] Favorite addresses.
@@ -584,8 +587,8 @@ class $WeatherStatusClient {
   ///   * 200: Favorites updated
   ///
   /// See:
-  ///  * [setFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>> setFavorites({
+  ///  * [setFavoritesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>> setFavorites({
     required BuiltList<String> favorites,
     bool? oCSAPIRequest,
   }) async {
@@ -601,8 +604,8 @@ class $WeatherStatusClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [favorites] Favorite addresses.
@@ -612,9 +615,9 @@ class $WeatherStatusClient {
   ///   * 200: Favorites updated
   ///
   /// See:
-  ///  * [setFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void> setFavoritesRaw({
+  ///  * [setFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void> setFavoritesRaw({
     required BuiltList<String> favorites,
     bool? oCSAPIRequest,
   }) {
@@ -626,7 +629,7 @@ class $WeatherStatusClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -646,11 +649,11 @@ class $WeatherStatusClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites{?favorites%5B%5D*}').expand(_parameters);
-    return DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites{?favorites%5B%5D*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -2030,7 +2033,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -2174,12 +2177,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

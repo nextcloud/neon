@@ -4,26 +4,26 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
+import 'package:dynamite_runtime/utils.dart' as _i2;
+import 'package:meta/meta.dart' as _i4;
+import 'package:uri/uri.dart' as _i3;
 
 part 'spreed.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -34,7 +34,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -83,15 +83,15 @@ class $Client extends DynamiteClient {
 }
 
 class $AvatarClient {
-  /// Creates a new [DynamiteClient] for avatar requests.
+  /// Creates a new `DynamiteClient` for avatar requests.
   $AvatarClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get the avatar of a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [darkTheme] Theme used for background. Defaults to `0`.
@@ -103,8 +103,8 @@ class $AvatarClient {
   ///   * 200: Room avatar returned
   ///
   /// See:
-  ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getAvatar({
+  ///  * [getAvatarRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getAvatar({
     required String token,
     int? darkTheme,
     AvatarGetAvatarApiVersion? apiVersion,
@@ -124,8 +124,8 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [darkTheme] Theme used for background. Defaults to `0`.
@@ -137,9 +137,9 @@ class $AvatarClient {
   ///   * 200: Room avatar returned
   ///
   /// See:
-  ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<Uint8List, void> getAvatarRaw({
+  ///  * [getAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required String token,
     int? darkTheme,
     AvatarGetAvatarApiVersion? apiVersion,
@@ -153,7 +153,7 @@ class $AvatarClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -166,7 +166,11 @@ class $AvatarClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $darkTheme = _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(int));
@@ -179,11 +183,11 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}').expand(_parameters);
-    return DynamiteRawResponse<Uint8List, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -199,8 +203,8 @@ class $AvatarClient {
 
   /// Upload an avatar for a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -212,8 +216,8 @@ class $AvatarClient {
   ///   * 400: Avatar invalid
   ///
   /// See:
-  ///  * [uploadAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AvatarUploadAvatarResponseApplicationJson, void>> uploadAvatar({
+  ///  * [uploadAvatarRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AvatarUploadAvatarResponseApplicationJson, void>> uploadAvatar({
     required String token,
     AvatarUploadAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -231,8 +235,8 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -244,9 +248,9 @@ class $AvatarClient {
   ///   * 400: Avatar invalid
   ///
   /// See:
-  ///  * [uploadAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void> uploadAvatarRaw({
+  ///  * [uploadAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void> uploadAvatarRaw({
     required String token,
     AvatarUploadAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -259,7 +263,7 @@ class $AvatarClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -272,7 +276,11 @@ class $AvatarClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -282,10 +290,10 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
-    return DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
+    return _i1.DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -301,8 +309,8 @@ class $AvatarClient {
 
   /// Delete the avatar of a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -313,8 +321,8 @@ class $AvatarClient {
   ///   * 200: Avatar removed successfully
   ///
   /// See:
-  ///  * [deleteAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
+  ///  * [deleteAvatarRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
     required String token,
     AvatarDeleteAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -332,8 +340,8 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -344,9 +352,9 @@ class $AvatarClient {
   ///   * 200: Avatar removed successfully
   ///
   /// See:
-  ///  * [deleteAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({
+  ///  * [deleteAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({
     required String token,
     AvatarDeleteAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -359,7 +367,7 @@ class $AvatarClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -372,7 +380,11 @@ class $AvatarClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -382,10 +394,10 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
-    return DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
+    return _i1.DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -401,8 +413,8 @@ class $AvatarClient {
 
   /// Set an emoji as avatar.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [emoji] Emoji.
@@ -416,8 +428,8 @@ class $AvatarClient {
   ///   * 400: Setting emoji avatar is not possible
   ///
   /// See:
-  ///  * [emojiAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AvatarEmojiAvatarResponseApplicationJson, void>> emojiAvatar({
+  ///  * [emojiAvatarRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AvatarEmojiAvatarResponseApplicationJson, void>> emojiAvatar({
     required String emoji,
     required String token,
     String? color,
@@ -439,8 +451,8 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [emoji] Emoji.
@@ -454,9 +466,9 @@ class $AvatarClient {
   ///   * 400: Setting emoji avatar is not possible
   ///
   /// See:
-  ///  * [emojiAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void> emojiAvatarRaw({
+  ///  * [emojiAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void> emojiAvatarRaw({
     required String emoji,
     required String token,
     String? color,
@@ -471,7 +483,7 @@ class $AvatarClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -487,7 +499,11 @@ class $AvatarClient {
     _parameters['emoji'] = $emoji;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $color = _$jsonSerializers.serialize(color, specifiedType: const FullType(String));
@@ -500,11 +516,11 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
         .expand(_parameters);
-    return DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -520,8 +536,8 @@ class $AvatarClient {
 
   /// Get the dark mode avatar of a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -532,8 +548,8 @@ class $AvatarClient {
   ///   * 200: Room avatar returned
   ///
   /// See:
-  ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getAvatarDark({
+  ///  * [getAvatarDarkRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getAvatarDark({
     required String token,
     AvatarGetAvatarDarkApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -551,8 +567,8 @@ class $AvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -563,9 +579,9 @@ class $AvatarClient {
   ///   * 200: Room avatar returned
   ///
   /// See:
-  ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
+  ///  * [getAvatarDark] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
     required String token,
     AvatarGetAvatarDarkApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -578,7 +594,7 @@ class $AvatarClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -591,7 +607,11 @@ class $AvatarClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -601,10 +621,11 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(_parameters);
-    return DynamiteRawResponse<Uint8List, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(_parameters);
+    return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -620,7 +641,7 @@ class $AvatarClient {
 }
 
 class $BotClient {
-  /// Creates a new [DynamiteClient] for bot requests.
+  /// Creates a new `DynamiteClient` for bot requests.
   $BotClient(this._rootClient);
 
   final $Client _rootClient;
@@ -629,8 +650,8 @@ class $BotClient {
   ///
   /// The author and timestamp are automatically set to the current user/guest and time.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [message] The message to send.
@@ -648,8 +669,8 @@ class $BotClient {
   ///   * 413: Message too long
   ///
   /// See:
-  ///  * [sendMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BotSendMessageResponseApplicationJson, void>> sendMessage({
+  ///  * [sendMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BotSendMessageResponseApplicationJson, void>> sendMessage({
     required String message,
     required String token,
     String? referenceId,
@@ -677,8 +698,8 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [message] The message to send.
@@ -696,9 +717,9 @@ class $BotClient {
   ///   * 413: Message too long
   ///
   /// See:
-  ///  * [sendMessage] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BotSendMessageResponseApplicationJson, void> sendMessageRaw({
+  ///  * [sendMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BotSendMessageResponseApplicationJson, void> sendMessageRaw({
     required String message,
     required String token,
     String? referenceId,
@@ -715,7 +736,7 @@ class $BotClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -731,7 +752,11 @@ class $BotClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
@@ -752,18 +777,23 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/message{?message*,referenceId*,replyTo*,silent*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<BotSendMessageResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<BotSendMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {201, 400, 401, 413},
+        const {
+          201,
+          400,
+          401,
+          413,
+        },
       ),
       bodyType: const FullType(BotSendMessageResponseApplicationJson),
       headersType: null,
@@ -773,8 +803,8 @@ class $BotClient {
 
   /// Adds a reaction to a chat message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Reaction to add.
@@ -791,8 +821,8 @@ class $BotClient {
   ///   * 404: Reaction not found
   ///
   /// See:
-  ///  * [reactRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BotReactResponseApplicationJson, void>> react({
+  ///  * [reactRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BotReactResponseApplicationJson, void>> react({
     required String reaction,
     required String token,
     required int messageId,
@@ -814,8 +844,8 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Reaction to add.
@@ -832,9 +862,9 @@ class $BotClient {
   ///   * 404: Reaction not found
   ///
   /// See:
-  ///  * [react] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BotReactResponseApplicationJson, void> reactRaw({
+  ///  * [react] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BotReactResponseApplicationJson, void> reactRaw({
     required String reaction,
     required String token,
     required int messageId,
@@ -849,7 +879,7 @@ class $BotClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -865,7 +895,11 @@ class $BotClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -877,17 +911,24 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
-        .expand(_parameters);
-    return DynamiteRawResponse<BotReactResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+            .expand(_parameters);
+    return _i1.DynamiteRawResponse<BotReactResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 201, 400, 401, 404},
+        const {
+          200,
+          201,
+          400,
+          401,
+          404,
+        },
       ),
       bodyType: const FullType(BotReactResponseApplicationJson),
       headersType: null,
@@ -897,8 +938,8 @@ class $BotClient {
 
   /// Deletes a reaction from a chat message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Reaction to delete.
@@ -914,8 +955,8 @@ class $BotClient {
   ///   * 401: Reacting is not allowed
   ///
   /// See:
-  ///  * [deleteReactionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BotDeleteReactionResponseApplicationJson, void>> deleteReaction({
+  ///  * [deleteReactionRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BotDeleteReactionResponseApplicationJson, void>> deleteReaction({
     required String reaction,
     required String token,
     required int messageId,
@@ -937,8 +978,8 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Reaction to delete.
@@ -954,9 +995,9 @@ class $BotClient {
   ///   * 401: Reacting is not allowed
   ///
   /// See:
-  ///  * [deleteReaction] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void> deleteReactionRaw({
+  ///  * [deleteReaction] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void> deleteReactionRaw({
     required String reaction,
     required String token,
     required int messageId,
@@ -971,7 +1012,7 @@ class $BotClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -987,7 +1028,11 @@ class $BotClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -1000,17 +1045,23 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
-        .expand(_parameters);
-    return DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+            .expand(_parameters);
+    return _i1.DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400, 404, 401},
+        const {
+          200,
+          400,
+          404,
+          401,
+        },
       ),
       bodyType: const FullType(BotDeleteReactionResponseApplicationJson),
       headersType: null,
@@ -1022,8 +1073,8 @@ class $BotClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1033,8 +1084,8 @@ class $BotClient {
   ///   * 200: Bot list returned
   ///
   /// See:
-  ///  * [adminListBotsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BotAdminListBotsResponseApplicationJson, void>> adminListBots({
+  ///  * [adminListBotsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BotAdminListBotsResponseApplicationJson, void>> adminListBots({
     BotAdminListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -1052,8 +1103,8 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1063,9 +1114,9 @@ class $BotClient {
   ///   * 200: Bot list returned
   ///
   /// See:
-  ///  * [adminListBots] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void> adminListBotsRaw({
+  ///  * [adminListBots] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void> adminListBotsRaw({
     BotAdminListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -1077,7 +1128,7 @@ class $BotClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1098,10 +1149,10 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
-    return DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
+    return _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -1117,8 +1168,8 @@ class $BotClient {
 
   /// List bots.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1129,8 +1180,8 @@ class $BotClient {
   ///   * 200: Bot list returned
   ///
   /// See:
-  ///  * [listBotsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BotListBotsResponseApplicationJson, void>> listBots({
+  ///  * [listBotsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BotListBotsResponseApplicationJson, void>> listBots({
     required String token,
     BotListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -1148,8 +1199,8 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1160,9 +1211,9 @@ class $BotClient {
   ///   * 200: Bot list returned
   ///
   /// See:
-  ///  * [listBots] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BotListBotsResponseApplicationJson, void> listBotsRaw({
+  ///  * [listBots] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BotListBotsResponseApplicationJson, void> listBotsRaw({
     required String token,
     BotListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -1175,7 +1226,7 @@ class $BotClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1190,7 +1241,11 @@ class $BotClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
@@ -1199,10 +1254,10 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(_parameters);
-    return DynamiteRawResponse<BotListBotsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<BotListBotsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -1218,8 +1273,8 @@ class $BotClient {
 
   /// Enables a bot.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1233,8 +1288,8 @@ class $BotClient {
   ///   * 400: Enabling bot errored
   ///
   /// See:
-  ///  * [enableBotRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BotEnableBotResponseApplicationJson, void>> enableBot({
+  ///  * [enableBotRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BotEnableBotResponseApplicationJson, void>> enableBot({
     required String token,
     required int botId,
     BotEnableBotApiVersion? apiVersion,
@@ -1254,8 +1309,8 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1269,9 +1324,9 @@ class $BotClient {
   ///   * 400: Enabling bot errored
   ///
   /// See:
-  ///  * [enableBot] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BotEnableBotResponseApplicationJson, void> enableBotRaw({
+  ///  * [enableBot] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BotEnableBotResponseApplicationJson, void> enableBotRaw({
     required String token,
     required int botId,
     BotEnableBotApiVersion? apiVersion,
@@ -1285,7 +1340,7 @@ class $BotClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1300,7 +1355,11 @@ class $BotClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
@@ -1312,16 +1371,19 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
-    return DynamiteRawResponse<BotEnableBotResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<BotEnableBotResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 201},
+        const {
+          200,
+          201,
+        },
       ),
       bodyType: const FullType(BotEnableBotResponseApplicationJson),
       headersType: null,
@@ -1331,8 +1393,8 @@ class $BotClient {
 
   /// Disables a bot.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1345,8 +1407,8 @@ class $BotClient {
   ///   * 400: Disabling bot errored
   ///
   /// See:
-  ///  * [disableBotRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BotDisableBotResponseApplicationJson, void>> disableBot({
+  ///  * [disableBotRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BotDisableBotResponseApplicationJson, void>> disableBot({
     required String token,
     required int botId,
     BotDisableBotApiVersion? apiVersion,
@@ -1366,8 +1428,8 @@ class $BotClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1380,9 +1442,9 @@ class $BotClient {
   ///   * 400: Disabling bot errored
   ///
   /// See:
-  ///  * [disableBot] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BotDisableBotResponseApplicationJson, void> disableBotRaw({
+  ///  * [disableBot] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BotDisableBotResponseApplicationJson, void> disableBotRaw({
     required String token,
     required int botId,
     BotDisableBotApiVersion? apiVersion,
@@ -1396,7 +1458,7 @@ class $BotClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1411,7 +1473,11 @@ class $BotClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
@@ -1423,10 +1489,10 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
-    return DynamiteRawResponse<BotDisableBotResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<BotDisableBotResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -1442,15 +1508,15 @@ class $BotClient {
 }
 
 class $BreakoutRoomClient {
-  /// Creates a new [DynamiteClient] for breakout_room requests.
+  /// Creates a new `DynamiteClient` for breakout_room requests.
   $BreakoutRoomClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Configure the breakout rooms.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [mode] Mode of the breakout rooms.
@@ -1465,8 +1531,8 @@ class $BreakoutRoomClient {
   ///   * 400: Configuring breakout rooms errored
   ///
   /// See:
-  ///  * [configureBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>> configureBreakoutRooms({
+  ///  * [configureBreakoutRoomsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>> configureBreakoutRooms({
     required BreakoutRoomConfigureBreakoutRoomsMode mode,
     required int amount,
     required String token,
@@ -1490,8 +1556,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [mode] Mode of the breakout rooms.
@@ -1506,9 +1572,9 @@ class $BreakoutRoomClient {
   ///   * 400: Configuring breakout rooms errored
   ///
   /// See:
-  ///  * [configureBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void> configureBreakoutRoomsRaw({
+  ///  * [configureBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void> configureBreakoutRoomsRaw({
     required BreakoutRoomConfigureBreakoutRoomsMode mode,
     required int amount,
     required String token,
@@ -1524,7 +1590,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1546,7 +1612,11 @@ class $BreakoutRoomClient {
     _parameters['amount'] = $amount;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $attendeeMap = _$jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
@@ -1562,12 +1632,12 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
             .expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -1583,8 +1653,8 @@ class $BreakoutRoomClient {
 
   /// Remove the breakout rooms.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1595,8 +1665,8 @@ class $BreakoutRoomClient {
   ///   * 200: Breakout rooms removed successfully
   ///
   /// See:
-  ///  * [removeBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>> removeBreakoutRooms({
+  ///  * [removeBreakoutRoomsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>> removeBreakoutRooms({
     required String token,
     BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -1614,8 +1684,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1626,9 +1696,9 @@ class $BreakoutRoomClient {
   ///   * 200: Breakout rooms removed successfully
   ///
   /// See:
-  ///  * [removeBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void> removeBreakoutRoomsRaw({
+  ///  * [removeBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void> removeBreakoutRoomsRaw({
     required String token,
     BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -1641,7 +1711,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1656,7 +1726,11 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -1668,10 +1742,11 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -1687,8 +1762,8 @@ class $BreakoutRoomClient {
 
   /// Broadcast a chat message to all breakout rooms.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [message] Message to broadcast.
@@ -1702,8 +1777,8 @@ class $BreakoutRoomClient {
   ///   * 413: Chat message too long
   ///
   /// See:
-  ///  * [broadcastChatMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>> broadcastChatMessage({
+  ///  * [broadcastChatMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>> broadcastChatMessage({
     required String message,
     required String token,
     BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
@@ -1723,8 +1798,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [message] Message to broadcast.
@@ -1738,9 +1813,9 @@ class $BreakoutRoomClient {
   ///   * 413: Chat message too long
   ///
   /// See:
-  ///  * [broadcastChatMessage] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void> broadcastChatMessageRaw({
+  ///  * [broadcastChatMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void> broadcastChatMessageRaw({
     required String message,
     required String token,
     BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
@@ -1754,7 +1829,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1772,7 +1847,11 @@ class $BreakoutRoomClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -1784,11 +1863,12 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
-        .expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
+            .expand(_parameters);
+    return _i1.DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -1804,8 +1884,8 @@ class $BreakoutRoomClient {
 
   /// Apply an attendee map to the breakout rooms.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeMap] JSON encoded mapping of the attendees to breakout rooms `array<int, int>`.
@@ -1818,8 +1898,8 @@ class $BreakoutRoomClient {
   ///   * 400: Applying attendee map is not possible
   ///
   /// See:
-  ///  * [applyAttendeeMapRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>> applyAttendeeMap({
+  ///  * [applyAttendeeMapRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>> applyAttendeeMap({
     required String attendeeMap,
     required String token,
     BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
@@ -1839,8 +1919,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeMap] JSON encoded mapping of the attendees to breakout rooms `array<int, int>`.
@@ -1853,9 +1933,9 @@ class $BreakoutRoomClient {
   ///   * 400: Applying attendee map is not possible
   ///
   /// See:
-  ///  * [applyAttendeeMap] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void> applyAttendeeMapRaw({
+  ///  * [applyAttendeeMap] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void> applyAttendeeMapRaw({
     required String attendeeMap,
     required String token,
     BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
@@ -1869,7 +1949,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1887,7 +1967,11 @@ class $BreakoutRoomClient {
     _parameters['attendeeMap'] = $attendeeMap;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -1897,12 +1981,12 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
             .expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -1918,8 +2002,8 @@ class $BreakoutRoomClient {
 
   /// Request assistance.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1931,8 +2015,8 @@ class $BreakoutRoomClient {
   ///   * 400: Requesting assistance is not possible
   ///
   /// See:
-  ///  * [requestAssistanceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>> requestAssistance({
+  ///  * [requestAssistanceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>> requestAssistance({
     required String token,
     BreakoutRoomRequestAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -1950,8 +2034,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -1963,9 +2047,9 @@ class $BreakoutRoomClient {
   ///   * 400: Requesting assistance is not possible
   ///
   /// See:
-  ///  * [requestAssistance] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void> requestAssistanceRaw({
+  ///  * [requestAssistance] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void> requestAssistanceRaw({
     required String token,
     BreakoutRoomRequestAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -1978,7 +2062,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1993,7 +2077,11 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -2003,11 +2091,11 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
         .expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -2023,8 +2111,8 @@ class $BreakoutRoomClient {
 
   /// Reset the request for assistance.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -2036,8 +2124,8 @@ class $BreakoutRoomClient {
   ///   * 400: Resetting the request for assistance is not possible
   ///
   /// See:
-  ///  * [resetRequestForAssistanceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>>
+  ///  * [resetRequestForAssistanceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>>
       resetRequestForAssistance({
     required String token,
     BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
@@ -2056,8 +2144,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -2069,9 +2157,10 @@ class $BreakoutRoomClient {
   ///   * 400: Resetting the request for assistance is not possible
   ///
   /// See:
-  ///  * [resetRequestForAssistance] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void> resetRequestForAssistanceRaw({
+  ///  * [resetRequestForAssistance] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>
+      resetRequestForAssistanceRaw({
     required String token,
     BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -2084,7 +2173,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2099,7 +2188,11 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -2111,11 +2204,11 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
         .expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -2131,8 +2224,8 @@ class $BreakoutRoomClient {
 
   /// Start the breakout rooms.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -2144,8 +2237,8 @@ class $BreakoutRoomClient {
   ///   * 400: Starting breakout rooms is not possible
   ///
   /// See:
-  ///  * [startBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>> startBreakoutRooms({
+  ///  * [startBreakoutRoomsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>> startBreakoutRooms({
     required String token,
     BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -2163,8 +2256,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -2176,9 +2269,9 @@ class $BreakoutRoomClient {
   ///   * 400: Starting breakout rooms is not possible
   ///
   /// See:
-  ///  * [startBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void> startBreakoutRoomsRaw({
+  ///  * [startBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void> startBreakoutRoomsRaw({
     required String token,
     BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -2191,7 +2284,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2206,7 +2299,11 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -2218,11 +2315,11 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
+    return _i1.DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -2238,8 +2335,8 @@ class $BreakoutRoomClient {
 
   /// Stop the breakout rooms.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -2251,8 +2348,8 @@ class $BreakoutRoomClient {
   ///   * 400: Stopping breakout rooms is not possible
   ///
   /// See:
-  ///  * [stopBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>> stopBreakoutRooms({
+  ///  * [stopBreakoutRoomsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>> stopBreakoutRooms({
     required String token,
     BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -2270,8 +2367,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -2283,9 +2380,9 @@ class $BreakoutRoomClient {
   ///   * 400: Stopping breakout rooms is not possible
   ///
   /// See:
-  ///  * [stopBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void> stopBreakoutRoomsRaw({
+  ///  * [stopBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void> stopBreakoutRoomsRaw({
     required String token,
     BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -2298,7 +2395,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2313,7 +2410,11 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -2323,11 +2424,11 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
+    return _i1.DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -2343,8 +2444,8 @@ class $BreakoutRoomClient {
 
   /// Switch to another breakout room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [target] Target breakout room.
@@ -2357,8 +2458,8 @@ class $BreakoutRoomClient {
   ///   * 400: Switching to breakout room is not possible
   ///
   /// See:
-  ///  * [switchBreakoutRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>> switchBreakoutRoom({
+  ///  * [switchBreakoutRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>> switchBreakoutRoom({
     required String target,
     required String token,
     BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
@@ -2378,8 +2479,8 @@ class $BreakoutRoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [target] Target breakout room.
@@ -2392,9 +2493,9 @@ class $BreakoutRoomClient {
   ///   * 400: Switching to breakout room is not possible
   ///
   /// See:
-  ///  * [switchBreakoutRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void> switchBreakoutRoomRaw({
+  ///  * [switchBreakoutRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void> switchBreakoutRoomRaw({
     required String target,
     required String token,
     BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
@@ -2408,7 +2509,7 @@ class $BreakoutRoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2426,7 +2527,11 @@ class $BreakoutRoomClient {
     _parameters['target'] = $target;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -2438,11 +2543,11 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
         .expand(_parameters);
-    return DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -2458,15 +2563,15 @@ class $BreakoutRoomClient {
 }
 
 class $CallClient {
-  /// Creates a new [DynamiteClient] for call requests.
+  /// Creates a new `DynamiteClient` for call requests.
   $CallClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get the peers for a call.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -2477,8 +2582,8 @@ class $CallClient {
   ///   * 200: List of peers in the call returned
   ///
   /// See:
-  ///  * [getPeersForCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CallGetPeersForCallResponseApplicationJson, void>> getPeersForCall({
+  ///  * [getPeersForCallRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CallGetPeersForCallResponseApplicationJson, void>> getPeersForCall({
     required String token,
     CallGetPeersForCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -2496,8 +2601,8 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -2508,9 +2613,9 @@ class $CallClient {
   ///   * 200: List of peers in the call returned
   ///
   /// See:
-  ///  * [getPeersForCall] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void> getPeersForCallRaw({
+  ///  * [getPeersForCall] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void> getPeersForCallRaw({
     required String token,
     CallGetPeersForCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -2523,7 +2628,7 @@ class $CallClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2536,7 +2641,11 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -2546,10 +2655,10 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(_parameters);
-    return DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -2565,8 +2674,8 @@ class $CallClient {
 
   /// Update the in-call flags.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [flags] New flags.
@@ -2580,8 +2689,8 @@ class $CallClient {
   ///   * 404: Call session not found
   ///
   /// See:
-  ///  * [updateCallFlagsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CallUpdateCallFlagsResponseApplicationJson, void>> updateCallFlags({
+  ///  * [updateCallFlagsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CallUpdateCallFlagsResponseApplicationJson, void>> updateCallFlags({
     required int flags,
     required String token,
     CallUpdateCallFlagsApiVersion? apiVersion,
@@ -2601,8 +2710,8 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [flags] New flags.
@@ -2616,9 +2725,9 @@ class $CallClient {
   ///   * 404: Call session not found
   ///
   /// See:
-  ///  * [updateCallFlags] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void> updateCallFlagsRaw({
+  ///  * [updateCallFlags] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void> updateCallFlagsRaw({
     required int flags,
     required String token,
     CallUpdateCallFlagsApiVersion? apiVersion,
@@ -2632,7 +2741,7 @@ class $CallClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2648,7 +2757,11 @@ class $CallClient {
     _parameters['flags'] = $flags;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -2658,16 +2771,20 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(_parameters);
-    return DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
         _headers,
         null,
-        const {200, 400, 404},
+        const {
+          200,
+          400,
+          404,
+        },
       ),
       bodyType: const FullType(CallUpdateCallFlagsResponseApplicationJson),
       headersType: null,
@@ -2677,8 +2794,8 @@ class $CallClient {
 
   /// Join a call.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [flags] In-Call flags.
@@ -2695,8 +2812,8 @@ class $CallClient {
   ///   * 400: No recording consent was given
   ///
   /// See:
-  ///  * [joinCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CallJoinCallResponseApplicationJson, void>> joinCall({
+  ///  * [joinCallRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CallJoinCallResponseApplicationJson, void>> joinCall({
     required String token,
     CallJoinCallFlags? flags,
     CallJoinCallForcePermissions? forcePermissions,
@@ -2722,8 +2839,8 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [flags] In-Call flags.
@@ -2740,9 +2857,9 @@ class $CallClient {
   ///   * 400: No recording consent was given
   ///
   /// See:
-  ///  * [joinCall] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CallJoinCallResponseApplicationJson, void> joinCallRaw({
+  ///  * [joinCall] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<CallJoinCallResponseApplicationJson, void> joinCallRaw({
     required String token,
     CallJoinCallFlags? flags,
     CallJoinCallForcePermissions? forcePermissions,
@@ -2759,7 +2876,7 @@ class $CallClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2772,7 +2889,11 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(CallJoinCallFlags));
@@ -2796,18 +2917,21 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*,forcePermissions*,silent*,recordingConsent*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<CallJoinCallResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<CallJoinCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 404},
+        const {
+          200,
+          404,
+        },
       ),
       bodyType: const FullType(CallJoinCallResponseApplicationJson),
       headersType: null,
@@ -2817,8 +2941,8 @@ class $CallClient {
 
   /// Leave a call.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [all] whether to also terminate the call for all participants. Defaults to `0`.
@@ -2831,8 +2955,8 @@ class $CallClient {
   ///   * 404: Call session not found
   ///
   /// See:
-  ///  * [leaveCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CallLeaveCallResponseApplicationJson, void>> leaveCall({
+  ///  * [leaveCallRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CallLeaveCallResponseApplicationJson, void>> leaveCall({
     required String token,
     int? all,
     CallLeaveCallApiVersion? apiVersion,
@@ -2852,8 +2976,8 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [all] whether to also terminate the call for all participants. Defaults to `0`.
@@ -2866,9 +2990,9 @@ class $CallClient {
   ///   * 404: Call session not found
   ///
   /// See:
-  ///  * [leaveCall] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void> leaveCallRaw({
+  ///  * [leaveCall] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void> leaveCallRaw({
     required String token,
     int? all,
     CallLeaveCallApiVersion? apiVersion,
@@ -2882,7 +3006,7 @@ class $CallClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2895,7 +3019,11 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $all = _$jsonSerializers.serialize(all, specifiedType: const FullType(int));
@@ -2908,16 +3036,19 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(_parameters);
-    return DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 404},
+        const {
+          200,
+          404,
+        },
       ),
       bodyType: const FullType(CallLeaveCallResponseApplicationJson),
       headersType: null,
@@ -2927,8 +3058,8 @@ class $CallClient {
 
   /// Ring an attendee.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -2942,8 +3073,8 @@ class $CallClient {
   ///   * 404: Attendee could not be found
   ///
   /// See:
-  ///  * [ringAttendeeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CallRingAttendeeResponseApplicationJson, void>> ringAttendee({
+  ///  * [ringAttendeeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CallRingAttendeeResponseApplicationJson, void>> ringAttendee({
     required String token,
     required int attendeeId,
     CallRingAttendeeApiVersion? apiVersion,
@@ -2963,8 +3094,8 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -2978,9 +3109,9 @@ class $CallClient {
   ///   * 404: Attendee could not be found
   ///
   /// See:
-  ///  * [ringAttendee] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void> ringAttendeeRaw({
+  ///  * [ringAttendee] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void> ringAttendeeRaw({
     required String token,
     required int attendeeId,
     CallRingAttendeeApiVersion? apiVersion,
@@ -2994,7 +3125,7 @@ class $CallClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3007,7 +3138,11 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
@@ -3020,17 +3155,21 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(_parameters);
-    return DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400, 404},
+        const {
+          200,
+          400,
+          404,
+        },
       ),
       bodyType: const FullType(CallRingAttendeeResponseApplicationJson),
       headersType: null,
@@ -3040,8 +3179,8 @@ class $CallClient {
 
   /// Call a SIP dial-out attendee.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -3056,8 +3195,8 @@ class $CallClient {
   ///   * 501: SIP dial-out is not configured on the server
   ///
   /// See:
-  ///  * [sipDialOutRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CallSipDialOutResponseApplicationJson, void>> sipDialOut({
+  ///  * [sipDialOutRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CallSipDialOutResponseApplicationJson, void>> sipDialOut({
     required String token,
     required int attendeeId,
     CallSipDialOutApiVersion? apiVersion,
@@ -3077,8 +3216,8 @@ class $CallClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -3093,9 +3232,9 @@ class $CallClient {
   ///   * 501: SIP dial-out is not configured on the server
   ///
   /// See:
-  ///  * [sipDialOut] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void> sipDialOutRaw({
+  ///  * [sipDialOut] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void> sipDialOutRaw({
     required String token,
     required int attendeeId,
     CallSipDialOutApiVersion? apiVersion,
@@ -3109,7 +3248,7 @@ class $CallClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3122,7 +3261,11 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
@@ -3134,17 +3277,22 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}').expand(_parameters);
-    return DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {201, 400, 404, 501},
+        const {
+          201,
+          400,
+          404,
+          501,
+        },
       ),
       bodyType: const FullType(CallSipDialOutResponseApplicationJson),
       headersType: null,
@@ -3154,7 +3302,7 @@ class $CallClient {
 }
 
 class $CertificateClient {
-  /// Creates a new [DynamiteClient] for certificate requests.
+  /// Creates a new `DynamiteClient` for certificate requests.
   $CertificateClient(this._rootClient);
 
   final $Client _rootClient;
@@ -3163,8 +3311,8 @@ class $CertificateClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [host] Host to check.
@@ -3176,8 +3324,9 @@ class $CertificateClient {
   ///   * 400: Getting certificate expiration is not possible
   ///
   /// See:
-  ///  * [getCertificateExpirationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>> getCertificateExpiration({
+  ///  * [getCertificateExpirationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>>
+      getCertificateExpiration({
     required String host,
     CertificateGetCertificateExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -3197,8 +3346,8 @@ class $CertificateClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [host] Host to check.
@@ -3210,9 +3359,10 @@ class $CertificateClient {
   ///   * 400: Getting certificate expiration is not possible
   ///
   /// See:
-  ///  * [getCertificateExpiration] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void> getCertificateExpirationRaw({
+  ///  * [getCertificateExpiration] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>
+      getCertificateExpirationRaw({
     required String host,
     CertificateGetCertificateExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -3225,7 +3375,7 @@ class $CertificateClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3251,11 +3401,11 @@ class $CertificateClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
-    return DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -3271,7 +3421,7 @@ class $CertificateClient {
 }
 
 class $ChatClient {
-  /// Creates a new [DynamiteClient] for chat requests.
+  /// Creates a new `DynamiteClient` for chat requests.
   $ChatClient(this._rootClient);
 
   final $Client _rootClient;
@@ -3282,8 +3432,8 @@ class $ChatClient {
   /// - Looking into the future ($lookIntoFuture=1): If there are currently no messages the response will not be sent immediately. Instead, HTTP connection will be kept open waiting for new messages to arrive and, when they do, then the response will be sent. The connection will not be kept open indefinitely, though; the number of seconds to wait for new messages to arrive can be set using the timeout parameter; the default timeout is 30 seconds, maximum timeout is 60 seconds. If the timeout ends a successful but empty response will be sent. If messages have been returned (status=200) the new $lastKnownMessageId for the follow up query is available as `X-Chat-Last-Given` header.
   /// The limit specifies the maximum number of messages that will be returned, although the actual number of returned messages could be lower if some messages are not visible to the participant. Note that if none of the messages are visible to the participant the returned number of messages will be 0, yet the status will still be 200. Also note that `X-Chat-Last-Given` may reference a message not visible and thus not returned, but it should be used nevertheless as the $lastKnownMessageId for the follow-up query.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [lookIntoFuture] Polling for new messages (1) or getting the history of the chat (0).
@@ -3304,8 +3454,9 @@ class $ChatClient {
   ///   * 304: No messages
   ///
   /// See:
-  ///  * [receiveMessagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>> receiveMessages({
+  ///  * [receiveMessagesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>>
+      receiveMessages({
     required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
     required String token,
     int? limit,
@@ -3345,8 +3496,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [lookIntoFuture] Polling for new messages (1) or getting the history of the chat (0).
@@ -3367,9 +3518,10 @@ class $ChatClient {
   ///   * 304: No messages
   ///
   /// See:
-  ///  * [receiveMessages] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders> receiveMessagesRaw({
+  ///  * [receiveMessages] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>
+      receiveMessagesRaw({
     required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
     required String token,
     int? limit,
@@ -3391,7 +3543,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3408,7 +3560,11 @@ class $ChatClient {
     _parameters['lookIntoFuture'] = $lookIntoFuture;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
@@ -3458,18 +3614,21 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?lookIntoFuture*,limit*,lastKnownMessageId*,lastCommonReadId*,timeout*,setReadMarker*,includeLastKnown*,noStatusUpdate*,markNotificationsAsRead*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>(
+    return _i1.DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>(
       response: _rootClient.executeRequest(
         'get',
         _path,
         _headers,
         null,
-        const {200, 304},
+        const {
+          200,
+          304,
+        },
       ),
       bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
       headersType: const FullType(ChatChatReceiveMessagesHeaders),
@@ -3481,8 +3640,8 @@ class $ChatClient {
   ///
   /// The author and timestamp are automatically set to the current user/guest and time.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [message] the message to send.
@@ -3501,8 +3660,8 @@ class $ChatClient {
   ///   * 413: Message too long
   ///
   /// See:
-  ///  * [sendMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>> sendMessage({
+  ///  * [sendMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>> sendMessage({
     required String message,
     required String token,
     String? actorDisplayName,
@@ -3532,8 +3691,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [message] the message to send.
@@ -3552,9 +3711,9 @@ class $ChatClient {
   ///   * 413: Message too long
   ///
   /// See:
-  ///  * [sendMessage] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders> sendMessageRaw({
+  ///  * [sendMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders> sendMessageRaw({
     required String message,
     required String token,
     String? actorDisplayName,
@@ -3572,7 +3731,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3588,7 +3747,11 @@ class $ChatClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $actorDisplayName = _$jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
@@ -3613,12 +3776,12 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?message*,actorDisplayName*,referenceId*,replyTo*,silent*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(
+    return _i1.DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -3634,8 +3797,8 @@ class $ChatClient {
 
   /// Clear the chat history.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -3648,8 +3811,8 @@ class $ChatClient {
   ///   * 403: Missing permissions to clear history
   ///
   /// See:
-  ///  * [clearHistoryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>> clearHistory({
+  ///  * [clearHistoryRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>> clearHistory({
     required String token,
     ChatClearHistoryApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -3667,8 +3830,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -3681,9 +3844,9 @@ class $ChatClient {
   ///   * 403: Missing permissions to clear history
   ///
   /// See:
-  ///  * [clearHistory] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders> clearHistoryRaw({
+  ///  * [clearHistory] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders> clearHistoryRaw({
     required String token,
     ChatClearHistoryApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -3696,7 +3859,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3711,7 +3874,11 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -3721,16 +3888,19 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(_parameters);
-    return DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 202},
+        const {
+          200,
+          202,
+        },
       ),
       bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
       headersType: const FullType(ChatChatClearHistoryHeaders),
@@ -3740,8 +3910,8 @@ class $ChatClient {
 
   /// Delete a chat message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -3758,8 +3928,8 @@ class $ChatClient {
   ///   * 405: Deleting message is not allowed
   ///
   /// See:
-  ///  * [deleteMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>> deleteMessage({
+  ///  * [deleteMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>> deleteMessage({
     required String token,
     required int messageId,
     ChatDeleteMessageApiVersion? apiVersion,
@@ -3779,8 +3949,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -3797,9 +3967,9 @@ class $ChatClient {
   ///   * 405: Deleting message is not allowed
   ///
   /// See:
-  ///  * [deleteMessage] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders> deleteMessageRaw({
+  ///  * [deleteMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders> deleteMessageRaw({
     required String token,
     required int messageId,
     ChatDeleteMessageApiVersion? apiVersion,
@@ -3813,7 +3983,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3828,7 +3998,11 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -3841,16 +4015,20 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(_parameters);
-    return DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 202},
+        const {
+          200,
+          202,
+        },
       ),
       bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
       headersType: const FullType(ChatChatDeleteMessageHeaders),
@@ -3860,8 +4038,8 @@ class $ChatClient {
 
   /// Get the context of a message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [limit] Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages). Defaults to `50`.
@@ -3875,8 +4053,8 @@ class $ChatClient {
   ///   * 304: No messages
   ///
   /// See:
-  ///  * [getMessageContextRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>>
+  ///  * [getMessageContextRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>>
       getMessageContext({
     required String token,
     required int messageId,
@@ -3899,8 +4077,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [limit] Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages). Defaults to `50`.
@@ -3914,9 +4092,9 @@ class $ChatClient {
   ///   * 304: No messages
   ///
   /// See:
-  ///  * [getMessageContext] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>
+  ///  * [getMessageContext] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>
       getMessageContextRaw({
     required String token,
     required int messageId,
@@ -3932,7 +4110,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3945,7 +4123,11 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -3962,17 +4144,20 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
         .expand(_parameters);
-    return DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>(
+    return _i1.DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>(
       response: _rootClient.executeRequest(
         'get',
         _path,
         _headers,
         null,
-        const {200, 304},
+        const {
+          200,
+          304,
+        },
       ),
       bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
       headersType: const FullType(ChatChatGetMessageContextHeaders),
@@ -3982,8 +4167,8 @@ class $ChatClient {
 
   /// Get the reminder for a chat message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -3996,8 +4181,8 @@ class $ChatClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [getReminderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatGetReminderResponseApplicationJson, void>> getReminder({
+  ///  * [getReminderRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatGetReminderResponseApplicationJson, void>> getReminder({
     required String token,
     required int messageId,
     ChatGetReminderApiVersion? apiVersion,
@@ -4017,8 +4202,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -4031,9 +4216,9 @@ class $ChatClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [getReminder] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void> getReminderRaw({
+  ///  * [getReminder] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void> getReminderRaw({
     required String token,
     required int messageId,
     ChatGetReminderApiVersion? apiVersion,
@@ -4047,7 +4232,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4062,7 +4247,11 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -4074,11 +4263,11 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(_parameters);
-    return DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -4094,8 +4283,8 @@ class $ChatClient {
 
   /// Set a reminder for a chat message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [timestamp] Timestamp of the reminder.
@@ -4109,8 +4298,8 @@ class $ChatClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [setReminderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatSetReminderResponseApplicationJson, void>> setReminder({
+  ///  * [setReminderRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatSetReminderResponseApplicationJson, void>> setReminder({
     required int timestamp,
     required String token,
     required int messageId,
@@ -4132,8 +4321,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [timestamp] Timestamp of the reminder.
@@ -4147,9 +4336,9 @@ class $ChatClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [setReminder] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void> setReminderRaw({
+  ///  * [setReminder] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void> setReminderRaw({
     required int timestamp,
     required String token,
     required int messageId,
@@ -4164,7 +4353,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4182,7 +4371,11 @@ class $ChatClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -4194,11 +4387,12 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
-        .expand(_parameters);
-    return DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
+            .expand(_parameters);
+    return _i1.DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -4214,8 +4408,8 @@ class $ChatClient {
 
   /// Delete a chat reminder.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -4228,8 +4422,8 @@ class $ChatClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [deleteReminderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatDeleteReminderResponseApplicationJson, void>> deleteReminder({
+  ///  * [deleteReminderRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatDeleteReminderResponseApplicationJson, void>> deleteReminder({
     required String token,
     required int messageId,
     ChatDeleteReminderApiVersion? apiVersion,
@@ -4249,8 +4443,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -4263,9 +4457,9 @@ class $ChatClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [deleteReminder] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void> deleteReminderRaw({
+  ///  * [deleteReminder] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void> deleteReminderRaw({
     required String token,
     required int messageId,
     ChatDeleteReminderApiVersion? apiVersion,
@@ -4279,7 +4473,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4294,7 +4488,11 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -4307,17 +4505,20 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(_parameters);
-    return DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 404},
+        const {
+          200,
+          404,
+        },
       ),
       bodyType: const FullType(ChatDeleteReminderResponseApplicationJson),
       headersType: null,
@@ -4327,8 +4528,8 @@ class $ChatClient {
 
   /// Set the read marker to a specific message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [lastReadMessage] ID if the last read message.
@@ -4340,8 +4541,8 @@ class $ChatClient {
   ///   * 200: Read marker set successfully
   ///
   /// See:
-  ///  * [setReadMarkerRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>> setReadMarker({
+  ///  * [setReadMarkerRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>> setReadMarker({
     required int lastReadMessage,
     required String token,
     ChatSetReadMarkerApiVersion? apiVersion,
@@ -4361,8 +4562,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [lastReadMessage] ID if the last read message.
@@ -4374,9 +4575,9 @@ class $ChatClient {
   ///   * 200: Read marker set successfully
   ///
   /// See:
-  ///  * [setReadMarker] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders> setReadMarkerRaw({
+  ///  * [setReadMarker] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders> setReadMarkerRaw({
     required int lastReadMessage,
     required String token,
     ChatSetReadMarkerApiVersion? apiVersion,
@@ -4390,7 +4591,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4408,7 +4609,11 @@ class $ChatClient {
     _parameters['lastReadMessage'] = $lastReadMessage;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -4418,11 +4623,11 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}')
         .expand(_parameters);
-    return DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(
+    return _i1.DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -4438,8 +4643,8 @@ class $ChatClient {
 
   /// Mark a chat as unread.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -4450,8 +4655,8 @@ class $ChatClient {
   ///   * 200: Read marker set successfully
   ///
   /// See:
-  ///  * [markUnreadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>> markUnread({
+  ///  * [markUnreadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>> markUnread({
     required String token,
     ChatMarkUnreadApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -4469,8 +4674,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -4481,9 +4686,9 @@ class $ChatClient {
   ///   * 200: Read marker set successfully
   ///
   /// See:
-  ///  * [markUnread] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders> markUnreadRaw({
+  ///  * [markUnread] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders> markUnreadRaw({
     required String token,
     ChatMarkUnreadApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -4496,7 +4701,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4511,7 +4716,11 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMarkUnreadApiVersion));
@@ -4520,10 +4729,10 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(_parameters);
-    return DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(_parameters);
+    return _i1.DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -4539,8 +4748,8 @@ class $ChatClient {
 
   /// Search for mentions.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for.
@@ -4554,8 +4763,8 @@ class $ChatClient {
   ///   * 200: List of mention suggestions returned
   ///
   /// See:
-  ///  * [mentionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatMentionsResponseApplicationJson, void>> mentions({
+  ///  * [mentionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatMentionsResponseApplicationJson, void>> mentions({
     required String search,
     required String token,
     int? limit,
@@ -4579,8 +4788,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for.
@@ -4594,9 +4803,9 @@ class $ChatClient {
   ///   * 200: List of mention suggestions returned
   ///
   /// See:
-  ///  * [mentions] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatMentionsResponseApplicationJson, void> mentionsRaw({
+  ///  * [mentions] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatMentionsResponseApplicationJson, void> mentionsRaw({
     required String search,
     required String token,
     int? limit,
@@ -4612,7 +4821,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4628,7 +4837,11 @@ class $ChatClient {
     _parameters['search'] = $search;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
@@ -4645,12 +4858,12 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}')
-            .expand(_parameters);
-    return DynamiteRawResponse<ChatMentionsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}',
+    ).expand(_parameters);
+    return _i1.DynamiteRawResponse<ChatMentionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -4666,8 +4879,8 @@ class $ChatClient {
 
   /// Get objects that are shared in the room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [objectType] Type of the objects.
@@ -4681,8 +4894,8 @@ class $ChatClient {
   ///   * 200: List of shared objects messages returned
   ///
   /// See:
-  ///  * [getObjectsSharedInRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>>
+  ///  * [getObjectsSharedInRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>>
       getObjectsSharedInRoom({
     required String objectType,
     required String token,
@@ -4707,8 +4920,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [objectType] Type of the objects.
@@ -4722,9 +4935,9 @@ class $ChatClient {
   ///   * 200: List of shared objects messages returned
   ///
   /// See:
-  ///  * [getObjectsSharedInRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>
+  ///  * [getObjectsSharedInRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>
       getObjectsSharedInRoomRaw({
     required String objectType,
     required String token,
@@ -4741,7 +4954,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4757,7 +4970,11 @@ class $ChatClient {
     _parameters['objectType'] = $objectType;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
@@ -4775,12 +4992,12 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,lastKnownMessageId*,limit*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson,
+    return _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson,
         ChatChatGetObjectsSharedInRoomHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -4799,8 +5016,8 @@ class $ChatClient {
   ///
   /// The author and timestamp are automatically set to the current user/guest and time.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [objectType] Type of the object.
@@ -4819,8 +5036,8 @@ class $ChatClient {
   ///   * 413: Message too long
   ///
   /// See:
-  ///  * [shareObjectToChatRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>>
+  ///  * [shareObjectToChatRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>>
       shareObjectToChat({
     required String objectType,
     required String objectId,
@@ -4851,8 +5068,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [objectType] Type of the object.
@@ -4871,9 +5088,9 @@ class $ChatClient {
   ///   * 413: Message too long
   ///
   /// See:
-  ///  * [shareObjectToChat] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>
+  ///  * [shareObjectToChat] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>
       shareObjectToChatRaw({
     required String objectType,
     required String objectId,
@@ -4892,7 +5109,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4911,7 +5128,11 @@ class $ChatClient {
     _parameters['objectId'] = $objectId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $metaData = _$jsonSerializers.serialize(metaData, specifiedType: const FullType(String));
@@ -4933,12 +5154,12 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,objectId*,metaData*,actorDisplayName*,referenceId*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>(
+    return _i1.DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -4954,8 +5175,8 @@ class $ChatClient {
 
   /// Get objects that are shared in the room overview.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [limit] Maximum number of objects. Defaults to `7`.
@@ -4967,8 +5188,8 @@ class $ChatClient {
   ///   * 200: List of shared objects messages of each type returned
   ///
   /// See:
-  ///  * [getObjectsSharedInRoomOverviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>>
+  ///  * [getObjectsSharedInRoomOverviewRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>>
       getObjectsSharedInRoomOverview({
     required String token,
     int? limit,
@@ -4989,8 +5210,8 @@ class $ChatClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [limit] Maximum number of objects. Defaults to `7`.
@@ -5002,9 +5223,9 @@ class $ChatClient {
   ///   * 200: List of shared objects messages of each type returned
   ///
   /// See:
-  ///  * [getObjectsSharedInRoomOverview] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
+  ///  * [getObjectsSharedInRoomOverview] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
       getObjectsSharedInRoomOverviewRaw({
     required String token,
     int? limit,
@@ -5019,7 +5240,7 @@ class $ChatClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5032,7 +5253,11 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
@@ -5048,11 +5273,11 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}')
         .expand(_parameters);
-    return DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -5068,7 +5293,7 @@ class $ChatClient {
 }
 
 class $FilesIntegrationClient {
-  /// Creates a new [DynamiteClient] for files_integration requests.
+  /// Creates a new `DynamiteClient` for files_integration requests.
   $FilesIntegrationClient(this._rootClient);
 
   final $Client _rootClient;
@@ -5079,8 +5304,8 @@ class $FilesIntegrationClient {
   /// If there is no room associated to the given file id a new room is created; the new room is a public room associated with a "file" object with the given file id. Unlike normal rooms in which the owner is the user that created the room these are special rooms without owner (although self joined users with direct access to the file become persistent participants automatically when they join until they explicitly leave or no longer have access to the file).
   /// In any case, to create or even get the token of the room, the file must be shared and the user must be the owner of a public share of the file (like a link share, for example) or have direct access to that file; an error is returned otherwise. A user has direct access to a file if she has access to it (or to an ancestor) through a user, group, circle or room share (but not through a link share, for example), or if she is the owner of such a file.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5093,8 +5318,8 @@ class $FilesIntegrationClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [getRoomByFileIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>> getRoomByFileId({
+  ///  * [getRoomByFileIdRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>> getRoomByFileId({
     required String fileId,
     FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5116,8 +5341,8 @@ class $FilesIntegrationClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5130,9 +5355,9 @@ class $FilesIntegrationClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [getRoomByFileId] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void> getRoomByFileIdRaw({
+  ///  * [getRoomByFileId] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void> getRoomByFileIdRaw({
     required String fileId,
     FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5145,7 +5370,7 @@ class $FilesIntegrationClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5160,7 +5385,11 @@ class $FilesIntegrationClient {
 
 // coverage:ignore-end
     final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($fileId as String?, RegExp(r'^.+$'), 'fileId');
+    _i2.checkPattern(
+      $fileId as String?,
+      RegExp(r'^.+$'),
+      'fileId',
+    );
     _parameters['fileId'] = $fileId;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -5172,10 +5401,10 @@ class $FilesIntegrationClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(_parameters);
-    return DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -5196,8 +5425,8 @@ class $FilesIntegrationClient {
   /// In any case, to create or even get the token of the room, the file must be publicly shared (like a link share, for example); an error is returned otherwise.
   /// Besides the token of the room this also returns the current user ID and display name, if any; this is needed by the Talk sidebar to know the actual current user, as the public share page uses the incognito mode and thus logged-in users as seen as guests.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5210,8 +5439,8 @@ class $FilesIntegrationClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [getRoomByShareTokenRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>> getRoomByShareToken({
+  ///  * [getRoomByShareTokenRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>> getRoomByShareToken({
     required String shareToken,
     FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5234,8 +5463,8 @@ class $FilesIntegrationClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5248,9 +5477,9 @@ class $FilesIntegrationClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [getRoomByShareToken] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void> getRoomByShareTokenRaw({
+  ///  * [getRoomByShareToken] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void> getRoomByShareTokenRaw({
     required String shareToken,
     FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5263,7 +5492,7 @@ class $FilesIntegrationClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5276,7 +5505,11 @@ class $FilesIntegrationClient {
 
 // coverage:ignore-end
     final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($shareToken as String?, RegExp(r'^.+$'), 'shareToken');
+    _i2.checkPattern(
+      $shareToken as String?,
+      RegExp(r'^.+$'),
+      'shareToken',
+    );
     _parameters['shareToken'] = $shareToken;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -5288,10 +5521,11 @@ class $FilesIntegrationClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(_parameters);
-    return DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(_parameters);
+    return _i1.DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -5307,15 +5541,15 @@ class $FilesIntegrationClient {
 }
 
 class $GuestClient {
-  /// Creates a new [DynamiteClient] for guest requests.
+  /// Creates a new `DynamiteClient` for guest requests.
   $GuestClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Set the display name as a guest.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [displayName] New display name.
@@ -5329,8 +5563,8 @@ class $GuestClient {
   ///   * 404: Not a participant
   ///
   /// See:
-  ///  * [setDisplayNameRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GuestSetDisplayNameResponseApplicationJson, void>> setDisplayName({
+  ///  * [setDisplayNameRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GuestSetDisplayNameResponseApplicationJson, void>> setDisplayName({
     required String displayName,
     required String token,
     GuestSetDisplayNameApiVersion? apiVersion,
@@ -5350,8 +5584,8 @@ class $GuestClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [displayName] New display name.
@@ -5365,9 +5599,9 @@ class $GuestClient {
   ///   * 404: Not a participant
   ///
   /// See:
-  ///  * [setDisplayName] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void> setDisplayNameRaw({
+  ///  * [setDisplayName] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void> setDisplayNameRaw({
     required String displayName,
     required String token,
     GuestSetDisplayNameApiVersion? apiVersion,
@@ -5381,7 +5615,7 @@ class $GuestClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5397,7 +5631,11 @@ class $GuestClient {
     _parameters['displayName'] = $displayName;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -5407,17 +5645,21 @@ class $GuestClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}').expand(_parameters);
-    return DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 403, 404},
+        const {
+          200,
+          403,
+          404,
+        },
       ),
       bodyType: const FullType(GuestSetDisplayNameResponseApplicationJson),
       headersType: null,
@@ -5427,7 +5669,7 @@ class $GuestClient {
 }
 
 class $HostedSignalingServerClient {
-  /// Creates a new [DynamiteClient] for hosted_signaling_server requests.
+  /// Creates a new `DynamiteClient` for hosted_signaling_server requests.
   $HostedSignalingServerClient(this._rootClient);
 
   final $Client _rootClient;
@@ -5436,8 +5678,8 @@ class $HostedSignalingServerClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [url] Server URL.
@@ -5454,8 +5696,8 @@ class $HostedSignalingServerClient {
   ///   * 500
   ///
   /// See:
-  ///  * [requestTrialRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>> requestTrial({
+  ///  * [requestTrialRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>> requestTrial({
     required String url,
     required String name,
     required String email,
@@ -5483,8 +5725,8 @@ class $HostedSignalingServerClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [url] Server URL.
@@ -5501,9 +5743,9 @@ class $HostedSignalingServerClient {
   ///   * 500
   ///
   /// See:
-  ///  * [requestTrial] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void> requestTrialRaw({
+  ///  * [requestTrial] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void> requestTrialRaw({
     required String url,
     required String name,
     required String email,
@@ -5520,7 +5762,7 @@ class $HostedSignalingServerClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5558,12 +5800,12 @@ class $HostedSignalingServerClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial{?url*,name*,email*,language*,country*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -5581,8 +5823,8 @@ class $HostedSignalingServerClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5594,8 +5836,8 @@ class $HostedSignalingServerClient {
   ///   * 500
   ///
   /// See:
-  ///  * [deleteAccountRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>> deleteAccount({
+  ///  * [deleteAccountRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>> deleteAccount({
     HostedSignalingServerDeleteAccountApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -5613,8 +5855,8 @@ class $HostedSignalingServerClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5626,9 +5868,9 @@ class $HostedSignalingServerClient {
   ///   * 500
   ///
   /// See:
-  ///  * [deleteAccount] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void> deleteAccountRaw({
+  ///  * [deleteAccount] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void> deleteAccountRaw({
     HostedSignalingServerDeleteAccountApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -5640,7 +5882,7 @@ class $HostedSignalingServerClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5663,11 +5905,11 @@ class $HostedSignalingServerClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(_parameters);
-    return DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(_parameters);
+    return _i1.DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -5683,15 +5925,15 @@ class $HostedSignalingServerClient {
 }
 
 class $MatterbridgeClient {
-  /// Creates a new [DynamiteClient] for matterbridge requests.
+  /// Creates a new `DynamiteClient` for matterbridge requests.
   $MatterbridgeClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get bridge information of one room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5702,8 +5944,8 @@ class $MatterbridgeClient {
   ///   * 200: Return list of configured bridges
   ///
   /// See:
-  ///  * [getBridgeOfRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>> getBridgeOfRoom({
+  ///  * [getBridgeOfRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>> getBridgeOfRoom({
     required String token,
     MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5721,8 +5963,8 @@ class $MatterbridgeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5733,9 +5975,9 @@ class $MatterbridgeClient {
   ///   * 200: Return list of configured bridges
   ///
   /// See:
-  ///  * [getBridgeOfRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void> getBridgeOfRoomRaw({
+  ///  * [getBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void> getBridgeOfRoomRaw({
     required String token,
     MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5748,7 +5990,7 @@ class $MatterbridgeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5763,7 +6005,11 @@ class $MatterbridgeClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -5773,10 +6019,10 @@ class $MatterbridgeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
-    return DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -5792,8 +6038,8 @@ class $MatterbridgeClient {
 
   /// Edit bridge information of one room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [enabled] If the bridge should be enabled.
@@ -5807,8 +6053,8 @@ class $MatterbridgeClient {
   ///   * 406: Editing bridge is not possible
   ///
   /// See:
-  ///  * [editBridgeOfRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>> editBridgeOfRoom({
+  ///  * [editBridgeOfRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>> editBridgeOfRoom({
     required int enabled,
     required String token,
     ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
@@ -5830,8 +6076,8 @@ class $MatterbridgeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [enabled] If the bridge should be enabled.
@@ -5845,9 +6091,9 @@ class $MatterbridgeClient {
   ///   * 406: Editing bridge is not possible
   ///
   /// See:
-  ///  * [editBridgeOfRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void> editBridgeOfRoomRaw({
+  ///  * [editBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void> editBridgeOfRoomRaw({
     required int enabled,
     required String token,
     ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
@@ -5862,7 +6108,7 @@ class $MatterbridgeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5880,7 +6126,11 @@ class $MatterbridgeClient {
     _parameters['enabled'] = $enabled;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $parts = _$jsonSerializers.serialize(
@@ -5900,11 +6150,11 @@ class $MatterbridgeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}').expand(_parameters);
-    return DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -5920,8 +6170,8 @@ class $MatterbridgeClient {
 
   /// Delete bridge of one room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5933,8 +6183,8 @@ class $MatterbridgeClient {
   ///   * 406: Deleting bridge is not possible
   ///
   /// See:
-  ///  * [deleteBridgeOfRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>> deleteBridgeOfRoom({
+  ///  * [deleteBridgeOfRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>> deleteBridgeOfRoom({
     required String token,
     MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5952,8 +6202,8 @@ class $MatterbridgeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -5965,9 +6215,9 @@ class $MatterbridgeClient {
   ///   * 406: Deleting bridge is not possible
   ///
   /// See:
-  ///  * [deleteBridgeOfRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void> deleteBridgeOfRoomRaw({
+  ///  * [deleteBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void> deleteBridgeOfRoomRaw({
     required String token,
     MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5980,7 +6230,7 @@ class $MatterbridgeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -5995,7 +6245,11 @@ class $MatterbridgeClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -6007,10 +6261,10 @@ class $MatterbridgeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
-    return DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -6026,8 +6280,8 @@ class $MatterbridgeClient {
 
   /// Get bridge process information.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6038,8 +6292,8 @@ class $MatterbridgeClient {
   ///   * 200: Return list of running processes
   ///
   /// See:
-  ///  * [getBridgeProcessStateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>> getBridgeProcessState({
+  ///  * [getBridgeProcessStateRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>> getBridgeProcessState({
     required String token,
     MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -6057,8 +6311,8 @@ class $MatterbridgeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6069,9 +6323,9 @@ class $MatterbridgeClient {
   ///   * 200: Return list of running processes
   ///
   /// See:
-  ///  * [getBridgeProcessState] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void> getBridgeProcessStateRaw({
+  ///  * [getBridgeProcessState] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void> getBridgeProcessStateRaw({
     required String token,
     MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -6084,7 +6338,7 @@ class $MatterbridgeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -6099,7 +6353,11 @@ class $MatterbridgeClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -6111,10 +6369,11 @@ class $MatterbridgeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(_parameters);
-    return DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(_parameters);
+    return _i1.DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -6130,7 +6389,7 @@ class $MatterbridgeClient {
 }
 
 class $MatterbridgeSettingsClient {
-  /// Creates a new [DynamiteClient] for matterbridge_settings requests.
+  /// Creates a new `DynamiteClient` for matterbridge_settings requests.
   $MatterbridgeSettingsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -6139,8 +6398,8 @@ class $MatterbridgeSettingsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6151,8 +6410,8 @@ class $MatterbridgeSettingsClient {
   ///   * 406: Stopping all bridges is not possible
   ///
   /// See:
-  ///  * [stopAllBridgesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>> stopAllBridges({
+  ///  * [stopAllBridgesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>> stopAllBridges({
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -6170,8 +6429,8 @@ class $MatterbridgeSettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6182,9 +6441,9 @@ class $MatterbridgeSettingsClient {
   ///   * 406: Stopping all bridges is not possible
   ///
   /// See:
-  ///  * [stopAllBridges] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void> stopAllBridgesRaw({
+  ///  * [stopAllBridges] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void> stopAllBridgesRaw({
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -6196,7 +6455,7 @@ class $MatterbridgeSettingsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -6219,10 +6478,10 @@ class $MatterbridgeSettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(_parameters);
-    return DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(_parameters);
+    return _i1.DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -6240,8 +6499,8 @@ class $MatterbridgeSettingsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6252,8 +6511,8 @@ class $MatterbridgeSettingsClient {
   ///   * 400: Getting bridge version is not possible
   ///
   /// See:
-  ///  * [getMatterbridgeVersionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>>
+  ///  * [getMatterbridgeVersionRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>>
       getMatterbridgeVersion({
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -6272,8 +6531,8 @@ class $MatterbridgeSettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6284,9 +6543,9 @@ class $MatterbridgeSettingsClient {
   ///   * 400: Getting bridge version is not possible
   ///
   /// See:
-  ///  * [getMatterbridgeVersion] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
+  ///  * [getMatterbridgeVersion] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
       getMatterbridgeVersionRaw({
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -6299,7 +6558,7 @@ class $MatterbridgeSettingsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -6322,10 +6581,10 @@ class $MatterbridgeSettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(_parameters);
-    return DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(_parameters);
+    return _i1.DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -6341,15 +6600,15 @@ class $MatterbridgeSettingsClient {
 }
 
 class $PollClient {
-  /// Creates a new [DynamiteClient] for poll requests.
+  /// Creates a new `DynamiteClient` for poll requests.
   $PollClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Create a poll.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [question] Question of the poll.
@@ -6365,8 +6624,8 @@ class $PollClient {
   ///   * 400: Creating poll is not possible
   ///
   /// See:
-  ///  * [createPollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PollCreatePollResponseApplicationJson, void>> createPoll({
+  ///  * [createPollRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PollCreatePollResponseApplicationJson, void>> createPoll({
     required String question,
     required BuiltList<String> options,
     required PollCreatePollResultMode resultMode,
@@ -6392,8 +6651,8 @@ class $PollClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [question] Question of the poll.
@@ -6409,9 +6668,9 @@ class $PollClient {
   ///   * 400: Creating poll is not possible
   ///
   /// See:
-  ///  * [createPoll] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PollCreatePollResponseApplicationJson, void> createPollRaw({
+  ///  * [createPoll] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PollCreatePollResponseApplicationJson, void> createPollRaw({
     required String question,
     required BuiltList<String> options,
     required PollCreatePollResultMode resultMode,
@@ -6428,7 +6687,7 @@ class $PollClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -6454,7 +6713,11 @@ class $PollClient {
     _parameters['maxVotes'] = $maxVotes;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollCreatePollApiVersion));
@@ -6463,12 +6726,12 @@ class $PollClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}{?question*,options%5B%5D*,resultMode*,maxVotes*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<PollCreatePollResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<PollCreatePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -6484,8 +6747,8 @@ class $PollClient {
 
   /// Get a poll.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6498,8 +6761,8 @@ class $PollClient {
   ///   * 404: Poll not found
   ///
   /// See:
-  ///  * [showPollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PollShowPollResponseApplicationJson, void>> showPoll({
+  ///  * [showPollRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PollShowPollResponseApplicationJson, void>> showPoll({
     required String token,
     required int pollId,
     PollShowPollApiVersion? apiVersion,
@@ -6519,8 +6782,8 @@ class $PollClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6533,9 +6796,9 @@ class $PollClient {
   ///   * 404: Poll not found
   ///
   /// See:
-  ///  * [showPoll] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PollShowPollResponseApplicationJson, void> showPollRaw({
+  ///  * [showPoll] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PollShowPollResponseApplicationJson, void> showPollRaw({
     required String token,
     required int pollId,
     PollShowPollApiVersion? apiVersion,
@@ -6549,7 +6812,7 @@ class $PollClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -6562,7 +6825,11 @@ class $PollClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
@@ -6574,10 +6841,10 @@ class $PollClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
-    return DynamiteRawResponse<PollShowPollResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<PollShowPollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -6593,8 +6860,8 @@ class $PollClient {
 
   /// Vote on a poll.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [optionIds] IDs of the selected options. Defaults to `[]`.
@@ -6609,8 +6876,8 @@ class $PollClient {
   ///   * 404: Poll not found
   ///
   /// See:
-  ///  * [votePollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PollVotePollResponseApplicationJson, void>> votePoll({
+  ///  * [votePollRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PollVotePollResponseApplicationJson, void>> votePoll({
     required String token,
     required int pollId,
     BuiltList<int>? optionIds,
@@ -6632,8 +6899,8 @@ class $PollClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [optionIds] IDs of the selected options. Defaults to `[]`.
@@ -6648,9 +6915,9 @@ class $PollClient {
   ///   * 404: Poll not found
   ///
   /// See:
-  ///  * [votePoll] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PollVotePollResponseApplicationJson, void> votePollRaw({
+  ///  * [votePoll] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PollVotePollResponseApplicationJson, void> votePollRaw({
     required String token,
     required int pollId,
     BuiltList<int>? optionIds,
@@ -6665,7 +6932,7 @@ class $PollClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -6678,7 +6945,11 @@ class $PollClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
@@ -6694,11 +6965,11 @@ class $PollClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
         .expand(_parameters);
-    return DynamiteRawResponse<PollVotePollResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<PollVotePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -6714,8 +6985,8 @@ class $PollClient {
 
   /// Close a poll.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6731,8 +7002,8 @@ class $PollClient {
   ///   * 500
   ///
   /// See:
-  ///  * [closePollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PollClosePollResponseApplicationJson, void>> closePoll({
+  ///  * [closePollRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PollClosePollResponseApplicationJson, void>> closePoll({
     required String token,
     required int pollId,
     PollClosePollApiVersion? apiVersion,
@@ -6752,8 +7023,8 @@ class $PollClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -6769,9 +7040,9 @@ class $PollClient {
   ///   * 500
   ///
   /// See:
-  ///  * [closePoll] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PollClosePollResponseApplicationJson, void> closePollRaw({
+  ///  * [closePoll] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PollClosePollResponseApplicationJson, void> closePollRaw({
     required String token,
     required int pollId,
     PollClosePollApiVersion? apiVersion,
@@ -6785,7 +7056,7 @@ class $PollClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -6798,7 +7069,11 @@ class $PollClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
@@ -6810,10 +7085,10 @@ class $PollClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
-    return DynamiteRawResponse<PollClosePollResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<PollClosePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -6829,7 +7104,7 @@ class $PollClient {
 }
 
 class $PublicShareAuthClient {
-  /// Creates a new [DynamiteClient] for public_share_auth requests.
+  /// Creates a new `DynamiteClient` for public_share_auth requests.
   $PublicShareAuthClient(this._rootClient);
 
   final $Client _rootClient;
@@ -6839,8 +7114,8 @@ class $PublicShareAuthClient {
   /// The new room is a public room associated with a "share:password" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.
   /// The share must have "send password by Talk" enabled; an error is returned otherwise.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [shareToken] Token of the file share.
@@ -6852,8 +7127,8 @@ class $PublicShareAuthClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [createRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>> createRoom({
+  ///  * [createRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>> createRoom({
     required String shareToken,
     PublicShareAuthCreateRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -6874,8 +7149,8 @@ class $PublicShareAuthClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [shareToken] Token of the file share.
@@ -6887,9 +7162,9 @@ class $PublicShareAuthClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [createRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void> createRoomRaw({
+  ///  * [createRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void> createRoomRaw({
     required String shareToken,
     PublicShareAuthCreateRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -6902,7 +7177,7 @@ class $PublicShareAuthClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -6924,11 +7199,11 @@ class $PublicShareAuthClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(_parameters);
-    return DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -6944,15 +7219,15 @@ class $PublicShareAuthClient {
 }
 
 class $ReactionClient {
-  /// Creates a new [DynamiteClient] for reaction requests.
+  /// Creates a new `DynamiteClient` for reaction requests.
   $ReactionClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get a list of reactions for a message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Emoji to filter.
@@ -6966,8 +7241,8 @@ class $ReactionClient {
   ///   * 404: Message or reaction not found
   ///
   /// See:
-  ///  * [getReactionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ReactionGetReactionsResponseApplicationJson, void>> getReactions({
+  ///  * [getReactionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ReactionGetReactionsResponseApplicationJson, void>> getReactions({
     required String token,
     required int messageId,
     String? reaction,
@@ -6989,8 +7264,8 @@ class $ReactionClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Emoji to filter.
@@ -7004,9 +7279,9 @@ class $ReactionClient {
   ///   * 404: Message or reaction not found
   ///
   /// See:
-  ///  * [getReactions] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void> getReactionsRaw({
+  ///  * [getReactions] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void> getReactionsRaw({
     required String token,
     required int messageId,
     String? reaction,
@@ -7021,7 +7296,7 @@ class $ReactionClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7034,7 +7309,11 @@ class $ReactionClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -7050,11 +7329,11 @@ class $ReactionClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
-    return DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -7070,8 +7349,8 @@ class $ReactionClient {
 
   /// Add a reaction to a message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Emoji to add.
@@ -7087,8 +7366,8 @@ class $ReactionClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [reactRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ReactionReactResponseApplicationJson, void>> react({
+  ///  * [reactRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ReactionReactResponseApplicationJson, void>> react({
     required String reaction,
     required String token,
     required int messageId,
@@ -7110,8 +7389,8 @@ class $ReactionClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Emoji to add.
@@ -7127,9 +7406,9 @@ class $ReactionClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [react] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ReactionReactResponseApplicationJson, void> reactRaw({
+  ///  * [react] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ReactionReactResponseApplicationJson, void> reactRaw({
     required String reaction,
     required String token,
     required int messageId,
@@ -7144,7 +7423,7 @@ class $ReactionClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7160,7 +7439,11 @@ class $ReactionClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -7172,17 +7455,20 @@ class $ReactionClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
-    return DynamiteRawResponse<ReactionReactResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<ReactionReactResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 201},
+        const {
+          200,
+          201,
+        },
       ),
       bodyType: const FullType(ReactionReactResponseApplicationJson),
       headersType: null,
@@ -7192,8 +7478,8 @@ class $ReactionClient {
 
   /// Delete a reaction from a message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Emoji to remove.
@@ -7208,8 +7494,8 @@ class $ReactionClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [deleteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ReactionDeleteResponseApplicationJson, void>> delete({
+  ///  * [deleteRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ReactionDeleteResponseApplicationJson, void>> delete({
     required String reaction,
     required String token,
     required int messageId,
@@ -7231,8 +7517,8 @@ class $ReactionClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [reaction] Emoji to remove.
@@ -7247,9 +7533,9 @@ class $ReactionClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [delete] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void> deleteRaw({
+  ///  * [delete] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void> deleteRaw({
     required String reaction,
     required String token,
     required int messageId,
@@ -7264,7 +7550,7 @@ class $ReactionClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7280,7 +7566,11 @@ class $ReactionClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -7292,11 +7582,11 @@ class $ReactionClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
-    return DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -7312,7 +7602,7 @@ class $ReactionClient {
 }
 
 class $RecordingClient {
-  /// Creates a new [DynamiteClient] for recording requests.
+  /// Creates a new `DynamiteClient` for recording requests.
   $RecordingClient(this._rootClient);
 
   final $Client _rootClient;
@@ -7321,8 +7611,8 @@ class $RecordingClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -7335,8 +7625,8 @@ class $RecordingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
+  ///  * [getWelcomeMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
     required int serverId,
     RecordingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -7356,8 +7646,8 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -7370,9 +7660,9 @@ class $RecordingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getWelcomeMessage] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
+  ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
     required int serverId,
     RecordingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -7385,7 +7675,7 @@ class $RecordingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7409,11 +7699,11 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
-    return DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -7429,8 +7719,8 @@ class $RecordingClient {
 
   /// Start the recording.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [status] Type of the recording.
@@ -7443,8 +7733,8 @@ class $RecordingClient {
   ///   * 400: Starting recording is not possible
   ///
   /// See:
-  ///  * [startRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RecordingStartResponseApplicationJson, void>> start({
+  ///  * [startRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RecordingStartResponseApplicationJson, void>> start({
     required int status,
     required String token,
     RecordingStartApiVersion? apiVersion,
@@ -7464,8 +7754,8 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [status] Type of the recording.
@@ -7478,9 +7768,9 @@ class $RecordingClient {
   ///   * 400: Starting recording is not possible
   ///
   /// See:
-  ///  * [start] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RecordingStartResponseApplicationJson, void> startRaw({
+  ///  * [start] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RecordingStartResponseApplicationJson, void> startRaw({
     required int status,
     required String token,
     RecordingStartApiVersion? apiVersion,
@@ -7494,7 +7784,7 @@ class $RecordingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7512,7 +7802,11 @@ class $RecordingClient {
     _parameters['status'] = $status;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStartApiVersion));
@@ -7521,11 +7815,11 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(_parameters);
-    return DynamiteRawResponse<RecordingStartResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RecordingStartResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -7541,8 +7835,8 @@ class $RecordingClient {
 
   /// Stop the recording.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -7554,8 +7848,8 @@ class $RecordingClient {
   ///   * 400: Stopping recording is not possible
   ///
   /// See:
-  ///  * [stopRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RecordingStopResponseApplicationJson, void>> stop({
+  ///  * [stopRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RecordingStopResponseApplicationJson, void>> stop({
     required String token,
     RecordingStopApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -7573,8 +7867,8 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
@@ -7586,9 +7880,9 @@ class $RecordingClient {
   ///   * 400: Stopping recording is not possible
   ///
   /// See:
-  ///  * [stop] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RecordingStopResponseApplicationJson, void> stopRaw({
+  ///  * [stop] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RecordingStopResponseApplicationJson, void> stopRaw({
     required String token,
     RecordingStopApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -7601,7 +7895,7 @@ class $RecordingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7616,7 +7910,11 @@ class $RecordingClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStopApiVersion));
@@ -7625,10 +7923,10 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(_parameters);
-    return DynamiteRawResponse<RecordingStopResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RecordingStopResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -7644,8 +7942,8 @@ class $RecordingClient {
 
   /// Store the recording.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [owner] User that will own the recording file.
@@ -7659,8 +7957,8 @@ class $RecordingClient {
   ///   * 401: Missing permissions to store recording
   ///
   /// See:
-  ///  * [storeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RecordingStoreResponseApplicationJson, void>> store({
+  ///  * [storeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RecordingStoreResponseApplicationJson, void>> store({
     required String owner,
     required String token,
     RecordingStoreApiVersion? apiVersion,
@@ -7680,8 +7978,8 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [owner] User that will own the recording file.
@@ -7695,9 +7993,9 @@ class $RecordingClient {
   ///   * 401: Missing permissions to store recording
   ///
   /// See:
-  ///  * [store] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RecordingStoreResponseApplicationJson, void> storeRaw({
+  ///  * [store] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RecordingStoreResponseApplicationJson, void> storeRaw({
     required String owner,
     required String token,
     RecordingStoreApiVersion? apiVersion,
@@ -7711,7 +8009,7 @@ class $RecordingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7727,7 +8025,11 @@ class $RecordingClient {
     _parameters['owner'] = $owner;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
@@ -7736,11 +8038,11 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}').expand(_parameters);
-    return DynamiteRawResponse<RecordingStoreResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<RecordingStoreResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -7756,8 +8058,8 @@ class $RecordingClient {
 
   /// Dismiss the store call recording notification.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [timestamp] Timestamp of the notification to be dismissed.
@@ -7770,8 +8072,8 @@ class $RecordingClient {
   ///   * 400: Dismissing notification is not possible
   ///
   /// See:
-  ///  * [notificationDismissRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RecordingNotificationDismissResponseApplicationJson, void>> notificationDismiss({
+  ///  * [notificationDismissRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RecordingNotificationDismissResponseApplicationJson, void>> notificationDismiss({
     required int timestamp,
     required String token,
     RecordingNotificationDismissApiVersion? apiVersion,
@@ -7791,8 +8093,8 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [timestamp] Timestamp of the notification to be dismissed.
@@ -7805,9 +8107,9 @@ class $RecordingClient {
   ///   * 400: Dismissing notification is not possible
   ///
   /// See:
-  ///  * [notificationDismiss] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void> notificationDismissRaw({
+  ///  * [notificationDismiss] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void> notificationDismissRaw({
     required int timestamp,
     required String token,
     RecordingNotificationDismissApiVersion? apiVersion,
@@ -7821,7 +8123,7 @@ class $RecordingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7839,7 +8141,11 @@ class $RecordingClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -7849,11 +8155,12 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
-        .expand(_parameters);
-    return DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
+            .expand(_parameters);
+    return _i1.DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -7869,8 +8176,8 @@ class $RecordingClient {
 
   /// Share the recorded file to the chat.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [fileId] ID of the file.
@@ -7884,8 +8191,8 @@ class $RecordingClient {
   ///   * 400: Sharing recording to chat is not possible
   ///
   /// See:
-  ///  * [shareToChatRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RecordingShareToChatResponseApplicationJson, void>> shareToChat({
+  ///  * [shareToChatRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RecordingShareToChatResponseApplicationJson, void>> shareToChat({
     required int fileId,
     required int timestamp,
     required String token,
@@ -7907,8 +8214,8 @@ class $RecordingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [fileId] ID of the file.
@@ -7922,9 +8229,9 @@ class $RecordingClient {
   ///   * 400: Sharing recording to chat is not possible
   ///
   /// See:
-  ///  * [shareToChat] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void> shareToChatRaw({
+  ///  * [shareToChat] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void> shareToChatRaw({
     required int fileId,
     required int timestamp,
     required String token,
@@ -7939,7 +8246,7 @@ class $RecordingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -7960,7 +8267,11 @@ class $RecordingClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -7970,12 +8281,12 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
             .expand(_parameters);
-    return DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -7991,15 +8302,15 @@ class $RecordingClient {
 }
 
 class $RoomClient {
-  /// Creates a new [DynamiteClient] for room requests.
+  /// Creates a new `DynamiteClient` for room requests.
   $RoomClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get all currently existent rooms which the user has joined.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
@@ -8012,8 +8323,8 @@ class $RoomClient {
   ///   * 200: Return list of rooms
   ///
   /// See:
-  ///  * [getRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>> getRooms({
+  ///  * [getRoomsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>> getRooms({
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     int? includeStatus,
     int? modifiedSince,
@@ -8035,8 +8346,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
@@ -8049,9 +8360,9 @@ class $RoomClient {
   ///   * 200: Return list of rooms
   ///
   /// See:
-  ///  * [getRooms] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> getRoomsRaw({
+  ///  * [getRooms] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> getRoomsRaw({
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     int? includeStatus,
     int? modifiedSince,
@@ -8066,7 +8377,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8099,12 +8410,12 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
             .expand(_parameters);
-    return DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(
+    return _i1.DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -8120,8 +8431,8 @@ class $RoomClient {
 
   /// Create a room with a user, a group or a circle.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [roomType] Type of the room.
@@ -8141,8 +8452,8 @@ class $RoomClient {
   ///   * 404: User, group or other target to invite was not found
   ///
   /// See:
-  ///  * [createRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomCreateRoomResponseApplicationJson, void>> createRoom({
+  ///  * [createRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomCreateRoomResponseApplicationJson, void>> createRoom({
     required int roomType,
     String? invite,
     String? roomName,
@@ -8170,8 +8481,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [roomType] Type of the room.
@@ -8191,9 +8502,9 @@ class $RoomClient {
   ///   * 404: User, group or other target to invite was not found
   ///
   /// See:
-  ///  * [createRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void> createRoomRaw({
+  ///  * [createRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void> createRoomRaw({
     required int roomType,
     String? invite,
     String? roomName,
@@ -8211,7 +8522,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8254,18 +8565,21 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?roomType*,invite*,roomName*,source*,objectType*,objectId*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 201},
+        const {
+          200,
+          201,
+        },
       ),
       bodyType: const FullType(RoomCreateRoomResponseApplicationJson),
       headersType: null,
@@ -8275,8 +8589,8 @@ class $RoomClient {
 
   /// Get listed rooms with optional search term.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [searchTerm] search term. Defaults to `''`.
@@ -8287,8 +8601,8 @@ class $RoomClient {
   ///   * 200: Return list of matching rooms
   ///
   /// See:
-  ///  * [getListedRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomGetListedRoomsResponseApplicationJson, void>> getListedRooms({
+  ///  * [getListedRoomsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomGetListedRoomsResponseApplicationJson, void>> getListedRooms({
     String? searchTerm,
     RoomGetListedRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8306,8 +8620,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [searchTerm] search term. Defaults to `''`.
@@ -8318,9 +8632,9 @@ class $RoomClient {
   ///   * 200: Return list of matching rooms
   ///
   /// See:
-  ///  * [getListedRooms] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void> getListedRoomsRaw({
+  ///  * [getListedRooms] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void> getListedRoomsRaw({
     String? searchTerm,
     RoomGetListedRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8333,7 +8647,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8358,10 +8672,11 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(_parameters);
-    return DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -8379,8 +8694,8 @@ class $RoomClient {
   ///
   /// It will be automatically created when it is currently missing.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8390,9 +8705,9 @@ class $RoomClient {
   ///   * 200: Room returned successfully
   ///
   /// See:
-  ///  * [getNoteToSelfConversationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  ///  * [getNoteToSelfConversationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<
-      DynamiteResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
+      _i1.DynamiteResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
           RoomRoomGetNoteToSelfConversationHeaders>> getNoteToSelfConversation({
     RoomGetNoteToSelfConversationApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8411,8 +8726,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8422,10 +8737,10 @@ class $RoomClient {
   ///   * 200: Room returned successfully
   ///
   /// See:
-  ///  * [getNoteToSelfConversation] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson, RoomRoomGetNoteToSelfConversationHeaders>
-      getNoteToSelfConversationRaw({
+  ///  * [getNoteToSelfConversation] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
+      RoomRoomGetNoteToSelfConversationHeaders> getNoteToSelfConversationRaw({
     RoomGetNoteToSelfConversationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -8437,7 +8752,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8458,10 +8773,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(_parameters);
-    return DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
         RoomRoomGetNoteToSelfConversationHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -8478,8 +8793,8 @@ class $RoomClient {
 
   /// Get a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8492,8 +8807,8 @@ class $RoomClient {
   ///   * 404: Room not found
   ///
   /// See:
-  ///  * [getSingleRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>> getSingleRoom({
+  ///  * [getSingleRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>> getSingleRoom({
     required String token,
     RoomGetSingleRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8511,8 +8826,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8525,9 +8840,9 @@ class $RoomClient {
   ///   * 404: Room not found
   ///
   /// See:
-  ///  * [getSingleRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders> getSingleRoomRaw({
+  ///  * [getSingleRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders> getSingleRoomRaw({
     required String token,
     RoomGetSingleRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8540,7 +8855,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8553,7 +8868,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -8563,10 +8882,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
-    return DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -8582,8 +8901,8 @@ class $RoomClient {
 
   /// Rename a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [roomName] New name.
@@ -8596,8 +8915,8 @@ class $RoomClient {
   ///   * 400: Renaming room is not possible
   ///
   /// See:
-  ///  * [renameRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomRenameRoomResponseApplicationJson, void>> renameRoom({
+  ///  * [renameRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomRenameRoomResponseApplicationJson, void>> renameRoom({
     required String roomName,
     required String token,
     RoomRenameRoomApiVersion? apiVersion,
@@ -8617,8 +8936,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [roomName] New name.
@@ -8631,9 +8950,9 @@ class $RoomClient {
   ///   * 400: Renaming room is not possible
   ///
   /// See:
-  ///  * [renameRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void> renameRoomRaw({
+  ///  * [renameRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void> renameRoomRaw({
     required String roomName,
     required String token,
     RoomRenameRoomApiVersion? apiVersion,
@@ -8647,7 +8966,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8663,7 +8982,11 @@ class $RoomClient {
     _parameters['roomName'] = $roomName;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRenameRoomApiVersion));
@@ -8672,16 +8995,20 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(_parameters);
-    return DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
       headersType: null,
@@ -8691,8 +9018,8 @@ class $RoomClient {
 
   /// Delete a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8704,8 +9031,8 @@ class $RoomClient {
   ///   * 400: Deleting room is not possible
   ///
   /// See:
-  ///  * [deleteRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomDeleteRoomResponseApplicationJson, void>> deleteRoom({
+  ///  * [deleteRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomDeleteRoomResponseApplicationJson, void>> deleteRoom({
     required String token,
     RoomDeleteRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8723,8 +9050,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8736,9 +9063,9 @@ class $RoomClient {
   ///   * 400: Deleting room is not possible
   ///
   /// See:
-  ///  * [deleteRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void> deleteRoomRaw({
+  ///  * [deleteRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void> deleteRoomRaw({
     required String token,
     RoomDeleteRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8751,7 +9078,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8764,7 +9091,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDeleteRoomApiVersion));
@@ -8773,16 +9104,19 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
-    return DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
       headersType: null,
@@ -8794,8 +9128,8 @@ class $RoomClient {
   ///
   /// All for moderators and in case of "free selection", or the assigned breakout room for other participants.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8807,8 +9141,8 @@ class $RoomClient {
   ///   * 400: Getting breakout rooms is not possible
   ///
   /// See:
-  ///  * [getBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>> getBreakoutRooms({
+  ///  * [getBreakoutRoomsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>> getBreakoutRooms({
     required String token,
     RoomGetBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8828,8 +9162,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8841,9 +9175,9 @@ class $RoomClient {
   ///   * 400: Getting breakout rooms is not possible
   ///
   /// See:
-  ///  * [getBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void> getBreakoutRoomsRaw({
+  ///  * [getBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void> getBreakoutRoomsRaw({
     required String token,
     RoomGetBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8856,7 +9190,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8871,7 +9205,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -8881,11 +9219,11 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(_parameters);
-    return DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -8901,8 +9239,8 @@ class $RoomClient {
 
   /// Allowed guests to join conversation.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8914,8 +9252,8 @@ class $RoomClient {
   ///   * 400: Allowing guests is not possible
   ///
   /// See:
-  ///  * [makePublicRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomMakePublicResponseApplicationJson, void>> makePublic({
+  ///  * [makePublicRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomMakePublicResponseApplicationJson, void>> makePublic({
     required String token,
     RoomMakePublicApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8933,8 +9271,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -8946,9 +9284,9 @@ class $RoomClient {
   ///   * 400: Allowing guests is not possible
   ///
   /// See:
-  ///  * [makePublic] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void> makePublicRaw({
+  ///  * [makePublic] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void> makePublicRaw({
     required String token,
     RoomMakePublicApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8961,7 +9299,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -8976,7 +9314,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePublicApiVersion));
@@ -8985,16 +9327,19 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
-    return DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomMakePublicResponseApplicationJson),
       headersType: null,
@@ -9004,8 +9349,8 @@ class $RoomClient {
 
   /// Disallowed guests to join conversation.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -9017,8 +9362,8 @@ class $RoomClient {
   ///   * 400: Disallowing guests is not possible
   ///
   /// See:
-  ///  * [makePrivateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomMakePrivateResponseApplicationJson, void>> makePrivate({
+  ///  * [makePrivateRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomMakePrivateResponseApplicationJson, void>> makePrivate({
     required String token,
     RoomMakePrivateApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -9036,8 +9381,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -9049,9 +9394,9 @@ class $RoomClient {
   ///   * 400: Disallowing guests is not possible
   ///
   /// See:
-  ///  * [makePrivate] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void> makePrivateRaw({
+  ///  * [makePrivate] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void> makePrivateRaw({
     required String token,
     RoomMakePrivateApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -9064,7 +9409,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9079,7 +9424,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePrivateApiVersion));
@@ -9088,16 +9437,19 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
-    return DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomMakePrivateResponseApplicationJson),
       headersType: null,
@@ -9107,8 +9459,8 @@ class $RoomClient {
 
   /// Update the description of a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [description] New description.
@@ -9121,8 +9473,8 @@ class $RoomClient {
   ///   * 400: Updating description is not possible
   ///
   /// See:
-  ///  * [setDescriptionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetDescriptionResponseApplicationJson, void>> setDescription({
+  ///  * [setDescriptionRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetDescriptionResponseApplicationJson, void>> setDescription({
     required String description,
     required String token,
     RoomSetDescriptionApiVersion? apiVersion,
@@ -9142,8 +9494,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [description] New description.
@@ -9156,9 +9508,9 @@ class $RoomClient {
   ///   * 400: Updating description is not possible
   ///
   /// See:
-  ///  * [setDescription] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void> setDescriptionRaw({
+  ///  * [setDescription] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void> setDescriptionRaw({
     required String description,
     required String token,
     RoomSetDescriptionApiVersion? apiVersion,
@@ -9172,7 +9524,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9188,7 +9540,11 @@ class $RoomClient {
     _parameters['description'] = $description;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -9198,17 +9554,20 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
         .expand(_parameters);
-    return DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomSetDescriptionResponseApplicationJson),
       headersType: null,
@@ -9218,8 +9577,8 @@ class $RoomClient {
 
   /// Set read-only state of a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [state] New read-only state.
@@ -9232,8 +9591,8 @@ class $RoomClient {
   ///   * 400: Updating read-only state is not possible
   ///
   /// See:
-  ///  * [setReadOnlyRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetReadOnlyResponseApplicationJson, void>> setReadOnly({
+  ///  * [setReadOnlyRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetReadOnlyResponseApplicationJson, void>> setReadOnly({
     required RoomSetReadOnlyState state,
     required String token,
     RoomSetReadOnlyApiVersion? apiVersion,
@@ -9253,8 +9612,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [state] New read-only state.
@@ -9267,9 +9626,9 @@ class $RoomClient {
   ///   * 400: Updating read-only state is not possible
   ///
   /// See:
-  ///  * [setReadOnly] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void> setReadOnlyRaw({
+  ///  * [setReadOnly] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void> setReadOnlyRaw({
     required RoomSetReadOnlyState state,
     required String token,
     RoomSetReadOnlyApiVersion? apiVersion,
@@ -9283,7 +9642,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9301,7 +9660,11 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetReadOnlyApiVersion));
@@ -9310,17 +9673,20 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(_parameters);
-    return DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomSetReadOnlyResponseApplicationJson),
       headersType: null,
@@ -9330,8 +9696,8 @@ class $RoomClient {
 
   /// Make a room listable.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [scope] Scope where the room is listable.
@@ -9344,8 +9710,8 @@ class $RoomClient {
   ///   * 400: Making room listable is not possible
   ///
   /// See:
-  ///  * [setListableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetListableResponseApplicationJson, void>> setListable({
+  ///  * [setListableRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetListableResponseApplicationJson, void>> setListable({
     required RoomSetListableScope scope,
     required String token,
     RoomSetListableApiVersion? apiVersion,
@@ -9365,8 +9731,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [scope] Scope where the room is listable.
@@ -9379,9 +9745,9 @@ class $RoomClient {
   ///   * 400: Making room listable is not possible
   ///
   /// See:
-  ///  * [setListable] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetListableResponseApplicationJson, void> setListableRaw({
+  ///  * [setListable] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetListableResponseApplicationJson, void> setListableRaw({
     required RoomSetListableScope scope,
     required String token,
     RoomSetListableApiVersion? apiVersion,
@@ -9395,7 +9761,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9413,7 +9779,11 @@ class $RoomClient {
     _parameters['scope'] = $scope;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetListableApiVersion));
@@ -9422,17 +9792,20 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(_parameters);
-    return DynamiteRawResponse<RoomSetListableResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomSetListableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomSetListableResponseApplicationJson),
       headersType: null,
@@ -9442,8 +9815,8 @@ class $RoomClient {
 
   /// Set a password for a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [password] New password.
@@ -9457,8 +9830,8 @@ class $RoomClient {
   ///   * 400: Setting password is not possible
   ///
   /// See:
-  ///  * [setPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetPasswordResponseApplicationJson, void>> setPassword({
+  ///  * [setPasswordRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetPasswordResponseApplicationJson, void>> setPassword({
     required String password,
     required String token,
     RoomSetPasswordApiVersion? apiVersion,
@@ -9478,8 +9851,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [password] New password.
@@ -9493,9 +9866,9 @@ class $RoomClient {
   ///   * 400: Setting password is not possible
   ///
   /// See:
-  ///  * [setPassword] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void> setPasswordRaw({
+  ///  * [setPassword] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void> setPasswordRaw({
     required String password,
     required String token,
     RoomSetPasswordApiVersion? apiVersion,
@@ -9509,7 +9882,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9525,7 +9898,11 @@ class $RoomClient {
     _parameters['password'] = $password;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPasswordApiVersion));
@@ -9534,17 +9911,20 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}').expand(_parameters);
-    return DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
         _headers,
         null,
-        const {200, 403},
+        const {
+          200,
+          403,
+        },
       ),
       bodyType: const FullType(RoomSetPasswordResponseApplicationJson),
       headersType: null,
@@ -9554,8 +9934,8 @@ class $RoomClient {
 
   /// Update the permissions of a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [permissions] New permissions.
@@ -9569,8 +9949,8 @@ class $RoomClient {
   ///   * 400: Updating permissions is not possible
   ///
   /// See:
-  ///  * [setPermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetPermissionsResponseApplicationJson, void>> setPermissions({
+  ///  * [setPermissionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetPermissionsResponseApplicationJson, void>> setPermissions({
     required RoomSetPermissionsPermissions permissions,
     required String token,
     required RoomSetPermissionsMode mode,
@@ -9592,8 +9972,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [permissions] New permissions.
@@ -9607,9 +9987,9 @@ class $RoomClient {
   ///   * 400: Updating permissions is not possible
   ///
   /// See:
-  ///  * [setPermissions] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void> setPermissionsRaw({
+  ///  * [setPermissions] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void> setPermissionsRaw({
     required RoomSetPermissionsPermissions permissions,
     required String token,
     required RoomSetPermissionsMode mode,
@@ -9624,7 +10004,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9641,11 +10021,19 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
-    dynamite_utils.checkPattern($mode as String?, RegExp(r'^(call|default)$'), 'mode');
+    _i2.checkPattern(
+      $mode as String?,
+      RegExp(r'^(call|default)$'),
+      'mode',
+    );
     _parameters['mode'] = $mode;
 
     var $apiVersion =
@@ -9655,11 +10043,12 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
-        .expand(_parameters);
-    return DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
+            .expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -9675,8 +10064,8 @@ class $RoomClient {
 
   /// Get a list of participants for a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
@@ -9689,8 +10078,9 @@ class $RoomClient {
   ///   * 403: Missing permissions for getting participants
   ///
   /// See:
-  ///  * [getParticipantsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>> getParticipants({
+  ///  * [getParticipantsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>>
+      getParticipants({
     required String token,
     int? includeStatus,
     RoomGetParticipantsApiVersion? apiVersion,
@@ -9710,8 +10100,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
@@ -9724,9 +10114,10 @@ class $RoomClient {
   ///   * 403: Missing permissions for getting participants
   ///
   /// See:
-  ///  * [getParticipants] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders> getParticipantsRaw({
+  ///  * [getParticipants] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>
+      getParticipantsRaw({
     required String token,
     int? includeStatus,
     RoomGetParticipantsApiVersion? apiVersion,
@@ -9740,7 +10131,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9753,7 +10144,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
@@ -9767,11 +10162,11 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
         .expand(_parameters);
-    return DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>(
+    return _i1.DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -9787,8 +10182,8 @@ class $RoomClient {
 
   /// Add a participant to a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [newParticipant] New participant.
@@ -9804,8 +10199,8 @@ class $RoomClient {
   ///   * 400: Adding participant is not possible
   ///
   /// See:
-  ///  * [addParticipantToRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomAddParticipantToRoomResponseApplicationJson, void>> addParticipantToRoom({
+  ///  * [addParticipantToRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomAddParticipantToRoomResponseApplicationJson, void>> addParticipantToRoom({
     required String newParticipant,
     required String token,
     RoomAddParticipantToRoomSource? source,
@@ -9827,8 +10222,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [newParticipant] New participant.
@@ -9844,9 +10239,9 @@ class $RoomClient {
   ///   * 400: Adding participant is not possible
   ///
   /// See:
-  ///  * [addParticipantToRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void> addParticipantToRoomRaw({
+  ///  * [addParticipantToRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void> addParticipantToRoomRaw({
     required String newParticipant,
     required String token,
     RoomAddParticipantToRoomSource? source,
@@ -9861,7 +10256,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9879,7 +10274,11 @@ class $RoomClient {
     _parameters['newParticipant'] = $newParticipant;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $source = _$jsonSerializers.serialize(source, specifiedType: const FullType(RoomAddParticipantToRoomSource));
@@ -9893,12 +10292,12 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
             .expand(_parameters);
-    return DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -9914,8 +10313,8 @@ class $RoomClient {
 
   /// Get the breakout room participants for a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
@@ -9929,9 +10328,9 @@ class $RoomClient {
   ///   * 403: Missing permissions to get breakout room participants
   ///
   /// See:
-  ///  * [getBreakoutRoomParticipantsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  ///  * [getBreakoutRoomParticipantsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<
-      DynamiteResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+      _i1.DynamiteResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
           RoomRoomGetBreakoutRoomParticipantsHeaders>> getBreakoutRoomParticipants({
     required String token,
     int? includeStatus,
@@ -9952,8 +10351,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
@@ -9967,9 +10366,9 @@ class $RoomClient {
   ///   * 403: Missing permissions to get breakout room participants
   ///
   /// See:
-  ///  * [getBreakoutRoomParticipants] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+  ///  * [getBreakoutRoomParticipants] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
       RoomRoomGetBreakoutRoomParticipantsHeaders> getBreakoutRoomParticipantsRaw({
     required String token,
     int? includeStatus,
@@ -9984,7 +10383,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -9997,7 +10396,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
@@ -10013,12 +10416,12 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants{?includeStatus*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+    return _i1.DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
         RoomRoomGetBreakoutRoomParticipantsHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -10035,8 +10438,8 @@ class $RoomClient {
 
   /// Remove the current user from a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -10049,8 +10452,8 @@ class $RoomClient {
   ///   * 404: Participant not found
   ///
   /// See:
-  ///  * [removeSelfFromRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>> removeSelfFromRoom({
+  ///  * [removeSelfFromRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>> removeSelfFromRoom({
     required String token,
     RoomRemoveSelfFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10068,8 +10471,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -10082,9 +10485,9 @@ class $RoomClient {
   ///   * 404: Participant not found
   ///
   /// See:
-  ///  * [removeSelfFromRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void> removeSelfFromRoomRaw({
+  ///  * [removeSelfFromRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void> removeSelfFromRoomRaw({
     required String token,
     RoomRemoveSelfFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10097,7 +10500,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -10112,7 +10515,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -10122,17 +10529,21 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(_parameters);
-    return DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400, 404},
+        const {
+          200,
+          400,
+          404,
+        },
       ),
       bodyType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
       headersType: null,
@@ -10142,8 +10553,8 @@ class $RoomClient {
 
   /// Remove an attendee from a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -10158,8 +10569,8 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [removeAttendeeFromRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>> removeAttendeeFromRoom({
+  ///  * [removeAttendeeFromRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>> removeAttendeeFromRoom({
     required int attendeeId,
     required String token,
     RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
@@ -10179,8 +10590,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -10195,9 +10606,9 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [removeAttendeeFromRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void> removeAttendeeFromRoomRaw({
+  ///  * [removeAttendeeFromRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void> removeAttendeeFromRoomRaw({
     required int attendeeId,
     required String token,
     RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
@@ -10211,7 +10622,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -10227,7 +10638,11 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -10237,17 +10652,22 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}')
         .expand(_parameters);
-    return DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400, 403, 404},
+        const {
+          200,
+          400,
+          403,
+          404,
+        },
       ),
       bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
       headersType: null,
@@ -10257,8 +10677,8 @@ class $RoomClient {
 
   /// Update the permissions of an attendee.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -10275,8 +10695,8 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [setAttendeePermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>> setAttendeePermissions({
+  ///  * [setAttendeePermissionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>> setAttendeePermissions({
     required int attendeeId,
     required RoomSetAttendeePermissionsMethod method,
     required RoomSetAttendeePermissionsPermissions permissions,
@@ -10300,8 +10720,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -10318,9 +10738,9 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [setAttendeePermissions] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void> setAttendeePermissionsRaw({
+  ///  * [setAttendeePermissions] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void> setAttendeePermissionsRaw({
     required int attendeeId,
     required RoomSetAttendeePermissionsMethod method,
     required RoomSetAttendeePermissionsPermissions permissions,
@@ -10336,7 +10756,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -10360,7 +10780,11 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -10370,18 +10794,23 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions{?attendeeId*,method*,permissions*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
         _headers,
         null,
-        const {200, 400, 403, 404},
+        const {
+          200,
+          400,
+          403,
+          404,
+        },
       ),
       bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
       headersType: null,
@@ -10391,8 +10820,8 @@ class $RoomClient {
 
   /// Update the permissions of all attendees.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [method] Method of updating permissions ('set', 'remove', 'add').
@@ -10406,8 +10835,8 @@ class $RoomClient {
   ///   * 400: Updating permissions is not possible
   ///
   /// See:
-  ///  * [setAllAttendeesPermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>> setAllAttendeesPermissions({
+  ///  * [setAllAttendeesPermissionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>> setAllAttendeesPermissions({
     required RoomSetAllAttendeesPermissionsMethod method,
     required RoomSetAllAttendeesPermissionsPermissions permissions,
     required String token,
@@ -10429,8 +10858,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [method] Method of updating permissions ('set', 'remove', 'add').
@@ -10444,9 +10873,9 @@ class $RoomClient {
   ///   * 400: Updating permissions is not possible
   ///
   /// See:
-  ///  * [setAllAttendeesPermissions] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void> setAllAttendeesPermissionsRaw({
+  ///  * [setAllAttendeesPermissions] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void> setAllAttendeesPermissionsRaw({
     required RoomSetAllAttendeesPermissionsMethod method,
     required RoomSetAllAttendeesPermissionsPermissions permissions,
     required String token,
@@ -10461,7 +10890,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -10484,7 +10913,11 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(
@@ -10496,12 +10929,12 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all{?method*,permissions*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -10517,8 +10950,8 @@ class $RoomClient {
 
   /// Join a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [password] Password of the room. Defaults to `''`.
@@ -10534,8 +10967,8 @@ class $RoomClient {
   ///   * 409: Session already exists
   ///
   /// See:
-  ///  * [joinRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomJoinRoomResponseApplicationJson, void>> joinRoom({
+  ///  * [joinRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomJoinRoomResponseApplicationJson, void>> joinRoom({
     required String token,
     String? password,
     int? force,
@@ -10557,8 +10990,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [password] Password of the room. Defaults to `''`.
@@ -10574,9 +11007,9 @@ class $RoomClient {
   ///   * 409: Session already exists
   ///
   /// See:
-  ///  * [joinRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void> joinRoomRaw({
+  ///  * [joinRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void> joinRoomRaw({
     required String token,
     String? password,
     int? force,
@@ -10591,7 +11024,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -10604,7 +11037,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
@@ -10621,12 +11058,12 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
             .expand(_parameters);
-    return DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -10642,8 +11079,8 @@ class $RoomClient {
 
   /// Leave a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -10654,8 +11091,8 @@ class $RoomClient {
   ///   * 200: Successfully left the room
   ///
   /// See:
-  ///  * [leaveRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomLeaveRoomResponseApplicationJson, void>> leaveRoom({
+  ///  * [leaveRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomLeaveRoomResponseApplicationJson, void>> leaveRoom({
     required String token,
     RoomLeaveRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10673,8 +11110,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -10685,9 +11122,9 @@ class $RoomClient {
   ///   * 200: Successfully left the room
   ///
   /// See:
-  ///  * [leaveRoom] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void> leaveRoomRaw({
+  ///  * [leaveRoom] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void> leaveRoomRaw({
     required String token,
     RoomLeaveRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10700,7 +11137,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -10713,7 +11150,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveRoomApiVersion));
@@ -10722,11 +11163,11 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active').expand(_parameters);
-    return DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -10742,8 +11183,8 @@ class $RoomClient {
 
   /// Resend invitations.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -10756,8 +11197,8 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [resendInvitationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomResendInvitationsResponseApplicationJson, void>> resendInvitations({
+  ///  * [resendInvitationsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomResendInvitationsResponseApplicationJson, void>> resendInvitations({
     required String token,
     int? attendeeId,
     RoomResendInvitationsApiVersion? apiVersion,
@@ -10777,8 +11218,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -10791,9 +11232,9 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [resendInvitations] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void> resendInvitationsRaw({
+  ///  * [resendInvitations] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void> resendInvitationsRaw({
     required String token,
     int? attendeeId,
     RoomResendInvitationsApiVersion? apiVersion,
@@ -10807,7 +11248,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -10822,7 +11263,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
@@ -10835,18 +11280,21 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations{?attendeeId*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 404},
+        const {
+          200,
+          404,
+        },
       ),
       bodyType: const FullType(RoomResendInvitationsResponseApplicationJson),
       headersType: null,
@@ -10856,8 +11304,8 @@ class $RoomClient {
 
   /// Set active state for a session.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [state] of the room.
@@ -10871,8 +11319,8 @@ class $RoomClient {
   ///   * 404: The participant did not have a session
   ///
   /// See:
-  ///  * [setSessionStateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetSessionStateResponseApplicationJson, void>> setSessionState({
+  ///  * [setSessionStateRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetSessionStateResponseApplicationJson, void>> setSessionState({
     required RoomSetSessionStateState state,
     required String token,
     RoomSetSessionStateApiVersion? apiVersion,
@@ -10892,8 +11340,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [state] of the room.
@@ -10907,9 +11355,9 @@ class $RoomClient {
   ///   * 404: The participant did not have a session
   ///
   /// See:
-  ///  * [setSessionState] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void> setSessionStateRaw({
+  ///  * [setSessionState] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void> setSessionStateRaw({
     required RoomSetSessionStateState state,
     required String token,
     RoomSetSessionStateApiVersion? apiVersion,
@@ -10923,7 +11371,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -10939,7 +11387,11 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -10949,11 +11401,11 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
         .expand(_parameters);
-    return DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -10969,8 +11421,8 @@ class $RoomClient {
 
   /// Promote an attendee to moderator.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -10985,8 +11437,8 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [promoteModeratorRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomPromoteModeratorResponseApplicationJson, void>> promoteModerator({
+  ///  * [promoteModeratorRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomPromoteModeratorResponseApplicationJson, void>> promoteModerator({
     required int attendeeId,
     required String token,
     RoomPromoteModeratorApiVersion? apiVersion,
@@ -11006,8 +11458,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -11022,9 +11474,9 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [promoteModerator] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void> promoteModeratorRaw({
+  ///  * [promoteModerator] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void> promoteModeratorRaw({
     required int attendeeId,
     required String token,
     RoomPromoteModeratorApiVersion? apiVersion,
@@ -11038,7 +11490,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11054,7 +11506,11 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -11064,17 +11520,22 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
         .expand(_parameters);
-    return DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400, 403, 404},
+        const {
+          200,
+          400,
+          403,
+          404,
+        },
       ),
       bodyType: const FullType(RoomPromoteModeratorResponseApplicationJson),
       headersType: null,
@@ -11084,8 +11545,8 @@ class $RoomClient {
 
   /// Demote an attendee from moderator.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -11100,8 +11561,8 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [demoteModeratorRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomDemoteModeratorResponseApplicationJson, void>> demoteModerator({
+  ///  * [demoteModeratorRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomDemoteModeratorResponseApplicationJson, void>> demoteModerator({
     required int attendeeId,
     required String token,
     RoomDemoteModeratorApiVersion? apiVersion,
@@ -11121,8 +11582,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
@@ -11137,9 +11598,9 @@ class $RoomClient {
   ///   * 404: Attendee not found
   ///
   /// See:
-  ///  * [demoteModerator] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void> demoteModeratorRaw({
+  ///  * [demoteModerator] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void> demoteModeratorRaw({
     required int attendeeId,
     required String token,
     RoomDemoteModeratorApiVersion? apiVersion,
@@ -11153,7 +11614,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11169,7 +11630,11 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -11179,17 +11644,22 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
         .expand(_parameters);
-    return DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400, 403, 404},
+        const {
+          200,
+          400,
+          403,
+          404,
+        },
       ),
       bodyType: const FullType(RoomDemoteModeratorResponseApplicationJson),
       headersType: null,
@@ -11199,8 +11669,8 @@ class $RoomClient {
 
   /// Add a room to the favorites.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -11211,8 +11681,8 @@ class $RoomClient {
   ///   * 200: Successfully added room to favorites
   ///
   /// See:
-  ///  * [addToFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomAddToFavoritesResponseApplicationJson, void>> addToFavorites({
+  ///  * [addToFavoritesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomAddToFavoritesResponseApplicationJson, void>> addToFavorites({
     required String token,
     RoomAddToFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -11230,8 +11700,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -11242,9 +11712,9 @@ class $RoomClient {
   ///   * 200: Successfully added room to favorites
   ///
   /// See:
-  ///  * [addToFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void> addToFavoritesRaw({
+  ///  * [addToFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void> addToFavoritesRaw({
     required String token,
     RoomAddToFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -11257,7 +11727,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11272,7 +11742,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -11282,10 +11756,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
-    return DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -11301,8 +11775,8 @@ class $RoomClient {
 
   /// Remove a room from the favorites.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -11313,8 +11787,8 @@ class $RoomClient {
   ///   * 200: Successfully removed room from favorites
   ///
   /// See:
-  ///  * [removeFromFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>> removeFromFavorites({
+  ///  * [removeFromFavoritesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>> removeFromFavorites({
     required String token,
     RoomRemoveFromFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -11332,8 +11806,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v4`.
@@ -11344,9 +11818,9 @@ class $RoomClient {
   ///   * 200: Successfully removed room from favorites
   ///
   /// See:
-  ///  * [removeFromFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void> removeFromFavoritesRaw({
+  ///  * [removeFromFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void> removeFromFavoritesRaw({
     required String token,
     RoomRemoveFromFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -11359,7 +11833,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11374,7 +11848,11 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -11384,10 +11862,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
-    return DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -11403,8 +11881,8 @@ class $RoomClient {
 
   /// Update the notification level for a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [level] New level.
@@ -11417,8 +11895,8 @@ class $RoomClient {
   ///   * 400: Updating notification level is not possible
   ///
   /// See:
-  ///  * [setNotificationLevelRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetNotificationLevelResponseApplicationJson, void>> setNotificationLevel({
+  ///  * [setNotificationLevelRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetNotificationLevelResponseApplicationJson, void>> setNotificationLevel({
     required int level,
     required String token,
     RoomSetNotificationLevelApiVersion? apiVersion,
@@ -11438,8 +11916,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [level] New level.
@@ -11452,9 +11930,9 @@ class $RoomClient {
   ///   * 400: Updating notification level is not possible
   ///
   /// See:
-  ///  * [setNotificationLevel] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void> setNotificationLevelRaw({
+  ///  * [setNotificationLevel] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void> setNotificationLevelRaw({
     required int level,
     required String token,
     RoomSetNotificationLevelApiVersion? apiVersion,
@@ -11468,7 +11946,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11486,7 +11964,11 @@ class $RoomClient {
     _parameters['level'] = $level;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -11496,17 +11978,20 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(_parameters);
-    return DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomSetNotificationLevelResponseApplicationJson),
       headersType: null,
@@ -11516,8 +12001,8 @@ class $RoomClient {
 
   /// Update call notifications.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [level] New level.
@@ -11530,8 +12015,8 @@ class $RoomClient {
   ///   * 400: Updating call notification level is not possible
   ///
   /// See:
-  ///  * [setNotificationCallsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetNotificationCallsResponseApplicationJson, void>> setNotificationCalls({
+  ///  * [setNotificationCallsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetNotificationCallsResponseApplicationJson, void>> setNotificationCalls({
     required int level,
     required String token,
     RoomSetNotificationCallsApiVersion? apiVersion,
@@ -11551,8 +12036,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [level] New level.
@@ -11565,9 +12050,9 @@ class $RoomClient {
   ///   * 400: Updating call notification level is not possible
   ///
   /// See:
-  ///  * [setNotificationCalls] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void> setNotificationCallsRaw({
+  ///  * [setNotificationCalls] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void> setNotificationCallsRaw({
     required int level,
     required String token,
     RoomSetNotificationCallsApiVersion? apiVersion,
@@ -11581,7 +12066,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11599,7 +12084,11 @@ class $RoomClient {
     _parameters['level'] = $level;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -11609,17 +12098,20 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}').expand(_parameters);
-    return DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(RoomSetNotificationCallsResponseApplicationJson),
       headersType: null,
@@ -11629,8 +12121,8 @@ class $RoomClient {
 
   /// Update the lobby state for a room.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [state] New state.
@@ -11644,8 +12136,8 @@ class $RoomClient {
   ///   * 400: Updating lobby state is not possible
   ///
   /// See:
-  ///  * [setLobbyRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetLobbyResponseApplicationJson, void>> setLobby({
+  ///  * [setLobbyRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetLobbyResponseApplicationJson, void>> setLobby({
     required int state,
     required String token,
     int? timer,
@@ -11667,8 +12159,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [state] New state.
@@ -11682,9 +12174,9 @@ class $RoomClient {
   ///   * 400: Updating lobby state is not possible
   ///
   /// See:
-  ///  * [setLobby] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void> setLobbyRaw({
+  ///  * [setLobby] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void> setLobbyRaw({
     required int state,
     required String token,
     int? timer,
@@ -11699,7 +12191,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11717,7 +12209,11 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     final $timer = _$jsonSerializers.serialize(timer, specifiedType: const FullType(int));
@@ -11729,11 +12225,11 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
         .expand(_parameters);
-    return DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -11749,8 +12245,8 @@ class $RoomClient {
 
   /// Update SIP enabled state.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [state] New state.
@@ -11766,8 +12262,8 @@ class $RoomClient {
   ///   * 412: SIP not configured
   ///
   /// See:
-  ///  * [setsipEnabledRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetsipEnabledResponseApplicationJson, void>> setsipEnabled({
+  ///  * [setsipEnabledRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetsipEnabledResponseApplicationJson, void>> setsipEnabled({
     required RoomSetsipEnabledState state,
     required String token,
     RoomSetsipEnabledApiVersion? apiVersion,
@@ -11787,8 +12283,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [state] New state.
@@ -11804,9 +12300,9 @@ class $RoomClient {
   ///   * 412: SIP not configured
   ///
   /// See:
-  ///  * [setsipEnabled] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void> setsipEnabledRaw({
+  ///  * [setsipEnabled] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void> setsipEnabledRaw({
     required RoomSetsipEnabledState state,
     required String token,
     RoomSetsipEnabledApiVersion? apiVersion,
@@ -11820,7 +12316,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11838,7 +12334,11 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -11848,11 +12348,11 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}').expand(_parameters);
-    return DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -11868,8 +12368,8 @@ class $RoomClient {
 
   /// Set recording consent requirement for this conversation.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [recordingConsent] New consent setting for the conversation (Only {@see RecordingService::CONSENT_REQUIRED_NO} and {@see RecordingService::CONSENT_REQUIRED_YES} are allowed here.).
@@ -11883,8 +12383,8 @@ class $RoomClient {
   ///   * 412: No recording server is configured
   ///
   /// See:
-  ///  * [setRecordingConsentRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetRecordingConsentResponseApplicationJson, void>> setRecordingConsent({
+  ///  * [setRecordingConsentRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetRecordingConsentResponseApplicationJson, void>> setRecordingConsent({
     required int recordingConsent,
     required String token,
     RoomSetRecordingConsentApiVersion? apiVersion,
@@ -11904,8 +12404,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [recordingConsent] New consent setting for the conversation (Only {@see RecordingService::CONSENT_REQUIRED_NO} and {@see RecordingService::CONSENT_REQUIRED_YES} are allowed here.).
@@ -11919,9 +12419,9 @@ class $RoomClient {
   ///   * 412: No recording server is configured
   ///
   /// See:
-  ///  * [setRecordingConsent] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void> setRecordingConsentRaw({
+  ///  * [setRecordingConsent] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void> setRecordingConsentRaw({
     required int recordingConsent,
     required String token,
     RoomSetRecordingConsentApiVersion? apiVersion,
@@ -11935,7 +12435,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -11953,7 +12453,11 @@ class $RoomClient {
     _parameters['recordingConsent'] = $recordingConsent;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -11963,12 +12467,12 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
             .expand(_parameters);
-    return DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -11984,8 +12488,8 @@ class $RoomClient {
 
   /// Update message expiration time.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [seconds] New time.
@@ -11998,8 +12502,8 @@ class $RoomClient {
   ///   * 400: Updating message expiration time is not possible
   ///
   /// See:
-  ///  * [setMessageExpirationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RoomSetMessageExpirationResponseApplicationJson, void>> setMessageExpiration({
+  ///  * [setMessageExpirationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RoomSetMessageExpirationResponseApplicationJson, void>> setMessageExpiration({
     required int seconds,
     required String token,
     RoomSetMessageExpirationApiVersion? apiVersion,
@@ -12019,8 +12523,8 @@ class $RoomClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [seconds] New time.
@@ -12033,9 +12537,9 @@ class $RoomClient {
   ///   * 400: Updating message expiration time is not possible
   ///
   /// See:
-  ///  * [setMessageExpiration] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void> setMessageExpirationRaw({
+  ///  * [setMessageExpiration] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void> setMessageExpirationRaw({
     required int seconds,
     required String token,
     RoomSetMessageExpirationApiVersion? apiVersion,
@@ -12049,7 +12553,7 @@ class $RoomClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12065,7 +12569,11 @@ class $RoomClient {
     _parameters['seconds'] = $seconds;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -12075,11 +12583,11 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
         .expand(_parameters);
-    return DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -12095,7 +12603,7 @@ class $RoomClient {
 }
 
 class $SettingsClient {
-  /// Creates a new [DynamiteClient] for settings requests.
+  /// Creates a new `DynamiteClient` for settings requests.
   $SettingsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -12104,8 +12612,8 @@ class $SettingsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [sipGroups] New SIP groups. Defaults to `[]`.
@@ -12118,8 +12626,8 @@ class $SettingsClient {
   ///   * 200: Successfully set new SIP settings
   ///
   /// See:
-  ///  * [setsipSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SettingsSetsipSettingsResponseApplicationJson, void>> setsipSettings({
+  ///  * [setsipSettingsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SettingsSetsipSettingsResponseApplicationJson, void>> setsipSettings({
     BuiltList<String>? sipGroups,
     String? dialInInfo,
     String? sharedSecret,
@@ -12143,8 +12651,8 @@ class $SettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [sipGroups] New SIP groups. Defaults to `[]`.
@@ -12157,9 +12665,9 @@ class $SettingsClient {
   ///   * 200: Successfully set new SIP settings
   ///
   /// See:
-  ///  * [setsipSettings] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void> setsipSettingsRaw({
+  ///  * [setsipSettings] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void> setsipSettingsRaw({
     BuiltList<String>? sipGroups,
     String? dialInInfo,
     String? sharedSecret,
@@ -12174,7 +12682,7 @@ class $SettingsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12208,12 +12716,12 @@ class $SettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip{?sipGroups%5B%5D*,dialInInfo*,sharedSecret*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -12229,8 +12737,8 @@ class $SettingsClient {
 
   /// Update user setting.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [key] Key to update.
@@ -12243,8 +12751,8 @@ class $SettingsClient {
   ///   * 400: Updating user setting is not possible
   ///
   /// See:
-  ///  * [setUserSettingRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SettingsSetUserSettingResponseApplicationJson, void>> setUserSetting({
+  ///  * [setUserSettingRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SettingsSetUserSettingResponseApplicationJson, void>> setUserSetting({
     required SettingsSetUserSettingKey key,
     SettingsSetUserSettingValue? value,
     SettingsSetUserSettingApiVersion? apiVersion,
@@ -12264,8 +12772,8 @@ class $SettingsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [key] Key to update.
@@ -12278,9 +12786,9 @@ class $SettingsClient {
   ///   * 400: Updating user setting is not possible
   ///
   /// See:
-  ///  * [setUserSetting] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
+  ///  * [setUserSetting] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
     required SettingsSetUserSettingKey key,
     SettingsSetUserSettingValue? value,
     SettingsSetUserSettingApiVersion? apiVersion,
@@ -12294,7 +12802,7 @@ class $SettingsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12321,17 +12829,20 @@ class $SettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(_parameters);
-    return DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
       headersType: null,
@@ -12341,15 +12852,15 @@ class $SettingsClient {
 }
 
 class $SignalingClient {
-  /// Creates a new [DynamiteClient] for signaling requests.
+  /// Creates a new `DynamiteClient` for signaling requests.
   $SignalingClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get the signaling settings.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [token] Token of the room. Defaults to `''`.
@@ -12362,8 +12873,8 @@ class $SignalingClient {
   ///   * 404: Room not found
   ///
   /// See:
-  ///  * [getSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> getSettings({
+  ///  * [getSettingsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> getSettings({
     String? token,
     SignalingGetSettingsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -12381,8 +12892,8 @@ class $SignalingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [token] Token of the room. Defaults to `''`.
@@ -12395,9 +12906,9 @@ class $SignalingClient {
   ///   * 404: Room not found
   ///
   /// See:
-  ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void> getSettingsRaw({
+  ///  * [getSettings] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void> getSettingsRaw({
     String? token,
     SignalingGetSettingsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -12410,7 +12921,7 @@ class $SignalingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12433,11 +12944,11 @@ class $SignalingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
-    return DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -12456,8 +12967,8 @@ class $SignalingClient {
   /// Only available for logged-in users because guests can not use the apps right now.
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v3`.
@@ -12470,8 +12981,8 @@ class $SignalingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
+  ///  * [getWelcomeMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
     required int serverId,
     SignalingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -12492,8 +13003,8 @@ class $SignalingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v3`.
@@ -12506,9 +13017,9 @@ class $SignalingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getWelcomeMessage] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
+  ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
     required int serverId,
     SignalingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -12521,7 +13032,7 @@ class $SignalingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12545,11 +13056,11 @@ class $SignalingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
-    return DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -12565,8 +13076,8 @@ class $SignalingClient {
 
   /// Get signaling messages.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v3`.
@@ -12580,8 +13091,8 @@ class $SignalingClient {
   ///   * 400: Getting signaling messages is not possible
   ///
   /// See:
-  ///  * [pullMessagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SignalingPullMessagesResponseApplicationJson, void>> pullMessages({
+  ///  * [pullMessagesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SignalingPullMessagesResponseApplicationJson, void>> pullMessages({
     required String token,
     SignalingPullMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -12599,8 +13110,8 @@ class $SignalingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v3`.
@@ -12614,9 +13125,9 @@ class $SignalingClient {
   ///   * 400: Getting signaling messages is not possible
   ///
   /// See:
-  ///  * [pullMessages] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void> pullMessagesRaw({
+  ///  * [pullMessages] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void> pullMessagesRaw({
     required String token,
     SignalingPullMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -12629,7 +13140,7 @@ class $SignalingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12642,7 +13153,11 @@ class $SignalingClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -12652,16 +13167,20 @@ class $SignalingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(_parameters);
-    return DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
         _headers,
         null,
-        const {200, 404, 409},
+        const {
+          200,
+          404,
+          409,
+        },
       ),
       bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
       headersType: null,
@@ -12671,8 +13190,8 @@ class $SignalingClient {
 
   /// Send signaling messages.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [messages] JSON encoded messages.
@@ -12685,8 +13204,8 @@ class $SignalingClient {
   ///   * 400: Sending signaling message is not possible
   ///
   /// See:
-  ///  * [sendMessagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SignalingSendMessagesResponseApplicationJson, void>> sendMessages({
+  ///  * [sendMessagesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SignalingSendMessagesResponseApplicationJson, void>> sendMessages({
     required String messages,
     required String token,
     SignalingSendMessagesApiVersion? apiVersion,
@@ -12706,8 +13225,8 @@ class $SignalingClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [messages] JSON encoded messages.
@@ -12720,9 +13239,9 @@ class $SignalingClient {
   ///   * 400: Sending signaling message is not possible
   ///
   /// See:
-  ///  * [sendMessages] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void> sendMessagesRaw({
+  ///  * [sendMessages] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void> sendMessagesRaw({
     required String messages,
     required String token,
     SignalingSendMessagesApiVersion? apiVersion,
@@ -12736,7 +13255,7 @@ class $SignalingClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12752,7 +13271,11 @@ class $SignalingClient {
     _parameters['messages'] = $messages;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    _i2.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
     _parameters['token'] = $token;
 
     var $apiVersion =
@@ -12762,11 +13285,11 @@ class $SignalingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(_parameters);
-    return DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -12782,15 +13305,15 @@ class $SignalingClient {
 }
 
 class $TempAvatarClient {
-  /// Creates a new [DynamiteClient] for temp_avatar requests.
+  /// Creates a new `DynamiteClient` for temp_avatar requests.
   $TempAvatarClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Upload your avatar as a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -12800,8 +13323,10 @@ class $TempAvatarClient {
   ///   * 400: Uploading avatar is not possible
   ///
   /// See:
-  ///  * [postAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> postAvatar({bool? oCSAPIRequest}) async {
+  ///  * [postAvatarRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> postAvatar({
+    bool? oCSAPIRequest,
+  }) async {
     final rawResponse = postAvatarRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -12813,8 +13338,8 @@ class $TempAvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -12824,9 +13349,9 @@ class $TempAvatarClient {
   ///   * 400: Uploading avatar is not possible
   ///
   /// See:
-  ///  * [postAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({bool? oCSAPIRequest}) {
+  ///  * [postAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12834,7 +13359,7 @@ class $TempAvatarClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12850,10 +13375,10 @@ class $TempAvatarClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
-    return DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -12869,8 +13394,8 @@ class $TempAvatarClient {
 
   /// Delete your avatar as a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -12880,8 +13405,8 @@ class $TempAvatarClient {
   ///   * 400: Deleting avatar is not possible
   ///
   /// See:
-  ///  * [deleteAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
+  ///  * [deleteAvatarRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAvatarRaw(
@@ -12895,8 +13420,8 @@ class $TempAvatarClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -12906,9 +13431,9 @@ class $TempAvatarClient {
   ///   * 400: Deleting avatar is not possible
   ///
   /// See:
-  ///  * [deleteAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({bool? oCSAPIRequest}) {
+  ///  * [deleteAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12916,7 +13441,7 @@ class $TempAvatarClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -12932,16 +13457,19 @@ class $TempAvatarClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
-    return DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
       headersType: null,
@@ -37689,10 +38217,10 @@ extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e
   List<dynamic> get _values => [builtListNever, chatMessage];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$e620970959f428e934829e52f32b7089> get _serializer =>
       const _$e620970959f428e934829e52f32b7089Serializer();
   static _$e620970959f428e934829e52f32b7089 _fromJson(Object? json) =>
@@ -37762,10 +38290,10 @@ extension $bd993fb3f40af33e8594d0d698208560Extension on _$bd993fb3f40af33e8594d0
   List<dynamic> get _values => [builtListNever, roomAddParticipantToRoomResponseApplicationJsonOcsData0];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$bd993fb3f40af33e8594d0d698208560> get _serializer =>
       const _$bd993fb3f40af33e8594d0d698208560Serializer();
   static _$bd993fb3f40af33e8594d0d698208560 _fromJson(Object? json) =>
@@ -37841,10 +38369,10 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
   List<dynamic> get _values => [$int, string];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
@@ -37910,10 +38438,10 @@ extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543a
   List<dynamic> get _values => [builtListSignalingSession, string];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
       const _$1df642f5035aea3b22543ab331c3fb01Serializer();
   static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
@@ -37985,10 +38513,10 @@ extension $bc4aac45771b11649d372f39a92b1cf3Extension on _$bc4aac45771b11649d372f
   List<dynamic> get _values => [builtListNever, publicCapabilities0];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$bc4aac45771b11649d372f39a92b1cf3> get _serializer =>
       const _$bc4aac45771b11649d372f39a92b1cf3Serializer();
   static _$bc4aac45771b11649d372f39a92b1cf3 _fromJson(Object? json) =>
@@ -38053,7 +38581,7 @@ class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..add(AvatarGetAvatarApiVersion.serializer)
@@ -39540,12 +40068,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

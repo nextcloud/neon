@@ -4,24 +4,25 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
+import 'package:dynamite_runtime/utils.dart' as _i2;
+import 'package:meta/meta.dart' as _i4;
+import 'package:uri/uri.dart' as _i3;
 
 part 'provisioning_api.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -32,7 +33,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -53,7 +54,7 @@ class $Client extends DynamiteClient {
 }
 
 class $AppConfigClient {
-  /// Creates a new [DynamiteClient] for app_config requests.
+  /// Creates a new `DynamiteClient` for app_config requests.
   $AppConfigClient(this._rootClient);
 
   final $Client _rootClient;
@@ -62,8 +63,8 @@ class $AppConfigClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -72,8 +73,8 @@ class $AppConfigClient {
   ///   * 200: Apps returned
   ///
   /// See:
-  ///  * [getAppsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppConfigGetAppsResponseApplicationJson, void>> getApps({bool? oCSAPIRequest}) async {
+  ///  * [getAppsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppConfigGetAppsResponseApplicationJson, void>> getApps({bool? oCSAPIRequest}) async {
     final rawResponse = getAppsRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -87,8 +88,8 @@ class $AppConfigClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -97,9 +98,9 @@ class $AppConfigClient {
   ///   * 200: Apps returned
   ///
   /// See:
-  ///  * [getApps] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void> getAppsRaw({bool? oCSAPIRequest}) {
+  ///  * [getApps] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void> getAppsRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -107,7 +108,7 @@ class $AppConfigClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -123,10 +124,10 @@ class $AppConfigClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps';
-    return DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -144,8 +145,8 @@ class $AppConfigClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -156,8 +157,8 @@ class $AppConfigClient {
   ///   * 403: App is not allowed
   ///
   /// See:
-  ///  * [getKeysRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppConfigGetKeysResponseApplicationJson, void>> getKeys({
+  ///  * [getKeysRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppConfigGetKeysResponseApplicationJson, void>> getKeys({
     required String app,
     bool? oCSAPIRequest,
   }) async {
@@ -175,8 +176,8 @@ class $AppConfigClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -187,9 +188,9 @@ class $AppConfigClient {
   ///   * 403: App is not allowed
   ///
   /// See:
-  ///  * [getKeys] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void> getKeysRaw({
+  ///  * [getKeys] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void> getKeysRaw({
     required String app,
     bool? oCSAPIRequest,
   }) {
@@ -201,7 +202,7 @@ class $AppConfigClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -220,10 +221,10 @@ class $AppConfigClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}').expand(_parameters);
-    return DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}').expand(_parameters);
+    return _i1.DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -241,8 +242,8 @@ class $AppConfigClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [defaultValue] Default returned value if the value is empty. Defaults to `''`.
@@ -255,8 +256,8 @@ class $AppConfigClient {
   ///   * 403: App is not allowed
   ///
   /// See:
-  ///  * [getValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppConfigGetValueResponseApplicationJson, void>> getValue({
+  ///  * [getValueRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppConfigGetValueResponseApplicationJson, void>> getValue({
     required String app,
     required String key,
     String? defaultValue,
@@ -278,8 +279,8 @@ class $AppConfigClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [defaultValue] Default returned value if the value is empty. Defaults to `''`.
@@ -292,9 +293,9 @@ class $AppConfigClient {
   ///   * 403: App is not allowed
   ///
   /// See:
-  ///  * [getValue] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void> getValueRaw({
+  ///  * [getValue] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void> getValueRaw({
     required String app,
     required String key,
     String? defaultValue,
@@ -308,7 +309,7 @@ class $AppConfigClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -334,11 +335,11 @@ class $AppConfigClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?defaultValue*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?defaultValue*}')
         .expand(_parameters);
-    return DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -354,8 +355,8 @@ class $AppConfigClient {
 
   /// Update the config value of an app.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [value] New value for the key.
@@ -368,8 +369,8 @@ class $AppConfigClient {
   ///   * 403: App or key is not allowed
   ///
   /// See:
-  ///  * [setValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppConfigSetValueResponseApplicationJson, void>> setValue({
+  ///  * [setValueRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppConfigSetValueResponseApplicationJson, void>> setValue({
     required String value,
     required String app,
     required String key,
@@ -389,8 +390,8 @@ class $AppConfigClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [value] New value for the key.
@@ -403,9 +404,9 @@ class $AppConfigClient {
   ///   * 403: App or key is not allowed
   ///
   /// See:
-  ///  * [setValue] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppConfigSetValueResponseApplicationJson, void> setValueRaw({
+  ///  * [setValue] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppConfigSetValueResponseApplicationJson, void> setValueRaw({
     required String value,
     required String app,
     required String key,
@@ -419,7 +420,7 @@ class $AppConfigClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -444,11 +445,11 @@ class $AppConfigClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?value*}').expand(_parameters);
-    return DynamiteRawResponse<AppConfigSetValueResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?value*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<AppConfigSetValueResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -466,8 +467,8 @@ class $AppConfigClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -479,8 +480,8 @@ class $AppConfigClient {
   ///   * 403: App or key is not allowed
   ///
   /// See:
-  ///  * [deleteKeyRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppConfigDeleteKeyResponseApplicationJson, void>> deleteKey({
+  ///  * [deleteKeyRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppConfigDeleteKeyResponseApplicationJson, void>> deleteKey({
     required String app,
     required String key,
     bool? oCSAPIRequest,
@@ -500,8 +501,8 @@ class $AppConfigClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -513,9 +514,9 @@ class $AppConfigClient {
   ///   * 403: App or key is not allowed
   ///
   /// See:
-  ///  * [deleteKey] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void> deleteKeyRaw({
+  ///  * [deleteKey] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void> deleteKeyRaw({
     required String app,
     required String key,
     bool? oCSAPIRequest,
@@ -528,7 +529,7 @@ class $AppConfigClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -550,10 +551,11 @@ class $AppConfigClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(_parameters);
-    return DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(_parameters);
+    return _i1.DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -569,7 +571,7 @@ class $AppConfigClient {
 }
 
 class $AppsClient {
-  /// Creates a new [DynamiteClient] for apps requests.
+  /// Creates a new `DynamiteClient` for apps requests.
   $AppsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -578,8 +580,8 @@ class $AppsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [filter] Filter for enabled or disabled apps.
@@ -589,8 +591,8 @@ class $AppsClient {
   ///   * 200: Installed apps returned
   ///
   /// See:
-  ///  * [getAppsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppsGetAppsResponseApplicationJson, void>> getApps({
+  ///  * [getAppsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppsGetAppsResponseApplicationJson, void>> getApps({
     String? filter,
     bool? oCSAPIRequest,
   }) async {
@@ -608,8 +610,8 @@ class $AppsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [filter] Filter for enabled or disabled apps.
@@ -619,9 +621,9 @@ class $AppsClient {
   ///   * 200: Installed apps returned
   ///
   /// See:
-  ///  * [getApps] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void> getAppsRaw({
+  ///  * [getApps] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void> getAppsRaw({
     String? filter,
     bool? oCSAPIRequest,
   }) {
@@ -633,7 +635,7 @@ class $AppsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -652,10 +654,10 @@ class $AppsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/apps{?filter*}').expand(_parameters);
-    return DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/apps{?filter*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -673,8 +675,8 @@ class $AppsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -684,8 +686,8 @@ class $AppsClient {
   ///   * 200: App info returned
   ///
   /// See:
-  ///  * [getAppInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppsGetAppInfoResponseApplicationJson, void>> getAppInfo({
+  ///  * [getAppInfoRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppsGetAppInfoResponseApplicationJson, void>> getAppInfo({
     required String app,
     bool? oCSAPIRequest,
   }) async {
@@ -703,8 +705,8 @@ class $AppsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -714,9 +716,9 @@ class $AppsClient {
   ///   * 200: App info returned
   ///
   /// See:
-  ///  * [getAppInfo] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void> getAppInfoRaw({
+  ///  * [getAppInfo] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void> getAppInfoRaw({
     required String app,
     bool? oCSAPIRequest,
   }) {
@@ -728,7 +730,7 @@ class $AppsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -747,10 +749,10 @@ class $AppsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
-    return DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
+    return _i1.DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -768,8 +770,8 @@ class $AppsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -779,8 +781,8 @@ class $AppsClient {
   ///   * 200: App enabled successfully
   ///
   /// See:
-  ///  * [enableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppsEnableResponseApplicationJson, void>> enable({
+  ///  * [enableRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppsEnableResponseApplicationJson, void>> enable({
     required String app,
     bool? oCSAPIRequest,
   }) async {
@@ -798,8 +800,8 @@ class $AppsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -809,9 +811,9 @@ class $AppsClient {
   ///   * 200: App enabled successfully
   ///
   /// See:
-  ///  * [enable] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppsEnableResponseApplicationJson, void> enableRaw({
+  ///  * [enable] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppsEnableResponseApplicationJson, void> enableRaw({
     required String app,
     bool? oCSAPIRequest,
   }) {
@@ -823,7 +825,7 @@ class $AppsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -842,10 +844,10 @@ class $AppsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
-    return DynamiteRawResponse<AppsEnableResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
+    return _i1.DynamiteRawResponse<AppsEnableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -863,8 +865,8 @@ class $AppsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -874,8 +876,8 @@ class $AppsClient {
   ///   * 200: App disabled successfully
   ///
   /// See:
-  ///  * [disableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppsDisableResponseApplicationJson, void>> disable({
+  ///  * [disableRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<AppsDisableResponseApplicationJson, void>> disable({
     required String app,
     bool? oCSAPIRequest,
   }) async {
@@ -893,8 +895,8 @@ class $AppsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app.
@@ -904,9 +906,9 @@ class $AppsClient {
   ///   * 200: App disabled successfully
   ///
   /// See:
-  ///  * [disable] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<AppsDisableResponseApplicationJson, void> disableRaw({
+  ///  * [disable] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<AppsDisableResponseApplicationJson, void> disableRaw({
     required String app,
     bool? oCSAPIRequest,
   }) {
@@ -918,7 +920,7 @@ class $AppsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -937,10 +939,10 @@ class $AppsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
-    return DynamiteRawResponse<AppsDisableResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
+    return _i1.DynamiteRawResponse<AppsDisableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -956,15 +958,15 @@ class $AppsClient {
 }
 
 class $GroupsClient {
-  /// Creates a new [DynamiteClient] for groups requests.
+  /// Creates a new `DynamiteClient` for groups requests.
   $GroupsClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get a list of groups.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -976,8 +978,8 @@ class $GroupsClient {
   ///   * 200: Groups returned
   ///
   /// See:
-  ///  * [getGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GroupsGetGroupsResponseApplicationJson, void>> getGroups({
+  ///  * [getGroupsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsGetGroupsResponseApplicationJson, void>> getGroups({
     String? search,
     int? limit,
     int? offset,
@@ -997,8 +999,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -1010,9 +1012,9 @@ class $GroupsClient {
   ///   * 200: Groups returned
   ///
   /// See:
-  ///  * [getGroups] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void> getGroupsRaw({
+  ///  * [getGroups] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void> getGroupsRaw({
     String? search,
     int? limit,
     int? offset,
@@ -1026,7 +1028,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1053,10 +1055,10 @@ class $GroupsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups{?search*,limit*,offset*}').expand(_parameters);
-    return DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups{?search*,limit*,offset*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -1074,8 +1076,8 @@ class $GroupsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group.
@@ -1086,8 +1088,8 @@ class $GroupsClient {
   ///   * 200: Group created successfully
   ///
   /// See:
-  ///  * [addGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GroupsAddGroupResponseApplicationJson, void>> addGroup({
+  ///  * [addGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsAddGroupResponseApplicationJson, void>> addGroup({
     required String groupid,
     String? displayname,
     bool? oCSAPIRequest,
@@ -1107,8 +1109,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group.
@@ -1119,9 +1121,9 @@ class $GroupsClient {
   ///   * 200: Group created successfully
   ///
   /// See:
-  ///  * [addGroup] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void> addGroupRaw({
+  ///  * [addGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void> addGroupRaw({
     required String groupid,
     String? displayname,
     bool? oCSAPIRequest,
@@ -1134,7 +1136,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1157,10 +1159,10 @@ class $GroupsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups{?groupid*,displayname*}').expand(_parameters);
-    return DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups{?groupid*,displayname*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -1176,8 +1178,8 @@ class $GroupsClient {
 
   /// Get a list of groups details.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -1189,8 +1191,8 @@ class $GroupsClient {
   ///   * 200: Groups details returned
   ///
   /// See:
-  ///  * [getGroupsDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>> getGroupsDetails({
+  ///  * [getGroupsDetailsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>> getGroupsDetails({
     String? search,
     int? limit,
     int? offset,
@@ -1210,8 +1212,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -1223,9 +1225,9 @@ class $GroupsClient {
   ///   * 200: Groups details returned
   ///
   /// See:
-  ///  * [getGroupsDetails] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void> getGroupsDetailsRaw({
+  ///  * [getGroupsDetails] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void> getGroupsDetailsRaw({
     String? search,
     int? limit,
     int? offset,
@@ -1239,7 +1241,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1266,10 +1268,10 @@ class $GroupsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/details{?search*,limit*,offset*}').expand(_parameters);
-    return DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/details{?search*,limit*,offset*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -1285,8 +1287,8 @@ class $GroupsClient {
 
   /// Get a list of users in the specified group.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupId] ID of the group.
@@ -1298,8 +1300,8 @@ class $GroupsClient {
   ///   * 403: Missing permissions to get users in the group
   ///
   /// See:
-  ///  * [getGroupUsersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GroupsGetGroupUsersResponseApplicationJson, void>> getGroupUsers({
+  ///  * [getGroupUsersRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsGetGroupUsersResponseApplicationJson, void>> getGroupUsers({
     required String groupId,
     bool? oCSAPIRequest,
   }) async {
@@ -1315,8 +1317,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupId] ID of the group.
@@ -1328,9 +1330,9 @@ class $GroupsClient {
   ///   * 403: Missing permissions to get users in the group
   ///
   /// See:
-  ///  * [getGroupUsers] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void> getGroupUsersRaw({
+  ///  * [getGroupUsers] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void> getGroupUsersRaw({
     required String groupId,
     bool? oCSAPIRequest,
   }) {
@@ -1342,7 +1344,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1357,15 +1359,19 @@ class $GroupsClient {
 
 // coverage:ignore-end
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
+    _i2.checkPattern(
+      $groupId as String?,
+      RegExp(r'^.+$'),
+      'groupId',
+    );
     _parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(_parameters);
-    return DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -1381,8 +1387,8 @@ class $GroupsClient {
 
   /// Get a list of users details in the specified group.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -1395,8 +1401,8 @@ class $GroupsClient {
   ///   * 200: Group users details returned
   ///
   /// See:
-  ///  * [getGroupUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void>> getGroupUsersDetails({
+  ///  * [getGroupUsersDetailsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void>> getGroupUsersDetails({
     required String groupId,
     String? search,
     int? limit,
@@ -1418,8 +1424,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -1432,9 +1438,9 @@ class $GroupsClient {
   ///   * 200: Group users details returned
   ///
   /// See:
-  ///  * [getGroupUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void> getGroupUsersDetailsRaw({
+  ///  * [getGroupUsersDetails] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void> getGroupUsersDetailsRaw({
     required String groupId,
     String? search,
     int? limit,
@@ -1449,7 +1455,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1464,7 +1470,11 @@ class $GroupsClient {
 
 // coverage:ignore-end
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
+    _i2.checkPattern(
+      $groupId as String?,
+      RegExp(r'^.+$'),
+      'groupId',
+    );
     _parameters['groupId'] = $groupId;
 
     var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
@@ -1480,11 +1490,11 @@ class $GroupsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details{?search*,limit*,offset*}').expand(_parameters);
-    return DynamiteRawResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details{?search*,limit*,offset*}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -1502,8 +1512,8 @@ class $GroupsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupId] ID of the group.
@@ -1513,8 +1523,8 @@ class $GroupsClient {
   ///   * 200: Sub admins returned
   ///
   /// See:
-  ///  * [getSubAdminsOfGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>> getSubAdminsOfGroup({
+  ///  * [getSubAdminsOfGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>> getSubAdminsOfGroup({
     required String groupId,
     bool? oCSAPIRequest,
   }) async {
@@ -1532,8 +1542,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupId] ID of the group.
@@ -1543,9 +1553,9 @@ class $GroupsClient {
   ///   * 200: Sub admins returned
   ///
   /// See:
-  ///  * [getSubAdminsOfGroup] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
+  ///  * [getSubAdminsOfGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
     required String groupId,
     bool? oCSAPIRequest,
   }) {
@@ -1557,7 +1567,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1572,15 +1582,19 @@ class $GroupsClient {
 
 // coverage:ignore-end
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
+    _i2.checkPattern(
+      $groupId as String?,
+      RegExp(r'^.+$'),
+      'groupId',
+    );
     _parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
-    return DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -1596,8 +1610,8 @@ class $GroupsClient {
 
   /// Get a list of users in the specified group.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupId] ID of the group.
@@ -1607,9 +1621,9 @@ class $GroupsClient {
   ///   * 200: Group users returned
   ///
   /// See:
-  ///  * [getGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  ///  * [getGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   @Deprecated('')
-  Future<DynamiteResponse<GroupsGetGroupResponseApplicationJson, void>> getGroup({
+  Future<_i1.DynamiteResponse<GroupsGetGroupResponseApplicationJson, void>> getGroup({
     required String groupId,
     bool? oCSAPIRequest,
   }) async {
@@ -1625,8 +1639,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupId] ID of the group.
@@ -1636,10 +1650,10 @@ class $GroupsClient {
   ///   * 200: Group users returned
   ///
   /// See:
-  ///  * [getGroup] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
+  ///  * [getGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
   @Deprecated('')
-  DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void> getGroupRaw({
+  _i1.DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void> getGroupRaw({
     required String groupId,
     bool? oCSAPIRequest,
   }) {
@@ -1651,7 +1665,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1666,15 +1680,19 @@ class $GroupsClient {
 
 // coverage:ignore-end
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
+    _i2.checkPattern(
+      $groupId as String?,
+      RegExp(r'^.+$'),
+      'groupId',
+    );
     _parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
-    return DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -1692,8 +1710,8 @@ class $GroupsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [key] Key to update, only 'displayname'.
@@ -1705,8 +1723,8 @@ class $GroupsClient {
   ///   * 200: Group updated successfully
   ///
   /// See:
-  ///  * [updateGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GroupsUpdateGroupResponseApplicationJson, void>> updateGroup({
+  ///  * [updateGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsUpdateGroupResponseApplicationJson, void>> updateGroup({
     required String key,
     required String value,
     required String groupId,
@@ -1728,8 +1746,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [key] Key to update, only 'displayname'.
@@ -1741,9 +1759,9 @@ class $GroupsClient {
   ///   * 200: Group updated successfully
   ///
   /// See:
-  ///  * [updateGroup] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void> updateGroupRaw({
+  ///  * [updateGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void> updateGroupRaw({
     required String key,
     required String value,
     required String groupId,
@@ -1757,7 +1775,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1778,15 +1796,19 @@ class $GroupsClient {
     _parameters['value'] = $value;
 
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
+    _i2.checkPattern(
+      $groupId as String?,
+      RegExp(r'^.+$'),
+      'groupId',
+    );
     _parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}{?key*,value*}').expand(_parameters);
-    return DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}{?key*,value*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -1804,8 +1826,8 @@ class $GroupsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupId] ID of the group.
@@ -1815,8 +1837,8 @@ class $GroupsClient {
   ///   * 200: Group deleted successfully
   ///
   /// See:
-  ///  * [deleteGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GroupsDeleteGroupResponseApplicationJson, void>> deleteGroup({
+  ///  * [deleteGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsDeleteGroupResponseApplicationJson, void>> deleteGroup({
     required String groupId,
     bool? oCSAPIRequest,
   }) async {
@@ -1834,8 +1856,8 @@ class $GroupsClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupId] ID of the group.
@@ -1845,9 +1867,9 @@ class $GroupsClient {
   ///   * 200: Group deleted successfully
   ///
   /// See:
-  ///  * [deleteGroup] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void> deleteGroupRaw({
+  ///  * [deleteGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void> deleteGroupRaw({
     required String groupId,
     bool? oCSAPIRequest,
   }) {
@@ -1859,7 +1881,7 @@ class $GroupsClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1874,15 +1896,19 @@ class $GroupsClient {
 
 // coverage:ignore-end
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
+    _i2.checkPattern(
+      $groupId as String?,
+      RegExp(r'^.+$'),
+      'groupId',
+    );
     _parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
-    return DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -1898,15 +1924,15 @@ class $GroupsClient {
 }
 
 class $PreferencesClient {
-  /// Creates a new [DynamiteClient] for preferences requests.
+  /// Creates a new `DynamiteClient` for preferences requests.
   $PreferencesClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Update a preference value of an app.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [configValue] New value.
@@ -1919,8 +1945,8 @@ class $PreferencesClient {
   ///   * 400: Preference invalid
   ///
   /// See:
-  ///  * [setPreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PreferencesSetPreferenceResponseApplicationJson, void>> setPreference({
+  ///  * [setPreferenceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PreferencesSetPreferenceResponseApplicationJson, void>> setPreference({
     required String configValue,
     required String appId,
     required String configKey,
@@ -1940,8 +1966,8 @@ class $PreferencesClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [configValue] New value.
@@ -1954,9 +1980,9 @@ class $PreferencesClient {
   ///   * 400: Preference invalid
   ///
   /// See:
-  ///  * [setPreference] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PreferencesSetPreferenceResponseApplicationJson, void> setPreferenceRaw({
+  ///  * [setPreference] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PreferencesSetPreferenceResponseApplicationJson, void> setPreferenceRaw({
     required String configValue,
     required String appId,
     required String configKey,
@@ -1970,7 +1996,7 @@ class $PreferencesClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -1995,18 +2021,21 @@ class $PreferencesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}{?configValue*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}{?configValue*}')
             .expand(_parameters);
-    return DynamiteRawResponse<PreferencesSetPreferenceResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<PreferencesSetPreferenceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(PreferencesSetPreferenceResponseApplicationJson),
       headersType: null,
@@ -2016,8 +2045,8 @@ class $PreferencesClient {
 
   /// Delete a preference for an app.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [appId] ID of the app.
@@ -2029,8 +2058,8 @@ class $PreferencesClient {
   ///   * 400: Preference invalid
   ///
   /// See:
-  ///  * [deletePreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PreferencesDeletePreferenceResponseApplicationJson, void>> deletePreference({
+  ///  * [deletePreferenceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PreferencesDeletePreferenceResponseApplicationJson, void>> deletePreference({
     required String appId,
     required String configKey,
     bool? oCSAPIRequest,
@@ -2048,8 +2077,8 @@ class $PreferencesClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [appId] ID of the app.
@@ -2061,9 +2090,9 @@ class $PreferencesClient {
   ///   * 400: Preference invalid
   ///
   /// See:
-  ///  * [deletePreference] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PreferencesDeletePreferenceResponseApplicationJson, void> deletePreferenceRaw({
+  ///  * [deletePreference] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PreferencesDeletePreferenceResponseApplicationJson, void> deletePreferenceRaw({
     required String appId,
     required String configKey,
     bool? oCSAPIRequest,
@@ -2076,7 +2105,7 @@ class $PreferencesClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2098,17 +2127,20 @@ class $PreferencesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}').expand(_parameters);
-    return DynamiteRawResponse<PreferencesDeletePreferenceResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}')
+        .expand(_parameters);
+    return _i1.DynamiteRawResponse<PreferencesDeletePreferenceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(PreferencesDeletePreferenceResponseApplicationJson),
       headersType: null,
@@ -2118,8 +2150,8 @@ class $PreferencesClient {
 
   /// Update multiple preference values of an app.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [configs] Key-value pairs of the preferences.
@@ -2131,8 +2163,8 @@ class $PreferencesClient {
   ///   * 400: Preference invalid
   ///
   /// See:
-  ///  * [setMultiplePreferencesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void>> setMultiplePreferences({
+  ///  * [setMultiplePreferencesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void>> setMultiplePreferences({
     required ContentString<BuiltMap<String, String>> configs,
     required String appId,
     bool? oCSAPIRequest,
@@ -2150,8 +2182,8 @@ class $PreferencesClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [configs] Key-value pairs of the preferences.
@@ -2163,9 +2195,9 @@ class $PreferencesClient {
   ///   * 400: Preference invalid
   ///
   /// See:
-  ///  * [setMultiplePreferences] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void> setMultiplePreferencesRaw({
+  ///  * [setMultiplePreferences] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void> setMultiplePreferencesRaw({
     required ContentString<BuiltMap<String, String>> configs,
     required String appId,
     bool? oCSAPIRequest,
@@ -2178,7 +2210,7 @@ class $PreferencesClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2205,17 +2237,20 @@ class $PreferencesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configs*}').expand(_parameters);
-    return DynamiteRawResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void>(
+        _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configs*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(PreferencesSetMultiplePreferencesResponseApplicationJson),
       headersType: null,
@@ -2225,8 +2260,8 @@ class $PreferencesClient {
 
   /// Delete multiple preferences for an app.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [configKeys] Keys to delete.
@@ -2238,8 +2273,9 @@ class $PreferencesClient {
   ///   * 400: Preference invalid
   ///
   /// See:
-  ///  * [deleteMultiplePreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>> deleteMultiplePreference({
+  ///  * [deleteMultiplePreferenceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>>
+      deleteMultiplePreference({
     required BuiltList<String> configKeys,
     required String appId,
     bool? oCSAPIRequest,
@@ -2257,8 +2293,8 @@ class $PreferencesClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [configKeys] Keys to delete.
@@ -2270,9 +2306,10 @@ class $PreferencesClient {
   ///   * 400: Preference invalid
   ///
   /// See:
-  ///  * [deleteMultiplePreference] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void> deleteMultiplePreferenceRaw({
+  ///  * [deleteMultiplePreference] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>
+      deleteMultiplePreferenceRaw({
     required BuiltList<String> configKeys,
     required String appId,
     bool? oCSAPIRequest,
@@ -2285,7 +2322,7 @@ class $PreferencesClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2308,17 +2345,20 @@ class $PreferencesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configKeys%5B%5D*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configKeys%5B%5D*}')
         .expand(_parameters);
-    return DynamiteRawResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {
+          200,
+          400,
+        },
       ),
       bodyType: const FullType(PreferencesDeleteMultiplePreferenceResponseApplicationJson),
       headersType: null,
@@ -2328,15 +2368,15 @@ class $PreferencesClient {
 }
 
 class $UsersClient {
-  /// Creates a new [DynamiteClient] for users requests.
+  /// Creates a new `DynamiteClient` for users requests.
   $UsersClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get a list of users.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -2348,8 +2388,8 @@ class $UsersClient {
   ///   * 200: Users returned
   ///
   /// See:
-  ///  * [getUsersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetUsersResponseApplicationJson, void>> getUsers({
+  ///  * [getUsersRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetUsersResponseApplicationJson, void>> getUsers({
     String? search,
     int? limit,
     int? offset,
@@ -2369,8 +2409,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -2382,9 +2422,9 @@ class $UsersClient {
   ///   * 200: Users returned
   ///
   /// See:
-  ///  * [getUsers] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void> getUsersRaw({
+  ///  * [getUsers] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void> getUsersRaw({
     String? search,
     int? limit,
     int? offset,
@@ -2398,7 +2438,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2425,10 +2465,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users{?search*,limit*,offset*}').expand(_parameters);
-    return DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users{?search*,limit*,offset*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -2444,8 +2484,8 @@ class $UsersClient {
 
   /// Create a new user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userid] ID of the user.
@@ -2464,8 +2504,8 @@ class $UsersClient {
   ///   * 403: Missing permissions to make user subadmin
   ///
   /// See:
-  ///  * [addUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersAddUserResponseApplicationJson, void>> addUser({
+  ///  * [addUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersAddUserResponseApplicationJson, void>> addUser({
     required String userid,
     String? password,
     String? displayName,
@@ -2497,8 +2537,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userid] ID of the user.
@@ -2517,9 +2557,9 @@ class $UsersClient {
   ///   * 403: Missing permissions to make user subadmin
   ///
   /// See:
-  ///  * [addUser] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersAddUserResponseApplicationJson, void> addUserRaw({
+  ///  * [addUser] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersAddUserResponseApplicationJson, void> addUserRaw({
     required String userid,
     String? password,
     String? displayName,
@@ -2539,7 +2579,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2589,12 +2629,12 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/cloud/users{?userid*,password*,displayName*,email*,groups%5B%5D*,subadmin%5B%5D*,quota*,language*,manager*}',
     ).expand(_parameters);
-    return DynamiteRawResponse<UsersAddUserResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<UsersAddUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -2610,8 +2650,8 @@ class $UsersClient {
 
   /// Get a list of users and their details.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -2623,8 +2663,8 @@ class $UsersClient {
   ///   * 200: Users details returned
   ///
   /// See:
-  ///  * [getUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetUsersDetailsResponseApplicationJson, void>> getUsersDetails({
+  ///  * [getUsersDetailsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetUsersDetailsResponseApplicationJson, void>> getUsersDetails({
     String? search,
     int? limit,
     int? offset,
@@ -2644,8 +2684,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [search] Text to search for. Defaults to `''`.
@@ -2657,9 +2697,9 @@ class $UsersClient {
   ///   * 200: Users details returned
   ///
   /// See:
-  ///  * [getUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void> getUsersDetailsRaw({
+  ///  * [getUsersDetails] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void> getUsersDetailsRaw({
     String? search,
     int? limit,
     int? offset,
@@ -2673,7 +2713,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2700,10 +2740,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/details{?search*,limit*,offset*}').expand(_parameters);
-    return DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/details{?search*,limit*,offset*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -2719,8 +2759,8 @@ class $UsersClient {
 
   /// Get the list of disabled users and their details.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [limit] Limit the amount of users returned.
@@ -2731,8 +2771,8 @@ class $UsersClient {
   ///   * 200: Disabled users details returned
   ///
   /// See:
-  ///  * [getDisabledUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>> getDisabledUsersDetails({
+  ///  * [getDisabledUsersDetailsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>> getDisabledUsersDetails({
     int? limit,
     int? offset,
     bool? oCSAPIRequest,
@@ -2750,8 +2790,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [limit] Limit the amount of users returned.
@@ -2762,9 +2802,9 @@ class $UsersClient {
   ///   * 200: Disabled users details returned
   ///
   /// See:
-  ///  * [getDisabledUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void> getDisabledUsersDetailsRaw({
+  ///  * [getDisabledUsersDetails] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void> getDisabledUsersDetailsRaw({
     int? limit,
     int? offset,
     bool? oCSAPIRequest,
@@ -2777,7 +2817,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2800,10 +2840,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/disabled{?limit*,offset*}').expand(_parameters);
-    return DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/disabled{?limit*,offset*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -2819,8 +2859,8 @@ class $UsersClient {
 
   /// Search users by their phone numbers.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [location] Location of the phone number (for country code).
@@ -2832,8 +2872,8 @@ class $UsersClient {
   ///   * 400: Invalid location
   ///
   /// See:
-  ///  * [searchByPhoneNumbersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>> searchByPhoneNumbers({
+  ///  * [searchByPhoneNumbersRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>> searchByPhoneNumbers({
     required String location,
     required ContentString<BuiltMap<String, BuiltList<String>>> search,
     bool? oCSAPIRequest,
@@ -2851,8 +2891,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [location] Location of the phone number (for country code).
@@ -2864,9 +2904,9 @@ class $UsersClient {
   ///   * 400: Invalid location
   ///
   /// See:
-  ///  * [searchByPhoneNumbers] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void> searchByPhoneNumbersRaw({
+  ///  * [searchByPhoneNumbers] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void> searchByPhoneNumbersRaw({
     required String location,
     required ContentString<BuiltMap<String, BuiltList<String>>> search,
     bool? oCSAPIRequest,
@@ -2879,7 +2919,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -2909,10 +2949,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/search/by-phone{?location*,search*}').expand(_parameters);
-    return DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/search/by-phone{?location*,search*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -2928,8 +2968,8 @@ class $UsersClient {
 
   /// Get the details of a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -2939,8 +2979,8 @@ class $UsersClient {
   ///   * 200: User returned
   ///
   /// See:
-  ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetUserResponseApplicationJson, void>> getUser({
+  ///  * [getUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetUserResponseApplicationJson, void>> getUser({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -2956,8 +2996,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -2967,9 +3007,9 @@ class $UsersClient {
   ///   * 200: User returned
   ///
   /// See:
-  ///  * [getUser] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetUserResponseApplicationJson, void> getUserRaw({
+  ///  * [getUser] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetUserResponseApplicationJson, void> getUserRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -2981,7 +3021,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3000,10 +3040,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
-    return DynamiteRawResponse<UsersGetUserResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersGetUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -3019,8 +3059,8 @@ class $UsersClient {
 
   /// Update a value of the user's details.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [key] Key that will be updated.
@@ -3032,8 +3072,8 @@ class $UsersClient {
   ///   * 200: User value edited successfully
   ///
   /// See:
-  ///  * [editUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersEditUserResponseApplicationJson, void>> editUser({
+  ///  * [editUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersEditUserResponseApplicationJson, void>> editUser({
     required String key,
     required String value,
     required String userId,
@@ -3053,8 +3093,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [key] Key that will be updated.
@@ -3066,9 +3106,9 @@ class $UsersClient {
   ///   * 200: User value edited successfully
   ///
   /// See:
-  ///  * [editUser] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersEditUserResponseApplicationJson, void> editUserRaw({
+  ///  * [editUser] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersEditUserResponseApplicationJson, void> editUserRaw({
     required String key,
     required String value,
     required String userId,
@@ -3082,7 +3122,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3107,10 +3147,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}{?key*,value*}').expand(_parameters);
-    return DynamiteRawResponse<UsersEditUserResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}{?key*,value*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersEditUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -3126,8 +3166,8 @@ class $UsersClient {
 
   /// Delete a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3137,8 +3177,8 @@ class $UsersClient {
   ///   * 200: User deleted successfully
   ///
   /// See:
-  ///  * [deleteUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersDeleteUserResponseApplicationJson, void>> deleteUser({
+  ///  * [deleteUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersDeleteUserResponseApplicationJson, void>> deleteUser({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -3154,8 +3194,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3165,9 +3205,9 @@ class $UsersClient {
   ///   * 200: User deleted successfully
   ///
   /// See:
-  ///  * [deleteUser] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void> deleteUserRaw({
+  ///  * [deleteUser] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void> deleteUserRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -3179,7 +3219,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3198,10 +3238,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
-    return DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -3217,8 +3257,8 @@ class $UsersClient {
 
   /// Get the details of the current user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3227,8 +3267,8 @@ class $UsersClient {
   ///   * 200: Current user returned
   ///
   /// See:
-  ///  * [getCurrentUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetCurrentUserResponseApplicationJson, void>> getCurrentUser({
+  ///  * [getCurrentUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetCurrentUserResponseApplicationJson, void>> getCurrentUser({
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCurrentUserRaw(
@@ -3242,8 +3282,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3252,9 +3292,9 @@ class $UsersClient {
   ///   * 200: Current user returned
   ///
   /// See:
-  ///  * [getCurrentUser] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({bool? oCSAPIRequest}) {
+  ///  * [getCurrentUser] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3262,7 +3302,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3278,10 +3318,10 @@ class $UsersClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/cloud/user';
-    return DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -3297,8 +3337,8 @@ class $UsersClient {
 
   /// Get a list of fields that are editable for the current user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3307,8 +3347,8 @@ class $UsersClient {
   ///   * 200: Editable fields returned
   ///
   /// See:
-  ///  * [getEditableFieldsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetEditableFieldsResponseApplicationJson, void>> getEditableFields({
+  ///  * [getEditableFieldsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetEditableFieldsResponseApplicationJson, void>> getEditableFields({
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getEditableFieldsRaw(
@@ -3322,8 +3362,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3332,9 +3372,11 @@ class $UsersClient {
   ///   * 200: Editable fields returned
   ///
   /// See:
-  ///  * [getEditableFields] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void> getEditableFieldsRaw({bool? oCSAPIRequest}) {
+  ///  * [getEditableFields] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void> getEditableFieldsRaw({
+    bool? oCSAPIRequest,
+  }) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3342,7 +3384,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3358,10 +3400,10 @@ class $UsersClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/cloud/user/fields';
-    return DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -3377,8 +3419,8 @@ class $UsersClient {
 
   /// Get a list of fields that are editable for a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3388,8 +3430,8 @@ class $UsersClient {
   ///   * 200: Editable fields for user returned
   ///
   /// See:
-  ///  * [getEditableFieldsForUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void>> getEditableFieldsForUser({
+  ///  * [getEditableFieldsForUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void>> getEditableFieldsForUser({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -3405,8 +3447,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3416,9 +3458,9 @@ class $UsersClient {
   ///   * 200: Editable fields for user returned
   ///
   /// See:
-  ///  * [getEditableFieldsForUser] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void> getEditableFieldsForUserRaw({
+  ///  * [getEditableFieldsForUser] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void> getEditableFieldsForUserRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -3430,7 +3472,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3449,10 +3491,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/user/fields/{userId}').expand(_parameters);
-    return DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/user/fields/{userId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -3468,8 +3510,8 @@ class $UsersClient {
 
   /// Update multiple values of the user's details.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [key] Key that will be updated.
@@ -3482,8 +3524,8 @@ class $UsersClient {
   ///   * 200: User values edited successfully
   ///
   /// See:
-  ///  * [editUserMultiValueRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersEditUserMultiValueResponseApplicationJson, void>> editUserMultiValue({
+  ///  * [editUserMultiValueRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersEditUserMultiValueResponseApplicationJson, void>> editUserMultiValue({
     required String key,
     required String value,
     required String userId,
@@ -3505,8 +3547,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [key] Key that will be updated.
@@ -3519,9 +3561,9 @@ class $UsersClient {
   ///   * 200: User values edited successfully
   ///
   /// See:
-  ///  * [editUserMultiValue] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersEditUserMultiValueResponseApplicationJson, void> editUserMultiValueRaw({
+  ///  * [editUserMultiValue] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersEditUserMultiValueResponseApplicationJson, void> editUserMultiValueRaw({
     required String key,
     required String value,
     required String userId,
@@ -3536,7 +3578,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3560,7 +3602,7 @@ class $UsersClient {
     _parameters['userId'] = $userId;
 
     final $collectionName = _$jsonSerializers.serialize(collectionName, specifiedType: const FullType(String));
-    dynamite_utils.checkPattern(
+    _i2.checkPattern(
       $collectionName as String?,
       RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
       'collectionName',
@@ -3569,10 +3611,11 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}{?key*,value*}').expand(_parameters);
-    return DynamiteRawResponse<UsersEditUserMultiValueResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}{?key*,value*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersEditUserMultiValueResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -3588,8 +3631,8 @@ class $UsersClient {
 
   /// Wipe all devices of a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3599,8 +3642,8 @@ class $UsersClient {
   ///   * 200: Wiped all user devices successfully
   ///
   /// See:
-  ///  * [wipeUserDevicesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersWipeUserDevicesResponseApplicationJson, void>> wipeUserDevices({
+  ///  * [wipeUserDevicesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersWipeUserDevicesResponseApplicationJson, void>> wipeUserDevices({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -3616,8 +3659,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3627,9 +3670,9 @@ class $UsersClient {
   ///   * 200: Wiped all user devices successfully
   ///
   /// See:
-  ///  * [wipeUserDevices] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void> wipeUserDevicesRaw({
+  ///  * [wipeUserDevices] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void> wipeUserDevicesRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -3641,7 +3684,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3660,10 +3703,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/wipe').expand(_parameters);
-    return DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/wipe').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -3679,8 +3722,8 @@ class $UsersClient {
 
   /// Enable a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3690,8 +3733,8 @@ class $UsersClient {
   ///   * 200: User enabled successfully
   ///
   /// See:
-  ///  * [enableUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersEnableUserResponseApplicationJson, void>> enableUser({
+  ///  * [enableUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersEnableUserResponseApplicationJson, void>> enableUser({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -3707,8 +3750,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3718,9 +3761,9 @@ class $UsersClient {
   ///   * 200: User enabled successfully
   ///
   /// See:
-  ///  * [enableUser] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void> enableUserRaw({
+  ///  * [enableUser] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void> enableUserRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -3732,7 +3775,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3751,10 +3794,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/enable').expand(_parameters);
-    return DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/enable').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -3770,8 +3813,8 @@ class $UsersClient {
 
   /// Disable a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3781,8 +3824,8 @@ class $UsersClient {
   ///   * 200: User disabled successfully
   ///
   /// See:
-  ///  * [disableUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersDisableUserResponseApplicationJson, void>> disableUser({
+  ///  * [disableUserRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersDisableUserResponseApplicationJson, void>> disableUser({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -3798,8 +3841,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3809,9 +3852,9 @@ class $UsersClient {
   ///   * 200: User disabled successfully
   ///
   /// See:
-  ///  * [disableUser] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void> disableUserRaw({
+  ///  * [disableUser] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void> disableUserRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -3823,7 +3866,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3842,10 +3885,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/disable').expand(_parameters);
-    return DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/disable').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
         _path,
@@ -3861,8 +3904,8 @@ class $UsersClient {
 
   /// Get a list of groups the user belongs to.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3872,8 +3915,8 @@ class $UsersClient {
   ///   * 200: Users groups returned
   ///
   /// See:
-  ///  * [getUsersGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetUsersGroupsResponseApplicationJson, void>> getUsersGroups({
+  ///  * [getUsersGroupsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetUsersGroupsResponseApplicationJson, void>> getUsersGroups({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -3889,8 +3932,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID of the user.
@@ -3900,9 +3943,9 @@ class $UsersClient {
   ///   * 200: Users groups returned
   ///
   /// See:
-  ///  * [getUsersGroups] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void> getUsersGroupsRaw({
+  ///  * [getUsersGroups] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void> getUsersGroupsRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -3914,7 +3957,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -3933,10 +3976,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
-    return DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -3952,8 +3995,8 @@ class $UsersClient {
 
   /// Add a user to a group.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group. Defaults to `''`.
@@ -3964,8 +4007,8 @@ class $UsersClient {
   ///   * 200: User added to group successfully
   ///
   /// See:
-  ///  * [addToGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersAddToGroupResponseApplicationJson, void>> addToGroup({
+  ///  * [addToGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersAddToGroupResponseApplicationJson, void>> addToGroup({
     required String userId,
     String? groupid,
     bool? oCSAPIRequest,
@@ -3983,8 +4026,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group. Defaults to `''`.
@@ -3995,9 +4038,9 @@ class $UsersClient {
   ///   * 200: User added to group successfully
   ///
   /// See:
-  ///  * [addToGroup] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void> addToGroupRaw({
+  ///  * [addToGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void> addToGroupRaw({
     required String userId,
     String? groupid,
     bool? oCSAPIRequest,
@@ -4010,7 +4053,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4033,10 +4076,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
-    return DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -4052,8 +4095,8 @@ class $UsersClient {
 
   /// Remove a user from a group.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group.
@@ -4064,8 +4107,8 @@ class $UsersClient {
   ///   * 200: User removed from group successfully
   ///
   /// See:
-  ///  * [removeFromGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersRemoveFromGroupResponseApplicationJson, void>> removeFromGroup({
+  ///  * [removeFromGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersRemoveFromGroupResponseApplicationJson, void>> removeFromGroup({
     required String groupid,
     required String userId,
     bool? oCSAPIRequest,
@@ -4083,8 +4126,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group.
@@ -4095,9 +4138,9 @@ class $UsersClient {
   ///   * 200: User removed from group successfully
   ///
   /// See:
-  ///  * [removeFromGroup] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void> removeFromGroupRaw({
+  ///  * [removeFromGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void> removeFromGroupRaw({
     required String groupid,
     required String userId,
     bool? oCSAPIRequest,
@@ -4110,7 +4153,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4132,10 +4175,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
-    return DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -4153,8 +4196,8 @@ class $UsersClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID if the user.
@@ -4164,8 +4207,8 @@ class $UsersClient {
   ///   * 200: User subadmin groups returned
   ///
   /// See:
-  ///  * [getUserSubAdminGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>> getUserSubAdminGroups({
+  ///  * [getUserSubAdminGroupsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>> getUserSubAdminGroups({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -4183,8 +4226,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID if the user.
@@ -4194,9 +4237,9 @@ class $UsersClient {
   ///   * 200: User subadmin groups returned
   ///
   /// See:
-  ///  * [getUserSubAdminGroups] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
+  ///  * [getUserSubAdminGroups] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -4208,7 +4251,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4227,10 +4270,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
-    return DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -4248,8 +4291,8 @@ class $UsersClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group.
@@ -4260,8 +4303,8 @@ class $UsersClient {
   ///   * 200: User added as group subadmin successfully
   ///
   /// See:
-  ///  * [addSubAdminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
+  ///  * [addSubAdminRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
     required String groupid,
     required String userId,
     bool? oCSAPIRequest,
@@ -4281,8 +4324,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group.
@@ -4293,9 +4336,9 @@ class $UsersClient {
   ///   * 200: User added as group subadmin successfully
   ///
   /// See:
-  ///  * [addSubAdmin] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
+  ///  * [addSubAdmin] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
     required String groupid,
     required String userId,
     bool? oCSAPIRequest,
@@ -4308,7 +4351,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4330,10 +4373,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
-    return DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -4351,8 +4394,8 @@ class $UsersClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group.
@@ -4363,8 +4406,8 @@ class $UsersClient {
   ///   * 200: User removed as group subadmin successfully
   ///
   /// See:
-  ///  * [removeSubAdminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
+  ///  * [removeSubAdminRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
     required String groupid,
     required String userId,
     bool? oCSAPIRequest,
@@ -4384,8 +4427,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [groupid] ID of the group.
@@ -4396,9 +4439,9 @@ class $UsersClient {
   ///   * 200: User removed as group subadmin successfully
   ///
   /// See:
-  ///  * [removeSubAdmin] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
+  ///  * [removeSubAdmin] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
     required String groupid,
     required String userId,
     bool? oCSAPIRequest,
@@ -4411,7 +4454,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4433,10 +4476,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
-    return DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
@@ -4452,8 +4495,8 @@ class $UsersClient {
 
   /// Resend the welcome message.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID if the user.
@@ -4463,8 +4506,8 @@ class $UsersClient {
   ///   * 200: Resent welcome message successfully
   ///
   /// See:
-  ///  * [resendWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UsersResendWelcomeMessageResponseApplicationJson, void>> resendWelcomeMessage({
+  ///  * [resendWelcomeMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersResendWelcomeMessageResponseApplicationJson, void>> resendWelcomeMessage({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -4480,8 +4523,8 @@ class $UsersClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] ID if the user.
@@ -4491,9 +4534,9 @@ class $UsersClient {
   ///   * 200: Resent welcome message successfully
   ///
   /// See:
-  ///  * [resendWelcomeMessage] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void> resendWelcomeMessageRaw({
+  ///  * [resendWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void> resendWelcomeMessageRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -4505,7 +4548,7 @@ class $UsersClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -4524,10 +4567,10 @@ class $UsersClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/welcome').expand(_parameters);
-    return DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/welcome').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -9076,10 +9119,10 @@ extension $c4bc4131e74e61dae681408e87e2e2bdExtension on _$c4bc4131e74e61dae68140
   List<dynamic> get _values => [$bool, $int];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$c4bc4131e74e61dae681408e87e2e2bd> get _serializer =>
       const _$c4bc4131e74e61dae681408e87e2e2bdSerializer();
   static _$c4bc4131e74e61dae681408e87e2e2bd _fromJson(Object? json) =>
@@ -9145,10 +9188,10 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8
   List<dynamic> get _values => [$num, string];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
@@ -9217,10 +9260,10 @@ extension $b20d370ea28764b414e70ac5df151f1bExtension on _$b20d370ea28764b414e70a
   List<dynamic> get _values => [groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1, userDetails];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$b20d370ea28764b414e70ac5df151f1b> get _serializer =>
       const _$b20d370ea28764b414e70ac5df151f1bSerializer();
   static _$b20d370ea28764b414e70ac5df151f1b _fromJson(Object? json) =>
@@ -9300,10 +9343,10 @@ extension $1e1cd5e43e0a1022a23a294e58225d74Extension on _$1e1cd5e43e0a1022a23a29
   List<dynamic> get _values => [userDetails, usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$1e1cd5e43e0a1022a23a294e58225d74> get _serializer =>
       const _$1e1cd5e43e0a1022a23a294e58225d74Serializer();
   static _$1e1cd5e43e0a1022a23a294e58225d74 _fromJson(Object? json) =>
@@ -9382,10 +9425,10 @@ extension $f9d75e948689049b3f3e23e024d4be73Extension on _$f9d75e948689049b3f3e23
   List<dynamic> get _values => [userDetails, usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(_values);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(_values);
   static Serializer<_$f9d75e948689049b3f3e23e024d4be73> get _serializer =>
       const _$f9d75e948689049b3f3e23e024d4be73Serializer();
   static _$f9d75e948689049b3f3e23e024d4be73 _fromJson(Object? json) =>
@@ -9459,7 +9502,7 @@ class _$f9d75e948689049b3f3e23e024d4be73Serializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -10064,12 +10107,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

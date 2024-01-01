@@ -52,11 +52,6 @@ class OpenAPIBuilder implements Builder {
     final inputId = buildStep.inputId;
     final outputId = inputId.changeExtension('.dart');
 
-    final emitter = DartEmitter(
-      orderDirectives: true,
-      useNullSafetySyntax: true,
-    );
-
     try {
       final spec = switch (inputId.extension) {
         '.json' => openapi.serializers.deserializeWith(
@@ -93,15 +88,8 @@ class OpenAPIBuilder implements Builder {
             Directive.import('package:built_value/built_value.dart'),
             Directive.import('package:built_value/json_object.dart'),
             Directive.import('package:built_value/serializer.dart'),
-            Directive.import('package:built_value/standard_json_plugin.dart'),
             Directive.import('package:collection/collection.dart'),
-            Directive.import('package:dynamite_runtime/built_value.dart'),
-            Directive.import('package:dynamite_runtime/http_client.dart'),
             Directive.import('package:dynamite_runtime/models.dart'),
-            Directive.import('package:dynamite_runtime/utils.dart', as: 'dynamite_utils'),
-            Directive.import('package:meta/meta.dart'),
-            Directive.import('package:universal_io/io.dart'),
-            Directive.import('package:uri/uri.dart'),
           ])
           ..body.addAll(generateClients(spec, state))
           ..body.addAll(generateSchemas(spec, state))
@@ -117,12 +105,12 @@ class OpenAPIBuilder implements Builder {
 
         if (state.buildConfig.experimental) {
           b.annotations.add(
-            refer('experimental'),
+            refer('experimental', 'package:meta/meta.dart'),
           );
         }
       });
 
-      var outputString = output.accept(emitter).toString();
+      var outputString = output.accept(state.emitter).toString();
 
       final coverageIgnores = state.buildConfig.coverageIgnores;
       if (coverageIgnores != null) {

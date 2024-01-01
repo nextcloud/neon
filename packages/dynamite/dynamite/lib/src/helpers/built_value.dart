@@ -10,7 +10,7 @@ Spec buildBuiltClass(
   String className, {
   Iterable<String>? documentation,
   Iterable<String>? defaults,
-  Iterable<String>? validators,
+  Iterable<Expression>? validators,
   Iterable<Method>? methods,
 }) =>
     Class(
@@ -89,7 +89,9 @@ Spec buildBuiltClass(
                       ..type = refer('${className}Builder'),
                   ),
                 )
-                ..body = Code(validators.join('\n'));
+                ..body = Block.of(
+                  validators.map((v) => v.statement),
+                );
             }),
           );
         }

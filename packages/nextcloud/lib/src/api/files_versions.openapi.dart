@@ -4,22 +4,22 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i5;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i4;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:meta/meta.dart' as _i3;
+import 'package:uri/uri.dart' as _i2;
 
 part 'files_versions.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -30,7 +30,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -43,15 +43,15 @@ class $Client extends DynamiteClient {
 }
 
 class $PreviewClient {
-  /// Creates a new [DynamiteClient] for preview requests.
+  /// Creates a new `DynamiteClient` for preview requests.
   $PreviewClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get the preview for a file version.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [file] Path of the file. Defaults to `''`.
@@ -65,8 +65,8 @@ class $PreviewClient {
   ///   * 404: Preview not found
   ///
   /// See:
-  ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getPreview({
+  ///  * [getPreviewRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
     String? file,
     int? x,
     int? y,
@@ -86,8 +86,8 @@ class $PreviewClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [file] Path of the file. Defaults to `''`.
@@ -101,9 +101,9 @@ class $PreviewClient {
   ///   * 404: Preview not found
   ///
   /// See:
-  ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<Uint8List, void> getPreviewRaw({
+  ///  * [getPreview] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<Uint8List, void> getPreviewRaw({
     String? file,
     int? x,
     int? y,
@@ -117,7 +117,7 @@ class $PreviewClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -147,8 +147,8 @@ class $PreviewClient {
     $version ??= '';
     _parameters['version'] = $version;
 
-    final _path = UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
-    return DynamiteRawResponse<Uint8List, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -236,7 +236,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i3.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
@@ -249,12 +249,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i3.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i4.DynamiteDoubleSerializer())
+      ..addPlugin(_i5.StandardJsonPlugin())
+      ..addPlugin(const _i4.HeaderPlugin())
+      ..addPlugin(const _i4.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

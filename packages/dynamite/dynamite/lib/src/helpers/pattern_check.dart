@@ -1,20 +1,33 @@
+import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/openapi/schema.dart';
 
-Iterable<String> buildPatternCheck(
+Iterable<Expression> buildPatternCheck(
   openapi.Schema schema,
   String value,
   String name,
 ) sync* {
   if (schema.type == SchemaType.string) {
     if (schema.pattern != null) {
-      yield "dynamite_utils.checkPattern($value as String?, RegExp(r'${schema.pattern!}'), '$name');";
+      yield refer('checkPattern', 'package:dynamite_runtime/utils.dart').call([
+        refer(value).asA(refer('String?')),
+        refer('RegExp').call([literalString(schema.pattern!, raw: true)]),
+        literalString(name),
+      ]);
     }
     if (schema.minLength != null) {
-      yield "dynamite_utils.checkMinLength($value as String?, ${schema.minLength}, '$name');";
+      yield refer('checkMinLength', 'package:dynamite_runtime/utils.dart').call([
+        refer(value).asA(refer('String?')),
+        literalNum(schema.minLength!),
+        literalString(name),
+      ]);
     }
     if (schema.maxLength != null) {
-      yield "dynamite_utils.checkMaxLength($value as String?, ${schema.maxLength}, '$name');";
+      yield refer('checkMaxLength', 'package:dynamite_runtime/utils.dart').call([
+        refer(value).asA(refer('String?')),
+        literalNum(schema.maxLength!),
+        literalString(name),
+      ]);
     }
   }
 }

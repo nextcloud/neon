@@ -4,22 +4,23 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:dynamite_runtime/utils.dart' as _i2;
+import 'package:meta/meta.dart' as _i4;
+import 'package:uri/uri.dart' as _i3;
 
 part 'dav.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -30,7 +31,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -45,15 +46,15 @@ class $Client extends DynamiteClient {
 }
 
 class $DirectClient {
-  /// Creates a new [DynamiteClient] for direct requests.
+  /// Creates a new `DynamiteClient` for direct requests.
   $DirectClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get a direct link to a file.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [fileId] ID of the file.
@@ -67,8 +68,8 @@ class $DirectClient {
   ///   * 403: Missing permissions to get direct link
   ///
   /// See:
-  ///  * [getUrlRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
+  ///  * [getUrlRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
     required int fileId,
     int? expirationTime,
     bool? oCSAPIRequest,
@@ -86,8 +87,8 @@ class $DirectClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [fileId] ID of the file.
@@ -101,9 +102,9 @@ class $DirectClient {
   ///   * 403: Missing permissions to get direct link
   ///
   /// See:
-  ///  * [getUrl] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
+  ///  * [getUrl] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
     required int fileId,
     int? expirationTime,
     bool? oCSAPIRequest,
@@ -116,7 +117,7 @@ class $DirectClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -138,10 +139,10 @@ class $DirectClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
-    return DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -157,15 +158,15 @@ class $DirectClient {
 }
 
 class $OutOfOfficeClient {
-  /// Creates a new [DynamiteClient] for out_of_office requests.
+  /// Creates a new `DynamiteClient` for out_of_office requests.
   $OutOfOfficeClient(this._rootClient);
 
   final $Client _rootClient;
 
   /// Get the currently configured out-of-office data of a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] The user id to get out-of-office data for.
@@ -176,8 +177,8 @@ class $OutOfOfficeClient {
   ///   * 404: No out-of-office data was found
   ///
   /// See:
-  ///  * [getCurrentOutOfOfficeDataRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>>
+  ///  * [getCurrentOutOfOfficeDataRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>>
       getCurrentOutOfOfficeData({
     required String userId,
     bool? oCSAPIRequest,
@@ -194,8 +195,8 @@ class $OutOfOfficeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] The user id to get out-of-office data for.
@@ -206,9 +207,10 @@ class $OutOfOfficeClient {
   ///   * 404: No out-of-office data was found
   ///
   /// See:
-  ///  * [getCurrentOutOfOfficeData] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void> getCurrentOutOfOfficeDataRaw({
+  ///  * [getCurrentOutOfOfficeData] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>
+      getCurrentOutOfOfficeDataRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -220,7 +222,7 @@ class $OutOfOfficeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -239,10 +241,10 @@ class $OutOfOfficeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
-    return DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
+    return _i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -258,8 +260,8 @@ class $OutOfOfficeClient {
 
   /// Get the configured out-of-office data of a user.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] The user id to get out-of-office data for.
@@ -270,8 +272,8 @@ class $OutOfOfficeClient {
   ///   * 404: No out-of-office data was found
   ///
   /// See:
-  ///  * [getOutOfOfficeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>> getOutOfOffice({
+  ///  * [getOutOfOfficeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>> getOutOfOffice({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -287,8 +289,8 @@ class $OutOfOfficeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId] The user id to get out-of-office data for.
@@ -299,9 +301,9 @@ class $OutOfOfficeClient {
   ///   * 404: No out-of-office data was found
   ///
   /// See:
-  ///  * [getOutOfOffice] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void> getOutOfOfficeRaw({
+  ///  * [getOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void> getOutOfOfficeRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -313,7 +315,7 @@ class $OutOfOfficeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -332,10 +334,10 @@ class $OutOfOfficeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
-    return DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -351,8 +353,8 @@ class $OutOfOfficeClient {
 
   /// Set out-of-office absence.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [firstDay] First day of the absence in format `YYYY-MM-DD`.
@@ -368,8 +370,8 @@ class $OutOfOfficeClient {
   ///   * 401: When the user is not logged in
   ///
   /// See:
-  ///  * [setOutOfOfficeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>> setOutOfOffice({
+  ///  * [setOutOfOfficeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>> setOutOfOffice({
     required String firstDay,
     required String lastDay,
     required String status,
@@ -393,8 +395,8 @@ class $OutOfOfficeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [firstDay] First day of the absence in format `YYYY-MM-DD`.
@@ -410,9 +412,9 @@ class $OutOfOfficeClient {
   ///   * 401: When the user is not logged in
   ///
   /// See:
-  ///  * [setOutOfOffice] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void> setOutOfOfficeRaw({
+  ///  * [setOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void> setOutOfOfficeRaw({
     required String firstDay,
     required String lastDay,
     required String status,
@@ -428,7 +430,7 @@ class $OutOfOfficeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -459,11 +461,12 @@ class $OutOfOfficeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}{?firstDay*,lastDay*,status*,message*}')
-        .expand(_parameters);
-    return DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}{?firstDay*,lastDay*,status*,message*}')
+            .expand(_parameters);
+    return _i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -479,8 +482,8 @@ class $OutOfOfficeClient {
 
   /// Clear the out-of-office.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId]
@@ -491,8 +494,8 @@ class $OutOfOfficeClient {
   ///   * 401: When the user is not logged in
   ///
   /// See:
-  ///  * [clearOutOfOfficeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>> clearOutOfOffice({
+  ///  * [clearOutOfOfficeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>> clearOutOfOffice({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
@@ -508,8 +511,8 @@ class $OutOfOfficeClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [userId]
@@ -520,9 +523,9 @@ class $OutOfOfficeClient {
   ///   * 401: When the user is not logged in
   ///
   /// See:
-  ///  * [clearOutOfOffice] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void> clearOutOfOfficeRaw({
+  ///  * [clearOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void> clearOutOfOfficeRaw({
     required String userId,
     bool? oCSAPIRequest,
   }) {
@@ -534,7 +537,7 @@ class $OutOfOfficeClient {
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -553,16 +556,19 @@ class $OutOfOfficeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
-    return DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
         _path,
         _headers,
         null,
-        const {200, 401},
+        const {
+          200,
+          401,
+        },
       ),
       bodyType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson),
       headersType: null,
@@ -1216,7 +1222,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -1292,12 +1298,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

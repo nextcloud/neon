@@ -5,12 +5,14 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
-import 'package:meta/meta.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i1;
+import 'package:meta/meta.dart' as _i2;
 
 part 'pattern_check.openapi.g.dart';
 
@@ -47,12 +49,36 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(TestObjectBuilder b) {
-    dynamite_utils.checkPattern(b.onlyNumbers, RegExp(r'^[0-9]*$'), 'onlyNumbers');
-    dynamite_utils.checkMinLength(b.minLength, 3, 'minLength');
-    dynamite_utils.checkMaxLength(b.maxLength, 20, 'maxLength');
-    dynamite_utils.checkPattern(b.multipleChecks, RegExp(r'^[0-9]*$'), 'multipleChecks');
-    dynamite_utils.checkMinLength(b.multipleChecks, 3, 'multipleChecks');
-    dynamite_utils.checkMaxLength(b.multipleChecks, 20, 'multipleChecks');
+    _i1.checkPattern(
+      b.onlyNumbers,
+      RegExp(r'^[0-9]*$'),
+      'onlyNumbers',
+    );
+    _i1.checkMinLength(
+      b.minLength,
+      3,
+      'minLength',
+    );
+    _i1.checkMaxLength(
+      b.maxLength,
+      20,
+      'maxLength',
+    );
+    _i1.checkPattern(
+      b.multipleChecks,
+      RegExp(r'^[0-9]*$'),
+      'multipleChecks',
+    );
+    _i1.checkMinLength(
+      b.multipleChecks,
+      3,
+      'multipleChecks',
+    );
+    _i1.checkMaxLength(
+      b.multipleChecks,
+      20,
+      'multipleChecks',
+    );
   }
 }
 
@@ -61,7 +87,7 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
@@ -72,12 +98,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -28,7 +28,7 @@ void main() {
       exports.add("export 'src/helpers/$id.dart';");
     }
 
-    if (!file.readAsStringSync().contains(r'class $Client extends DynamiteClient {')) {
+    if (!file.readAsStringSync().contains(RegExp(r'class \$Client extends _i[0-9]*.DynamiteClient {'))) {
       File('lib/$id.dart').writeAsStringSync(exports.join('\n'));
       continue;
     }

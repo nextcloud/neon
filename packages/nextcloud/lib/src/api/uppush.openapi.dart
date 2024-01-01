@@ -4,24 +4,23 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
-@experimental
-library;
+@_i3.experimental
+library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i5;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
-import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
+import 'package:dynamite_runtime/built_value.dart' as _i4;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:meta/meta.dart' as _i3;
+import 'package:uri/uri.dart' as _i2;
 
 part 'uppush.openapi.g.dart';
 
-class $Client extends DynamiteClient {
-  /// Creates a new [DynamiteClient] for untagged requests.
+class $Client extends _i1.DynamiteClient {
+  /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -32,7 +31,7 @@ class $Client extends DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -43,15 +42,15 @@ class $Client extends DynamiteClient {
 
   /// Check if the UnifiedPush provider is present.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [checkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CheckResponseApplicationJson, void>> check() async {
+  ///  * [checkRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CheckResponseApplicationJson, void>> check() async {
     final rawResponse = checkRaw();
 
     return rawResponse.future;
@@ -61,16 +60,16 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [check] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CheckResponseApplicationJson, void> checkRaw() {
+  ///  * [check] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<CheckResponseApplicationJson, void> checkRaw() {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -78,7 +77,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -93,7 +92,7 @@ class $Client extends DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/uppush';
-    return DynamiteRawResponse<CheckResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<CheckResponseApplicationJson, void>(
       response: executeRequest(
         'get',
         _path,
@@ -111,8 +110,8 @@ class $Client extends DynamiteClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [keepalive] Keep alive value in seconds.
@@ -121,8 +120,8 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [setKeepaliveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SetKeepaliveResponseApplicationJson, void>> setKeepalive({required int keepalive}) async {
+  ///  * [setKeepaliveRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SetKeepaliveResponseApplicationJson, void>> setKeepalive({required int keepalive}) async {
     final rawResponse = setKeepaliveRaw(
       keepalive: keepalive,
     );
@@ -136,8 +135,8 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [keepalive] Keep alive value in seconds.
@@ -146,9 +145,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [setKeepalive] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required int keepalive}) {
+  ///  * [setKeepalive] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required int keepalive}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -157,7 +156,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -174,8 +173,8 @@ class $Client extends DynamiteClient {
     final $keepalive = _$jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
     _parameters['keepalive'] = $keepalive;
 
-    final _path = UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
-    return DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void>(
       response: executeRequest(
         'put',
         _path,
@@ -191,8 +190,8 @@ class $Client extends DynamiteClient {
 
   /// Request to create a new deviceId.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [deviceName] Name of the device.
@@ -201,8 +200,10 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [createDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CreateDeviceResponseApplicationJson, void>> createDevice({required String deviceName}) async {
+  ///  * [createDeviceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CreateDeviceResponseApplicationJson, void>> createDevice({
+    required String deviceName,
+  }) async {
     final rawResponse = createDeviceRaw(
       deviceName: deviceName,
     );
@@ -214,8 +215,8 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [deviceName] Name of the device.
@@ -224,9 +225,9 @@ class $Client extends DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [createDevice] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CreateDeviceResponseApplicationJson, void> createDeviceRaw({required String deviceName}) {
+  ///  * [createDevice] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<CreateDeviceResponseApplicationJson, void> createDeviceRaw({required String deviceName}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -235,7 +236,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -252,8 +253,8 @@ class $Client extends DynamiteClient {
     final $deviceName = _$jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
     _parameters['deviceName'] = $deviceName;
 
-    final _path = UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
-    return DynamiteRawResponse<CreateDeviceResponseApplicationJson, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<CreateDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'put',
         _path,
@@ -271,15 +272,15 @@ class $Client extends DynamiteClient {
   ///
   /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app).
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 401: Missing permissions to sync device
   ///
   /// See:
-  ///  * [syncDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SyncDeviceResponseApplicationJson, void>> syncDevice({required String deviceId}) async {
+  ///  * [syncDeviceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SyncDeviceResponseApplicationJson, void>> syncDevice({required String deviceId}) async {
     final rawResponse = syncDeviceRaw(
       deviceId: deviceId,
     );
@@ -293,16 +294,16 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 401: Missing permissions to sync device
   ///
   /// See:
-  ///  * [syncDevice] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<SyncDeviceResponseApplicationJson, void> syncDeviceRaw({required String deviceId}) {
+  ///  * [syncDevice] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<SyncDeviceResponseApplicationJson, void> syncDeviceRaw({required String deviceId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -311,7 +312,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -328,8 +329,8 @@ class $Client extends DynamiteClient {
     final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
-    final _path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
-    return DynamiteRawResponse<SyncDeviceResponseApplicationJson, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SyncDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'get',
         _path,
@@ -345,15 +346,17 @@ class $Client extends DynamiteClient {
 
   /// Delete a device.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Device deleted successfully
   ///
   /// See:
-  ///  * [deleteDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DeleteDeviceResponseApplicationJson, void>> deleteDevice({required String deviceId}) async {
+  ///  * [deleteDeviceRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<DeleteDeviceResponseApplicationJson, void>> deleteDevice({
+    required String deviceId,
+  }) async {
     final rawResponse = deleteDeviceRaw(
       deviceId: deviceId,
     );
@@ -365,16 +368,16 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Device deleted successfully
   ///
   /// See:
-  ///  * [deleteDevice] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({required String deviceId}) {
+  ///  * [deleteDevice] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({required String deviceId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -383,7 +386,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -400,8 +403,8 @@ class $Client extends DynamiteClient {
     final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
-    final _path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
-    return DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
         _path,
@@ -417,8 +420,8 @@ class $Client extends DynamiteClient {
 
   /// Create an authorization token for a new 3rd party service.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [deviceId] ID of the device.
@@ -428,8 +431,8 @@ class $Client extends DynamiteClient {
   ///   * 200: App created successfully
   ///
   /// See:
-  ///  * [createAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CreateAppResponseApplicationJson, void>> createApp({
+  ///  * [createAppRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<CreateAppResponseApplicationJson, void>> createApp({
     required String deviceId,
     required String appName,
   }) async {
@@ -445,8 +448,8 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [deviceId] ID of the device.
@@ -456,9 +459,9 @@ class $Client extends DynamiteClient {
   ///   * 200: App created successfully
   ///
   /// See:
-  ///  * [createApp] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<CreateAppResponseApplicationJson, void> createAppRaw({
+  ///  * [createApp] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<CreateAppResponseApplicationJson, void> createAppRaw({
     required String deviceId,
     required String appName,
   }) {
@@ -470,7 +473,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -490,8 +493,8 @@ class $Client extends DynamiteClient {
     final $appName = _$jsonSerializers.serialize(appName, specifiedType: const FullType(String));
     _parameters['appName'] = $appName;
 
-    final _path = UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
-    return DynamiteRawResponse<CreateAppResponseApplicationJson, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<CreateAppResponseApplicationJson, void>(
       response: executeRequest(
         'put',
         _path,
@@ -507,15 +510,15 @@ class $Client extends DynamiteClient {
 
   /// Delete an authorization token.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: App deleted successfully
   ///
   /// See:
-  ///  * [deleteAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DeleteAppResponseApplicationJson, void>> deleteApp({required String token}) async {
+  ///  * [deleteAppRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<DeleteAppResponseApplicationJson, void>> deleteApp({required String token}) async {
     final rawResponse = deleteAppRaw(
       token: token,
     );
@@ -527,16 +530,16 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: App deleted successfully
   ///
   /// See:
-  ///  * [deleteApp] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<DeleteAppResponseApplicationJson, void> deleteAppRaw({required String token}) {
+  ///  * [deleteApp] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<DeleteAppResponseApplicationJson, void> deleteAppRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -545,7 +548,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -562,8 +565,8 @@ class $Client extends DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
-    return DynamiteRawResponse<DeleteAppResponseApplicationJson, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<DeleteAppResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
         _path,
@@ -579,15 +582,15 @@ class $Client extends DynamiteClient {
 
   /// Unifiedpush discovery Following specifications.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [unifiedpushDiscoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<UnifiedpushDiscoveryResponseApplicationJson, void>> unifiedpushDiscovery({
+  ///  * [unifiedpushDiscoveryRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UnifiedpushDiscoveryResponseApplicationJson, void>> unifiedpushDiscovery({
     required String token,
   }) async {
     final rawResponse = unifiedpushDiscoveryRaw(
@@ -601,16 +604,16 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [unifiedpushDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
+  ///  * [unifiedpushDiscovery] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
     required String token,
   }) {
     final _parameters = <String, dynamic>{};
@@ -621,7 +624,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -638,8 +641,8 @@ class $Client extends DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
-    return DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
         _path,
@@ -655,15 +658,15 @@ class $Client extends DynamiteClient {
 
   /// Receive notifications from 3rd parties.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 201: Notification pushed successfully
   ///
   /// See:
-  ///  * [pushRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PushResponseApplicationJson, void>> push({required String token}) async {
+  ///  * [pushRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<PushResponseApplicationJson, void>> push({required String token}) async {
     final rawResponse = pushRaw(
       token: token,
     );
@@ -675,16 +678,16 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 201: Notification pushed successfully
   ///
   /// See:
-  ///  * [push] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<PushResponseApplicationJson, void> pushRaw({required String token}) {
+  ///  * [push] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<PushResponseApplicationJson, void> pushRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -693,7 +696,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -710,8 +713,8 @@ class $Client extends DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
-    return DynamiteRawResponse<PushResponseApplicationJson, void>(
+    final _path = _i2.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
+    return _i1.DynamiteRawResponse<PushResponseApplicationJson, void>(
       response: executeRequest(
         'post',
         _path,
@@ -727,15 +730,15 @@ class $Client extends DynamiteClient {
 
   /// Matrix Gateway discovery.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [gatewayMatrixDiscoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>> gatewayMatrixDiscovery() async {
+  ///  * [gatewayMatrixDiscoveryRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>> gatewayMatrixDiscovery() async {
     final rawResponse = gatewayMatrixDiscoveryRaw();
 
     return rawResponse.future;
@@ -745,16 +748,16 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [gatewayMatrixDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
+  ///  * [gatewayMatrixDiscovery] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -762,7 +765,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -777,7 +780,7 @@ class $Client extends DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/uppush/gateway/matrix';
-    return DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
         _path,
@@ -793,15 +796,15 @@ class $Client extends DynamiteClient {
 
   /// Matrix Gateway.
   ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [gatewayMatrixRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<GatewayMatrixResponseApplicationJson, void>> gatewayMatrix() async {
+  ///  * [gatewayMatrixRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GatewayMatrixResponseApplicationJson, void>> gatewayMatrix() async {
     final rawResponse = gatewayMatrixRaw();
 
     return rawResponse.future;
@@ -811,16 +814,16 @@ class $Client extends DynamiteClient {
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [gatewayMatrix] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
+  ///  * [gatewayMatrix] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i3.experimental
+  _i1.DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -828,7 +831,7 @@ class $Client extends DynamiteClient {
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
       (auth) => switch (auth) {
-        DynamiteHttpBasicAuthentication() => true,
+        _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
     );
@@ -843,7 +846,7 @@ class $Client extends DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/uppush/gateway/matrix';
-    return DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void>(
       response: executeRequest(
         'post',
         _path,
@@ -1347,7 +1350,7 @@ abstract class GatewayMatrixResponseApplicationJson
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i3.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(CheckResponseApplicationJson), CheckResponseApplicationJsonBuilder.new)
@@ -1410,12 +1413,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i3.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(DynamiteDoubleSerializer())
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addPlugin(const ContentStringPlugin()))
+      ..add(_i4.DynamiteDoubleSerializer())
+      ..addPlugin(_i5.StandardJsonPlugin())
+      ..addPlugin(const _i4.HeaderPlugin())
+      ..addPlugin(const _i4.ContentStringPlugin()))
     .build();
 // coverage:ignore-end
