@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
@@ -60,7 +61,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
       ),
     );
 
-    final folderSelector = ResultBuilder<List<notes.Note>>.behaviorSubject(
+    final folderSelector = ResultBuilder<BuiltList<notes.Note>>.behaviorSubject(
       subject: widget.bloc.notesList,
       builder: (context, notes) {
         if (notes.hasError) {
@@ -148,7 +149,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final folderSelector = ResultBuilder<List<notes.Note>>.behaviorSubject(
+    final folderSelector = ResultBuilder<BuiltList<notes.Note>>.behaviorSubject(
       subject: widget.bloc.notesList,
       builder: (context, notes) {
         if (notes.hasError) {
