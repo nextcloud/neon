@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -85,7 +86,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
       ),
     );
 
-    final folderSelector = ResultBuilder<List<news.Folder>>.behaviorSubject(
+    final folderSelector = ResultBuilder<BuiltList<news.Folder>>.behaviorSubject(
       subject: widget.bloc.folders,
       builder: (context, folders) {
         if (folders.hasError) {
@@ -251,7 +252,7 @@ class NewsMoveFeedDialog extends StatefulWidget {
   });
 
   /// The list of available folders.
-  final List<news.Folder> folders;
+  final BuiltList<news.Folder> folders;
 
   /// The feed to move.
   final news.Feed feed;

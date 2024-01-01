@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -47,7 +48,7 @@ sealed class NewsArticlesBloc implements InteractiveBloc {
 
   void unstarArticle(news.Article article);
 
-  BehaviorSubject<Result<List<news.Article>>> get articles;
+  BehaviorSubject<Result<BuiltList<news.Article>>> get articles;
 
   BehaviorSubject<FilterType> get filterType;
 
@@ -98,7 +99,7 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
   }
 
   @override
-  BehaviorSubject<Result<List<news.Article>>> articles = BehaviorSubject<Result<List<news.Article>>>();
+  BehaviorSubject<Result<BuiltList<news.Article>>> articles = BehaviorSubject<Result<BuiltList<news.Article>>>();
 
   @override
   BehaviorSubject<FilterType> filterType = BehaviorSubject<FilterType>();
@@ -144,7 +145,7 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
         }
     }
 
-    await RequestManager.instance.wrapNextcloud<List<news.Article>, news.ListArticles, void>(
+    await RequestManager.instance.wrapNextcloud<BuiltList<news.Article>, news.ListArticles, void>(
       account.id,
       'news-articles-${type.index}-$id-$getRead',
       articles,
@@ -153,7 +154,7 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
       ),
-      (response) => response.body.items.toList(),
+      (response) => response.body.items,
     );
   }
 

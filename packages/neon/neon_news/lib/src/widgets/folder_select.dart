@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:nextcloud/news.dart' as news;
@@ -10,7 +11,7 @@ class NewsFolderSelect extends StatelessWidget {
     super.key,
   });
 
-  final List<news.Folder> folders;
+  final BuiltList<news.Folder> folders;
 
   /// {@macro flutter.material.dropdownButton.onChanged}
   final ValueChanged<news.Folder?> onChanged;
