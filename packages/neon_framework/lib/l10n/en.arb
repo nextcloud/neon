@@ -184,5 +184,54 @@
   "accountOptionsAutomatic": "Automatic",
   "licenses": "Licenses",
   "sourceCode": "Source code",
-  "issueTracker": "Report a bug or request a feature"
+  "issueTracker": "Report a bug or request a feature",
+  "relativeTimeNow": "now",
+  "relativeTimePast": "{time} ago",
+  "@relativeTimePast": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeFuture": "in {time}",
+  "@relativeTimeFuture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "relativeTimeMinutes": "{time} {time,plural, =1{minute}other{minutes}}",
+  "@relativeTimeMinutes": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeTimeHours": "{time} {time,plural, =1{hour}other{hours}}",
+  "@relativeTimeHours": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeTimeDays": "{time} {time,plural, =1{day}other{days}}",
+  "@relativeTimeDays": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeTimeYears": "{time} {time,plural, =1{year}other{years}}",
+  "@relativeTimeYears": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      }
+    }
+  }
 }

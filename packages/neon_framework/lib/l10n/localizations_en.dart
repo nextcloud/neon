@@ -358,4 +358,61 @@ class NeonLocalizationsEn extends NeonLocalizations {
 
   @override
   String get issueTracker => 'Report a bug or request a feature';
+
+  @override
+  String get relativeTimeNow => 'now';
+
+  @override
+  String relativeTimePast(String time) {
+    return '$time ago';
+  }
+
+  @override
+  String relativeTimeFuture(String time) {
+    return 'in $time';
+  }
+
+  @override
+  String relativeTimeMinutes(int time) {
+    String _temp0 = intl.Intl.pluralLogic(
+      time,
+      locale: localeName,
+      other: 'minutes',
+      one: 'minute',
+    );
+    return '$time $_temp0';
+  }
+
+  @override
+  String relativeTimeHours(int time) {
+    String _temp0 = intl.Intl.pluralLogic(
+      time,
+      locale: localeName,
+      other: 'hours',
+      one: 'hour',
+    );
+    return '$time $_temp0';
+  }
+
+  @override
+  String relativeTimeDays(int time) {
+    String _temp0 = intl.Intl.pluralLogic(
+      time,
+      locale: localeName,
+      other: 'days',
+      one: 'day',
+    );
+    return '$time $_temp0';
+  }
+
+  @override
+  String relativeTimeYears(int time) {
+    String _temp0 = intl.Intl.pluralLogic(
+      time,
+      locale: localeName,
+      other: 'years',
+      one: 'year',
+    );
+    return '$time $_temp0';
+  }
 }

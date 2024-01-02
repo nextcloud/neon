@@ -1,42 +1,45 @@
 import 'package:meta/meta.dart';
+import 'package:neon_framework/l10n/localizations.dart';
 
 /// Extension for formatting the difference between two [DateTime]s.
 @internal
 extension RelativeTimeFormatDateTime on DateTime {
   /// Format the relative time between this and [to].
   ///
-  /// If unspecified [DateTime.now] will be used.
-  String formatRelative([DateTime? to]) => toLocal().difference(to ?? DateTime.now()).formatRelative();
+  /// If [to] is unspecified [DateTime.now] will be used.
+  String formatRelative(
+    NeonLocalizations localizations, [
+    DateTime? to,
+  ]) =>
+      toLocal().difference(to ?? DateTime.now()).formatRelative(localizations);
 }
 
 /// Extension for formatting difference of a [Duration].
 @internal
 extension RelativeTimeFormatDuration on Duration {
   /// Format the relative time.
-  String formatRelative() {
-    var diff = this;
-    final text = StringBuffer();
-
-    if (diff.isNegative) {
-      // Only add minus sign when not showing 'now'
-      if (diff.inMinutes <= -1) {
-        text.write('-');
-      }
-      diff = Duration(microseconds: -diff.inMicroseconds);
+  ///
+  String formatRelative(NeonLocalizations localizations) {
+    final normalizedDuration = isNegative ? Duration(microseconds: -inMicroseconds) : this;
+    if (normalizedDuration.inMinutes < 1) {
+      return localizations.relativeTimeNow;
     }
 
-    if (diff.inMinutes < 1) {
-      text.write('now');
-    } else if (diff.inHours < 1) {
-      text.write('${diff.inMinutes}m');
-    } else if (diff.inDays < 1) {
-      text.write('${diff.inHours}h');
-    } else if (diff.inDays < 365) {
-      text.write('${diff.inDays}d');
+    String time;
+    if (normalizedDuration.inHours < 1) {
+      time = localizations.relativeTimeMinutes(normalizedDuration.inMinutes);
+    } else if (normalizedDuration.inDays < 1) {
+      time = localizations.relativeTimeHours(normalizedDuration.inHours);
+    } else if (normalizedDuration.inDays < 365) {
+      time = localizations.relativeTimeDays(normalizedDuration.inDays);
     } else {
-      text.write('${diff.inDays ~/ 365}y');
+      time = localizations.relativeTimeYears(normalizedDuration.inDays ~/ 365);
     }
 
-    return text.toString();
+    if (isNegative) {
+      return localizations.relativeTimePast(time);
+    } else {
+      return localizations.relativeTimeFuture(time);
+    }
   }
 }

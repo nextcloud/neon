@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
+import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/utils/relative_time.dart';
 
 /// Shows the time elapsed since a [DateTime] and periodically updates itself.
@@ -46,7 +47,7 @@ class _RelativeTimeState extends State<RelativeTime> {
 
   @override
   Widget build(BuildContext context) => Text(
-        widget.date.formatRelative(),
+        widget.date.formatRelative(NeonLocalizations.of(context)),
         style: widget.style,
       );
 }

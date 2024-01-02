@@ -712,6 +712,48 @@ abstract class NeonLocalizations {
   /// In en, this message translates to:
   /// **'Report a bug or request a feature'**
   String get issueTracker;
+
+  /// No description provided for @relativeTimeNow.
+  ///
+  /// In en, this message translates to:
+  /// **'now'**
+  String get relativeTimeNow;
+
+  /// No description provided for @relativeTimePast.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} ago'**
+  String relativeTimePast(String time);
+
+  /// No description provided for @relativeTimeFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'in {time}'**
+  String relativeTimeFuture(String time);
+
+  /// No description provided for @relativeTimeMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} {time,plural, =1{minute}other{minutes}}'**
+  String relativeTimeMinutes(int time);
+
+  /// No description provided for @relativeTimeHours.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} {time,plural, =1{hour}other{hours}}'**
+  String relativeTimeHours(int time);
+
+  /// No description provided for @relativeTimeDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} {time,plural, =1{day}other{days}}'**
+  String relativeTimeDays(int time);
+
+  /// No description provided for @relativeTimeYears.
+  ///
+  /// In en, this message translates to:
+  /// **'{time} {time,plural, =1{year}other{years}}'**
+  String relativeTimeYears(int time);
 }
 
 class _NeonLocalizationsDelegate extends LocalizationsDelegate<NeonLocalizations> {
