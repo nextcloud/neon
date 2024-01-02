@@ -39,7 +39,7 @@ void main() {
     expect(base.formatRelative(), 'now');
 
     for (final entry in durations.entries) {
-      expect(base.formatRelative(base.add(entry.key)), entry.value);
+      expect(base.add(entry.key).formatRelative(base), entry.value);
     }
   });
 }
