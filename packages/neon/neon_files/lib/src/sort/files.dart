@@ -9,7 +9,7 @@ final filesSortBox = SortBox<FilesSortProperty, WebDavFile>(
     FilesSortProperty.size: (file) => file.size ?? 0,
     FilesSortProperty.isFolder: (file) => file.isDirectory ? 0 : 1,
   },
-  boxes: {
+  boxes: const {
     FilesSortProperty.modifiedDate: {
       (property: FilesSortProperty.name, order: SortBoxOrder.ascending),
     },

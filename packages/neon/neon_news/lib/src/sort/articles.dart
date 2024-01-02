@@ -8,7 +8,7 @@ final articlesSortBox = SortBox<ArticlesSortProperty, news.Article>(
     ArticlesSortProperty.alphabetical: (article) => article.title.toLowerCase(),
     ArticlesSortProperty.byFeed: (article) => article.feedId,
   },
-  boxes: {
+  boxes: const {
     ArticlesSortProperty.alphabetical: {
       (property: ArticlesSortProperty.publishDate, order: SortBoxOrder.descending),
     },

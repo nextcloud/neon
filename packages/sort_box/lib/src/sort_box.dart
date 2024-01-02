@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 /// Signature of a function returning a [Comparable].
 typedef ComparableGetter<T> = Comparable<Object> Function(T);
 
@@ -7,11 +9,12 @@ typedef ComparableGetter<T> = Comparable<Object> Function(T);
 typedef Box<T> = ({T property, SortBoxOrder order});
 
 /// Sorting Box to sort [List]s on multiple properties.
+@immutable
 class SortBox<T extends Enum, R> {
   /// Constructs a new SortBox.
   ///
   /// A *Box* is a record of a property and how to order it.
-  SortBox({
+  const SortBox({
     required this.properties,
     required this.boxes,
   });

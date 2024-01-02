@@ -7,7 +7,7 @@ final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
     FoldersSortProperty.alphabetical: (folderFeedsWrapper) => folderFeedsWrapper.folder.name.toLowerCase(),
     FoldersSortProperty.unreadCount: (folderFeedsWrapper) => folderFeedsWrapper.unreadCount,
   },
-  boxes: {
+  boxes: const {
     FoldersSortProperty.alphabetical: {
       (property: FoldersSortProperty.unreadCount, order: SortBoxOrder.descending),
     },

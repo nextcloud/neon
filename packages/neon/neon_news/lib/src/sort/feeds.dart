@@ -7,7 +7,7 @@ final feedsSortBox = SortBox<FeedsSortProperty, news.Feed>(
     FeedsSortProperty.alphabetical: (feed) => feed.title.toLowerCase(),
     FeedsSortProperty.unreadCount: (feed) => feed.unreadCount ?? 0,
   },
-  boxes: {
+  boxes: const {
     FeedsSortProperty.alphabetical: {
       (property: FeedsSortProperty.unreadCount, order: SortBoxOrder.descending),
     },

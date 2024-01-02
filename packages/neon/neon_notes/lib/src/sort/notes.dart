@@ -8,7 +8,7 @@ final notesSortBox = SortBox<NotesSortProperty, notes.Note>(
     NotesSortProperty.lastModified: (note) => note.modified,
     NotesSortProperty.favorite: (note) => note.favorite ? 0 : 1,
   },
-  boxes: {
+  boxes: const {
     NotesSortProperty.alphabetical: {
       (property: NotesSortProperty.lastModified, order: SortBoxOrder.descending),
     },

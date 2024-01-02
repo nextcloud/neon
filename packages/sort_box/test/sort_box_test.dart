@@ -29,7 +29,7 @@ void main() {
       FruitSort.count: (fruit) => fruit.count,
       FruitSort.price: (fruit) => fruit.price!,
     },
-    boxes: {
+    boxes: const {
       FruitSort.alphabetical: {
         (property: FruitSort.count, order: SortBoxOrder.ascending),
       },

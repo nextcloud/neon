@@ -6,7 +6,7 @@ final categoriesSortBox = SortBox<CategoriesSortProperty, NoteCategory>(
     CategoriesSortProperty.alphabetical: (category) => category.name.toLowerCase(),
     CategoriesSortProperty.notesCount: (category) => category.count,
   },
-  boxes: {
+  boxes: const {
     CategoriesSortProperty.notesCount: {
       (property: CategoriesSortProperty.alphabetical, order: SortBoxOrder.ascending),
     },
