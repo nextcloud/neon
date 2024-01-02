@@ -53,8 +53,9 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
         valueListenable: sortBoxOrder,
         builder: (context, order, _) {
           final box = (property: property, order: order);
+          sortBox.sort(input, box, presort);
 
-          return builder(context, sortBox.sort(input, box, presort));
+          return builder(context, input);
         },
       ),
     );

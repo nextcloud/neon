@@ -3,11 +3,11 @@ import 'package:neon_news/src/options.dart';
 import 'package:nextcloud/news.dart' as news;
 
 final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
-  {
+  properties: {
     FoldersSortProperty.alphabetical: (folderFeedsWrapper) => folderFeedsWrapper.folder.name.toLowerCase(),
     FoldersSortProperty.unreadCount: (folderFeedsWrapper) => folderFeedsWrapper.unreadCount,
   },
-  {
+  boxes: const {
     FoldersSortProperty.alphabetical: {
       (property: FoldersSortProperty.unreadCount, order: SortBoxOrder.descending),
     },
