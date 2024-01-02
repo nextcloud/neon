@@ -24,12 +24,12 @@ class Fruit {
 
 void main() {
   final sortBox = SortBox<FruitSort, Fruit>(
-    {
+    properties: {
       FruitSort.alphabetical: (fruit) => fruit.name.toLowerCase(),
       FruitSort.count: (fruit) => fruit.count,
       FruitSort.price: (fruit) => fruit.price!,
     },
-    {
+    boxes: {
       FruitSort.alphabetical: {
         (property: FruitSort.count, order: SortBoxOrder.ascending),
       },

@@ -11,24 +11,24 @@ class SortBox<T extends Enum, R> {
   /// Constructs a new SortBox.
   ///
   /// A *Box* is a record of a property and how to order it.
-  SortBox(
-    this._properties,
-    this._boxes,
-  );
+  SortBox({
+    required this.properties,
+    required this.boxes,
+  });
 
   /// A mapping of all values [T] to their [ComparableGetter].
-  final Map<T, ComparableGetter<R>> _properties;
+  final Map<T, ComparableGetter<R>> properties;
 
   /// A mapping of values [T] to their *Boxes*.
   ///
   /// The Boxes are applied if two elements are considered equal regarding their property [T].
-  final Map<T, Set<Box<T>>> _boxes;
+  final Map<T, Set<Box<T>>> boxes;
 
   /// Sorts the [input] list according to their [box].
   ///
   /// A box contains the property and [SortBoxOrder] how the list should be sorted.
-  /// In case the property of two elements is considered equal all following boxes specified at `_boxes[property]` are applied.
-  /// If specified [presort] will be applied before [box] and [_boxes].
+  /// In case the property of two elements is considered equal all following boxes specified at `boxes[property]` are applied.
+  /// If specified [presort] will be applied before [box] and [boxes].
   ///
   /// This function sorts the input in place and a reference to it mutating the provided list.
   List<R> sort(
@@ -43,7 +43,7 @@ class SortBox<T extends Enum, R> {
     final boxes = {
       ...?presort,
       box,
-      ...?_boxes[box.property],
+      ...?this.boxes[box.property],
     };
 
     final sorted = input..sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
@@ -57,7 +57,7 @@ class SortBox<T extends Enum, R> {
     Iterator<Box<T>> iterator,
   ) {
     final box = iterator.current;
-    final comparableGetter = _properties[box.property]!;
+    final comparableGetter = properties[box.property]!;
 
     final comparable1 = comparableGetter(item1);
     final comparable2 = comparableGetter(item2);
