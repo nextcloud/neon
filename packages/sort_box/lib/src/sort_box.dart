@@ -32,15 +32,14 @@ class SortBox<T extends Enum, R> {
   /// A box contains the property and [SortBoxOrder] how the list should be sorted.
   /// In case the property of two elements is considered equal all following boxes specified at `boxes[property]` are applied.
   /// If specified [presort] will be applied before [box] and [boxes].
-  ///
-  /// This function sorts the input in place and a reference to it mutating the provided list.
-  List<R> sort(
+
+  void sort(
     List<R> input,
     Box<T> box, [
     Set<Box<T>>? presort,
   ]) {
     if (input.length <= 1) {
-      return input;
+      return;
     }
 
     final boxes = {
@@ -49,9 +48,7 @@ class SortBox<T extends Enum, R> {
       ...?this.boxes[box.property],
     };
 
-    final sorted = input..sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
-
-    return sorted;
+    input.sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
   }
 
   int _compare(

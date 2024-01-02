@@ -52,13 +52,13 @@ void main() {
         const Fruit('Banana', 4),
         const Fruit('Apple', 5),
       ];
-      final sorted = sortBox.sort(fruits, (property: FruitSort.alphabetical, order: SortBoxOrder.ascending));
+      sortBox.sort(fruits, (property: FruitSort.alphabetical, order: SortBoxOrder.ascending));
 
       for (var i = 0; i < 3; i++) {
-        expect(sorted[i].name, 'Apple');
+        expect(fruits[i].name, 'Apple');
       }
       for (var i = 3; i < 5; i++) {
-        expect(sorted[i].name, 'Banana');
+        expect(fruits[i].name, 'Banana');
       }
     });
 
@@ -70,14 +70,14 @@ void main() {
         const Fruit('Banana', 2),
         const Fruit('Apple', 3),
       ];
-      final sorted = sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
+      sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
 
       final names = ['Apple', 'Banana', 'Apple', 'Apple', 'Banana'];
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].name, names[i]);
+        expect(fruits[i].name, names[i]);
       }
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].count, i + 1);
+        expect(fruits[i].count, i + 1);
       }
     });
   });
@@ -91,16 +91,16 @@ void main() {
         const Fruit('Banana', 1),
         const Fruit('Apple', 2),
       ];
-      final sorted = sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
+      sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
 
       final names = ['Apple', 'Banana', 'Apple', 'Apple', 'Banana'];
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].name, names[i]);
+        expect(fruits[i].name, names[i]);
       }
 
       final counts = [1, 1, 2, 2, 2];
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].count, counts[i]);
+        expect(fruits[i].count, counts[i]);
       }
     });
 
@@ -112,17 +112,17 @@ void main() {
         const Fruit('Banana', 2),
         const Fruit('Apple', 5),
       ];
-      final sorted = sortBox.sort(fruits, (property: FruitSort.alphabetical, order: SortBoxOrder.ascending));
+      sortBox.sort(fruits, (property: FruitSort.alphabetical, order: SortBoxOrder.ascending));
 
       for (var i = 0; i < 3; i++) {
-        expect(sorted[i].name, 'Apple');
+        expect(fruits[i].name, 'Apple');
       }
       for (var i = 3; i < 5; i++) {
-        expect(sorted[i].name, 'Banana');
+        expect(fruits[i].name, 'Banana');
       }
       final counts = [1, 3, 5, 2, 4];
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].count, counts[i]);
+        expect(fruits[i].count, counts[i]);
       }
     });
 
@@ -134,11 +134,11 @@ void main() {
         const Fruit('Elderberry', 1),
         const Fruit('Damson', 1),
       ];
-      final sorted = sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
+      sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
 
       final names = ['Apple', 'Banana', 'Coconut', 'Damson', 'Elderberry'];
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].name, names[i]);
+        expect(fruits[i].name, names[i]);
       }
     });
   });
@@ -152,21 +152,21 @@ void main() {
         const Fruit('Banana', 1, 3),
         const Fruit('Apple', 2, 3),
       ];
-      final sorted = sortBox.sort(fruits, (property: FruitSort.price, order: SortBoxOrder.ascending));
+      sortBox.sort(fruits, (property: FruitSort.price, order: SortBoxOrder.ascending));
 
       final price = [0, 2, 3, 3, 3];
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].price, price[i]);
+        expect(fruits[i].price, price[i]);
       }
 
       final names = ['Apple', 'Banana', 'Banana', 'Apple', 'Apple'];
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].name, names[i]);
+        expect(fruits[i].name, names[i]);
       }
 
       final counts = [2, 2, 1, 1, 2];
       for (var i = 0; i < 5; i++) {
-        expect(sorted[i].count, counts[i]);
+        expect(fruits[i].count, counts[i]);
       }
     });
   });
