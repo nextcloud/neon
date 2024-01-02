@@ -51,6 +51,7 @@ class SortBox<T extends Enum, R> {
     input.sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
   }
 
+  /// Iteratively compares two elements [item1] and [item2] according to the current box in [iterator].
   int _compare(
     R item1,
     R item2,
@@ -67,6 +68,7 @@ class SortBox<T extends Enum, R> {
       SortBoxOrder.descending => comparable2.compareTo(comparable1),
     };
 
+    // If equal try the next property in the box
     if (order == 0 && iterator.moveNext()) {
       return _compare(item1, item2, iterator);
     }
