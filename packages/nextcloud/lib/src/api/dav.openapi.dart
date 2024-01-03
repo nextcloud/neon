@@ -40,9 +40,9 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $DirectClient get direct => $DirectClient(this);
+  late final $DirectClient direct = $DirectClient(this);
 
-  $OutOfOfficeClient get outOfOffice => $OutOfOfficeClient(this);
+  late final $OutOfOfficeClient outOfOffice = $OutOfOfficeClient(this);
 }
 
 class $DirectClient {

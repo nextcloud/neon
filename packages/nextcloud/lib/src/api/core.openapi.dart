@@ -43,48 +43,48 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $AppPasswordClient get appPassword => $AppPasswordClient(this);
+  late final $AppPasswordClient appPassword = $AppPasswordClient(this);
 
-  $AutoCompleteClient get autoComplete => $AutoCompleteClient(this);
+  late final $AutoCompleteClient autoComplete = $AutoCompleteClient(this);
 
   /// Class AvatarController.
-  $AvatarClient get avatar => $AvatarClient(this);
+  late final $AvatarClient avatar = $AvatarClient(this);
 
-  $ClientFlowLoginV2Client get clientFlowLoginV2 => $ClientFlowLoginV2Client(this);
+  late final $ClientFlowLoginV2Client clientFlowLoginV2 = $ClientFlowLoginV2Client(this);
 
-  $CollaborationResourcesClient get collaborationResources => $CollaborationResourcesClient(this);
+  late final $CollaborationResourcesClient collaborationResources = $CollaborationResourcesClient(this);
 
   /// This controller handles guest avatar requests.
-  $GuestAvatarClient get guestAvatar => $GuestAvatarClient(this);
+  late final $GuestAvatarClient guestAvatar = $GuestAvatarClient(this);
 
-  $HoverCardClient get hoverCard => $HoverCardClient(this);
+  late final $HoverCardClient hoverCard = $HoverCardClient(this);
 
-  $NavigationClient get navigation => $NavigationClient(this);
+  late final $NavigationClient navigation = $NavigationClient(this);
 
   /// Controller about the endpoint /ocm-provider/.
-  $OcmClient get ocm => $OcmClient(this);
+  late final $OcmClient ocm = $OcmClient(this);
 
-  $OcsClient get ocs => $OcsClient(this);
+  late final $OcsClient ocs = $OcsClient(this);
 
-  $PreviewClient get preview => $PreviewClient(this);
+  late final $PreviewClient preview = $PreviewClient(this);
 
-  $ProfileApiClient get profileApi => $ProfileApiClient(this);
+  late final $ProfileApiClient profileApi = $ProfileApiClient(this);
 
-  $ReferenceClient get reference => $ReferenceClient(this);
+  late final $ReferenceClient reference = $ReferenceClient(this);
 
-  $ReferenceApiClient get referenceApi => $ReferenceApiClient(this);
+  late final $ReferenceApiClient referenceApi = $ReferenceApiClient(this);
 
-  $TextProcessingApiClient get textProcessingApi => $TextProcessingApiClient(this);
+  late final $TextProcessingApiClient textProcessingApi = $TextProcessingApiClient(this);
 
-  $TextToImageApiClient get textToImageApi => $TextToImageApiClient(this);
+  late final $TextToImageApiClient textToImageApi = $TextToImageApiClient(this);
 
-  $TranslationApiClient get translationApi => $TranslationApiClient(this);
+  late final $TranslationApiClient translationApi = $TranslationApiClient(this);
 
-  $UnifiedSearchClient get unifiedSearch => $UnifiedSearchClient(this);
+  late final $UnifiedSearchClient unifiedSearch = $UnifiedSearchClient(this);
 
-  $WhatsNewClient get whatsNew => $WhatsNewClient(this);
+  late final $WhatsNewClient whatsNew = $WhatsNewClient(this);
 
-  $WipeClient get wipe => $WipeClient(this);
+  late final $WipeClient wipe = $WipeClient(this);
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.

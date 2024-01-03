@@ -42,13 +42,13 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $IconClient get icon => $IconClient(this);
+  late final $IconClient icon = $IconClient(this);
 
   /// Class ThemingController.
   /// handle ajax requests to update the theme.
-  $ThemingClient get theming => $ThemingClient(this);
+  late final $ThemingClient theming = $ThemingClient(this);
 
-  $UserThemeClient get userTheme => $UserThemeClient(this);
+  late final $UserThemeClient userTheme = $UserThemeClient(this);
 }
 
 class $IconClient {

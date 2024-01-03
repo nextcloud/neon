@@ -42,15 +42,15 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $AppConfigClient get appConfig => $AppConfigClient(this);
+  late final $AppConfigClient appConfig = $AppConfigClient(this);
 
-  $AppsClient get apps => $AppsClient(this);
+  late final $AppsClient apps = $AppsClient(this);
 
-  $GroupsClient get groups => $GroupsClient(this);
+  late final $GroupsClient groups = $GroupsClient(this);
 
-  $PreferencesClient get preferences => $PreferencesClient(this);
+  late final $PreferencesClient preferences = $PreferencesClient(this);
 
-  $UsersClient get users => $UsersClient(this);
+  late final $UsersClient users = $UsersClient(this);
 }
 
 class $AppConfigClient {

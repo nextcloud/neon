@@ -43,43 +43,43 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $AvatarClient get avatar => $AvatarClient(this);
+  late final $AvatarClient avatar = $AvatarClient(this);
 
-  $BotClient get bot => $BotClient(this);
+  late final $BotClient bot = $BotClient(this);
 
-  $BreakoutRoomClient get breakoutRoom => $BreakoutRoomClient(this);
+  late final $BreakoutRoomClient breakoutRoom = $BreakoutRoomClient(this);
 
-  $CallClient get call => $CallClient(this);
+  late final $CallClient call = $CallClient(this);
 
-  $CertificateClient get certificate => $CertificateClient(this);
+  late final $CertificateClient certificate = $CertificateClient(this);
 
-  $ChatClient get chat => $ChatClient(this);
+  late final $ChatClient chat = $ChatClient(this);
 
-  $FilesIntegrationClient get filesIntegration => $FilesIntegrationClient(this);
+  late final $FilesIntegrationClient filesIntegration = $FilesIntegrationClient(this);
 
-  $GuestClient get guest => $GuestClient(this);
+  late final $GuestClient guest = $GuestClient(this);
 
-  $HostedSignalingServerClient get hostedSignalingServer => $HostedSignalingServerClient(this);
+  late final $HostedSignalingServerClient hostedSignalingServer = $HostedSignalingServerClient(this);
 
-  $MatterbridgeClient get matterbridge => $MatterbridgeClient(this);
+  late final $MatterbridgeClient matterbridge = $MatterbridgeClient(this);
 
-  $MatterbridgeSettingsClient get matterbridgeSettings => $MatterbridgeSettingsClient(this);
+  late final $MatterbridgeSettingsClient matterbridgeSettings = $MatterbridgeSettingsClient(this);
 
-  $PollClient get poll => $PollClient(this);
+  late final $PollClient poll = $PollClient(this);
 
-  $PublicShareAuthClient get publicShareAuth => $PublicShareAuthClient(this);
+  late final $PublicShareAuthClient publicShareAuth = $PublicShareAuthClient(this);
 
-  $ReactionClient get reaction => $ReactionClient(this);
+  late final $ReactionClient reaction = $ReactionClient(this);
 
-  $RecordingClient get recording => $RecordingClient(this);
+  late final $RecordingClient recording = $RecordingClient(this);
 
-  $RoomClient get room => $RoomClient(this);
+  late final $RoomClient room = $RoomClient(this);
 
-  $SettingsClient get settings => $SettingsClient(this);
+  late final $SettingsClient settings = $SettingsClient(this);
 
-  $SignalingClient get signaling => $SignalingClient(this);
+  late final $SignalingClient signaling = $SignalingClient(this);
 
-  $TempAvatarClient get tempAvatar => $TempAvatarClient(this);
+  late final $TempAvatarClient tempAvatar = $TempAvatarClient(this);
 }
 
 class $AvatarClient {

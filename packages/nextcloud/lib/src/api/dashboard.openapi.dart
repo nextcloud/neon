@@ -41,7 +41,7 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $DashboardApiClient get dashboardApi => $DashboardApiClient(this);
+  late final $DashboardApiClient dashboardApi = $DashboardApiClient(this);
 }
 
 class $DashboardApiClient {

@@ -42,17 +42,17 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $DeletedShareapiClient get deletedShareapi => $DeletedShareapiClient(this);
+  late final $DeletedShareapiClient deletedShareapi = $DeletedShareapiClient(this);
 
-  $PublicPreviewClient get publicPreview => $PublicPreviewClient(this);
+  late final $PublicPreviewClient publicPreview = $PublicPreviewClient(this);
 
-  $RemoteClient get remote => $RemoteClient(this);
+  late final $RemoteClient remote = $RemoteClient(this);
 
-  $ShareInfoClient get shareInfo => $ShareInfoClient(this);
+  late final $ShareInfoClient shareInfo = $ShareInfoClient(this);
 
-  $ShareapiClient get shareapi => $ShareapiClient(this);
+  late final $ShareapiClient shareapi = $ShareapiClient(this);
 
-  $ShareesapiClient get shareesapi => $ShareesapiClient(this);
+  late final $ShareesapiClient shareesapi = $ShareesapiClient(this);
 }
 
 class $DeletedShareapiClient {
