@@ -42,15 +42,15 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $ApiClient get api => $ApiClient(this);
+  late final $ApiClient api = $ApiClient(this);
 
-  $DirectEditingClient get directEditing => $DirectEditingClient(this);
+  late final $DirectEditingClient directEditing = $DirectEditingClient(this);
 
-  $OpenLocalEditorClient get openLocalEditor => $OpenLocalEditorClient(this);
+  late final $OpenLocalEditorClient openLocalEditor = $OpenLocalEditorClient(this);
 
-  $TemplateClient get template => $TemplateClient(this);
+  late final $TemplateClient template = $TemplateClient(this);
 
-  $TransferOwnershipClient get transferOwnership => $TransferOwnershipClient(this);
+  late final $TransferOwnershipClient transferOwnership = $TransferOwnershipClient(this);
 }
 
 class $ApiClient {

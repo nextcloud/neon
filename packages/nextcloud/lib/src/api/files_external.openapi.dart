@@ -40,7 +40,7 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $ApiClient get api => $ApiClient(this);
+  late final $ApiClient api = $ApiClient(this);
 }
 
 class $ApiClient {

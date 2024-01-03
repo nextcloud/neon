@@ -40,7 +40,7 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $WeatherStatusClient get weatherStatus => $WeatherStatusClient(this);
+  late final $WeatherStatusClient weatherStatus = $WeatherStatusClient(this);
 }
 
 class $WeatherStatusClient {

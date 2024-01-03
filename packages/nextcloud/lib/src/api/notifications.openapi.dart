@@ -41,13 +41,13 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $ApiClient get api => $ApiClient(this);
+  late final $ApiClient api = $ApiClient(this);
 
-  $EndpointClient get endpoint => $EndpointClient(this);
+  late final $EndpointClient endpoint = $EndpointClient(this);
 
-  $PushClient get push => $PushClient(this);
+  late final $PushClient push = $PushClient(this);
 
-  $SettingsClient get settings => $SettingsClient(this);
+  late final $SettingsClient settings = $SettingsClient(this);
 }
 
 class $ApiClient {

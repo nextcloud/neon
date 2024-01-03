@@ -41,13 +41,13 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $HeartbeatClient get heartbeat => $HeartbeatClient(this);
+  late final $HeartbeatClient heartbeat = $HeartbeatClient(this);
 
-  $PredefinedStatusClient get predefinedStatus => $PredefinedStatusClient(this);
+  late final $PredefinedStatusClient predefinedStatus = $PredefinedStatusClient(this);
 
-  $StatusesClient get statuses => $StatusesClient(this);
+  late final $StatusesClient statuses = $StatusesClient(this);
 
-  $UserStatusClient get userStatus => $UserStatusClient(this);
+  late final $UserStatusClient userStatus = $UserStatusClient(this);
 }
 
 class $HeartbeatClient {

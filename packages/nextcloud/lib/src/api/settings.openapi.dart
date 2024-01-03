@@ -38,7 +38,7 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $LogSettingsClient get logSettings => $LogSettingsClient(this);
+  late final $LogSettingsClient logSettings = $LogSettingsClient(this);
 }
 
 class $LogSettingsClient {

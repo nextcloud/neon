@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  $PreviewClient get preview => $PreviewClient(this);
+  late final $PreviewClient preview = $PreviewClient(this);
 }
 
 class $PreviewClient {

@@ -119,15 +119,15 @@ super(
         for (final tag in tags) {
           final client = clientName(tag.name);
 
-          b.methods.add(
-            Method(
+          b.fields.add(
+            Field(
               (b) => b
                 ..docs.addAll(tag.formattedDescription)
                 ..name = toDartName(tag.name)
-                ..lambda = true
-                ..type = MethodType.getter
-                ..returns = refer(client)
-                ..body = Code('$client(this)'),
+                ..late = true
+                ..modifier = FieldModifier.final$
+                ..type = refer(client)
+                ..assignment = Code('$client(this)'),
             ),
           );
         }
