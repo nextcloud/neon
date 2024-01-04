@@ -14,9 +14,9 @@ import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
 
 /// Bloc for managing user statuses.
-sealed class UserStatusesBloc implements Disposable {
+sealed class UserStatusBloc implements Disposable {
   @internal
-  factory UserStatusesBloc(Account account) => _UserStatusesBloc(account);
+  factory UserStatusBloc(Account account) => _UserStatusBloc(account);
 
   /// Load the user status of the user with the [username] on the same server.
   ///
@@ -27,8 +27,8 @@ sealed class UserStatusesBloc implements Disposable {
   BehaviorSubject<Map<String, Result<user_status.$PublicInterface>>> get statuses;
 }
 
-class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
-  _UserStatusesBloc(
+class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
+  _UserStatusBloc(
     this.account,
   ) {
     unawaited(refresh());
