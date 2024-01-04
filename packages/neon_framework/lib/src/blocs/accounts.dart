@@ -9,7 +9,7 @@ import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/blocs/user_details.dart';
-import 'package:neon_framework/src/blocs/user_statuses.dart';
+import 'package:neon_framework/src/blocs/user_status.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
@@ -113,13 +113,13 @@ abstract interface class AccountsBloc implements Disposable {
 
   /// The userStatusBloc for the [activeAccount].
   ///
-  /// Convenience method for [getUserStatusesBlocFor] with the currently active account.
-  UserStatusesBloc get activeUserStatusesBloc;
+  /// Convenience method for [getUserStatusBlocFor] with the currently active account.
+  UserStatusBloc get activeUserStatusBloc;
 
   /// The userStatusBloc for the specified [account].
   ///
-  /// Use [activeUserStatusesBloc] to get them for the [activeAccount].
-  UserStatusesBloc getUserStatusesBlocFor(Account account);
+  /// Use [activeUserStatusBloc] to get them for the [activeAccount].
+  UserStatusBloc getUserStatusBlocFor(Account account);
 
   /// The UnifiedSearchBloc for the [activeAccount].
   ///
@@ -184,7 +184,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
       appsBlocs.pruneAgainst(accounts);
       capabilitiesBlocs.pruneAgainst(accounts);
       userDetailsBlocs.pruneAgainst(accounts);
-      userStatusesBlocs.pruneAgainst(accounts);
+      userStatusBlocs.pruneAgainst(accounts);
       unifiedSearchBlocs.pruneAgainst(accounts);
       for (final app in allAppImplementations) {
         app.blocsCache.pruneAgainst(accounts);
@@ -199,7 +199,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   final appsBlocs = AccountCache<AppsBloc>();
   final capabilitiesBlocs = AccountCache<CapabilitiesBloc>();
   final userDetailsBlocs = AccountCache<UserDetailsBloc>();
-  final userStatusesBlocs = AccountCache<UserStatusesBloc>();
+  final userStatusBlocs = AccountCache<UserStatusBloc>();
   final unifiedSearchBlocs = AccountCache<UnifiedSearchBloc>();
 
   @override
@@ -209,7 +209,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     appsBlocs.dispose();
     capabilitiesBlocs.dispose();
     userDetailsBlocs.dispose();
-    userStatusesBlocs.dispose();
+    userStatusBlocs.dispose();
     unifiedSearchBlocs.dispose();
     accountsOptions.dispose();
   }
@@ -328,10 +328,10 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   UserDetailsBloc getUserDetailsBlocFor(Account account) => userDetailsBlocs[account] ??= UserDetailsBloc(account);
 
   @override
-  UserStatusesBloc get activeUserStatusesBloc => getUserStatusesBlocFor(aa);
+  UserStatusBloc get activeUserStatusBloc => getUserStatusBlocFor(aa);
 
   @override
-  UserStatusesBloc getUserStatusesBlocFor(Account account) => userStatusesBlocs[account] ??= UserStatusesBloc(account);
+  UserStatusBloc getUserStatusBlocFor(Account account) => userStatusBlocs[account] ??= UserStatusBloc(account);
 
   @override
   UnifiedSearchBloc get activeUnifiedSearchBloc => getUnifiedSearchBlocFor(aa);
