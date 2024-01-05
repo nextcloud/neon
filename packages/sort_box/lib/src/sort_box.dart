@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 
 /// Signature of a function returning a [Comparable].
@@ -32,9 +33,37 @@ class SortBox<T extends Enum, R> {
   /// A box contains the property and [SortBoxOrder] how the list should be sorted.
   /// In case the property of two elements is considered equal all following boxes specified at `boxes[property]` are applied.
   /// If specified [presort] will be applied before [box] and [boxes].
-
-  void sort(
+  ///
+  /// See:
+  ///   * [sortListBuilder] to sort a `ListBuilder` of a `BuiltList`
+  void sortList(
     List<R> input,
+    Box<T> box, [
+    Set<Box<T>>? presort,
+  ]) {
+    if (input.length <= 1) {
+      return;
+    }
+
+    final boxes = {
+      ...?presort,
+      box,
+      ...?this.boxes[box.property],
+    };
+
+    input.sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
+  }
+
+  /// Sorts the [input] list according to their [box].
+  ///
+  /// A box contains the property and [SortBoxOrder] how the list should be sorted.
+  /// In case the property of two elements is considered equal all following boxes specified at `boxes[property]` are applied.
+  /// If specified [presort] will be applied before [box] and [boxes].
+  ///
+  /// See:
+  ///   * [sortList] to sort a `List`
+  void sortListBuilder(
+    ListBuilder<R> input,
     Box<T> box, [
     Set<Box<T>>? presort,
   ]) {
