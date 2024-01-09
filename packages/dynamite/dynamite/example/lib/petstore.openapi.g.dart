@@ -65,10 +65,10 @@ class _$PetSerializer implements StructuredSerializer<Pet> {
   @override
   Iterable<Object?> serialize(Serializers serializers, Pet object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.tag;
@@ -91,14 +91,14 @@ class _$PetSerializer implements StructuredSerializer<Pet> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
         case 'name':
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'tag':
           result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -245,39 +245,32 @@ class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceB
   }
 }
 
-abstract mixin class $Pet_1InterfaceBuilder {
-  void replace($Pet_1Interface other);
-  void update(void Function($Pet_1InterfaceBuilder) updates);
-  int? get id;
-  set id(int? id);
-}
-
-abstract mixin class $PetInterfaceBuilder implements $NewPetInterfaceBuilder, $Pet_1InterfaceBuilder {
+abstract mixin class $PetInterfaceBuilder implements $NewPetInterfaceBuilder {
   void replace(covariant $PetInterface other);
   void update(void Function($PetInterfaceBuilder) updates);
+  int? get id;
+  set id(covariant int? id);
+
   String? get name;
   set name(covariant String? name);
 
   String? get tag;
   set tag(covariant String? tag);
-
-  int? get id;
-  set id(covariant int? id);
 }
 
 class _$Pet extends Pet {
   @override
+  final int id;
+  @override
   final String name;
   @override
   final String? tag;
-  @override
-  final int id;
 
   factory _$Pet([void Function(PetBuilder)? updates]) => (PetBuilder()..update(updates))._build();
 
-  _$Pet._({required this.name, this.tag, required this.id}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'Pet', 'name');
+  _$Pet._({required this.id, required this.name, this.tag}) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'Pet', 'name');
   }
 
   @override
@@ -289,15 +282,15 @@ class _$Pet extends Pet {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Pet && name == other.name && tag == other.tag && id == other.id;
+    return other is Pet && id == other.id && name == other.name && tag == other.tag;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, tag.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -305,15 +298,19 @@ class _$Pet extends Pet {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Pet')
+          ..add('id', id)
           ..add('name', name)
-          ..add('tag', tag)
-          ..add('id', id))
+          ..add('tag', tag))
         .toString();
   }
 }
 
 class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
   _$Pet? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -323,18 +320,14 @@ class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
   String? get tag => _$this._tag;
   set tag(covariant String? tag) => _$this._tag = tag;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(covariant int? id) => _$this._id = id;
-
   PetBuilder();
 
   PetBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id;
       _name = $v.name;
       _tag = $v.tag;
-      _id = $v.id;
       _$v = null;
     }
     return this;
@@ -357,9 +350,9 @@ class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
   _$Pet _build() {
     final _$result = _$v ??
         _$Pet._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'Pet', 'name'),
-            tag: tag,
-            id: BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id'));
+            tag: tag);
     replace(_$result);
     return _$result;
   }

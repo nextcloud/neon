@@ -17,15 +17,11 @@ import 'package:meta/meta.dart' as _i2;
 part 'nested_ofs.openapi.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseAllOf_1Interface {
-  @BuiltValueField(wireName: 'attribute-allOf')
-  String get attributeAllOf;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BaseAllOfInterface implements $BaseAllOf_1Interface {
+abstract interface class $BaseAllOfInterface {
   @BuiltValueField(wireName: 'String')
   String get string;
+  @BuiltValueField(wireName: 'attribute-allOf')
+  String get attributeAllOf;
 }
 
 abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAllOfBuilder> {
@@ -105,17 +101,13 @@ abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, Bas
 typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseNestedAllOf_3Interface {
-  @BuiltValueField(wireName: 'attribute-nested-allOf')
-  String get attributeNestedAllOf;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BaseNestedAllOfInterface implements $BaseAllOfInterface, $BaseNestedAllOf_3Interface {
+abstract interface class $BaseNestedAllOfInterface implements $BaseAllOfInterface {
   @BuiltValueField(wireName: 'BaseOneOf')
   BaseOneOf get baseOneOf;
   @BuiltValueField(wireName: 'BaseAnyOf')
   BaseAnyOf get baseAnyOf;
+  @BuiltValueField(wireName: 'attribute-nested-allOf')
+  String get attributeNestedAllOf;
 }
 
 abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {

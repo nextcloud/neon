@@ -16,19 +16,12 @@ import 'package:meta/meta.dart' as _i1;
 part 'all_of.openapi.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class $ObjectAllOf_0Interface {
+abstract interface class $ObjectAllOfInterface {
   @BuiltValueField(wireName: 'attribute1-allOf')
   String get attribute1AllOf;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ObjectAllOf_1Interface {
   @BuiltValueField(wireName: 'attribute2-allOf')
   String get attribute2AllOf;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $ObjectAllOfInterface implements $ObjectAllOf_0Interface, $ObjectAllOf_1Interface {}
 
 /// All of with objects only.
 abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, ObjectAllOfBuilder> {
@@ -52,13 +45,10 @@ abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OneObjectAllOf_0Interface {
+abstract interface class $OneObjectAllOfInterface {
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $OneObjectAllOfInterface implements $OneObjectAllOf_0Interface {}
 
 /// All of with one object value.
 abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObjectAllOf, OneObjectAllOfBuilder> {
@@ -111,15 +101,11 @@ abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<Primiti
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MixedAllOf_1Interface {
-  @BuiltValueField(wireName: 'attribute-allOf')
-  String get attributeAllOf;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $MixedAllOfInterface implements $MixedAllOf_1Interface {
+abstract interface class $MixedAllOfInterface {
   @BuiltValueField(wireName: 'String')
   String get string;
+  @BuiltValueField(wireName: 'attribute-allOf')
+  String get attributeAllOf;
 }
 
 /// All of with object and primitive value.

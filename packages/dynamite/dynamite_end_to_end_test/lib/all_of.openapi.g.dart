@@ -217,29 +217,14 @@ class _$OneValueAllOfSerializer implements StructuredSerializer<OneValueAllOf> {
   }
 }
 
-abstract mixin class $ObjectAllOf_0InterfaceBuilder {
-  void replace($ObjectAllOf_0Interface other);
-  void update(void Function($ObjectAllOf_0InterfaceBuilder) updates);
-  String? get attribute1AllOf;
-  set attribute1AllOf(String? attribute1AllOf);
-}
-
-abstract mixin class $ObjectAllOf_1InterfaceBuilder {
-  void replace($ObjectAllOf_1Interface other);
-  void update(void Function($ObjectAllOf_1InterfaceBuilder) updates);
-  String? get attribute2AllOf;
-  set attribute2AllOf(String? attribute2AllOf);
-}
-
-abstract mixin class $ObjectAllOfInterfaceBuilder
-    implements $ObjectAllOf_0InterfaceBuilder, $ObjectAllOf_1InterfaceBuilder {
-  void replace(covariant $ObjectAllOfInterface other);
+abstract mixin class $ObjectAllOfInterfaceBuilder {
+  void replace($ObjectAllOfInterface other);
   void update(void Function($ObjectAllOfInterfaceBuilder) updates);
   String? get attribute1AllOf;
-  set attribute1AllOf(covariant String? attribute1AllOf);
+  set attribute1AllOf(String? attribute1AllOf);
 
   String? get attribute2AllOf;
-  set attribute2AllOf(covariant String? attribute2AllOf);
+  set attribute2AllOf(String? attribute2AllOf);
 }
 
 class _$ObjectAllOf extends ObjectAllOf {
@@ -333,18 +318,11 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $O
   }
 }
 
-abstract mixin class $OneObjectAllOf_0InterfaceBuilder {
-  void replace($OneObjectAllOf_0Interface other);
-  void update(void Function($OneObjectAllOf_0InterfaceBuilder) updates);
-  String? get attributeAllOf;
-  set attributeAllOf(String? attributeAllOf);
-}
-
-abstract mixin class $OneObjectAllOfInterfaceBuilder implements $OneObjectAllOf_0InterfaceBuilder {
-  void replace(covariant $OneObjectAllOfInterface other);
+abstract mixin class $OneObjectAllOfInterfaceBuilder {
+  void replace($OneObjectAllOfInterface other);
   void update(void Function($OneObjectAllOfInterfaceBuilder) updates);
   String? get attributeAllOf;
-  set attributeAllOf(covariant String? attributeAllOf);
+  set attributeAllOf(String? attributeAllOf);
 }
 
 class _$OneObjectAllOf extends OneObjectAllOf {
@@ -526,21 +504,14 @@ class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBui
   }
 }
 
-abstract mixin class $MixedAllOf_1InterfaceBuilder {
-  void replace($MixedAllOf_1Interface other);
-  void update(void Function($MixedAllOf_1InterfaceBuilder) updates);
-  String? get attributeAllOf;
-  set attributeAllOf(String? attributeAllOf);
-}
-
-abstract mixin class $MixedAllOfInterfaceBuilder implements $MixedAllOf_1InterfaceBuilder {
-  void replace(covariant $MixedAllOfInterface other);
+abstract mixin class $MixedAllOfInterfaceBuilder {
+  void replace($MixedAllOfInterface other);
   void update(void Function($MixedAllOfInterfaceBuilder) updates);
   String? get string;
-  set string(covariant String? string);
+  set string(String? string);
 
   String? get attributeAllOf;
-  set attributeAllOf(covariant String? attributeAllOf);
+  set attributeAllOf(String? attributeAllOf);
 }
 
 class _$MixedAllOf extends MixedAllOf {

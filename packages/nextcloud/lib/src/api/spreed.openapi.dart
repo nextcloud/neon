@@ -14647,7 +14647,7 @@ abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotWithDetails_1Interface {
+abstract interface class $BotWithDetailsInterface implements $BotInterface {
   @BuiltValueField(wireName: 'error_count')
   int get errorCount;
   int get features;
@@ -14659,9 +14659,6 @@ abstract interface class $BotWithDetails_1Interface {
   @BuiltValueField(wireName: 'url_hash')
   String get urlHash;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotWithDetailsInterface implements $BotInterface, $BotWithDetails_1Interface {}
 
 abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
   /// Creates a new BotWithDetails object using the builder pattern.
@@ -19713,13 +19710,9 @@ abstract class ChatChatReceiveMessagesHeaders
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMessageWithParent_1Interface {
+abstract interface class $ChatMessageWithParentInterface implements $ChatMessageInterface {
   ChatMessage? get parent;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $ChatMessageWithParentInterface
-    implements $ChatMessageInterface, $ChatMessageWithParent_1Interface {}
 
 abstract class ChatMessageWithParent
     implements $ChatMessageWithParentInterface, Built<ChatMessageWithParent, ChatMessageWithParentBuilder> {
@@ -37690,13 +37683,9 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotWithDetailsAndSecret_1Interface {
+abstract interface class $BotWithDetailsAndSecretInterface implements $BotWithDetailsInterface {
   String get secret;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotWithDetailsAndSecretInterface
-    implements $BotWithDetailsInterface, $BotWithDetailsAndSecret_1Interface {}
 
 abstract class BotWithDetailsAndSecret
     implements $BotWithDetailsAndSecretInterface, Built<BotWithDetailsAndSecret, BotWithDetailsAndSecretBuilder> {

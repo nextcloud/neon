@@ -1,64 +1,8 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
-import 'package:dynamite/src/builder/resolve_type.dart';
-import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
-import 'package:dynamite/src/helpers/dynamite.dart';
-import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
-
-TypeResultObject resolveInterface(
-  openapi.OpenAPI spec,
-  State state,
-  String identifier,
-  openapi.Schema schema,
-) {
-  final properties = schema.properties?.entries;
-
-  if (properties == null || properties.isEmpty) {
-    throw StateError('The schema must have a non empty properties field.');
-  }
-
-  final result = TypeResultObject(
-    identifier,
-  );
-
-  if (state.resolvedInterfaces.add(result)) {
-    final $interface = buildInterface(
-      identifier,
-      methods: BuiltList.build((b) {
-        b.addAll(
-          properties.map((property) {
-            final propertyName = property.key;
-            final propertySchema = property.value;
-
-            final result = resolveType(
-              spec,
-              state,
-              '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
-              propertySchema,
-              nullable: isDartParameterNullable(
-                schema.required.contains(propertyName),
-                propertySchema,
-              ),
-            );
-
-            return generateProperty(
-              result,
-              propertyName,
-              propertySchema.formattedDescription,
-            );
-          }),
-        );
-      }),
-    );
-
-    state.output.add($interface);
-  }
-
-  return result;
-}
 
 Method generateProperty(
   TypeResult type,

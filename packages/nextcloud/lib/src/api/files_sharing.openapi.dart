@@ -4176,28 +4176,24 @@ abstract class ShareeValue implements $ShareeValueInterface, Built<ShareeValue, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeCircle_1_Value_1Interface {
+abstract interface class $ShareeCircle_ValueInterface implements $ShareeValueInterface {
   String get circle;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeCircle_1_ValueInterface
-    implements $ShareeValueInterface, $ShareeCircle_1_Value_1Interface {}
-
-abstract class ShareeCircle_1_Value
-    implements $ShareeCircle_1_ValueInterface, Built<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder> {
-  /// Creates a new ShareeCircle_1_Value object using the builder pattern.
-  factory ShareeCircle_1_Value([void Function(ShareeCircle_1_ValueBuilder)? b]) = _$ShareeCircle_1_Value;
+abstract class ShareeCircle_Value
+    implements $ShareeCircle_ValueInterface, Built<ShareeCircle_Value, ShareeCircle_ValueBuilder> {
+  /// Creates a new ShareeCircle_Value object using the builder pattern.
+  factory ShareeCircle_Value([void Function(ShareeCircle_ValueBuilder)? b]) = _$ShareeCircle_Value;
 
   // coverage:ignore-start
-  const ShareeCircle_1_Value._();
+  const ShareeCircle_Value._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeCircle_1_Value.fromJson(Map<String, dynamic> json) =>
+  factory ShareeCircle_Value.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4208,18 +4204,15 @@ abstract class ShareeCircle_1_Value
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for ShareeCircle_1_Value.
-  static Serializer<ShareeCircle_1_Value> get serializer => _$shareeCircle1ValueSerializer;
+  /// Serializer for ShareeCircle_Value.
+  static Serializer<ShareeCircle_Value> get serializer => _$shareeCircleValueSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeCircle_1Interface {
+abstract interface class $ShareeCircleInterface implements $ShareeInterface {
   String get shareWithDescription;
-  ShareeCircle_1_Value get value;
+  ShareeCircle_Value get value;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeCircleInterface implements $ShareeInterface, $ShareeCircle_1Interface {}
 
 abstract class ShareeCircle implements $ShareeCircleInterface, Built<ShareeCircle, ShareeCircleBuilder> {
   /// Creates a new ShareeCircle object using the builder pattern.
@@ -4248,16 +4241,13 @@ abstract class ShareeCircle implements $ShareeCircleInterface, Built<ShareeCircl
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeEmail_1Interface {
+abstract interface class $ShareeEmailInterface implements $ShareeInterface {
   String get uuid;
   String get name;
   String get type;
   String get shareWithDisplayNameUnique;
   ShareeValue get value;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeEmailInterface implements $ShareeInterface, $ShareeEmail_1Interface {}
 
 abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, ShareeEmailBuilder> {
   /// Creates a new ShareeEmail object using the builder pattern.
@@ -4286,28 +4276,24 @@ abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeRemoteGroup_1_Value_1Interface {
+abstract interface class $ShareeRemoteGroup_ValueInterface implements $ShareeValueInterface {
   String get server;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeRemoteGroup_1_ValueInterface
-    implements $ShareeValueInterface, $ShareeRemoteGroup_1_Value_1Interface {}
-
-abstract class ShareeRemoteGroup_1_Value
-    implements $ShareeRemoteGroup_1_ValueInterface, Built<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder> {
-  /// Creates a new ShareeRemoteGroup_1_Value object using the builder pattern.
-  factory ShareeRemoteGroup_1_Value([void Function(ShareeRemoteGroup_1_ValueBuilder)? b]) = _$ShareeRemoteGroup_1_Value;
+abstract class ShareeRemoteGroup_Value
+    implements $ShareeRemoteGroup_ValueInterface, Built<ShareeRemoteGroup_Value, ShareeRemoteGroup_ValueBuilder> {
+  /// Creates a new ShareeRemoteGroup_Value object using the builder pattern.
+  factory ShareeRemoteGroup_Value([void Function(ShareeRemoteGroup_ValueBuilder)? b]) = _$ShareeRemoteGroup_Value;
 
   // coverage:ignore-start
-  const ShareeRemoteGroup_1_Value._();
+  const ShareeRemoteGroup_Value._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeRemoteGroup_1_Value.fromJson(Map<String, dynamic> json) =>
+  factory ShareeRemoteGroup_Value.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4318,19 +4304,16 @@ abstract class ShareeRemoteGroup_1_Value
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for ShareeRemoteGroup_1_Value.
-  static Serializer<ShareeRemoteGroup_1_Value> get serializer => _$shareeRemoteGroup1ValueSerializer;
+  /// Serializer for ShareeRemoteGroup_Value.
+  static Serializer<ShareeRemoteGroup_Value> get serializer => _$shareeRemoteGroupValueSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeRemoteGroup_1Interface {
+abstract interface class $ShareeRemoteGroupInterface implements $ShareeInterface {
   String get guid;
   String get name;
-  ShareeRemoteGroup_1_Value get value;
+  ShareeRemoteGroup_Value get value;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeRemoteGroupInterface implements $ShareeInterface, $ShareeRemoteGroup_1Interface {}
 
 abstract class ShareeRemoteGroup
     implements $ShareeRemoteGroupInterface, Built<ShareeRemoteGroup, ShareeRemoteGroupBuilder> {
@@ -4360,28 +4343,24 @@ abstract class ShareeRemoteGroup
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeRemote_1_Value_1Interface {
+abstract interface class $ShareeRemote_ValueInterface implements $ShareeValueInterface {
   String get server;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeRemote_1_ValueInterface
-    implements $ShareeValueInterface, $ShareeRemote_1_Value_1Interface {}
-
-abstract class ShareeRemote_1_Value
-    implements $ShareeRemote_1_ValueInterface, Built<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder> {
-  /// Creates a new ShareeRemote_1_Value object using the builder pattern.
-  factory ShareeRemote_1_Value([void Function(ShareeRemote_1_ValueBuilder)? b]) = _$ShareeRemote_1_Value;
+abstract class ShareeRemote_Value
+    implements $ShareeRemote_ValueInterface, Built<ShareeRemote_Value, ShareeRemote_ValueBuilder> {
+  /// Creates a new ShareeRemote_Value object using the builder pattern.
+  factory ShareeRemote_Value([void Function(ShareeRemote_ValueBuilder)? b]) = _$ShareeRemote_Value;
 
   // coverage:ignore-start
-  const ShareeRemote_1_Value._();
+  const ShareeRemote_Value._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeRemote_1_Value.fromJson(Map<String, dynamic> json) =>
+  factory ShareeRemote_Value.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4392,20 +4371,17 @@ abstract class ShareeRemote_1_Value
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for ShareeRemote_1_Value.
-  static Serializer<ShareeRemote_1_Value> get serializer => _$shareeRemote1ValueSerializer;
+  /// Serializer for ShareeRemote_Value.
+  static Serializer<ShareeRemote_Value> get serializer => _$shareeRemoteValueSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeRemote_1Interface {
+abstract interface class $ShareeRemoteInterface implements $ShareeInterface {
   String get uuid;
   String get name;
   String get type;
-  ShareeRemote_1_Value get value;
+  ShareeRemote_Value get value;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeRemoteInterface implements $ShareeInterface, $ShareeRemote_1Interface {}
 
 abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemote, ShareeRemoteBuilder> {
   /// Creates a new ShareeRemote object using the builder pattern.
@@ -4434,28 +4410,27 @@ abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemot
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeUser_1_StatusInterface {
+abstract interface class $ShareeUser_StatusInterface {
   String get status;
   String get message;
   String get icon;
   int? get clearAt;
 }
 
-abstract class ShareeUser_1_Status
-    implements $ShareeUser_1_StatusInterface, Built<ShareeUser_1_Status, ShareeUser_1_StatusBuilder> {
-  /// Creates a new ShareeUser_1_Status object using the builder pattern.
-  factory ShareeUser_1_Status([void Function(ShareeUser_1_StatusBuilder)? b]) = _$ShareeUser_1_Status;
+abstract class ShareeUser_Status
+    implements $ShareeUser_StatusInterface, Built<ShareeUser_Status, ShareeUser_StatusBuilder> {
+  /// Creates a new ShareeUser_Status object using the builder pattern.
+  factory ShareeUser_Status([void Function(ShareeUser_StatusBuilder)? b]) = _$ShareeUser_Status;
 
   // coverage:ignore-start
-  const ShareeUser_1_Status._();
+  const ShareeUser_Status._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeUser_1_Status.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeUser_Status.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -4465,21 +4440,18 @@ abstract class ShareeUser_1_Status
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for ShareeUser_1_Status.
-  static Serializer<ShareeUser_1_Status> get serializer => _$shareeUser1StatusSerializer;
+  /// Serializer for ShareeUser_Status.
+  static Serializer<ShareeUser_Status> get serializer => _$shareeUserStatusSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeUser_1Interface {
+abstract interface class $ShareeUserInterface implements $ShareeInterface {
   String get subline;
   String get icon;
   String get shareWithDisplayNameUnique;
-  ShareeUser_1_Status get status;
+  ShareeUser_Status get status;
   ShareeValue get value;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeUserInterface implements $ShareeInterface, $ShareeUser_1Interface {}
 
 abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, ShareeUserBuilder> {
   /// Creates a new ShareeUser object using the builder pattern.
@@ -4580,7 +4552,7 @@ abstract class Lookup implements $LookupInterface, Built<Lookup, LookupBuilder> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeLookup_1_ExtraInterface {
+abstract interface class $ShareeLookup_ExtraInterface {
   String get federationId;
   Lookup? get name;
   Lookup? get email;
@@ -4595,20 +4567,20 @@ abstract interface class $ShareeLookup_1_ExtraInterface {
   Lookup? get userid;
 }
 
-abstract class ShareeLookup_1_Extra
-    implements $ShareeLookup_1_ExtraInterface, Built<ShareeLookup_1_Extra, ShareeLookup_1_ExtraBuilder> {
-  /// Creates a new ShareeLookup_1_Extra object using the builder pattern.
-  factory ShareeLookup_1_Extra([void Function(ShareeLookup_1_ExtraBuilder)? b]) = _$ShareeLookup_1_Extra;
+abstract class ShareeLookup_Extra
+    implements $ShareeLookup_ExtraInterface, Built<ShareeLookup_Extra, ShareeLookup_ExtraBuilder> {
+  /// Creates a new ShareeLookup_Extra object using the builder pattern.
+  factory ShareeLookup_Extra([void Function(ShareeLookup_ExtraBuilder)? b]) = _$ShareeLookup_Extra;
 
   // coverage:ignore-start
-  const ShareeLookup_1_Extra._();
+  const ShareeLookup_Extra._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeLookup_1_Extra.fromJson(Map<String, dynamic> json) =>
+  factory ShareeLookup_Extra.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4619,33 +4591,29 @@ abstract class ShareeLookup_1_Extra
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for ShareeLookup_1_Extra.
-  static Serializer<ShareeLookup_1_Extra> get serializer => _$shareeLookup1ExtraSerializer;
+  /// Serializer for ShareeLookup_Extra.
+  static Serializer<ShareeLookup_Extra> get serializer => _$shareeLookupExtraSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeLookup_1_Value_1Interface {
+abstract interface class $ShareeLookup_ValueInterface implements $ShareeValueInterface {
   bool get globalScale;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeLookup_1_ValueInterface
-    implements $ShareeValueInterface, $ShareeLookup_1_Value_1Interface {}
-
-abstract class ShareeLookup_1_Value
-    implements $ShareeLookup_1_ValueInterface, Built<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder> {
-  /// Creates a new ShareeLookup_1_Value object using the builder pattern.
-  factory ShareeLookup_1_Value([void Function(ShareeLookup_1_ValueBuilder)? b]) = _$ShareeLookup_1_Value;
+abstract class ShareeLookup_Value
+    implements $ShareeLookup_ValueInterface, Built<ShareeLookup_Value, ShareeLookup_ValueBuilder> {
+  /// Creates a new ShareeLookup_Value object using the builder pattern.
+  factory ShareeLookup_Value([void Function(ShareeLookup_ValueBuilder)? b]) = _$ShareeLookup_Value;
 
   // coverage:ignore-start
-  const ShareeLookup_1_Value._();
+  const ShareeLookup_Value._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ShareeLookup_1_Value.fromJson(Map<String, dynamic> json) =>
+  factory ShareeLookup_Value.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4656,18 +4624,15 @@ abstract class ShareeLookup_1_Value
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for ShareeLookup_1_Value.
-  static Serializer<ShareeLookup_1_Value> get serializer => _$shareeLookup1ValueSerializer;
+  /// Serializer for ShareeLookup_Value.
+  static Serializer<ShareeLookup_Value> get serializer => _$shareeLookupValueSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareeLookup_1Interface {
-  ShareeLookup_1_Extra get extra;
-  ShareeLookup_1_Value get value;
+abstract interface class $ShareeLookupInterface implements $ShareeInterface {
+  ShareeLookup_Extra get extra;
+  ShareeLookup_Value get value;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $ShareeLookupInterface implements $ShareeInterface, $ShareeLookup_1Interface {}
 
 abstract class ShareeLookup implements $ShareeLookupInterface, Built<ShareeLookup, ShareeLookupBuilder> {
   /// Creates a new ShareeLookup object using the builder pattern.
@@ -5890,8 +5855,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ShareeCircle.serializer)
       ..addBuilderFactory(const FullType(Sharee), ShareeBuilder.new)
       ..add(Sharee.serializer)
-      ..addBuilderFactory(const FullType(ShareeCircle_1_Value), ShareeCircle_1_ValueBuilder.new)
-      ..add(ShareeCircle_1_Value.serializer)
+      ..addBuilderFactory(const FullType(ShareeCircle_Value), ShareeCircle_ValueBuilder.new)
+      ..add(ShareeCircle_Value.serializer)
       ..addBuilderFactory(const FullType(ShareeValue), ShareeValueBuilder.new)
       ..add(ShareeValue.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeCircle)]), ListBuilder<ShareeCircle>.new)
@@ -5901,27 +5866,27 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Sharee)]), ListBuilder<Sharee>.new)
       ..addBuilderFactory(const FullType(ShareeRemoteGroup), ShareeRemoteGroupBuilder.new)
       ..add(ShareeRemoteGroup.serializer)
-      ..addBuilderFactory(const FullType(ShareeRemoteGroup_1_Value), ShareeRemoteGroup_1_ValueBuilder.new)
-      ..add(ShareeRemoteGroup_1_Value.serializer)
+      ..addBuilderFactory(const FullType(ShareeRemoteGroup_Value), ShareeRemoteGroup_ValueBuilder.new)
+      ..add(ShareeRemoteGroup_Value.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRemoteGroup)]), ListBuilder<ShareeRemoteGroup>.new)
       ..addBuilderFactory(const FullType(ShareeRemote), ShareeRemoteBuilder.new)
       ..add(ShareeRemote.serializer)
-      ..addBuilderFactory(const FullType(ShareeRemote_1_Value), ShareeRemote_1_ValueBuilder.new)
-      ..add(ShareeRemote_1_Value.serializer)
+      ..addBuilderFactory(const FullType(ShareeRemote_Value), ShareeRemote_ValueBuilder.new)
+      ..add(ShareeRemote_Value.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRemote)]), ListBuilder<ShareeRemote>.new)
       ..addBuilderFactory(const FullType(ShareeUser), ShareeUserBuilder.new)
       ..add(ShareeUser.serializer)
-      ..addBuilderFactory(const FullType(ShareeUser_1_Status), ShareeUser_1_StatusBuilder.new)
-      ..add(ShareeUser_1_Status.serializer)
+      ..addBuilderFactory(const FullType(ShareeUser_Status), ShareeUser_StatusBuilder.new)
+      ..add(ShareeUser_Status.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeUser)]), ListBuilder<ShareeUser>.new)
       ..addBuilderFactory(const FullType(ShareeLookup), ShareeLookupBuilder.new)
       ..add(ShareeLookup.serializer)
-      ..addBuilderFactory(const FullType(ShareeLookup_1_Extra), ShareeLookup_1_ExtraBuilder.new)
-      ..add(ShareeLookup_1_Extra.serializer)
+      ..addBuilderFactory(const FullType(ShareeLookup_Extra), ShareeLookup_ExtraBuilder.new)
+      ..add(ShareeLookup_Extra.serializer)
       ..addBuilderFactory(const FullType(Lookup), LookupBuilder.new)
       ..add(Lookup.serializer)
-      ..addBuilderFactory(const FullType(ShareeLookup_1_Value), ShareeLookup_1_ValueBuilder.new)
-      ..add(ShareeLookup_1_Value.serializer)
+      ..addBuilderFactory(const FullType(ShareeLookup_Value), ShareeLookup_ValueBuilder.new)
+      ..add(ShareeLookup_Value.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeLookup)]), ListBuilder<ShareeLookup>.new)
       ..addBuilderFactory(
         const FullType(ShareesapiFindRecommendedResponseApplicationJson),

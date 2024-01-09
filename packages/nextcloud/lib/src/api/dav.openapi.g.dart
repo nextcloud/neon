@@ -298,10 +298,6 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
   Iterable<Object?> serialize(Serializers serializers, CurrentOutOfOfficeData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
-      'message',
-      serializers.serialize(object.message, specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'startDate',
@@ -310,6 +306,10 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
       serializers.serialize(object.endDate, specifiedType: const FullType(int)),
       'shortMessage',
       serializers.serialize(object.shortMessage, specifiedType: const FullType(String)),
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -326,12 +326,6 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'userId':
-          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -343,6 +337,12 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
           break;
         case 'shortMessage':
           result.shortMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -458,10 +458,6 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
   Iterable<Object?> serialize(Serializers serializers, OutOfOfficeData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
-      'message',
-      serializers.serialize(object.message, specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'firstDay',
@@ -470,6 +466,10 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
       serializers.serialize(object.lastDay, specifiedType: const FullType(String)),
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -486,12 +486,6 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'userId':
-          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
@@ -503,6 +497,12 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
           break;
         case 'status':
           result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -1442,32 +1442,9 @@ class OutOfOfficeDataCommonBuilder
   }
 }
 
-abstract mixin class $CurrentOutOfOfficeData_1InterfaceBuilder {
-  void replace($CurrentOutOfOfficeData_1Interface other);
-  void update(void Function($CurrentOutOfOfficeData_1InterfaceBuilder) updates);
-  String? get id;
-  set id(String? id);
-
-  int? get startDate;
-  set startDate(int? startDate);
-
-  int? get endDate;
-  set endDate(int? endDate);
-
-  String? get shortMessage;
-  set shortMessage(String? shortMessage);
-}
-
-abstract mixin class $CurrentOutOfOfficeDataInterfaceBuilder
-    implements $OutOfOfficeDataCommonInterfaceBuilder, $CurrentOutOfOfficeData_1InterfaceBuilder {
+abstract mixin class $CurrentOutOfOfficeDataInterfaceBuilder implements $OutOfOfficeDataCommonInterfaceBuilder {
   void replace(covariant $CurrentOutOfOfficeDataInterface other);
   void update(void Function($CurrentOutOfOfficeDataInterfaceBuilder) updates);
-  String? get userId;
-  set userId(covariant String? userId);
-
-  String? get message;
-  set message(covariant String? message);
-
   String? get id;
   set id(covariant String? id);
 
@@ -1479,13 +1456,15 @@ abstract mixin class $CurrentOutOfOfficeDataInterfaceBuilder
 
   String? get shortMessage;
   set shortMessage(covariant String? shortMessage);
+
+  String? get userId;
+  set userId(covariant String? userId);
+
+  String? get message;
+  set message(covariant String? message);
 }
 
 class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
-  @override
-  final String userId;
-  @override
-  final String message;
   @override
   final String id;
   @override
@@ -1494,24 +1473,28 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
   final int endDate;
   @override
   final String shortMessage;
+  @override
+  final String userId;
+  @override
+  final String message;
 
   factory _$CurrentOutOfOfficeData([void Function(CurrentOutOfOfficeDataBuilder)? updates]) =>
       (CurrentOutOfOfficeDataBuilder()..update(updates))._build();
 
   _$CurrentOutOfOfficeData._(
-      {required this.userId,
-      required this.message,
-      required this.id,
+      {required this.id,
       required this.startDate,
       required this.endDate,
-      required this.shortMessage})
+      required this.shortMessage,
+      required this.userId,
+      required this.message})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId');
-    BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message');
     BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id');
     BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate');
     BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate');
     BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage');
+    BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId');
+    BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message');
   }
 
   @override
@@ -1525,23 +1508,23 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is CurrentOutOfOfficeData &&
-        userId == other.userId &&
-        message == other.message &&
         id == other.id &&
         startDate == other.startDate &&
         endDate == other.endDate &&
-        shortMessage == other.shortMessage;
+        shortMessage == other.shortMessage &&
+        userId == other.userId &&
+        message == other.message;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, userId.hashCode);
-    _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, startDate.hashCode);
     _$hash = $jc(_$hash, endDate.hashCode);
     _$hash = $jc(_$hash, shortMessage.hashCode);
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -1549,12 +1532,12 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CurrentOutOfOfficeData')
-          ..add('userId', userId)
-          ..add('message', message)
           ..add('id', id)
           ..add('startDate', startDate)
           ..add('endDate', endDate)
-          ..add('shortMessage', shortMessage))
+          ..add('shortMessage', shortMessage)
+          ..add('userId', userId)
+          ..add('message', message))
         .toString();
   }
 }
@@ -1562,14 +1545,6 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
 class CurrentOutOfOfficeDataBuilder
     implements Builder<CurrentOutOfOfficeData, CurrentOutOfOfficeDataBuilder>, $CurrentOutOfOfficeDataInterfaceBuilder {
   _$CurrentOutOfOfficeData? _$v;
-
-  String? _userId;
-  String? get userId => _$this._userId;
-  set userId(covariant String? userId) => _$this._userId = userId;
-
-  String? _message;
-  String? get message => _$this._message;
-  set message(covariant String? message) => _$this._message = message;
 
   String? _id;
   String? get id => _$this._id;
@@ -1587,17 +1562,25 @@ class CurrentOutOfOfficeDataBuilder
   String? get shortMessage => _$this._shortMessage;
   set shortMessage(covariant String? shortMessage) => _$this._shortMessage = shortMessage;
 
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
   CurrentOutOfOfficeDataBuilder();
 
   CurrentOutOfOfficeDataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _userId = $v.userId;
-      _message = $v.message;
       _id = $v.id;
       _startDate = $v.startDate;
       _endDate = $v.endDate;
       _shortMessage = $v.shortMessage;
+      _userId = $v.userId;
+      _message = $v.message;
       _$v = null;
     }
     return this;
@@ -1620,13 +1603,13 @@ class CurrentOutOfOfficeDataBuilder
   _$CurrentOutOfOfficeData _build() {
     final _$result = _$v ??
         _$CurrentOutOfOfficeData._(
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message'),
             id: BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id'),
             startDate: BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate'),
             endDate: BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate'),
             shortMessage:
-                BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage'));
+                BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage'),
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message'));
     replace(_$result);
     return _$result;
   }
@@ -1868,32 +1851,9 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $OutOfOfficeData_1InterfaceBuilder {
-  void replace($OutOfOfficeData_1Interface other);
-  void update(void Function($OutOfOfficeData_1InterfaceBuilder) updates);
-  int? get id;
-  set id(int? id);
-
-  String? get firstDay;
-  set firstDay(String? firstDay);
-
-  String? get lastDay;
-  set lastDay(String? lastDay);
-
-  String? get status;
-  set status(String? status);
-}
-
-abstract mixin class $OutOfOfficeDataInterfaceBuilder
-    implements $OutOfOfficeDataCommonInterfaceBuilder, $OutOfOfficeData_1InterfaceBuilder {
+abstract mixin class $OutOfOfficeDataInterfaceBuilder implements $OutOfOfficeDataCommonInterfaceBuilder {
   void replace(covariant $OutOfOfficeDataInterface other);
   void update(void Function($OutOfOfficeDataInterfaceBuilder) updates);
-  String? get userId;
-  set userId(covariant String? userId);
-
-  String? get message;
-  set message(covariant String? message);
-
   int? get id;
   set id(covariant int? id);
 
@@ -1905,13 +1865,15 @@ abstract mixin class $OutOfOfficeDataInterfaceBuilder
 
   String? get status;
   set status(covariant String? status);
+
+  String? get userId;
+  set userId(covariant String? userId);
+
+  String? get message;
+  set message(covariant String? message);
 }
 
 class _$OutOfOfficeData extends OutOfOfficeData {
-  @override
-  final String userId;
-  @override
-  final String message;
   @override
   final int id;
   @override
@@ -1920,24 +1882,28 @@ class _$OutOfOfficeData extends OutOfOfficeData {
   final String lastDay;
   @override
   final String status;
+  @override
+  final String userId;
+  @override
+  final String message;
 
   factory _$OutOfOfficeData([void Function(OutOfOfficeDataBuilder)? updates]) =>
       (OutOfOfficeDataBuilder()..update(updates))._build();
 
   _$OutOfOfficeData._(
-      {required this.userId,
-      required this.message,
-      required this.id,
+      {required this.id,
       required this.firstDay,
       required this.lastDay,
-      required this.status})
+      required this.status,
+      required this.userId,
+      required this.message})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId');
-    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message');
     BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id');
     BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay');
     BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay');
     BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status');
+    BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId');
+    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message');
   }
 
   @override
@@ -1950,23 +1916,23 @@ class _$OutOfOfficeData extends OutOfOfficeData {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is OutOfOfficeData &&
-        userId == other.userId &&
-        message == other.message &&
         id == other.id &&
         firstDay == other.firstDay &&
         lastDay == other.lastDay &&
-        status == other.status;
+        status == other.status &&
+        userId == other.userId &&
+        message == other.message;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, userId.hashCode);
-    _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, firstDay.hashCode);
     _$hash = $jc(_$hash, lastDay.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -1974,12 +1940,12 @@ class _$OutOfOfficeData extends OutOfOfficeData {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'OutOfOfficeData')
-          ..add('userId', userId)
-          ..add('message', message)
           ..add('id', id)
           ..add('firstDay', firstDay)
           ..add('lastDay', lastDay)
-          ..add('status', status))
+          ..add('status', status)
+          ..add('userId', userId)
+          ..add('message', message))
         .toString();
   }
 }
@@ -1987,14 +1953,6 @@ class _$OutOfOfficeData extends OutOfOfficeData {
 class OutOfOfficeDataBuilder
     implements Builder<OutOfOfficeData, OutOfOfficeDataBuilder>, $OutOfOfficeDataInterfaceBuilder {
   _$OutOfOfficeData? _$v;
-
-  String? _userId;
-  String? get userId => _$this._userId;
-  set userId(covariant String? userId) => _$this._userId = userId;
-
-  String? _message;
-  String? get message => _$this._message;
-  set message(covariant String? message) => _$this._message = message;
 
   int? _id;
   int? get id => _$this._id;
@@ -2012,17 +1970,25 @@ class OutOfOfficeDataBuilder
   String? get status => _$this._status;
   set status(covariant String? status) => _$this._status = status;
 
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
   OutOfOfficeDataBuilder();
 
   OutOfOfficeDataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _userId = $v.userId;
-      _message = $v.message;
       _id = $v.id;
       _firstDay = $v.firstDay;
       _lastDay = $v.lastDay;
       _status = $v.status;
+      _userId = $v.userId;
+      _message = $v.message;
       _$v = null;
     }
     return this;
@@ -2045,12 +2011,12 @@ class OutOfOfficeDataBuilder
   _$OutOfOfficeData _build() {
     final _$result = _$v ??
         _$OutOfOfficeData._(
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message'),
             id: BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id'),
             firstDay: BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay'),
             lastDay: BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay'),
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status'));
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status'),
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message'));
     replace(_$result);
     return _$result;
   }

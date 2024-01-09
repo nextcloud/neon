@@ -5,6 +5,8 @@ import 'package:dynamite/src/builder/resolve_interface.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
+import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -76,13 +78,31 @@ TypeResult resolveAllOf(
 
     for (final s in schema.allOf!) {
       if (s.properties != null) {
-        final interfaceClass = resolveInterface(
-          spec,
-          state,
-          '${identifier}_${schema.allOf!.indexOf(s)}',
-          s,
+        final properties = s.properties!.entries;
+
+        methods.addAll(
+          properties.map((property) {
+            final propertyName = property.key;
+            final propertySchema = property.value;
+
+            final result = resolveType(
+              spec,
+              state,
+              '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
+              propertySchema,
+              nullable: isDartParameterNullable(
+                s.required.contains(propertyName),
+                propertySchema,
+              ),
+            );
+
+            return generateProperty(
+              result,
+              propertyName,
+              propertySchema.formattedDescription,
+            );
+          }),
         );
-        interfaces.add(interfaceClass);
       } else {
         final object = resolveType(
           spec,
