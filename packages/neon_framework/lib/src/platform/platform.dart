@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/android.dart';
@@ -82,11 +83,11 @@ abstract interface class NeonPlatform {
   /// The support depends on `https://pub.dev/packages/share_plus`.
   abstract final bool canUseSharing;
 
-  /// Whether this platform should use file dialog.
-  ///
-  /// This is needed to compensate lacking support of `https://pub.dev/packages/file_picker`.
-  abstract final bool shouldUseFileDialog;
-
   /// Initializes this platform.
   FutureOr<void> init();
+
+  /// Saves a file with the user choosing the location.
+  ///
+  /// Returns the path of the chosen location.
+  Future<String?> saveFileWithPickDialog(String fileName, Uint8List data);
 }
