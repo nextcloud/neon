@@ -1,12 +1,6 @@
 PUT http://localhost/index\.php/apps/uppush/device\?deviceName=Test
-accept-encoding: gzip
 accept: application/json
 authorization: Basic mock
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/index\.php/apps/uppush/device/[a-zA-Z0-9-_]+
-accept-encoding: gzip
 accept: application/json
 authorization: Basic mock
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)

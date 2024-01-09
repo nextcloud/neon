@@ -6,8 +6,8 @@ import 'package:built_value/serializer.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/src/http_extensions.dart';
 import 'package:dynamite_runtime/src/utils/uri.dart';
+import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
 
 /// Response returned by operations of a [DynamiteClient].
 ///
@@ -62,7 +62,7 @@ class DynamiteRawResponse<B, H> {
   /// After [future] completes the deserialized response can be accessed
   /// through [response].
   DynamiteRawResponse({
-    required Future<HttpClientResponse> response,
+    required Future<http.StreamedResponse> response,
     required this.bodyType,
     required this.headersType,
     required this.serializers,
@@ -73,13 +73,13 @@ class DynamiteRawResponse<B, H> {
     // ignore: discarded_futures
     response.then(
       (response) async {
-        _rawHeaders = response.responseHeaders;
+        _rawHeaders = response.headers;
         final headers = deserializeHeaders<H>(_rawHeaders, serializers, headersType);
 
         _rawBody = switch (bodyType) {
-          const FullType(Uint8List) => await response.bytes,
-          const FullType(String) => await response.string,
-          _ => await response.json,
+          const FullType(Uint8List) => await response.stream.bytes,
+          const FullType(String) => await response.stream.string,
+          _ => await response.stream.json,
         };
         final body = deserializeBody<B>(_rawBody, serializers, bodyType);
 
@@ -267,17 +267,17 @@ class DynamiteApiException implements Exception {
   /// Creates a new Exception from the given [response].
   ///
   /// Tries to decode the `response` into a string.
-  static Future<DynamiteApiException> fromResponse(HttpClientResponse response) async {
+  static Future<DynamiteApiException> fromResponse(http.StreamedResponse response) async {
     String body;
     try {
-      body = await response.string;
+      body = await response.stream.string;
     } on FormatException {
       body = 'binary';
     }
 
     return DynamiteApiException(
       response.statusCode,
-      response.responseHeaders,
+      response.headers,
       body,
     );
   }
@@ -377,11 +377,11 @@ class DynamiteClient {
   DynamiteClient(
     Uri baseURL, {
     this.baseHeaders,
-    String? userAgent,
-    HttpClient? httpClient,
+    this.userAgent,
+    http.Client? httpClient,
     this.cookieJar,
     this.authentications = const [],
-  })  : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent,
+  })  : httpClient = httpClient ?? http.Client(),
         baseURL = baseURL.normalizeEmptyPath() {
     if (baseURL.queryParametersAll.isNotEmpty) {
       throw UnsupportedError('Dynamite can not work with a baseURL containing query parameters.');
@@ -397,8 +397,11 @@ class DynamiteClient {
   /// The base headers added to each request.
   final Map<String, String>? baseHeaders;
 
+  /// The value sent in the `user-agent` header.
+  final String? userAgent;
+
   /// The base http client.
-  final HttpClient httpClient;
+  final http.Client httpClient;
 
   /// The optional cookie jar to persist the response cookies.
   final CookieJar? cookieJar;
@@ -413,7 +416,7 @@ class DynamiteClient {
   /// The query parameters of the [baseURL] are added.
   /// The [path] is resolved against the path of the [baseURL].
   /// All [baseHeaders] are added to the request.
-  Future<HttpClientResponse> executeRequest(
+  Future<http.StreamedResponse> executeRequest(
     String method,
     String path,
     Map<String, String> headers,
@@ -425,33 +428,42 @@ class DynamiteClient {
     return executeRawRequest(
       method,
       uri,
-      {...?baseHeaders, ...headers},
+      {
+        if (userAgent != null) 'user-agent': userAgent!,
+        ...?baseHeaders,
+        ...headers,
+      },
       body,
       validStatuses,
     );
   }
 
   /// Executes a HTTP request against give full [uri].
-  Future<HttpClientResponse> executeRawRequest(
+  Future<http.StreamedResponse> executeRawRequest(
     String method,
     Uri uri,
     Map<String, String> headers,
     Uint8List? body,
     Set<int>? validStatuses,
   ) async {
-    final request = await httpClient.openUrl(method, uri);
+    final request = http.Request(method, uri);
     request.headers.addAll(headers);
 
     if (body != null) {
-      request.add(body);
-    }
-    if (cookieJar != null) {
-      request.cookies.addAll(await cookieJar!.loadForRequest(uri));
+      request.bodyBytes = body;
     }
 
-    final response = await request.close();
     if (cookieJar != null) {
-      await cookieJar!.saveFromResponse(uri, response.cookies);
+      final cookies = await cookieJar!.loadForRequest(uri);
+      request.headers['cookie'] = cookies.join('; ');
+    }
+
+    final response = await httpClient.send(request);
+
+    final cookieHeader = response.headersSplitValues['set-cookie'];
+    if (cookieHeader != null && cookieJar != null) {
+      final cookies = cookieHeader.map(Cookie.fromSetCookieValue).toList();
+      await cookieJar!.saveFromResponse(uri, cookies);
     }
 
     if (validStatuses?.contains(response.statusCode) ?? true) {

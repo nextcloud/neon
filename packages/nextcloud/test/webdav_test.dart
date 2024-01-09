@@ -305,7 +305,7 @@ void main() {
 
       test('Filter files', () async {
         final response = await client.webdav.put(utf8.encode('test'), PathUri.parse('filter.txt'));
-        final id = response.headers['oc-fileid']!.first;
+        final id = response.headers['oc-fileid'];
         await client.webdav.proppatch(
           PathUri.parse('filter.txt'),
           set: WebDavProp(

@@ -1,68 +1,53 @@
-// ignore_for_file: discarded_futures
-
 import 'dart:convert';
 
 import 'package:dynamite_end_to_end_test/request_body.openapi.dart';
-import 'package:mockito/mockito.dart';
+import 'package:http/http.dart';
+import 'package:http/testing.dart';
 import 'package:test/test.dart';
-import 'package:universal_io/io.dart';
 
-import 'http_client_mock.mocks.dart';
-
-late MockHttpClient mockHttpClient;
-
-class MockHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext? context) => mockHttpClient;
-}
-
-void main() {
-  late $Client client;
-  late MockHttpHeaders headers;
-  late MockHttpClientResponse response;
-  late MockHttpClientRequest request;
-
-  setUp(() {
-    mockHttpClient = MockHttpClient();
-    HttpOverrides.global = MockHttpOverrides();
-
-    when(mockHttpClient.openUrl(any, any)).thenAnswer((invocation) {
-      headers = MockHttpHeaders();
-
-      response = MockHttpClientResponse();
-      when(response.headers).thenReturn(headers);
-      when(response.transform<dynamic>(any)).thenAnswer((_) => Stream.value('{}'));
-      when(response.statusCode).thenReturn(200);
-
-      request = MockHttpClientRequest();
-      when(request.headers).thenReturn(headers);
-      when(request.close()).thenAnswer((_) async => response);
-      return Future.value(request);
-    });
-
-    client = $Client(Uri.parse('example.com'));
-  });
-
+void main() async {
   test('Request Uint8List body', () async {
     // No body
+    var client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        return Response('{}', 200);
+      }),
+    );
     await client.$get();
-    verifyNever(request.add(captureAny));
 
     // with body
     final data = utf8.encode('value');
+    client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes, equals(data));
+        return Response('{}', 200);
+      }),
+    );
     await client.$get(uint8List: data);
-    final captured = verify(request.add(captureAny)).captured;
-    expect(captured, [data]);
   });
 
   test('Request String body', () async {
     // No body
+    var client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.body, isEmpty);
+        return Response('{}', 200);
+      }),
+    );
     await client.post();
-    verifyNever(request.add(captureAny));
 
     // with body
+    client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes, utf8.encode('value'));
+        return Response('{}', 200);
+      }),
+    );
     await client.post(string: 'value');
-    final captured = verify(request.add(captureAny)).captured;
-    expect(captured, [utf8.encode('value')]);
   });
 }

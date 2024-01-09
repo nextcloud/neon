@@ -381,7 +381,7 @@ class NeonUrlImage extends StatelessWidget {
           const {200},
         );
 
-        return response.bytes;
+        return response.stream.bytes;
       },
       cacheKey: '${account.id}-$url',
       reviver: reviver,
