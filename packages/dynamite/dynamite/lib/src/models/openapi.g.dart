@@ -8,6 +8,7 @@ part of 'openapi.dart';
 
 Serializers _$serializers = (Serializers().toBuilder()
       ..add(Components.serializer)
+      ..add(Contact.serializer)
       ..add(Discriminator.serializer)
       ..add(Header.serializer)
       ..add(Info.serializer)

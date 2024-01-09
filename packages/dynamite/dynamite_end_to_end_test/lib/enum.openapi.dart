@@ -5,7 +5,8 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
+/// Enum tests Version: 0.0.1.
+library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -342,6 +343,7 @@ class _$WrappedEnum_IntegerSerializer implements PrimitiveSerializer<WrappedEnum
       _fromWire[serialized]!;
 }
 
+/// Due to limitations in built_value we can not call the class String. See https://github.com/google/built_value.dart/issues/1292.
 @BuiltValue(instantiable: false)
 abstract interface class $WrappedEnumInterface {
   @BuiltValueField(wireName: 'custom-string')

@@ -5,7 +5,9 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
+/// headers test Version: 0.0.1.
+library; // ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';

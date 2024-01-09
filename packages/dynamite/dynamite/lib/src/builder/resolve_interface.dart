@@ -40,11 +40,16 @@ Spec buildInterface(
   String identifier, {
   BuiltList<Method>? methods,
   Iterable<TypeResultObject>? interfaces,
+  Iterable<String>? documentation,
 }) {
   assert((interfaces == null) != (methods == null), 'Either provide an interface or methods.');
   final className = '\$$identifier$interfaceSuffix';
 
   return Class((b) {
+    if (documentation != null) {
+      b.docs.addAll(documentation);
+    }
+
     b
       ..abstract = true
       ..modifier = ClassModifier.interface

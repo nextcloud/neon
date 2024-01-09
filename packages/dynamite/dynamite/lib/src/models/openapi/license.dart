@@ -15,4 +15,17 @@ abstract class License implements Built<License, LicenseBuilder> {
   String? get identifier;
 
   String? get url;
+
+  String formattedDescription({bool singleLine = true}) {
+    final buffer = StringBuffer('Use of this source code is governed by a $name license.');
+
+    if (url != null || identifier != null) {
+      final url = this.url ?? 'https://spdx.org/licenses/$identifier.html';
+      buffer
+        ..write(singleLine ? ' ' : '\n')
+        ..write('It can be obtained at `$url`.');
+    }
+
+    return buffer.toString();
+  }
 }

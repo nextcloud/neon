@@ -89,6 +89,7 @@ TypeResultObject resolveObject(
     final $interface = buildInterface(
       identifier,
       methods: methods.build(),
+      documentation: schema.formattedDescription,
     );
     final $class = buildBuiltClass(
       identifier,

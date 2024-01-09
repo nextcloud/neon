@@ -130,6 +130,7 @@ TypeResult resolveAllOf(
       identifier,
       interfaces: interfaces,
       methods: methods.build(),
+      documentation: schema.formattedDescription,
     );
 
     final $class = buildBuiltClass(
