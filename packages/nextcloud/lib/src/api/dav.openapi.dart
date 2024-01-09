@@ -760,16 +760,12 @@ abstract class OutOfOfficeDataCommon
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CurrentOutOfOfficeData_1Interface {
+abstract interface class $CurrentOutOfOfficeDataInterface implements $OutOfOfficeDataCommonInterface {
   String get id;
   int get startDate;
   int get endDate;
   String get shortMessage;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $CurrentOutOfOfficeDataInterface
-    implements $OutOfOfficeDataCommonInterface, $CurrentOutOfOfficeData_1Interface {}
 
 abstract class CurrentOutOfOfficeData
     implements $CurrentOutOfOfficeDataInterface, Built<CurrentOutOfOfficeData, CurrentOutOfOfficeDataBuilder> {
@@ -879,16 +875,12 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeData_1Interface {
+abstract interface class $OutOfOfficeDataInterface implements $OutOfOfficeDataCommonInterface {
   int get id;
   String get firstDay;
   String get lastDay;
   String get status;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeDataInterface
-    implements $OutOfOfficeDataCommonInterface, $OutOfOfficeData_1Interface {}
 
 abstract class OutOfOfficeData implements $OutOfOfficeDataInterface, Built<OutOfOfficeData, OutOfOfficeDataBuilder> {
   /// Creates a new OutOfOfficeData object using the builder pattern.

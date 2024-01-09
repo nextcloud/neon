@@ -1080,14 +1080,11 @@ abstract class Public implements $PublicInterface, Built<Public, PublicBuilder> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Private_1Interface {
+abstract interface class $PrivateInterface implements $PublicInterface {
   String? get messageId;
   bool get messageIsPredefined;
   bool get statusIsUserDefined;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $PrivateInterface implements $PublicInterface, $Private_1Interface {}
 
 abstract class Private implements $PrivateInterface, Built<Private, PrivateBuilder> {
   /// Creates a new Private object using the builder pattern.

@@ -248,16 +248,22 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
   Iterable<Object?> serialize(Serializers serializers, Private object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
-      'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
       'messageIsPredefined',
       serializers.serialize(object.messageIsPredefined, specifiedType: const FullType(bool)),
       'statusIsUserDefined',
       serializers.serialize(object.statusIsUserDefined, specifiedType: const FullType(bool)),
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
     ];
     Object? value;
+    value = object.messageId;
+    if (value != null) {
+      result
+        ..add('messageId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     value = object.message;
     if (value != null) {
       result
@@ -276,12 +282,6 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
         ..add('clearAt')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.messageId;
-    if (value != null) {
-      result
-        ..add('messageId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     return result;
   }
 
@@ -296,6 +296,15 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'messageId':
+          result.messageId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'messageIsPredefined':
+          result.messageIsPredefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'statusIsUserDefined':
+          result.statusIsUserDefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
         case 'userId':
           result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -310,15 +319,6 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
           break;
         case 'status':
           result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'messageId':
-          result.messageId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'messageIsPredefined':
-          result.messageIsPredefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'statusIsUserDefined':
-          result.statusIsUserDefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -1733,22 +1733,18 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceB
   }
 }
 
-abstract mixin class $Private_1InterfaceBuilder {
-  void replace($Private_1Interface other);
-  void update(void Function($Private_1InterfaceBuilder) updates);
-  String? get messageId;
-  set messageId(String? messageId);
-
-  bool? get messageIsPredefined;
-  set messageIsPredefined(bool? messageIsPredefined);
-
-  bool? get statusIsUserDefined;
-  set statusIsUserDefined(bool? statusIsUserDefined);
-}
-
-abstract mixin class $PrivateInterfaceBuilder implements $PublicInterfaceBuilder, $Private_1InterfaceBuilder {
+abstract mixin class $PrivateInterfaceBuilder implements $PublicInterfaceBuilder {
   void replace(covariant $PrivateInterface other);
   void update(void Function($PrivateInterfaceBuilder) updates);
+  String? get messageId;
+  set messageId(covariant String? messageId);
+
+  bool? get messageIsPredefined;
+  set messageIsPredefined(covariant bool? messageIsPredefined);
+
+  bool? get statusIsUserDefined;
+  set statusIsUserDefined(covariant bool? statusIsUserDefined);
+
   String? get userId;
   set userId(covariant String? userId);
 
@@ -1763,18 +1759,15 @@ abstract mixin class $PrivateInterfaceBuilder implements $PublicInterfaceBuilder
 
   String? get status;
   set status(covariant String? status);
-
-  String? get messageId;
-  set messageId(covariant String? messageId);
-
-  bool? get messageIsPredefined;
-  set messageIsPredefined(covariant bool? messageIsPredefined);
-
-  bool? get statusIsUserDefined;
-  set statusIsUserDefined(covariant bool? statusIsUserDefined);
 }
 
 class _$Private extends Private {
+  @override
+  final String? messageId;
+  @override
+  final bool messageIsPredefined;
+  @override
+  final bool statusIsUserDefined;
   @override
   final String userId;
   @override
@@ -1785,29 +1778,23 @@ class _$Private extends Private {
   final int? clearAt;
   @override
   final String status;
-  @override
-  final String? messageId;
-  @override
-  final bool messageIsPredefined;
-  @override
-  final bool statusIsUserDefined;
 
   factory _$Private([void Function(PrivateBuilder)? updates]) => (PrivateBuilder()..update(updates))._build();
 
   _$Private._(
-      {required this.userId,
+      {this.messageId,
+      required this.messageIsPredefined,
+      required this.statusIsUserDefined,
+      required this.userId,
       this.message,
       this.icon,
       this.clearAt,
-      required this.status,
-      this.messageId,
-      required this.messageIsPredefined,
-      required this.statusIsUserDefined})
+      required this.status})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'Private', 'userId');
-    BuiltValueNullFieldError.checkNotNull(status, r'Private', 'status');
     BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'Private', 'messageIsPredefined');
     BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'Private', 'statusIsUserDefined');
+    BuiltValueNullFieldError.checkNotNull(userId, r'Private', 'userId');
+    BuiltValueNullFieldError.checkNotNull(status, r'Private', 'status');
   }
 
   @override
@@ -1820,27 +1807,27 @@ class _$Private extends Private {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Private &&
+        messageId == other.messageId &&
+        messageIsPredefined == other.messageIsPredefined &&
+        statusIsUserDefined == other.statusIsUserDefined &&
         userId == other.userId &&
         message == other.message &&
         icon == other.icon &&
         clearAt == other.clearAt &&
-        status == other.status &&
-        messageId == other.messageId &&
-        messageIsPredefined == other.messageIsPredefined &&
-        statusIsUserDefined == other.statusIsUserDefined;
+        status == other.status;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, messageId.hashCode);
+    _$hash = $jc(_$hash, messageIsPredefined.hashCode);
+    _$hash = $jc(_$hash, statusIsUserDefined.hashCode);
     _$hash = $jc(_$hash, userId.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, icon.hashCode);
     _$hash = $jc(_$hash, clearAt.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
-    _$hash = $jc(_$hash, messageId.hashCode);
-    _$hash = $jc(_$hash, messageIsPredefined.hashCode);
-    _$hash = $jc(_$hash, statusIsUserDefined.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -1848,20 +1835,32 @@ class _$Private extends Private {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Private')
+          ..add('messageId', messageId)
+          ..add('messageIsPredefined', messageIsPredefined)
+          ..add('statusIsUserDefined', statusIsUserDefined)
           ..add('userId', userId)
           ..add('message', message)
           ..add('icon', icon)
           ..add('clearAt', clearAt)
-          ..add('status', status)
-          ..add('messageId', messageId)
-          ..add('messageIsPredefined', messageIsPredefined)
-          ..add('statusIsUserDefined', statusIsUserDefined))
+          ..add('status', status))
         .toString();
   }
 }
 
 class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterfaceBuilder {
   _$Private? _$v;
+
+  String? _messageId;
+  String? get messageId => _$this._messageId;
+  set messageId(covariant String? messageId) => _$this._messageId = messageId;
+
+  bool? _messageIsPredefined;
+  bool? get messageIsPredefined => _$this._messageIsPredefined;
+  set messageIsPredefined(covariant bool? messageIsPredefined) => _$this._messageIsPredefined = messageIsPredefined;
+
+  bool? _statusIsUserDefined;
+  bool? get statusIsUserDefined => _$this._statusIsUserDefined;
+  set statusIsUserDefined(covariant bool? statusIsUserDefined) => _$this._statusIsUserDefined = statusIsUserDefined;
 
   String? _userId;
   String? get userId => _$this._userId;
@@ -1883,31 +1882,19 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
   String? get status => _$this._status;
   set status(covariant String? status) => _$this._status = status;
 
-  String? _messageId;
-  String? get messageId => _$this._messageId;
-  set messageId(covariant String? messageId) => _$this._messageId = messageId;
-
-  bool? _messageIsPredefined;
-  bool? get messageIsPredefined => _$this._messageIsPredefined;
-  set messageIsPredefined(covariant bool? messageIsPredefined) => _$this._messageIsPredefined = messageIsPredefined;
-
-  bool? _statusIsUserDefined;
-  bool? get statusIsUserDefined => _$this._statusIsUserDefined;
-  set statusIsUserDefined(covariant bool? statusIsUserDefined) => _$this._statusIsUserDefined = statusIsUserDefined;
-
   PrivateBuilder();
 
   PrivateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _messageId = $v.messageId;
+      _messageIsPredefined = $v.messageIsPredefined;
+      _statusIsUserDefined = $v.statusIsUserDefined;
       _userId = $v.userId;
       _message = $v.message;
       _icon = $v.icon;
       _clearAt = $v.clearAt;
       _status = $v.status;
-      _messageId = $v.messageId;
-      _messageIsPredefined = $v.messageIsPredefined;
-      _statusIsUserDefined = $v.statusIsUserDefined;
       _$v = null;
     }
     return this;
@@ -1930,16 +1917,16 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
   _$Private _build() {
     final _$result = _$v ??
         _$Private._(
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'Private', 'userId'),
-            message: message,
-            icon: icon,
-            clearAt: clearAt,
-            status: BuiltValueNullFieldError.checkNotNull(status, r'Private', 'status'),
             messageId: messageId,
             messageIsPredefined:
                 BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'Private', 'messageIsPredefined'),
             statusIsUserDefined:
-                BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'Private', 'statusIsUserDefined'));
+                BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'Private', 'statusIsUserDefined'),
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'Private', 'userId'),
+            message: message,
+            icon: icon,
+            clearAt: clearAt,
+            status: BuiltValueNullFieldError.checkNotNull(status, r'Private', 'status'));
     replace(_$result);
     return _$result;
   }

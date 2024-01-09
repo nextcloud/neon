@@ -332,12 +332,9 @@ abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Pet_1Interface {
+abstract interface class $PetInterface implements $NewPetInterface {
   int get id;
 }
-
-@BuiltValue(instantiable: false)
-abstract interface class $PetInterface implements $NewPetInterface, $Pet_1Interface {}
 
 abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
   /// Creates a new Pet object using the builder pattern.

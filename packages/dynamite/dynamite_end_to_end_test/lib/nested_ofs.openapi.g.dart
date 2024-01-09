@@ -146,12 +146,12 @@ class _$BaseNestedAllOfSerializer implements StructuredSerializer<BaseNestedAllO
       serializers.serialize(object.baseOneOf, specifiedType: const FullType(BaseOneOf)),
       'BaseAnyOf',
       serializers.serialize(object.baseAnyOf, specifiedType: const FullType(BaseAnyOf)),
+      'attribute-nested-allOf',
+      serializers.serialize(object.attributeNestedAllOf, specifiedType: const FullType(String)),
       'String',
       serializers.serialize(object.string, specifiedType: const FullType(String)),
       'attribute-allOf',
       serializers.serialize(object.attributeAllOf, specifiedType: const FullType(String)),
-      'attribute-nested-allOf',
-      serializers.serialize(object.attributeNestedAllOf, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -174,15 +174,15 @@ class _$BaseNestedAllOfSerializer implements StructuredSerializer<BaseNestedAllO
         case 'BaseAnyOf':
           result.baseAnyOf = serializers.deserialize(value, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf;
           break;
+        case 'attribute-nested-allOf':
+          result.attributeNestedAllOf =
+              serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
         case 'String':
           result.string = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'attribute-allOf':
           result.attributeAllOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'attribute-nested-allOf':
-          result.attributeNestedAllOf =
-              serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -269,21 +269,14 @@ class _$BaseNestedAnyOf3Serializer implements StructuredSerializer<BaseNestedAny
   }
 }
 
-abstract mixin class $BaseAllOf_1InterfaceBuilder {
-  void replace($BaseAllOf_1Interface other);
-  void update(void Function($BaseAllOf_1InterfaceBuilder) updates);
-  String? get attributeAllOf;
-  set attributeAllOf(String? attributeAllOf);
-}
-
-abstract mixin class $BaseAllOfInterfaceBuilder implements $BaseAllOf_1InterfaceBuilder {
-  void replace(covariant $BaseAllOfInterface other);
+abstract mixin class $BaseAllOfInterfaceBuilder {
+  void replace($BaseAllOfInterface other);
   void update(void Function($BaseAllOfInterfaceBuilder) updates);
   String? get string;
-  set string(covariant String? string);
+  set string(String? string);
 
   String? get attributeAllOf;
-  set attributeAllOf(covariant String? attributeAllOf);
+  set attributeAllOf(String? attributeAllOf);
 }
 
 class _$BaseAllOf extends BaseAllOf {
@@ -544,15 +537,7 @@ class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, $Base
   }
 }
 
-abstract mixin class $BaseNestedAllOf_3InterfaceBuilder {
-  void replace($BaseNestedAllOf_3Interface other);
-  void update(void Function($BaseNestedAllOf_3InterfaceBuilder) updates);
-  String? get attributeNestedAllOf;
-  set attributeNestedAllOf(String? attributeNestedAllOf);
-}
-
-abstract mixin class $BaseNestedAllOfInterfaceBuilder
-    implements $BaseAllOfInterfaceBuilder, $BaseNestedAllOf_3InterfaceBuilder {
+abstract mixin class $BaseNestedAllOfInterfaceBuilder implements $BaseAllOfInterfaceBuilder {
   void replace(covariant $BaseNestedAllOfInterface other);
   void update(void Function($BaseNestedAllOfInterfaceBuilder) updates);
   BaseOneOf? get baseOneOf;
@@ -561,14 +546,14 @@ abstract mixin class $BaseNestedAllOfInterfaceBuilder
   BaseAnyOf? get baseAnyOf;
   set baseAnyOf(covariant BaseAnyOf? baseAnyOf);
 
+  String? get attributeNestedAllOf;
+  set attributeNestedAllOf(covariant String? attributeNestedAllOf);
+
   String? get string;
   set string(covariant String? string);
 
   String? get attributeAllOf;
   set attributeAllOf(covariant String? attributeAllOf);
-
-  String? get attributeNestedAllOf;
-  set attributeNestedAllOf(covariant String? attributeNestedAllOf);
 }
 
 class _$BaseNestedAllOf extends BaseNestedAllOf {
@@ -577,11 +562,11 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
   @override
   final BaseAnyOf baseAnyOf;
   @override
+  final String attributeNestedAllOf;
+  @override
   final String string;
   @override
   final String attributeAllOf;
-  @override
-  final String attributeNestedAllOf;
 
   factory _$BaseNestedAllOf([void Function(BaseNestedAllOfBuilder)? updates]) =>
       (BaseNestedAllOfBuilder()..update(updates))._build();
@@ -589,15 +574,15 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
   _$BaseNestedAllOf._(
       {required this.baseOneOf,
       required this.baseAnyOf,
+      required this.attributeNestedAllOf,
       required this.string,
-      required this.attributeAllOf,
-      required this.attributeNestedAllOf})
+      required this.attributeAllOf})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(baseOneOf, r'BaseNestedAllOf', 'baseOneOf');
     BuiltValueNullFieldError.checkNotNull(baseAnyOf, r'BaseNestedAllOf', 'baseAnyOf');
+    BuiltValueNullFieldError.checkNotNull(attributeNestedAllOf, r'BaseNestedAllOf', 'attributeNestedAllOf');
     BuiltValueNullFieldError.checkNotNull(string, r'BaseNestedAllOf', 'string');
     BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseNestedAllOf', 'attributeAllOf');
-    BuiltValueNullFieldError.checkNotNull(attributeNestedAllOf, r'BaseNestedAllOf', 'attributeNestedAllOf');
   }
 
   @override
@@ -613,9 +598,9 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
     return other is BaseNestedAllOf &&
         baseOneOf == _$dynamicOther.baseOneOf &&
         baseAnyOf == _$dynamicOther.baseAnyOf &&
+        attributeNestedAllOf == other.attributeNestedAllOf &&
         string == other.string &&
-        attributeAllOf == other.attributeAllOf &&
-        attributeNestedAllOf == other.attributeNestedAllOf;
+        attributeAllOf == other.attributeAllOf;
   }
 
   @override
@@ -623,9 +608,9 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
     var _$hash = 0;
     _$hash = $jc(_$hash, baseOneOf.hashCode);
     _$hash = $jc(_$hash, baseAnyOf.hashCode);
+    _$hash = $jc(_$hash, attributeNestedAllOf.hashCode);
     _$hash = $jc(_$hash, string.hashCode);
     _$hash = $jc(_$hash, attributeAllOf.hashCode);
-    _$hash = $jc(_$hash, attributeNestedAllOf.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -635,9 +620,9 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
     return (newBuiltValueToStringHelper(r'BaseNestedAllOf')
           ..add('baseOneOf', baseOneOf)
           ..add('baseAnyOf', baseAnyOf)
+          ..add('attributeNestedAllOf', attributeNestedAllOf)
           ..add('string', string)
-          ..add('attributeAllOf', attributeAllOf)
-          ..add('attributeNestedAllOf', attributeNestedAllOf))
+          ..add('attributeAllOf', attributeAllOf))
         .toString();
   }
 }
@@ -654,6 +639,11 @@ class BaseNestedAllOfBuilder
   BaseAnyOf? get baseAnyOf => _$this._baseAnyOf;
   set baseAnyOf(covariant BaseAnyOf? baseAnyOf) => _$this._baseAnyOf = baseAnyOf;
 
+  String? _attributeNestedAllOf;
+  String? get attributeNestedAllOf => _$this._attributeNestedAllOf;
+  set attributeNestedAllOf(covariant String? attributeNestedAllOf) =>
+      _$this._attributeNestedAllOf = attributeNestedAllOf;
+
   String? _string;
   String? get string => _$this._string;
   set string(covariant String? string) => _$this._string = string;
@@ -662,11 +652,6 @@ class BaseNestedAllOfBuilder
   String? get attributeAllOf => _$this._attributeAllOf;
   set attributeAllOf(covariant String? attributeAllOf) => _$this._attributeAllOf = attributeAllOf;
 
-  String? _attributeNestedAllOf;
-  String? get attributeNestedAllOf => _$this._attributeNestedAllOf;
-  set attributeNestedAllOf(covariant String? attributeNestedAllOf) =>
-      _$this._attributeNestedAllOf = attributeNestedAllOf;
-
   BaseNestedAllOfBuilder();
 
   BaseNestedAllOfBuilder get _$this {
@@ -674,9 +659,9 @@ class BaseNestedAllOfBuilder
     if ($v != null) {
       _baseOneOf = $v.baseOneOf;
       _baseAnyOf = $v.baseAnyOf;
+      _attributeNestedAllOf = $v.attributeNestedAllOf;
       _string = $v.string;
       _attributeAllOf = $v.attributeAllOf;
-      _attributeNestedAllOf = $v.attributeNestedAllOf;
       _$v = null;
     }
     return this;
@@ -701,10 +686,11 @@ class BaseNestedAllOfBuilder
         _$BaseNestedAllOf._(
             baseOneOf: BuiltValueNullFieldError.checkNotNull(baseOneOf, r'BaseNestedAllOf', 'baseOneOf'),
             baseAnyOf: BuiltValueNullFieldError.checkNotNull(baseAnyOf, r'BaseNestedAllOf', 'baseAnyOf'),
+            attributeNestedAllOf:
+                BuiltValueNullFieldError.checkNotNull(attributeNestedAllOf, r'BaseNestedAllOf', 'attributeNestedAllOf'),
             string: BuiltValueNullFieldError.checkNotNull(string, r'BaseNestedAllOf', 'string'),
-            attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseNestedAllOf', 'attributeAllOf'),
-            attributeNestedAllOf: BuiltValueNullFieldError.checkNotNull(
-                attributeNestedAllOf, r'BaseNestedAllOf', 'attributeNestedAllOf'));
+            attributeAllOf:
+                BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseNestedAllOf', 'attributeAllOf'));
     replace(_$result);
     return _$result;
   }

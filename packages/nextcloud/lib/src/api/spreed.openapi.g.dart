@@ -8684,12 +8684,6 @@ class _$BotWithDetailsSerializer implements StructuredSerializer<BotWithDetails>
   Iterable<Object?> serialize(Serializers serializers, BotWithDetails object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'state',
-      serializers.serialize(object.state, specifiedType: const FullType(int)),
       'error_count',
       serializers.serialize(object.errorCount, specifiedType: const FullType(int)),
       'features',
@@ -8702,6 +8696,12 @@ class _$BotWithDetailsSerializer implements StructuredSerializer<BotWithDetails>
       serializers.serialize(object.url, specifiedType: const FullType(String)),
       'url_hash',
       serializers.serialize(object.urlHash, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'state',
+      serializers.serialize(object.state, specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.description;
@@ -8724,18 +8724,6 @@ class _$BotWithDetailsSerializer implements StructuredSerializer<BotWithDetails>
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'state':
-          result.state = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
         case 'error_count':
           result.errorCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
@@ -8753,6 +8741,18 @@ class _$BotWithDetailsSerializer implements StructuredSerializer<BotWithDetails>
           break;
         case 'url_hash':
           result.urlHash = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'state':
+          result.state = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -10876,6 +10876,12 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       serializers.serialize(object.token, specifiedType: const FullType(String)),
     ];
     Object? value;
+    value = object.parent;
+    if (value != null) {
+      result
+        ..add('parent')
+        ..add(serializers.serialize(value, specifiedType: const FullType(ChatMessage)));
+    }
     value = object.deleted;
     if (value != null) {
       result
@@ -10887,12 +10893,6 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       result
         ..add('markdown')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
-    value = object.parent;
-    if (value != null) {
-      result
-        ..add('parent')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ChatMessage)));
     }
     return result;
   }
@@ -10908,6 +10908,10 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'parent':
+          result.parent
+              .replace(serializers.deserialize(value, specifiedType: const FullType(ChatMessage))! as ChatMessage);
+          break;
         case 'actorDisplayName':
           result.actorDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -10960,10 +10964,6 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
           break;
         case 'token':
           result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'parent':
-          result.parent
-              .replace(serializers.deserialize(value, specifiedType: const FullType(ChatMessage))! as ChatMessage);
           break;
       }
     }
@@ -20562,12 +20562,8 @@ class _$BotWithDetailsAndSecretSerializer implements StructuredSerializer<BotWit
   Iterable<Object?> serialize(Serializers serializers, BotWithDetailsAndSecret object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'state',
-      serializers.serialize(object.state, specifiedType: const FullType(int)),
+      'secret',
+      serializers.serialize(object.secret, specifiedType: const FullType(String)),
       'error_count',
       serializers.serialize(object.errorCount, specifiedType: const FullType(int)),
       'features',
@@ -20580,8 +20576,12 @@ class _$BotWithDetailsAndSecretSerializer implements StructuredSerializer<BotWit
       serializers.serialize(object.url, specifiedType: const FullType(String)),
       'url_hash',
       serializers.serialize(object.urlHash, specifiedType: const FullType(String)),
-      'secret',
-      serializers.serialize(object.secret, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'state',
+      serializers.serialize(object.state, specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.description;
@@ -20604,17 +20604,8 @@ class _$BotWithDetailsAndSecretSerializer implements StructuredSerializer<BotWit
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'state':
-          result.state = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'secret':
+          result.secret = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'error_count':
           result.errorCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -20634,8 +20625,17 @@ class _$BotWithDetailsAndSecretSerializer implements StructuredSerializer<BotWit
         case 'url_hash':
           result.urlHash = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
-        case 'secret':
-          result.secret = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'state':
+          result.state = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -24143,44 +24143,9 @@ class BotBuilder implements Builder<Bot, BotBuilder>, $BotInterfaceBuilder {
   }
 }
 
-abstract mixin class $BotWithDetails_1InterfaceBuilder {
-  void replace($BotWithDetails_1Interface other);
-  void update(void Function($BotWithDetails_1InterfaceBuilder) updates);
-  int? get errorCount;
-  set errorCount(int? errorCount);
-
-  int? get features;
-  set features(int? features);
-
-  int? get lastErrorDate;
-  set lastErrorDate(int? lastErrorDate);
-
-  String? get lastErrorMessage;
-  set lastErrorMessage(String? lastErrorMessage);
-
-  String? get url;
-  set url(String? url);
-
-  String? get urlHash;
-  set urlHash(String? urlHash);
-}
-
-abstract mixin class $BotWithDetailsInterfaceBuilder
-    implements $BotInterfaceBuilder, $BotWithDetails_1InterfaceBuilder {
+abstract mixin class $BotWithDetailsInterfaceBuilder implements $BotInterfaceBuilder {
   void replace(covariant $BotWithDetailsInterface other);
   void update(void Function($BotWithDetailsInterfaceBuilder) updates);
-  String? get description;
-  set description(covariant String? description);
-
-  int? get id;
-  set id(covariant int? id);
-
-  String? get name;
-  set name(covariant String? name);
-
-  int? get state;
-  set state(covariant int? state);
-
   int? get errorCount;
   set errorCount(covariant int? errorCount);
 
@@ -24198,17 +24163,21 @@ abstract mixin class $BotWithDetailsInterfaceBuilder
 
   String? get urlHash;
   set urlHash(covariant String? urlHash);
+
+  String? get description;
+  set description(covariant String? description);
+
+  int? get id;
+  set id(covariant int? id);
+
+  String? get name;
+  set name(covariant String? name);
+
+  int? get state;
+  set state(covariant int? state);
 }
 
 class _$BotWithDetails extends BotWithDetails {
-  @override
-  final String? description;
-  @override
-  final int id;
-  @override
-  final String name;
-  @override
-  final int state;
   @override
   final int errorCount;
   @override
@@ -24221,31 +24190,39 @@ class _$BotWithDetails extends BotWithDetails {
   final String url;
   @override
   final String urlHash;
+  @override
+  final String? description;
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final int state;
 
   factory _$BotWithDetails([void Function(BotWithDetailsBuilder)? updates]) =>
       (BotWithDetailsBuilder()..update(updates))._build();
 
   _$BotWithDetails._(
-      {this.description,
-      required this.id,
-      required this.name,
-      required this.state,
-      required this.errorCount,
+      {required this.errorCount,
       required this.features,
       required this.lastErrorDate,
       required this.lastErrorMessage,
       required this.url,
-      required this.urlHash})
+      required this.urlHash,
+      this.description,
+      required this.id,
+      required this.name,
+      required this.state})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetails', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetails', 'name');
-    BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetails', 'state');
     BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetails', 'errorCount');
     BuiltValueNullFieldError.checkNotNull(features, r'BotWithDetails', 'features');
     BuiltValueNullFieldError.checkNotNull(lastErrorDate, r'BotWithDetails', 'lastErrorDate');
     BuiltValueNullFieldError.checkNotNull(lastErrorMessage, r'BotWithDetails', 'lastErrorMessage');
     BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetails', 'url');
     BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetails', 'urlHash');
+    BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetails', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetails', 'name');
+    BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetails', 'state');
   }
 
   @override
@@ -24258,31 +24235,31 @@ class _$BotWithDetails extends BotWithDetails {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BotWithDetails &&
-        description == other.description &&
-        id == other.id &&
-        name == other.name &&
-        state == other.state &&
         errorCount == other.errorCount &&
         features == other.features &&
         lastErrorDate == other.lastErrorDate &&
         lastErrorMessage == other.lastErrorMessage &&
         url == other.url &&
-        urlHash == other.urlHash;
+        urlHash == other.urlHash &&
+        description == other.description &&
+        id == other.id &&
+        name == other.name &&
+        state == other.state;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, description.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jc(_$hash, state.hashCode);
     _$hash = $jc(_$hash, errorCount.hashCode);
     _$hash = $jc(_$hash, features.hashCode);
     _$hash = $jc(_$hash, lastErrorDate.hashCode);
     _$hash = $jc(_$hash, lastErrorMessage.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, urlHash.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, state.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -24290,38 +24267,22 @@ class _$BotWithDetails extends BotWithDetails {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'BotWithDetails')
-          ..add('description', description)
-          ..add('id', id)
-          ..add('name', name)
-          ..add('state', state)
           ..add('errorCount', errorCount)
           ..add('features', features)
           ..add('lastErrorDate', lastErrorDate)
           ..add('lastErrorMessage', lastErrorMessage)
           ..add('url', url)
-          ..add('urlHash', urlHash))
+          ..add('urlHash', urlHash)
+          ..add('description', description)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('state', state))
         .toString();
   }
 }
 
 class BotWithDetailsBuilder implements Builder<BotWithDetails, BotWithDetailsBuilder>, $BotWithDetailsInterfaceBuilder {
   _$BotWithDetails? _$v;
-
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  int? _id;
-  int? get id => _$this._id;
-  set id(covariant int? id) => _$this._id = id;
-
-  String? _name;
-  String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
-
-  int? _state;
-  int? get state => _$this._state;
-  set state(covariant int? state) => _$this._state = state;
 
   int? _errorCount;
   int? get errorCount => _$this._errorCount;
@@ -24347,21 +24308,37 @@ class BotWithDetailsBuilder implements Builder<BotWithDetails, BotWithDetailsBui
   String? get urlHash => _$this._urlHash;
   set urlHash(covariant String? urlHash) => _$this._urlHash = urlHash;
 
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  int? _state;
+  int? get state => _$this._state;
+  set state(covariant int? state) => _$this._state = state;
+
   BotWithDetailsBuilder();
 
   BotWithDetailsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _description = $v.description;
-      _id = $v.id;
-      _name = $v.name;
-      _state = $v.state;
       _errorCount = $v.errorCount;
       _features = $v.features;
       _lastErrorDate = $v.lastErrorDate;
       _lastErrorMessage = $v.lastErrorMessage;
       _url = $v.url;
       _urlHash = $v.urlHash;
+      _description = $v.description;
+      _id = $v.id;
+      _name = $v.name;
+      _state = $v.state;
       _$v = null;
     }
     return this;
@@ -24384,17 +24361,17 @@ class BotWithDetailsBuilder implements Builder<BotWithDetails, BotWithDetailsBui
   _$BotWithDetails _build() {
     final _$result = _$v ??
         _$BotWithDetails._(
-            description: description,
-            id: BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetails', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetails', 'name'),
-            state: BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetails', 'state'),
             errorCount: BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetails', 'errorCount'),
             features: BuiltValueNullFieldError.checkNotNull(features, r'BotWithDetails', 'features'),
             lastErrorDate: BuiltValueNullFieldError.checkNotNull(lastErrorDate, r'BotWithDetails', 'lastErrorDate'),
             lastErrorMessage:
                 BuiltValueNullFieldError.checkNotNull(lastErrorMessage, r'BotWithDetails', 'lastErrorMessage'),
             url: BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetails', 'url'),
-            urlHash: BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetails', 'urlHash'));
+            urlHash: BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetails', 'urlHash'),
+            description: description,
+            id: BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetails', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetails', 'name'),
+            state: BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetails', 'state'));
     replace(_$result);
     return _$result;
   }
@@ -29414,17 +29391,12 @@ class ChatChatReceiveMessagesHeadersBuilder
   }
 }
 
-abstract mixin class $ChatMessageWithParent_1InterfaceBuilder {
-  void replace($ChatMessageWithParent_1Interface other);
-  void update(void Function($ChatMessageWithParent_1InterfaceBuilder) updates);
-  ChatMessageBuilder get parent;
-  set parent(ChatMessageBuilder? parent);
-}
-
-abstract mixin class $ChatMessageWithParentInterfaceBuilder
-    implements $ChatMessageInterfaceBuilder, $ChatMessageWithParent_1InterfaceBuilder {
+abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMessageInterfaceBuilder {
   void replace(covariant $ChatMessageWithParentInterface other);
   void update(void Function($ChatMessageWithParentInterfaceBuilder) updates);
+  ChatMessageBuilder get parent;
+  set parent(covariant ChatMessageBuilder? parent);
+
   String? get actorDisplayName;
   set actorDisplayName(covariant String? actorDisplayName);
 
@@ -29472,12 +29444,11 @@ abstract mixin class $ChatMessageWithParentInterfaceBuilder
 
   String? get token;
   set token(covariant String? token);
-
-  ChatMessageBuilder get parent;
-  set parent(covariant ChatMessageBuilder? parent);
 }
 
 class _$ChatMessageWithParent extends ChatMessageWithParent {
+  @override
+  final ChatMessage? parent;
   @override
   final String actorDisplayName;
   @override
@@ -29510,14 +29481,13 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   final int timestamp;
   @override
   final String token;
-  @override
-  final ChatMessage? parent;
 
   factory _$ChatMessageWithParent([void Function(ChatMessageWithParentBuilder)? updates]) =>
       (ChatMessageWithParentBuilder()..update(updates))._build();
 
   _$ChatMessageWithParent._(
-      {required this.actorDisplayName,
+      {this.parent,
+      required this.actorDisplayName,
       required this.actorId,
       required this.actorType,
       this.deleted,
@@ -29532,8 +29502,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
       required this.referenceId,
       required this.systemMessage,
       required this.timestamp,
-      required this.token,
-      this.parent})
+      required this.token})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(actorDisplayName, r'ChatMessageWithParent', 'actorDisplayName');
     BuiltValueNullFieldError.checkNotNull(actorId, r'ChatMessageWithParent', 'actorId');
@@ -29562,6 +29531,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ChatMessageWithParent &&
+        parent == other.parent &&
         actorDisplayName == other.actorDisplayName &&
         actorId == other.actorId &&
         actorType == other.actorType &&
@@ -29577,13 +29547,13 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
         referenceId == other.referenceId &&
         systemMessage == other.systemMessage &&
         timestamp == other.timestamp &&
-        token == other.token &&
-        parent == other.parent;
+        token == other.token;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, parent.hashCode);
     _$hash = $jc(_$hash, actorDisplayName.hashCode);
     _$hash = $jc(_$hash, actorId.hashCode);
     _$hash = $jc(_$hash, actorType.hashCode);
@@ -29600,7 +29570,6 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
     _$hash = $jc(_$hash, systemMessage.hashCode);
     _$hash = $jc(_$hash, timestamp.hashCode);
     _$hash = $jc(_$hash, token.hashCode);
-    _$hash = $jc(_$hash, parent.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -29608,6 +29577,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ChatMessageWithParent')
+          ..add('parent', parent)
           ..add('actorDisplayName', actorDisplayName)
           ..add('actorId', actorId)
           ..add('actorType', actorType)
@@ -29623,8 +29593,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
           ..add('referenceId', referenceId)
           ..add('systemMessage', systemMessage)
           ..add('timestamp', timestamp)
-          ..add('token', token)
-          ..add('parent', parent))
+          ..add('token', token))
         .toString();
   }
 }
@@ -29632,6 +29601,10 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
 class ChatMessageWithParentBuilder
     implements Builder<ChatMessageWithParent, ChatMessageWithParentBuilder>, $ChatMessageWithParentInterfaceBuilder {
   _$ChatMessageWithParent? _$v;
+
+  ChatMessageBuilder? _parent;
+  ChatMessageBuilder get parent => _$this._parent ??= ChatMessageBuilder();
+  set parent(covariant ChatMessageBuilder? parent) => _$this._parent = parent;
 
   String? _actorDisplayName;
   String? get actorDisplayName => _$this._actorDisplayName;
@@ -29699,15 +29672,12 @@ class ChatMessageWithParentBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  ChatMessageBuilder? _parent;
-  ChatMessageBuilder get parent => _$this._parent ??= ChatMessageBuilder();
-  set parent(covariant ChatMessageBuilder? parent) => _$this._parent = parent;
-
   ChatMessageWithParentBuilder();
 
   ChatMessageWithParentBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _parent = $v.parent?.toBuilder();
       _actorDisplayName = $v.actorDisplayName;
       _actorId = $v.actorId;
       _actorType = $v.actorType;
@@ -29724,7 +29694,6 @@ class ChatMessageWithParentBuilder
       _systemMessage = $v.systemMessage;
       _timestamp = $v.timestamp;
       _token = $v.token;
-      _parent = $v.parent?.toBuilder();
       _$v = null;
     }
     return this;
@@ -29749,6 +29718,7 @@ class ChatMessageWithParentBuilder
     try {
       _$result = _$v ??
           _$ChatMessageWithParent._(
+              parent: _parent?.build(),
               actorDisplayName:
                   BuiltValueNullFieldError.checkNotNull(actorDisplayName, r'ChatMessageWithParent', 'actorDisplayName'),
               actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'ChatMessageWithParent', 'actorId'),
@@ -29767,19 +29737,18 @@ class ChatMessageWithParentBuilder
               systemMessage:
                   BuiltValueNullFieldError.checkNotNull(systemMessage, r'ChatMessageWithParent', 'systemMessage'),
               timestamp: BuiltValueNullFieldError.checkNotNull(timestamp, r'ChatMessageWithParent', 'timestamp'),
-              token: BuiltValueNullFieldError.checkNotNull(token, r'ChatMessageWithParent', 'token'),
-              parent: _parent?.build());
+              token: BuiltValueNullFieldError.checkNotNull(token, r'ChatMessageWithParent', 'token'));
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'parent';
+        _parent?.build();
+
         _$failedField = 'messageParameters';
         messageParameters.build();
 
         _$failedField = 'reactions';
         reactions.build();
-
-        _$failedField = 'parent';
-        _parent?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ChatMessageWithParent', _$failedField, e.toString());
       }
@@ -53128,28 +53097,11 @@ class TempAvatarDeleteAvatarResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $BotWithDetailsAndSecret_1InterfaceBuilder {
-  void replace($BotWithDetailsAndSecret_1Interface other);
-  void update(void Function($BotWithDetailsAndSecret_1InterfaceBuilder) updates);
-  String? get secret;
-  set secret(String? secret);
-}
-
-abstract mixin class $BotWithDetailsAndSecretInterfaceBuilder
-    implements $BotWithDetailsInterfaceBuilder, $BotWithDetailsAndSecret_1InterfaceBuilder {
+abstract mixin class $BotWithDetailsAndSecretInterfaceBuilder implements $BotWithDetailsInterfaceBuilder {
   void replace(covariant $BotWithDetailsAndSecretInterface other);
   void update(void Function($BotWithDetailsAndSecretInterfaceBuilder) updates);
-  String? get description;
-  set description(covariant String? description);
-
-  int? get id;
-  set id(covariant int? id);
-
-  String? get name;
-  set name(covariant String? name);
-
-  int? get state;
-  set state(covariant int? state);
+  String? get secret;
+  set secret(covariant String? secret);
 
   int? get errorCount;
   set errorCount(covariant int? errorCount);
@@ -53169,19 +53121,22 @@ abstract mixin class $BotWithDetailsAndSecretInterfaceBuilder
   String? get urlHash;
   set urlHash(covariant String? urlHash);
 
-  String? get secret;
-  set secret(covariant String? secret);
+  String? get description;
+  set description(covariant String? description);
+
+  int? get id;
+  set id(covariant int? id);
+
+  String? get name;
+  set name(covariant String? name);
+
+  int? get state;
+  set state(covariant int? state);
 }
 
 class _$BotWithDetailsAndSecret extends BotWithDetailsAndSecret {
   @override
-  final String? description;
-  @override
-  final int id;
-  @override
-  final String name;
-  @override
-  final int state;
+  final String secret;
   @override
   final int errorCount;
   @override
@@ -53195,34 +53150,40 @@ class _$BotWithDetailsAndSecret extends BotWithDetailsAndSecret {
   @override
   final String urlHash;
   @override
-  final String secret;
+  final String? description;
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final int state;
 
   factory _$BotWithDetailsAndSecret([void Function(BotWithDetailsAndSecretBuilder)? updates]) =>
       (BotWithDetailsAndSecretBuilder()..update(updates))._build();
 
   _$BotWithDetailsAndSecret._(
-      {this.description,
-      required this.id,
-      required this.name,
-      required this.state,
+      {required this.secret,
       required this.errorCount,
       required this.features,
       required this.lastErrorDate,
       required this.lastErrorMessage,
       required this.url,
       required this.urlHash,
-      required this.secret})
+      this.description,
+      required this.id,
+      required this.name,
+      required this.state})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetailsAndSecret', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetailsAndSecret', 'name');
-    BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetailsAndSecret', 'state');
+    BuiltValueNullFieldError.checkNotNull(secret, r'BotWithDetailsAndSecret', 'secret');
     BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetailsAndSecret', 'errorCount');
     BuiltValueNullFieldError.checkNotNull(features, r'BotWithDetailsAndSecret', 'features');
     BuiltValueNullFieldError.checkNotNull(lastErrorDate, r'BotWithDetailsAndSecret', 'lastErrorDate');
     BuiltValueNullFieldError.checkNotNull(lastErrorMessage, r'BotWithDetailsAndSecret', 'lastErrorMessage');
     BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetailsAndSecret', 'url');
     BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetailsAndSecret', 'urlHash');
-    BuiltValueNullFieldError.checkNotNull(secret, r'BotWithDetailsAndSecret', 'secret');
+    BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetailsAndSecret', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetailsAndSecret', 'name');
+    BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetailsAndSecret', 'state');
   }
 
   @override
@@ -53236,33 +53197,33 @@ class _$BotWithDetailsAndSecret extends BotWithDetailsAndSecret {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BotWithDetailsAndSecret &&
-        description == other.description &&
-        id == other.id &&
-        name == other.name &&
-        state == other.state &&
+        secret == other.secret &&
         errorCount == other.errorCount &&
         features == other.features &&
         lastErrorDate == other.lastErrorDate &&
         lastErrorMessage == other.lastErrorMessage &&
         url == other.url &&
         urlHash == other.urlHash &&
-        secret == other.secret;
+        description == other.description &&
+        id == other.id &&
+        name == other.name &&
+        state == other.state;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, description.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jc(_$hash, state.hashCode);
+    _$hash = $jc(_$hash, secret.hashCode);
     _$hash = $jc(_$hash, errorCount.hashCode);
     _$hash = $jc(_$hash, features.hashCode);
     _$hash = $jc(_$hash, lastErrorDate.hashCode);
     _$hash = $jc(_$hash, lastErrorMessage.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, urlHash.hashCode);
-    _$hash = $jc(_$hash, secret.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, state.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -53270,17 +53231,17 @@ class _$BotWithDetailsAndSecret extends BotWithDetailsAndSecret {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'BotWithDetailsAndSecret')
-          ..add('description', description)
-          ..add('id', id)
-          ..add('name', name)
-          ..add('state', state)
+          ..add('secret', secret)
           ..add('errorCount', errorCount)
           ..add('features', features)
           ..add('lastErrorDate', lastErrorDate)
           ..add('lastErrorMessage', lastErrorMessage)
           ..add('url', url)
           ..add('urlHash', urlHash)
-          ..add('secret', secret))
+          ..add('description', description)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('state', state))
         .toString();
   }
 }
@@ -53291,21 +53252,9 @@ class BotWithDetailsAndSecretBuilder
         $BotWithDetailsAndSecretInterfaceBuilder {
   _$BotWithDetailsAndSecret? _$v;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  int? _id;
-  int? get id => _$this._id;
-  set id(covariant int? id) => _$this._id = id;
-
-  String? _name;
-  String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
-
-  int? _state;
-  int? get state => _$this._state;
-  set state(covariant int? state) => _$this._state = state;
+  String? _secret;
+  String? get secret => _$this._secret;
+  set secret(covariant String? secret) => _$this._secret = secret;
 
   int? _errorCount;
   int? get errorCount => _$this._errorCount;
@@ -53331,26 +53280,38 @@ class BotWithDetailsAndSecretBuilder
   String? get urlHash => _$this._urlHash;
   set urlHash(covariant String? urlHash) => _$this._urlHash = urlHash;
 
-  String? _secret;
-  String? get secret => _$this._secret;
-  set secret(covariant String? secret) => _$this._secret = secret;
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  int? _state;
+  int? get state => _$this._state;
+  set state(covariant int? state) => _$this._state = state;
 
   BotWithDetailsAndSecretBuilder();
 
   BotWithDetailsAndSecretBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _description = $v.description;
-      _id = $v.id;
-      _name = $v.name;
-      _state = $v.state;
+      _secret = $v.secret;
       _errorCount = $v.errorCount;
       _features = $v.features;
       _lastErrorDate = $v.lastErrorDate;
       _lastErrorMessage = $v.lastErrorMessage;
       _url = $v.url;
       _urlHash = $v.urlHash;
-      _secret = $v.secret;
+      _description = $v.description;
+      _id = $v.id;
+      _name = $v.name;
+      _state = $v.state;
       _$v = null;
     }
     return this;
@@ -53373,10 +53334,7 @@ class BotWithDetailsAndSecretBuilder
   _$BotWithDetailsAndSecret _build() {
     final _$result = _$v ??
         _$BotWithDetailsAndSecret._(
-            description: description,
-            id: BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetailsAndSecret', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetailsAndSecret', 'name'),
-            state: BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetailsAndSecret', 'state'),
+            secret: BuiltValueNullFieldError.checkNotNull(secret, r'BotWithDetailsAndSecret', 'secret'),
             errorCount: BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetailsAndSecret', 'errorCount'),
             features: BuiltValueNullFieldError.checkNotNull(features, r'BotWithDetailsAndSecret', 'features'),
             lastErrorDate:
@@ -53385,7 +53343,10 @@ class BotWithDetailsAndSecretBuilder
                 BuiltValueNullFieldError.checkNotNull(lastErrorMessage, r'BotWithDetailsAndSecret', 'lastErrorMessage'),
             url: BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetailsAndSecret', 'url'),
             urlHash: BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetailsAndSecret', 'urlHash'),
-            secret: BuiltValueNullFieldError.checkNotNull(secret, r'BotWithDetailsAndSecret', 'secret'));
+            description: description,
+            id: BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetailsAndSecret', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetailsAndSecret', 'name'),
+            state: BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetailsAndSecret', 'state'));
     replace(_$result);
     return _$result;
   }

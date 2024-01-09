@@ -141,19 +141,19 @@ Serializer<ShareesapiShareesapiSearchHeaders> _$shareesapiShareesapiSearchHeader
     _$ShareesapiShareesapiSearchHeadersSerializer();
 Serializer<Sharee> _$shareeSerializer = _$ShareeSerializer();
 Serializer<ShareeValue> _$shareeValueSerializer = _$ShareeValueSerializer();
-Serializer<ShareeCircle_1_Value> _$shareeCircle1ValueSerializer = _$ShareeCircle_1_ValueSerializer();
+Serializer<ShareeCircle_Value> _$shareeCircleValueSerializer = _$ShareeCircle_ValueSerializer();
 Serializer<ShareeCircle> _$shareeCircleSerializer = _$ShareeCircleSerializer();
 Serializer<ShareeEmail> _$shareeEmailSerializer = _$ShareeEmailSerializer();
-Serializer<ShareeRemoteGroup_1_Value> _$shareeRemoteGroup1ValueSerializer = _$ShareeRemoteGroup_1_ValueSerializer();
+Serializer<ShareeRemoteGroup_Value> _$shareeRemoteGroupValueSerializer = _$ShareeRemoteGroup_ValueSerializer();
 Serializer<ShareeRemoteGroup> _$shareeRemoteGroupSerializer = _$ShareeRemoteGroupSerializer();
-Serializer<ShareeRemote_1_Value> _$shareeRemote1ValueSerializer = _$ShareeRemote_1_ValueSerializer();
+Serializer<ShareeRemote_Value> _$shareeRemoteValueSerializer = _$ShareeRemote_ValueSerializer();
 Serializer<ShareeRemote> _$shareeRemoteSerializer = _$ShareeRemoteSerializer();
-Serializer<ShareeUser_1_Status> _$shareeUser1StatusSerializer = _$ShareeUser_1_StatusSerializer();
+Serializer<ShareeUser_Status> _$shareeUserStatusSerializer = _$ShareeUser_StatusSerializer();
 Serializer<ShareeUser> _$shareeUserSerializer = _$ShareeUserSerializer();
 Serializer<ShareesSearchResult_Exact> _$shareesSearchResultExactSerializer = _$ShareesSearchResult_ExactSerializer();
 Serializer<Lookup> _$lookupSerializer = _$LookupSerializer();
-Serializer<ShareeLookup_1_Extra> _$shareeLookup1ExtraSerializer = _$ShareeLookup_1_ExtraSerializer();
-Serializer<ShareeLookup_1_Value> _$shareeLookup1ValueSerializer = _$ShareeLookup_1_ValueSerializer();
+Serializer<ShareeLookup_Extra> _$shareeLookupExtraSerializer = _$ShareeLookup_ExtraSerializer();
+Serializer<ShareeLookup_Value> _$shareeLookupValueSerializer = _$ShareeLookup_ValueSerializer();
 Serializer<ShareeLookup> _$shareeLookupSerializer = _$ShareeLookupSerializer();
 Serializer<ShareesSearchResult> _$shareesSearchResultSerializer = _$ShareesSearchResultSerializer();
 Serializer<ShareesapiSearchResponseApplicationJson_Ocs> _$shareesapiSearchResponseApplicationJsonOcsSerializer =
@@ -2617,31 +2617,31 @@ class _$ShareeValueSerializer implements StructuredSerializer<ShareeValue> {
   }
 }
 
-class _$ShareeCircle_1_ValueSerializer implements StructuredSerializer<ShareeCircle_1_Value> {
+class _$ShareeCircle_ValueSerializer implements StructuredSerializer<ShareeCircle_Value> {
   @override
-  final Iterable<Type> types = const [ShareeCircle_1_Value, _$ShareeCircle_1_Value];
+  final Iterable<Type> types = const [ShareeCircle_Value, _$ShareeCircle_Value];
   @override
-  final String wireName = 'ShareeCircle_1_Value';
+  final String wireName = 'ShareeCircle_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeCircle_1_Value object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeCircle_Value object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
+      'circle',
+      serializers.serialize(object.circle, specifiedType: const FullType(String)),
       'shareType',
       serializers.serialize(object.shareType, specifiedType: const FullType(int)),
       'shareWith',
       serializers.serialize(object.shareWith, specifiedType: const FullType(String)),
-      'circle',
-      serializers.serialize(object.circle, specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  ShareeCircle_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeCircle_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareeCircle_1_ValueBuilder();
+    final result = ShareeCircle_ValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2649,14 +2649,14 @@ class _$ShareeCircle_1_ValueSerializer implements StructuredSerializer<ShareeCir
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'circle':
+          result.circle = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
         case 'shareType':
           result.shareType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'shareWith':
           result.shareWith = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'circle':
-          result.circle = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -2675,12 +2675,12 @@ class _$ShareeCircleSerializer implements StructuredSerializer<ShareeCircle> {
   Iterable<Object?> serialize(Serializers serializers, ShareeCircle object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'label',
-      serializers.serialize(object.label, specifiedType: const FullType(String)),
       'shareWithDescription',
       serializers.serialize(object.shareWithDescription, specifiedType: const FullType(String)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(ShareeCircle_1_Value)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeCircle_Value)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.count;
@@ -2703,19 +2703,19 @@ class _$ShareeCircleSerializer implements StructuredSerializer<ShareeCircle> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'label':
-          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
         case 'shareWithDescription':
           result.shareWithDescription =
               serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeCircle_1_Value))!
-              as ShareeCircle_1_Value);
+          result.value.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ShareeCircle_Value))! as ShareeCircle_Value);
+          break;
+        case 'count':
+          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -2734,8 +2734,6 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
   Iterable<Object?> serialize(Serializers serializers, ShareeEmail object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'label',
-      serializers.serialize(object.label, specifiedType: const FullType(String)),
       'uuid',
       serializers.serialize(object.uuid, specifiedType: const FullType(String)),
       'name',
@@ -2746,6 +2744,8 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
       serializers.serialize(object.shareWithDisplayNameUnique, specifiedType: const FullType(String)),
       'value',
       serializers.serialize(object.value, specifiedType: const FullType(ShareeValue)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.count;
@@ -2768,12 +2768,6 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'label':
-          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
         case 'uuid':
           result.uuid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -2791,6 +2785,12 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
           result.value
               .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
           break;
+        case 'count':
+          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
       }
     }
 
@@ -2798,31 +2798,31 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
   }
 }
 
-class _$ShareeRemoteGroup_1_ValueSerializer implements StructuredSerializer<ShareeRemoteGroup_1_Value> {
+class _$ShareeRemoteGroup_ValueSerializer implements StructuredSerializer<ShareeRemoteGroup_Value> {
   @override
-  final Iterable<Type> types = const [ShareeRemoteGroup_1_Value, _$ShareeRemoteGroup_1_Value];
+  final Iterable<Type> types = const [ShareeRemoteGroup_Value, _$ShareeRemoteGroup_Value];
   @override
-  final String wireName = 'ShareeRemoteGroup_1_Value';
+  final String wireName = 'ShareeRemoteGroup_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeRemoteGroup_1_Value object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeRemoteGroup_Value object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
+      'server',
+      serializers.serialize(object.server, specifiedType: const FullType(String)),
       'shareType',
       serializers.serialize(object.shareType, specifiedType: const FullType(int)),
       'shareWith',
       serializers.serialize(object.shareWith, specifiedType: const FullType(String)),
-      'server',
-      serializers.serialize(object.server, specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  ShareeRemoteGroup_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeRemoteGroup_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareeRemoteGroup_1_ValueBuilder();
+    final result = ShareeRemoteGroup_ValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2830,14 +2830,14 @@ class _$ShareeRemoteGroup_1_ValueSerializer implements StructuredSerializer<Shar
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'server':
+          result.server = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
         case 'shareType':
           result.shareType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'shareWith':
           result.shareWith = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'server':
-          result.server = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -2856,14 +2856,14 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
   Iterable<Object?> serialize(Serializers serializers, ShareeRemoteGroup object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'label',
-      serializers.serialize(object.label, specifiedType: const FullType(String)),
       'guid',
       serializers.serialize(object.guid, specifiedType: const FullType(String)),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(ShareeRemoteGroup_1_Value)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeRemoteGroup_Value)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.count;
@@ -2886,12 +2886,6 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'label':
-          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
         case 'guid':
           result.guid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -2899,8 +2893,14 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeRemoteGroup_1_Value))!
-              as ShareeRemoteGroup_1_Value);
+          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeRemoteGroup_Value))!
+              as ShareeRemoteGroup_Value);
+          break;
+        case 'count':
+          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -2909,31 +2909,31 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
   }
 }
 
-class _$ShareeRemote_1_ValueSerializer implements StructuredSerializer<ShareeRemote_1_Value> {
+class _$ShareeRemote_ValueSerializer implements StructuredSerializer<ShareeRemote_Value> {
   @override
-  final Iterable<Type> types = const [ShareeRemote_1_Value, _$ShareeRemote_1_Value];
+  final Iterable<Type> types = const [ShareeRemote_Value, _$ShareeRemote_Value];
   @override
-  final String wireName = 'ShareeRemote_1_Value';
+  final String wireName = 'ShareeRemote_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeRemote_1_Value object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeRemote_Value object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
+      'server',
+      serializers.serialize(object.server, specifiedType: const FullType(String)),
       'shareType',
       serializers.serialize(object.shareType, specifiedType: const FullType(int)),
       'shareWith',
       serializers.serialize(object.shareWith, specifiedType: const FullType(String)),
-      'server',
-      serializers.serialize(object.server, specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  ShareeRemote_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeRemote_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareeRemote_1_ValueBuilder();
+    final result = ShareeRemote_ValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2941,14 +2941,14 @@ class _$ShareeRemote_1_ValueSerializer implements StructuredSerializer<ShareeRem
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'server':
+          result.server = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
         case 'shareType':
           result.shareType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'shareWith':
           result.shareWith = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'server':
-          result.server = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -2967,8 +2967,6 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
   Iterable<Object?> serialize(Serializers serializers, ShareeRemote object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'label',
-      serializers.serialize(object.label, specifiedType: const FullType(String)),
       'uuid',
       serializers.serialize(object.uuid, specifiedType: const FullType(String)),
       'name',
@@ -2976,7 +2974,9 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
       'value',
-      serializers.serialize(object.value, specifiedType: const FullType(ShareeRemote_1_Value)),
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeRemote_Value)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.count;
@@ -2999,12 +2999,6 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'label':
-          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
         case 'uuid':
           result.uuid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -3015,8 +3009,14 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeRemote_1_Value))!
-              as ShareeRemote_1_Value);
+          result.value.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ShareeRemote_Value))! as ShareeRemote_Value);
+          break;
+        case 'count':
+          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -3025,14 +3025,14 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
   }
 }
 
-class _$ShareeUser_1_StatusSerializer implements StructuredSerializer<ShareeUser_1_Status> {
+class _$ShareeUser_StatusSerializer implements StructuredSerializer<ShareeUser_Status> {
   @override
-  final Iterable<Type> types = const [ShareeUser_1_Status, _$ShareeUser_1_Status];
+  final Iterable<Type> types = const [ShareeUser_Status, _$ShareeUser_Status];
   @override
-  final String wireName = 'ShareeUser_1_Status';
+  final String wireName = 'ShareeUser_Status';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeUser_1_Status object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeUser_Status object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
@@ -3053,9 +3053,9 @@ class _$ShareeUser_1_StatusSerializer implements StructuredSerializer<ShareeUser
   }
 
   @override
-  ShareeUser_1_Status deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeUser_Status deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareeUser_1_StatusBuilder();
+    final result = ShareeUser_StatusBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3092,8 +3092,6 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
   Iterable<Object?> serialize(Serializers serializers, ShareeUser object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'label',
-      serializers.serialize(object.label, specifiedType: const FullType(String)),
       'subline',
       serializers.serialize(object.subline, specifiedType: const FullType(String)),
       'icon',
@@ -3101,9 +3099,11 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
       'shareWithDisplayNameUnique',
       serializers.serialize(object.shareWithDisplayNameUnique, specifiedType: const FullType(String)),
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(ShareeUser_1_Status)),
+      serializers.serialize(object.status, specifiedType: const FullType(ShareeUser_Status)),
       'value',
       serializers.serialize(object.value, specifiedType: const FullType(ShareeValue)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.count;
@@ -3126,12 +3126,6 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'label':
-          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
         case 'subline':
           result.subline = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -3143,12 +3137,18 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
               serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'status':
-          result.status.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeUser_1_Status))!
-              as ShareeUser_1_Status);
+          result.status.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ShareeUser_Status))! as ShareeUser_Status);
           break;
         case 'value':
           result.value
               .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
+          break;
+        case 'count':
+          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -3275,14 +3275,14 @@ class _$LookupSerializer implements StructuredSerializer<Lookup> {
   }
 }
 
-class _$ShareeLookup_1_ExtraSerializer implements StructuredSerializer<ShareeLookup_1_Extra> {
+class _$ShareeLookup_ExtraSerializer implements StructuredSerializer<ShareeLookup_Extra> {
   @override
-  final Iterable<Type> types = const [ShareeLookup_1_Extra, _$ShareeLookup_1_Extra];
+  final Iterable<Type> types = const [ShareeLookup_Extra, _$ShareeLookup_Extra];
   @override
-  final String wireName = 'ShareeLookup_1_Extra';
+  final String wireName = 'ShareeLookup_Extra';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeLookup_1_Extra object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeLookup_Extra object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'federationId',
@@ -3347,9 +3347,9 @@ class _$ShareeLookup_1_ExtraSerializer implements StructuredSerializer<ShareeLoo
   }
 
   @override
-  ShareeLookup_1_Extra deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeLookup_Extra deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareeLookup_1_ExtraBuilder();
+    final result = ShareeLookup_ExtraBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3396,31 +3396,31 @@ class _$ShareeLookup_1_ExtraSerializer implements StructuredSerializer<ShareeLoo
   }
 }
 
-class _$ShareeLookup_1_ValueSerializer implements StructuredSerializer<ShareeLookup_1_Value> {
+class _$ShareeLookup_ValueSerializer implements StructuredSerializer<ShareeLookup_Value> {
   @override
-  final Iterable<Type> types = const [ShareeLookup_1_Value, _$ShareeLookup_1_Value];
+  final Iterable<Type> types = const [ShareeLookup_Value, _$ShareeLookup_Value];
   @override
-  final String wireName = 'ShareeLookup_1_Value';
+  final String wireName = 'ShareeLookup_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeLookup_1_Value object,
+  Iterable<Object?> serialize(Serializers serializers, ShareeLookup_Value object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
+      'globalScale',
+      serializers.serialize(object.globalScale, specifiedType: const FullType(bool)),
       'shareType',
       serializers.serialize(object.shareType, specifiedType: const FullType(int)),
       'shareWith',
       serializers.serialize(object.shareWith, specifiedType: const FullType(String)),
-      'globalScale',
-      serializers.serialize(object.globalScale, specifiedType: const FullType(bool)),
     ];
 
     return result;
   }
 
   @override
-  ShareeLookup_1_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ShareeLookup_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareeLookup_1_ValueBuilder();
+    final result = ShareeLookup_ValueBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3428,14 +3428,14 @@ class _$ShareeLookup_1_ValueSerializer implements StructuredSerializer<ShareeLoo
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'globalScale':
+          result.globalScale = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
         case 'shareType':
           result.shareType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'shareWith':
           result.shareWith = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'globalScale':
-          result.globalScale = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -3454,12 +3454,12 @@ class _$ShareeLookupSerializer implements StructuredSerializer<ShareeLookup> {
   Iterable<Object?> serialize(Serializers serializers, ShareeLookup object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
+      'extra',
+      serializers.serialize(object.extra, specifiedType: const FullType(ShareeLookup_Extra)),
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeLookup_Value)),
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
-      'extra',
-      serializers.serialize(object.extra, specifiedType: const FullType(ShareeLookup_1_Extra)),
-      'value',
-      serializers.serialize(object.value, specifiedType: const FullType(ShareeLookup_1_Value)),
     ];
     Object? value;
     value = object.count;
@@ -3482,19 +3482,19 @@ class _$ShareeLookupSerializer implements StructuredSerializer<ShareeLookup> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'extra':
+          result.extra.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_Extra))! as ShareeLookup_Extra);
+          break;
+        case 'value':
+          result.value.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_Value))! as ShareeLookup_Value);
+          break;
         case 'count':
           result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'extra':
-          result.extra.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_1_Extra))!
-              as ShareeLookup_1_Extra);
-          break;
-        case 'value':
-          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_1_Value))!
-              as ShareeLookup_1_Value);
           break;
       }
     }
@@ -10591,83 +10591,79 @@ class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, $S
   }
 }
 
-abstract mixin class $ShareeCircle_1_Value_1InterfaceBuilder {
-  void replace($ShareeCircle_1_Value_1Interface other);
-  void update(void Function($ShareeCircle_1_Value_1InterfaceBuilder) updates);
+abstract mixin class $ShareeCircle_ValueInterfaceBuilder implements $ShareeValueInterfaceBuilder {
+  void replace(covariant $ShareeCircle_ValueInterface other);
+  void update(void Function($ShareeCircle_ValueInterfaceBuilder) updates);
   String? get circle;
-  set circle(String? circle);
-}
+  set circle(covariant String? circle);
 
-abstract mixin class $ShareeCircle_1_ValueInterfaceBuilder
-    implements $ShareeValueInterfaceBuilder, $ShareeCircle_1_Value_1InterfaceBuilder {
-  void replace(covariant $ShareeCircle_1_ValueInterface other);
-  void update(void Function($ShareeCircle_1_ValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(covariant int? shareType);
 
   String? get shareWith;
   set shareWith(covariant String? shareWith);
-
-  String? get circle;
-  set circle(covariant String? circle);
 }
 
-class _$ShareeCircle_1_Value extends ShareeCircle_1_Value {
+class _$ShareeCircle_Value extends ShareeCircle_Value {
+  @override
+  final String circle;
   @override
   final int shareType;
   @override
   final String shareWith;
-  @override
-  final String circle;
 
-  factory _$ShareeCircle_1_Value([void Function(ShareeCircle_1_ValueBuilder)? updates]) =>
-      (ShareeCircle_1_ValueBuilder()..update(updates))._build();
+  factory _$ShareeCircle_Value([void Function(ShareeCircle_ValueBuilder)? updates]) =>
+      (ShareeCircle_ValueBuilder()..update(updates))._build();
 
-  _$ShareeCircle_1_Value._({required this.shareType, required this.shareWith, required this.circle}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_1_Value', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeCircle_1_Value', 'shareWith');
-    BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_1_Value', 'circle');
+  _$ShareeCircle_Value._({required this.circle, required this.shareType, required this.shareWith}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_Value', 'circle');
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_Value', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeCircle_Value', 'shareWith');
   }
 
   @override
-  ShareeCircle_1_Value rebuild(void Function(ShareeCircle_1_ValueBuilder) updates) =>
+  ShareeCircle_Value rebuild(void Function(ShareeCircle_ValueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ShareeCircle_1_ValueBuilder toBuilder() => ShareeCircle_1_ValueBuilder()..replace(this);
+  ShareeCircle_ValueBuilder toBuilder() => ShareeCircle_ValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ShareeCircle_1_Value &&
+    return other is ShareeCircle_Value &&
+        circle == other.circle &&
         shareType == other.shareType &&
-        shareWith == other.shareWith &&
-        circle == other.circle;
+        shareWith == other.shareWith;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, circle.hashCode);
     _$hash = $jc(_$hash, shareType.hashCode);
     _$hash = $jc(_$hash, shareWith.hashCode);
-    _$hash = $jc(_$hash, circle.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareeCircle_1_Value')
+    return (newBuiltValueToStringHelper(r'ShareeCircle_Value')
+          ..add('circle', circle)
           ..add('shareType', shareType)
-          ..add('shareWith', shareWith)
-          ..add('circle', circle))
+          ..add('shareWith', shareWith))
         .toString();
   }
 }
 
-class ShareeCircle_1_ValueBuilder
-    implements Builder<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder>, $ShareeCircle_1_ValueInterfaceBuilder {
-  _$ShareeCircle_1_Value? _$v;
+class ShareeCircle_ValueBuilder
+    implements Builder<ShareeCircle_Value, ShareeCircle_ValueBuilder>, $ShareeCircle_ValueInterfaceBuilder {
+  _$ShareeCircle_Value? _$v;
+
+  String? _circle;
+  String? get circle => _$this._circle;
+  set circle(covariant String? circle) => _$this._circle = circle;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -10677,92 +10673,78 @@ class ShareeCircle_1_ValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  String? _circle;
-  String? get circle => _$this._circle;
-  set circle(covariant String? circle) => _$this._circle = circle;
+  ShareeCircle_ValueBuilder();
 
-  ShareeCircle_1_ValueBuilder();
-
-  ShareeCircle_1_ValueBuilder get _$this {
+  ShareeCircle_ValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _circle = $v.circle;
       _shareType = $v.shareType;
       _shareWith = $v.shareWith;
-      _circle = $v.circle;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant ShareeCircle_1_Value other) {
+  void replace(covariant ShareeCircle_Value other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareeCircle_1_Value;
+    _$v = other as _$ShareeCircle_Value;
   }
 
   @override
-  void update(void Function(ShareeCircle_1_ValueBuilder)? updates) {
+  void update(void Function(ShareeCircle_ValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ShareeCircle_1_Value build() => _build();
+  ShareeCircle_Value build() => _build();
 
-  _$ShareeCircle_1_Value _build() {
+  _$ShareeCircle_Value _build() {
     final _$result = _$v ??
-        _$ShareeCircle_1_Value._(
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_1_Value', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeCircle_1_Value', 'shareWith'),
-            circle: BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_1_Value', 'circle'));
+        _$ShareeCircle_Value._(
+            circle: BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_Value', 'circle'),
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_Value', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeCircle_Value', 'shareWith'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $ShareeCircle_1InterfaceBuilder {
-  void replace($ShareeCircle_1Interface other);
-  void update(void Function($ShareeCircle_1InterfaceBuilder) updates);
-  String? get shareWithDescription;
-  set shareWithDescription(String? shareWithDescription);
-
-  ShareeCircle_1_ValueBuilder get value;
-  set value(ShareeCircle_1_ValueBuilder? value);
-}
-
-abstract mixin class $ShareeCircleInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeCircle_1InterfaceBuilder {
+abstract mixin class $ShareeCircleInterfaceBuilder implements $ShareeInterfaceBuilder {
   void replace(covariant $ShareeCircleInterface other);
   void update(void Function($ShareeCircleInterfaceBuilder) updates);
+  String? get shareWithDescription;
+  set shareWithDescription(covariant String? shareWithDescription);
+
+  ShareeCircle_ValueBuilder get value;
+  set value(covariant ShareeCircle_ValueBuilder? value);
+
   int? get count;
   set count(covariant int? count);
 
   String? get label;
   set label(covariant String? label);
-
-  String? get shareWithDescription;
-  set shareWithDescription(covariant String? shareWithDescription);
-
-  ShareeCircle_1_ValueBuilder get value;
-  set value(covariant ShareeCircle_1_ValueBuilder? value);
 }
 
 class _$ShareeCircle extends ShareeCircle {
   @override
+  final String shareWithDescription;
+  @override
+  final ShareeCircle_Value value;
+  @override
   final int? count;
   @override
   final String label;
-  @override
-  final String shareWithDescription;
-  @override
-  final ShareeCircle_1_Value value;
 
   factory _$ShareeCircle([void Function(ShareeCircleBuilder)? updates]) =>
       (ShareeCircleBuilder()..update(updates))._build();
 
-  _$ShareeCircle._({this.count, required this.label, required this.shareWithDescription, required this.value})
+  _$ShareeCircle._({required this.shareWithDescription, required this.value, this.count, required this.label})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label');
     BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription');
     BuiltValueNullFieldError.checkNotNull(value, r'ShareeCircle', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label');
   }
 
   @override
@@ -10775,19 +10757,19 @@ class _$ShareeCircle extends ShareeCircle {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ShareeCircle &&
-        count == other.count &&
-        label == other.label &&
         shareWithDescription == other.shareWithDescription &&
-        value == other.value;
+        value == other.value &&
+        count == other.count &&
+        label == other.label;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, count.hashCode);
-    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, shareWithDescription.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, count.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -10795,16 +10777,25 @@ class _$ShareeCircle extends ShareeCircle {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ShareeCircle')
-          ..add('count', count)
-          ..add('label', label)
           ..add('shareWithDescription', shareWithDescription)
-          ..add('value', value))
+          ..add('value', value)
+          ..add('count', count)
+          ..add('label', label))
         .toString();
   }
 }
 
 class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>, $ShareeCircleInterfaceBuilder {
   _$ShareeCircle? _$v;
+
+  String? _shareWithDescription;
+  String? get shareWithDescription => _$this._shareWithDescription;
+  set shareWithDescription(covariant String? shareWithDescription) =>
+      _$this._shareWithDescription = shareWithDescription;
+
+  ShareeCircle_ValueBuilder? _value;
+  ShareeCircle_ValueBuilder get value => _$this._value ??= ShareeCircle_ValueBuilder();
+  set value(covariant ShareeCircle_ValueBuilder? value) => _$this._value = value;
 
   int? _count;
   int? get count => _$this._count;
@@ -10814,24 +10805,15 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  String? _shareWithDescription;
-  String? get shareWithDescription => _$this._shareWithDescription;
-  set shareWithDescription(covariant String? shareWithDescription) =>
-      _$this._shareWithDescription = shareWithDescription;
-
-  ShareeCircle_1_ValueBuilder? _value;
-  ShareeCircle_1_ValueBuilder get value => _$this._value ??= ShareeCircle_1_ValueBuilder();
-  set value(covariant ShareeCircle_1_ValueBuilder? value) => _$this._value = value;
-
   ShareeCircleBuilder();
 
   ShareeCircleBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _count = $v.count;
-      _label = $v.label;
       _shareWithDescription = $v.shareWithDescription;
       _value = $v.value.toBuilder();
+      _count = $v.count;
+      _label = $v.label;
       _$v = null;
     }
     return this;
@@ -10856,11 +10838,11 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
     try {
       _$result = _$v ??
           _$ShareeCircle._(
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label'),
               shareWithDescription:
                   BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription'),
-              value: value.build());
+              value: value.build(),
+              count: count,
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -10876,34 +10858,9 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
   }
 }
 
-abstract mixin class $ShareeEmail_1InterfaceBuilder {
-  void replace($ShareeEmail_1Interface other);
-  void update(void Function($ShareeEmail_1InterfaceBuilder) updates);
-  String? get uuid;
-  set uuid(String? uuid);
-
-  String? get name;
-  set name(String? name);
-
-  String? get type;
-  set type(String? type);
-
-  String? get shareWithDisplayNameUnique;
-  set shareWithDisplayNameUnique(String? shareWithDisplayNameUnique);
-
-  ShareeValueBuilder get value;
-  set value(ShareeValueBuilder? value);
-}
-
-abstract mixin class $ShareeEmailInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeEmail_1InterfaceBuilder {
+abstract mixin class $ShareeEmailInterfaceBuilder implements $ShareeInterfaceBuilder {
   void replace(covariant $ShareeEmailInterface other);
   void update(void Function($ShareeEmailInterfaceBuilder) updates);
-  int? get count;
-  set count(covariant int? count);
-
-  String? get label;
-  set label(covariant String? label);
-
   String? get uuid;
   set uuid(covariant String? uuid);
 
@@ -10918,13 +10875,15 @@ abstract mixin class $ShareeEmailInterfaceBuilder implements $ShareeInterfaceBui
 
   ShareeValueBuilder get value;
   set value(covariant ShareeValueBuilder? value);
+
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
 }
 
 class _$ShareeEmail extends ShareeEmail {
-  @override
-  final int? count;
-  @override
-  final String label;
   @override
   final String uuid;
   @override
@@ -10935,25 +10894,29 @@ class _$ShareeEmail extends ShareeEmail {
   final String shareWithDisplayNameUnique;
   @override
   final ShareeValue value;
+  @override
+  final int? count;
+  @override
+  final String label;
 
   factory _$ShareeEmail([void Function(ShareeEmailBuilder)? updates]) =>
       (ShareeEmailBuilder()..update(updates))._build();
 
   _$ShareeEmail._(
-      {this.count,
-      required this.label,
-      required this.uuid,
+      {required this.uuid,
       required this.name,
       required this.type,
       required this.shareWithDisplayNameUnique,
-      required this.value})
+      required this.value,
+      this.count,
+      required this.label})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label');
     BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeEmail', 'uuid');
     BuiltValueNullFieldError.checkNotNull(name, r'ShareeEmail', 'name');
     BuiltValueNullFieldError.checkNotNull(type, r'ShareeEmail', 'type');
     BuiltValueNullFieldError.checkNotNull(shareWithDisplayNameUnique, r'ShareeEmail', 'shareWithDisplayNameUnique');
     BuiltValueNullFieldError.checkNotNull(value, r'ShareeEmail', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label');
   }
 
   @override
@@ -10966,25 +10929,25 @@ class _$ShareeEmail extends ShareeEmail {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ShareeEmail &&
-        count == other.count &&
-        label == other.label &&
         uuid == other.uuid &&
         name == other.name &&
         type == other.type &&
         shareWithDisplayNameUnique == other.shareWithDisplayNameUnique &&
-        value == other.value;
+        value == other.value &&
+        count == other.count &&
+        label == other.label;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, count.hashCode);
-    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, uuid.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, shareWithDisplayNameUnique.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, count.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -10992,27 +10955,19 @@ class _$ShareeEmail extends ShareeEmail {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ShareeEmail')
-          ..add('count', count)
-          ..add('label', label)
           ..add('uuid', uuid)
           ..add('name', name)
           ..add('type', type)
           ..add('shareWithDisplayNameUnique', shareWithDisplayNameUnique)
-          ..add('value', value))
+          ..add('value', value)
+          ..add('count', count)
+          ..add('label', label))
         .toString();
   }
 }
 
 class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $ShareeEmailInterfaceBuilder {
   _$ShareeEmail? _$v;
-
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
-  String? _label;
-  String? get label => _$this._label;
-  set label(covariant String? label) => _$this._label = label;
 
   String? _uuid;
   String? get uuid => _$this._uuid;
@@ -11035,18 +10990,26 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
   ShareeValueBuilder get value => _$this._value ??= ShareeValueBuilder();
   set value(covariant ShareeValueBuilder? value) => _$this._value = value;
 
+  int? _count;
+  int? get count => _$this._count;
+  set count(covariant int? count) => _$this._count = count;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(covariant String? label) => _$this._label = label;
+
   ShareeEmailBuilder();
 
   ShareeEmailBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _count = $v.count;
-      _label = $v.label;
       _uuid = $v.uuid;
       _name = $v.name;
       _type = $v.type;
       _shareWithDisplayNameUnique = $v.shareWithDisplayNameUnique;
       _value = $v.value.toBuilder();
+      _count = $v.count;
+      _label = $v.label;
       _$v = null;
     }
     return this;
@@ -11071,14 +11034,14 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
     try {
       _$result = _$v ??
           _$ShareeEmail._(
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label'),
               uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeEmail', 'uuid'),
               name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeEmail', 'name'),
               type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeEmail', 'type'),
               shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
                   shareWithDisplayNameUnique, r'ShareeEmail', 'shareWithDisplayNameUnique'),
-              value: value.build());
+              value: value.build(),
+              count: count,
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -11094,85 +11057,81 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
   }
 }
 
-abstract mixin class $ShareeRemoteGroup_1_Value_1InterfaceBuilder {
-  void replace($ShareeRemoteGroup_1_Value_1Interface other);
-  void update(void Function($ShareeRemoteGroup_1_Value_1InterfaceBuilder) updates);
+abstract mixin class $ShareeRemoteGroup_ValueInterfaceBuilder implements $ShareeValueInterfaceBuilder {
+  void replace(covariant $ShareeRemoteGroup_ValueInterface other);
+  void update(void Function($ShareeRemoteGroup_ValueInterfaceBuilder) updates);
   String? get server;
-  set server(String? server);
-}
+  set server(covariant String? server);
 
-abstract mixin class $ShareeRemoteGroup_1_ValueInterfaceBuilder
-    implements $ShareeValueInterfaceBuilder, $ShareeRemoteGroup_1_Value_1InterfaceBuilder {
-  void replace(covariant $ShareeRemoteGroup_1_ValueInterface other);
-  void update(void Function($ShareeRemoteGroup_1_ValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(covariant int? shareType);
 
   String? get shareWith;
   set shareWith(covariant String? shareWith);
-
-  String? get server;
-  set server(covariant String? server);
 }
 
-class _$ShareeRemoteGroup_1_Value extends ShareeRemoteGroup_1_Value {
+class _$ShareeRemoteGroup_Value extends ShareeRemoteGroup_Value {
+  @override
+  final String server;
   @override
   final int shareType;
   @override
   final String shareWith;
-  @override
-  final String server;
 
-  factory _$ShareeRemoteGroup_1_Value([void Function(ShareeRemoteGroup_1_ValueBuilder)? updates]) =>
-      (ShareeRemoteGroup_1_ValueBuilder()..update(updates))._build();
+  factory _$ShareeRemoteGroup_Value([void Function(ShareeRemoteGroup_ValueBuilder)? updates]) =>
+      (ShareeRemoteGroup_ValueBuilder()..update(updates))._build();
 
-  _$ShareeRemoteGroup_1_Value._({required this.shareType, required this.shareWith, required this.server}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_1_Value', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemoteGroup_1_Value', 'shareWith');
-    BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_1_Value', 'server');
+  _$ShareeRemoteGroup_Value._({required this.server, required this.shareType, required this.shareWith}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_Value', 'server');
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_Value', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemoteGroup_Value', 'shareWith');
   }
 
   @override
-  ShareeRemoteGroup_1_Value rebuild(void Function(ShareeRemoteGroup_1_ValueBuilder) updates) =>
+  ShareeRemoteGroup_Value rebuild(void Function(ShareeRemoteGroup_ValueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ShareeRemoteGroup_1_ValueBuilder toBuilder() => ShareeRemoteGroup_1_ValueBuilder()..replace(this);
+  ShareeRemoteGroup_ValueBuilder toBuilder() => ShareeRemoteGroup_ValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ShareeRemoteGroup_1_Value &&
+    return other is ShareeRemoteGroup_Value &&
+        server == other.server &&
         shareType == other.shareType &&
-        shareWith == other.shareWith &&
-        server == other.server;
+        shareWith == other.shareWith;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, server.hashCode);
     _$hash = $jc(_$hash, shareType.hashCode);
     _$hash = $jc(_$hash, shareWith.hashCode);
-    _$hash = $jc(_$hash, server.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareeRemoteGroup_1_Value')
+    return (newBuiltValueToStringHelper(r'ShareeRemoteGroup_Value')
+          ..add('server', server)
           ..add('shareType', shareType)
-          ..add('shareWith', shareWith)
-          ..add('server', server))
+          ..add('shareWith', shareWith))
         .toString();
   }
 }
 
-class ShareeRemoteGroup_1_ValueBuilder
+class ShareeRemoteGroup_ValueBuilder
     implements
-        Builder<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder>,
-        $ShareeRemoteGroup_1_ValueInterfaceBuilder {
-  _$ShareeRemoteGroup_1_Value? _$v;
+        Builder<ShareeRemoteGroup_Value, ShareeRemoteGroup_ValueBuilder>,
+        $ShareeRemoteGroup_ValueInterfaceBuilder {
+  _$ShareeRemoteGroup_Value? _$v;
+
+  String? _server;
+  String? get server => _$this._server;
+  set server(covariant String? server) => _$this._server = server;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -11182,102 +11141,84 @@ class ShareeRemoteGroup_1_ValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  String? _server;
-  String? get server => _$this._server;
-  set server(covariant String? server) => _$this._server = server;
+  ShareeRemoteGroup_ValueBuilder();
 
-  ShareeRemoteGroup_1_ValueBuilder();
-
-  ShareeRemoteGroup_1_ValueBuilder get _$this {
+  ShareeRemoteGroup_ValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _server = $v.server;
       _shareType = $v.shareType;
       _shareWith = $v.shareWith;
-      _server = $v.server;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant ShareeRemoteGroup_1_Value other) {
+  void replace(covariant ShareeRemoteGroup_Value other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareeRemoteGroup_1_Value;
+    _$v = other as _$ShareeRemoteGroup_Value;
   }
 
   @override
-  void update(void Function(ShareeRemoteGroup_1_ValueBuilder)? updates) {
+  void update(void Function(ShareeRemoteGroup_ValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ShareeRemoteGroup_1_Value build() => _build();
+  ShareeRemoteGroup_Value build() => _build();
 
-  _$ShareeRemoteGroup_1_Value _build() {
+  _$ShareeRemoteGroup_Value _build() {
     final _$result = _$v ??
-        _$ShareeRemoteGroup_1_Value._(
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_1_Value', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemoteGroup_1_Value', 'shareWith'),
-            server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_1_Value', 'server'));
+        _$ShareeRemoteGroup_Value._(
+            server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_Value', 'server'),
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_Value', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemoteGroup_Value', 'shareWith'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $ShareeRemoteGroup_1InterfaceBuilder {
-  void replace($ShareeRemoteGroup_1Interface other);
-  void update(void Function($ShareeRemoteGroup_1InterfaceBuilder) updates);
-  String? get guid;
-  set guid(String? guid);
-
-  String? get name;
-  set name(String? name);
-
-  ShareeRemoteGroup_1_ValueBuilder get value;
-  set value(ShareeRemoteGroup_1_ValueBuilder? value);
-}
-
-abstract mixin class $ShareeRemoteGroupInterfaceBuilder
-    implements $ShareeInterfaceBuilder, $ShareeRemoteGroup_1InterfaceBuilder {
+abstract mixin class $ShareeRemoteGroupInterfaceBuilder implements $ShareeInterfaceBuilder {
   void replace(covariant $ShareeRemoteGroupInterface other);
   void update(void Function($ShareeRemoteGroupInterfaceBuilder) updates);
-  int? get count;
-  set count(covariant int? count);
-
-  String? get label;
-  set label(covariant String? label);
-
   String? get guid;
   set guid(covariant String? guid);
 
   String? get name;
   set name(covariant String? name);
 
-  ShareeRemoteGroup_1_ValueBuilder get value;
-  set value(covariant ShareeRemoteGroup_1_ValueBuilder? value);
+  ShareeRemoteGroup_ValueBuilder get value;
+  set value(covariant ShareeRemoteGroup_ValueBuilder? value);
+
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
 }
 
 class _$ShareeRemoteGroup extends ShareeRemoteGroup {
-  @override
-  final int? count;
-  @override
-  final String label;
   @override
   final String guid;
   @override
   final String name;
   @override
-  final ShareeRemoteGroup_1_Value value;
+  final ShareeRemoteGroup_Value value;
+  @override
+  final int? count;
+  @override
+  final String label;
 
   factory _$ShareeRemoteGroup([void Function(ShareeRemoteGroupBuilder)? updates]) =>
       (ShareeRemoteGroupBuilder()..update(updates))._build();
 
-  _$ShareeRemoteGroup._({this.count, required this.label, required this.guid, required this.name, required this.value})
+  _$ShareeRemoteGroup._({required this.guid, required this.name, required this.value, this.count, required this.label})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label');
     BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid');
     BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name');
     BuiltValueNullFieldError.checkNotNull(value, r'ShareeRemoteGroup', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label');
   }
 
   @override
@@ -11290,21 +11231,21 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ShareeRemoteGroup &&
-        count == other.count &&
-        label == other.label &&
         guid == other.guid &&
         name == other.name &&
-        value == other.value;
+        value == other.value &&
+        count == other.count &&
+        label == other.label;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, count.hashCode);
-    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, guid.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, count.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -11312,11 +11253,11 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ShareeRemoteGroup')
-          ..add('count', count)
-          ..add('label', label)
           ..add('guid', guid)
           ..add('name', name)
-          ..add('value', value))
+          ..add('value', value)
+          ..add('count', count)
+          ..add('label', label))
         .toString();
   }
 }
@@ -11324,14 +11265,6 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
 class ShareeRemoteGroupBuilder
     implements Builder<ShareeRemoteGroup, ShareeRemoteGroupBuilder>, $ShareeRemoteGroupInterfaceBuilder {
   _$ShareeRemoteGroup? _$v;
-
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
-  String? _label;
-  String? get label => _$this._label;
-  set label(covariant String? label) => _$this._label = label;
 
   String? _guid;
   String? get guid => _$this._guid;
@@ -11341,20 +11274,28 @@ class ShareeRemoteGroupBuilder
   String? get name => _$this._name;
   set name(covariant String? name) => _$this._name = name;
 
-  ShareeRemoteGroup_1_ValueBuilder? _value;
-  ShareeRemoteGroup_1_ValueBuilder get value => _$this._value ??= ShareeRemoteGroup_1_ValueBuilder();
-  set value(covariant ShareeRemoteGroup_1_ValueBuilder? value) => _$this._value = value;
+  ShareeRemoteGroup_ValueBuilder? _value;
+  ShareeRemoteGroup_ValueBuilder get value => _$this._value ??= ShareeRemoteGroup_ValueBuilder();
+  set value(covariant ShareeRemoteGroup_ValueBuilder? value) => _$this._value = value;
+
+  int? _count;
+  int? get count => _$this._count;
+  set count(covariant int? count) => _$this._count = count;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(covariant String? label) => _$this._label = label;
 
   ShareeRemoteGroupBuilder();
 
   ShareeRemoteGroupBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _count = $v.count;
-      _label = $v.label;
       _guid = $v.guid;
       _name = $v.name;
       _value = $v.value.toBuilder();
+      _count = $v.count;
+      _label = $v.label;
       _$v = null;
     }
     return this;
@@ -11379,11 +11320,11 @@ class ShareeRemoteGroupBuilder
     try {
       _$result = _$v ??
           _$ShareeRemoteGroup._(
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label'),
               guid: BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid'),
               name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name'),
-              value: value.build());
+              value: value.build(),
+              count: count,
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -11399,83 +11340,79 @@ class ShareeRemoteGroupBuilder
   }
 }
 
-abstract mixin class $ShareeRemote_1_Value_1InterfaceBuilder {
-  void replace($ShareeRemote_1_Value_1Interface other);
-  void update(void Function($ShareeRemote_1_Value_1InterfaceBuilder) updates);
+abstract mixin class $ShareeRemote_ValueInterfaceBuilder implements $ShareeValueInterfaceBuilder {
+  void replace(covariant $ShareeRemote_ValueInterface other);
+  void update(void Function($ShareeRemote_ValueInterfaceBuilder) updates);
   String? get server;
-  set server(String? server);
-}
+  set server(covariant String? server);
 
-abstract mixin class $ShareeRemote_1_ValueInterfaceBuilder
-    implements $ShareeValueInterfaceBuilder, $ShareeRemote_1_Value_1InterfaceBuilder {
-  void replace(covariant $ShareeRemote_1_ValueInterface other);
-  void update(void Function($ShareeRemote_1_ValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(covariant int? shareType);
 
   String? get shareWith;
   set shareWith(covariant String? shareWith);
-
-  String? get server;
-  set server(covariant String? server);
 }
 
-class _$ShareeRemote_1_Value extends ShareeRemote_1_Value {
+class _$ShareeRemote_Value extends ShareeRemote_Value {
+  @override
+  final String server;
   @override
   final int shareType;
   @override
   final String shareWith;
-  @override
-  final String server;
 
-  factory _$ShareeRemote_1_Value([void Function(ShareeRemote_1_ValueBuilder)? updates]) =>
-      (ShareeRemote_1_ValueBuilder()..update(updates))._build();
+  factory _$ShareeRemote_Value([void Function(ShareeRemote_ValueBuilder)? updates]) =>
+      (ShareeRemote_ValueBuilder()..update(updates))._build();
 
-  _$ShareeRemote_1_Value._({required this.shareType, required this.shareWith, required this.server}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_1_Value', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemote_1_Value', 'shareWith');
-    BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_1_Value', 'server');
+  _$ShareeRemote_Value._({required this.server, required this.shareType, required this.shareWith}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_Value', 'server');
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_Value', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemote_Value', 'shareWith');
   }
 
   @override
-  ShareeRemote_1_Value rebuild(void Function(ShareeRemote_1_ValueBuilder) updates) =>
+  ShareeRemote_Value rebuild(void Function(ShareeRemote_ValueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ShareeRemote_1_ValueBuilder toBuilder() => ShareeRemote_1_ValueBuilder()..replace(this);
+  ShareeRemote_ValueBuilder toBuilder() => ShareeRemote_ValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ShareeRemote_1_Value &&
+    return other is ShareeRemote_Value &&
+        server == other.server &&
         shareType == other.shareType &&
-        shareWith == other.shareWith &&
-        server == other.server;
+        shareWith == other.shareWith;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, server.hashCode);
     _$hash = $jc(_$hash, shareType.hashCode);
     _$hash = $jc(_$hash, shareWith.hashCode);
-    _$hash = $jc(_$hash, server.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareeRemote_1_Value')
+    return (newBuiltValueToStringHelper(r'ShareeRemote_Value')
+          ..add('server', server)
           ..add('shareType', shareType)
-          ..add('shareWith', shareWith)
-          ..add('server', server))
+          ..add('shareWith', shareWith))
         .toString();
   }
 }
 
-class ShareeRemote_1_ValueBuilder
-    implements Builder<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder>, $ShareeRemote_1_ValueInterfaceBuilder {
-  _$ShareeRemote_1_Value? _$v;
+class ShareeRemote_ValueBuilder
+    implements Builder<ShareeRemote_Value, ShareeRemote_ValueBuilder>, $ShareeRemote_ValueInterfaceBuilder {
+  _$ShareeRemote_Value? _$v;
+
+  String? _server;
+  String? get server => _$this._server;
+  set server(covariant String? server) => _$this._server = server;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -11485,73 +11422,47 @@ class ShareeRemote_1_ValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  String? _server;
-  String? get server => _$this._server;
-  set server(covariant String? server) => _$this._server = server;
+  ShareeRemote_ValueBuilder();
 
-  ShareeRemote_1_ValueBuilder();
-
-  ShareeRemote_1_ValueBuilder get _$this {
+  ShareeRemote_ValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _server = $v.server;
       _shareType = $v.shareType;
       _shareWith = $v.shareWith;
-      _server = $v.server;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant ShareeRemote_1_Value other) {
+  void replace(covariant ShareeRemote_Value other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareeRemote_1_Value;
+    _$v = other as _$ShareeRemote_Value;
   }
 
   @override
-  void update(void Function(ShareeRemote_1_ValueBuilder)? updates) {
+  void update(void Function(ShareeRemote_ValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ShareeRemote_1_Value build() => _build();
+  ShareeRemote_Value build() => _build();
 
-  _$ShareeRemote_1_Value _build() {
+  _$ShareeRemote_Value _build() {
     final _$result = _$v ??
-        _$ShareeRemote_1_Value._(
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_1_Value', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemote_1_Value', 'shareWith'),
-            server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_1_Value', 'server'));
+        _$ShareeRemote_Value._(
+            server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_Value', 'server'),
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_Value', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemote_Value', 'shareWith'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $ShareeRemote_1InterfaceBuilder {
-  void replace($ShareeRemote_1Interface other);
-  void update(void Function($ShareeRemote_1InterfaceBuilder) updates);
-  String? get uuid;
-  set uuid(String? uuid);
-
-  String? get name;
-  set name(String? name);
-
-  String? get type;
-  set type(String? type);
-
-  ShareeRemote_1_ValueBuilder get value;
-  set value(ShareeRemote_1_ValueBuilder? value);
-}
-
-abstract mixin class $ShareeRemoteInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeRemote_1InterfaceBuilder {
+abstract mixin class $ShareeRemoteInterfaceBuilder implements $ShareeInterfaceBuilder {
   void replace(covariant $ShareeRemoteInterface other);
   void update(void Function($ShareeRemoteInterfaceBuilder) updates);
-  int? get count;
-  set count(covariant int? count);
-
-  String? get label;
-  set label(covariant String? label);
-
   String? get uuid;
   set uuid(covariant String? uuid);
 
@@ -11561,15 +11472,17 @@ abstract mixin class $ShareeRemoteInterfaceBuilder implements $ShareeInterfaceBu
   String? get type;
   set type(covariant String? type);
 
-  ShareeRemote_1_ValueBuilder get value;
-  set value(covariant ShareeRemote_1_ValueBuilder? value);
+  ShareeRemote_ValueBuilder get value;
+  set value(covariant ShareeRemote_ValueBuilder? value);
+
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
 }
 
 class _$ShareeRemote extends ShareeRemote {
-  @override
-  final int? count;
-  @override
-  final String label;
   @override
   final String uuid;
   @override
@@ -11577,24 +11490,28 @@ class _$ShareeRemote extends ShareeRemote {
   @override
   final String type;
   @override
-  final ShareeRemote_1_Value value;
+  final ShareeRemote_Value value;
+  @override
+  final int? count;
+  @override
+  final String label;
 
   factory _$ShareeRemote([void Function(ShareeRemoteBuilder)? updates]) =>
       (ShareeRemoteBuilder()..update(updates))._build();
 
   _$ShareeRemote._(
-      {this.count,
-      required this.label,
-      required this.uuid,
+      {required this.uuid,
       required this.name,
       required this.type,
-      required this.value})
+      required this.value,
+      this.count,
+      required this.label})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label');
     BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeRemote', 'uuid');
     BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name');
     BuiltValueNullFieldError.checkNotNull(type, r'ShareeRemote', 'type');
     BuiltValueNullFieldError.checkNotNull(value, r'ShareeRemote', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label');
   }
 
   @override
@@ -11607,23 +11524,23 @@ class _$ShareeRemote extends ShareeRemote {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ShareeRemote &&
-        count == other.count &&
-        label == other.label &&
         uuid == other.uuid &&
         name == other.name &&
         type == other.type &&
-        value == other.value;
+        value == other.value &&
+        count == other.count &&
+        label == other.label;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, count.hashCode);
-    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, uuid.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, count.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -11631,26 +11548,18 @@ class _$ShareeRemote extends ShareeRemote {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ShareeRemote')
-          ..add('count', count)
-          ..add('label', label)
           ..add('uuid', uuid)
           ..add('name', name)
           ..add('type', type)
-          ..add('value', value))
+          ..add('value', value)
+          ..add('count', count)
+          ..add('label', label))
         .toString();
   }
 }
 
 class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>, $ShareeRemoteInterfaceBuilder {
   _$ShareeRemote? _$v;
-
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
-  String? _label;
-  String? get label => _$this._label;
-  set label(covariant String? label) => _$this._label = label;
 
   String? _uuid;
   String? get uuid => _$this._uuid;
@@ -11664,21 +11573,29 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
   String? get type => _$this._type;
   set type(covariant String? type) => _$this._type = type;
 
-  ShareeRemote_1_ValueBuilder? _value;
-  ShareeRemote_1_ValueBuilder get value => _$this._value ??= ShareeRemote_1_ValueBuilder();
-  set value(covariant ShareeRemote_1_ValueBuilder? value) => _$this._value = value;
+  ShareeRemote_ValueBuilder? _value;
+  ShareeRemote_ValueBuilder get value => _$this._value ??= ShareeRemote_ValueBuilder();
+  set value(covariant ShareeRemote_ValueBuilder? value) => _$this._value = value;
+
+  int? _count;
+  int? get count => _$this._count;
+  set count(covariant int? count) => _$this._count = count;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(covariant String? label) => _$this._label = label;
 
   ShareeRemoteBuilder();
 
   ShareeRemoteBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _count = $v.count;
-      _label = $v.label;
       _uuid = $v.uuid;
       _name = $v.name;
       _type = $v.type;
       _value = $v.value.toBuilder();
+      _count = $v.count;
+      _label = $v.label;
       _$v = null;
     }
     return this;
@@ -11703,12 +11620,12 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
     try {
       _$result = _$v ??
           _$ShareeRemote._(
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label'),
               uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeRemote', 'uuid'),
               name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name'),
               type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeRemote', 'type'),
-              value: value.build());
+              value: value.build(),
+              count: count,
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -11724,9 +11641,9 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
   }
 }
 
-abstract mixin class $ShareeUser_1_StatusInterfaceBuilder {
-  void replace($ShareeUser_1_StatusInterface other);
-  void update(void Function($ShareeUser_1_StatusInterfaceBuilder) updates);
+abstract mixin class $ShareeUser_StatusInterfaceBuilder {
+  void replace($ShareeUser_StatusInterface other);
+  void update(void Function($ShareeUser_StatusInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -11740,7 +11657,7 @@ abstract mixin class $ShareeUser_1_StatusInterfaceBuilder {
   set clearAt(int? clearAt);
 }
 
-class _$ShareeUser_1_Status extends ShareeUser_1_Status {
+class _$ShareeUser_Status extends ShareeUser_Status {
   @override
   final String status;
   @override
@@ -11750,26 +11667,25 @@ class _$ShareeUser_1_Status extends ShareeUser_1_Status {
   @override
   final int? clearAt;
 
-  factory _$ShareeUser_1_Status([void Function(ShareeUser_1_StatusBuilder)? updates]) =>
-      (ShareeUser_1_StatusBuilder()..update(updates))._build();
+  factory _$ShareeUser_Status([void Function(ShareeUser_StatusBuilder)? updates]) =>
+      (ShareeUser_StatusBuilder()..update(updates))._build();
 
-  _$ShareeUser_1_Status._({required this.status, required this.message, required this.icon, this.clearAt}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_1_Status', 'status');
-    BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_1_Status', 'message');
-    BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser_1_Status', 'icon');
+  _$ShareeUser_Status._({required this.status, required this.message, required this.icon, this.clearAt}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_Status', 'status');
+    BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_Status', 'message');
+    BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser_Status', 'icon');
   }
 
   @override
-  ShareeUser_1_Status rebuild(void Function(ShareeUser_1_StatusBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ShareeUser_Status rebuild(void Function(ShareeUser_StatusBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ShareeUser_1_StatusBuilder toBuilder() => ShareeUser_1_StatusBuilder()..replace(this);
+  ShareeUser_StatusBuilder toBuilder() => ShareeUser_StatusBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ShareeUser_1_Status &&
+    return other is ShareeUser_Status &&
         status == other.status &&
         message == other.message &&
         icon == other.icon &&
@@ -11789,7 +11705,7 @@ class _$ShareeUser_1_Status extends ShareeUser_1_Status {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareeUser_1_Status')
+    return (newBuiltValueToStringHelper(r'ShareeUser_Status')
           ..add('status', status)
           ..add('message', message)
           ..add('icon', icon)
@@ -11798,9 +11714,9 @@ class _$ShareeUser_1_Status extends ShareeUser_1_Status {
   }
 }
 
-class ShareeUser_1_StatusBuilder
-    implements Builder<ShareeUser_1_Status, ShareeUser_1_StatusBuilder>, $ShareeUser_1_StatusInterfaceBuilder {
-  _$ShareeUser_1_Status? _$v;
+class ShareeUser_StatusBuilder
+    implements Builder<ShareeUser_Status, ShareeUser_StatusBuilder>, $ShareeUser_StatusInterfaceBuilder {
+  _$ShareeUser_Status? _$v;
 
   String? _status;
   String? get status => _$this._status;
@@ -11818,9 +11734,9 @@ class ShareeUser_1_StatusBuilder
   int? get clearAt => _$this._clearAt;
   set clearAt(covariant int? clearAt) => _$this._clearAt = clearAt;
 
-  ShareeUser_1_StatusBuilder();
+  ShareeUser_StatusBuilder();
 
-  ShareeUser_1_StatusBuilder get _$this {
+  ShareeUser_StatusBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _status = $v.status;
@@ -11833,59 +11749,34 @@ class ShareeUser_1_StatusBuilder
   }
 
   @override
-  void replace(covariant ShareeUser_1_Status other) {
+  void replace(covariant ShareeUser_Status other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareeUser_1_Status;
+    _$v = other as _$ShareeUser_Status;
   }
 
   @override
-  void update(void Function(ShareeUser_1_StatusBuilder)? updates) {
+  void update(void Function(ShareeUser_StatusBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ShareeUser_1_Status build() => _build();
+  ShareeUser_Status build() => _build();
 
-  _$ShareeUser_1_Status _build() {
+  _$ShareeUser_Status _build() {
     final _$result = _$v ??
-        _$ShareeUser_1_Status._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_1_Status', 'status'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_1_Status', 'message'),
-            icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser_1_Status', 'icon'),
+        _$ShareeUser_Status._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_Status', 'status'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_Status', 'message'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser_Status', 'icon'),
             clearAt: clearAt);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $ShareeUser_1InterfaceBuilder {
-  void replace($ShareeUser_1Interface other);
-  void update(void Function($ShareeUser_1InterfaceBuilder) updates);
-  String? get subline;
-  set subline(String? subline);
-
-  String? get icon;
-  set icon(String? icon);
-
-  String? get shareWithDisplayNameUnique;
-  set shareWithDisplayNameUnique(String? shareWithDisplayNameUnique);
-
-  ShareeUser_1_StatusBuilder get status;
-  set status(ShareeUser_1_StatusBuilder? status);
-
-  ShareeValueBuilder get value;
-  set value(ShareeValueBuilder? value);
-}
-
-abstract mixin class $ShareeUserInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeUser_1InterfaceBuilder {
+abstract mixin class $ShareeUserInterfaceBuilder implements $ShareeInterfaceBuilder {
   void replace(covariant $ShareeUserInterface other);
   void update(void Function($ShareeUserInterfaceBuilder) updates);
-  int? get count;
-  set count(covariant int? count);
-
-  String? get label;
-  set label(covariant String? label);
-
   String? get subline;
   set subline(covariant String? subline);
 
@@ -11895,18 +11786,20 @@ abstract mixin class $ShareeUserInterfaceBuilder implements $ShareeInterfaceBuil
   String? get shareWithDisplayNameUnique;
   set shareWithDisplayNameUnique(covariant String? shareWithDisplayNameUnique);
 
-  ShareeUser_1_StatusBuilder get status;
-  set status(covariant ShareeUser_1_StatusBuilder? status);
+  ShareeUser_StatusBuilder get status;
+  set status(covariant ShareeUser_StatusBuilder? status);
 
   ShareeValueBuilder get value;
   set value(covariant ShareeValueBuilder? value);
+
+  int? get count;
+  set count(covariant int? count);
+
+  String? get label;
+  set label(covariant String? label);
 }
 
 class _$ShareeUser extends ShareeUser {
-  @override
-  final int? count;
-  @override
-  final String label;
   @override
   final String subline;
   @override
@@ -11914,27 +11807,31 @@ class _$ShareeUser extends ShareeUser {
   @override
   final String shareWithDisplayNameUnique;
   @override
-  final ShareeUser_1_Status status;
+  final ShareeUser_Status status;
   @override
   final ShareeValue value;
+  @override
+  final int? count;
+  @override
+  final String label;
 
   factory _$ShareeUser([void Function(ShareeUserBuilder)? updates]) => (ShareeUserBuilder()..update(updates))._build();
 
   _$ShareeUser._(
-      {this.count,
-      required this.label,
-      required this.subline,
+      {required this.subline,
       required this.icon,
       required this.shareWithDisplayNameUnique,
       required this.status,
-      required this.value})
+      required this.value,
+      this.count,
+      required this.label})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label');
     BuiltValueNullFieldError.checkNotNull(subline, r'ShareeUser', 'subline');
     BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser', 'icon');
     BuiltValueNullFieldError.checkNotNull(shareWithDisplayNameUnique, r'ShareeUser', 'shareWithDisplayNameUnique');
     BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser', 'status');
     BuiltValueNullFieldError.checkNotNull(value, r'ShareeUser', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label');
   }
 
   @override
@@ -11947,25 +11844,25 @@ class _$ShareeUser extends ShareeUser {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ShareeUser &&
-        count == other.count &&
-        label == other.label &&
         subline == other.subline &&
         icon == other.icon &&
         shareWithDisplayNameUnique == other.shareWithDisplayNameUnique &&
         status == other.status &&
-        value == other.value;
+        value == other.value &&
+        count == other.count &&
+        label == other.label;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, count.hashCode);
-    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, subline.hashCode);
     _$hash = $jc(_$hash, icon.hashCode);
     _$hash = $jc(_$hash, shareWithDisplayNameUnique.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, count.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -11973,27 +11870,19 @@ class _$ShareeUser extends ShareeUser {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ShareeUser')
-          ..add('count', count)
-          ..add('label', label)
           ..add('subline', subline)
           ..add('icon', icon)
           ..add('shareWithDisplayNameUnique', shareWithDisplayNameUnique)
           ..add('status', status)
-          ..add('value', value))
+          ..add('value', value)
+          ..add('count', count)
+          ..add('label', label))
         .toString();
   }
 }
 
 class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $ShareeUserInterfaceBuilder {
   _$ShareeUser? _$v;
-
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
-  String? _label;
-  String? get label => _$this._label;
-  set label(covariant String? label) => _$this._label = label;
 
   String? _subline;
   String? get subline => _$this._subline;
@@ -12008,26 +11897,34 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
   set shareWithDisplayNameUnique(covariant String? shareWithDisplayNameUnique) =>
       _$this._shareWithDisplayNameUnique = shareWithDisplayNameUnique;
 
-  ShareeUser_1_StatusBuilder? _status;
-  ShareeUser_1_StatusBuilder get status => _$this._status ??= ShareeUser_1_StatusBuilder();
-  set status(covariant ShareeUser_1_StatusBuilder? status) => _$this._status = status;
+  ShareeUser_StatusBuilder? _status;
+  ShareeUser_StatusBuilder get status => _$this._status ??= ShareeUser_StatusBuilder();
+  set status(covariant ShareeUser_StatusBuilder? status) => _$this._status = status;
 
   ShareeValueBuilder? _value;
   ShareeValueBuilder get value => _$this._value ??= ShareeValueBuilder();
   set value(covariant ShareeValueBuilder? value) => _$this._value = value;
+
+  int? _count;
+  int? get count => _$this._count;
+  set count(covariant int? count) => _$this._count = count;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(covariant String? label) => _$this._label = label;
 
   ShareeUserBuilder();
 
   ShareeUserBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _count = $v.count;
-      _label = $v.label;
       _subline = $v.subline;
       _icon = $v.icon;
       _shareWithDisplayNameUnique = $v.shareWithDisplayNameUnique;
       _status = $v.status.toBuilder();
       _value = $v.value.toBuilder();
+      _count = $v.count;
+      _label = $v.label;
       _$v = null;
     }
     return this;
@@ -12052,14 +11949,14 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
     try {
       _$result = _$v ??
           _$ShareeUser._(
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label'),
               subline: BuiltValueNullFieldError.checkNotNull(subline, r'ShareeUser', 'subline'),
               icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser', 'icon'),
               shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
                   shareWithDisplayNameUnique, r'ShareeUser', 'shareWithDisplayNameUnique'),
               status: status.build(),
-              value: value.build());
+              value: value.build(),
+              count: count,
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -12391,9 +12288,9 @@ class LookupBuilder implements Builder<Lookup, LookupBuilder>, $LookupInterfaceB
   }
 }
 
-abstract mixin class $ShareeLookup_1_ExtraInterfaceBuilder {
-  void replace($ShareeLookup_1_ExtraInterface other);
-  void update(void Function($ShareeLookup_1_ExtraInterfaceBuilder) updates);
+abstract mixin class $ShareeLookup_ExtraInterfaceBuilder {
+  void replace($ShareeLookup_ExtraInterface other);
+  void update(void Function($ShareeLookup_ExtraInterfaceBuilder) updates);
   String? get federationId;
   set federationId(String? federationId);
 
@@ -12425,7 +12322,7 @@ abstract mixin class $ShareeLookup_1_ExtraInterfaceBuilder {
   set userid(LookupBuilder? userid);
 }
 
-class _$ShareeLookup_1_Extra extends ShareeLookup_1_Extra {
+class _$ShareeLookup_Extra extends ShareeLookup_Extra {
   @override
   final String federationId;
   @override
@@ -12447,10 +12344,10 @@ class _$ShareeLookup_1_Extra extends ShareeLookup_1_Extra {
   @override
   final Lookup? userid;
 
-  factory _$ShareeLookup_1_Extra([void Function(ShareeLookup_1_ExtraBuilder)? updates]) =>
-      (ShareeLookup_1_ExtraBuilder()..update(updates))._build();
+  factory _$ShareeLookup_Extra([void Function(ShareeLookup_ExtraBuilder)? updates]) =>
+      (ShareeLookup_ExtraBuilder()..update(updates))._build();
 
-  _$ShareeLookup_1_Extra._(
+  _$ShareeLookup_Extra._(
       {required this.federationId,
       this.name,
       this.email,
@@ -12462,20 +12359,20 @@ class _$ShareeLookup_1_Extra extends ShareeLookup_1_Extra {
       this.websiteSignature,
       this.userid})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_1_Extra', 'federationId');
+    BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_Extra', 'federationId');
   }
 
   @override
-  ShareeLookup_1_Extra rebuild(void Function(ShareeLookup_1_ExtraBuilder) updates) =>
+  ShareeLookup_Extra rebuild(void Function(ShareeLookup_ExtraBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ShareeLookup_1_ExtraBuilder toBuilder() => ShareeLookup_1_ExtraBuilder()..replace(this);
+  ShareeLookup_ExtraBuilder toBuilder() => ShareeLookup_ExtraBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ShareeLookup_1_Extra &&
+    return other is ShareeLookup_Extra &&
         federationId == other.federationId &&
         name == other.name &&
         email == other.email &&
@@ -12507,7 +12404,7 @@ class _$ShareeLookup_1_Extra extends ShareeLookup_1_Extra {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareeLookup_1_Extra')
+    return (newBuiltValueToStringHelper(r'ShareeLookup_Extra')
           ..add('federationId', federationId)
           ..add('name', name)
           ..add('email', email)
@@ -12522,9 +12419,9 @@ class _$ShareeLookup_1_Extra extends ShareeLookup_1_Extra {
   }
 }
 
-class ShareeLookup_1_ExtraBuilder
-    implements Builder<ShareeLookup_1_Extra, ShareeLookup_1_ExtraBuilder>, $ShareeLookup_1_ExtraInterfaceBuilder {
-  _$ShareeLookup_1_Extra? _$v;
+class ShareeLookup_ExtraBuilder
+    implements Builder<ShareeLookup_Extra, ShareeLookup_ExtraBuilder>, $ShareeLookup_ExtraInterfaceBuilder {
+  _$ShareeLookup_Extra? _$v;
 
   String? _federationId;
   String? get federationId => _$this._federationId;
@@ -12566,9 +12463,9 @@ class ShareeLookup_1_ExtraBuilder
   LookupBuilder get userid => _$this._userid ??= LookupBuilder();
   set userid(covariant LookupBuilder? userid) => _$this._userid = userid;
 
-  ShareeLookup_1_ExtraBuilder();
+  ShareeLookup_ExtraBuilder();
 
-  ShareeLookup_1_ExtraBuilder get _$this {
+  ShareeLookup_ExtraBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _federationId = $v.federationId;
@@ -12587,26 +12484,25 @@ class ShareeLookup_1_ExtraBuilder
   }
 
   @override
-  void replace(covariant ShareeLookup_1_Extra other) {
+  void replace(covariant ShareeLookup_Extra other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareeLookup_1_Extra;
+    _$v = other as _$ShareeLookup_Extra;
   }
 
   @override
-  void update(void Function(ShareeLookup_1_ExtraBuilder)? updates) {
+  void update(void Function(ShareeLookup_ExtraBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ShareeLookup_1_Extra build() => _build();
+  ShareeLookup_Extra build() => _build();
 
-  _$ShareeLookup_1_Extra _build() {
-    _$ShareeLookup_1_Extra _$result;
+  _$ShareeLookup_Extra _build() {
+    _$ShareeLookup_Extra _$result;
     try {
       _$result = _$v ??
-          _$ShareeLookup_1_Extra._(
-              federationId:
-                  BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_1_Extra', 'federationId'),
+          _$ShareeLookup_Extra._(
+              federationId: BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_Extra', 'federationId'),
               name: _name?.build(),
               email: _email?.build(),
               address: _address?.build(),
@@ -12638,7 +12534,7 @@ class ShareeLookup_1_ExtraBuilder
         _$failedField = 'userid';
         _userid?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ShareeLookup_1_Extra', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ShareeLookup_Extra', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12647,83 +12543,79 @@ class ShareeLookup_1_ExtraBuilder
   }
 }
 
-abstract mixin class $ShareeLookup_1_Value_1InterfaceBuilder {
-  void replace($ShareeLookup_1_Value_1Interface other);
-  void update(void Function($ShareeLookup_1_Value_1InterfaceBuilder) updates);
+abstract mixin class $ShareeLookup_ValueInterfaceBuilder implements $ShareeValueInterfaceBuilder {
+  void replace(covariant $ShareeLookup_ValueInterface other);
+  void update(void Function($ShareeLookup_ValueInterfaceBuilder) updates);
   bool? get globalScale;
-  set globalScale(bool? globalScale);
-}
+  set globalScale(covariant bool? globalScale);
 
-abstract mixin class $ShareeLookup_1_ValueInterfaceBuilder
-    implements $ShareeValueInterfaceBuilder, $ShareeLookup_1_Value_1InterfaceBuilder {
-  void replace(covariant $ShareeLookup_1_ValueInterface other);
-  void update(void Function($ShareeLookup_1_ValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(covariant int? shareType);
 
   String? get shareWith;
   set shareWith(covariant String? shareWith);
-
-  bool? get globalScale;
-  set globalScale(covariant bool? globalScale);
 }
 
-class _$ShareeLookup_1_Value extends ShareeLookup_1_Value {
+class _$ShareeLookup_Value extends ShareeLookup_Value {
+  @override
+  final bool globalScale;
   @override
   final int shareType;
   @override
   final String shareWith;
-  @override
-  final bool globalScale;
 
-  factory _$ShareeLookup_1_Value([void Function(ShareeLookup_1_ValueBuilder)? updates]) =>
-      (ShareeLookup_1_ValueBuilder()..update(updates))._build();
+  factory _$ShareeLookup_Value([void Function(ShareeLookup_ValueBuilder)? updates]) =>
+      (ShareeLookup_ValueBuilder()..update(updates))._build();
 
-  _$ShareeLookup_1_Value._({required this.shareType, required this.shareWith, required this.globalScale}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_1_Value', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeLookup_1_Value', 'shareWith');
-    BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_1_Value', 'globalScale');
+  _$ShareeLookup_Value._({required this.globalScale, required this.shareType, required this.shareWith}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_Value', 'globalScale');
+    BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_Value', 'shareType');
+    BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeLookup_Value', 'shareWith');
   }
 
   @override
-  ShareeLookup_1_Value rebuild(void Function(ShareeLookup_1_ValueBuilder) updates) =>
+  ShareeLookup_Value rebuild(void Function(ShareeLookup_ValueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ShareeLookup_1_ValueBuilder toBuilder() => ShareeLookup_1_ValueBuilder()..replace(this);
+  ShareeLookup_ValueBuilder toBuilder() => ShareeLookup_ValueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ShareeLookup_1_Value &&
+    return other is ShareeLookup_Value &&
+        globalScale == other.globalScale &&
         shareType == other.shareType &&
-        shareWith == other.shareWith &&
-        globalScale == other.globalScale;
+        shareWith == other.shareWith;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, globalScale.hashCode);
     _$hash = $jc(_$hash, shareType.hashCode);
     _$hash = $jc(_$hash, shareWith.hashCode);
-    _$hash = $jc(_$hash, globalScale.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareeLookup_1_Value')
+    return (newBuiltValueToStringHelper(r'ShareeLookup_Value')
+          ..add('globalScale', globalScale)
           ..add('shareType', shareType)
-          ..add('shareWith', shareWith)
-          ..add('globalScale', globalScale))
+          ..add('shareWith', shareWith))
         .toString();
   }
 }
 
-class ShareeLookup_1_ValueBuilder
-    implements Builder<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder>, $ShareeLookup_1_ValueInterfaceBuilder {
-  _$ShareeLookup_1_Value? _$v;
+class ShareeLookup_ValueBuilder
+    implements Builder<ShareeLookup_Value, ShareeLookup_ValueBuilder>, $ShareeLookup_ValueInterfaceBuilder {
+  _$ShareeLookup_Value? _$v;
+
+  bool? _globalScale;
+  bool? get globalScale => _$this._globalScale;
+  set globalScale(covariant bool? globalScale) => _$this._globalScale = globalScale;
 
   int? _shareType;
   int? get shareType => _$this._shareType;
@@ -12733,91 +12625,77 @@ class ShareeLookup_1_ValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  bool? _globalScale;
-  bool? get globalScale => _$this._globalScale;
-  set globalScale(covariant bool? globalScale) => _$this._globalScale = globalScale;
+  ShareeLookup_ValueBuilder();
 
-  ShareeLookup_1_ValueBuilder();
-
-  ShareeLookup_1_ValueBuilder get _$this {
+  ShareeLookup_ValueBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _globalScale = $v.globalScale;
       _shareType = $v.shareType;
       _shareWith = $v.shareWith;
-      _globalScale = $v.globalScale;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant ShareeLookup_1_Value other) {
+  void replace(covariant ShareeLookup_Value other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareeLookup_1_Value;
+    _$v = other as _$ShareeLookup_Value;
   }
 
   @override
-  void update(void Function(ShareeLookup_1_ValueBuilder)? updates) {
+  void update(void Function(ShareeLookup_ValueBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ShareeLookup_1_Value build() => _build();
+  ShareeLookup_Value build() => _build();
 
-  _$ShareeLookup_1_Value _build() {
+  _$ShareeLookup_Value _build() {
     final _$result = _$v ??
-        _$ShareeLookup_1_Value._(
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_1_Value', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeLookup_1_Value', 'shareWith'),
-            globalScale: BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_1_Value', 'globalScale'));
+        _$ShareeLookup_Value._(
+            globalScale: BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_Value', 'globalScale'),
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_Value', 'shareType'),
+            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeLookup_Value', 'shareWith'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $ShareeLookup_1InterfaceBuilder {
-  void replace($ShareeLookup_1Interface other);
-  void update(void Function($ShareeLookup_1InterfaceBuilder) updates);
-  ShareeLookup_1_ExtraBuilder get extra;
-  set extra(ShareeLookup_1_ExtraBuilder? extra);
-
-  ShareeLookup_1_ValueBuilder get value;
-  set value(ShareeLookup_1_ValueBuilder? value);
-}
-
-abstract mixin class $ShareeLookupInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeLookup_1InterfaceBuilder {
+abstract mixin class $ShareeLookupInterfaceBuilder implements $ShareeInterfaceBuilder {
   void replace(covariant $ShareeLookupInterface other);
   void update(void Function($ShareeLookupInterfaceBuilder) updates);
+  ShareeLookup_ExtraBuilder get extra;
+  set extra(covariant ShareeLookup_ExtraBuilder? extra);
+
+  ShareeLookup_ValueBuilder get value;
+  set value(covariant ShareeLookup_ValueBuilder? value);
+
   int? get count;
   set count(covariant int? count);
 
   String? get label;
   set label(covariant String? label);
-
-  ShareeLookup_1_ExtraBuilder get extra;
-  set extra(covariant ShareeLookup_1_ExtraBuilder? extra);
-
-  ShareeLookup_1_ValueBuilder get value;
-  set value(covariant ShareeLookup_1_ValueBuilder? value);
 }
 
 class _$ShareeLookup extends ShareeLookup {
   @override
+  final ShareeLookup_Extra extra;
+  @override
+  final ShareeLookup_Value value;
+  @override
   final int? count;
   @override
   final String label;
-  @override
-  final ShareeLookup_1_Extra extra;
-  @override
-  final ShareeLookup_1_Value value;
 
   factory _$ShareeLookup([void Function(ShareeLookupBuilder)? updates]) =>
       (ShareeLookupBuilder()..update(updates))._build();
 
-  _$ShareeLookup._({this.count, required this.label, required this.extra, required this.value}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label');
+  _$ShareeLookup._({required this.extra, required this.value, this.count, required this.label}) : super._() {
     BuiltValueNullFieldError.checkNotNull(extra, r'ShareeLookup', 'extra');
     BuiltValueNullFieldError.checkNotNull(value, r'ShareeLookup', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label');
   }
 
   @override
@@ -12830,19 +12708,19 @@ class _$ShareeLookup extends ShareeLookup {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ShareeLookup &&
-        count == other.count &&
-        label == other.label &&
         extra == other.extra &&
-        value == other.value;
+        value == other.value &&
+        count == other.count &&
+        label == other.label;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, count.hashCode);
-    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, extra.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, count.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -12850,16 +12728,24 @@ class _$ShareeLookup extends ShareeLookup {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ShareeLookup')
-          ..add('count', count)
-          ..add('label', label)
           ..add('extra', extra)
-          ..add('value', value))
+          ..add('value', value)
+          ..add('count', count)
+          ..add('label', label))
         .toString();
   }
 }
 
 class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>, $ShareeLookupInterfaceBuilder {
   _$ShareeLookup? _$v;
+
+  ShareeLookup_ExtraBuilder? _extra;
+  ShareeLookup_ExtraBuilder get extra => _$this._extra ??= ShareeLookup_ExtraBuilder();
+  set extra(covariant ShareeLookup_ExtraBuilder? extra) => _$this._extra = extra;
+
+  ShareeLookup_ValueBuilder? _value;
+  ShareeLookup_ValueBuilder get value => _$this._value ??= ShareeLookup_ValueBuilder();
+  set value(covariant ShareeLookup_ValueBuilder? value) => _$this._value = value;
 
   int? _count;
   int? get count => _$this._count;
@@ -12869,23 +12755,15 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  ShareeLookup_1_ExtraBuilder? _extra;
-  ShareeLookup_1_ExtraBuilder get extra => _$this._extra ??= ShareeLookup_1_ExtraBuilder();
-  set extra(covariant ShareeLookup_1_ExtraBuilder? extra) => _$this._extra = extra;
-
-  ShareeLookup_1_ValueBuilder? _value;
-  ShareeLookup_1_ValueBuilder get value => _$this._value ??= ShareeLookup_1_ValueBuilder();
-  set value(covariant ShareeLookup_1_ValueBuilder? value) => _$this._value = value;
-
   ShareeLookupBuilder();
 
   ShareeLookupBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _count = $v.count;
-      _label = $v.label;
       _extra = $v.extra.toBuilder();
       _value = $v.value.toBuilder();
+      _count = $v.count;
+      _label = $v.label;
       _$v = null;
     }
     return this;
@@ -12910,10 +12788,10 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
     try {
       _$result = _$v ??
           _$ShareeLookup._(
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label'),
               extra: extra.build(),
-              value: value.build());
+              value: value.build(),
+              count: count,
+              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label'));
     } catch (_) {
       late String _$failedField;
       try {
