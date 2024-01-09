@@ -21,7 +21,7 @@ const branding = Branding(
   ),
   sourceCodeURL: 'https://github.com/nextcloud/neon',
   issueTrackerURL: 'https://github.com/nextcloud/neon/issues',
-  legalese: 'Copyright © 2023, provokateurin\nUnder GPLv3 license',
+  legalese: 'Copyright © 2024, provokateurin\nUnder GPLv3 license',
 );
 
 /// The custom color scheme used in the Neon app.
