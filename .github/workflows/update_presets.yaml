@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install dart
-        uses: dart-lang/setup-dart@b64355ae6ca0b5d484f0106a033dd1388965d06d # v1
+        uses: dart-lang/setup-dart@ca7e6fee45ffbd82b555a7ebfc236d2c86439f5b # v1
       - name: Setup
         run: ./tool/setup.sh
 
