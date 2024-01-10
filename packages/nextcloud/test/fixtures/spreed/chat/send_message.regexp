@@ -1,14 +1,14 @@
 POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&invite=&roomName=Test&source=&objectType=&objectId=
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 POST http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}\?message=bla&actorDisplayName=&referenceId=&replyTo=0&silent=0
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)

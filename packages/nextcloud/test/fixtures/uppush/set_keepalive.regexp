@@ -1,6 +1,6 @@
 PUT http://localhost/index\.php/apps/uppush/keepalive\?keepalive=10
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Basic mock
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)

@@ -1,20 +1,20 @@
 GET http://localhost/index\.php/apps/notes/api/v1/settings
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
 accept-encoding: gzip
-content-length: 0
+accept: application/json
 authorization: Basic mock
-PUT http://localhost/index\.php/apps/notes/api/v1/settings
+content-length: 0
 user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
+PUT http://localhost/index\.php/apps/notes/api/v1/settings
 accept-encoding: gzip
+accept: application/json
 authorization: Basic mock
 content-type: application/json
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 \{"notesPath":"Test Notes","fileSuffix":"\.txt","noteMode":"preview"\}
 GET http://localhost/index\.php/apps/notes/api/v1/settings
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
 accept-encoding: gzip
-content-length: 0
+accept: application/json
 authorization: Basic mock
+content-length: 0
+user-agent: Dart/3\.2 \(dart:io\)

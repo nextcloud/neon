@@ -95,6 +95,7 @@ HttpClient getProxyHttpClient({
 String _formatHttpRequest(HttpClientRequest request, Uint8List body) {
   final buffer = StringBuffer('${request.method} ${request.uri.replace(port: 80)}');
 
+  final headers = <String>[];
   request.headers.forEach((name, values) {
     if (name == HttpHeaders.hostHeader) {
       return;
@@ -108,9 +109,12 @@ String _formatHttpRequest(HttpClientRequest request, Uint8List body) {
         value = Uri.parse(value).replace(port: 80).toString();
       }
 
-      buffer.write('\n$name: $value');
+      headers.add('\n$name: $value');
     }
   });
+
+  headers.sort();
+  buffer.writeAll(headers);
 
   if (body.isNotEmpty) {
     try {

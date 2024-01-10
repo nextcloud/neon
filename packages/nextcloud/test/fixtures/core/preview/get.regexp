@@ -1,6 +1,6 @@
 GET http://localhost/index\.php/core/preview\.png\?file=Nextcloud\.png&x=32&y=32&a=0&forceIcon=1&mode=fill&mimeFallback=0
-user-agent: Dart/3\.2 \(dart:io\)
-accept: \*/\*
 accept-encoding: gzip
-content-length: 0
+accept: \*/\*
 authorization: Bearer mock
+content-length: 0
+user-agent: Dart/3\.2 \(dart:io\)

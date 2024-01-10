@@ -1,12 +1,12 @@
 POST http://localhost/index\.php/login/v2
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Bearer mock
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 POST http://localhost/index\.php/login/v2/poll\?token=[a-zA-Z0-9]{128}
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Bearer mock
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)

@@ -1,18 +1,18 @@
 GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=3&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
 accept-encoding: gzip
-content-length: 0
+accept: application/json
 authorization: Basic mock
+content-length: 0
+user-agent: Dart/3\.2 \(dart:io\)
 POST http://localhost/index\.php/apps/news/api/v1-3/feeds\?url=http%3A%2F%2Flocalhost%2Fstatic%2Fwikipedia\.xml
-user-agent: Dart/3\.2 \(dart:io\)
+accept-encoding: gzip
 accept: application/json
+authorization: Basic mock
 transfer-encoding: chunked
-accept-encoding: gzip
-authorization: Basic mock
-GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=3&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
+GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=3&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 accept-encoding: gzip
-content-length: 0
+accept: application/json
 authorization: Basic mock
+content-length: 0
+user-agent: Dart/3\.2 \(dart:io\)

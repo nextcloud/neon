@@ -1,7 +1,7 @@
 GET http://localhost/ocs/v2\.php/apps/dashboard/api/v2/widget-items\?limit=7
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
 accept-encoding: gzip
-content-length: 0
+accept: application/json
 authorization: Bearer mock
+content-length: 0
 ocs-apirequest: true
+user-agent: Dart/3\.2 \(dart:io\)

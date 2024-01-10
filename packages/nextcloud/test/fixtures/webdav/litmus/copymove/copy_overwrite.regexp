@@ -1,28 +1,28 @@
 MKCOL http://localhost/remote\.php/webdav/copy-overwrite-src
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 MKCOL http://localhost/remote\.php/webdav/copy-overwrite-dst
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 COPY http://localhost/remote\.php/webdav/copy-overwrite-src
-user-agent: Dart/3\.2 \(dart:io\)
-transfer-encoding: chunked
-destination: http://localhost/remote\.php/webdav/copy-overwrite-dst
 accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
+destination: http://localhost/remote\.php/webdav/copy-overwrite-dst
 overwrite: F
-COPY http://localhost/remote\.php/webdav/copy-overwrite-src
-user-agent: Dart/3\.2 \(dart:io\)
 transfer-encoding: chunked
-destination: http://localhost/remote\.php/webdav/copy-overwrite-dst
+user-agent: Dart/3\.2 \(dart:io\)
+COPY http://localhost/remote\.php/webdav/copy-overwrite-src
 accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
+destination: http://localhost/remote\.php/webdav/copy-overwrite-dst
 overwrite: T
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)

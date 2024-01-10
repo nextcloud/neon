@@ -1,42 +1,42 @@
 PUT http://localhost/remote\.php/webdav/move-src1\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/move-src2\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
+authorization: Bearer mock
 content-length: 0
-authorization: Bearer mock
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 MKCOL http://localhost/remote\.php/webdav/move-coll
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 MOVE http://localhost/remote\.php/webdav/move-src1\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-transfer-encoding: chunked
-destination: http://localhost/remote\.php/webdav/move-dst\.txt
 accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
+destination: http://localhost/remote\.php/webdav/move-dst\.txt
 overwrite: F
-MOVE http://localhost/remote\.php/webdav/move-src2\.txt
-user-agent: Dart/3\.2 \(dart:io\)
 transfer-encoding: chunked
-destination: http://localhost/remote\.php/webdav/move-dst\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+MOVE http://localhost/remote\.php/webdav/move-src2\.txt
 accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
+destination: http://localhost/remote\.php/webdav/move-dst\.txt
 overwrite: F
-MOVE http://localhost/remote\.php/webdav/move-src2\.txt
-user-agent: Dart/3\.2 \(dart:io\)
 transfer-encoding: chunked
-destination: http://localhost/remote\.php/webdav/move-dst\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+MOVE http://localhost/remote\.php/webdav/move-src2\.txt
 accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
+destination: http://localhost/remote\.php/webdav/move-dst\.txt
 overwrite: T
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)

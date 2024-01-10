@@ -1,176 +1,176 @@
 MKCOL http://localhost/remote\.php/webdav/copy-coll-src
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 MKCOL http://localhost/remote\.php/webdav/copy-coll-src/sub
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/0\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/1\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/2\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/3\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/4\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/5\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/6\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/7\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/8\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/remote\.php/webdav/copy-coll-src/9\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
+authorization: Bearer mock
 content-length: 0
-authorization: Bearer mock
-COPY http://localhost/remote\.php/webdav/copy-coll-src
+content-type: application/xml
 user-agent: Dart/3\.2 \(dart:io\)
-transfer-encoding: chunked
+COPY http://localhost/remote\.php/webdav/copy-coll-src
+accept-encoding: gzip
+authorization: Bearer mock
+content-type: application/xml
 destination: http://localhost/remote\.php/webdav/copy-coll-dst1
+overwrite: F
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
+COPY http://localhost/remote\.php/webdav/copy-coll-src
 accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
-overwrite: F
-COPY http://localhost/remote\.php/webdav/copy-coll-src
-user-agent: Dart/3\.2 \(dart:io\)
-transfer-encoding: chunked
 destination: http://localhost/remote\.php/webdav/copy-coll-dst2
+overwrite: F
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
+COPY http://localhost/remote\.php/webdav/copy-coll-src
 accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
-overwrite: F
-COPY http://localhost/remote\.php/webdav/copy-coll-src
-user-agent: Dart/3\.2 \(dart:io\)
-transfer-encoding: chunked
 destination: http://localhost/remote\.php/webdav/copy-coll-dst1
-accept-encoding: gzip
-authorization: Bearer mock
-content-type: application/xml
 overwrite: F
-COPY http://localhost/remote\.php/webdav/copy-coll-src
-user-agent: Dart/3\.2 \(dart:io\)
 transfer-encoding: chunked
-destination: http://localhost/remote\.php/webdav/copy-coll-dst2
+user-agent: Dart/3\.2 \(dart:io\)
+COPY http://localhost/remote\.php/webdav/copy-coll-src
 accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
+destination: http://localhost/remote\.php/webdav/copy-coll-dst2
 overwrite: T
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/0\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/1\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/2\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/3\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/4\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/5\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/6\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/7\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/8\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/9\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/sub
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst2
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
