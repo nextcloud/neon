@@ -1683,7 +1683,11 @@
             "schema": {
               "type": "integer",
               "nullable": true,
-              "default": 0
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
             }
           },
           {
@@ -1865,7 +1869,11 @@
             "description": "Whether to not crop the preview",
             "schema": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
             }
           },
           {
@@ -1874,7 +1882,11 @@
             "description": "Force returning an icon",
             "schema": {
               "type": "integer",
-              "default": 1
+              "default": 1,
+              "enum": [
+                0,
+                1
+              ]
             }
           },
           {
@@ -1892,7 +1904,11 @@
             "description": "Whether to fallback to the mime icon if no preview is available",
             "schema": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
             }
           }
         ],
@@ -1996,7 +2012,11 @@
             "description": "Whether to not crop the preview",
             "schema": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
             }
           },
           {
@@ -2005,7 +2025,11 @@
             "description": "Force returning an icon",
             "schema": {
               "type": "integer",
-              "default": 1
+              "default": 1,
+              "enum": [
+                0,
+                1
+              ]
             }
           },
           {
@@ -2023,7 +2047,11 @@
             "description": "Whether to fallback to the mime icon if no preview is available",
             "schema": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
             }
           }
         ],
@@ -2254,7 +2282,10 @@
             "headers": {
               "X-NEXTCLOUD-OCM-PROVIDERS": {
                 "schema": {
-                  "type": "boolean"
+                  "type": "boolean",
+                  "enum": [
+                    true
+                  ]
                 }
               }
             },
@@ -2511,7 +2542,11 @@
             "description": "Rewrite URLs to absolute ones",
             "schema": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
             }
           },
           {
@@ -2612,7 +2647,11 @@
             "description": "Rewrite URLs to absolute ones",
             "schema": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
             }
           },
           {
@@ -4495,7 +4534,11 @@
             "description": "Resolve the references",
             "schema": {
               "type": "integer",
-              "default": 0
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
             }
           },
           {

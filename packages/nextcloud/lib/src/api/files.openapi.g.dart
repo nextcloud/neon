@@ -6,6 +6,26 @@ part of 'files.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const TemplatePathCopySystemTemplates _$templatePathCopySystemTemplates$0 = TemplatePathCopySystemTemplates._('\$0');
+const TemplatePathCopySystemTemplates _$templatePathCopySystemTemplates$1 = TemplatePathCopySystemTemplates._('\$1');
+
+TemplatePathCopySystemTemplates _$valueOfTemplatePathCopySystemTemplates(String name) {
+  switch (name) {
+    case '\$0':
+      return _$templatePathCopySystemTemplates$0;
+    case '\$1':
+      return _$templatePathCopySystemTemplates$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<TemplatePathCopySystemTemplates> _$templatePathCopySystemTemplatesValues =
+    BuiltSet<TemplatePathCopySystemTemplates>(const <TemplatePathCopySystemTemplates>[
+  _$templatePathCopySystemTemplates$0,
+  _$templatePathCopySystemTemplates$1,
+]);
+
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>
     _$directEditingInfoResponseApplicationJsonOcsDataEditorsSerializer =

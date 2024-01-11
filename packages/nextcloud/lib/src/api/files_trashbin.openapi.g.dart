@@ -6,6 +6,25 @@ part of 'files_trashbin.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const PreviewGetPreviewA _$previewGetPreviewA$0 = PreviewGetPreviewA._('\$0');
+const PreviewGetPreviewA _$previewGetPreviewA$1 = PreviewGetPreviewA._('\$1');
+
+PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewA$0;
+    case '\$1':
+      return _$previewGetPreviewA$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues = BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
+  _$previewGetPreviewA$0,
+  _$previewGetPreviewA$1,
+]);
+
 Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 

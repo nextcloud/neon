@@ -115,7 +115,7 @@ class $AvatarClient {
   ///  * [getAvatarRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Uint8List, void>> getAvatar({
     required String token,
-    int? darkTheme,
+    AvatarGetAvatarDarkTheme? darkTheme,
     AvatarGetAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -150,7 +150,7 @@ class $AvatarClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required String token,
-    int? darkTheme,
+    AvatarGetAvatarDarkTheme? darkTheme,
     AvatarGetAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -182,7 +182,7 @@ class $AvatarClient {
     );
     _parameters['token'] = $token;
 
-    var $darkTheme = _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(int));
+    var $darkTheme = _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(AvatarGetAvatarDarkTheme));
     $darkTheme ??= 0;
     _parameters['darkTheme'] = $darkTheme;
 
@@ -684,7 +684,7 @@ class $BotClient {
     required String token,
     String? referenceId,
     int? replyTo,
-    int? silent,
+    BotSendMessageSilent? silent,
     BotSendMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -733,7 +733,7 @@ class $BotClient {
     required String token,
     String? referenceId,
     int? replyTo,
-    int? silent,
+    BotSendMessageSilent? silent,
     BotSendMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -776,7 +776,7 @@ class $BotClient {
     $replyTo ??= 0;
     _parameters['replyTo'] = $replyTo;
 
-    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(BotSendMessageSilent));
     $silent ??= 0;
     _parameters['silent'] = $silent;
 
@@ -2826,8 +2826,8 @@ class $CallClient {
     required String token,
     CallJoinCallFlags? flags,
     CallJoinCallForcePermissions? forcePermissions,
-    int? silent,
-    int? recordingConsent,
+    CallJoinCallSilent? silent,
+    CallJoinCallRecordingConsent? recordingConsent,
     CallJoinCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -2872,8 +2872,8 @@ class $CallClient {
     required String token,
     CallJoinCallFlags? flags,
     CallJoinCallForcePermissions? forcePermissions,
-    int? silent,
-    int? recordingConsent,
+    CallJoinCallSilent? silent,
+    CallJoinCallRecordingConsent? recordingConsent,
     CallJoinCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -2912,11 +2912,12 @@ class $CallClient {
         _$jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(CallJoinCallForcePermissions));
     _parameters['forcePermissions'] = $forcePermissions;
 
-    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(CallJoinCallSilent));
     $silent ??= 0;
     _parameters['silent'] = $silent;
 
-    var $recordingConsent = _$jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
+    var $recordingConsent =
+        _$jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(CallJoinCallRecordingConsent));
     $recordingConsent ??= 0;
     _parameters['recordingConsent'] = $recordingConsent;
 
@@ -2967,7 +2968,7 @@ class $CallClient {
   ///  * [leaveCallRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<CallLeaveCallResponseApplicationJson, void>> leaveCall({
     required String token,
-    int? all,
+    CallLeaveCallAll? all,
     CallLeaveCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -3003,7 +3004,7 @@ class $CallClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void> leaveCallRaw({
     required String token,
-    int? all,
+    CallLeaveCallAll? all,
     CallLeaveCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -3035,7 +3036,7 @@ class $CallClient {
     );
     _parameters['token'] = $token;
 
-    var $all = _$jsonSerializers.serialize(all, specifiedType: const FullType(int));
+    var $all = _$jsonSerializers.serialize(all, specifiedType: const FullType(CallLeaveCallAll));
     $all ??= 0;
     _parameters['all'] = $all;
 
@@ -3676,7 +3677,7 @@ class $ChatClient {
     String? actorDisplayName,
     String? referenceId,
     int? replyTo,
-    int? silent,
+    ChatSendMessageSilent? silent,
     ChatSendMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -3728,7 +3729,7 @@ class $ChatClient {
     String? actorDisplayName,
     String? referenceId,
     int? replyTo,
-    int? silent,
+    ChatSendMessageSilent? silent,
     ChatSendMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -3775,7 +3776,7 @@ class $ChatClient {
     $replyTo ??= 0;
     _parameters['replyTo'] = $replyTo;
 
-    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(ChatSendMessageSilent));
     $silent ??= 0;
     _parameters['silent'] = $silent;
 
@@ -4777,7 +4778,7 @@ class $ChatClient {
     required String search,
     required String token,
     int? limit,
-    int? includeStatus,
+    ChatMentionsIncludeStatus? includeStatus,
     ChatMentionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -4818,7 +4819,7 @@ class $ChatClient {
     required String search,
     required String token,
     int? limit,
-    int? includeStatus,
+    ChatMentionsIncludeStatus? includeStatus,
     ChatMentionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -4857,7 +4858,8 @@ class $ChatClient {
     $limit ??= 20;
     _parameters['limit'] = $limit;
 
-    var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    var $includeStatus =
+        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(ChatMentionsIncludeStatus));
     $includeStatus ??= 0;
     _parameters['includeStatus'] = $includeStatus;
 
@@ -6064,7 +6066,7 @@ class $MatterbridgeClient {
   /// See:
   ///  * [editBridgeOfRoomRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>> editBridgeOfRoom({
-    required int enabled,
+    required MatterbridgeEditBridgeOfRoomEnabled enabled,
     required String token,
     ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
     MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
@@ -6103,7 +6105,7 @@ class $MatterbridgeClient {
   ///  * [editBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void> editBridgeOfRoomRaw({
-    required int enabled,
+    required MatterbridgeEditBridgeOfRoomEnabled enabled,
     required String token,
     ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
     MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
@@ -6131,7 +6133,8 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    final $enabled = _$jsonSerializers.serialize(enabled, specifiedType: const FullType(int));
+    final $enabled =
+        _$jsonSerializers.serialize(enabled, specifiedType: const FullType(MatterbridgeEditBridgeOfRoomEnabled));
     _parameters['enabled'] = $enabled;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -8335,7 +8338,7 @@ class $RoomClient {
   ///  * [getRoomsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>> getRooms({
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
-    int? includeStatus,
+    RoomGetRoomsIncludeStatus? includeStatus,
     int? modifiedSince,
     RoomGetRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8373,7 +8376,7 @@ class $RoomClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> getRoomsRaw({
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
-    int? includeStatus,
+    RoomGetRoomsIncludeStatus? includeStatus,
     int? modifiedSince,
     RoomGetRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -8405,7 +8408,8 @@ class $RoomClient {
     $noStatusUpdate ??= 0;
     _parameters['noStatusUpdate'] = $noStatusUpdate;
 
-    var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    var $includeStatus =
+        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(RoomGetRoomsIncludeStatus));
     $includeStatus ??= 0;
     _parameters['includeStatus'] = $includeStatus;
 
@@ -10091,7 +10095,7 @@ class $RoomClient {
   Future<_i1.DynamiteResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>>
       getParticipants({
     required String token,
-    int? includeStatus,
+    RoomGetParticipantsIncludeStatus? includeStatus,
     RoomGetParticipantsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -10128,7 +10132,7 @@ class $RoomClient {
   _i1.DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>
       getParticipantsRaw({
     required String token,
-    int? includeStatus,
+    RoomGetParticipantsIncludeStatus? includeStatus,
     RoomGetParticipantsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -10160,7 +10164,8 @@ class $RoomClient {
     );
     _parameters['token'] = $token;
 
-    var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    var $includeStatus =
+        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(RoomGetParticipantsIncludeStatus));
     $includeStatus ??= 0;
     _parameters['includeStatus'] = $includeStatus;
 
@@ -10342,7 +10347,7 @@ class $RoomClient {
       _i1.DynamiteResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
           RoomRoomGetBreakoutRoomParticipantsHeaders>> getBreakoutRoomParticipants({
     required String token,
-    int? includeStatus,
+    RoomGetBreakoutRoomParticipantsIncludeStatus? includeStatus,
     RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -10380,7 +10385,7 @@ class $RoomClient {
   _i1.DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
       RoomRoomGetBreakoutRoomParticipantsHeaders> getBreakoutRoomParticipantsRaw({
     required String token,
-    int? includeStatus,
+    RoomGetBreakoutRoomParticipantsIncludeStatus? includeStatus,
     RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -10412,7 +10417,10 @@ class $RoomClient {
     );
     _parameters['token'] = $token;
 
-    var $includeStatus = _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    var $includeStatus = _$jsonSerializers.serialize(
+      includeStatus,
+      specifiedType: const FullType(RoomGetBreakoutRoomParticipantsIncludeStatus),
+    );
     $includeStatus ??= 0;
     _parameters['includeStatus'] = $includeStatus;
 
@@ -10980,7 +10988,7 @@ class $RoomClient {
   Future<_i1.DynamiteResponse<RoomJoinRoomResponseApplicationJson, void>> joinRoom({
     required String token,
     String? password,
-    int? force,
+    RoomJoinRoomForce? force,
     RoomJoinRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -11021,7 +11029,7 @@ class $RoomClient {
   _i1.DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void> joinRoomRaw({
     required String token,
     String? password,
-    int? force,
+    RoomJoinRoomForce? force,
     RoomJoinRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -11057,7 +11065,7 @@ class $RoomClient {
     $password ??= '';
     _parameters['password'] = $password;
 
-    var $force = _$jsonSerializers.serialize(force, specifiedType: const FullType(int));
+    var $force = _$jsonSerializers.serialize(force, specifiedType: const FullType(RoomJoinRoomForce));
     $force ??= 1;
     _parameters['force'] = $force;
 
@@ -13487,6 +13495,69 @@ class $TempAvatarClient {
   }
 }
 
+class AvatarGetAvatarDarkTheme extends EnumClass {
+  const AvatarGetAvatarDarkTheme._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const AvatarGetAvatarDarkTheme $0 = _$avatarGetAvatarDarkTheme$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const AvatarGetAvatarDarkTheme $1 = _$avatarGetAvatarDarkTheme$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetAvatarDarkTheme> get values => _$avatarGetAvatarDarkThemeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetAvatarDarkTheme valueOf(String name) => _$valueOfAvatarGetAvatarDarkTheme(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetAvatarDarkTheme.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetAvatarDarkTheme> get serializer => const _$AvatarGetAvatarDarkThemeSerializer();
+}
+
+class _$AvatarGetAvatarDarkThemeSerializer implements PrimitiveSerializer<AvatarGetAvatarDarkTheme> {
+  const _$AvatarGetAvatarDarkThemeSerializer();
+
+  static const Map<AvatarGetAvatarDarkTheme, Object> _toWire = <AvatarGetAvatarDarkTheme, Object>{
+    AvatarGetAvatarDarkTheme.$0: 0,
+    AvatarGetAvatarDarkTheme.$1: 1,
+  };
+
+  static const Map<Object, AvatarGetAvatarDarkTheme> _fromWire = <Object, AvatarGetAvatarDarkTheme>{
+    0: AvatarGetAvatarDarkTheme.$0,
+    1: AvatarGetAvatarDarkTheme.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetAvatarDarkTheme];
+
+  @override
+  String get wireName => 'AvatarGetAvatarDarkTheme';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetAvatarDarkTheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetAvatarDarkTheme deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class AvatarGetAvatarApiVersion extends EnumClass {
   const AvatarGetAvatarApiVersion._(super.name);
 
@@ -13634,12 +13705,69 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
+class ChatMessage_Deleted extends EnumClass {
+  const ChatMessage_Deleted._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const ChatMessage_Deleted $true = _$chatMessageDeleted$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ChatMessage_Deleted> get values => _$chatMessageDeletedValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ChatMessage_Deleted valueOf(String name) => _$valueOfChatMessage_Deleted(name);
+
+  /// Returns the serialized value of this enum value.
+  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
+
+  /// Serializer for ChatMessage_Deleted.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMessage_Deleted> get serializer => const _$ChatMessage_DeletedSerializer();
+}
+
+class _$ChatMessage_DeletedSerializer implements PrimitiveSerializer<ChatMessage_Deleted> {
+  const _$ChatMessage_DeletedSerializer();
+
+  static const Map<ChatMessage_Deleted, Object> _toWire = <ChatMessage_Deleted, Object>{
+    ChatMessage_Deleted.$true: true,
+  };
+
+  static const Map<Object, ChatMessage_Deleted> _fromWire = <Object, ChatMessage_Deleted>{
+    true: ChatMessage_Deleted.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatMessage_Deleted];
+
+  @override
+  String get wireName => 'ChatMessage_Deleted';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatMessage_Deleted object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatMessage_Deleted deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $ChatMessageInterface {
   String get actorDisplayName;
   String get actorId;
   String get actorType;
-  bool? get deleted;
+  ChatMessage_Deleted? get deleted;
   int get expirationTimestamp;
   int get id;
   bool get isReplyable;
@@ -14163,6 +14291,69 @@ class _$AvatarGetAvatarDarkApiVersionSerializer implements PrimitiveSerializer<A
 
   @override
   AvatarGetAvatarDarkApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class BotSendMessageSilent extends EnumClass {
+  const BotSendMessageSilent._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const BotSendMessageSilent $0 = _$botSendMessageSilent$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const BotSendMessageSilent $1 = _$botSendMessageSilent$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<BotSendMessageSilent> get values => _$botSendMessageSilentValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static BotSendMessageSilent valueOf(String name) => _$valueOfBotSendMessageSilent(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for BotSendMessageSilent.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotSendMessageSilent> get serializer => const _$BotSendMessageSilentSerializer();
+}
+
+class _$BotSendMessageSilentSerializer implements PrimitiveSerializer<BotSendMessageSilent> {
+  const _$BotSendMessageSilentSerializer();
+
+  static const Map<BotSendMessageSilent, Object> _toWire = <BotSendMessageSilent, Object>{
+    BotSendMessageSilent.$0: 0,
+    BotSendMessageSilent.$1: 1,
+  };
+
+  static const Map<Object, BotSendMessageSilent> _fromWire = <Object, BotSendMessageSilent>{
+    0: BotSendMessageSilent.$0,
+    1: BotSendMessageSilent.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotSendMessageSilent];
+
+  @override
+  String get wireName => 'BotSendMessageSilent';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotSendMessageSilent object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotSendMessageSilent deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -18549,6 +18740,132 @@ class _$CallJoinCallForcePermissionsSerializer implements PrimitiveSerializer<Ca
       _fromWire[serialized]!;
 }
 
+class CallJoinCallSilent extends EnumClass {
+  const CallJoinCallSilent._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const CallJoinCallSilent $0 = _$callJoinCallSilent$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const CallJoinCallSilent $1 = _$callJoinCallSilent$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<CallJoinCallSilent> get values => _$callJoinCallSilentValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static CallJoinCallSilent valueOf(String name) => _$valueOfCallJoinCallSilent(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for CallJoinCallSilent.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallJoinCallSilent> get serializer => const _$CallJoinCallSilentSerializer();
+}
+
+class _$CallJoinCallSilentSerializer implements PrimitiveSerializer<CallJoinCallSilent> {
+  const _$CallJoinCallSilentSerializer();
+
+  static const Map<CallJoinCallSilent, Object> _toWire = <CallJoinCallSilent, Object>{
+    CallJoinCallSilent.$0: 0,
+    CallJoinCallSilent.$1: 1,
+  };
+
+  static const Map<Object, CallJoinCallSilent> _fromWire = <Object, CallJoinCallSilent>{
+    0: CallJoinCallSilent.$0,
+    1: CallJoinCallSilent.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallJoinCallSilent];
+
+  @override
+  String get wireName => 'CallJoinCallSilent';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallJoinCallSilent object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallJoinCallSilent deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class CallJoinCallRecordingConsent extends EnumClass {
+  const CallJoinCallRecordingConsent._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const CallJoinCallRecordingConsent $0 = _$callJoinCallRecordingConsent$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const CallJoinCallRecordingConsent $1 = _$callJoinCallRecordingConsent$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<CallJoinCallRecordingConsent> get values => _$callJoinCallRecordingConsentValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static CallJoinCallRecordingConsent valueOf(String name) => _$valueOfCallJoinCallRecordingConsent(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for CallJoinCallRecordingConsent.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallJoinCallRecordingConsent> get serializer => const _$CallJoinCallRecordingConsentSerializer();
+}
+
+class _$CallJoinCallRecordingConsentSerializer implements PrimitiveSerializer<CallJoinCallRecordingConsent> {
+  const _$CallJoinCallRecordingConsentSerializer();
+
+  static const Map<CallJoinCallRecordingConsent, Object> _toWire = <CallJoinCallRecordingConsent, Object>{
+    CallJoinCallRecordingConsent.$0: 0,
+    CallJoinCallRecordingConsent.$1: 1,
+  };
+
+  static const Map<Object, CallJoinCallRecordingConsent> _fromWire = <Object, CallJoinCallRecordingConsent>{
+    0: CallJoinCallRecordingConsent.$0,
+    1: CallJoinCallRecordingConsent.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallJoinCallRecordingConsent];
+
+  @override
+  String get wireName => 'CallJoinCallRecordingConsent';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallJoinCallRecordingConsent object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallJoinCallRecordingConsent deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class CallJoinCallApiVersion extends EnumClass {
   const CallJoinCallApiVersion._(super.name);
 
@@ -18678,6 +18995,69 @@ abstract class CallJoinCallResponseApplicationJson
   /// Serializer for CallJoinCallResponseApplicationJson.
   static Serializer<CallJoinCallResponseApplicationJson> get serializer =>
       _$callJoinCallResponseApplicationJsonSerializer;
+}
+
+class CallLeaveCallAll extends EnumClass {
+  const CallLeaveCallAll._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const CallLeaveCallAll $0 = _$callLeaveCallAll$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const CallLeaveCallAll $1 = _$callLeaveCallAll$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<CallLeaveCallAll> get values => _$callLeaveCallAllValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static CallLeaveCallAll valueOf(String name) => _$valueOfCallLeaveCallAll(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for CallLeaveCallAll.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallLeaveCallAll> get serializer => const _$CallLeaveCallAllSerializer();
+}
+
+class _$CallLeaveCallAllSerializer implements PrimitiveSerializer<CallLeaveCallAll> {
+  const _$CallLeaveCallAllSerializer();
+
+  static const Map<CallLeaveCallAll, Object> _toWire = <CallLeaveCallAll, Object>{
+    CallLeaveCallAll.$0: 0,
+    CallLeaveCallAll.$1: 1,
+  };
+
+  static const Map<Object, CallLeaveCallAll> _fromWire = <Object, CallLeaveCallAll>{
+    0: CallLeaveCallAll.$0,
+    1: CallLeaveCallAll.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallLeaveCallAll];
+
+  @override
+  String get wireName => 'CallLeaveCallAll';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallLeaveCallAll object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallLeaveCallAll deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class CallLeaveCallApiVersion extends EnumClass {
@@ -19826,6 +20206,69 @@ abstract class ChatReceiveMessagesResponseApplicationJson
   /// Serializer for ChatReceiveMessagesResponseApplicationJson.
   static Serializer<ChatReceiveMessagesResponseApplicationJson> get serializer =>
       _$chatReceiveMessagesResponseApplicationJsonSerializer;
+}
+
+class ChatSendMessageSilent extends EnumClass {
+  const ChatSendMessageSilent._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatSendMessageSilent $0 = _$chatSendMessageSilent$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatSendMessageSilent $1 = _$chatSendMessageSilent$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ChatSendMessageSilent> get values => _$chatSendMessageSilentValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ChatSendMessageSilent valueOf(String name) => _$valueOfChatSendMessageSilent(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ChatSendMessageSilent.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatSendMessageSilent> get serializer => const _$ChatSendMessageSilentSerializer();
+}
+
+class _$ChatSendMessageSilentSerializer implements PrimitiveSerializer<ChatSendMessageSilent> {
+  const _$ChatSendMessageSilentSerializer();
+
+  static const Map<ChatSendMessageSilent, Object> _toWire = <ChatSendMessageSilent, Object>{
+    ChatSendMessageSilent.$0: 0,
+    ChatSendMessageSilent.$1: 1,
+  };
+
+  static const Map<Object, ChatSendMessageSilent> _fromWire = <Object, ChatSendMessageSilent>{
+    0: ChatSendMessageSilent.$0,
+    1: ChatSendMessageSilent.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatSendMessageSilent];
+
+  @override
+  String get wireName => 'ChatSendMessageSilent';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatSendMessageSilent object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatSendMessageSilent deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class ChatSendMessageApiVersion extends EnumClass {
@@ -21275,6 +21718,69 @@ abstract class ChatMarkUnreadResponseApplicationJson
   /// Serializer for ChatMarkUnreadResponseApplicationJson.
   static Serializer<ChatMarkUnreadResponseApplicationJson> get serializer =>
       _$chatMarkUnreadResponseApplicationJsonSerializer;
+}
+
+class ChatMentionsIncludeStatus extends EnumClass {
+  const ChatMentionsIncludeStatus._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatMentionsIncludeStatus $0 = _$chatMentionsIncludeStatus$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatMentionsIncludeStatus $1 = _$chatMentionsIncludeStatus$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ChatMentionsIncludeStatus> get values => _$chatMentionsIncludeStatusValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ChatMentionsIncludeStatus valueOf(String name) => _$valueOfChatMentionsIncludeStatus(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ChatMentionsIncludeStatus.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMentionsIncludeStatus> get serializer => const _$ChatMentionsIncludeStatusSerializer();
+}
+
+class _$ChatMentionsIncludeStatusSerializer implements PrimitiveSerializer<ChatMentionsIncludeStatus> {
+  const _$ChatMentionsIncludeStatusSerializer();
+
+  static const Map<ChatMentionsIncludeStatus, Object> _toWire = <ChatMentionsIncludeStatus, Object>{
+    ChatMentionsIncludeStatus.$0: 0,
+    ChatMentionsIncludeStatus.$1: 1,
+  };
+
+  static const Map<Object, ChatMentionsIncludeStatus> _fromWire = <Object, ChatMentionsIncludeStatus>{
+    0: ChatMentionsIncludeStatus.$0,
+    1: ChatMentionsIncludeStatus.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatMentionsIncludeStatus];
+
+  @override
+  String get wireName => 'ChatMentionsIncludeStatus';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatMentionsIncludeStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatMentionsIncludeStatus deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class ChatMentionsApiVersion extends EnumClass {
@@ -22955,6 +23461,72 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
   /// Serializer for MatterbridgeGetBridgeOfRoomResponseApplicationJson.
   static Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson> get serializer =>
       _$matterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer;
+}
+
+class MatterbridgeEditBridgeOfRoomEnabled extends EnumClass {
+  const MatterbridgeEditBridgeOfRoomEnabled._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const MatterbridgeEditBridgeOfRoomEnabled $0 = _$matterbridgeEditBridgeOfRoomEnabled$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const MatterbridgeEditBridgeOfRoomEnabled $1 = _$matterbridgeEditBridgeOfRoomEnabled$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<MatterbridgeEditBridgeOfRoomEnabled> get values => _$matterbridgeEditBridgeOfRoomEnabledValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static MatterbridgeEditBridgeOfRoomEnabled valueOf(String name) => _$valueOfMatterbridgeEditBridgeOfRoomEnabled(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for MatterbridgeEditBridgeOfRoomEnabled.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<MatterbridgeEditBridgeOfRoomEnabled> get serializer =>
+      const _$MatterbridgeEditBridgeOfRoomEnabledSerializer();
+}
+
+class _$MatterbridgeEditBridgeOfRoomEnabledSerializer
+    implements PrimitiveSerializer<MatterbridgeEditBridgeOfRoomEnabled> {
+  const _$MatterbridgeEditBridgeOfRoomEnabledSerializer();
+
+  static const Map<MatterbridgeEditBridgeOfRoomEnabled, Object> _toWire = <MatterbridgeEditBridgeOfRoomEnabled, Object>{
+    MatterbridgeEditBridgeOfRoomEnabled.$0: 0,
+    MatterbridgeEditBridgeOfRoomEnabled.$1: 1,
+  };
+
+  static const Map<Object, MatterbridgeEditBridgeOfRoomEnabled> _fromWire =
+      <Object, MatterbridgeEditBridgeOfRoomEnabled>{
+    0: MatterbridgeEditBridgeOfRoomEnabled.$0,
+    1: MatterbridgeEditBridgeOfRoomEnabled.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [MatterbridgeEditBridgeOfRoomEnabled];
+
+  @override
+  String get wireName => 'MatterbridgeEditBridgeOfRoomEnabled';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MatterbridgeEditBridgeOfRoomEnabled object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  MatterbridgeEditBridgeOfRoomEnabled deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class MatterbridgeEditBridgeOfRoomApiVersion extends EnumClass {
@@ -25885,6 +26457,69 @@ class _$RoomGetRoomsNoStatusUpdateSerializer implements PrimitiveSerializer<Room
 
   @override
   RoomGetRoomsNoStatusUpdate deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class RoomGetRoomsIncludeStatus extends EnumClass {
+  const RoomGetRoomsIncludeStatus._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetRoomsIncludeStatus $0 = _$roomGetRoomsIncludeStatus$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetRoomsIncludeStatus $1 = _$roomGetRoomsIncludeStatus$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetRoomsIncludeStatus> get values => _$roomGetRoomsIncludeStatusValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomGetRoomsIncludeStatus valueOf(String name) => _$valueOfRoomGetRoomsIncludeStatus(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for RoomGetRoomsIncludeStatus.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetRoomsIncludeStatus> get serializer => const _$RoomGetRoomsIncludeStatusSerializer();
+}
+
+class _$RoomGetRoomsIncludeStatusSerializer implements PrimitiveSerializer<RoomGetRoomsIncludeStatus> {
+  const _$RoomGetRoomsIncludeStatusSerializer();
+
+  static const Map<RoomGetRoomsIncludeStatus, Object> _toWire = <RoomGetRoomsIncludeStatus, Object>{
+    RoomGetRoomsIncludeStatus.$0: 0,
+    RoomGetRoomsIncludeStatus.$1: 1,
+  };
+
+  static const Map<Object, RoomGetRoomsIncludeStatus> _fromWire = <Object, RoomGetRoomsIncludeStatus>{
+    0: RoomGetRoomsIncludeStatus.$0,
+    1: RoomGetRoomsIncludeStatus.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetRoomsIncludeStatus];
+
+  @override
+  String get wireName => 'RoomGetRoomsIncludeStatus';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetRoomsIncludeStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetRoomsIncludeStatus deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -29779,6 +30414,70 @@ abstract class RoomSetPermissionsResponseApplicationJson
       _$roomSetPermissionsResponseApplicationJsonSerializer;
 }
 
+class RoomGetParticipantsIncludeStatus extends EnumClass {
+  const RoomGetParticipantsIncludeStatus._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetParticipantsIncludeStatus $0 = _$roomGetParticipantsIncludeStatus$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetParticipantsIncludeStatus $1 = _$roomGetParticipantsIncludeStatus$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetParticipantsIncludeStatus> get values => _$roomGetParticipantsIncludeStatusValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomGetParticipantsIncludeStatus valueOf(String name) => _$valueOfRoomGetParticipantsIncludeStatus(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for RoomGetParticipantsIncludeStatus.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetParticipantsIncludeStatus> get serializer =>
+      const _$RoomGetParticipantsIncludeStatusSerializer();
+}
+
+class _$RoomGetParticipantsIncludeStatusSerializer implements PrimitiveSerializer<RoomGetParticipantsIncludeStatus> {
+  const _$RoomGetParticipantsIncludeStatusSerializer();
+
+  static const Map<RoomGetParticipantsIncludeStatus, Object> _toWire = <RoomGetParticipantsIncludeStatus, Object>{
+    RoomGetParticipantsIncludeStatus.$0: 0,
+    RoomGetParticipantsIncludeStatus.$1: 1,
+  };
+
+  static const Map<Object, RoomGetParticipantsIncludeStatus> _fromWire = <Object, RoomGetParticipantsIncludeStatus>{
+    0: RoomGetParticipantsIncludeStatus.$0,
+    1: RoomGetParticipantsIncludeStatus.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetParticipantsIncludeStatus];
+
+  @override
+  String get wireName => 'RoomGetParticipantsIncludeStatus';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetParticipantsIncludeStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetParticipantsIncludeStatus deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class RoomGetParticipantsApiVersion extends EnumClass {
   const RoomGetParticipantsApiVersion._(super.name);
 
@@ -30262,6 +30961,75 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
   /// Serializer for RoomAddParticipantToRoomResponseApplicationJson.
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson> get serializer =>
       _$roomAddParticipantToRoomResponseApplicationJsonSerializer;
+}
+
+class RoomGetBreakoutRoomParticipantsIncludeStatus extends EnumClass {
+  const RoomGetBreakoutRoomParticipantsIncludeStatus._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetBreakoutRoomParticipantsIncludeStatus $0 = _$roomGetBreakoutRoomParticipantsIncludeStatus$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetBreakoutRoomParticipantsIncludeStatus $1 = _$roomGetBreakoutRoomParticipantsIncludeStatus$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetBreakoutRoomParticipantsIncludeStatus> get values =>
+      _$roomGetBreakoutRoomParticipantsIncludeStatusValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomGetBreakoutRoomParticipantsIncludeStatus valueOf(String name) =>
+      _$valueOfRoomGetBreakoutRoomParticipantsIncludeStatus(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for RoomGetBreakoutRoomParticipantsIncludeStatus.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetBreakoutRoomParticipantsIncludeStatus> get serializer =>
+      const _$RoomGetBreakoutRoomParticipantsIncludeStatusSerializer();
+}
+
+class _$RoomGetBreakoutRoomParticipantsIncludeStatusSerializer
+    implements PrimitiveSerializer<RoomGetBreakoutRoomParticipantsIncludeStatus> {
+  const _$RoomGetBreakoutRoomParticipantsIncludeStatusSerializer();
+
+  static const Map<RoomGetBreakoutRoomParticipantsIncludeStatus, Object> _toWire =
+      <RoomGetBreakoutRoomParticipantsIncludeStatus, Object>{
+    RoomGetBreakoutRoomParticipantsIncludeStatus.$0: 0,
+    RoomGetBreakoutRoomParticipantsIncludeStatus.$1: 1,
+  };
+
+  static const Map<Object, RoomGetBreakoutRoomParticipantsIncludeStatus> _fromWire =
+      <Object, RoomGetBreakoutRoomParticipantsIncludeStatus>{
+    0: RoomGetBreakoutRoomParticipantsIncludeStatus.$0,
+    1: RoomGetBreakoutRoomParticipantsIncludeStatus.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetBreakoutRoomParticipantsIncludeStatus];
+
+  @override
+  String get wireName => 'RoomGetBreakoutRoomParticipantsIncludeStatus';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetBreakoutRoomParticipantsIncludeStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetBreakoutRoomParticipantsIncludeStatus deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
@@ -34323,6 +35091,69 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
   /// Serializer for RoomSetAllAttendeesPermissionsResponseApplicationJson.
   static Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson> get serializer =>
       _$roomSetAllAttendeesPermissionsResponseApplicationJsonSerializer;
+}
+
+class RoomJoinRoomForce extends EnumClass {
+  const RoomJoinRoomForce._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomJoinRoomForce $0 = _$roomJoinRoomForce$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomJoinRoomForce $1 = _$roomJoinRoomForce$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomJoinRoomForce> get values => _$roomJoinRoomForceValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomJoinRoomForce valueOf(String name) => _$valueOfRoomJoinRoomForce(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for RoomJoinRoomForce.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomJoinRoomForce> get serializer => const _$RoomJoinRoomForceSerializer();
+}
+
+class _$RoomJoinRoomForceSerializer implements PrimitiveSerializer<RoomJoinRoomForce> {
+  const _$RoomJoinRoomForceSerializer();
+
+  static const Map<RoomJoinRoomForce, Object> _toWire = <RoomJoinRoomForce, Object>{
+    RoomJoinRoomForce.$0: 0,
+    RoomJoinRoomForce.$1: 1,
+  };
+
+  static const Map<Object, RoomJoinRoomForce> _fromWire = <Object, RoomJoinRoomForce>{
+    0: RoomJoinRoomForce.$0,
+    1: RoomJoinRoomForce.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomJoinRoomForce];
+
+  @override
+  String get wireName => 'RoomJoinRoomForce';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomJoinRoomForce object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomJoinRoomForce deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class RoomJoinRoomApiVersion extends EnumClass {
@@ -38582,6 +39413,7 @@ class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerialize
 @_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
+      ..add(AvatarGetAvatarDarkTheme.serializer)
       ..add(AvatarGetAvatarApiVersion.serializer)
       ..add(AvatarUploadAvatarApiVersion.serializer)
       ..addBuilderFactory(
@@ -38600,6 +39432,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Room.serializer)
       ..addBuilderFactory(const FullType(ChatMessage), ChatMessageBuilder.new)
       ..add(ChatMessage.serializer)
+      ..add(ChatMessage_Deleted.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         MapBuilder<String, JsonObject>.new,
@@ -38637,6 +39470,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AvatarEmojiAvatarResponseApplicationJson_Ocs.serializer)
       ..add(AvatarGetAvatarDarkApiVersion.serializer)
+      ..add(BotSendMessageSilent.serializer)
       ..add(BotSendMessageApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BotSendMessageResponseApplicationJson),
@@ -38845,6 +39679,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(CallUpdateCallFlagsResponseApplicationJson_Ocs.serializer)
       ..add(CallJoinCallFlags.serializer)
       ..add(CallJoinCallForcePermissions.serializer)
+      ..add(CallJoinCallSilent.serializer)
+      ..add(CallJoinCallRecordingConsent.serializer)
       ..add(CallJoinCallApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallJoinCallResponseApplicationJson),
@@ -38856,6 +39692,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CallJoinCallResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallJoinCallResponseApplicationJson_Ocs.serializer)
+      ..add(CallLeaveCallAll.serializer)
       ..add(CallLeaveCallApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallLeaveCallResponseApplicationJson),
@@ -38934,6 +39771,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(ChatMessageWithParent)]),
         ListBuilder<ChatMessageWithParent>.new,
       )
+      ..add(ChatSendMessageSilent.serializer)
       ..add(ChatSendMessageApiVersion.serializer)
       ..addBuilderFactory(const FullType(ChatChatSendMessageHeaders), ChatChatSendMessageHeadersBuilder.new)
       ..add(ChatChatSendMessageHeaders.serializer)
@@ -39047,6 +39885,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatMarkUnreadResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatMarkUnreadResponseApplicationJson_Ocs.serializer)
+      ..add(ChatMentionsIncludeStatus.serializer)
       ..add(ChatMentionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatMentionsResponseApplicationJson),
@@ -39200,6 +40039,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(const FullType(MatterbridgeProcessState), MatterbridgeProcessStateBuilder.new)
       ..add(MatterbridgeProcessState.serializer)
+      ..add(MatterbridgeEditBridgeOfRoomEnabled.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [
           FullType(BuiltList, [
@@ -39452,6 +40292,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RecordingShareToChatResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetRoomsNoStatusUpdate.serializer)
+      ..add(RoomGetRoomsIncludeStatus.serializer)
       ..add(RoomGetRoomsApiVersion.serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetRoomsHeaders), RoomRoomGetRoomsHeadersBuilder.new)
       ..add(RoomRoomGetRoomsHeaders.serializer)
@@ -39630,6 +40471,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomSetPermissionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetPermissionsResponseApplicationJson_Ocs.serializer)
+      ..add(RoomGetParticipantsIncludeStatus.serializer)
       ..add(RoomGetParticipantsApiVersion.serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
       ..add(RoomRoomGetParticipantsHeaders.serializer)
@@ -39666,6 +40508,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.serializer)
       ..add($bd993fb3f40af33e8594d0d698208560Extension._serializer)
+      ..add(RoomGetBreakoutRoomParticipantsIncludeStatus.serializer)
       ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
@@ -39730,6 +40573,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.serializer)
+      ..add(RoomJoinRoomForce.serializer)
       ..add(RoomJoinRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomJoinRoomResponseApplicationJson),

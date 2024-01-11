@@ -6,6 +6,26 @@ part of 'files_sharing.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const PublicPreviewGetPreviewA _$publicPreviewGetPreviewA$0 = PublicPreviewGetPreviewA._('\$0');
+const PublicPreviewGetPreviewA _$publicPreviewGetPreviewA$1 = PublicPreviewGetPreviewA._('\$1');
+
+PublicPreviewGetPreviewA _$valueOfPublicPreviewGetPreviewA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$publicPreviewGetPreviewA$0;
+    case '\$1':
+      return _$publicPreviewGetPreviewA$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PublicPreviewGetPreviewA> _$publicPreviewGetPreviewAValues =
+    BuiltSet<PublicPreviewGetPreviewA>(const <PublicPreviewGetPreviewA>[
+  _$publicPreviewGetPreviewA$0,
+  _$publicPreviewGetPreviewA$1,
+]);
+
 const Share_HideDownload _$shareHideDownload$0 = Share_HideDownload._('\$0');
 const Share_HideDownload _$shareHideDownload$1 = Share_HideDownload._('\$1');
 
@@ -61,6 +81,46 @@ Share_MailSend _$valueOfShare_MailSend(String name) {
 final BuiltSet<Share_MailSend> _$shareMailSendValues = BuiltSet<Share_MailSend>(const <Share_MailSend>[
   _$shareMailSend$0,
   _$shareMailSend$1,
+]);
+
+const ShareapiGetShareIncludeTags _$shareapiGetShareIncludeTags$0 = ShareapiGetShareIncludeTags._('\$0');
+const ShareapiGetShareIncludeTags _$shareapiGetShareIncludeTags$1 = ShareapiGetShareIncludeTags._('\$1');
+
+ShareapiGetShareIncludeTags _$valueOfShareapiGetShareIncludeTags(String name) {
+  switch (name) {
+    case '\$0':
+      return _$shareapiGetShareIncludeTags$0;
+    case '\$1':
+      return _$shareapiGetShareIncludeTags$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ShareapiGetShareIncludeTags> _$shareapiGetShareIncludeTagsValues =
+    BuiltSet<ShareapiGetShareIncludeTags>(const <ShareapiGetShareIncludeTags>[
+  _$shareapiGetShareIncludeTags$0,
+  _$shareapiGetShareIncludeTags$1,
+]);
+
+const ShareesapiSearchLookup _$shareesapiSearchLookup$0 = ShareesapiSearchLookup._('\$0');
+const ShareesapiSearchLookup _$shareesapiSearchLookup$1 = ShareesapiSearchLookup._('\$1');
+
+ShareesapiSearchLookup _$valueOfShareesapiSearchLookup(String name) {
+  switch (name) {
+    case '\$0':
+      return _$shareesapiSearchLookup$0;
+    case '\$1':
+      return _$shareesapiSearchLookup$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ShareesapiSearchLookup> _$shareesapiSearchLookupValues =
+    BuiltSet<ShareesapiSearchLookup>(const <ShareesapiSearchLookup>[
+  _$shareesapiSearchLookup$0,
+  _$shareesapiSearchLookup$1,
 ]);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();

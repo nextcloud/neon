@@ -6,11 +6,72 @@ part of 'theming.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const ThemingGetThemeStylesheetPlain _$themingGetThemeStylesheetPlain$0 = ThemingGetThemeStylesheetPlain._('\$0');
+const ThemingGetThemeStylesheetPlain _$themingGetThemeStylesheetPlain$1 = ThemingGetThemeStylesheetPlain._('\$1');
+
+ThemingGetThemeStylesheetPlain _$valueOfThemingGetThemeStylesheetPlain(String name) {
+  switch (name) {
+    case '\$0':
+      return _$themingGetThemeStylesheetPlain$0;
+    case '\$1':
+      return _$themingGetThemeStylesheetPlain$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ThemingGetThemeStylesheetPlain> _$themingGetThemeStylesheetPlainValues =
+    BuiltSet<ThemingGetThemeStylesheetPlain>(const <ThemingGetThemeStylesheetPlain>[
+  _$themingGetThemeStylesheetPlain$0,
+  _$themingGetThemeStylesheetPlain$1,
+]);
+
+const ThemingGetThemeStylesheetWithCustomCss _$themingGetThemeStylesheetWithCustomCss$0 =
+    ThemingGetThemeStylesheetWithCustomCss._('\$0');
+const ThemingGetThemeStylesheetWithCustomCss _$themingGetThemeStylesheetWithCustomCss$1 =
+    ThemingGetThemeStylesheetWithCustomCss._('\$1');
+
+ThemingGetThemeStylesheetWithCustomCss _$valueOfThemingGetThemeStylesheetWithCustomCss(String name) {
+  switch (name) {
+    case '\$0':
+      return _$themingGetThemeStylesheetWithCustomCss$0;
+    case '\$1':
+      return _$themingGetThemeStylesheetWithCustomCss$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ThemingGetThemeStylesheetWithCustomCss> _$themingGetThemeStylesheetWithCustomCssValues =
+    BuiltSet<ThemingGetThemeStylesheetWithCustomCss>(const <ThemingGetThemeStylesheetWithCustomCss>[
+  _$themingGetThemeStylesheetWithCustomCss$0,
+  _$themingGetThemeStylesheetWithCustomCss$1,
+]);
+
+const ThemingGetImageUseSvg _$themingGetImageUseSvg$0 = ThemingGetImageUseSvg._('\$0');
+const ThemingGetImageUseSvg _$themingGetImageUseSvg$1 = ThemingGetImageUseSvg._('\$1');
+
+ThemingGetImageUseSvg _$valueOfThemingGetImageUseSvg(String name) {
+  switch (name) {
+    case '\$0':
+      return _$themingGetImageUseSvg$0;
+    case '\$1':
+      return _$themingGetImageUseSvg$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ThemingGetImageUseSvg> _$themingGetImageUseSvgValues =
+    BuiltSet<ThemingGetImageUseSvg>(const <ThemingGetImageUseSvg>[
+  _$themingGetImageUseSvg$0,
+  _$themingGetImageUseSvg$1,
+]);
+
 Serializer<ThemingGetManifestResponseApplicationJson_Icons> _$themingGetManifestResponseApplicationJsonIconsSerializer =
     _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
 Serializer<ThemingGetManifestResponseApplicationJson> _$themingGetManifestResponseApplicationJsonSerializer =
     _$ThemingGetManifestResponseApplicationJsonSerializer();
-Serializer<Background> _$backgroundSerializer = _$BackgroundSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> _$userThemeEnableThemeResponseApplicationJsonOcsSerializer =
     _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer();
@@ -21,6 +82,7 @@ Serializer<UserThemeDisableThemeResponseApplicationJson_Ocs>
     _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer();
 Serializer<UserThemeDisableThemeResponseApplicationJson> _$userThemeDisableThemeResponseApplicationJsonSerializer =
     _$UserThemeDisableThemeResponseApplicationJsonSerializer();
+Serializer<Background> _$backgroundSerializer = _$BackgroundSerializer();
 Serializer<PublicCapabilities_Theming> _$publicCapabilitiesThemingSerializer = _$PublicCapabilities_ThemingSerializer();
 Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = _$PublicCapabilitiesSerializer();
 
@@ -149,58 +211,6 @@ class _$ThemingGetManifestResponseApplicationJsonSerializer
           break;
         case 'display':
           result.display = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$BackgroundSerializer implements StructuredSerializer<Background> {
-  @override
-  final Iterable<Type> types = const [Background, _$Background];
-  @override
-  final String wireName = 'Background';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, Background object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'backgroundColor',
-      serializers.serialize(object.backgroundColor, specifiedType: const FullType(String)),
-      'version',
-      serializers.serialize(object.version, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.backgroundImage;
-    if (value != null) {
-      result
-        ..add('backgroundImage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  Background deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = BackgroundBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'backgroundImage':
-          result.backgroundImage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'backgroundColor':
-          result.backgroundColor = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'version':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -454,6 +464,58 @@ class _$UserThemeDisableThemeResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(UserThemeDisableThemeResponseApplicationJson_Ocs))!
               as UserThemeDisableThemeResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$BackgroundSerializer implements StructuredSerializer<Background> {
+  @override
+  final Iterable<Type> types = const [Background, _$Background];
+  @override
+  final String wireName = 'Background';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Background object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'backgroundColor',
+      serializers.serialize(object.backgroundColor, specifiedType: const FullType(String)),
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.backgroundImage;
+    if (value != null) {
+      result
+        ..add('backgroundImage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  Background deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = BackgroundBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'backgroundImage':
+          result.backgroundImage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'backgroundColor':
+          result.backgroundColor = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -958,122 +1020,6 @@ class ThemingGetManifestResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $BackgroundInterfaceBuilder {
-  void replace($BackgroundInterface other);
-  void update(void Function($BackgroundInterfaceBuilder) updates);
-  String? get backgroundImage;
-  set backgroundImage(String? backgroundImage);
-
-  String? get backgroundColor;
-  set backgroundColor(String? backgroundColor);
-
-  int? get version;
-  set version(int? version);
-}
-
-class _$Background extends Background {
-  @override
-  final String? backgroundImage;
-  @override
-  final String backgroundColor;
-  @override
-  final int version;
-
-  factory _$Background([void Function(BackgroundBuilder)? updates]) => (BackgroundBuilder()..update(updates))._build();
-
-  _$Background._({this.backgroundImage, required this.backgroundColor, required this.version}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(backgroundColor, r'Background', 'backgroundColor');
-    BuiltValueNullFieldError.checkNotNull(version, r'Background', 'version');
-  }
-
-  @override
-  Background rebuild(void Function(BackgroundBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  BackgroundBuilder toBuilder() => BackgroundBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is Background &&
-        backgroundImage == other.backgroundImage &&
-        backgroundColor == other.backgroundColor &&
-        version == other.version;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, backgroundImage.hashCode);
-    _$hash = $jc(_$hash, backgroundColor.hashCode);
-    _$hash = $jc(_$hash, version.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'Background')
-          ..add('backgroundImage', backgroundImage)
-          ..add('backgroundColor', backgroundColor)
-          ..add('version', version))
-        .toString();
-  }
-}
-
-class BackgroundBuilder implements Builder<Background, BackgroundBuilder>, $BackgroundInterfaceBuilder {
-  _$Background? _$v;
-
-  String? _backgroundImage;
-  String? get backgroundImage => _$this._backgroundImage;
-  set backgroundImage(covariant String? backgroundImage) => _$this._backgroundImage = backgroundImage;
-
-  String? _backgroundColor;
-  String? get backgroundColor => _$this._backgroundColor;
-  set backgroundColor(covariant String? backgroundColor) => _$this._backgroundColor = backgroundColor;
-
-  int? _version;
-  int? get version => _$this._version;
-  set version(covariant int? version) => _$this._version = version;
-
-  BackgroundBuilder();
-
-  BackgroundBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _backgroundImage = $v.backgroundImage;
-      _backgroundColor = $v.backgroundColor;
-      _version = $v.version;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant Background other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$Background;
-  }
-
-  @override
-  void update(void Function(BackgroundBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  Background build() => _build();
-
-  _$Background _build() {
-    final _$result = _$v ??
-        _$Background._(
-            backgroundImage: backgroundImage,
-            backgroundColor: BuiltValueNullFieldError.checkNotNull(backgroundColor, r'Background', 'backgroundColor'),
-            version: BuiltValueNullFieldError.checkNotNull(version, r'Background', 'version'));
     replace(_$result);
     return _$result;
   }
@@ -1671,6 +1617,122 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $BackgroundInterfaceBuilder {
+  void replace($BackgroundInterface other);
+  void update(void Function($BackgroundInterfaceBuilder) updates);
+  String? get backgroundImage;
+  set backgroundImage(String? backgroundImage);
+
+  String? get backgroundColor;
+  set backgroundColor(String? backgroundColor);
+
+  int? get version;
+  set version(int? version);
+}
+
+class _$Background extends Background {
+  @override
+  final String? backgroundImage;
+  @override
+  final String backgroundColor;
+  @override
+  final int version;
+
+  factory _$Background([void Function(BackgroundBuilder)? updates]) => (BackgroundBuilder()..update(updates))._build();
+
+  _$Background._({this.backgroundImage, required this.backgroundColor, required this.version}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(backgroundColor, r'Background', 'backgroundColor');
+    BuiltValueNullFieldError.checkNotNull(version, r'Background', 'version');
+  }
+
+  @override
+  Background rebuild(void Function(BackgroundBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  BackgroundBuilder toBuilder() => BackgroundBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Background &&
+        backgroundImage == other.backgroundImage &&
+        backgroundColor == other.backgroundColor &&
+        version == other.version;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, backgroundImage.hashCode);
+    _$hash = $jc(_$hash, backgroundColor.hashCode);
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Background')
+          ..add('backgroundImage', backgroundImage)
+          ..add('backgroundColor', backgroundColor)
+          ..add('version', version))
+        .toString();
+  }
+}
+
+class BackgroundBuilder implements Builder<Background, BackgroundBuilder>, $BackgroundInterfaceBuilder {
+  _$Background? _$v;
+
+  String? _backgroundImage;
+  String? get backgroundImage => _$this._backgroundImage;
+  set backgroundImage(covariant String? backgroundImage) => _$this._backgroundImage = backgroundImage;
+
+  String? _backgroundColor;
+  String? get backgroundColor => _$this._backgroundColor;
+  set backgroundColor(covariant String? backgroundColor) => _$this._backgroundColor = backgroundColor;
+
+  int? _version;
+  int? get version => _$this._version;
+  set version(covariant int? version) => _$this._version = version;
+
+  BackgroundBuilder();
+
+  BackgroundBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _backgroundImage = $v.backgroundImage;
+      _backgroundColor = $v.backgroundColor;
+      _version = $v.version;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Background other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Background;
+  }
+
+  @override
+  void update(void Function(BackgroundBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Background build() => _build();
+
+  _$Background _build() {
+    final _$result = _$v ??
+        _$Background._(
+            backgroundImage: backgroundImage,
+            backgroundColor: BuiltValueNullFieldError.checkNotNull(backgroundColor, r'Background', 'backgroundColor'),
+            version: BuiltValueNullFieldError.checkNotNull(version, r'Background', 'version'));
     replace(_$result);
     return _$result;
   }
