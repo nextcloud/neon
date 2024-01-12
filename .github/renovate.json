@@ -14,6 +14,12 @@
   "packageRules": [
     {
       "matchManagers": ["pub"],
+      "matchDepTypes": ["dependencies"],
+      "matchPackageNames": ["intl"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchManagers": ["pub"],
       "matchDatasources": ["dart-version", "flutter-version"],
       "matchUpdateTypes": [
         "minor",
