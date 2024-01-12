@@ -1,12 +1,12 @@
 MKCOL http://localhost/remote\.php/webdav/delete-coll
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/remote\.php/webdav/delete-coll
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
-transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
+content-type: application/xml
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)

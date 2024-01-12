@@ -1,12 +1,12 @@
 PUT http://localhost/index\.php/apps/uppush/device\?deviceName=Test
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Basic mock
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/index\.php/apps/uppush/app\?deviceId=[a-zA-Z0-9-_]+&appName=Test
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Basic mock
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)

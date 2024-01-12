@@ -1,6 +1,6 @@
 PUT http://localhost/remote\.php/webdav/409me/noparent\.txt
-user-agent: Dart/3\.2 \(dart:io\)
-content-type: application/xml
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
+content-length: 0
+content-type: application/xml
+user-agent: Dart/3\.2 \(dart:io\)

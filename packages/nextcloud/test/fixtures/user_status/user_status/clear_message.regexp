@@ -1,35 +1,35 @@
 PUT http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status/status\?statusType=online
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status/message
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status/message/custom\?statusIcon=%F0%9F%98%80&message=bla&clearAt=[0-9]+
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status/message
-user-agent: Dart/3\.2 \(dart:io\)
+accept-encoding: gzip
 accept: application/json
+authorization: Bearer mock
+ocs-apirequest: true
 transfer-encoding: chunked
-accept-encoding: gzip
-authorization: Bearer mock
-ocs-apirequest: true
-GET http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status
 user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
+GET http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status
 accept-encoding: gzip
-content-length: 0
+accept: application/json
 authorization: Bearer mock
+content-length: 0
 ocs-apirequest: true
+user-agent: Dart/3\.2 \(dart:io\)

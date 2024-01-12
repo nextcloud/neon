@@ -1,30 +1,30 @@
 GET http://localhost/index\.php/apps/notes/api/v1/notes\?exclude=&pruneBefore=0&chunkSize=0
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
 accept-encoding: gzip
+accept: application/json
+authorization: Basic mock
 content-length: 0
-authorization: Basic mock(
+user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/index\.php/apps/notes/api/v1/notes/[0-9]+
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
-authorization: Basic mock)*
+accept: application/json
+authorization: Basic mock
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 POST http://localhost/index\.php/apps/notes/api/v1/notes\?category=&title=a&content=&modified=0&favorite=0
-user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
-transfer-encoding: chunked
 accept-encoding: gzip
+accept: application/json
 authorization: Basic mock
+transfer-encoding: chunked
+user-agent: Dart/3\.2 \(dart:io\)
 POST http://localhost/index\.php/apps/notes/api/v1/notes\?category=&title=b&content=&modified=0&favorite=0
-user-agent: Dart/3\.2 \(dart:io\)
+accept-encoding: gzip
 accept: application/json
+authorization: Basic mock
 transfer-encoding: chunked
-accept-encoding: gzip
-authorization: Basic mock
-GET http://localhost/index\.php/apps/notes/api/v1/notes\?exclude=&pruneBefore=0&chunkSize=0
 user-agent: Dart/3\.2 \(dart:io\)
-accept: application/json
+GET http://localhost/index\.php/apps/notes/api/v1/notes\?exclude=&pruneBefore=0&chunkSize=0
 accept-encoding: gzip
-content-length: 0
+accept: application/json
 authorization: Basic mock
+content-length: 0
+user-agent: Dart/3\.2 \(dart:io\)
