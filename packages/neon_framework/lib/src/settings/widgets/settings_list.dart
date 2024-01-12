@@ -1,19 +1,22 @@
-// ignore_for_file: public_member_api_docs
-
 import 'package:flutter/material.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
+/// A widget showing a list of settings widgets.
 @visibleForTesting
 class SettingsList extends StatelessWidget {
+  /// Creates a new settings list.
   const SettingsList({
     required this.categories,
-    this.initialCategory,
+    this.initialCategoryKey,
     super.key,
   });
 
+  /// The categories of this settings screen.
   final List<Widget> categories;
-  final String? initialCategory;
+
+  /// The initial category to scroll to.
+  final String? initialCategoryKey;
 
   int? _getIndex(String? initialCategory) {
     if (initialCategory == null) {
@@ -33,7 +36,7 @@ class SettingsList extends StatelessWidget {
     return ScrollablePositionedList.builder(
       padding: hasPadding ? const EdgeInsets.symmetric(horizontal: 20) : null,
       itemCount: categories.length,
-      initialScrollIndex: _getIndex(initialCategory) ?? 0,
+      initialScrollIndex: _getIndex(initialCategoryKey) ?? 0,
       itemBuilder: (context, index) => categories[index],
     );
   }

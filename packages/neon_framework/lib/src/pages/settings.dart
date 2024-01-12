@@ -121,7 +121,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ],
     );
     final body = SettingsList(
-      initialCategory: widget.initialCategory?.name,
+      initialCategoryKey: widget.initialCategory?.name,
       categories: [
         SettingsCategory(
           hasLeading: true,

@@ -1,10 +1,13 @@
-// ignore_for_file: public_member_api_docs
-
 import 'package:flutter/material.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 
+/// A custom Neon list view similar to [ListView].
+///
+/// A Neon list view handles fixed header items, refreshing and displaying
+/// loading and error information.
 class NeonListView extends StatelessWidget {
+  /// Creates a new Neon list view.
   NeonListView({
     required this.isLoading,
     required this.error,
@@ -20,6 +23,7 @@ class NeonListView extends StatelessWidget {
           itemBuilder: itemBuilder,
         );
 
+  /// Creates a Neon list view with a custom child model.
   const NeonListView.custom({
     required this.isLoading,
     required this.error,
@@ -31,12 +35,26 @@ class NeonListView extends StatelessWidget {
     super.key,
   });
 
+  /// Whether a [NeonLinearProgressIndicator] should be shown indicating that
+  /// the data for this list is still loading or refreshing.
   final bool isLoading;
+
+  /// The error to show in a persistent [NeonError] at the top of the list.
   final Object? error;
+
+  /// The callback invoked when the user refreshes the list.
   final RefreshCallback onRefresh;
+
+  /// The scroll key attached to this list view.
   final String scrollKey;
+
+  /// A list of widgets that are displayed at the top of the but do not scroll with it.
   final List<Widget>? topFixedChildren;
+
+  /// A list of widgets that are displayed at the top of the list and scroll with it.
   final List<Widget>? topScrollingChildren;
+
+  /// The sliver controlling the main scrollable area.
   final Widget sliver;
 
   @override
