@@ -14,7 +14,7 @@ dependencies:
   uri: ^1.0.0
 
 dev_dependencies:
-  build_runner: ^2.4.7
+  build_runner: ^2.4.8
   built_value_generator: ^8.8.1
   dynamite: ^0.1.0
   neon_lints:
