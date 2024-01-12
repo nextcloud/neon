@@ -13,8 +13,7 @@
   },
   "packageRules": [
     {
-      "matchManagers": ["pub"],
-      "matchDepTypes": ["dependencies"],
+      "matchFileNames": ["packages/nextcloud/**"],
       "matchPackageNames": ["intl"],
       "rangeStrategy": "widen"
     },
