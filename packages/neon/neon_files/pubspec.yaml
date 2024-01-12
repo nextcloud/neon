@@ -37,7 +37,7 @@ dependencies:
   universal_io: ^2.0.0
 
 dev_dependencies:
-  build_runner: ^2.4.7
+  build_runner: ^2.4.8
   go_router_builder: ^2.4.1
   neon_lints:
     git:
