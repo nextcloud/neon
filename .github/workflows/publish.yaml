@@ -53,17 +53,17 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-      - uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4
+      - uses: actions/upload-artifact@1eb3cb2b3e0f29609092a73eb033bb759a334595 # v4
         with:
           name: Android arm64-v8a
           path: packages/app/build/app/outputs/flutter-apk/app-arm64-v8a-release-signed.apk
           if-no-files-found: error
-      - uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4
+      - uses: actions/upload-artifact@1eb3cb2b3e0f29609092a73eb033bb759a334595 # v4
         with:
           name: Android armeabi-v7a
           path: packages/app/build/app/outputs/flutter-apk/app-armeabi-v7a-release-signed.apk
           if-no-files-found: error
-      - uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4
+      - uses: actions/upload-artifact@1eb3cb2b3e0f29609092a73eb033bb759a334595 # v4
         with:
           name: Android x86_64
           path: packages/app/build/app/outputs/flutter-apk/app-x86_64-release-signed.apk
@@ -121,7 +121,7 @@ jobs:
       - name: Build
         run: ./tool/build-app.sh linux/${{ matrix.architecture.docker }} --build-number="${{ needs.setup.outputs.build_number }}"
 
-      - uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4
+      - uses: actions/upload-artifact@1eb3cb2b3e0f29609092a73eb033bb759a334595 # v4
         with:
           name: Linux ${{ matrix.architecture.flutter }}
           path: packages/app/build/linux/${{ matrix.architecture.flutter }}/release/bundle/*
