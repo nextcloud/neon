@@ -1,7 +1,11 @@
+import 'dart:typed_data';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/android.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:universal_io/io.dart';
 
 /// Linux specific platform information.
 ///
@@ -33,11 +37,20 @@ class LinuxNeonPlatform implements NeonPlatform {
   bool get canUseSharing => false;
 
   @override
-  bool get shouldUseFileDialog => false;
-
-  @override
   void init() {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
+  }
+
+  @override
+  Future<String?> saveFileWithPickDialog(String fileName, Uint8List data) async {
+    final result = await FilePicker.platform.saveFile(
+      fileName: fileName,
+    );
+    if (result != null) {
+      await File(result).writeAsBytes(data);
+    }
+
+    return result;
   }
 }

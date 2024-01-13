@@ -21,7 +21,6 @@ import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
-import 'package:neon_framework/src/utils/save_file.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -247,7 +246,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   final fileName = 'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json';
 
                   final data = settingsExportHelper.exportToFile();
-                  await saveFileWithPickDialog(fileName, data);
+                  await NeonPlatform.instance.saveFileWithPickDialog(fileName, data);
                 } catch (e, s) {
                   debugPrint(e.toString());
                   debugPrint(s.toString());

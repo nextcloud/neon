@@ -1,3 +1,6 @@
+import 'dart:typed_data';
+
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/linux.dart';
 import 'package:neon_framework/src/platform/platform.dart';
@@ -32,8 +35,13 @@ class AndroidNeonPlatform implements NeonPlatform {
   bool get canUseSharing => true;
 
   @override
-  bool get shouldUseFileDialog => true;
+  void init() {}
 
   @override
-  void init() {}
+  Future<String?> saveFileWithPickDialog(String fileName, Uint8List data) => FlutterFileDialog.saveFile(
+        params: SaveFileDialogParams(
+          data: data,
+          fileName: fileName,
+        ),
+      );
 }
