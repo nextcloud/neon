@@ -1747,7 +1747,7 @@ class $GuestAvatarClient {
   Future<_i1.DynamiteResponse<Uint8List, void>> getAvatar({
     required String guestName,
     required String size,
-    int? darkTheme,
+    GuestAvatarGetAvatarDarkTheme? darkTheme,
   }) async {
     final rawResponse = getAvatarRaw(
       guestName: guestName,
@@ -1781,7 +1781,7 @@ class $GuestAvatarClient {
   _i1.DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required String guestName,
     required String size,
-    int? darkTheme,
+    GuestAvatarGetAvatarDarkTheme? darkTheme,
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
@@ -1809,7 +1809,8 @@ class $GuestAvatarClient {
     final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(String));
     _parameters['size'] = $size;
 
-    var $darkTheme = _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(int));
+    var $darkTheme =
+        _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(GuestAvatarGetAvatarDarkTheme));
     $darkTheme ??= 0;
     _parameters['darkTheme'] = $darkTheme;
 
@@ -1954,7 +1955,7 @@ class $NavigationClient {
   /// See:
   ///  * [getAppsNavigationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<NavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
-    int? absolute,
+    NavigationGetAppsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppsNavigationRaw(
@@ -1984,7 +1985,7 @@ class $NavigationClient {
   ///  * [getAppsNavigation] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
-    int? absolute,
+    NavigationGetAppsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
@@ -2009,7 +2010,8 @@ class $NavigationClient {
     }
 
 // coverage:ignore-end
-    var $absolute = _$jsonSerializers.serialize(absolute, specifiedType: const FullType(int));
+    var $absolute =
+        _$jsonSerializers.serialize(absolute, specifiedType: const FullType(NavigationGetAppsNavigationAbsolute));
     $absolute ??= 0;
     _parameters['absolute'] = $absolute;
 
@@ -2048,7 +2050,7 @@ class $NavigationClient {
   /// See:
   ///  * [getSettingsNavigationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
-    int? absolute,
+    NavigationGetSettingsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSettingsNavigationRaw(
@@ -2078,7 +2080,7 @@ class $NavigationClient {
   ///  * [getSettingsNavigation] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
-    int? absolute,
+    NavigationGetSettingsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
@@ -2103,7 +2105,8 @@ class $NavigationClient {
     }
 
 // coverage:ignore-end
-    var $absolute = _$jsonSerializers.serialize(absolute, specifiedType: const FullType(int));
+    var $absolute =
+        _$jsonSerializers.serialize(absolute, specifiedType: const FullType(NavigationGetSettingsNavigationAbsolute));
     $absolute ??= 0;
     _parameters['absolute'] = $absolute;
 
@@ -2319,10 +2322,10 @@ class $PreviewClient {
     int? fileId,
     int? x,
     int? y,
-    int? a,
-    int? forceIcon,
+    PreviewGetPreviewByFileIdA? a,
+    PreviewGetPreviewByFileIdForceIcon? forceIcon,
     String? mode,
-    int? mimeFallback,
+    PreviewGetPreviewByFileIdMimeFallback? mimeFallback,
   }) async {
     final rawResponse = getPreviewByFileIdRaw(
       fileId: fileId,
@@ -2367,10 +2370,10 @@ class $PreviewClient {
     int? fileId,
     int? x,
     int? y,
-    int? a,
-    int? forceIcon,
+    PreviewGetPreviewByFileIdA? a,
+    PreviewGetPreviewByFileIdForceIcon? forceIcon,
     String? mode,
-    int? mimeFallback,
+    PreviewGetPreviewByFileIdMimeFallback? mimeFallback,
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
@@ -2406,11 +2409,12 @@ class $PreviewClient {
     $y ??= 32;
     _parameters['y'] = $y;
 
-    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(int));
+    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewByFileIdA));
     $a ??= 0;
     _parameters['a'] = $a;
 
-    var $forceIcon = _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(int));
+    var $forceIcon =
+        _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(PreviewGetPreviewByFileIdForceIcon));
     $forceIcon ??= 1;
     _parameters['forceIcon'] = $forceIcon;
 
@@ -2418,7 +2422,8 @@ class $PreviewClient {
     $mode ??= 'fill';
     _parameters['mode'] = $mode;
 
-    var $mimeFallback = _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(int));
+    var $mimeFallback =
+        _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(PreviewGetPreviewByFileIdMimeFallback));
     $mimeFallback ??= 0;
     _parameters['mimeFallback'] = $mimeFallback;
 
@@ -2465,10 +2470,10 @@ class $PreviewClient {
     String? file,
     int? x,
     int? y,
-    int? a,
-    int? forceIcon,
+    PreviewGetPreviewA? a,
+    PreviewGetPreviewForceIcon? forceIcon,
     String? mode,
-    int? mimeFallback,
+    PreviewGetPreviewMimeFallback? mimeFallback,
   }) async {
     final rawResponse = getPreviewRaw(
       file: file,
@@ -2513,10 +2518,10 @@ class $PreviewClient {
     String? file,
     int? x,
     int? y,
-    int? a,
-    int? forceIcon,
+    PreviewGetPreviewA? a,
+    PreviewGetPreviewForceIcon? forceIcon,
     String? mode,
-    int? mimeFallback,
+    PreviewGetPreviewMimeFallback? mimeFallback,
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
@@ -2552,11 +2557,11 @@ class $PreviewClient {
     $y ??= 32;
     _parameters['y'] = $y;
 
-    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(int));
+    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewA));
     $a ??= 0;
     _parameters['a'] = $a;
 
-    var $forceIcon = _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(int));
+    var $forceIcon = _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(PreviewGetPreviewForceIcon));
     $forceIcon ??= 1;
     _parameters['forceIcon'] = $forceIcon;
 
@@ -2564,7 +2569,8 @@ class $PreviewClient {
     $mode ??= 'fill';
     _parameters['mode'] = $mode;
 
-    var $mimeFallback = _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(int));
+    var $mimeFallback =
+        _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(PreviewGetPreviewMimeFallback));
     $mimeFallback ??= 0;
     _parameters['mimeFallback'] = $mimeFallback;
 
@@ -3006,7 +3012,7 @@ class $ReferenceApiClient {
   ///  * [extractRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<ReferenceApiExtractResponseApplicationJson, void>> extract({
     required String text,
-    int? resolve,
+    ReferenceApiExtractResolve? resolve,
     int? limit,
     bool? oCSAPIRequest,
   }) async {
@@ -3041,7 +3047,7 @@ class $ReferenceApiClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void> extractRaw({
     required String text,
-    int? resolve,
+    ReferenceApiExtractResolve? resolve,
     int? limit,
     bool? oCSAPIRequest,
   }) {
@@ -3070,7 +3076,7 @@ class $ReferenceApiClient {
     final $text = _$jsonSerializers.serialize(text, specifiedType: const FullType(String));
     _parameters['text'] = $text;
 
-    var $resolve = _$jsonSerializers.serialize(resolve, specifiedType: const FullType(int));
+    var $resolve = _$jsonSerializers.serialize(resolve, specifiedType: const FullType(ReferenceApiExtractResolve));
     $resolve ??= 0;
     _parameters['resolve'] = $resolve;
 
@@ -6536,6 +6542,69 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
       _$collaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer;
 }
 
+class GuestAvatarGetAvatarDarkTheme extends EnumClass {
+  const GuestAvatarGetAvatarDarkTheme._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const GuestAvatarGetAvatarDarkTheme $0 = _$guestAvatarGetAvatarDarkTheme$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const GuestAvatarGetAvatarDarkTheme $1 = _$guestAvatarGetAvatarDarkTheme$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<GuestAvatarGetAvatarDarkTheme> get values => _$guestAvatarGetAvatarDarkThemeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static GuestAvatarGetAvatarDarkTheme valueOf(String name) => _$valueOfGuestAvatarGetAvatarDarkTheme(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for GuestAvatarGetAvatarDarkTheme.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GuestAvatarGetAvatarDarkTheme> get serializer => const _$GuestAvatarGetAvatarDarkThemeSerializer();
+}
+
+class _$GuestAvatarGetAvatarDarkThemeSerializer implements PrimitiveSerializer<GuestAvatarGetAvatarDarkTheme> {
+  const _$GuestAvatarGetAvatarDarkThemeSerializer();
+
+  static const Map<GuestAvatarGetAvatarDarkTheme, Object> _toWire = <GuestAvatarGetAvatarDarkTheme, Object>{
+    GuestAvatarGetAvatarDarkTheme.$0: 0,
+    GuestAvatarGetAvatarDarkTheme.$1: 1,
+  };
+
+  static const Map<Object, GuestAvatarGetAvatarDarkTheme> _fromWire = <Object, GuestAvatarGetAvatarDarkTheme>{
+    0: GuestAvatarGetAvatarDarkTheme.$0,
+    1: GuestAvatarGetAvatarDarkTheme.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [GuestAvatarGetAvatarDarkTheme];
+
+  @override
+  String get wireName => 'GuestAvatarGetAvatarDarkTheme';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    GuestAvatarGetAvatarDarkTheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  GuestAvatarGetAvatarDarkTheme deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $ContactsActionInterface {
   String get title;
@@ -6687,6 +6756,72 @@ abstract class HoverCardGetUserResponseApplicationJson
       _$hoverCardGetUserResponseApplicationJsonSerializer;
 }
 
+class NavigationGetAppsNavigationAbsolute extends EnumClass {
+  const NavigationGetAppsNavigationAbsolute._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const NavigationGetAppsNavigationAbsolute $0 = _$navigationGetAppsNavigationAbsolute$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const NavigationGetAppsNavigationAbsolute $1 = _$navigationGetAppsNavigationAbsolute$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<NavigationGetAppsNavigationAbsolute> get values => _$navigationGetAppsNavigationAbsoluteValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static NavigationGetAppsNavigationAbsolute valueOf(String name) => _$valueOfNavigationGetAppsNavigationAbsolute(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for NavigationGetAppsNavigationAbsolute.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NavigationGetAppsNavigationAbsolute> get serializer =>
+      const _$NavigationGetAppsNavigationAbsoluteSerializer();
+}
+
+class _$NavigationGetAppsNavigationAbsoluteSerializer
+    implements PrimitiveSerializer<NavigationGetAppsNavigationAbsolute> {
+  const _$NavigationGetAppsNavigationAbsoluteSerializer();
+
+  static const Map<NavigationGetAppsNavigationAbsolute, Object> _toWire = <NavigationGetAppsNavigationAbsolute, Object>{
+    NavigationGetAppsNavigationAbsolute.$0: 0,
+    NavigationGetAppsNavigationAbsolute.$1: 1,
+  };
+
+  static const Map<Object, NavigationGetAppsNavigationAbsolute> _fromWire =
+      <Object, NavigationGetAppsNavigationAbsolute>{
+    0: NavigationGetAppsNavigationAbsolute.$0,
+    1: NavigationGetAppsNavigationAbsolute.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [NavigationGetAppsNavigationAbsolute];
+
+  @override
+  String get wireName => 'NavigationGetAppsNavigationAbsolute';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NavigationGetAppsNavigationAbsolute object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  NavigationGetAppsNavigationAbsolute deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 typedef NavigationEntry_Order = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
@@ -6812,6 +6947,75 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson
       _$navigationGetAppsNavigationResponseApplicationJsonSerializer;
 }
 
+class NavigationGetSettingsNavigationAbsolute extends EnumClass {
+  const NavigationGetSettingsNavigationAbsolute._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const NavigationGetSettingsNavigationAbsolute $0 = _$navigationGetSettingsNavigationAbsolute$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const NavigationGetSettingsNavigationAbsolute $1 = _$navigationGetSettingsNavigationAbsolute$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<NavigationGetSettingsNavigationAbsolute> get values =>
+      _$navigationGetSettingsNavigationAbsoluteValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static NavigationGetSettingsNavigationAbsolute valueOf(String name) =>
+      _$valueOfNavigationGetSettingsNavigationAbsolute(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for NavigationGetSettingsNavigationAbsolute.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NavigationGetSettingsNavigationAbsolute> get serializer =>
+      const _$NavigationGetSettingsNavigationAbsoluteSerializer();
+}
+
+class _$NavigationGetSettingsNavigationAbsoluteSerializer
+    implements PrimitiveSerializer<NavigationGetSettingsNavigationAbsolute> {
+  const _$NavigationGetSettingsNavigationAbsoluteSerializer();
+
+  static const Map<NavigationGetSettingsNavigationAbsolute, Object> _toWire =
+      <NavigationGetSettingsNavigationAbsolute, Object>{
+    NavigationGetSettingsNavigationAbsolute.$0: 0,
+    NavigationGetSettingsNavigationAbsolute.$1: 1,
+  };
+
+  static const Map<Object, NavigationGetSettingsNavigationAbsolute> _fromWire =
+      <Object, NavigationGetSettingsNavigationAbsolute>{
+    0: NavigationGetSettingsNavigationAbsolute.$0,
+    1: NavigationGetSettingsNavigationAbsolute.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [NavigationGetSettingsNavigationAbsolute];
+
+  @override
+  String get wireName => 'NavigationGetSettingsNavigationAbsolute';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NavigationGetSettingsNavigationAbsolute object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  NavigationGetSettingsNavigationAbsolute deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -6891,10 +7095,74 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson
       _$navigationGetSettingsNavigationResponseApplicationJsonSerializer;
 }
 
+class OcmOcmDiscoveryHeaders_XNextcloudOcmProviders extends EnumClass {
+  const OcmOcmDiscoveryHeaders_XNextcloudOcmProviders._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const OcmOcmDiscoveryHeaders_XNextcloudOcmProviders $true =
+      _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get values =>
+      _$ocmOcmDiscoveryHeadersXNextcloudOcmProvidersValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static OcmOcmDiscoveryHeaders_XNextcloudOcmProviders valueOf(String name) =>
+      _$valueOfOcmOcmDiscoveryHeaders_XNextcloudOcmProviders(name);
+
+  /// Returns the serialized value of this enum value.
+  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
+
+  /// Serializer for OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get serializer =>
+      const _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer();
+}
+
+class _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer
+    implements PrimitiveSerializer<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> {
+  const _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer();
+
+  static const Map<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders, Object> _toWire =
+      <OcmOcmDiscoveryHeaders_XNextcloudOcmProviders, Object>{
+    OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true: true,
+  };
+
+  static const Map<Object, OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> _fromWire =
+      <Object, OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>{
+    true: OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [OcmOcmDiscoveryHeaders_XNextcloudOcmProviders];
+
+  @override
+  String get wireName => 'OcmOcmDiscoveryHeaders_XNextcloudOcmProviders';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    OcmOcmDiscoveryHeaders_XNextcloudOcmProviders object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  OcmOcmDiscoveryHeaders_XNextcloudOcmProviders deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $OcmOcmDiscoveryHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
-  Header<bool>? get xNextcloudOcmProviders;
+  Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? get xNextcloudOcmProviders;
 }
 
 abstract class OcmOcmDiscoveryHeaders
@@ -9306,6 +9574,391 @@ abstract class OcsGetCapabilitiesResponseApplicationJson
       _$ocsGetCapabilitiesResponseApplicationJsonSerializer;
 }
 
+class PreviewGetPreviewByFileIdA extends EnumClass {
+  const PreviewGetPreviewByFileIdA._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewByFileIdA $0 = _$previewGetPreviewByFileIdA$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewByFileIdA $1 = _$previewGetPreviewByFileIdA$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewByFileIdA> get values => _$previewGetPreviewByFileIdAValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewByFileIdA valueOf(String name) => _$valueOfPreviewGetPreviewByFileIdA(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewByFileIdA.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewByFileIdA> get serializer => const _$PreviewGetPreviewByFileIdASerializer();
+}
+
+class _$PreviewGetPreviewByFileIdASerializer implements PrimitiveSerializer<PreviewGetPreviewByFileIdA> {
+  const _$PreviewGetPreviewByFileIdASerializer();
+
+  static const Map<PreviewGetPreviewByFileIdA, Object> _toWire = <PreviewGetPreviewByFileIdA, Object>{
+    PreviewGetPreviewByFileIdA.$0: 0,
+    PreviewGetPreviewByFileIdA.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewByFileIdA> _fromWire = <Object, PreviewGetPreviewByFileIdA>{
+    0: PreviewGetPreviewByFileIdA.$0,
+    1: PreviewGetPreviewByFileIdA.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewByFileIdA];
+
+  @override
+  String get wireName => 'PreviewGetPreviewByFileIdA';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewByFileIdA object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewByFileIdA deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewByFileIdForceIcon extends EnumClass {
+  const PreviewGetPreviewByFileIdForceIcon._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewByFileIdForceIcon $0 = _$previewGetPreviewByFileIdForceIcon$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewByFileIdForceIcon $1 = _$previewGetPreviewByFileIdForceIcon$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewByFileIdForceIcon> get values => _$previewGetPreviewByFileIdForceIconValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewByFileIdForceIcon valueOf(String name) => _$valueOfPreviewGetPreviewByFileIdForceIcon(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewByFileIdForceIcon.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewByFileIdForceIcon> get serializer =>
+      const _$PreviewGetPreviewByFileIdForceIconSerializer();
+}
+
+class _$PreviewGetPreviewByFileIdForceIconSerializer
+    implements PrimitiveSerializer<PreviewGetPreviewByFileIdForceIcon> {
+  const _$PreviewGetPreviewByFileIdForceIconSerializer();
+
+  static const Map<PreviewGetPreviewByFileIdForceIcon, Object> _toWire = <PreviewGetPreviewByFileIdForceIcon, Object>{
+    PreviewGetPreviewByFileIdForceIcon.$0: 0,
+    PreviewGetPreviewByFileIdForceIcon.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewByFileIdForceIcon> _fromWire = <Object, PreviewGetPreviewByFileIdForceIcon>{
+    0: PreviewGetPreviewByFileIdForceIcon.$0,
+    1: PreviewGetPreviewByFileIdForceIcon.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewByFileIdForceIcon];
+
+  @override
+  String get wireName => 'PreviewGetPreviewByFileIdForceIcon';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewByFileIdForceIcon object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewByFileIdForceIcon deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewByFileIdMimeFallback extends EnumClass {
+  const PreviewGetPreviewByFileIdMimeFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewByFileIdMimeFallback $0 = _$previewGetPreviewByFileIdMimeFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewByFileIdMimeFallback $1 = _$previewGetPreviewByFileIdMimeFallback$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewByFileIdMimeFallback> get values => _$previewGetPreviewByFileIdMimeFallbackValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewByFileIdMimeFallback valueOf(String name) =>
+      _$valueOfPreviewGetPreviewByFileIdMimeFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewByFileIdMimeFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewByFileIdMimeFallback> get serializer =>
+      const _$PreviewGetPreviewByFileIdMimeFallbackSerializer();
+}
+
+class _$PreviewGetPreviewByFileIdMimeFallbackSerializer
+    implements PrimitiveSerializer<PreviewGetPreviewByFileIdMimeFallback> {
+  const _$PreviewGetPreviewByFileIdMimeFallbackSerializer();
+
+  static const Map<PreviewGetPreviewByFileIdMimeFallback, Object> _toWire =
+      <PreviewGetPreviewByFileIdMimeFallback, Object>{
+    PreviewGetPreviewByFileIdMimeFallback.$0: 0,
+    PreviewGetPreviewByFileIdMimeFallback.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewByFileIdMimeFallback> _fromWire =
+      <Object, PreviewGetPreviewByFileIdMimeFallback>{
+    0: PreviewGetPreviewByFileIdMimeFallback.$0,
+    1: PreviewGetPreviewByFileIdMimeFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewByFileIdMimeFallback];
+
+  @override
+  String get wireName => 'PreviewGetPreviewByFileIdMimeFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewByFileIdMimeFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewByFileIdMimeFallback deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewA extends EnumClass {
+  const PreviewGetPreviewA._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewA $0 = _$previewGetPreviewA$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewA $1 = _$previewGetPreviewA$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewA> get values => _$previewGetPreviewAValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewA valueOf(String name) => _$valueOfPreviewGetPreviewA(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewA.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewA> get serializer => const _$PreviewGetPreviewASerializer();
+}
+
+class _$PreviewGetPreviewASerializer implements PrimitiveSerializer<PreviewGetPreviewA> {
+  const _$PreviewGetPreviewASerializer();
+
+  static const Map<PreviewGetPreviewA, Object> _toWire = <PreviewGetPreviewA, Object>{
+    PreviewGetPreviewA.$0: 0,
+    PreviewGetPreviewA.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewA> _fromWire = <Object, PreviewGetPreviewA>{
+    0: PreviewGetPreviewA.$0,
+    1: PreviewGetPreviewA.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewA];
+
+  @override
+  String get wireName => 'PreviewGetPreviewA';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewA object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewA deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewForceIcon extends EnumClass {
+  const PreviewGetPreviewForceIcon._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewForceIcon $0 = _$previewGetPreviewForceIcon$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewForceIcon $1 = _$previewGetPreviewForceIcon$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewForceIcon> get values => _$previewGetPreviewForceIconValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewForceIcon valueOf(String name) => _$valueOfPreviewGetPreviewForceIcon(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewForceIcon.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewForceIcon> get serializer => const _$PreviewGetPreviewForceIconSerializer();
+}
+
+class _$PreviewGetPreviewForceIconSerializer implements PrimitiveSerializer<PreviewGetPreviewForceIcon> {
+  const _$PreviewGetPreviewForceIconSerializer();
+
+  static const Map<PreviewGetPreviewForceIcon, Object> _toWire = <PreviewGetPreviewForceIcon, Object>{
+    PreviewGetPreviewForceIcon.$0: 0,
+    PreviewGetPreviewForceIcon.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewForceIcon> _fromWire = <Object, PreviewGetPreviewForceIcon>{
+    0: PreviewGetPreviewForceIcon.$0,
+    1: PreviewGetPreviewForceIcon.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewForceIcon];
+
+  @override
+  String get wireName => 'PreviewGetPreviewForceIcon';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewForceIcon object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewForceIcon deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewMimeFallback extends EnumClass {
+  const PreviewGetPreviewMimeFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewMimeFallback $0 = _$previewGetPreviewMimeFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewMimeFallback $1 = _$previewGetPreviewMimeFallback$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewMimeFallback> get values => _$previewGetPreviewMimeFallbackValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewMimeFallback valueOf(String name) => _$valueOfPreviewGetPreviewMimeFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewMimeFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewMimeFallback> get serializer => const _$PreviewGetPreviewMimeFallbackSerializer();
+}
+
+class _$PreviewGetPreviewMimeFallbackSerializer implements PrimitiveSerializer<PreviewGetPreviewMimeFallback> {
+  const _$PreviewGetPreviewMimeFallbackSerializer();
+
+  static const Map<PreviewGetPreviewMimeFallback, Object> _toWire = <PreviewGetPreviewMimeFallback, Object>{
+    PreviewGetPreviewMimeFallback.$0: 0,
+    PreviewGetPreviewMimeFallback.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewMimeFallback> _fromWire = <Object, PreviewGetPreviewMimeFallback>{
+    0: PreviewGetPreviewMimeFallback.$0,
+    1: PreviewGetPreviewMimeFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewMimeFallback];
+
+  @override
+  String get wireName => 'PreviewGetPreviewMimeFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewMimeFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewMimeFallback deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $ProfileApiSetVisibilityResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -9649,6 +10302,69 @@ abstract class ReferenceApiResolveResponseApplicationJson
   /// Serializer for ReferenceApiResolveResponseApplicationJson.
   static Serializer<ReferenceApiResolveResponseApplicationJson> get serializer =>
       _$referenceApiResolveResponseApplicationJsonSerializer;
+}
+
+class ReferenceApiExtractResolve extends EnumClass {
+  const ReferenceApiExtractResolve._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ReferenceApiExtractResolve $0 = _$referenceApiExtractResolve$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ReferenceApiExtractResolve $1 = _$referenceApiExtractResolve$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ReferenceApiExtractResolve> get values => _$referenceApiExtractResolveValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ReferenceApiExtractResolve valueOf(String name) => _$valueOfReferenceApiExtractResolve(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ReferenceApiExtractResolve.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ReferenceApiExtractResolve> get serializer => const _$ReferenceApiExtractResolveSerializer();
+}
+
+class _$ReferenceApiExtractResolveSerializer implements PrimitiveSerializer<ReferenceApiExtractResolve> {
+  const _$ReferenceApiExtractResolveSerializer();
+
+  static const Map<ReferenceApiExtractResolve, Object> _toWire = <ReferenceApiExtractResolve, Object>{
+    ReferenceApiExtractResolve.$0: 0,
+    ReferenceApiExtractResolve.$1: 1,
+  };
+
+  static const Map<Object, ReferenceApiExtractResolve> _fromWire = <Object, ReferenceApiExtractResolve>{
+    0: ReferenceApiExtractResolve.$0,
+    1: ReferenceApiExtractResolve.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ReferenceApiExtractResolve];
+
+  @override
+  String get wireName => 'ReferenceApiExtractResolve';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ReferenceApiExtractResolve object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ReferenceApiExtractResolve deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13073,6 +13789,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.serializer)
+      ..add(GuestAvatarGetAvatarDarkTheme.serializer)
       ..addBuilderFactory(
         const FullType(HoverCardGetUserResponseApplicationJson),
         HoverCardGetUserResponseApplicationJsonBuilder.new,
@@ -13091,6 +13808,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ContactsAction), ContactsActionBuilder.new)
       ..add(ContactsAction.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ContactsAction)]), ListBuilder<ContactsAction>.new)
+      ..add(NavigationGetAppsNavigationAbsolute.serializer)
       ..addBuilderFactory(
         const FullType(NavigationGetAppsNavigationResponseApplicationJson),
         NavigationGetAppsNavigationResponseApplicationJsonBuilder.new,
@@ -13105,6 +13823,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NavigationEntry.serializer)
       ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
+      ..add(NavigationGetSettingsNavigationAbsolute.serializer)
       ..addBuilderFactory(
         const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
         NavigationGetSettingsNavigationResponseApplicationJsonBuilder.new,
@@ -13117,7 +13836,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeadersBuilder.new)
       ..add(OcmOcmDiscoveryHeaders.serializer)
-      ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new)
+      ..add(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.serializer)
+      ..addBuilderFactory(
+        const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]),
+        HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>.new,
+      )
       ..addBuilderFactory(
         const FullType(OcmDiscoveryResponseApplicationJson),
         OcmDiscoveryResponseApplicationJsonBuilder.new,
@@ -13365,6 +14088,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(WeatherStatusCapabilities_WeatherStatus.serializer)
       ..add($3dc1754764311166375258bea55197c8Extension._serializer)
+      ..add(PreviewGetPreviewByFileIdA.serializer)
+      ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
+      ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
+      ..add(PreviewGetPreviewA.serializer)
+      ..add(PreviewGetPreviewForceIcon.serializer)
+      ..add(PreviewGetPreviewMimeFallback.serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityResponseApplicationJson),
         ProfileApiSetVisibilityResponseApplicationJsonBuilder.new,
@@ -13411,6 +14140,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
+      ..add(ReferenceApiExtractResolve.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiExtractResponseApplicationJson),
         ReferenceApiExtractResponseApplicationJsonBuilder.new,

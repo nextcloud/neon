@@ -255,7 +255,6 @@ class $PublicPreviewClient {
   ///
   /// Parameters:
   ///   * [token] Token of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -265,13 +264,9 @@ class $PublicPreviewClient {
   ///
   /// See:
   ///  * [directLinkRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Uint8List, void>> directLink({
-    required String token,
-    bool? oCSAPIRequest,
-  }) async {
+  Future<_i1.DynamiteResponse<Uint8List, void>> directLink({required String token}) async {
     final rawResponse = directLinkRaw(
       token: token,
-      oCSAPIRequest: oCSAPIRequest,
     );
 
     return rawResponse.future;
@@ -286,7 +281,6 @@ class $PublicPreviewClient {
   ///
   /// Parameters:
   ///   * [token] Token of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -297,10 +291,7 @@ class $PublicPreviewClient {
   /// See:
   ///  * [directLink] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> directLinkRaw({
-    required String token,
-    bool? oCSAPIRequest,
-  }) {
+  _i1.DynamiteRawResponse<Uint8List, void> directLinkRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': '*/*',
@@ -323,10 +314,6 @@ class $PublicPreviewClient {
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i3.UriTemplate('/index.php/s/{token}/preview').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
@@ -354,7 +341,6 @@ class $PublicPreviewClient {
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///   * [token] Token of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -369,8 +355,7 @@ class $PublicPreviewClient {
     String? file,
     int? x,
     int? y,
-    int? a,
-    bool? oCSAPIRequest,
+    PublicPreviewGetPreviewA? a,
   }) async {
     final rawResponse = getPreviewRaw(
       token: token,
@@ -378,7 +363,6 @@ class $PublicPreviewClient {
       x: x,
       y: y,
       a: a,
-      oCSAPIRequest: oCSAPIRequest,
     );
 
     return rawResponse.future;
@@ -397,7 +381,6 @@ class $PublicPreviewClient {
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///   * [token] Token of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -413,8 +396,7 @@ class $PublicPreviewClient {
     String? file,
     int? x,
     int? y,
-    int? a,
-    bool? oCSAPIRequest,
+    PublicPreviewGetPreviewA? a,
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
@@ -451,13 +433,9 @@ class $PublicPreviewClient {
     $y ??= 32;
     _parameters['y'] = $y;
 
-    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(int));
+    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PublicPreviewGetPreviewA));
     $a ??= 0;
     _parameters['a'] = $a;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         _i3.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
@@ -1650,7 +1628,7 @@ class $ShareapiClient {
   ///  * [getShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<ShareapiGetShareResponseApplicationJson, void>> getShare({
     required String id,
-    int? includeTags,
+    ShareapiGetShareIncludeTags? includeTags,
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getShareRaw(
@@ -1683,7 +1661,7 @@ class $ShareapiClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void> getShareRaw({
     required String id,
-    int? includeTags,
+    ShareapiGetShareIncludeTags? includeTags,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
@@ -1711,7 +1689,8 @@ class $ShareapiClient {
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = $id;
 
-    var $includeTags = _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(int));
+    var $includeTags =
+        _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(ShareapiGetShareIncludeTags));
     $includeTags ??= 0;
     _parameters['include_tags'] = $includeTags;
 
@@ -2129,7 +2108,7 @@ class $ShareesapiClient {
     int? page,
     int? perPage,
     ShareesapiSearchShareType? shareType,
-    int? lookup,
+    ShareesapiSearchLookup? lookup,
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchRaw(
@@ -2174,7 +2153,7 @@ class $ShareesapiClient {
     int? page,
     int? perPage,
     ShareesapiSearchShareType? shareType,
-    int? lookup,
+    ShareesapiSearchLookup? lookup,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
@@ -2217,7 +2196,7 @@ class $ShareesapiClient {
     final $shareType = _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiSearchShareType));
     _parameters['shareType'] = $shareType;
 
-    var $lookup = _$jsonSerializers.serialize(lookup, specifiedType: const FullType(int));
+    var $lookup = _$jsonSerializers.serialize(lookup, specifiedType: const FullType(ShareesapiSearchLookup));
     $lookup ??= 0;
     _parameters['lookup'] = $lookup;
 
@@ -2595,6 +2574,69 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson
   /// Serializer for DeletedShareapiUndeleteResponseApplicationJson.
   static Serializer<DeletedShareapiUndeleteResponseApplicationJson> get serializer =>
       _$deletedShareapiUndeleteResponseApplicationJsonSerializer;
+}
+
+class PublicPreviewGetPreviewA extends EnumClass {
+  const PublicPreviewGetPreviewA._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PublicPreviewGetPreviewA $0 = _$publicPreviewGetPreviewA$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PublicPreviewGetPreviewA $1 = _$publicPreviewGetPreviewA$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PublicPreviewGetPreviewA> get values => _$publicPreviewGetPreviewAValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PublicPreviewGetPreviewA valueOf(String name) => _$valueOfPublicPreviewGetPreviewA(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PublicPreviewGetPreviewA.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PublicPreviewGetPreviewA> get serializer => const _$PublicPreviewGetPreviewASerializer();
+}
+
+class _$PublicPreviewGetPreviewASerializer implements PrimitiveSerializer<PublicPreviewGetPreviewA> {
+  const _$PublicPreviewGetPreviewASerializer();
+
+  static const Map<PublicPreviewGetPreviewA, Object> _toWire = <PublicPreviewGetPreviewA, Object>{
+    PublicPreviewGetPreviewA.$0: 0,
+    PublicPreviewGetPreviewA.$1: 1,
+  };
+
+  static const Map<Object, PublicPreviewGetPreviewA> _fromWire = <Object, PublicPreviewGetPreviewA>{
+    0: PublicPreviewGetPreviewA.$0,
+    1: PublicPreviewGetPreviewA.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PublicPreviewGetPreviewA];
+
+  @override
+  String get wireName => 'PublicPreviewGetPreviewA';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PublicPreviewGetPreviewA object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PublicPreviewGetPreviewA deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -3775,6 +3817,69 @@ abstract class ShareapiPendingSharesResponseApplicationJson
       _$shareapiPendingSharesResponseApplicationJsonSerializer;
 }
 
+class ShareapiGetShareIncludeTags extends EnumClass {
+  const ShareapiGetShareIncludeTags._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ShareapiGetShareIncludeTags $0 = _$shareapiGetShareIncludeTags$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ShareapiGetShareIncludeTags $1 = _$shareapiGetShareIncludeTags$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ShareapiGetShareIncludeTags> get values => _$shareapiGetShareIncludeTagsValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ShareapiGetShareIncludeTags valueOf(String name) => _$valueOfShareapiGetShareIncludeTags(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ShareapiGetShareIncludeTags.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ShareapiGetShareIncludeTags> get serializer => const _$ShareapiGetShareIncludeTagsSerializer();
+}
+
+class _$ShareapiGetShareIncludeTagsSerializer implements PrimitiveSerializer<ShareapiGetShareIncludeTags> {
+  const _$ShareapiGetShareIncludeTagsSerializer();
+
+  static const Map<ShareapiGetShareIncludeTags, Object> _toWire = <ShareapiGetShareIncludeTags, Object>{
+    ShareapiGetShareIncludeTags.$0: 0,
+    ShareapiGetShareIncludeTags.$1: 1,
+  };
+
+  static const Map<Object, ShareapiGetShareIncludeTags> _fromWire = <Object, ShareapiGetShareIncludeTags>{
+    0: ShareapiGetShareIncludeTags.$0,
+    1: ShareapiGetShareIncludeTags.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ShareapiGetShareIncludeTags];
+
+  @override
+  String get wireName => 'ShareapiGetShareIncludeTags';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ShareapiGetShareIncludeTags object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ShareapiGetShareIncludeTags deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -4083,6 +4188,69 @@ abstract class ShareapiAcceptShareResponseApplicationJson
 }
 
 typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
+
+class ShareesapiSearchLookup extends EnumClass {
+  const ShareesapiSearchLookup._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ShareesapiSearchLookup $0 = _$shareesapiSearchLookup$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ShareesapiSearchLookup $1 = _$shareesapiSearchLookup$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ShareesapiSearchLookup> get values => _$shareesapiSearchLookupValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ShareesapiSearchLookup valueOf(String name) => _$valueOfShareesapiSearchLookup(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ShareesapiSearchLookup.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ShareesapiSearchLookup> get serializer => const _$ShareesapiSearchLookupSerializer();
+}
+
+class _$ShareesapiSearchLookupSerializer implements PrimitiveSerializer<ShareesapiSearchLookup> {
+  const _$ShareesapiSearchLookupSerializer();
+
+  static const Map<ShareesapiSearchLookup, Object> _toWire = <ShareesapiSearchLookup, Object>{
+    ShareesapiSearchLookup.$0: 0,
+    ShareesapiSearchLookup.$1: 1,
+  };
+
+  static const Map<Object, ShareesapiSearchLookup> _fromWire = <Object, ShareesapiSearchLookup>{
+    0: ShareesapiSearchLookup.$0,
+    1: ShareesapiSearchLookup.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ShareesapiSearchLookup];
+
+  @override
+  String get wireName => 'ShareesapiSearchLookup';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ShareesapiSearchLookup object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ShareesapiSearchLookup deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareesapiShareesapiSearchHeadersInterface {
@@ -5676,6 +5844,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DeletedShareapiUndeleteResponseApplicationJson_Ocs.serializer)
+      ..add(PublicPreviewGetPreviewA.serializer)
       ..addBuilderFactory(
         const FullType(RemoteGetSharesResponseApplicationJson),
         RemoteGetSharesResponseApplicationJsonBuilder.new,
@@ -5799,6 +5968,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiPendingSharesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiPendingSharesResponseApplicationJson_Ocs.serializer)
+      ..add(ShareapiGetShareIncludeTags.serializer)
       ..addBuilderFactory(
         const FullType(ShareapiGetShareResponseApplicationJson),
         ShareapiGetShareResponseApplicationJsonBuilder.new,
@@ -5841,6 +6011,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add($07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer)
+      ..add(ShareesapiSearchLookup.serializer)
       ..addBuilderFactory(
         const FullType(ShareesapiShareesapiSearchHeaders),
         ShareesapiShareesapiSearchHeadersBuilder.new,

@@ -8,17 +8,13 @@ mkdir -p /tmp/nextcloud-neon
 function generate_spec() {
     path="$1"
     codename="$2"
-    composer exec generate-spec -- "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
+    ../nextcloud-openapi-extractor/generate-spec "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
 }
 
-for dir in external/nextcloud-server external/nextcloud-notifications external/nextcloud-spreed; do
-  (
-    cd "$dir"
-    composer install
-    composer install --no-dev
-    git checkout . # Remove changed files
-  )
-done
+(
+  cd external/nextcloud-openapi-extractor
+  composer install
+)
 
 for path in \
   core \
@@ -64,10 +60,7 @@ for spec in packages/nextcloud/lib/src/api/*.openapi.json; do
   fi
 done
 
-(
-  cd external/nextcloud-server
-  composer exec merge-specs -- --core ../../packages/nextcloud/lib/src/api/core.openapi.json --merged /tmp/nextcloud-neon/merged.json ../../packages/nextcloud/lib/src/api/*.openapi.json --openapi-version 3.1.0
-)
+./external/nextcloud-openapi-extractor/merge-specs --core packages/nextcloud/lib/src/api/core.openapi.json --merged /tmp/nextcloud-neon/merged.json packages/nextcloud/lib/src/api/*.openapi.json --openapi-version 3.1.0
 
 jq \
   -s \

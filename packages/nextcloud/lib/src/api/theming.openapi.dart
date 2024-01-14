@@ -352,8 +352,8 @@ class $ThemingClient {
   ///  * [getThemeStylesheetRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<String, void>> getThemeStylesheet({
     required String themeId,
-    int? plain,
-    int? withCustomCss,
+    ThemingGetThemeStylesheetPlain? plain,
+    ThemingGetThemeStylesheetWithCustomCss? withCustomCss,
   }) async {
     final rawResponse = getThemeStylesheetRaw(
       themeId: themeId,
@@ -385,8 +385,8 @@ class $ThemingClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<String, void> getThemeStylesheetRaw({
     required String themeId,
-    int? plain,
-    int? withCustomCss,
+    ThemingGetThemeStylesheetPlain? plain,
+    ThemingGetThemeStylesheetWithCustomCss? withCustomCss,
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
@@ -411,11 +411,14 @@ class $ThemingClient {
     final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
     _parameters['themeId'] = $themeId;
 
-    var $plain = _$jsonSerializers.serialize(plain, specifiedType: const FullType(int));
+    var $plain = _$jsonSerializers.serialize(plain, specifiedType: const FullType(ThemingGetThemeStylesheetPlain));
     $plain ??= 0;
     _parameters['plain'] = $plain;
 
-    var $withCustomCss = _$jsonSerializers.serialize(withCustomCss, specifiedType: const FullType(int));
+    var $withCustomCss = _$jsonSerializers.serialize(
+      withCustomCss,
+      specifiedType: const FullType(ThemingGetThemeStylesheetWithCustomCss),
+    );
     $withCustomCss ??= 0;
     _parameters['withCustomCss'] = $withCustomCss;
 
@@ -453,7 +456,7 @@ class $ThemingClient {
   ///  * [getImageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Uint8List, void>> getImage({
     required String key,
-    int? useSvg,
+    ThemingGetImageUseSvg? useSvg,
   }) async {
     final rawResponse = getImageRaw(
       key: key,
@@ -484,7 +487,7 @@ class $ThemingClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getImageRaw({
     required String key,
-    int? useSvg,
+    ThemingGetImageUseSvg? useSvg,
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
@@ -509,7 +512,7 @@ class $ThemingClient {
     final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
     _parameters['key'] = $key;
 
-    var $useSvg = _$jsonSerializers.serialize(useSvg, specifiedType: const FullType(int));
+    var $useSvg = _$jsonSerializers.serialize(useSvg, specifiedType: const FullType(ThemingGetImageUseSvg));
     $useSvg ??= 1;
     _parameters['useSvg'] = $useSvg;
 
@@ -617,19 +620,14 @@ class $UserThemeClient {
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
   /// Status codes:
   ///   * 200: Background image returned
   ///   * 404: Background image not found
   ///
   /// See:
   ///  * [getBackgroundRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getBackground({bool? oCSAPIRequest}) async {
-    final rawResponse = getBackgroundRaw(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+  Future<_i1.DynamiteResponse<Uint8List, void>> getBackground() async {
+    final rawResponse = getBackgroundRaw();
 
     return rawResponse.future;
   }
@@ -641,9 +639,6 @@ class $UserThemeClient {
   /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
   /// Status codes:
   ///   * 200: Background image returned
   ///   * 404: Background image not found
@@ -651,7 +646,7 @@ class $UserThemeClient {
   /// See:
   ///  * [getBackground] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getBackgroundRaw({bool? oCSAPIRequest}) {
+  _i1.DynamiteRawResponse<Uint8List, void> getBackgroundRaw() {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
@@ -673,10 +668,6 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
     const _path = '/index.php/apps/theming/background';
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
@@ -687,196 +678,6 @@ class $UserThemeClient {
         const {200},
       ),
       bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Set the background.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [value] Path of the background image. Defaults to `''`.
-  ///   * [color] Color for the background.
-  ///   * [type] Type of background.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Background set successfully
-  ///   * 400: Setting background is not possible
-  ///   * 500
-  ///
-  /// See:
-  ///  * [setBackgroundRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Background, void>> setBackground({
-    required String type,
-    String? value,
-    String? color,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = setBackgroundRaw(
-      type: type,
-      value: value,
-      color: color,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Set the background.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [value] Path of the background image. Defaults to `''`.
-  ///   * [color] Color for the background.
-  ///   * [type] Type of background.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Background set successfully
-  ///   * 400: Setting background is not possible
-  ///   * 500
-  ///
-  /// See:
-  ///  * [setBackground] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<Background, void> setBackgroundRaw({
-    required String type,
-    String? value,
-    String? color,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $type = _$jsonSerializers.serialize(type, specifiedType: const FullType(String));
-    _parameters['type'] = $type;
-
-    var $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
-    $value ??= '';
-    _parameters['value'] = $value;
-
-    final $color = _$jsonSerializers.serialize(color, specifiedType: const FullType(String));
-    _parameters['color'] = $color;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i2.UriTemplate('/index.php/apps/theming/background/{type}{?value*,color*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Background, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(Background),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Delete the background.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Background deleted successfully
-  ///
-  /// See:
-  ///  * [deleteBackgroundRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Background, void>> deleteBackground({bool? oCSAPIRequest}) async {
-    final rawResponse = deleteBackgroundRaw(
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Delete the background.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Background deleted successfully
-  ///
-  /// See:
-  ///  * [deleteBackground] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<Background, void> deleteBackgroundRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    const _path = '/index.php/apps/theming/background/custom';
-    return _i1.DynamiteRawResponse<Background, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(Background),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -1073,6 +874,201 @@ class $UserThemeClient {
   }
 }
 
+class ThemingGetThemeStylesheetPlain extends EnumClass {
+  const ThemingGetThemeStylesheetPlain._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ThemingGetThemeStylesheetPlain $0 = _$themingGetThemeStylesheetPlain$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ThemingGetThemeStylesheetPlain $1 = _$themingGetThemeStylesheetPlain$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ThemingGetThemeStylesheetPlain> get values => _$themingGetThemeStylesheetPlainValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ThemingGetThemeStylesheetPlain valueOf(String name) => _$valueOfThemingGetThemeStylesheetPlain(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ThemingGetThemeStylesheetPlain.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ThemingGetThemeStylesheetPlain> get serializer =>
+      const _$ThemingGetThemeStylesheetPlainSerializer();
+}
+
+class _$ThemingGetThemeStylesheetPlainSerializer implements PrimitiveSerializer<ThemingGetThemeStylesheetPlain> {
+  const _$ThemingGetThemeStylesheetPlainSerializer();
+
+  static const Map<ThemingGetThemeStylesheetPlain, Object> _toWire = <ThemingGetThemeStylesheetPlain, Object>{
+    ThemingGetThemeStylesheetPlain.$0: 0,
+    ThemingGetThemeStylesheetPlain.$1: 1,
+  };
+
+  static const Map<Object, ThemingGetThemeStylesheetPlain> _fromWire = <Object, ThemingGetThemeStylesheetPlain>{
+    0: ThemingGetThemeStylesheetPlain.$0,
+    1: ThemingGetThemeStylesheetPlain.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ThemingGetThemeStylesheetPlain];
+
+  @override
+  String get wireName => 'ThemingGetThemeStylesheetPlain';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ThemingGetThemeStylesheetPlain object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ThemingGetThemeStylesheetPlain deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class ThemingGetThemeStylesheetWithCustomCss extends EnumClass {
+  const ThemingGetThemeStylesheetWithCustomCss._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ThemingGetThemeStylesheetWithCustomCss $0 = _$themingGetThemeStylesheetWithCustomCss$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ThemingGetThemeStylesheetWithCustomCss $1 = _$themingGetThemeStylesheetWithCustomCss$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ThemingGetThemeStylesheetWithCustomCss> get values => _$themingGetThemeStylesheetWithCustomCssValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ThemingGetThemeStylesheetWithCustomCss valueOf(String name) =>
+      _$valueOfThemingGetThemeStylesheetWithCustomCss(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ThemingGetThemeStylesheetWithCustomCss.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ThemingGetThemeStylesheetWithCustomCss> get serializer =>
+      const _$ThemingGetThemeStylesheetWithCustomCssSerializer();
+}
+
+class _$ThemingGetThemeStylesheetWithCustomCssSerializer
+    implements PrimitiveSerializer<ThemingGetThemeStylesheetWithCustomCss> {
+  const _$ThemingGetThemeStylesheetWithCustomCssSerializer();
+
+  static const Map<ThemingGetThemeStylesheetWithCustomCss, Object> _toWire =
+      <ThemingGetThemeStylesheetWithCustomCss, Object>{
+    ThemingGetThemeStylesheetWithCustomCss.$0: 0,
+    ThemingGetThemeStylesheetWithCustomCss.$1: 1,
+  };
+
+  static const Map<Object, ThemingGetThemeStylesheetWithCustomCss> _fromWire =
+      <Object, ThemingGetThemeStylesheetWithCustomCss>{
+    0: ThemingGetThemeStylesheetWithCustomCss.$0,
+    1: ThemingGetThemeStylesheetWithCustomCss.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ThemingGetThemeStylesheetWithCustomCss];
+
+  @override
+  String get wireName => 'ThemingGetThemeStylesheetWithCustomCss';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ThemingGetThemeStylesheetWithCustomCss object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ThemingGetThemeStylesheetWithCustomCss deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class ThemingGetImageUseSvg extends EnumClass {
+  const ThemingGetImageUseSvg._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ThemingGetImageUseSvg $0 = _$themingGetImageUseSvg$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ThemingGetImageUseSvg $1 = _$themingGetImageUseSvg$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ThemingGetImageUseSvg> get values => _$themingGetImageUseSvgValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ThemingGetImageUseSvg valueOf(String name) => _$valueOfThemingGetImageUseSvg(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ThemingGetImageUseSvg.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ThemingGetImageUseSvg> get serializer => const _$ThemingGetImageUseSvgSerializer();
+}
+
+class _$ThemingGetImageUseSvgSerializer implements PrimitiveSerializer<ThemingGetImageUseSvg> {
+  const _$ThemingGetImageUseSvgSerializer();
+
+  static const Map<ThemingGetImageUseSvg, Object> _toWire = <ThemingGetImageUseSvg, Object>{
+    ThemingGetImageUseSvg.$0: 0,
+    ThemingGetImageUseSvg.$1: 1,
+  };
+
+  static const Map<Object, ThemingGetImageUseSvg> _fromWire = <Object, ThemingGetImageUseSvg>{
+    0: ThemingGetImageUseSvg.$0,
+    1: ThemingGetImageUseSvg.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ThemingGetImageUseSvg];
+
+  @override
+  String get wireName => 'ThemingGetImageUseSvg';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ThemingGetImageUseSvg object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ThemingGetImageUseSvg deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $ThemingGetManifestResponseApplicationJson_IconsInterface {
   String get src;
@@ -1169,39 +1165,6 @@ abstract class ThemingGetManifestResponseApplicationJson
   /// Serializer for ThemingGetManifestResponseApplicationJson.
   static Serializer<ThemingGetManifestResponseApplicationJson> get serializer =>
       _$themingGetManifestResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BackgroundInterface {
-  String? get backgroundImage;
-  String get backgroundColor;
-  int get version;
-}
-
-abstract class Background implements $BackgroundInterface, Built<Background, BackgroundBuilder> {
-  /// Creates a new Background object using the builder pattern.
-  factory Background([void Function(BackgroundBuilder)? b]) = _$Background;
-
-  // coverage:ignore-start
-  const Background._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Background.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Background.
-  static Serializer<Background> get serializer => _$backgroundSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1395,6 +1358,39 @@ abstract class UserThemeDisableThemeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $BackgroundInterface {
+  String? get backgroundImage;
+  String get backgroundColor;
+  int get version;
+}
+
+abstract class Background implements $BackgroundInterface, Built<Background, BackgroundBuilder> {
+  /// Creates a new Background object using the builder pattern.
+  factory Background([void Function(BackgroundBuilder)? b]) = _$Background;
+
+  // coverage:ignore-start
+  const Background._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Background.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Background.
+  static Serializer<Background> get serializer => _$backgroundSerializer;
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $PublicCapabilities_ThemingInterface {
   String get name;
   String get url;
@@ -1490,6 +1486,9 @@ abstract class PublicCapabilities
 @_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
+      ..add(ThemingGetThemeStylesheetPlain.serializer)
+      ..add(ThemingGetThemeStylesheetWithCustomCss.serializer)
+      ..add(ThemingGetImageUseSvg.serializer)
       ..addBuilderFactory(
         const FullType(ThemingGetManifestResponseApplicationJson),
         ThemingGetManifestResponseApplicationJsonBuilder.new,
@@ -1504,8 +1503,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(ThemingGetManifestResponseApplicationJson_Icons)]),
         ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>.new,
       )
-      ..addBuilderFactory(const FullType(Background), BackgroundBuilder.new)
-      ..add(Background.serializer)
       ..addBuilderFactory(
         const FullType(UserThemeEnableThemeResponseApplicationJson),
         UserThemeEnableThemeResponseApplicationJsonBuilder.new,
@@ -1528,6 +1525,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UserThemeDisableThemeResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UserThemeDisableThemeResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(Background), BackgroundBuilder.new)
+      ..add(Background.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
       ..add(PublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities_Theming), PublicCapabilities_ThemingBuilder.new)

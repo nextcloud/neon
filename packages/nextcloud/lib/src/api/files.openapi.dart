@@ -1012,7 +1012,7 @@ class $TemplateClient {
   ///  * [pathRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<TemplatePathResponseApplicationJson, void>> path({
     String? templatePath,
-    int? copySystemTemplates,
+    TemplatePathCopySystemTemplates? copySystemTemplates,
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = pathRaw(
@@ -1045,7 +1045,7 @@ class $TemplateClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<TemplatePathResponseApplicationJson, void> pathRaw({
     String? templatePath,
-    int? copySystemTemplates,
+    TemplatePathCopySystemTemplates? copySystemTemplates,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
@@ -1074,7 +1074,10 @@ class $TemplateClient {
     $templatePath ??= '';
     _parameters['templatePath'] = $templatePath;
 
-    var $copySystemTemplates = _$jsonSerializers.serialize(copySystemTemplates, specifiedType: const FullType(int));
+    var $copySystemTemplates = _$jsonSerializers.serialize(
+      copySystemTemplates,
+      specifiedType: const FullType(TemplatePathCopySystemTemplates),
+    );
     $copySystemTemplates ??= 0;
     _parameters['copySystemTemplates'] = $copySystemTemplates;
 
@@ -2515,6 +2518,70 @@ abstract class TemplateCreateResponseApplicationJson
       _$templateCreateResponseApplicationJsonSerializer;
 }
 
+class TemplatePathCopySystemTemplates extends EnumClass {
+  const TemplatePathCopySystemTemplates._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const TemplatePathCopySystemTemplates $0 = _$templatePathCopySystemTemplates$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const TemplatePathCopySystemTemplates $1 = _$templatePathCopySystemTemplates$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<TemplatePathCopySystemTemplates> get values => _$templatePathCopySystemTemplatesValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static TemplatePathCopySystemTemplates valueOf(String name) => _$valueOfTemplatePathCopySystemTemplates(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for TemplatePathCopySystemTemplates.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TemplatePathCopySystemTemplates> get serializer =>
+      const _$TemplatePathCopySystemTemplatesSerializer();
+}
+
+class _$TemplatePathCopySystemTemplatesSerializer implements PrimitiveSerializer<TemplatePathCopySystemTemplates> {
+  const _$TemplatePathCopySystemTemplatesSerializer();
+
+  static const Map<TemplatePathCopySystemTemplates, Object> _toWire = <TemplatePathCopySystemTemplates, Object>{
+    TemplatePathCopySystemTemplates.$0: 0,
+    TemplatePathCopySystemTemplates.$1: 1,
+  };
+
+  static const Map<Object, TemplatePathCopySystemTemplates> _fromWire = <Object, TemplatePathCopySystemTemplates>{
+    0: TemplatePathCopySystemTemplates.$0,
+    1: TemplatePathCopySystemTemplates.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [TemplatePathCopySystemTemplates];
+
+  @override
+  String get wireName => 'TemplatePathCopySystemTemplates';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TemplatePathCopySystemTemplates object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  TemplatePathCopySystemTemplates deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $TemplatePathResponseApplicationJson_Ocs_DataInterface {
   @BuiltValueField(wireName: 'template_path')
@@ -3177,6 +3244,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(TemplateCreateResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(TemplateFile), TemplateFileBuilder.new)
       ..add(TemplateFile.serializer)
+      ..add(TemplatePathCopySystemTemplates.serializer)
       ..addBuilderFactory(
         const FullType(TemplatePathResponseApplicationJson),
         TemplatePathResponseApplicationJsonBuilder.new,

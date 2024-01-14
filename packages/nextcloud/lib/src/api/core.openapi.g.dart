@@ -6,6 +6,230 @@ part of 'core.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const GuestAvatarGetAvatarDarkTheme _$guestAvatarGetAvatarDarkTheme$0 = GuestAvatarGetAvatarDarkTheme._('\$0');
+const GuestAvatarGetAvatarDarkTheme _$guestAvatarGetAvatarDarkTheme$1 = GuestAvatarGetAvatarDarkTheme._('\$1');
+
+GuestAvatarGetAvatarDarkTheme _$valueOfGuestAvatarGetAvatarDarkTheme(String name) {
+  switch (name) {
+    case '\$0':
+      return _$guestAvatarGetAvatarDarkTheme$0;
+    case '\$1':
+      return _$guestAvatarGetAvatarDarkTheme$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<GuestAvatarGetAvatarDarkTheme> _$guestAvatarGetAvatarDarkThemeValues =
+    BuiltSet<GuestAvatarGetAvatarDarkTheme>(const <GuestAvatarGetAvatarDarkTheme>[
+  _$guestAvatarGetAvatarDarkTheme$0,
+  _$guestAvatarGetAvatarDarkTheme$1,
+]);
+
+const NavigationGetAppsNavigationAbsolute _$navigationGetAppsNavigationAbsolute$0 =
+    NavigationGetAppsNavigationAbsolute._('\$0');
+const NavigationGetAppsNavigationAbsolute _$navigationGetAppsNavigationAbsolute$1 =
+    NavigationGetAppsNavigationAbsolute._('\$1');
+
+NavigationGetAppsNavigationAbsolute _$valueOfNavigationGetAppsNavigationAbsolute(String name) {
+  switch (name) {
+    case '\$0':
+      return _$navigationGetAppsNavigationAbsolute$0;
+    case '\$1':
+      return _$navigationGetAppsNavigationAbsolute$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<NavigationGetAppsNavigationAbsolute> _$navigationGetAppsNavigationAbsoluteValues =
+    BuiltSet<NavigationGetAppsNavigationAbsolute>(const <NavigationGetAppsNavigationAbsolute>[
+  _$navigationGetAppsNavigationAbsolute$0,
+  _$navigationGetAppsNavigationAbsolute$1,
+]);
+
+const NavigationGetSettingsNavigationAbsolute _$navigationGetSettingsNavigationAbsolute$0 =
+    NavigationGetSettingsNavigationAbsolute._('\$0');
+const NavigationGetSettingsNavigationAbsolute _$navigationGetSettingsNavigationAbsolute$1 =
+    NavigationGetSettingsNavigationAbsolute._('\$1');
+
+NavigationGetSettingsNavigationAbsolute _$valueOfNavigationGetSettingsNavigationAbsolute(String name) {
+  switch (name) {
+    case '\$0':
+      return _$navigationGetSettingsNavigationAbsolute$0;
+    case '\$1':
+      return _$navigationGetSettingsNavigationAbsolute$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<NavigationGetSettingsNavigationAbsolute> _$navigationGetSettingsNavigationAbsoluteValues =
+    BuiltSet<NavigationGetSettingsNavigationAbsolute>(const <NavigationGetSettingsNavigationAbsolute>[
+  _$navigationGetSettingsNavigationAbsolute$0,
+  _$navigationGetSettingsNavigationAbsolute$1,
+]);
+
+const OcmOcmDiscoveryHeaders_XNextcloudOcmProviders _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true =
+    OcmOcmDiscoveryHeaders_XNextcloudOcmProviders._('\$true');
+
+OcmOcmDiscoveryHeaders_XNextcloudOcmProviders _$valueOfOcmOcmDiscoveryHeaders_XNextcloudOcmProviders(String name) {
+  switch (name) {
+    case '\$true':
+      return _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> _$ocmOcmDiscoveryHeadersXNextcloudOcmProvidersValues =
+    BuiltSet<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>(const <OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>[
+  _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true,
+]);
+
+const PreviewGetPreviewByFileIdA _$previewGetPreviewByFileIdA$0 = PreviewGetPreviewByFileIdA._('\$0');
+const PreviewGetPreviewByFileIdA _$previewGetPreviewByFileIdA$1 = PreviewGetPreviewByFileIdA._('\$1');
+
+PreviewGetPreviewByFileIdA _$valueOfPreviewGetPreviewByFileIdA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewByFileIdA$0;
+    case '\$1':
+      return _$previewGetPreviewByFileIdA$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewByFileIdA> _$previewGetPreviewByFileIdAValues =
+    BuiltSet<PreviewGetPreviewByFileIdA>(const <PreviewGetPreviewByFileIdA>[
+  _$previewGetPreviewByFileIdA$0,
+  _$previewGetPreviewByFileIdA$1,
+]);
+
+const PreviewGetPreviewByFileIdForceIcon _$previewGetPreviewByFileIdForceIcon$0 =
+    PreviewGetPreviewByFileIdForceIcon._('\$0');
+const PreviewGetPreviewByFileIdForceIcon _$previewGetPreviewByFileIdForceIcon$1 =
+    PreviewGetPreviewByFileIdForceIcon._('\$1');
+
+PreviewGetPreviewByFileIdForceIcon _$valueOfPreviewGetPreviewByFileIdForceIcon(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewByFileIdForceIcon$0;
+    case '\$1':
+      return _$previewGetPreviewByFileIdForceIcon$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewByFileIdForceIcon> _$previewGetPreviewByFileIdForceIconValues =
+    BuiltSet<PreviewGetPreviewByFileIdForceIcon>(const <PreviewGetPreviewByFileIdForceIcon>[
+  _$previewGetPreviewByFileIdForceIcon$0,
+  _$previewGetPreviewByFileIdForceIcon$1,
+]);
+
+const PreviewGetPreviewByFileIdMimeFallback _$previewGetPreviewByFileIdMimeFallback$0 =
+    PreviewGetPreviewByFileIdMimeFallback._('\$0');
+const PreviewGetPreviewByFileIdMimeFallback _$previewGetPreviewByFileIdMimeFallback$1 =
+    PreviewGetPreviewByFileIdMimeFallback._('\$1');
+
+PreviewGetPreviewByFileIdMimeFallback _$valueOfPreviewGetPreviewByFileIdMimeFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewByFileIdMimeFallback$0;
+    case '\$1':
+      return _$previewGetPreviewByFileIdMimeFallback$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewByFileIdMimeFallback> _$previewGetPreviewByFileIdMimeFallbackValues =
+    BuiltSet<PreviewGetPreviewByFileIdMimeFallback>(const <PreviewGetPreviewByFileIdMimeFallback>[
+  _$previewGetPreviewByFileIdMimeFallback$0,
+  _$previewGetPreviewByFileIdMimeFallback$1,
+]);
+
+const PreviewGetPreviewA _$previewGetPreviewA$0 = PreviewGetPreviewA._('\$0');
+const PreviewGetPreviewA _$previewGetPreviewA$1 = PreviewGetPreviewA._('\$1');
+
+PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewA$0;
+    case '\$1':
+      return _$previewGetPreviewA$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues = BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
+  _$previewGetPreviewA$0,
+  _$previewGetPreviewA$1,
+]);
+
+const PreviewGetPreviewForceIcon _$previewGetPreviewForceIcon$0 = PreviewGetPreviewForceIcon._('\$0');
+const PreviewGetPreviewForceIcon _$previewGetPreviewForceIcon$1 = PreviewGetPreviewForceIcon._('\$1');
+
+PreviewGetPreviewForceIcon _$valueOfPreviewGetPreviewForceIcon(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewForceIcon$0;
+    case '\$1':
+      return _$previewGetPreviewForceIcon$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewForceIcon> _$previewGetPreviewForceIconValues =
+    BuiltSet<PreviewGetPreviewForceIcon>(const <PreviewGetPreviewForceIcon>[
+  _$previewGetPreviewForceIcon$0,
+  _$previewGetPreviewForceIcon$1,
+]);
+
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$0 = PreviewGetPreviewMimeFallback._('\$0');
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$1 = PreviewGetPreviewMimeFallback._('\$1');
+
+PreviewGetPreviewMimeFallback _$valueOfPreviewGetPreviewMimeFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewMimeFallback$0;
+    case '\$1':
+      return _$previewGetPreviewMimeFallback$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewMimeFallback> _$previewGetPreviewMimeFallbackValues =
+    BuiltSet<PreviewGetPreviewMimeFallback>(const <PreviewGetPreviewMimeFallback>[
+  _$previewGetPreviewMimeFallback$0,
+  _$previewGetPreviewMimeFallback$1,
+]);
+
+const ReferenceApiExtractResolve _$referenceApiExtractResolve$0 = ReferenceApiExtractResolve._('\$0');
+const ReferenceApiExtractResolve _$referenceApiExtractResolve$1 = ReferenceApiExtractResolve._('\$1');
+
+ReferenceApiExtractResolve _$valueOfReferenceApiExtractResolve(String name) {
+  switch (name) {
+    case '\$0':
+      return _$referenceApiExtractResolve$0;
+    case '\$1':
+      return _$referenceApiExtractResolve$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ReferenceApiExtractResolve> _$referenceApiExtractResolveValues =
+    BuiltSet<ReferenceApiExtractResolve>(const <ReferenceApiExtractResolve>[
+  _$referenceApiExtractResolve$0,
+  _$referenceApiExtractResolve$1,
+]);
+
 const TextProcessingTask_Status _$textProcessingTaskStatus$0 = TextProcessingTask_Status._('\$0');
 const TextProcessingTask_Status _$textProcessingTaskStatus$1 = TextProcessingTask_Status._('\$1');
 const TextProcessingTask_Status _$textProcessingTaskStatus$2 = TextProcessingTask_Status._('\$2');
@@ -2771,7 +2995,8 @@ class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmD
     if (value != null) {
       result
         ..add('x-nextcloud-ocm-providers')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(bool)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)])));
     }
     return result;
   }
@@ -2788,8 +3013,9 @@ class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmD
       final Object? value = iterator.current;
       switch (key) {
         case 'x-nextcloud-ocm-providers':
-          result.xNextcloudOcmProviders.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(bool)]))! as Header<bool>);
+          result.xNextcloudOcmProviders.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]))!
+              as Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>);
           break;
       }
     }
@@ -15175,13 +15401,13 @@ class NavigationGetSettingsNavigationResponseApplicationJsonBuilder
 abstract mixin class $OcmOcmDiscoveryHeadersInterfaceBuilder {
   void replace($OcmOcmDiscoveryHeadersInterface other);
   void update(void Function($OcmOcmDiscoveryHeadersInterfaceBuilder) updates);
-  HeaderBuilder<bool> get xNextcloudOcmProviders;
-  set xNextcloudOcmProviders(HeaderBuilder<bool>? xNextcloudOcmProviders);
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get xNextcloudOcmProviders;
+  set xNextcloudOcmProviders(HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders);
 }
 
 class _$OcmOcmDiscoveryHeaders extends OcmOcmDiscoveryHeaders {
   @override
-  final Header<bool>? xNextcloudOcmProviders;
+  final Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders;
 
   factory _$OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? updates]) =>
       (OcmOcmDiscoveryHeadersBuilder()..update(updates))._build();
@@ -15221,9 +15447,11 @@ class OcmOcmDiscoveryHeadersBuilder
     implements Builder<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder>, $OcmOcmDiscoveryHeadersInterfaceBuilder {
   _$OcmOcmDiscoveryHeaders? _$v;
 
-  HeaderBuilder<bool>? _xNextcloudOcmProviders;
-  HeaderBuilder<bool> get xNextcloudOcmProviders => _$this._xNextcloudOcmProviders ??= HeaderBuilder<bool>();
-  set xNextcloudOcmProviders(covariant HeaderBuilder<bool>? xNextcloudOcmProviders) =>
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? _xNextcloudOcmProviders;
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get xNextcloudOcmProviders =>
+      _$this._xNextcloudOcmProviders ??= HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>();
+  set xNextcloudOcmProviders(
+          covariant HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders) =>
       _$this._xNextcloudOcmProviders = xNextcloudOcmProviders;
 
   OcmOcmDiscoveryHeadersBuilder();

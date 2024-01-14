@@ -6,6 +6,26 @@ part of 'spreed.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const AvatarGetAvatarDarkTheme _$avatarGetAvatarDarkTheme$0 = AvatarGetAvatarDarkTheme._('\$0');
+const AvatarGetAvatarDarkTheme _$avatarGetAvatarDarkTheme$1 = AvatarGetAvatarDarkTheme._('\$1');
+
+AvatarGetAvatarDarkTheme _$valueOfAvatarGetAvatarDarkTheme(String name) {
+  switch (name) {
+    case '\$0':
+      return _$avatarGetAvatarDarkTheme$0;
+    case '\$1':
+      return _$avatarGetAvatarDarkTheme$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<AvatarGetAvatarDarkTheme> _$avatarGetAvatarDarkThemeValues =
+    BuiltSet<AvatarGetAvatarDarkTheme>(const <AvatarGetAvatarDarkTheme>[
+  _$avatarGetAvatarDarkTheme$0,
+  _$avatarGetAvatarDarkTheme$1,
+]);
+
 const AvatarGetAvatarApiVersion _$avatarGetAvatarApiVersionV1 = AvatarGetAvatarApiVersion._('v1');
 
 AvatarGetAvatarApiVersion _$valueOfAvatarGetAvatarApiVersion(String name) {
@@ -36,6 +56,22 @@ AvatarUploadAvatarApiVersion _$valueOfAvatarUploadAvatarApiVersion(String name) 
 final BuiltSet<AvatarUploadAvatarApiVersion> _$avatarUploadAvatarApiVersionValues =
     BuiltSet<AvatarUploadAvatarApiVersion>(const <AvatarUploadAvatarApiVersion>[
   _$avatarUploadAvatarApiVersionV1,
+]);
+
+const ChatMessage_Deleted _$chatMessageDeleted$true = ChatMessage_Deleted._('\$true');
+
+ChatMessage_Deleted _$valueOfChatMessage_Deleted(String name) {
+  switch (name) {
+    case '\$true':
+      return _$chatMessageDeleted$true;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatMessage_Deleted> _$chatMessageDeletedValues =
+    BuiltSet<ChatMessage_Deleted>(const <ChatMessage_Deleted>[
+  _$chatMessageDeleted$true,
 ]);
 
 const AvatarDeleteAvatarApiVersion _$avatarDeleteAvatarApiVersionV1 = AvatarDeleteAvatarApiVersion._('v1');
@@ -84,6 +120,26 @@ AvatarGetAvatarDarkApiVersion _$valueOfAvatarGetAvatarDarkApiVersion(String name
 final BuiltSet<AvatarGetAvatarDarkApiVersion> _$avatarGetAvatarDarkApiVersionValues =
     BuiltSet<AvatarGetAvatarDarkApiVersion>(const <AvatarGetAvatarDarkApiVersion>[
   _$avatarGetAvatarDarkApiVersionV1,
+]);
+
+const BotSendMessageSilent _$botSendMessageSilent$0 = BotSendMessageSilent._('\$0');
+const BotSendMessageSilent _$botSendMessageSilent$1 = BotSendMessageSilent._('\$1');
+
+BotSendMessageSilent _$valueOfBotSendMessageSilent(String name) {
+  switch (name) {
+    case '\$0':
+      return _$botSendMessageSilent$0;
+    case '\$1':
+      return _$botSendMessageSilent$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<BotSendMessageSilent> _$botSendMessageSilentValues =
+    BuiltSet<BotSendMessageSilent>(const <BotSendMessageSilent>[
+  _$botSendMessageSilent$0,
+  _$botSendMessageSilent$1,
 ]);
 
 const BotSendMessageApiVersion _$botSendMessageApiVersionV1 = BotSendMessageApiVersion._('v1');
@@ -1526,6 +1582,45 @@ final BuiltSet<CallJoinCallForcePermissions> _$callJoinCallForcePermissionsValue
   _$callJoinCallForcePermissions$255,
 ]);
 
+const CallJoinCallSilent _$callJoinCallSilent$0 = CallJoinCallSilent._('\$0');
+const CallJoinCallSilent _$callJoinCallSilent$1 = CallJoinCallSilent._('\$1');
+
+CallJoinCallSilent _$valueOfCallJoinCallSilent(String name) {
+  switch (name) {
+    case '\$0':
+      return _$callJoinCallSilent$0;
+    case '\$1':
+      return _$callJoinCallSilent$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<CallJoinCallSilent> _$callJoinCallSilentValues = BuiltSet<CallJoinCallSilent>(const <CallJoinCallSilent>[
+  _$callJoinCallSilent$0,
+  _$callJoinCallSilent$1,
+]);
+
+const CallJoinCallRecordingConsent _$callJoinCallRecordingConsent$0 = CallJoinCallRecordingConsent._('\$0');
+const CallJoinCallRecordingConsent _$callJoinCallRecordingConsent$1 = CallJoinCallRecordingConsent._('\$1');
+
+CallJoinCallRecordingConsent _$valueOfCallJoinCallRecordingConsent(String name) {
+  switch (name) {
+    case '\$0':
+      return _$callJoinCallRecordingConsent$0;
+    case '\$1':
+      return _$callJoinCallRecordingConsent$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<CallJoinCallRecordingConsent> _$callJoinCallRecordingConsentValues =
+    BuiltSet<CallJoinCallRecordingConsent>(const <CallJoinCallRecordingConsent>[
+  _$callJoinCallRecordingConsent$0,
+  _$callJoinCallRecordingConsent$1,
+]);
+
 const CallJoinCallApiVersion _$callJoinCallApiVersionV4 = CallJoinCallApiVersion._('v4');
 
 CallJoinCallApiVersion _$valueOfCallJoinCallApiVersion(String name) {
@@ -1540,6 +1635,25 @@ CallJoinCallApiVersion _$valueOfCallJoinCallApiVersion(String name) {
 final BuiltSet<CallJoinCallApiVersion> _$callJoinCallApiVersionValues =
     BuiltSet<CallJoinCallApiVersion>(const <CallJoinCallApiVersion>[
   _$callJoinCallApiVersionV4,
+]);
+
+const CallLeaveCallAll _$callLeaveCallAll$0 = CallLeaveCallAll._('\$0');
+const CallLeaveCallAll _$callLeaveCallAll$1 = CallLeaveCallAll._('\$1');
+
+CallLeaveCallAll _$valueOfCallLeaveCallAll(String name) {
+  switch (name) {
+    case '\$0':
+      return _$callLeaveCallAll$0;
+    case '\$1':
+      return _$callLeaveCallAll$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<CallLeaveCallAll> _$callLeaveCallAllValues = BuiltSet<CallLeaveCallAll>(const <CallLeaveCallAll>[
+  _$callLeaveCallAll$0,
+  _$callLeaveCallAll$1,
 ]);
 
 const CallLeaveCallApiVersion _$callLeaveCallApiVersionV4 = CallLeaveCallApiVersion._('v4');
@@ -1731,6 +1845,26 @@ final BuiltSet<ChatReceiveMessagesApiVersion> _$chatReceiveMessagesApiVersionVal
   _$chatReceiveMessagesApiVersionV1,
 ]);
 
+const ChatSendMessageSilent _$chatSendMessageSilent$0 = ChatSendMessageSilent._('\$0');
+const ChatSendMessageSilent _$chatSendMessageSilent$1 = ChatSendMessageSilent._('\$1');
+
+ChatSendMessageSilent _$valueOfChatSendMessageSilent(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatSendMessageSilent$0;
+    case '\$1':
+      return _$chatSendMessageSilent$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatSendMessageSilent> _$chatSendMessageSilentValues =
+    BuiltSet<ChatSendMessageSilent>(const <ChatSendMessageSilent>[
+  _$chatSendMessageSilent$0,
+  _$chatSendMessageSilent$1,
+]);
+
 const ChatSendMessageApiVersion _$chatSendMessageApiVersionV1 = ChatSendMessageApiVersion._('v1');
 
 ChatSendMessageApiVersion _$valueOfChatSendMessageApiVersion(String name) {
@@ -1873,6 +2007,26 @@ ChatMarkUnreadApiVersion _$valueOfChatMarkUnreadApiVersion(String name) {
 final BuiltSet<ChatMarkUnreadApiVersion> _$chatMarkUnreadApiVersionValues =
     BuiltSet<ChatMarkUnreadApiVersion>(const <ChatMarkUnreadApiVersion>[
   _$chatMarkUnreadApiVersionV1,
+]);
+
+const ChatMentionsIncludeStatus _$chatMentionsIncludeStatus$0 = ChatMentionsIncludeStatus._('\$0');
+const ChatMentionsIncludeStatus _$chatMentionsIncludeStatus$1 = ChatMentionsIncludeStatus._('\$1');
+
+ChatMentionsIncludeStatus _$valueOfChatMentionsIncludeStatus(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatMentionsIncludeStatus$0;
+    case '\$1':
+      return _$chatMentionsIncludeStatus$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatMentionsIncludeStatus> _$chatMentionsIncludeStatusValues =
+    BuiltSet<ChatMentionsIncludeStatus>(const <ChatMentionsIncludeStatus>[
+  _$chatMentionsIncludeStatus$0,
+  _$chatMentionsIncludeStatus$1,
 ]);
 
 const ChatMentionsApiVersion _$chatMentionsApiVersionV1 = ChatMentionsApiVersion._('v1');
@@ -2040,6 +2194,28 @@ MatterbridgeGetBridgeOfRoomApiVersion _$valueOfMatterbridgeGetBridgeOfRoomApiVer
 final BuiltSet<MatterbridgeGetBridgeOfRoomApiVersion> _$matterbridgeGetBridgeOfRoomApiVersionValues =
     BuiltSet<MatterbridgeGetBridgeOfRoomApiVersion>(const <MatterbridgeGetBridgeOfRoomApiVersion>[
   _$matterbridgeGetBridgeOfRoomApiVersionV1,
+]);
+
+const MatterbridgeEditBridgeOfRoomEnabled _$matterbridgeEditBridgeOfRoomEnabled$0 =
+    MatterbridgeEditBridgeOfRoomEnabled._('\$0');
+const MatterbridgeEditBridgeOfRoomEnabled _$matterbridgeEditBridgeOfRoomEnabled$1 =
+    MatterbridgeEditBridgeOfRoomEnabled._('\$1');
+
+MatterbridgeEditBridgeOfRoomEnabled _$valueOfMatterbridgeEditBridgeOfRoomEnabled(String name) {
+  switch (name) {
+    case '\$0':
+      return _$matterbridgeEditBridgeOfRoomEnabled$0;
+    case '\$1':
+      return _$matterbridgeEditBridgeOfRoomEnabled$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<MatterbridgeEditBridgeOfRoomEnabled> _$matterbridgeEditBridgeOfRoomEnabledValues =
+    BuiltSet<MatterbridgeEditBridgeOfRoomEnabled>(const <MatterbridgeEditBridgeOfRoomEnabled>[
+  _$matterbridgeEditBridgeOfRoomEnabled$0,
+  _$matterbridgeEditBridgeOfRoomEnabled$1,
 ]);
 
 const MatterbridgeEditBridgeOfRoomApiVersion _$matterbridgeEditBridgeOfRoomApiVersionV1 =
@@ -2394,6 +2570,26 @@ final BuiltSet<RoomGetRoomsNoStatusUpdate> _$roomGetRoomsNoStatusUpdateValues =
     BuiltSet<RoomGetRoomsNoStatusUpdate>(const <RoomGetRoomsNoStatusUpdate>[
   _$roomGetRoomsNoStatusUpdate$0,
   _$roomGetRoomsNoStatusUpdate$1,
+]);
+
+const RoomGetRoomsIncludeStatus _$roomGetRoomsIncludeStatus$0 = RoomGetRoomsIncludeStatus._('\$0');
+const RoomGetRoomsIncludeStatus _$roomGetRoomsIncludeStatus$1 = RoomGetRoomsIncludeStatus._('\$1');
+
+RoomGetRoomsIncludeStatus _$valueOfRoomGetRoomsIncludeStatus(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomGetRoomsIncludeStatus$0;
+    case '\$1':
+      return _$roomGetRoomsIncludeStatus$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomGetRoomsIncludeStatus> _$roomGetRoomsIncludeStatusValues =
+    BuiltSet<RoomGetRoomsIncludeStatus>(const <RoomGetRoomsIncludeStatus>[
+  _$roomGetRoomsIncludeStatus$0,
+  _$roomGetRoomsIncludeStatus$1,
 ]);
 
 const RoomGetRoomsApiVersion _$roomGetRoomsApiVersionV4 = RoomGetRoomsApiVersion._('v4');
@@ -3737,6 +3933,26 @@ final BuiltSet<RoomSetPermissionsApiVersion> _$roomSetPermissionsApiVersionValue
   _$roomSetPermissionsApiVersionV4,
 ]);
 
+const RoomGetParticipantsIncludeStatus _$roomGetParticipantsIncludeStatus$0 = RoomGetParticipantsIncludeStatus._('\$0');
+const RoomGetParticipantsIncludeStatus _$roomGetParticipantsIncludeStatus$1 = RoomGetParticipantsIncludeStatus._('\$1');
+
+RoomGetParticipantsIncludeStatus _$valueOfRoomGetParticipantsIncludeStatus(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomGetParticipantsIncludeStatus$0;
+    case '\$1':
+      return _$roomGetParticipantsIncludeStatus$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomGetParticipantsIncludeStatus> _$roomGetParticipantsIncludeStatusValues =
+    BuiltSet<RoomGetParticipantsIncludeStatus>(const <RoomGetParticipantsIncludeStatus>[
+  _$roomGetParticipantsIncludeStatus$0,
+  _$roomGetParticipantsIncludeStatus$1,
+]);
+
 const RoomGetParticipantsApiVersion _$roomGetParticipantsApiVersionV4 = RoomGetParticipantsApiVersion._('v4');
 
 RoomGetParticipantsApiVersion _$valueOfRoomGetParticipantsApiVersion(String name) {
@@ -3809,6 +4025,28 @@ RoomAddParticipantToRoomApiVersion _$valueOfRoomAddParticipantToRoomApiVersion(S
 final BuiltSet<RoomAddParticipantToRoomApiVersion> _$roomAddParticipantToRoomApiVersionValues =
     BuiltSet<RoomAddParticipantToRoomApiVersion>(const <RoomAddParticipantToRoomApiVersion>[
   _$roomAddParticipantToRoomApiVersionV4,
+]);
+
+const RoomGetBreakoutRoomParticipantsIncludeStatus _$roomGetBreakoutRoomParticipantsIncludeStatus$0 =
+    RoomGetBreakoutRoomParticipantsIncludeStatus._('\$0');
+const RoomGetBreakoutRoomParticipantsIncludeStatus _$roomGetBreakoutRoomParticipantsIncludeStatus$1 =
+    RoomGetBreakoutRoomParticipantsIncludeStatus._('\$1');
+
+RoomGetBreakoutRoomParticipantsIncludeStatus _$valueOfRoomGetBreakoutRoomParticipantsIncludeStatus(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomGetBreakoutRoomParticipantsIncludeStatus$0;
+    case '\$1':
+      return _$roomGetBreakoutRoomParticipantsIncludeStatus$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomGetBreakoutRoomParticipantsIncludeStatus> _$roomGetBreakoutRoomParticipantsIncludeStatusValues =
+    BuiltSet<RoomGetBreakoutRoomParticipantsIncludeStatus>(const <RoomGetBreakoutRoomParticipantsIncludeStatus>[
+  _$roomGetBreakoutRoomParticipantsIncludeStatus$0,
+  _$roomGetBreakoutRoomParticipantsIncludeStatus$1,
 ]);
 
 const RoomGetBreakoutRoomParticipantsApiVersion _$roomGetBreakoutRoomParticipantsApiVersionV4 =
@@ -6533,6 +6771,25 @@ final BuiltSet<RoomSetAllAttendeesPermissionsApiVersion> _$roomSetAllAttendeesPe
   _$roomSetAllAttendeesPermissionsApiVersionV4,
 ]);
 
+const RoomJoinRoomForce _$roomJoinRoomForce$0 = RoomJoinRoomForce._('\$0');
+const RoomJoinRoomForce _$roomJoinRoomForce$1 = RoomJoinRoomForce._('\$1');
+
+RoomJoinRoomForce _$valueOfRoomJoinRoomForce(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomJoinRoomForce$0;
+    case '\$1':
+      return _$roomJoinRoomForce$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomJoinRoomForce> _$roomJoinRoomForceValues = BuiltSet<RoomJoinRoomForce>(const <RoomJoinRoomForce>[
+  _$roomJoinRoomForce$0,
+  _$roomJoinRoomForce$1,
+]);
+
 const RoomJoinRoomApiVersion _$roomJoinRoomApiVersionV4 = RoomJoinRoomApiVersion._('v4');
 
 RoomJoinRoomApiVersion _$valueOfRoomJoinRoomApiVersion(String name) {
@@ -7669,7 +7926,7 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
     if (value != null) {
       result
         ..add('deleted')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(ChatMessage_Deleted)));
     }
     value = object.markdown;
     if (value != null) {
@@ -7701,7 +7958,8 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
           result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'deleted':
-          result.deleted = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.deleted = serializers.deserialize(value, specifiedType: const FullType(ChatMessage_Deleted))
+              as ChatMessage_Deleted?;
           break;
         case 'expirationTimestamp':
           result.expirationTimestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -10886,7 +11144,7 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
     if (value != null) {
       result
         ..add('deleted')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(ChatMessage_Deleted)));
     }
     value = object.markdown;
     if (value != null) {
@@ -10922,7 +11180,8 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
           result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'deleted':
-          result.deleted = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.deleted = serializers.deserialize(value, specifiedType: const FullType(ChatMessage_Deleted))
+              as ChatMessage_Deleted?;
           break;
         case 'expirationTimestamp':
           result.expirationTimestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -21408,8 +21667,8 @@ abstract mixin class $ChatMessageInterfaceBuilder {
   String? get actorType;
   set actorType(String? actorType);
 
-  bool? get deleted;
-  set deleted(bool? deleted);
+  ChatMessage_Deleted? get deleted;
+  set deleted(ChatMessage_Deleted? deleted);
 
   int? get expirationTimestamp;
   set expirationTimestamp(int? expirationTimestamp);
@@ -21456,7 +21715,7 @@ class _$ChatMessage extends ChatMessage {
   @override
   final String actorType;
   @override
-  final bool? deleted;
+  final ChatMessage_Deleted? deleted;
   @override
   final int expirationTimestamp;
   @override
@@ -21608,9 +21867,9 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
   String? get actorType => _$this._actorType;
   set actorType(covariant String? actorType) => _$this._actorType = actorType;
 
-  bool? _deleted;
-  bool? get deleted => _$this._deleted;
-  set deleted(covariant bool? deleted) => _$this._deleted = deleted;
+  ChatMessage_Deleted? _deleted;
+  ChatMessage_Deleted? get deleted => _$this._deleted;
+  set deleted(covariant ChatMessage_Deleted? deleted) => _$this._deleted = deleted;
 
   int? _expirationTimestamp;
   int? get expirationTimestamp => _$this._expirationTimestamp;
@@ -29406,8 +29665,8 @@ abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMess
   String? get actorType;
   set actorType(covariant String? actorType);
 
-  bool? get deleted;
-  set deleted(covariant bool? deleted);
+  ChatMessage_Deleted? get deleted;
+  set deleted(covariant ChatMessage_Deleted? deleted);
 
   int? get expirationTimestamp;
   set expirationTimestamp(covariant int? expirationTimestamp);
@@ -29456,7 +29715,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   final String actorType;
   @override
-  final bool? deleted;
+  final ChatMessage_Deleted? deleted;
   @override
   final int expirationTimestamp;
   @override
@@ -29618,9 +29877,9 @@ class ChatMessageWithParentBuilder
   String? get actorType => _$this._actorType;
   set actorType(covariant String? actorType) => _$this._actorType = actorType;
 
-  bool? _deleted;
-  bool? get deleted => _$this._deleted;
-  set deleted(covariant bool? deleted) => _$this._deleted = deleted;
+  ChatMessage_Deleted? _deleted;
+  ChatMessage_Deleted? get deleted => _$this._deleted;
+  set deleted(covariant ChatMessage_Deleted? deleted) => _$this._deleted = deleted;
 
   int? _expirationTimestamp;
   int? get expirationTimestamp => _$this._expirationTimestamp;

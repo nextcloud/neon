@@ -16,6 +16,7 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'dart:typed_data';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i5;
@@ -79,7 +80,7 @@ class $PreviewClient {
     int? fileId,
     int? x,
     int? y,
-    int? a,
+    PreviewGetPreviewA? a,
   }) async {
     final rawResponse = getPreviewRaw(
       fileId: fileId,
@@ -116,7 +117,7 @@ class $PreviewClient {
     int? fileId,
     int? x,
     int? y,
-    int? a,
+    PreviewGetPreviewA? a,
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
@@ -152,7 +153,7 @@ class $PreviewClient {
     $y ??= 32;
     _parameters['y'] = $y;
 
-    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(int));
+    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewA));
     $a ??= 0;
     _parameters['a'] = $a;
 
@@ -170,6 +171,69 @@ class $PreviewClient {
       serializers: _$jsonSerializers,
     );
   }
+}
+
+class PreviewGetPreviewA extends EnumClass {
+  const PreviewGetPreviewA._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewA $0 = _$previewGetPreviewA$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewA $1 = _$previewGetPreviewA$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewA> get values => _$previewGetPreviewAValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewA valueOf(String name) => _$valueOfPreviewGetPreviewA(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewA.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewA> get serializer => const _$PreviewGetPreviewASerializer();
+}
+
+class _$PreviewGetPreviewASerializer implements PrimitiveSerializer<PreviewGetPreviewA> {
+  const _$PreviewGetPreviewASerializer();
+
+  static const Map<PreviewGetPreviewA, Object> _toWire = <PreviewGetPreviewA, Object>{
+    PreviewGetPreviewA.$0: 0,
+    PreviewGetPreviewA.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewA> _fromWire = <Object, PreviewGetPreviewA>{
+    0: PreviewGetPreviewA.$0,
+    1: PreviewGetPreviewA.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewA];
+
+  @override
+  String get wireName => 'PreviewGetPreviewA';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewA object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewA deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -244,6 +308,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 @_i3.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
+      ..add(PreviewGetPreviewA.serializer)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
