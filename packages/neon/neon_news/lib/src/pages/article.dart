@@ -36,6 +36,7 @@ class NewsArticlePage extends StatefulWidget {
 class _NewsArticlePageState extends State<NewsArticlePage> {
   WebViewController? _webviewController;
   Timer? _markAsReadTimer;
+  bool loading = false;
 
   @override
   void initState() {
@@ -56,7 +57,15 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
         // ignore: discarded_futures
         ..setNavigationDelegate(
           NavigationDelegate(
+            onPageStarted: (_) {
+              setState(() {
+                loading = true;
+              });
+            },
             onPageFinished: (_) async {
+              setState(() {
+                loading = false;
+              });
               await _startMarkAsReadTimer();
             },
           ),
@@ -120,6 +129,13 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             actions: [
+              if (loading)
+                const SizedBox.square(
+                  dimension: 24,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                  ),
+                ),
               StreamBuilder<bool>(
                 stream: widget.bloc.starred,
                 builder: (context, starredSnapshot) {
