@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 import 'dart:convert';
 
@@ -13,17 +11,48 @@ import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:xml/xml.dart' as xml;
 
+/// A callback that unwraps elements of type [R] into [T].
+///
+/// This is commonly used to get the relevant information from a broader response.
 typedef UnwrapCallback<T, R> = T Function(R);
+
+/// A callback to serialize a value of type [T] into a string.
+///
+/// This is used to store a value in the cache.
+@internal
 typedef SerializeCallback<T> = String Function(T);
+
+/// A callback to revive cached values [String] into their original type [T].
+@internal
 typedef DeserializeCallback<T> = T Function(String);
-typedef NextcloudApiCallback<T> = AsyncValueGetter<T>;
 
-const maxRetries = 3;
-const defaultTimeout = Duration(seconds: 30);
+/// A callback that retrieves a value of type [R] from the Nextcloud API.
+typedef NextcloudApiCallback<R> = AsyncValueGetter<R>;
 
+/// How often a request will be tried.
+///
+/// A request will not be retried if the returned status code is in the `500`
+/// range or if the request has timed out.
+const kMaxRetries = 3;
+
+/// The default timeout for requests.
+///
+/// Requests that take longer than this duration will be canceled.
+const kDefaultTimeout = Duration(seconds: 30);
+
+/// A singleton class that handles requests to the Nextcloud API.
+///
+/// Requests need to be made through the [nextcloud](https://pub.dev/packages/nextcloud)
+/// package.
+///
+/// Requests can be persisted in the local cache if enabled. The local cache
+/// must be initialized through [initCache]. A network request is always made,
+/// even if a value already exists in the cache. The cached value will only be
+/// emitted when the network request has not yet finished.
 class RequestManager {
-  RequestManager();
+  RequestManager._();
 
+  /// Mocks the singleton instance for testing.
   @visibleForTesting
   factory RequestManager.mocked(RequestManager requestManager) => _requestManager = requestManager;
 
@@ -31,8 +60,11 @@ class RequestManager {
 
   /// Gets the current instance of [RequestManager].
   // ignore: prefer_constructors_over_static_methods
-  static RequestManager get instance => _requestManager ??= RequestManager();
+  static RequestManager get instance => _requestManager ??= RequestManager._();
 
+  /// Initializes the cache.
+  ///
+  /// Requests made before this method has completed will not be persisted in the cache.
   Future<void> initCache() async {
     final cache = Cache();
     await cache.init();
@@ -42,6 +74,7 @@ class RequestManager {
 
   Cache? _cache;
 
+  /// Executes a request to a Nextcloud API endpoint.
   Future<void> wrapNextcloud<T, B, H>(
     String clientID,
     String k,
@@ -70,6 +103,7 @@ class RequestManager {
         disableTimeout,
       );
 
+  /// Executes a WebDAV request.
   Future<void> wrapWebDav<T>(
     String clientID,
     String k,
@@ -135,7 +169,7 @@ class RequestManager {
       debugPrint(e.toString());
       debugPrintStack(stackTrace: s, maxFrames: 5);
 
-      if (e is DynamiteApiException && e.statusCode >= 500 && retries < maxRetries) {
+      if (e is DynamiteApiException && e.statusCode >= 500 && retries < kMaxRetries) {
         debugPrint('Retrying...');
         await _wrap(
           clientID,
@@ -211,16 +245,22 @@ class RequestManager {
     return false;
   }
 
+  /// Calls a [callback] that is canceled after a given [timeout].
+  ///
+  /// If the callback completes in time the resulting value is returned.
+  /// Otherwise the returned future will be completed with a [TimeoutException].
+  /// If the timeout is disabled through [disableTimeout] the future of the
+  /// callback is returned immediately.
   Future<T> timeout<T>(
-    NextcloudApiCallback<T> call, {
+    NextcloudApiCallback<T> callback, {
     bool disableTimeout = false,
-    Duration timeout = const Duration(seconds: 30),
+    Duration timeout = kDefaultTimeout,
   }) {
     if (disableTimeout) {
-      return call();
+      return callback();
     }
 
-    return call().timeout(timeout);
+    return callback().timeout(timeout);
   }
 }
 
