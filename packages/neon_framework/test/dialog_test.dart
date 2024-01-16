@@ -128,7 +128,6 @@ void main() {
         await widgetTester.pumpAndSettle();
         await widgetTester.enterText(find.byType(TextFormField), 'My new value');
         await widgetTester.testTextInput.receiveAction(TextInputAction.done);
-        await widgetTester.tap(find.byType(NeonDialogAction));
         expect(await result, equals('My new value'));
       });
     });
