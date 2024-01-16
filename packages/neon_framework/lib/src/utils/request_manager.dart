@@ -214,7 +214,8 @@ class RequestManager {
 
         // If the network fetch is faster than fetching the cached value the
         // subject can be closed before emitting.
-        if (subject.value.hasUncachedData) {
+        final value = subject.value;
+        if (value.hasUncachedData && !value.hasError) {
           return true;
         }
 
