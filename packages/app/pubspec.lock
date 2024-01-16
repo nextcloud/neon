@@ -232,6 +232,14 @@ packages:
       relative: true
     source: path
     version: "0.1.0"
+  emoji_picker_flutter:
+    dependency: transitive
+    description:
+      name: emoji_picker_flutter
+      sha256: "009c51efc763d5a6ba05a5628b8b2184c327cd117d66ea9c3e7edf2ff269c423"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.6.3"
   fake_async:
     dependency: transitive
     description:

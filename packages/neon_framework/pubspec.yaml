@@ -12,6 +12,7 @@ dependencies:
   crypto: ^3.0.0
   cupertino_icons: ^1.0.0
   dynamic_color: ^1.0.0
+  emoji_picker_flutter: ^1.6.3
   file_picker: ^6.0.0
   filesize: ^2.0.0
   flutter:
