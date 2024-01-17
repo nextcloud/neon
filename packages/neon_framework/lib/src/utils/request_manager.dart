@@ -8,7 +8,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:xml/xml.dart' as xml;
 
 /// A callback that unwraps elements of type [R] into [T].
