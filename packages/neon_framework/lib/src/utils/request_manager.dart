@@ -294,14 +294,24 @@ class Cache {
     return database;
   }
 
-  Future<bool> has(String key) async =>
-      Sqflite.firstIntValue(await _requireDatabase.rawQuery('SELECT COUNT(*) FROM cache WHERE key = ?', [key])) == 1;
+  Future<bool> has(String key) async {
+    final result = await _requireDatabase.rawQuery('SELECT COUNT(*) FROM cache WHERE key = ?', [key]);
 
-  Future<String?> get(String key) async =>
-      (await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]))[0]['value'] as String?;
+    return Sqflite.firstIntValue(result) == 1;
+  }
 
-  Future<void> set(String key, String value) async => _requireDatabase.rawQuery(
-        'INSERT INTO cache (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
-        [key, value],
-      );
+  Future<String?> get(String key) async {
+    final result = await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
+
+    return result.first['value'] as String?;
+  }
+
+  Future<void> set(String key, String value) async {
+    // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
+    // Using a manual solution from https://stackoverflow.com/a/38463024
+    final batch = _requireDatabase.batch()
+      ..update('cache', {'key': key, 'value': value}, where: 'key = ?', whereArgs: [key])
+      ..rawInsert('INSERT INTO cache (key, value) SELECT ?, ? WHERE (SELECT changes() = 0)', [key, value]);
+    await batch.commit(noResult: true);
+  }
 }
