@@ -207,10 +207,10 @@ class RequestManager {
     DeserializeCallback<R> deserialize,
     bool emitEmptyCache,
   ) async {
-    if (_cache != null && await _cache!.has(key)) {
-      try {
-        final cacheValue = await _cache!.get(key);
-        final cached = unwrap(deserialize(cacheValue!));
+    try {
+      final cacheValue = await _cache?.get(key);
+      if (cacheValue != null) {
+        final cached = unwrap(deserialize(cacheValue));
 
         // If the network fetch is faster than fetching the cached value the
         // subject can be closed before emitting.
@@ -226,10 +226,10 @@ class RequestManager {
         );
 
         return true;
-      } catch (e, s) {
-        debugPrint(e.toString());
-        debugPrintStack(stackTrace: s, maxFrames: 5);
       }
+    } catch (e, s) {
+      debugPrint(e.toString());
+      debugPrintStack(stackTrace: s, maxFrames: 5);
     }
 
     if (emitEmptyCache && !subject.value.hasUncachedData) {
@@ -294,16 +294,10 @@ class Cache {
     return database;
   }
 
-  Future<bool> has(String key) async {
-    final result = await _requireDatabase.rawQuery('SELECT COUNT(*) FROM cache WHERE key = ?', [key]);
-
-    return Sqflite.firstIntValue(result) == 1;
-  }
-
   Future<String?> get(String key) async {
     final result = await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
 
-    return result.first['value'] as String?;
+    return result.firstOrNull?['value'] as String?;
   }
 
   Future<void> set(String key, String value) async {
