@@ -266,6 +266,16 @@ class RequestManager {
 
 @internal
 class Cache {
+  factory Cache() => instance ??= Cache._();
+
+  Cache._();
+
+  @visibleForTesting
+  factory Cache.mocked(Cache mocked) => instance = mocked;
+
+  @visibleForTesting
+  static Cache? instance;
+
   Database? _database;
 
   Future<void> init() async {
