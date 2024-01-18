@@ -245,121 +245,6 @@ class $AppConfigClient {
     );
   }
 
-  /// Get a the config value of an app.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [defaultValue] Default returned value if the value is empty. Defaults to `''`.
-  ///   * [app] ID of the app.
-  ///   * [key] Key.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Value returned
-  ///   * 403: App is not allowed
-  ///
-  /// See:
-  ///  * [getValueRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<AppConfigGetValueResponseApplicationJson, void>> getValue({
-    required String app,
-    required String key,
-    String? defaultValue,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = getValueRaw(
-      app: app,
-      key: key,
-      defaultValue: defaultValue,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get a the config value of an app.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [defaultValue] Default returned value if the value is empty. Defaults to `''`.
-  ///   * [app] ID of the app.
-  ///   * [key] Key.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Value returned
-  ///   * 403: App is not allowed
-  ///
-  /// See:
-  ///  * [getValue] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void> getValueRaw({
-    required String app,
-    required String key,
-    String? defaultValue,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
-
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
-
-    var $defaultValue = _$jsonSerializers.serialize(defaultValue, specifiedType: const FullType(String));
-    $defaultValue ??= '';
-    _parameters['defaultValue'] = $defaultValue;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?defaultValue*}')
-        .expand(_parameters);
-    return _i1.DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(AppConfigGetValueResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
   /// Update the config value of an app.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -465,112 +350,6 @@ class $AppConfigClient {
         const {200},
       ),
       bodyType: const FullType(AppConfigSetValueResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Delete a config key of an app.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [app] ID of the app.
-  ///   * [key] Key to delete.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Key deleted successfully
-  ///   * 403: App or key is not allowed
-  ///
-  /// See:
-  ///  * [deleteKeyRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<AppConfigDeleteKeyResponseApplicationJson, void>> deleteKey({
-    required String app,
-    required String key,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = deleteKeyRaw(
-      app: app,
-      key: key,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Delete a config key of an app.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [app] ID of the app.
-  ///   * [key] Key to delete.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Key deleted successfully
-  ///   * 403: App or key is not allowed
-  ///
-  /// See:
-  ///  * [deleteKey] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void> deleteKeyRaw({
-    required String app,
-    required String key,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
-
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(_parameters);
-    return _i1.DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(AppConfigDeleteKeyResponseApplicationJson),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -970,6 +749,106 @@ class $GroupsClient {
 
   final $Client _rootClient;
 
+  /// Get the list of user IDs that are a subadmin of the group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Sub admins returned
+  ///
+  /// See:
+  ///  * [getSubAdminsOfGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>> getSubAdminsOfGroup({
+    required String groupId,
+    bool? oCSAPIRequest,
+  }) async {
+    final rawResponse = getSubAdminsOfGroupRaw(
+      groupId: groupId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the list of user IDs that are a subadmin of the group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Sub admins returned
+  ///
+  /// See:
+  ///  * [getSubAdminsOfGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
+    required String groupId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    _i2.checkPattern(
+      $groupId as String?,
+      RegExp(r'^.+$'),
+      'groupId',
+    );
+    _parameters['groupId'] = $groupId;
+
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
+
   /// Get a list of groups.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1079,40 +958,34 @@ class $GroupsClient {
     );
   }
 
-  /// Create a new group.
-  ///
-  /// This endpoint requires admin access.
+  /// Get a list of users in the specified group.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group.
-  ///   * [displayname] Display name of the group. Defaults to `''`.
+  ///   * [groupId] ID of the group.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: Group created successfully
+  ///   * 200: Group users returned
   ///
   /// See:
-  ///  * [addGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<GroupsAddGroupResponseApplicationJson, void>> addGroup({
-    required String groupid,
-    String? displayname,
+  ///  * [getGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  @Deprecated('')
+  Future<_i1.DynamiteResponse<GroupsGetGroupResponseApplicationJson, void>> getGroup({
+    required String groupId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = addGroupRaw(
-      groupid: groupid,
-      displayname: displayname,
+    final rawResponse = getGroupRaw(
+      groupId: groupId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
     return rawResponse.future;
   }
 
-  /// Create a new group.
-  ///
-  /// This endpoint requires admin access.
+  /// Get a list of users in the specified group.
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
@@ -1120,19 +993,18 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group.
-  ///   * [displayname] Display name of the group. Defaults to `''`.
+  ///   * [groupId] ID of the group.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: Group created successfully
+  ///   * 200: Group users returned
   ///
   /// See:
-  ///  * [addGroup] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [getGroup] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
-  _i1.DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void> addGroupRaw({
-    required String groupid,
-    String? displayname,
+  @Deprecated('')
+  _i1.DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void> getGroupRaw({
+    required String groupId,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
@@ -1157,27 +1029,28 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
-
-    var $displayname = _$jsonSerializers.serialize(displayname, specifiedType: const FullType(String));
-    $displayname ??= '';
-    _parameters['displayname'] = $displayname;
+    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    _i2.checkPattern(
+      $groupId as String?,
+      RegExp(r'^.+$'),
+      'groupId',
+    );
+    _parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups{?groupid*,displayname*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void>(
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
-        'post',
+        'get',
         _path,
         _headers,
         null,
         const {200},
       ),
-      bodyType: const FullType(GroupsAddGroupResponseApplicationJson),
+      bodyType: const FullType(GroupsGetGroupResponseApplicationJson),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -1510,420 +1383,6 @@ class $GroupsClient {
         const {200},
       ),
       bodyType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Get the list of user IDs that are a subadmin of the group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupId] ID of the group.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Sub admins returned
-  ///
-  /// See:
-  ///  * [getSubAdminsOfGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>> getSubAdminsOfGroup({
-    required String groupId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = getSubAdminsOfGroupRaw(
-      groupId: groupId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get the list of user IDs that are a subadmin of the group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupId] ID of the group.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Sub admins returned
-  ///
-  /// See:
-  ///  * [getSubAdminsOfGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
-    required String groupId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    _i2.checkPattern(
-      $groupId as String?,
-      RegExp(r'^.+$'),
-      'groupId',
-    );
-    _parameters['groupId'] = $groupId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
-    return _i1.DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Get a list of users in the specified group.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupId] ID of the group.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Group users returned
-  ///
-  /// See:
-  ///  * [getGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  @Deprecated('')
-  Future<_i1.DynamiteResponse<GroupsGetGroupResponseApplicationJson, void>> getGroup({
-    required String groupId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = getGroupRaw(
-      groupId: groupId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get a list of users in the specified group.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupId] ID of the group.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Group users returned
-  ///
-  /// See:
-  ///  * [getGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  @Deprecated('')
-  _i1.DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void> getGroupRaw({
-    required String groupId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    _i2.checkPattern(
-      $groupId as String?,
-      RegExp(r'^.+$'),
-      'groupId',
-    );
-    _parameters['groupId'] = $groupId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(GroupsGetGroupResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Update a group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [key] Key to update, only 'displayname'.
-  ///   * [value] New value for the key.
-  ///   * [groupId] ID of the group.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Group updated successfully
-  ///
-  /// See:
-  ///  * [updateGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<GroupsUpdateGroupResponseApplicationJson, void>> updateGroup({
-    required String key,
-    required String value,
-    required String groupId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = updateGroupRaw(
-      key: key,
-      value: value,
-      groupId: groupId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Update a group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [key] Key to update, only 'displayname'.
-  ///   * [value] New value for the key.
-  ///   * [groupId] ID of the group.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Group updated successfully
-  ///
-  /// See:
-  ///  * [updateGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void> updateGroupRaw({
-    required String key,
-    required String value,
-    required String groupId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
-
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
-    _parameters['value'] = $value;
-
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    _i2.checkPattern(
-      $groupId as String?,
-      RegExp(r'^.+$'),
-      'groupId',
-    );
-    _parameters['groupId'] = $groupId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}{?key*,value*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(GroupsUpdateGroupResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Delete a group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupId] ID of the group.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Group deleted successfully
-  ///
-  /// See:
-  ///  * [deleteGroupRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<GroupsDeleteGroupResponseApplicationJson, void>> deleteGroup({
-    required String groupId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = deleteGroupRaw(
-      groupId: groupId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Delete a group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupId] ID of the group.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Group deleted successfully
-  ///
-  /// See:
-  ///  * [deleteGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void> deleteGroupRaw({
-    required String groupId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    _i2.checkPattern(
-      $groupId as String?,
-      RegExp(r'^.+$'),
-      'groupId',
-    );
-    _parameters['groupId'] = $groupId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(GroupsDeleteGroupResponseApplicationJson),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -2379,6 +1838,307 @@ class $UsersClient {
   $UsersClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Get the groups a user is a subadmin of.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User subadmin groups returned
+  ///
+  /// See:
+  ///  * [getUserSubAdminGroupsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>> getUserSubAdminGroups({
+    required String userId,
+    bool? oCSAPIRequest,
+  }) async {
+    final rawResponse = getUserSubAdminGroupsRaw(
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the groups a user is a subadmin of.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] ID if the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User subadmin groups returned
+  ///
+  /// See:
+  ///  * [getUserSubAdminGroups] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
+    required String userId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = $userId;
+
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
+
+  /// Make a user a subadmin of a group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User added as group subadmin successfully
+  ///
+  /// See:
+  ///  * [addSubAdminRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
+    required String groupid,
+    required String userId,
+    bool? oCSAPIRequest,
+  }) async {
+    final rawResponse = addSubAdminRaw(
+      groupid: groupid,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Make a user a subadmin of a group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User added as group subadmin successfully
+  ///
+  /// See:
+  ///  * [addSubAdmin] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
+    required String groupid,
+    required String userId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
+    _parameters['groupid'] = $groupid;
+
+    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = $userId;
+
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'post',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(UsersAddSubAdminResponseApplicationJson),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
+
+  /// Remove a user from the subadmins of a group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User removed as group subadmin successfully
+  ///
+  /// See:
+  ///  * [removeSubAdminRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<UsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
+    required String groupid,
+    required String userId,
+    bool? oCSAPIRequest,
+  }) async {
+    final rawResponse = removeSubAdminRaw(
+      groupid: groupid,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Remove a user from the subadmins of a group.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User removed as group subadmin successfully
+  ///
+  /// See:
+  ///  * [removeSubAdmin] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
+    required String groupid,
+    required String userId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
+    _parameters['groupid'] = $groupid;
+
+    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = $userId;
+
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'delete',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(UsersRemoveSubAdminResponseApplicationJson),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
 
   /// Get a list of users.
   ///
@@ -4199,307 +3959,6 @@ class $UsersClient {
     );
   }
 
-  /// Get the groups a user is a subadmin of.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [userId] ID if the user.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User subadmin groups returned
-  ///
-  /// See:
-  ///  * [getUserSubAdminGroupsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>> getUserSubAdminGroups({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = getUserSubAdminGroupsRaw(
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get the groups a user is a subadmin of.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [userId] ID if the user.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User subadmin groups returned
-  ///
-  /// See:
-  ///  * [getUserSubAdminGroups] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
-    return _i1.DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Make a user a subadmin of a group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupid] ID of the group.
-  ///   * [userId] ID of the user.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User added as group subadmin successfully
-  ///
-  /// See:
-  ///  * [addSubAdminRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<UsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
-    required String groupid,
-    required String userId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = addSubAdminRaw(
-      groupid: groupid,
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Make a user a subadmin of a group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupid] ID of the group.
-  ///   * [userId] ID of the user.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User added as group subadmin successfully
-  ///
-  /// See:
-  ///  * [addSubAdmin] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
-    required String groupid,
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
-
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(UsersAddSubAdminResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Remove a user from the subadmins of a group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupid] ID of the group.
-  ///   * [userId] ID of the user.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User removed as group subadmin successfully
-  ///
-  /// See:
-  ///  * [removeSubAdminRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<UsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
-    required String groupid,
-    required String userId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = removeSubAdminRaw(
-      groupid: groupid,
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Remove a user from the subadmins of a group.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [groupid] ID of the group.
-  ///   * [userId] ID of the user.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User removed as group subadmin successfully
-  ///
-  /// See:
-  ///  * [removeSubAdmin] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
-    required String groupid,
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
-
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(UsersRemoveSubAdminResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
   /// Resend the welcome message.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4858,122 +4317,6 @@ abstract class AppConfigGetKeysResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetValueResponseApplicationJson_Ocs_DataInterface {
-  String get data;
-}
-
-abstract class AppConfigGetValueResponseApplicationJson_Ocs_Data
-    implements
-        $AppConfigGetValueResponseApplicationJson_Ocs_DataInterface,
-        Built<AppConfigGetValueResponseApplicationJson_Ocs_Data,
-            AppConfigGetValueResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new AppConfigGetValueResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory AppConfigGetValueResponseApplicationJson_Ocs_Data([
-    void Function(AppConfigGetValueResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$AppConfigGetValueResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const AppConfigGetValueResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AppConfigGetValueResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AppConfigGetValueResponseApplicationJson_Ocs_Data.
-  static Serializer<AppConfigGetValueResponseApplicationJson_Ocs_Data> get serializer =>
-      _$appConfigGetValueResponseApplicationJsonOcsDataSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetValueResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  AppConfigGetValueResponseApplicationJson_Ocs_Data get data;
-}
-
-abstract class AppConfigGetValueResponseApplicationJson_Ocs
-    implements
-        $AppConfigGetValueResponseApplicationJson_OcsInterface,
-        Built<AppConfigGetValueResponseApplicationJson_Ocs, AppConfigGetValueResponseApplicationJson_OcsBuilder> {
-  /// Creates a new AppConfigGetValueResponseApplicationJson_Ocs object using the builder pattern.
-  factory AppConfigGetValueResponseApplicationJson_Ocs([
-    void Function(AppConfigGetValueResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$AppConfigGetValueResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const AppConfigGetValueResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AppConfigGetValueResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AppConfigGetValueResponseApplicationJson_Ocs.
-  static Serializer<AppConfigGetValueResponseApplicationJson_Ocs> get serializer =>
-      _$appConfigGetValueResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetValueResponseApplicationJsonInterface {
-  AppConfigGetValueResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class AppConfigGetValueResponseApplicationJson
-    implements
-        $AppConfigGetValueResponseApplicationJsonInterface,
-        Built<AppConfigGetValueResponseApplicationJson, AppConfigGetValueResponseApplicationJsonBuilder> {
-  /// Creates a new AppConfigGetValueResponseApplicationJson object using the builder pattern.
-  factory AppConfigGetValueResponseApplicationJson([
-    void Function(AppConfigGetValueResponseApplicationJsonBuilder)? b,
-  ]) = _$AppConfigGetValueResponseApplicationJson;
-
-  // coverage:ignore-start
-  const AppConfigGetValueResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AppConfigGetValueResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AppConfigGetValueResponseApplicationJson.
-  static Serializer<AppConfigGetValueResponseApplicationJson> get serializer =>
-      _$appConfigGetValueResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $AppConfigSetValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -5048,83 +4391,6 @@ abstract class AppConfigSetValueResponseApplicationJson
   /// Serializer for AppConfigSetValueResponseApplicationJson.
   static Serializer<AppConfigSetValueResponseApplicationJson> get serializer =>
       _$appConfigSetValueResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $AppConfigDeleteKeyResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-}
-
-abstract class AppConfigDeleteKeyResponseApplicationJson_Ocs
-    implements
-        $AppConfigDeleteKeyResponseApplicationJson_OcsInterface,
-        Built<AppConfigDeleteKeyResponseApplicationJson_Ocs, AppConfigDeleteKeyResponseApplicationJson_OcsBuilder> {
-  /// Creates a new AppConfigDeleteKeyResponseApplicationJson_Ocs object using the builder pattern.
-  factory AppConfigDeleteKeyResponseApplicationJson_Ocs([
-    void Function(AppConfigDeleteKeyResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$AppConfigDeleteKeyResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const AppConfigDeleteKeyResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AppConfigDeleteKeyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AppConfigDeleteKeyResponseApplicationJson_Ocs.
-  static Serializer<AppConfigDeleteKeyResponseApplicationJson_Ocs> get serializer =>
-      _$appConfigDeleteKeyResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $AppConfigDeleteKeyResponseApplicationJsonInterface {
-  AppConfigDeleteKeyResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class AppConfigDeleteKeyResponseApplicationJson
-    implements
-        $AppConfigDeleteKeyResponseApplicationJsonInterface,
-        Built<AppConfigDeleteKeyResponseApplicationJson, AppConfigDeleteKeyResponseApplicationJsonBuilder> {
-  /// Creates a new AppConfigDeleteKeyResponseApplicationJson object using the builder pattern.
-  factory AppConfigDeleteKeyResponseApplicationJson([
-    void Function(AppConfigDeleteKeyResponseApplicationJsonBuilder)? b,
-  ]) = _$AppConfigDeleteKeyResponseApplicationJson;
-
-  // coverage:ignore-start
-  const AppConfigDeleteKeyResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AppConfigDeleteKeyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AppConfigDeleteKeyResponseApplicationJson.
-  static Serializer<AppConfigDeleteKeyResponseApplicationJson> get serializer =>
-      _$appConfigDeleteKeyResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -5539,6 +4805,85 @@ abstract class AppsDisableResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<String> get data;
+}
+
+abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs
+    implements
+        $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface,
+        Built<GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs,
+            GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder> {
+  /// Creates a new GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs object using the builder pattern.
+  factory GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs([
+    void Function(GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.
+  static Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs> get serializer =>
+      _$groupsGetSubAdminsOfGroupResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface {
+  GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
+    implements
+        $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface,
+        Built<GroupsGetSubAdminsOfGroupResponseApplicationJson,
+            GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder> {
+  /// Creates a new GroupsGetSubAdminsOfGroupResponseApplicationJson object using the builder pattern.
+  factory GroupsGetSubAdminsOfGroupResponseApplicationJson([
+    void Function(GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder)? b,
+  ]) = _$GroupsGetSubAdminsOfGroupResponseApplicationJson;
+
+  // coverage:ignore-start
+  const GroupsGetSubAdminsOfGroupResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GroupsGetSubAdminsOfGroupResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GroupsGetSubAdminsOfGroupResponseApplicationJson.
+  static Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson> get serializer =>
+      _$groupsGetSubAdminsOfGroupResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get groups;
 }
@@ -5653,29 +4998,28 @@ abstract class GroupsGetGroupsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsAddGroupResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
+abstract interface class $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get users;
 }
 
-abstract class GroupsAddGroupResponseApplicationJson_Ocs
+abstract class GroupsGetGroupResponseApplicationJson_Ocs_Data
     implements
-        $GroupsAddGroupResponseApplicationJson_OcsInterface,
-        Built<GroupsAddGroupResponseApplicationJson_Ocs, GroupsAddGroupResponseApplicationJson_OcsBuilder> {
-  /// Creates a new GroupsAddGroupResponseApplicationJson_Ocs object using the builder pattern.
-  factory GroupsAddGroupResponseApplicationJson_Ocs([
-    void Function(GroupsAddGroupResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$GroupsAddGroupResponseApplicationJson_Ocs;
+        $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface,
+        Built<GroupsGetGroupResponseApplicationJson_Ocs_Data, GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new GroupsGetGroupResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory GroupsGetGroupResponseApplicationJson_Ocs_Data([
+    void Function(GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$GroupsGetGroupResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const GroupsAddGroupResponseApplicationJson_Ocs._();
+  const GroupsGetGroupResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory GroupsAddGroupResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory GroupsGetGroupResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5686,33 +5030,35 @@ abstract class GroupsAddGroupResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for GroupsAddGroupResponseApplicationJson_Ocs.
-  static Serializer<GroupsAddGroupResponseApplicationJson_Ocs> get serializer =>
-      _$groupsAddGroupResponseApplicationJsonOcsSerializer;
+  /// Serializer for GroupsGetGroupResponseApplicationJson_Ocs_Data.
+  static Serializer<GroupsGetGroupResponseApplicationJson_Ocs_Data> get serializer =>
+      _$groupsGetGroupResponseApplicationJsonOcsDataSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsAddGroupResponseApplicationJsonInterface {
-  GroupsAddGroupResponseApplicationJson_Ocs get ocs;
+abstract interface class $GroupsGetGroupResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  GroupsGetGroupResponseApplicationJson_Ocs_Data get data;
 }
 
-abstract class GroupsAddGroupResponseApplicationJson
+abstract class GroupsGetGroupResponseApplicationJson_Ocs
     implements
-        $GroupsAddGroupResponseApplicationJsonInterface,
-        Built<GroupsAddGroupResponseApplicationJson, GroupsAddGroupResponseApplicationJsonBuilder> {
-  /// Creates a new GroupsAddGroupResponseApplicationJson object using the builder pattern.
-  factory GroupsAddGroupResponseApplicationJson([void Function(GroupsAddGroupResponseApplicationJsonBuilder)? b]) =
-      _$GroupsAddGroupResponseApplicationJson;
+        $GroupsGetGroupResponseApplicationJson_OcsInterface,
+        Built<GroupsGetGroupResponseApplicationJson_Ocs, GroupsGetGroupResponseApplicationJson_OcsBuilder> {
+  /// Creates a new GroupsGetGroupResponseApplicationJson_Ocs object using the builder pattern.
+  factory GroupsGetGroupResponseApplicationJson_Ocs([
+    void Function(GroupsGetGroupResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$GroupsGetGroupResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const GroupsAddGroupResponseApplicationJson._();
+  const GroupsGetGroupResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory GroupsAddGroupResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory GroupsGetGroupResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5723,9 +5069,46 @@ abstract class GroupsAddGroupResponseApplicationJson
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for GroupsAddGroupResponseApplicationJson.
-  static Serializer<GroupsAddGroupResponseApplicationJson> get serializer =>
-      _$groupsAddGroupResponseApplicationJsonSerializer;
+  /// Serializer for GroupsGetGroupResponseApplicationJson_Ocs.
+  static Serializer<GroupsGetGroupResponseApplicationJson_Ocs> get serializer =>
+      _$groupsGetGroupResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $GroupsGetGroupResponseApplicationJsonInterface {
+  GroupsGetGroupResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class GroupsGetGroupResponseApplicationJson
+    implements
+        $GroupsGetGroupResponseApplicationJsonInterface,
+        Built<GroupsGetGroupResponseApplicationJson, GroupsGetGroupResponseApplicationJsonBuilder> {
+  /// Creates a new GroupsGetGroupResponseApplicationJson object using the builder pattern.
+  factory GroupsGetGroupResponseApplicationJson([void Function(GroupsGetGroupResponseApplicationJsonBuilder)? b]) =
+      _$GroupsGetGroupResponseApplicationJson;
+
+  // coverage:ignore-start
+  const GroupsGetGroupResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GroupsGetGroupResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GroupsGetGroupResponseApplicationJson.
+  static Serializer<GroupsGetGroupResponseApplicationJson> get serializer =>
+      _$groupsGetGroupResponseApplicationJsonSerializer;
 }
 
 typedef GroupDetails_Usercount = ({bool? $bool, int? $int});
@@ -6326,353 +5709,6 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltList<String> get data;
-}
-
-abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs
-    implements
-        $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface,
-        Built<GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs,
-            GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder> {
-  /// Creates a new GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs object using the builder pattern.
-  factory GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs([
-    void Function(GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.
-  static Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs> get serializer =>
-      _$groupsGetSubAdminsOfGroupResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface {
-  GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
-    implements
-        $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface,
-        Built<GroupsGetSubAdminsOfGroupResponseApplicationJson,
-            GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder> {
-  /// Creates a new GroupsGetSubAdminsOfGroupResponseApplicationJson object using the builder pattern.
-  factory GroupsGetSubAdminsOfGroupResponseApplicationJson([
-    void Function(GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder)? b,
-  ]) = _$GroupsGetSubAdminsOfGroupResponseApplicationJson;
-
-  // coverage:ignore-start
-  const GroupsGetSubAdminsOfGroupResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsGetSubAdminsOfGroupResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsGetSubAdminsOfGroupResponseApplicationJson.
-  static Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson> get serializer =>
-      _$groupsGetSubAdminsOfGroupResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface {
-  BuiltList<String> get users;
-}
-
-abstract class GroupsGetGroupResponseApplicationJson_Ocs_Data
-    implements
-        $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface,
-        Built<GroupsGetGroupResponseApplicationJson_Ocs_Data, GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new GroupsGetGroupResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory GroupsGetGroupResponseApplicationJson_Ocs_Data([
-    void Function(GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$GroupsGetGroupResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const GroupsGetGroupResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsGetGroupResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsGetGroupResponseApplicationJson_Ocs_Data.
-  static Serializer<GroupsGetGroupResponseApplicationJson_Ocs_Data> get serializer =>
-      _$groupsGetGroupResponseApplicationJsonOcsDataSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  GroupsGetGroupResponseApplicationJson_Ocs_Data get data;
-}
-
-abstract class GroupsGetGroupResponseApplicationJson_Ocs
-    implements
-        $GroupsGetGroupResponseApplicationJson_OcsInterface,
-        Built<GroupsGetGroupResponseApplicationJson_Ocs, GroupsGetGroupResponseApplicationJson_OcsBuilder> {
-  /// Creates a new GroupsGetGroupResponseApplicationJson_Ocs object using the builder pattern.
-  factory GroupsGetGroupResponseApplicationJson_Ocs([
-    void Function(GroupsGetGroupResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$GroupsGetGroupResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const GroupsGetGroupResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsGetGroupResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsGetGroupResponseApplicationJson_Ocs.
-  static Serializer<GroupsGetGroupResponseApplicationJson_Ocs> get serializer =>
-      _$groupsGetGroupResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupResponseApplicationJsonInterface {
-  GroupsGetGroupResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class GroupsGetGroupResponseApplicationJson
-    implements
-        $GroupsGetGroupResponseApplicationJsonInterface,
-        Built<GroupsGetGroupResponseApplicationJson, GroupsGetGroupResponseApplicationJsonBuilder> {
-  /// Creates a new GroupsGetGroupResponseApplicationJson object using the builder pattern.
-  factory GroupsGetGroupResponseApplicationJson([void Function(GroupsGetGroupResponseApplicationJsonBuilder)? b]) =
-      _$GroupsGetGroupResponseApplicationJson;
-
-  // coverage:ignore-start
-  const GroupsGetGroupResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsGetGroupResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsGetGroupResponseApplicationJson.
-  static Serializer<GroupsGetGroupResponseApplicationJson> get serializer =>
-      _$groupsGetGroupResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsUpdateGroupResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-}
-
-abstract class GroupsUpdateGroupResponseApplicationJson_Ocs
-    implements
-        $GroupsUpdateGroupResponseApplicationJson_OcsInterface,
-        Built<GroupsUpdateGroupResponseApplicationJson_Ocs, GroupsUpdateGroupResponseApplicationJson_OcsBuilder> {
-  /// Creates a new GroupsUpdateGroupResponseApplicationJson_Ocs object using the builder pattern.
-  factory GroupsUpdateGroupResponseApplicationJson_Ocs([
-    void Function(GroupsUpdateGroupResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$GroupsUpdateGroupResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const GroupsUpdateGroupResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsUpdateGroupResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsUpdateGroupResponseApplicationJson_Ocs.
-  static Serializer<GroupsUpdateGroupResponseApplicationJson_Ocs> get serializer =>
-      _$groupsUpdateGroupResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsUpdateGroupResponseApplicationJsonInterface {
-  GroupsUpdateGroupResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class GroupsUpdateGroupResponseApplicationJson
-    implements
-        $GroupsUpdateGroupResponseApplicationJsonInterface,
-        Built<GroupsUpdateGroupResponseApplicationJson, GroupsUpdateGroupResponseApplicationJsonBuilder> {
-  /// Creates a new GroupsUpdateGroupResponseApplicationJson object using the builder pattern.
-  factory GroupsUpdateGroupResponseApplicationJson([
-    void Function(GroupsUpdateGroupResponseApplicationJsonBuilder)? b,
-  ]) = _$GroupsUpdateGroupResponseApplicationJson;
-
-  // coverage:ignore-start
-  const GroupsUpdateGroupResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsUpdateGroupResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsUpdateGroupResponseApplicationJson.
-  static Serializer<GroupsUpdateGroupResponseApplicationJson> get serializer =>
-      _$groupsUpdateGroupResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsDeleteGroupResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-}
-
-abstract class GroupsDeleteGroupResponseApplicationJson_Ocs
-    implements
-        $GroupsDeleteGroupResponseApplicationJson_OcsInterface,
-        Built<GroupsDeleteGroupResponseApplicationJson_Ocs, GroupsDeleteGroupResponseApplicationJson_OcsBuilder> {
-  /// Creates a new GroupsDeleteGroupResponseApplicationJson_Ocs object using the builder pattern.
-  factory GroupsDeleteGroupResponseApplicationJson_Ocs([
-    void Function(GroupsDeleteGroupResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$GroupsDeleteGroupResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const GroupsDeleteGroupResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsDeleteGroupResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsDeleteGroupResponseApplicationJson_Ocs.
-  static Serializer<GroupsDeleteGroupResponseApplicationJson_Ocs> get serializer =>
-      _$groupsDeleteGroupResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsDeleteGroupResponseApplicationJsonInterface {
-  GroupsDeleteGroupResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class GroupsDeleteGroupResponseApplicationJson
-    implements
-        $GroupsDeleteGroupResponseApplicationJsonInterface,
-        Built<GroupsDeleteGroupResponseApplicationJson, GroupsDeleteGroupResponseApplicationJsonBuilder> {
-  /// Creates a new GroupsDeleteGroupResponseApplicationJson object using the builder pattern.
-  factory GroupsDeleteGroupResponseApplicationJson([
-    void Function(GroupsDeleteGroupResponseApplicationJsonBuilder)? b,
-  ]) = _$GroupsDeleteGroupResponseApplicationJson;
-
-  // coverage:ignore-start
-  const GroupsDeleteGroupResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GroupsDeleteGroupResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for GroupsDeleteGroupResponseApplicationJson.
-  static Serializer<GroupsDeleteGroupResponseApplicationJson> get serializer =>
-      _$groupsDeleteGroupResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $PreferencesSetPreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -6985,6 +6021,238 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson
   /// Serializer for PreferencesDeleteMultiplePreferenceResponseApplicationJson.
   static Serializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson> get serializer =>
       _$preferencesDeleteMultiplePreferenceResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<String> get data;
+}
+
+abstract class UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs
+    implements
+        $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface,
+        Built<UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs,
+            UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs object using the builder pattern.
+  factory UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs([
+    void Function(UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.
+  static Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs> get serializer =>
+      _$usersGetUserSubAdminGroupsResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface {
+  UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
+    implements
+        $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface,
+        Built<UsersGetUserSubAdminGroupsResponseApplicationJson,
+            UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder> {
+  /// Creates a new UsersGetUserSubAdminGroupsResponseApplicationJson object using the builder pattern.
+  factory UsersGetUserSubAdminGroupsResponseApplicationJson([
+    void Function(UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder)? b,
+  ]) = _$UsersGetUserSubAdminGroupsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const UsersGetUserSubAdminGroupsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetUserSubAdminGroupsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetUserSubAdminGroupsResponseApplicationJson.
+  static Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson> get serializer =>
+      _$usersGetUserSubAdminGroupsResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $UsersAddSubAdminResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+}
+
+abstract class UsersAddSubAdminResponseApplicationJson_Ocs
+    implements
+        $UsersAddSubAdminResponseApplicationJson_OcsInterface,
+        Built<UsersAddSubAdminResponseApplicationJson_Ocs, UsersAddSubAdminResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UsersAddSubAdminResponseApplicationJson_Ocs object using the builder pattern.
+  factory UsersAddSubAdminResponseApplicationJson_Ocs([
+    void Function(UsersAddSubAdminResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UsersAddSubAdminResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const UsersAddSubAdminResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersAddSubAdminResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersAddSubAdminResponseApplicationJson_Ocs.
+  static Serializer<UsersAddSubAdminResponseApplicationJson_Ocs> get serializer =>
+      _$usersAddSubAdminResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $UsersAddSubAdminResponseApplicationJsonInterface {
+  UsersAddSubAdminResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class UsersAddSubAdminResponseApplicationJson
+    implements
+        $UsersAddSubAdminResponseApplicationJsonInterface,
+        Built<UsersAddSubAdminResponseApplicationJson, UsersAddSubAdminResponseApplicationJsonBuilder> {
+  /// Creates a new UsersAddSubAdminResponseApplicationJson object using the builder pattern.
+  factory UsersAddSubAdminResponseApplicationJson([void Function(UsersAddSubAdminResponseApplicationJsonBuilder)? b]) =
+      _$UsersAddSubAdminResponseApplicationJson;
+
+  // coverage:ignore-start
+  const UsersAddSubAdminResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersAddSubAdminResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersAddSubAdminResponseApplicationJson.
+  static Serializer<UsersAddSubAdminResponseApplicationJson> get serializer =>
+      _$usersAddSubAdminResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $UsersRemoveSubAdminResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+}
+
+abstract class UsersRemoveSubAdminResponseApplicationJson_Ocs
+    implements
+        $UsersRemoveSubAdminResponseApplicationJson_OcsInterface,
+        Built<UsersRemoveSubAdminResponseApplicationJson_Ocs, UsersRemoveSubAdminResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UsersRemoveSubAdminResponseApplicationJson_Ocs object using the builder pattern.
+  factory UsersRemoveSubAdminResponseApplicationJson_Ocs([
+    void Function(UsersRemoveSubAdminResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UsersRemoveSubAdminResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const UsersRemoveSubAdminResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersRemoveSubAdminResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersRemoveSubAdminResponseApplicationJson_Ocs.
+  static Serializer<UsersRemoveSubAdminResponseApplicationJson_Ocs> get serializer =>
+      _$usersRemoveSubAdminResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $UsersRemoveSubAdminResponseApplicationJsonInterface {
+  UsersRemoveSubAdminResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class UsersRemoveSubAdminResponseApplicationJson
+    implements
+        $UsersRemoveSubAdminResponseApplicationJsonInterface,
+        Built<UsersRemoveSubAdminResponseApplicationJson, UsersRemoveSubAdminResponseApplicationJsonBuilder> {
+  /// Creates a new UsersRemoveSubAdminResponseApplicationJson object using the builder pattern.
+  factory UsersRemoveSubAdminResponseApplicationJson([
+    void Function(UsersRemoveSubAdminResponseApplicationJsonBuilder)? b,
+  ]) = _$UsersRemoveSubAdminResponseApplicationJson;
+
+  // coverage:ignore-start
+  const UsersRemoveSubAdminResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersRemoveSubAdminResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersRemoveSubAdminResponseApplicationJson.
+  static Serializer<UsersRemoveSubAdminResponseApplicationJson> get serializer =>
+      _$usersRemoveSubAdminResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -8653,238 +7921,6 @@ abstract class UsersRemoveFromGroupResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltList<String> get data;
-}
-
-abstract class UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs
-    implements
-        $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface,
-        Built<UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs,
-            UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder> {
-  /// Creates a new UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs object using the builder pattern.
-  factory UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs([
-    void Function(UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.
-  static Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs> get serializer =>
-      _$usersGetUserSubAdminGroupsResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface {
-  UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
-    implements
-        $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface,
-        Built<UsersGetUserSubAdminGroupsResponseApplicationJson,
-            UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder> {
-  /// Creates a new UsersGetUserSubAdminGroupsResponseApplicationJson object using the builder pattern.
-  factory UsersGetUserSubAdminGroupsResponseApplicationJson([
-    void Function(UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder)? b,
-  ]) = _$UsersGetUserSubAdminGroupsResponseApplicationJson;
-
-  // coverage:ignore-start
-  const UsersGetUserSubAdminGroupsResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory UsersGetUserSubAdminGroupsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for UsersGetUserSubAdminGroupsResponseApplicationJson.
-  static Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson> get serializer =>
-      _$usersGetUserSubAdminGroupsResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UsersAddSubAdminResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-}
-
-abstract class UsersAddSubAdminResponseApplicationJson_Ocs
-    implements
-        $UsersAddSubAdminResponseApplicationJson_OcsInterface,
-        Built<UsersAddSubAdminResponseApplicationJson_Ocs, UsersAddSubAdminResponseApplicationJson_OcsBuilder> {
-  /// Creates a new UsersAddSubAdminResponseApplicationJson_Ocs object using the builder pattern.
-  factory UsersAddSubAdminResponseApplicationJson_Ocs([
-    void Function(UsersAddSubAdminResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$UsersAddSubAdminResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const UsersAddSubAdminResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory UsersAddSubAdminResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for UsersAddSubAdminResponseApplicationJson_Ocs.
-  static Serializer<UsersAddSubAdminResponseApplicationJson_Ocs> get serializer =>
-      _$usersAddSubAdminResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UsersAddSubAdminResponseApplicationJsonInterface {
-  UsersAddSubAdminResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class UsersAddSubAdminResponseApplicationJson
-    implements
-        $UsersAddSubAdminResponseApplicationJsonInterface,
-        Built<UsersAddSubAdminResponseApplicationJson, UsersAddSubAdminResponseApplicationJsonBuilder> {
-  /// Creates a new UsersAddSubAdminResponseApplicationJson object using the builder pattern.
-  factory UsersAddSubAdminResponseApplicationJson([void Function(UsersAddSubAdminResponseApplicationJsonBuilder)? b]) =
-      _$UsersAddSubAdminResponseApplicationJson;
-
-  // coverage:ignore-start
-  const UsersAddSubAdminResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory UsersAddSubAdminResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for UsersAddSubAdminResponseApplicationJson.
-  static Serializer<UsersAddSubAdminResponseApplicationJson> get serializer =>
-      _$usersAddSubAdminResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UsersRemoveSubAdminResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-}
-
-abstract class UsersRemoveSubAdminResponseApplicationJson_Ocs
-    implements
-        $UsersRemoveSubAdminResponseApplicationJson_OcsInterface,
-        Built<UsersRemoveSubAdminResponseApplicationJson_Ocs, UsersRemoveSubAdminResponseApplicationJson_OcsBuilder> {
-  /// Creates a new UsersRemoveSubAdminResponseApplicationJson_Ocs object using the builder pattern.
-  factory UsersRemoveSubAdminResponseApplicationJson_Ocs([
-    void Function(UsersRemoveSubAdminResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$UsersRemoveSubAdminResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const UsersRemoveSubAdminResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory UsersRemoveSubAdminResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for UsersRemoveSubAdminResponseApplicationJson_Ocs.
-  static Serializer<UsersRemoveSubAdminResponseApplicationJson_Ocs> get serializer =>
-      _$usersRemoveSubAdminResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UsersRemoveSubAdminResponseApplicationJsonInterface {
-  UsersRemoveSubAdminResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class UsersRemoveSubAdminResponseApplicationJson
-    implements
-        $UsersRemoveSubAdminResponseApplicationJsonInterface,
-        Built<UsersRemoveSubAdminResponseApplicationJson, UsersRemoveSubAdminResponseApplicationJsonBuilder> {
-  /// Creates a new UsersRemoveSubAdminResponseApplicationJson object using the builder pattern.
-  factory UsersRemoveSubAdminResponseApplicationJson([
-    void Function(UsersRemoveSubAdminResponseApplicationJsonBuilder)? b,
-  ]) = _$UsersRemoveSubAdminResponseApplicationJson;
-
-  // coverage:ignore-start
-  const UsersRemoveSubAdminResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory UsersRemoveSubAdminResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for UsersRemoveSubAdminResponseApplicationJson.
-  static Serializer<UsersRemoveSubAdminResponseApplicationJson> get serializer =>
-      _$usersRemoveSubAdminResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $UsersResendWelcomeMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -9546,21 +8582,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AppConfigGetKeysResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(AppConfigGetValueResponseApplicationJson),
-        AppConfigGetValueResponseApplicationJsonBuilder.new,
-      )
-      ..add(AppConfigGetValueResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AppConfigGetValueResponseApplicationJson_Ocs),
-        AppConfigGetValueResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AppConfigGetValueResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(AppConfigGetValueResponseApplicationJson_Ocs_Data),
-        AppConfigGetValueResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(AppConfigGetValueResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
         const FullType(AppConfigSetValueResponseApplicationJson),
         AppConfigSetValueResponseApplicationJsonBuilder.new,
       )
@@ -9570,16 +8591,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         AppConfigSetValueResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppConfigSetValueResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(AppConfigDeleteKeyResponseApplicationJson),
-        AppConfigDeleteKeyResponseApplicationJsonBuilder.new,
-      )
-      ..add(AppConfigDeleteKeyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AppConfigDeleteKeyResponseApplicationJson_Ocs),
-        AppConfigDeleteKeyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AppConfigDeleteKeyResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(AppsGetAppsResponseApplicationJson),
         AppsGetAppsResponseApplicationJsonBuilder.new,
@@ -9628,6 +8639,16 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AppsDisableResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
+        const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson),
+        GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder.new,
+      )
+      ..add(GroupsGetSubAdminsOfGroupResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs),
+        GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
         const FullType(GroupsGetGroupsResponseApplicationJson),
         GroupsGetGroupsResponseApplicationJsonBuilder.new,
       )
@@ -9643,15 +8664,20 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(GroupsGetGroupsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(GroupsAddGroupResponseApplicationJson),
-        GroupsAddGroupResponseApplicationJsonBuilder.new,
+        const FullType(GroupsGetGroupResponseApplicationJson),
+        GroupsGetGroupResponseApplicationJsonBuilder.new,
       )
-      ..add(GroupsAddGroupResponseApplicationJson.serializer)
+      ..add(GroupsGetGroupResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(GroupsAddGroupResponseApplicationJson_Ocs),
-        GroupsAddGroupResponseApplicationJson_OcsBuilder.new,
+        const FullType(GroupsGetGroupResponseApplicationJson_Ocs),
+        GroupsGetGroupResponseApplicationJson_OcsBuilder.new,
       )
-      ..add(GroupsAddGroupResponseApplicationJson_Ocs.serializer)
+      ..add(GroupsGetGroupResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(GroupsGetGroupResponseApplicationJson_Ocs_Data),
+        GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(GroupsGetGroupResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupsDetailsResponseApplicationJson),
         GroupsGetGroupsDetailsResponseApplicationJsonBuilder.new,
@@ -9722,51 +8748,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users>.new,
       )
       ..addBuilderFactory(
-        const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson),
-        GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder.new,
-      )
-      ..add(GroupsGetSubAdminsOfGroupResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs),
-        GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsGetGroupResponseApplicationJson),
-        GroupsGetGroupResponseApplicationJsonBuilder.new,
-      )
-      ..add(GroupsGetGroupResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsGetGroupResponseApplicationJson_Ocs),
-        GroupsGetGroupResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(GroupsGetGroupResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsGetGroupResponseApplicationJson_Ocs_Data),
-        GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(GroupsGetGroupResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsUpdateGroupResponseApplicationJson),
-        GroupsUpdateGroupResponseApplicationJsonBuilder.new,
-      )
-      ..add(GroupsUpdateGroupResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsUpdateGroupResponseApplicationJson_Ocs),
-        GroupsUpdateGroupResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(GroupsUpdateGroupResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsDeleteGroupResponseApplicationJson),
-        GroupsDeleteGroupResponseApplicationJsonBuilder.new,
-      )
-      ..add(GroupsDeleteGroupResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsDeleteGroupResponseApplicationJson_Ocs),
-        GroupsDeleteGroupResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(GroupsDeleteGroupResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
         const FullType(PreferencesSetPreferenceResponseApplicationJson),
         PreferencesSetPreferenceResponseApplicationJsonBuilder.new,
       )
@@ -9817,6 +8798,36 @@ final Serializers _$serializers = (Serializers().toBuilder()
         PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
+        UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder.new,
+      )
+      ..add(UsersGetUserSubAdminGroupsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs),
+        UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersAddSubAdminResponseApplicationJson),
+        UsersAddSubAdminResponseApplicationJsonBuilder.new,
+      )
+      ..add(UsersAddSubAdminResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersAddSubAdminResponseApplicationJson_Ocs),
+        UsersAddSubAdminResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(UsersAddSubAdminResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersRemoveSubAdminResponseApplicationJson),
+        UsersRemoveSubAdminResponseApplicationJsonBuilder.new,
+      )
+      ..add(UsersRemoveSubAdminResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersRemoveSubAdminResponseApplicationJson_Ocs),
+        UsersRemoveSubAdminResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(UsersRemoveSubAdminResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersResponseApplicationJson),
         UsersGetUsersResponseApplicationJsonBuilder.new,
@@ -10064,36 +9075,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UsersRemoveFromGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersRemoveFromGroupResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
-        UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder.new,
-      )
-      ..add(UsersGetUserSubAdminGroupsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs),
-        UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UsersAddSubAdminResponseApplicationJson),
-        UsersAddSubAdminResponseApplicationJsonBuilder.new,
-      )
-      ..add(UsersAddSubAdminResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UsersAddSubAdminResponseApplicationJson_Ocs),
-        UsersAddSubAdminResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UsersAddSubAdminResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UsersRemoveSubAdminResponseApplicationJson),
-        UsersRemoveSubAdminResponseApplicationJsonBuilder.new,
-      )
-      ..add(UsersRemoveSubAdminResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UsersRemoveSubAdminResponseApplicationJson_Ocs),
-        UsersRemoveSubAdminResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UsersRemoveSubAdminResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersResendWelcomeMessageResponseApplicationJson),
         UsersResendWelcomeMessageResponseApplicationJsonBuilder.new,

@@ -3036,48 +3036,6 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $TemplateInterface {
-  String get templateType;
-  String get templateId;
-  String get basename;
-  String get etag;
-  int get fileid;
-  String get filename;
-  int get lastmod;
-  String get mime;
-  int get size;
-  String get type;
-  bool get hasPreview;
-  String? get previewUrl;
-}
-
-abstract class Template implements $TemplateInterface, Built<Template, TemplateBuilder> {
-  /// Creates a new Template object using the builder pattern.
-  factory Template([void Function(TemplateBuilder)? b]) = _$Template;
-
-  // coverage:ignore-start
-  const Template._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Template.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Template.
-  static Serializer<Template> get serializer => _$templateSerializer;
-}
-
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -3295,9 +3253,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Capabilities_Files.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(const FullType(Capabilities_Files_DirectEditing), Capabilities_Files_DirectEditingBuilder.new)
-      ..add(Capabilities_Files_DirectEditing.serializer)
-      ..addBuilderFactory(const FullType(Template), TemplateBuilder.new)
-      ..add(Template.serializer))
+      ..add(Capabilities_Files_DirectEditing.serializer))
     .build();
 
 /// Serializer for all values in this library.

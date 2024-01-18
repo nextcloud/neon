@@ -1077,103 +1077,6 @@ class $BotClient {
     );
   }
 
-  /// List admin bots.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot list returned
-  ///
-  /// See:
-  ///  * [adminListBotsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<BotAdminListBotsResponseApplicationJson, void>> adminListBots({
-    BotAdminListBotsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = adminListBotsRaw(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// List admin bots.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot list returned
-  ///
-  /// See:
-  ///  * [adminListBots] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void> adminListBotsRaw({
-    BotAdminListBotsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
-    return _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
   /// List bots.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1509,6 +1412,103 @@ class $BotClient {
         const {200},
       ),
       bodyType: const FullType(BotDisableBotResponseApplicationJson),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
+
+  /// List admin bots.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot list returned
+  ///
+  /// See:
+  ///  * [adminListBotsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<BotAdminListBotsResponseApplicationJson, void>> adminListBots({
+    BotAdminListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final rawResponse = adminListBotsRaw(
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// List admin bots.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot list returned
+  ///
+  /// See:
+  ///  * [adminListBots] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void> adminListBotsRaw({
+    BotAdminListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
+    return _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -7618,116 +7618,6 @@ class $RecordingClient {
 
   final $Client _rootClient;
 
-  /// Get the welcome message of a recording server.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [serverId] ID of the server.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Welcome message returned
-  ///   * 404: Recording server not found or not configured
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getWelcomeMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
-    required int serverId,
-    RecordingGetWelcomeMessageApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = getWelcomeMessageRaw(
-      serverId: serverId,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get the welcome message of a recording server.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [serverId] ID of the server.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Welcome message returned
-  ///   * 404: Recording server not found or not configured
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
-    required int serverId,
-    RecordingGetWelcomeMessageApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
-    _parameters['serverId'] = $serverId;
-
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
   /// Start the recording.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -8306,6 +8196,116 @@ class $RecordingClient {
         const {200},
       ),
       bodyType: const FullType(RecordingShareToChatResponseApplicationJson),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
+
+  /// Get the welcome message of a recording server.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [serverId] ID of the server.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Welcome message returned
+  ///   * 404: Recording server not found or not configured
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getWelcomeMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
+    required int serverId,
+    RecordingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final rawResponse = getWelcomeMessageRaw(
+      serverId: serverId,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the welcome message of a recording server.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [serverId] ID of the server.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Welcome message returned
+  ///   * 404: Recording server not found or not configured
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
+    required int serverId,
+    RecordingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    _parameters['serverId'] = $serverId;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -12624,6 +12624,121 @@ class $SettingsClient {
 
   final $Client _rootClient;
 
+  /// Update user setting.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key to update.
+  ///   * [value] New value for the key.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User setting updated successfully
+  ///   * 400: Updating user setting is not possible
+  ///
+  /// See:
+  ///  * [setUserSettingRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SettingsSetUserSettingResponseApplicationJson, void>> setUserSetting({
+    required SettingsSetUserSettingKey key,
+    SettingsSetUserSettingValue? value,
+    SettingsSetUserSettingApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final rawResponse = setUserSettingRaw(
+      key: key,
+      value: value,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Update user setting.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [key] Key to update.
+  ///   * [value] New value for the key.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User setting updated successfully
+  ///   * 400: Updating user setting is not possible
+  ///
+  /// See:
+  ///  * [setUserSetting] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
+    required SettingsSetUserSettingKey key,
+    SettingsSetUserSettingValue? value,
+    SettingsSetUserSettingApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(SettingsSetUserSettingKey));
+    _parameters['key'] = $key;
+
+    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(SettingsSetUserSettingValue));
+    _parameters['value'] = $value;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetUserSettingApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'post',
+        _path,
+        _headers,
+        null,
+        const {
+          200,
+          400,
+        },
+      ),
+      bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
+
   /// Update SIP bridge settings.
   ///
   /// This endpoint requires admin access.
@@ -12750,121 +12865,6 @@ class $SettingsClient {
       serializers: _$jsonSerializers,
     );
   }
-
-  /// Update user setting.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [key] Key to update.
-  ///   * [value] New value for the key.
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User setting updated successfully
-  ///   * 400: Updating user setting is not possible
-  ///
-  /// See:
-  ///  * [setUserSettingRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<SettingsSetUserSettingResponseApplicationJson, void>> setUserSetting({
-    required SettingsSetUserSettingKey key,
-    SettingsSetUserSettingValue? value,
-    SettingsSetUserSettingApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = setUserSettingRaw(
-      key: key,
-      value: value,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Update user setting.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [key] Key to update.
-  ///   * [value] New value for the key.
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User setting updated successfully
-  ///   * 400: Updating user setting is not possible
-  ///
-  /// See:
-  ///  * [setUserSetting] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
-    required SettingsSetUserSettingKey key,
-    SettingsSetUserSettingValue? value,
-    SettingsSetUserSettingApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(SettingsSetUserSettingKey));
-    _parameters['key'] = $key;
-
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(SettingsSetUserSettingValue));
-    _parameters['value'] = $value;
-
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetUserSettingApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        _headers,
-        null,
-        const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
 }
 
 class $SignalingClient {
@@ -12973,118 +12973,6 @@ class $SignalingClient {
         const {200},
       ),
       bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Get the welcome message from a signaling server.
-  ///
-  /// Only available for logged-in users because guests can not use the apps right now.
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
-  ///   * [serverId] ID of the signaling server.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Welcome message returned
-  ///   * 404: Signaling server not found
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getWelcomeMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
-    required int serverId,
-    SignalingGetWelcomeMessageApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = getWelcomeMessageRaw(
-      serverId: serverId,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get the welcome message from a signaling server.
-  ///
-  /// Only available for logged-in users because guests can not use the apps right now.
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
-  ///   * [serverId] ID of the signaling server.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Welcome message returned
-  ///   * 404: Signaling server not found
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
-    required int serverId,
-    SignalingGetWelcomeMessageApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
-    _parameters['serverId'] = $serverId;
-
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetWelcomeMessageApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -13314,6 +13202,118 @@ class $SignalingClient {
         const {200},
       ),
       bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
+      headersType: null,
+      serializers: _$jsonSerializers,
+    );
+  }
+
+  /// Get the welcome message from a signaling server.
+  ///
+  /// Only available for logged-in users because guests can not use the apps right now.
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [serverId] ID of the signaling server.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Welcome message returned
+  ///   * 404: Signaling server not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getWelcomeMessageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
+    required int serverId,
+    SignalingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final rawResponse = getWelcomeMessageRaw(
+      serverId: serverId,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the welcome message from a signaling server.
+  ///
+  /// Only available for logged-in users because guests can not use the apps right now.
+  /// This endpoint requires admin access.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [serverId] ID of the signaling server.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Welcome message returned
+  ///   * 404: Signaling server not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
+  @_i4.experimental
+  _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
+    required int serverId,
+    SignalingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
+      'Accept': 'application/json',
+    };
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    _parameters['serverId'] = $serverId;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetWelcomeMessageApiVersion));
+    $apiVersion ??= 'v3';
+    _parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
+    return _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        _path,
+        _headers,
+        null,
+        const {200},
+      ),
+      bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -14755,212 +14755,6 @@ abstract class BotDeleteReactionResponseApplicationJson
       _$botDeleteReactionResponseApplicationJsonSerializer;
 }
 
-class BotAdminListBotsApiVersion extends EnumClass {
-  const BotAdminListBotsApiVersion._(super.name);
-
-  /// `v1`
-  static const BotAdminListBotsApiVersion v1 = _$botAdminListBotsApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<BotAdminListBotsApiVersion> get values => _$botAdminListBotsApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for BotAdminListBotsApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BotAdminListBotsApiVersion> get serializer => const _$BotAdminListBotsApiVersionSerializer();
-}
-
-class _$BotAdminListBotsApiVersionSerializer implements PrimitiveSerializer<BotAdminListBotsApiVersion> {
-  const _$BotAdminListBotsApiVersionSerializer();
-
-  static const Map<BotAdminListBotsApiVersion, Object> _toWire = <BotAdminListBotsApiVersion, Object>{
-    BotAdminListBotsApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, BotAdminListBotsApiVersion> _fromWire = <Object, BotAdminListBotsApiVersion>{
-    'v1': BotAdminListBotsApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [BotAdminListBotsApiVersion];
-
-  @override
-  String get wireName => 'BotAdminListBotsApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    BotAdminListBotsApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  BotAdminListBotsApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotInterface {
-  String? get description;
-  int get id;
-  String get name;
-  int get state;
-}
-
-abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
-  /// Creates a new Bot object using the builder pattern.
-  factory Bot([void Function(BotBuilder)? b]) = _$Bot;
-
-  // coverage:ignore-start
-  const Bot._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Bot.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Bot.
-  static Serializer<Bot> get serializer => _$botSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotWithDetailsInterface implements $BotInterface {
-  @BuiltValueField(wireName: 'error_count')
-  int get errorCount;
-  int get features;
-  @BuiltValueField(wireName: 'last_error_date')
-  int get lastErrorDate;
-  @BuiltValueField(wireName: 'last_error_message')
-  String get lastErrorMessage;
-  String get url;
-  @BuiltValueField(wireName: 'url_hash')
-  String get urlHash;
-}
-
-abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
-  /// Creates a new BotWithDetails object using the builder pattern.
-  factory BotWithDetails([void Function(BotWithDetailsBuilder)? b]) = _$BotWithDetails;
-
-  // coverage:ignore-start
-  const BotWithDetails._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotWithDetails.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotWithDetails.
-  static Serializer<BotWithDetails> get serializer => _$botWithDetailsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotAdminListBotsResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltList<BotWithDetails> get data;
-}
-
-abstract class BotAdminListBotsResponseApplicationJson_Ocs
-    implements
-        $BotAdminListBotsResponseApplicationJson_OcsInterface,
-        Built<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder> {
-  /// Creates a new BotAdminListBotsResponseApplicationJson_Ocs object using the builder pattern.
-  factory BotAdminListBotsResponseApplicationJson_Ocs([
-    void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$BotAdminListBotsResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const BotAdminListBotsResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotAdminListBotsResponseApplicationJson_Ocs.
-  static Serializer<BotAdminListBotsResponseApplicationJson_Ocs> get serializer =>
-      _$botAdminListBotsResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotAdminListBotsResponseApplicationJsonInterface {
-  BotAdminListBotsResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class BotAdminListBotsResponseApplicationJson
-    implements
-        $BotAdminListBotsResponseApplicationJsonInterface,
-        Built<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder> {
-  /// Creates a new BotAdminListBotsResponseApplicationJson object using the builder pattern.
-  factory BotAdminListBotsResponseApplicationJson([void Function(BotAdminListBotsResponseApplicationJsonBuilder)? b]) =
-      _$BotAdminListBotsResponseApplicationJson;
-
-  // coverage:ignore-start
-  const BotAdminListBotsResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotAdminListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotAdminListBotsResponseApplicationJson.
-  static Serializer<BotAdminListBotsResponseApplicationJson> get serializer =>
-      _$botAdminListBotsResponseApplicationJsonSerializer;
-}
-
 class BotListBotsApiVersion extends EnumClass {
   const BotListBotsApiVersion._(super.name);
 
@@ -15015,6 +14809,40 @@ class _$BotListBotsApiVersionSerializer implements PrimitiveSerializer<BotListBo
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotInterface {
+  String? get description;
+  int get id;
+  String get name;
+  int get state;
+}
+
+abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
+  /// Creates a new Bot object using the builder pattern.
+  factory Bot([void Function(BotBuilder)? b]) = _$Bot;
+
+  // coverage:ignore-start
+  const Bot._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Bot.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Bot.
+  static Serializer<Bot> get serializer => _$botSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -15353,6 +15181,178 @@ abstract class BotDisableBotResponseApplicationJson
   /// Serializer for BotDisableBotResponseApplicationJson.
   static Serializer<BotDisableBotResponseApplicationJson> get serializer =>
       _$botDisableBotResponseApplicationJsonSerializer;
+}
+
+class BotAdminListBotsApiVersion extends EnumClass {
+  const BotAdminListBotsApiVersion._(super.name);
+
+  /// `v1`
+  static const BotAdminListBotsApiVersion v1 = _$botAdminListBotsApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<BotAdminListBotsApiVersion> get values => _$botAdminListBotsApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for BotAdminListBotsApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotAdminListBotsApiVersion> get serializer => const _$BotAdminListBotsApiVersionSerializer();
+}
+
+class _$BotAdminListBotsApiVersionSerializer implements PrimitiveSerializer<BotAdminListBotsApiVersion> {
+  const _$BotAdminListBotsApiVersionSerializer();
+
+  static const Map<BotAdminListBotsApiVersion, Object> _toWire = <BotAdminListBotsApiVersion, Object>{
+    BotAdminListBotsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotAdminListBotsApiVersion> _fromWire = <Object, BotAdminListBotsApiVersion>{
+    'v1': BotAdminListBotsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotAdminListBotsApiVersion];
+
+  @override
+  String get wireName => 'BotAdminListBotsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotAdminListBotsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotAdminListBotsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotWithDetailsInterface implements $BotInterface {
+  @BuiltValueField(wireName: 'error_count')
+  int get errorCount;
+  int get features;
+  @BuiltValueField(wireName: 'last_error_date')
+  int get lastErrorDate;
+  @BuiltValueField(wireName: 'last_error_message')
+  String get lastErrorMessage;
+  String get url;
+  @BuiltValueField(wireName: 'url_hash')
+  String get urlHash;
+}
+
+abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
+  /// Creates a new BotWithDetails object using the builder pattern.
+  factory BotWithDetails([void Function(BotWithDetailsBuilder)? b]) = _$BotWithDetails;
+
+  // coverage:ignore-start
+  const BotWithDetails._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotWithDetails.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotWithDetails.
+  static Serializer<BotWithDetails> get serializer => _$botWithDetailsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotAdminListBotsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<BotWithDetails> get data;
+}
+
+abstract class BotAdminListBotsResponseApplicationJson_Ocs
+    implements
+        $BotAdminListBotsResponseApplicationJson_OcsInterface,
+        Built<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotAdminListBotsResponseApplicationJson_Ocs object using the builder pattern.
+  factory BotAdminListBotsResponseApplicationJson_Ocs([
+    void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$BotAdminListBotsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const BotAdminListBotsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotAdminListBotsResponseApplicationJson_Ocs.
+  static Serializer<BotAdminListBotsResponseApplicationJson_Ocs> get serializer =>
+      _$botAdminListBotsResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotAdminListBotsResponseApplicationJsonInterface {
+  BotAdminListBotsResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class BotAdminListBotsResponseApplicationJson
+    implements
+        $BotAdminListBotsResponseApplicationJsonInterface,
+        Built<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder> {
+  /// Creates a new BotAdminListBotsResponseApplicationJson object using the builder pattern.
+  factory BotAdminListBotsResponseApplicationJson([void Function(BotAdminListBotsResponseApplicationJsonBuilder)? b]) =
+      _$BotAdminListBotsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const BotAdminListBotsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotAdminListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotAdminListBotsResponseApplicationJson.
+  static Serializer<BotAdminListBotsResponseApplicationJson> get serializer =>
+      _$botAdminListBotsResponseApplicationJsonSerializer;
 }
 
 class BreakoutRoomConfigureBreakoutRoomsMode extends EnumClass {
@@ -25551,185 +25551,6 @@ abstract class ReactionDeleteResponseApplicationJson
       _$reactionDeleteResponseApplicationJsonSerializer;
 }
 
-class RecordingGetWelcomeMessageApiVersion extends EnumClass {
-  const RecordingGetWelcomeMessageApiVersion._(super.name);
-
-  /// `v1`
-  static const RecordingGetWelcomeMessageApiVersion v1 = _$recordingGetWelcomeMessageApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RecordingGetWelcomeMessageApiVersion> get values => _$recordingGetWelcomeMessageApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RecordingGetWelcomeMessageApiVersion valueOf(String name) =>
-      _$valueOfRecordingGetWelcomeMessageApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for RecordingGetWelcomeMessageApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RecordingGetWelcomeMessageApiVersion> get serializer =>
-      const _$RecordingGetWelcomeMessageApiVersionSerializer();
-}
-
-class _$RecordingGetWelcomeMessageApiVersionSerializer
-    implements PrimitiveSerializer<RecordingGetWelcomeMessageApiVersion> {
-  const _$RecordingGetWelcomeMessageApiVersionSerializer();
-
-  static const Map<RecordingGetWelcomeMessageApiVersion, Object> _toWire =
-      <RecordingGetWelcomeMessageApiVersion, Object>{
-    RecordingGetWelcomeMessageApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, RecordingGetWelcomeMessageApiVersion> _fromWire =
-      <Object, RecordingGetWelcomeMessageApiVersion>{
-    'v1': RecordingGetWelcomeMessageApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [RecordingGetWelcomeMessageApiVersion];
-
-  @override
-  String get wireName => 'RecordingGetWelcomeMessageApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RecordingGetWelcomeMessageApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RecordingGetWelcomeMessageApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface {
-  double get version;
-}
-
-abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
-    implements
-        $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
-            RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
-    void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.
-  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data get data;
-}
-
-abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
-    implements
-        $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
-            RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
-  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs([
-    void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const RecordingGetWelcomeMessageResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs.
-  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJsonInterface {
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class RecordingGetWelcomeMessageResponseApplicationJson
-    implements
-        $RecordingGetWelcomeMessageResponseApplicationJsonInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson,
-            RecordingGetWelcomeMessageResponseApplicationJsonBuilder> {
-  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
-  factory RecordingGetWelcomeMessageResponseApplicationJson([
-    void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
-  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson;
-
-  // coverage:ignore-start
-  const RecordingGetWelcomeMessageResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson.
-  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonSerializer;
-}
-
 class RecordingStartApiVersion extends EnumClass {
   const RecordingStartApiVersion._(super.name);
 
@@ -26398,6 +26219,185 @@ abstract class RecordingShareToChatResponseApplicationJson
   /// Serializer for RecordingShareToChatResponseApplicationJson.
   static Serializer<RecordingShareToChatResponseApplicationJson> get serializer =>
       _$recordingShareToChatResponseApplicationJsonSerializer;
+}
+
+class RecordingGetWelcomeMessageApiVersion extends EnumClass {
+  const RecordingGetWelcomeMessageApiVersion._(super.name);
+
+  /// `v1`
+  static const RecordingGetWelcomeMessageApiVersion v1 = _$recordingGetWelcomeMessageApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RecordingGetWelcomeMessageApiVersion> get values => _$recordingGetWelcomeMessageApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RecordingGetWelcomeMessageApiVersion valueOf(String name) =>
+      _$valueOfRecordingGetWelcomeMessageApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RecordingGetWelcomeMessageApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RecordingGetWelcomeMessageApiVersion> get serializer =>
+      const _$RecordingGetWelcomeMessageApiVersionSerializer();
+}
+
+class _$RecordingGetWelcomeMessageApiVersionSerializer
+    implements PrimitiveSerializer<RecordingGetWelcomeMessageApiVersion> {
+  const _$RecordingGetWelcomeMessageApiVersionSerializer();
+
+  static const Map<RecordingGetWelcomeMessageApiVersion, Object> _toWire =
+      <RecordingGetWelcomeMessageApiVersion, Object>{
+    RecordingGetWelcomeMessageApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingGetWelcomeMessageApiVersion> _fromWire =
+      <Object, RecordingGetWelcomeMessageApiVersion>{
+    'v1': RecordingGetWelcomeMessageApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingGetWelcomeMessageApiVersion];
+
+  @override
+  String get wireName => 'RecordingGetWelcomeMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingGetWelcomeMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingGetWelcomeMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface {
+  double get version;
+}
+
+abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
+    implements
+        $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
+        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+            RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
+    void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.
+  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> get serializer =>
+      _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data get data;
+}
+
+abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
+    implements
+        $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface,
+        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
+            RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs([
+    void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RecordingGetWelcomeMessageResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs.
+  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
+      _$recordingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJsonInterface {
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class RecordingGetWelcomeMessageResponseApplicationJson
+    implements
+        $RecordingGetWelcomeMessageResponseApplicationJsonInterface,
+        Built<RecordingGetWelcomeMessageResponseApplicationJson,
+            RecordingGetWelcomeMessageResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
+  factory RecordingGetWelcomeMessageResponseApplicationJson([
+    void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
+  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RecordingGetWelcomeMessageResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson.
+  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson> get serializer =>
+      _$recordingGetWelcomeMessageResponseApplicationJsonSerializer;
 }
 
 class RoomGetRoomsNoStatusUpdate extends EnumClass {
@@ -37160,141 +37160,6 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
       _$roomSetMessageExpirationResponseApplicationJsonSerializer;
 }
 
-class SettingsSetsipSettingsApiVersion extends EnumClass {
-  const SettingsSetsipSettingsApiVersion._(super.name);
-
-  /// `v1`
-  static const SettingsSetsipSettingsApiVersion v1 = _$settingsSetsipSettingsApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<SettingsSetsipSettingsApiVersion> get values => _$settingsSetsipSettingsApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static SettingsSetsipSettingsApiVersion valueOf(String name) => _$valueOfSettingsSetsipSettingsApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for SettingsSetsipSettingsApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SettingsSetsipSettingsApiVersion> get serializer =>
-      const _$SettingsSetsipSettingsApiVersionSerializer();
-}
-
-class _$SettingsSetsipSettingsApiVersionSerializer implements PrimitiveSerializer<SettingsSetsipSettingsApiVersion> {
-  const _$SettingsSetsipSettingsApiVersionSerializer();
-
-  static const Map<SettingsSetsipSettingsApiVersion, Object> _toWire = <SettingsSetsipSettingsApiVersion, Object>{
-    SettingsSetsipSettingsApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, SettingsSetsipSettingsApiVersion> _fromWire = <Object, SettingsSetsipSettingsApiVersion>{
-    'v1': SettingsSetsipSettingsApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [SettingsSetsipSettingsApiVersion];
-
-  @override
-  String get wireName => 'SettingsSetsipSettingsApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    SettingsSetsipSettingsApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  SettingsSetsipSettingsApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SettingsSetsipSettingsResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-}
-
-abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
-    implements
-        $SettingsSetsipSettingsResponseApplicationJson_OcsInterface,
-        Built<SettingsSetsipSettingsResponseApplicationJson_Ocs,
-            SettingsSetsipSettingsResponseApplicationJson_OcsBuilder> {
-  /// Creates a new SettingsSetsipSettingsResponseApplicationJson_Ocs object using the builder pattern.
-  factory SettingsSetsipSettingsResponseApplicationJson_Ocs([
-    void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$SettingsSetsipSettingsResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const SettingsSetsipSettingsResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SettingsSetsipSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SettingsSetsipSettingsResponseApplicationJson_Ocs.
-  static Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs> get serializer =>
-      _$settingsSetsipSettingsResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SettingsSetsipSettingsResponseApplicationJsonInterface {
-  SettingsSetsipSettingsResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class SettingsSetsipSettingsResponseApplicationJson
-    implements
-        $SettingsSetsipSettingsResponseApplicationJsonInterface,
-        Built<SettingsSetsipSettingsResponseApplicationJson, SettingsSetsipSettingsResponseApplicationJsonBuilder> {
-  /// Creates a new SettingsSetsipSettingsResponseApplicationJson object using the builder pattern.
-  factory SettingsSetsipSettingsResponseApplicationJson([
-    void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? b,
-  ]) = _$SettingsSetsipSettingsResponseApplicationJson;
-
-  // coverage:ignore-start
-  const SettingsSetsipSettingsResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SettingsSetsipSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SettingsSetsipSettingsResponseApplicationJson.
-  static Serializer<SettingsSetsipSettingsResponseApplicationJson> get serializer =>
-      _$settingsSetsipSettingsResponseApplicationJsonSerializer;
-}
-
 class SettingsSetUserSettingKey extends EnumClass {
   const SettingsSetUserSettingKey._(super.name);
 
@@ -37505,6 +37370,141 @@ abstract class SettingsSetUserSettingResponseApplicationJson
   /// Serializer for SettingsSetUserSettingResponseApplicationJson.
   static Serializer<SettingsSetUserSettingResponseApplicationJson> get serializer =>
       _$settingsSetUserSettingResponseApplicationJsonSerializer;
+}
+
+class SettingsSetsipSettingsApiVersion extends EnumClass {
+  const SettingsSetsipSettingsApiVersion._(super.name);
+
+  /// `v1`
+  static const SettingsSetsipSettingsApiVersion v1 = _$settingsSetsipSettingsApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SettingsSetsipSettingsApiVersion> get values => _$settingsSetsipSettingsApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SettingsSetsipSettingsApiVersion valueOf(String name) => _$valueOfSettingsSetsipSettingsApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SettingsSetsipSettingsApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SettingsSetsipSettingsApiVersion> get serializer =>
+      const _$SettingsSetsipSettingsApiVersionSerializer();
+}
+
+class _$SettingsSetsipSettingsApiVersionSerializer implements PrimitiveSerializer<SettingsSetsipSettingsApiVersion> {
+  const _$SettingsSetsipSettingsApiVersionSerializer();
+
+  static const Map<SettingsSetsipSettingsApiVersion, Object> _toWire = <SettingsSetsipSettingsApiVersion, Object>{
+    SettingsSetsipSettingsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, SettingsSetsipSettingsApiVersion> _fromWire = <Object, SettingsSetsipSettingsApiVersion>{
+    'v1': SettingsSetsipSettingsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [SettingsSetsipSettingsApiVersion];
+
+  @override
+  String get wireName => 'SettingsSetsipSettingsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SettingsSetsipSettingsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SettingsSetsipSettingsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SettingsSetsipSettingsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+}
+
+abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
+    implements
+        $SettingsSetsipSettingsResponseApplicationJson_OcsInterface,
+        Built<SettingsSetsipSettingsResponseApplicationJson_Ocs,
+            SettingsSetsipSettingsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SettingsSetsipSettingsResponseApplicationJson_Ocs object using the builder pattern.
+  factory SettingsSetsipSettingsResponseApplicationJson_Ocs([
+    void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$SettingsSetsipSettingsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const SettingsSetsipSettingsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SettingsSetsipSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SettingsSetsipSettingsResponseApplicationJson_Ocs.
+  static Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs> get serializer =>
+      _$settingsSetsipSettingsResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SettingsSetsipSettingsResponseApplicationJsonInterface {
+  SettingsSetsipSettingsResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class SettingsSetsipSettingsResponseApplicationJson
+    implements
+        $SettingsSetsipSettingsResponseApplicationJsonInterface,
+        Built<SettingsSetsipSettingsResponseApplicationJson, SettingsSetsipSettingsResponseApplicationJsonBuilder> {
+  /// Creates a new SettingsSetsipSettingsResponseApplicationJson object using the builder pattern.
+  factory SettingsSetsipSettingsResponseApplicationJson([
+    void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? b,
+  ]) = _$SettingsSetsipSettingsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const SettingsSetsipSettingsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SettingsSetsipSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SettingsSetsipSettingsResponseApplicationJson.
+  static Serializer<SettingsSetsipSettingsResponseApplicationJson> get serializer =>
+      _$settingsSetsipSettingsResponseApplicationJsonSerializer;
 }
 
 class SignalingGetSettingsApiVersion extends EnumClass {
@@ -37869,146 +37869,6 @@ abstract class SignalingGetSettingsResponseApplicationJson
       _$signalingGetSettingsResponseApplicationJsonSerializer;
 }
 
-class SignalingGetWelcomeMessageApiVersion extends EnumClass {
-  const SignalingGetWelcomeMessageApiVersion._(super.name);
-
-  /// `v3`
-  static const SignalingGetWelcomeMessageApiVersion v3 = _$signalingGetWelcomeMessageApiVersionV3;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<SignalingGetWelcomeMessageApiVersion> get values => _$signalingGetWelcomeMessageApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static SignalingGetWelcomeMessageApiVersion valueOf(String name) =>
-      _$valueOfSignalingGetWelcomeMessageApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for SignalingGetWelcomeMessageApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SignalingGetWelcomeMessageApiVersion> get serializer =>
-      const _$SignalingGetWelcomeMessageApiVersionSerializer();
-}
-
-class _$SignalingGetWelcomeMessageApiVersionSerializer
-    implements PrimitiveSerializer<SignalingGetWelcomeMessageApiVersion> {
-  const _$SignalingGetWelcomeMessageApiVersionSerializer();
-
-  static const Map<SignalingGetWelcomeMessageApiVersion, Object> _toWire =
-      <SignalingGetWelcomeMessageApiVersion, Object>{
-    SignalingGetWelcomeMessageApiVersion.v3: 'v3',
-  };
-
-  static const Map<Object, SignalingGetWelcomeMessageApiVersion> _fromWire =
-      <Object, SignalingGetWelcomeMessageApiVersion>{
-    'v3': SignalingGetWelcomeMessageApiVersion.v3,
-  };
-
-  @override
-  Iterable<Type> get types => const [SignalingGetWelcomeMessageApiVersion];
-
-  @override
-  String get wireName => 'SignalingGetWelcomeMessageApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    SignalingGetWelcomeMessageApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  SignalingGetWelcomeMessageApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltMap<String, JsonObject> get data;
-}
-
-abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
-    implements
-        $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface,
-        Built<SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
-            SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
-  /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
-  factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs([
-    void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const SignalingGetWelcomeMessageResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson_Ocs.
-  static Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
-      _$signalingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingGetWelcomeMessageResponseApplicationJsonInterface {
-  SignalingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class SignalingGetWelcomeMessageResponseApplicationJson
-    implements
-        $SignalingGetWelcomeMessageResponseApplicationJsonInterface,
-        Built<SignalingGetWelcomeMessageResponseApplicationJson,
-            SignalingGetWelcomeMessageResponseApplicationJsonBuilder> {
-  /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
-  factory SignalingGetWelcomeMessageResponseApplicationJson([
-    void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
-  ]) = _$SignalingGetWelcomeMessageResponseApplicationJson;
-
-  // coverage:ignore-start
-  const SignalingGetWelcomeMessageResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson.
-  static Serializer<SignalingGetWelcomeMessageResponseApplicationJson> get serializer =>
-      _$signalingGetWelcomeMessageResponseApplicationJsonSerializer;
-}
-
 class SignalingPullMessagesApiVersion extends EnumClass {
   const SignalingPullMessagesApiVersion._(super.name);
 
@@ -38364,6 +38224,146 @@ abstract class SignalingSendMessagesResponseApplicationJson
   /// Serializer for SignalingSendMessagesResponseApplicationJson.
   static Serializer<SignalingSendMessagesResponseApplicationJson> get serializer =>
       _$signalingSendMessagesResponseApplicationJsonSerializer;
+}
+
+class SignalingGetWelcomeMessageApiVersion extends EnumClass {
+  const SignalingGetWelcomeMessageApiVersion._(super.name);
+
+  /// `v3`
+  static const SignalingGetWelcomeMessageApiVersion v3 = _$signalingGetWelcomeMessageApiVersionV3;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingGetWelcomeMessageApiVersion> get values => _$signalingGetWelcomeMessageApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingGetWelcomeMessageApiVersion valueOf(String name) =>
+      _$valueOfSignalingGetWelcomeMessageApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingGetWelcomeMessageApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingGetWelcomeMessageApiVersion> get serializer =>
+      const _$SignalingGetWelcomeMessageApiVersionSerializer();
+}
+
+class _$SignalingGetWelcomeMessageApiVersionSerializer
+    implements PrimitiveSerializer<SignalingGetWelcomeMessageApiVersion> {
+  const _$SignalingGetWelcomeMessageApiVersionSerializer();
+
+  static const Map<SignalingGetWelcomeMessageApiVersion, Object> _toWire =
+      <SignalingGetWelcomeMessageApiVersion, Object>{
+    SignalingGetWelcomeMessageApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingGetWelcomeMessageApiVersion> _fromWire =
+      <Object, SignalingGetWelcomeMessageApiVersion>{
+    'v3': SignalingGetWelcomeMessageApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingGetWelcomeMessageApiVersion];
+
+  @override
+  String get wireName => 'SignalingGetWelcomeMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingGetWelcomeMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingGetWelcomeMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, JsonObject> get data;
+}
+
+abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
+    implements
+        $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface,
+        Built<SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
+            SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
+  factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs([
+    void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const SignalingGetWelcomeMessageResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson_Ocs.
+  static Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
+      _$signalingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingGetWelcomeMessageResponseApplicationJsonInterface {
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class SignalingGetWelcomeMessageResponseApplicationJson
+    implements
+        $SignalingGetWelcomeMessageResponseApplicationJsonInterface,
+        Built<SignalingGetWelcomeMessageResponseApplicationJson,
+            SignalingGetWelcomeMessageResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
+  factory SignalingGetWelcomeMessageResponseApplicationJson([
+    void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
+  ]) = _$SignalingGetWelcomeMessageResponseApplicationJson;
+
+  // coverage:ignore-start
+  const SignalingGetWelcomeMessageResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson.
+  static Serializer<SignalingGetWelcomeMessageResponseApplicationJson> get serializer =>
+      _$signalingGetWelcomeMessageResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -39500,22 +39500,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         BotDeleteReactionResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotDeleteReactionResponseApplicationJson_Ocs.serializer)
-      ..add(BotAdminListBotsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotAdminListBotsResponseApplicationJson),
-        BotAdminListBotsResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotAdminListBotsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotAdminListBotsResponseApplicationJson_Ocs),
-        BotAdminListBotsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotAdminListBotsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BotWithDetails), BotWithDetailsBuilder.new)
-      ..add(BotWithDetails.serializer)
-      ..addBuilderFactory(const FullType(Bot), BotBuilder.new)
-      ..add(Bot.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(BotWithDetails)]), ListBuilder<BotWithDetails>.new)
       ..add(BotListBotsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BotListBotsResponseApplicationJson),
@@ -39527,6 +39511,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         BotListBotsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotListBotsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(Bot), BotBuilder.new)
+      ..add(Bot.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Bot)]), ListBuilder<Bot>.new)
       ..add(BotEnableBotApiVersion.serializer)
       ..addBuilderFactory(
@@ -39550,6 +39536,20 @@ final Serializers _$serializers = (Serializers().toBuilder()
         BotDisableBotResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotDisableBotResponseApplicationJson_Ocs.serializer)
+      ..add(BotAdminListBotsApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(BotAdminListBotsResponseApplicationJson),
+        BotAdminListBotsResponseApplicationJsonBuilder.new,
+      )
+      ..add(BotAdminListBotsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(BotAdminListBotsResponseApplicationJson_Ocs),
+        BotAdminListBotsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(BotAdminListBotsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BotWithDetails), BotWithDetailsBuilder.new)
+      ..add(BotWithDetails.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(BotWithDetails)]), ListBuilder<BotWithDetails>.new)
       ..add(BreakoutRoomConfigureBreakoutRoomsMode.serializer)
       ..add(BreakoutRoomConfigureBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
@@ -40219,22 +40219,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ReactionDeleteResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReactionDeleteResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingGetWelcomeMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
-        RecordingGetWelcomeMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
-        RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
-        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
       ..add(RecordingStartApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RecordingStartResponseApplicationJson),
@@ -40290,6 +40274,22 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RecordingShareToChatResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingShareToChatResponseApplicationJson_Ocs.serializer)
+      ..add(RecordingGetWelcomeMessageApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
+        RecordingGetWelcomeMessageResponseApplicationJsonBuilder.new,
+      )
+      ..add(RecordingGetWelcomeMessageResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
+        RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
+        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
       ..add(RoomGetRoomsNoStatusUpdate.serializer)
       ..add(RoomGetRoomsIncludeStatus.serializer)
       ..add(RoomGetRoomsApiVersion.serializer)
@@ -40729,17 +40729,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomSetMessageExpirationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetMessageExpirationResponseApplicationJson_Ocs.serializer)
-      ..add(SettingsSetsipSettingsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SettingsSetsipSettingsResponseApplicationJson),
-        SettingsSetsipSettingsResponseApplicationJsonBuilder.new,
-      )
-      ..add(SettingsSetsipSettingsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs),
-        SettingsSetsipSettingsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
       ..add(SettingsSetUserSettingKey.serializer)
       ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..add(SettingsSetUserSettingApiVersion.serializer)
@@ -40753,6 +40742,17 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SettingsSetUserSettingResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsSetUserSettingResponseApplicationJson_Ocs.serializer)
+      ..add(SettingsSetsipSettingsApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(SettingsSetsipSettingsResponseApplicationJson),
+        SettingsSetsipSettingsResponseApplicationJsonBuilder.new,
+      )
+      ..add(SettingsSetsipSettingsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs),
+        SettingsSetsipSettingsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
       ..add(SignalingGetSettingsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SignalingGetSettingsResponseApplicationJson),
@@ -40793,17 +40793,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(SignalingSettings_Turnservers)]),
         ListBuilder<SignalingSettings_Turnservers>.new,
       )
-      ..add(SignalingGetWelcomeMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
-        SignalingGetWelcomeMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingGetWelcomeMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs),
-        SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
       ..add(SignalingPullMessagesApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SignalingPullMessagesResponseApplicationJson),
@@ -40839,6 +40828,17 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SignalingSendMessagesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SignalingSendMessagesResponseApplicationJson_Ocs.serializer)
+      ..add(SignalingGetWelcomeMessageApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
+        SignalingGetWelcomeMessageResponseApplicationJsonBuilder.new,
+      )
+      ..add(SignalingGetWelcomeMessageResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs),
+        SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(SignalingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TempAvatarPostAvatarResponseApplicationJson),
         TempAvatarPostAvatarResponseApplicationJsonBuilder.new,

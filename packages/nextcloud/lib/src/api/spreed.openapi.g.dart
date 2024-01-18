@@ -189,22 +189,6 @@ final BuiltSet<BotDeleteReactionApiVersion> _$botDeleteReactionApiVersionValues 
   _$botDeleteReactionApiVersionV1,
 ]);
 
-const BotAdminListBotsApiVersion _$botAdminListBotsApiVersionV1 = BotAdminListBotsApiVersion._('v1');
-
-BotAdminListBotsApiVersion _$valueOfBotAdminListBotsApiVersion(String name) {
-  switch (name) {
-    case 'v1':
-      return _$botAdminListBotsApiVersionV1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<BotAdminListBotsApiVersion> _$botAdminListBotsApiVersionValues =
-    BuiltSet<BotAdminListBotsApiVersion>(const <BotAdminListBotsApiVersion>[
-  _$botAdminListBotsApiVersionV1,
-]);
-
 const BotListBotsApiVersion _$botListBotsApiVersionV1 = BotListBotsApiVersion._('v1');
 
 BotListBotsApiVersion _$valueOfBotListBotsApiVersion(String name) {
@@ -251,6 +235,22 @@ BotDisableBotApiVersion _$valueOfBotDisableBotApiVersion(String name) {
 final BuiltSet<BotDisableBotApiVersion> _$botDisableBotApiVersionValues =
     BuiltSet<BotDisableBotApiVersion>(const <BotDisableBotApiVersion>[
   _$botDisableBotApiVersionV1,
+]);
+
+const BotAdminListBotsApiVersion _$botAdminListBotsApiVersionV1 = BotAdminListBotsApiVersion._('v1');
+
+BotAdminListBotsApiVersion _$valueOfBotAdminListBotsApiVersion(String name) {
+  switch (name) {
+    case 'v1':
+      return _$botAdminListBotsApiVersionV1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<BotAdminListBotsApiVersion> _$botAdminListBotsApiVersionValues =
+    BuiltSet<BotAdminListBotsApiVersion>(const <BotAdminListBotsApiVersion>[
+  _$botAdminListBotsApiVersionV1,
 ]);
 
 const BreakoutRoomConfigureBreakoutRoomsMode _$breakoutRoomConfigureBreakoutRoomsMode$0 =
@@ -2454,23 +2454,6 @@ final BuiltSet<ReactionDeleteApiVersion> _$reactionDeleteApiVersionValues =
   _$reactionDeleteApiVersionV1,
 ]);
 
-const RecordingGetWelcomeMessageApiVersion _$recordingGetWelcomeMessageApiVersionV1 =
-    RecordingGetWelcomeMessageApiVersion._('v1');
-
-RecordingGetWelcomeMessageApiVersion _$valueOfRecordingGetWelcomeMessageApiVersion(String name) {
-  switch (name) {
-    case 'v1':
-      return _$recordingGetWelcomeMessageApiVersionV1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<RecordingGetWelcomeMessageApiVersion> _$recordingGetWelcomeMessageApiVersionValues =
-    BuiltSet<RecordingGetWelcomeMessageApiVersion>(const <RecordingGetWelcomeMessageApiVersion>[
-  _$recordingGetWelcomeMessageApiVersionV1,
-]);
-
 const RecordingStartApiVersion _$recordingStartApiVersionV1 = RecordingStartApiVersion._('v1');
 
 RecordingStartApiVersion _$valueOfRecordingStartApiVersion(String name) {
@@ -2550,6 +2533,23 @@ RecordingShareToChatApiVersion _$valueOfRecordingShareToChatApiVersion(String na
 final BuiltSet<RecordingShareToChatApiVersion> _$recordingShareToChatApiVersionValues =
     BuiltSet<RecordingShareToChatApiVersion>(const <RecordingShareToChatApiVersion>[
   _$recordingShareToChatApiVersionV1,
+]);
+
+const RecordingGetWelcomeMessageApiVersion _$recordingGetWelcomeMessageApiVersionV1 =
+    RecordingGetWelcomeMessageApiVersion._('v1');
+
+RecordingGetWelcomeMessageApiVersion _$valueOfRecordingGetWelcomeMessageApiVersion(String name) {
+  switch (name) {
+    case 'v1':
+      return _$recordingGetWelcomeMessageApiVersionV1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RecordingGetWelcomeMessageApiVersion> _$recordingGetWelcomeMessageApiVersionValues =
+    BuiltSet<RecordingGetWelcomeMessageApiVersion>(const <RecordingGetWelcomeMessageApiVersion>[
+  _$recordingGetWelcomeMessageApiVersionV1,
 ]);
 
 const RoomGetRoomsNoStatusUpdate _$roomGetRoomsNoStatusUpdate$0 = RoomGetRoomsNoStatusUpdate._('\$0');
@@ -7063,22 +7063,6 @@ final BuiltSet<RoomSetMessageExpirationApiVersion> _$roomSetMessageExpirationApi
   _$roomSetMessageExpirationApiVersionV4,
 ]);
 
-const SettingsSetsipSettingsApiVersion _$settingsSetsipSettingsApiVersionV1 = SettingsSetsipSettingsApiVersion._('v1');
-
-SettingsSetsipSettingsApiVersion _$valueOfSettingsSetsipSettingsApiVersion(String name) {
-  switch (name) {
-    case 'v1':
-      return _$settingsSetsipSettingsApiVersionV1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<SettingsSetsipSettingsApiVersion> _$settingsSetsipSettingsApiVersionValues =
-    BuiltSet<SettingsSetsipSettingsApiVersion>(const <SettingsSetsipSettingsApiVersion>[
-  _$settingsSetsipSettingsApiVersionV1,
-]);
-
 const SettingsSetUserSettingKey _$settingsSetUserSettingKeyAttachmentFolder =
     SettingsSetUserSettingKey._('attachmentFolder');
 const SettingsSetUserSettingKey _$settingsSetUserSettingKeyReadStatusPrivacy =
@@ -7125,6 +7109,22 @@ final BuiltSet<SettingsSetUserSettingApiVersion> _$settingsSetUserSettingApiVers
   _$settingsSetUserSettingApiVersionV1,
 ]);
 
+const SettingsSetsipSettingsApiVersion _$settingsSetsipSettingsApiVersionV1 = SettingsSetsipSettingsApiVersion._('v1');
+
+SettingsSetsipSettingsApiVersion _$valueOfSettingsSetsipSettingsApiVersion(String name) {
+  switch (name) {
+    case 'v1':
+      return _$settingsSetsipSettingsApiVersionV1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SettingsSetsipSettingsApiVersion> _$settingsSetsipSettingsApiVersionValues =
+    BuiltSet<SettingsSetsipSettingsApiVersion>(const <SettingsSetsipSettingsApiVersion>[
+  _$settingsSetsipSettingsApiVersionV1,
+]);
+
 const SignalingGetSettingsApiVersion _$signalingGetSettingsApiVersionV3 = SignalingGetSettingsApiVersion._('v3');
 
 SignalingGetSettingsApiVersion _$valueOfSignalingGetSettingsApiVersion(String name) {
@@ -7139,23 +7139,6 @@ SignalingGetSettingsApiVersion _$valueOfSignalingGetSettingsApiVersion(String na
 final BuiltSet<SignalingGetSettingsApiVersion> _$signalingGetSettingsApiVersionValues =
     BuiltSet<SignalingGetSettingsApiVersion>(const <SignalingGetSettingsApiVersion>[
   _$signalingGetSettingsApiVersionV3,
-]);
-
-const SignalingGetWelcomeMessageApiVersion _$signalingGetWelcomeMessageApiVersionV3 =
-    SignalingGetWelcomeMessageApiVersion._('v3');
-
-SignalingGetWelcomeMessageApiVersion _$valueOfSignalingGetWelcomeMessageApiVersion(String name) {
-  switch (name) {
-    case 'v3':
-      return _$signalingGetWelcomeMessageApiVersionV3;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<SignalingGetWelcomeMessageApiVersion> _$signalingGetWelcomeMessageApiVersionValues =
-    BuiltSet<SignalingGetWelcomeMessageApiVersion>(const <SignalingGetWelcomeMessageApiVersion>[
-  _$signalingGetWelcomeMessageApiVersionV3,
 ]);
 
 const SignalingPullMessagesApiVersion _$signalingPullMessagesApiVersionV3 = SignalingPullMessagesApiVersion._('v3');
@@ -7190,6 +7173,23 @@ final BuiltSet<SignalingSendMessagesApiVersion> _$signalingSendMessagesApiVersio
   _$signalingSendMessagesApiVersionV3,
 ]);
 
+const SignalingGetWelcomeMessageApiVersion _$signalingGetWelcomeMessageApiVersionV3 =
+    SignalingGetWelcomeMessageApiVersion._('v3');
+
+SignalingGetWelcomeMessageApiVersion _$valueOfSignalingGetWelcomeMessageApiVersion(String name) {
+  switch (name) {
+    case 'v3':
+      return _$signalingGetWelcomeMessageApiVersionV3;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SignalingGetWelcomeMessageApiVersion> _$signalingGetWelcomeMessageApiVersionValues =
+    BuiltSet<SignalingGetWelcomeMessageApiVersion>(const <SignalingGetWelcomeMessageApiVersion>[
+  _$signalingGetWelcomeMessageApiVersionV3,
+]);
+
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<ChatMessage> _$chatMessageSerializer = _$ChatMessageSerializer();
 Serializer<Room> _$roomSerializer = _$RoomSerializer();
@@ -7218,11 +7218,6 @@ Serializer<BotDeleteReactionResponseApplicationJson_Ocs> _$botDeleteReactionResp
 Serializer<BotDeleteReactionResponseApplicationJson> _$botDeleteReactionResponseApplicationJsonSerializer =
     _$BotDeleteReactionResponseApplicationJsonSerializer();
 Serializer<Bot> _$botSerializer = _$BotSerializer();
-Serializer<BotWithDetails> _$botWithDetailsSerializer = _$BotWithDetailsSerializer();
-Serializer<BotAdminListBotsResponseApplicationJson_Ocs> _$botAdminListBotsResponseApplicationJsonOcsSerializer =
-    _$BotAdminListBotsResponseApplicationJson_OcsSerializer();
-Serializer<BotAdminListBotsResponseApplicationJson> _$botAdminListBotsResponseApplicationJsonSerializer =
-    _$BotAdminListBotsResponseApplicationJsonSerializer();
 Serializer<BotListBotsResponseApplicationJson_Ocs> _$botListBotsResponseApplicationJsonOcsSerializer =
     _$BotListBotsResponseApplicationJson_OcsSerializer();
 Serializer<BotListBotsResponseApplicationJson> _$botListBotsResponseApplicationJsonSerializer =
@@ -7235,6 +7230,11 @@ Serializer<BotDisableBotResponseApplicationJson_Ocs> _$botDisableBotResponseAppl
     _$BotDisableBotResponseApplicationJson_OcsSerializer();
 Serializer<BotDisableBotResponseApplicationJson> _$botDisableBotResponseApplicationJsonSerializer =
     _$BotDisableBotResponseApplicationJsonSerializer();
+Serializer<BotWithDetails> _$botWithDetailsSerializer = _$BotWithDetailsSerializer();
+Serializer<BotAdminListBotsResponseApplicationJson_Ocs> _$botAdminListBotsResponseApplicationJsonOcsSerializer =
+    _$BotAdminListBotsResponseApplicationJson_OcsSerializer();
+Serializer<BotAdminListBotsResponseApplicationJson> _$botAdminListBotsResponseApplicationJsonSerializer =
+    _$BotAdminListBotsResponseApplicationJsonSerializer();
 Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs>
     _$breakoutRoomConfigureBreakoutRoomsResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsSerializer();
@@ -7524,15 +7524,6 @@ Serializer<ReactionDeleteResponseApplicationJson_Ocs> _$reactionDeleteResponseAp
     _$ReactionDeleteResponseApplicationJson_OcsSerializer();
 Serializer<ReactionDeleteResponseApplicationJson> _$reactionDeleteResponseApplicationJsonSerializer =
     _$ReactionDeleteResponseApplicationJsonSerializer();
-Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data>
-    _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer =
-    _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer();
-Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs>
-    _$recordingGetWelcomeMessageResponseApplicationJsonOcsSerializer =
-    _$RecordingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
-Serializer<RecordingGetWelcomeMessageResponseApplicationJson>
-    _$recordingGetWelcomeMessageResponseApplicationJsonSerializer =
-    _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer();
 Serializer<RecordingStartResponseApplicationJson_Ocs> _$recordingStartResponseApplicationJsonOcsSerializer =
     _$RecordingStartResponseApplicationJson_OcsSerializer();
 Serializer<RecordingStartResponseApplicationJson> _$recordingStartResponseApplicationJsonSerializer =
@@ -7555,6 +7546,15 @@ Serializer<RecordingShareToChatResponseApplicationJson_Ocs> _$recordingShareToCh
     _$RecordingShareToChatResponseApplicationJson_OcsSerializer();
 Serializer<RecordingShareToChatResponseApplicationJson> _$recordingShareToChatResponseApplicationJsonSerializer =
     _$RecordingShareToChatResponseApplicationJsonSerializer();
+Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data>
+    _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer =
+    _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer();
+Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs>
+    _$recordingGetWelcomeMessageResponseApplicationJsonOcsSerializer =
+    _$RecordingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
+Serializer<RecordingGetWelcomeMessageResponseApplicationJson>
+    _$recordingGetWelcomeMessageResponseApplicationJsonSerializer =
+    _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer();
 Serializer<RoomRoomGetRoomsHeaders> _$roomRoomGetRoomsHeadersSerializer = _$RoomRoomGetRoomsHeadersSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson_Ocs> _$roomGetRoomsResponseApplicationJsonOcsSerializer =
     _$RoomGetRoomsResponseApplicationJson_OcsSerializer();
@@ -7734,16 +7734,16 @@ Serializer<RoomSetMessageExpirationResponseApplicationJson_Ocs>
 Serializer<RoomSetMessageExpirationResponseApplicationJson>
     _$roomSetMessageExpirationResponseApplicationJsonSerializer =
     _$RoomSetMessageExpirationResponseApplicationJsonSerializer();
-Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs>
-    _$settingsSetsipSettingsResponseApplicationJsonOcsSerializer =
-    _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer();
-Serializer<SettingsSetsipSettingsResponseApplicationJson> _$settingsSetsipSettingsResponseApplicationJsonSerializer =
-    _$SettingsSetsipSettingsResponseApplicationJsonSerializer();
 Serializer<SettingsSetUserSettingResponseApplicationJson_Ocs>
     _$settingsSetUserSettingResponseApplicationJsonOcsSerializer =
     _$SettingsSetUserSettingResponseApplicationJson_OcsSerializer();
 Serializer<SettingsSetUserSettingResponseApplicationJson> _$settingsSetUserSettingResponseApplicationJsonSerializer =
     _$SettingsSetUserSettingResponseApplicationJsonSerializer();
+Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs>
+    _$settingsSetsipSettingsResponseApplicationJsonOcsSerializer =
+    _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer();
+Serializer<SettingsSetsipSettingsResponseApplicationJson> _$settingsSetsipSettingsResponseApplicationJsonSerializer =
+    _$SettingsSetsipSettingsResponseApplicationJsonSerializer();
 Serializer<SignalingSettings_HelloAuthParams_$10> _$signalingSettingsHelloAuthParams$10Serializer =
     _$SignalingSettings_HelloAuthParams_$10Serializer();
 Serializer<SignalingSettings_HelloAuthParams_$20> _$signalingSettingsHelloAuthParams$20Serializer =
@@ -7759,12 +7759,6 @@ Serializer<SignalingGetSettingsResponseApplicationJson_Ocs> _$signalingGetSettin
     _$SignalingGetSettingsResponseApplicationJson_OcsSerializer();
 Serializer<SignalingGetSettingsResponseApplicationJson> _$signalingGetSettingsResponseApplicationJsonSerializer =
     _$SignalingGetSettingsResponseApplicationJsonSerializer();
-Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs>
-    _$signalingGetWelcomeMessageResponseApplicationJsonOcsSerializer =
-    _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
-Serializer<SignalingGetWelcomeMessageResponseApplicationJson>
-    _$signalingGetWelcomeMessageResponseApplicationJsonSerializer =
-    _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer();
 Serializer<SignalingSession> _$signalingSessionSerializer = _$SignalingSessionSerializer();
 Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data>
     _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer =
@@ -7779,6 +7773,12 @@ Serializer<SignalingSendMessagesResponseApplicationJson_Ocs>
     _$SignalingSendMessagesResponseApplicationJson_OcsSerializer();
 Serializer<SignalingSendMessagesResponseApplicationJson> _$signalingSendMessagesResponseApplicationJsonSerializer =
     _$SignalingSendMessagesResponseApplicationJsonSerializer();
+Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs>
+    _$signalingGetWelcomeMessageResponseApplicationJsonOcsSerializer =
+    _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
+Serializer<SignalingGetWelcomeMessageResponseApplicationJson>
+    _$signalingGetWelcomeMessageResponseApplicationJsonSerializer =
+    _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer();
 Serializer<TempAvatarPostAvatarResponseApplicationJson_Ocs> _$tempAvatarPostAvatarResponseApplicationJsonOcsSerializer =
     _$TempAvatarPostAvatarResponseApplicationJson_OcsSerializer();
 Serializer<TempAvatarPostAvatarResponseApplicationJson> _$tempAvatarPostAvatarResponseApplicationJsonSerializer =
@@ -8932,185 +8932,6 @@ class _$BotSerializer implements StructuredSerializer<Bot> {
   }
 }
 
-class _$BotWithDetailsSerializer implements StructuredSerializer<BotWithDetails> {
-  @override
-  final Iterable<Type> types = const [BotWithDetails, _$BotWithDetails];
-  @override
-  final String wireName = 'BotWithDetails';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, BotWithDetails object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'error_count',
-      serializers.serialize(object.errorCount, specifiedType: const FullType(int)),
-      'features',
-      serializers.serialize(object.features, specifiedType: const FullType(int)),
-      'last_error_date',
-      serializers.serialize(object.lastErrorDate, specifiedType: const FullType(int)),
-      'last_error_message',
-      serializers.serialize(object.lastErrorMessage, specifiedType: const FullType(String)),
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-      'url_hash',
-      serializers.serialize(object.urlHash, specifiedType: const FullType(String)),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'state',
-      serializers.serialize(object.state, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  BotWithDetails deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = BotWithDetailsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'error_count':
-          result.errorCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'features':
-          result.features = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'last_error_date':
-          result.lastErrorDate = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'last_error_message':
-          result.lastErrorMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'url':
-          result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'url_hash':
-          result.urlHash = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'state':
-          result.state = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$BotAdminListBotsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<BotAdminListBotsResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    BotAdminListBotsResponseApplicationJson_Ocs,
-    _$BotAdminListBotsResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'BotAdminListBotsResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, BotAdminListBotsResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(BotWithDetails)])),
-    ];
-
-    return result;
-  }
-
-  @override
-  BotAdminListBotsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = BotAdminListBotsResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(BotWithDetails)]))! as BuiltList<Object?>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$BotAdminListBotsResponseApplicationJsonSerializer
-    implements StructuredSerializer<BotAdminListBotsResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    BotAdminListBotsResponseApplicationJson,
-    _$BotAdminListBotsResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'BotAdminListBotsResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, BotAdminListBotsResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(BotAdminListBotsResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  BotAdminListBotsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = BotAdminListBotsResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BotAdminListBotsResponseApplicationJson_Ocs))!
-              as BotAdminListBotsResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$BotListBotsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BotListBotsResponseApplicationJson_Ocs> {
   @override
@@ -9373,6 +9194,185 @@ class _$BotDisableBotResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(BotDisableBotResponseApplicationJson_Ocs))!
                   as BotDisableBotResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$BotWithDetailsSerializer implements StructuredSerializer<BotWithDetails> {
+  @override
+  final Iterable<Type> types = const [BotWithDetails, _$BotWithDetails];
+  @override
+  final String wireName = 'BotWithDetails';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, BotWithDetails object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'error_count',
+      serializers.serialize(object.errorCount, specifiedType: const FullType(int)),
+      'features',
+      serializers.serialize(object.features, specifiedType: const FullType(int)),
+      'last_error_date',
+      serializers.serialize(object.lastErrorDate, specifiedType: const FullType(int)),
+      'last_error_message',
+      serializers.serialize(object.lastErrorMessage, specifiedType: const FullType(String)),
+      'url',
+      serializers.serialize(object.url, specifiedType: const FullType(String)),
+      'url_hash',
+      serializers.serialize(object.urlHash, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'state',
+      serializers.serialize(object.state, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  BotWithDetails deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = BotWithDetailsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'error_count':
+          result.errorCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'features':
+          result.features = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'last_error_date':
+          result.lastErrorDate = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'last_error_message':
+          result.lastErrorMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'url':
+          result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'url_hash':
+          result.urlHash = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'state':
+          result.state = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$BotAdminListBotsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BotAdminListBotsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    BotAdminListBotsResponseApplicationJson_Ocs,
+    _$BotAdminListBotsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'BotAdminListBotsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, BotAdminListBotsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(BotWithDetails)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  BotAdminListBotsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = BotAdminListBotsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(BotWithDetails)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$BotAdminListBotsResponseApplicationJsonSerializer
+    implements StructuredSerializer<BotAdminListBotsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    BotAdminListBotsResponseApplicationJson,
+    _$BotAdminListBotsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'BotAdminListBotsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, BotAdminListBotsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(BotAdminListBotsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  BotAdminListBotsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = BotAdminListBotsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(BotAdminListBotsResponseApplicationJson_Ocs))!
+              as BotAdminListBotsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -15370,146 +15370,6 @@ class _$ReactionDeleteResponseApplicationJsonSerializer
   }
 }
 
-class _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> {
-  @override
-  final Iterable<Type> types = const [
-    RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
-    _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
-  ];
-  @override
-  final String wireName = 'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'version',
-      serializers.serialize(object.version, specifiedType: const FullType(double)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'version':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$RecordingGetWelcomeMessageResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
-    _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'RecordingGetWelcomeMessageResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RecordingGetWelcomeMessageResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data))!
-              as RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer
-    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    RecordingGetWelcomeMessageResponseApplicationJson,
-    _$RecordingGetWelcomeMessageResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'RecordingGetWelcomeMessageResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RecordingGetWelcomeMessageResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RecordingGetWelcomeMessageResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs))!
-              as RecordingGetWelcomeMessageResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$RecordingStartResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RecordingStartResponseApplicationJson_Ocs> {
   @override
@@ -15950,6 +15810,146 @@ class _$RecordingShareToChatResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(RecordingShareToChatResponseApplicationJson_Ocs))!
               as RecordingShareToChatResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+    _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(double)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
+    _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RecordingGetWelcomeMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RecordingGetWelcomeMessageResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data))!
+              as RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    RecordingGetWelcomeMessageResponseApplicationJson,
+    _$RecordingGetWelcomeMessageResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'RecordingGetWelcomeMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RecordingGetWelcomeMessageResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RecordingGetWelcomeMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs))!
+              as RecordingGetWelcomeMessageResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -19644,98 +19644,6 @@ class _$RoomSetMessageExpirationResponseApplicationJsonSerializer
   }
 }
 
-class _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<SettingsSetsipSettingsResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    SettingsSetsipSettingsResponseApplicationJson_Ocs,
-    _$SettingsSetsipSettingsResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'SettingsSetsipSettingsResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, SettingsSetsipSettingsResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
-    ];
-
-    return result;
-  }
-
-  @override
-  SettingsSetsipSettingsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$SettingsSetsipSettingsResponseApplicationJsonSerializer
-    implements StructuredSerializer<SettingsSetsipSettingsResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    SettingsSetsipSettingsResponseApplicationJson,
-    _$SettingsSetsipSettingsResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'SettingsSetsipSettingsResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, SettingsSetsipSettingsResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  SettingsSetsipSettingsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsSetsipSettingsResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs))!
-              as SettingsSetsipSettingsResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$SettingsSetUserSettingResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<SettingsSetUserSettingResponseApplicationJson_Ocs> {
   @override
@@ -19820,6 +19728,98 @@ class _$SettingsSetUserSettingResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(SettingsSetUserSettingResponseApplicationJson_Ocs))!
               as SettingsSetUserSettingResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SettingsSetsipSettingsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    SettingsSetsipSettingsResponseApplicationJson_Ocs,
+    _$SettingsSetsipSettingsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'SettingsSetsipSettingsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SettingsSetsipSettingsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SettingsSetsipSettingsResponseApplicationJsonSerializer
+    implements StructuredSerializer<SettingsSetsipSettingsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    SettingsSetsipSettingsResponseApplicationJson,
+    _$SettingsSetsipSettingsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'SettingsSetsipSettingsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SettingsSetsipSettingsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SettingsSetsipSettingsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs))!
+              as SettingsSetsipSettingsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -20231,101 +20231,6 @@ class _$SignalingGetSettingsResponseApplicationJsonSerializer
   }
 }
 
-class _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
-    _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'SignalingGetWelcomeMessageResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, SignalingGetWelcomeMessageResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
-    ];
-
-    return result;
-  }
-
-  @override
-  SignalingGetWelcomeMessageResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer
-    implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    SignalingGetWelcomeMessageResponseApplicationJson,
-    _$SignalingGetWelcomeMessageResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'SignalingGetWelcomeMessageResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, SignalingGetWelcomeMessageResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  SignalingGetWelcomeMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = SignalingGetWelcomeMessageResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs))!
-              as SignalingGetWelcomeMessageResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$SignalingSessionSerializer implements StructuredSerializer<SignalingSession> {
   @override
   final Iterable<Type> types = const [SignalingSession, _$SignalingSession];
@@ -20620,6 +20525,101 @@ class _$SignalingSendMessagesResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(SignalingSendMessagesResponseApplicationJson_Ocs))!
               as SignalingSendMessagesResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
+    _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'SignalingGetWelcomeMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingGetWelcomeMessageResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    SignalingGetWelcomeMessageResponseApplicationJson,
+    _$SignalingGetWelcomeMessageResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'SignalingGetWelcomeMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingGetWelcomeMessageResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingGetWelcomeMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs))!
+              as SignalingGetWelcomeMessageResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -24402,462 +24402,6 @@ class BotBuilder implements Builder<Bot, BotBuilder>, $BotInterfaceBuilder {
   }
 }
 
-abstract mixin class $BotWithDetailsInterfaceBuilder implements $BotInterfaceBuilder {
-  void replace(covariant $BotWithDetailsInterface other);
-  void update(void Function($BotWithDetailsInterfaceBuilder) updates);
-  int? get errorCount;
-  set errorCount(covariant int? errorCount);
-
-  int? get features;
-  set features(covariant int? features);
-
-  int? get lastErrorDate;
-  set lastErrorDate(covariant int? lastErrorDate);
-
-  String? get lastErrorMessage;
-  set lastErrorMessage(covariant String? lastErrorMessage);
-
-  String? get url;
-  set url(covariant String? url);
-
-  String? get urlHash;
-  set urlHash(covariant String? urlHash);
-
-  String? get description;
-  set description(covariant String? description);
-
-  int? get id;
-  set id(covariant int? id);
-
-  String? get name;
-  set name(covariant String? name);
-
-  int? get state;
-  set state(covariant int? state);
-}
-
-class _$BotWithDetails extends BotWithDetails {
-  @override
-  final int errorCount;
-  @override
-  final int features;
-  @override
-  final int lastErrorDate;
-  @override
-  final String lastErrorMessage;
-  @override
-  final String url;
-  @override
-  final String urlHash;
-  @override
-  final String? description;
-  @override
-  final int id;
-  @override
-  final String name;
-  @override
-  final int state;
-
-  factory _$BotWithDetails([void Function(BotWithDetailsBuilder)? updates]) =>
-      (BotWithDetailsBuilder()..update(updates))._build();
-
-  _$BotWithDetails._(
-      {required this.errorCount,
-      required this.features,
-      required this.lastErrorDate,
-      required this.lastErrorMessage,
-      required this.url,
-      required this.urlHash,
-      this.description,
-      required this.id,
-      required this.name,
-      required this.state})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetails', 'errorCount');
-    BuiltValueNullFieldError.checkNotNull(features, r'BotWithDetails', 'features');
-    BuiltValueNullFieldError.checkNotNull(lastErrorDate, r'BotWithDetails', 'lastErrorDate');
-    BuiltValueNullFieldError.checkNotNull(lastErrorMessage, r'BotWithDetails', 'lastErrorMessage');
-    BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetails', 'url');
-    BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetails', 'urlHash');
-    BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetails', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetails', 'name');
-    BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetails', 'state');
-  }
-
-  @override
-  BotWithDetails rebuild(void Function(BotWithDetailsBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  BotWithDetailsBuilder toBuilder() => BotWithDetailsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is BotWithDetails &&
-        errorCount == other.errorCount &&
-        features == other.features &&
-        lastErrorDate == other.lastErrorDate &&
-        lastErrorMessage == other.lastErrorMessage &&
-        url == other.url &&
-        urlHash == other.urlHash &&
-        description == other.description &&
-        id == other.id &&
-        name == other.name &&
-        state == other.state;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, errorCount.hashCode);
-    _$hash = $jc(_$hash, features.hashCode);
-    _$hash = $jc(_$hash, lastErrorDate.hashCode);
-    _$hash = $jc(_$hash, lastErrorMessage.hashCode);
-    _$hash = $jc(_$hash, url.hashCode);
-    _$hash = $jc(_$hash, urlHash.hashCode);
-    _$hash = $jc(_$hash, description.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jc(_$hash, state.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'BotWithDetails')
-          ..add('errorCount', errorCount)
-          ..add('features', features)
-          ..add('lastErrorDate', lastErrorDate)
-          ..add('lastErrorMessage', lastErrorMessage)
-          ..add('url', url)
-          ..add('urlHash', urlHash)
-          ..add('description', description)
-          ..add('id', id)
-          ..add('name', name)
-          ..add('state', state))
-        .toString();
-  }
-}
-
-class BotWithDetailsBuilder implements Builder<BotWithDetails, BotWithDetailsBuilder>, $BotWithDetailsInterfaceBuilder {
-  _$BotWithDetails? _$v;
-
-  int? _errorCount;
-  int? get errorCount => _$this._errorCount;
-  set errorCount(covariant int? errorCount) => _$this._errorCount = errorCount;
-
-  int? _features;
-  int? get features => _$this._features;
-  set features(covariant int? features) => _$this._features = features;
-
-  int? _lastErrorDate;
-  int? get lastErrorDate => _$this._lastErrorDate;
-  set lastErrorDate(covariant int? lastErrorDate) => _$this._lastErrorDate = lastErrorDate;
-
-  String? _lastErrorMessage;
-  String? get lastErrorMessage => _$this._lastErrorMessage;
-  set lastErrorMessage(covariant String? lastErrorMessage) => _$this._lastErrorMessage = lastErrorMessage;
-
-  String? _url;
-  String? get url => _$this._url;
-  set url(covariant String? url) => _$this._url = url;
-
-  String? _urlHash;
-  String? get urlHash => _$this._urlHash;
-  set urlHash(covariant String? urlHash) => _$this._urlHash = urlHash;
-
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  int? _id;
-  int? get id => _$this._id;
-  set id(covariant int? id) => _$this._id = id;
-
-  String? _name;
-  String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
-
-  int? _state;
-  int? get state => _$this._state;
-  set state(covariant int? state) => _$this._state = state;
-
-  BotWithDetailsBuilder();
-
-  BotWithDetailsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _errorCount = $v.errorCount;
-      _features = $v.features;
-      _lastErrorDate = $v.lastErrorDate;
-      _lastErrorMessage = $v.lastErrorMessage;
-      _url = $v.url;
-      _urlHash = $v.urlHash;
-      _description = $v.description;
-      _id = $v.id;
-      _name = $v.name;
-      _state = $v.state;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant BotWithDetails other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$BotWithDetails;
-  }
-
-  @override
-  void update(void Function(BotWithDetailsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  BotWithDetails build() => _build();
-
-  _$BotWithDetails _build() {
-    final _$result = _$v ??
-        _$BotWithDetails._(
-            errorCount: BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetails', 'errorCount'),
-            features: BuiltValueNullFieldError.checkNotNull(features, r'BotWithDetails', 'features'),
-            lastErrorDate: BuiltValueNullFieldError.checkNotNull(lastErrorDate, r'BotWithDetails', 'lastErrorDate'),
-            lastErrorMessage:
-                BuiltValueNullFieldError.checkNotNull(lastErrorMessage, r'BotWithDetails', 'lastErrorMessage'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetails', 'url'),
-            urlHash: BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetails', 'urlHash'),
-            description: description,
-            id: BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetails', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetails', 'name'),
-            state: BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetails', 'state'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($BotAdminListBotsResponseApplicationJson_OcsInterface other);
-  void update(void Function($BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  ListBuilder<BotWithDetails> get data;
-  set data(ListBuilder<BotWithDetails>? data);
-}
-
-class _$BotAdminListBotsResponseApplicationJson_Ocs extends BotAdminListBotsResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final BuiltList<BotWithDetails> data;
-
-  factory _$BotAdminListBotsResponseApplicationJson_Ocs(
-          [void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (BotAdminListBotsResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$BotAdminListBotsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'BotAdminListBotsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'BotAdminListBotsResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  BotAdminListBotsResponseApplicationJson_Ocs rebuild(
-          void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  BotAdminListBotsResponseApplicationJson_OcsBuilder toBuilder() =>
-      BotAdminListBotsResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is BotAdminListBotsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'BotAdminListBotsResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class BotAdminListBotsResponseApplicationJson_OcsBuilder
-    implements
-        Builder<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder>,
-        $BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder {
-  _$BotAdminListBotsResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  ListBuilder<BotWithDetails>? _data;
-  ListBuilder<BotWithDetails> get data => _$this._data ??= ListBuilder<BotWithDetails>();
-  set data(covariant ListBuilder<BotWithDetails>? data) => _$this._data = data;
-
-  BotAdminListBotsResponseApplicationJson_OcsBuilder();
-
-  BotAdminListBotsResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant BotAdminListBotsResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$BotAdminListBotsResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  BotAdminListBotsResponseApplicationJson_Ocs build() => _build();
-
-  _$BotAdminListBotsResponseApplicationJson_Ocs _build() {
-    _$BotAdminListBotsResponseApplicationJson_Ocs _$result;
-    try {
-      _$result = _$v ?? _$BotAdminListBotsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'BotAdminListBotsResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $BotAdminListBotsResponseApplicationJsonInterfaceBuilder {
-  void replace($BotAdminListBotsResponseApplicationJsonInterface other);
-  void update(void Function($BotAdminListBotsResponseApplicationJsonInterfaceBuilder) updates);
-  BotAdminListBotsResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(BotAdminListBotsResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$BotAdminListBotsResponseApplicationJson extends BotAdminListBotsResponseApplicationJson {
-  @override
-  final BotAdminListBotsResponseApplicationJson_Ocs ocs;
-
-  factory _$BotAdminListBotsResponseApplicationJson(
-          [void Function(BotAdminListBotsResponseApplicationJsonBuilder)? updates]) =>
-      (BotAdminListBotsResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$BotAdminListBotsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'BotAdminListBotsResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  BotAdminListBotsResponseApplicationJson rebuild(
-          void Function(BotAdminListBotsResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  BotAdminListBotsResponseApplicationJsonBuilder toBuilder() =>
-      BotAdminListBotsResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is BotAdminListBotsResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'BotAdminListBotsResponseApplicationJson')..add('ocs', ocs)).toString();
-  }
-}
-
-class BotAdminListBotsResponseApplicationJsonBuilder
-    implements
-        Builder<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder>,
-        $BotAdminListBotsResponseApplicationJsonInterfaceBuilder {
-  _$BotAdminListBotsResponseApplicationJson? _$v;
-
-  BotAdminListBotsResponseApplicationJson_OcsBuilder? _ocs;
-  BotAdminListBotsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= BotAdminListBotsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant BotAdminListBotsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  BotAdminListBotsResponseApplicationJsonBuilder();
-
-  BotAdminListBotsResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant BotAdminListBotsResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$BotAdminListBotsResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(BotAdminListBotsResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  BotAdminListBotsResponseApplicationJson build() => _build();
-
-  _$BotAdminListBotsResponseApplicationJson _build() {
-    _$BotAdminListBotsResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$BotAdminListBotsResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'BotAdminListBotsResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $BotListBotsResponseApplicationJson_OcsInterfaceBuilder {
   void replace($BotListBotsResponseApplicationJson_OcsInterface other);
   void update(void Function($BotListBotsResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -25507,6 +25051,462 @@ class BotDisableBotResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'BotDisableBotResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $BotWithDetailsInterfaceBuilder implements $BotInterfaceBuilder {
+  void replace(covariant $BotWithDetailsInterface other);
+  void update(void Function($BotWithDetailsInterfaceBuilder) updates);
+  int? get errorCount;
+  set errorCount(covariant int? errorCount);
+
+  int? get features;
+  set features(covariant int? features);
+
+  int? get lastErrorDate;
+  set lastErrorDate(covariant int? lastErrorDate);
+
+  String? get lastErrorMessage;
+  set lastErrorMessage(covariant String? lastErrorMessage);
+
+  String? get url;
+  set url(covariant String? url);
+
+  String? get urlHash;
+  set urlHash(covariant String? urlHash);
+
+  String? get description;
+  set description(covariant String? description);
+
+  int? get id;
+  set id(covariant int? id);
+
+  String? get name;
+  set name(covariant String? name);
+
+  int? get state;
+  set state(covariant int? state);
+}
+
+class _$BotWithDetails extends BotWithDetails {
+  @override
+  final int errorCount;
+  @override
+  final int features;
+  @override
+  final int lastErrorDate;
+  @override
+  final String lastErrorMessage;
+  @override
+  final String url;
+  @override
+  final String urlHash;
+  @override
+  final String? description;
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final int state;
+
+  factory _$BotWithDetails([void Function(BotWithDetailsBuilder)? updates]) =>
+      (BotWithDetailsBuilder()..update(updates))._build();
+
+  _$BotWithDetails._(
+      {required this.errorCount,
+      required this.features,
+      required this.lastErrorDate,
+      required this.lastErrorMessage,
+      required this.url,
+      required this.urlHash,
+      this.description,
+      required this.id,
+      required this.name,
+      required this.state})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetails', 'errorCount');
+    BuiltValueNullFieldError.checkNotNull(features, r'BotWithDetails', 'features');
+    BuiltValueNullFieldError.checkNotNull(lastErrorDate, r'BotWithDetails', 'lastErrorDate');
+    BuiltValueNullFieldError.checkNotNull(lastErrorMessage, r'BotWithDetails', 'lastErrorMessage');
+    BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetails', 'url');
+    BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetails', 'urlHash');
+    BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetails', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetails', 'name');
+    BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetails', 'state');
+  }
+
+  @override
+  BotWithDetails rebuild(void Function(BotWithDetailsBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  BotWithDetailsBuilder toBuilder() => BotWithDetailsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is BotWithDetails &&
+        errorCount == other.errorCount &&
+        features == other.features &&
+        lastErrorDate == other.lastErrorDate &&
+        lastErrorMessage == other.lastErrorMessage &&
+        url == other.url &&
+        urlHash == other.urlHash &&
+        description == other.description &&
+        id == other.id &&
+        name == other.name &&
+        state == other.state;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, errorCount.hashCode);
+    _$hash = $jc(_$hash, features.hashCode);
+    _$hash = $jc(_$hash, lastErrorDate.hashCode);
+    _$hash = $jc(_$hash, lastErrorMessage.hashCode);
+    _$hash = $jc(_$hash, url.hashCode);
+    _$hash = $jc(_$hash, urlHash.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, state.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'BotWithDetails')
+          ..add('errorCount', errorCount)
+          ..add('features', features)
+          ..add('lastErrorDate', lastErrorDate)
+          ..add('lastErrorMessage', lastErrorMessage)
+          ..add('url', url)
+          ..add('urlHash', urlHash)
+          ..add('description', description)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('state', state))
+        .toString();
+  }
+}
+
+class BotWithDetailsBuilder implements Builder<BotWithDetails, BotWithDetailsBuilder>, $BotWithDetailsInterfaceBuilder {
+  _$BotWithDetails? _$v;
+
+  int? _errorCount;
+  int? get errorCount => _$this._errorCount;
+  set errorCount(covariant int? errorCount) => _$this._errorCount = errorCount;
+
+  int? _features;
+  int? get features => _$this._features;
+  set features(covariant int? features) => _$this._features = features;
+
+  int? _lastErrorDate;
+  int? get lastErrorDate => _$this._lastErrorDate;
+  set lastErrorDate(covariant int? lastErrorDate) => _$this._lastErrorDate = lastErrorDate;
+
+  String? _lastErrorMessage;
+  String? get lastErrorMessage => _$this._lastErrorMessage;
+  set lastErrorMessage(covariant String? lastErrorMessage) => _$this._lastErrorMessage = lastErrorMessage;
+
+  String? _url;
+  String? get url => _$this._url;
+  set url(covariant String? url) => _$this._url = url;
+
+  String? _urlHash;
+  String? get urlHash => _$this._urlHash;
+  set urlHash(covariant String? urlHash) => _$this._urlHash = urlHash;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  int? _state;
+  int? get state => _$this._state;
+  set state(covariant int? state) => _$this._state = state;
+
+  BotWithDetailsBuilder();
+
+  BotWithDetailsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _errorCount = $v.errorCount;
+      _features = $v.features;
+      _lastErrorDate = $v.lastErrorDate;
+      _lastErrorMessage = $v.lastErrorMessage;
+      _url = $v.url;
+      _urlHash = $v.urlHash;
+      _description = $v.description;
+      _id = $v.id;
+      _name = $v.name;
+      _state = $v.state;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant BotWithDetails other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$BotWithDetails;
+  }
+
+  @override
+  void update(void Function(BotWithDetailsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  BotWithDetails build() => _build();
+
+  _$BotWithDetails _build() {
+    final _$result = _$v ??
+        _$BotWithDetails._(
+            errorCount: BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetails', 'errorCount'),
+            features: BuiltValueNullFieldError.checkNotNull(features, r'BotWithDetails', 'features'),
+            lastErrorDate: BuiltValueNullFieldError.checkNotNull(lastErrorDate, r'BotWithDetails', 'lastErrorDate'),
+            lastErrorMessage:
+                BuiltValueNullFieldError.checkNotNull(lastErrorMessage, r'BotWithDetails', 'lastErrorMessage'),
+            url: BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetails', 'url'),
+            urlHash: BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetails', 'urlHash'),
+            description: description,
+            id: BuiltValueNullFieldError.checkNotNull(id, r'BotWithDetails', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'BotWithDetails', 'name'),
+            state: BuiltValueNullFieldError.checkNotNull(state, r'BotWithDetails', 'state'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($BotAdminListBotsResponseApplicationJson_OcsInterface other);
+  void update(void Function($BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ListBuilder<BotWithDetails> get data;
+  set data(ListBuilder<BotWithDetails>? data);
+}
+
+class _$BotAdminListBotsResponseApplicationJson_Ocs extends BotAdminListBotsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltList<BotWithDetails> data;
+
+  factory _$BotAdminListBotsResponseApplicationJson_Ocs(
+          [void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (BotAdminListBotsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$BotAdminListBotsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'BotAdminListBotsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'BotAdminListBotsResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  BotAdminListBotsResponseApplicationJson_Ocs rebuild(
+          void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  BotAdminListBotsResponseApplicationJson_OcsBuilder toBuilder() =>
+      BotAdminListBotsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is BotAdminListBotsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'BotAdminListBotsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class BotAdminListBotsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder>,
+        $BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder {
+  _$BotAdminListBotsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ListBuilder<BotWithDetails>? _data;
+  ListBuilder<BotWithDetails> get data => _$this._data ??= ListBuilder<BotWithDetails>();
+  set data(covariant ListBuilder<BotWithDetails>? data) => _$this._data = data;
+
+  BotAdminListBotsResponseApplicationJson_OcsBuilder();
+
+  BotAdminListBotsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant BotAdminListBotsResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$BotAdminListBotsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  BotAdminListBotsResponseApplicationJson_Ocs build() => _build();
+
+  _$BotAdminListBotsResponseApplicationJson_Ocs _build() {
+    _$BotAdminListBotsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$BotAdminListBotsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'BotAdminListBotsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $BotAdminListBotsResponseApplicationJsonInterfaceBuilder {
+  void replace($BotAdminListBotsResponseApplicationJsonInterface other);
+  void update(void Function($BotAdminListBotsResponseApplicationJsonInterfaceBuilder) updates);
+  BotAdminListBotsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(BotAdminListBotsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$BotAdminListBotsResponseApplicationJson extends BotAdminListBotsResponseApplicationJson {
+  @override
+  final BotAdminListBotsResponseApplicationJson_Ocs ocs;
+
+  factory _$BotAdminListBotsResponseApplicationJson(
+          [void Function(BotAdminListBotsResponseApplicationJsonBuilder)? updates]) =>
+      (BotAdminListBotsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$BotAdminListBotsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'BotAdminListBotsResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  BotAdminListBotsResponseApplicationJson rebuild(
+          void Function(BotAdminListBotsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  BotAdminListBotsResponseApplicationJsonBuilder toBuilder() =>
+      BotAdminListBotsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is BotAdminListBotsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'BotAdminListBotsResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class BotAdminListBotsResponseApplicationJsonBuilder
+    implements
+        Builder<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder>,
+        $BotAdminListBotsResponseApplicationJsonInterfaceBuilder {
+  _$BotAdminListBotsResponseApplicationJson? _$v;
+
+  BotAdminListBotsResponseApplicationJson_OcsBuilder? _ocs;
+  BotAdminListBotsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= BotAdminListBotsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant BotAdminListBotsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  BotAdminListBotsResponseApplicationJsonBuilder();
+
+  BotAdminListBotsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant BotAdminListBotsResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$BotAdminListBotsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(BotAdminListBotsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  BotAdminListBotsResponseApplicationJson build() => _build();
+
+  _$BotAdminListBotsResponseApplicationJson _build() {
+    _$BotAdminListBotsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$BotAdminListBotsResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'BotAdminListBotsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -39961,334 +39961,6 @@ class ReactionDeleteResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  double? get version;
-  set version(double? version);
-}
-
-class _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
-    extends RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data {
-  @override
-  final double version;
-
-  factory _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data(
-          [void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
-
-  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._({required this.version}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        version, r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data', 'version');
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data rebuild(
-          void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data && version == other.version;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, version.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data')
-          ..add('version', version))
-        .toString();
-  }
-}
-
-class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder
-    implements
-        Builder<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
-            RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder>,
-        $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data? _$v;
-
-  double? _version;
-  double? get version => _$this._version;
-  set version(covariant double? version) => _$this._version = version;
-
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
-
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _version = $v.version;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
-  }
-
-  @override
-  void update(void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data build() => _build();
-
-  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data _build() {
-    final _$result = _$v ??
-        _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._(
-            version: BuiltValueNullFieldError.checkNotNull(
-                version, r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data', 'version'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface other);
-  void update(void Function($RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? data);
-}
-
-class _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs
-    extends RecordingGetWelcomeMessageResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data data;
-
-  factory _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs(
-          [void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates]) =>
-      (RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs rebuild(
-          void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder toBuilder() =>
-      RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RecordingGetWelcomeMessageResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder
-    implements
-        Builder<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
-            RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder>,
-        $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
-  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? _data;
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
-
-  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
-
-  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RecordingGetWelcomeMessageResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs build() => _build();
-
-  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs _build() {
-    _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs _$result;
-    try {
-      _$result =
-          _$v ?? _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder {
-  void replace($RecordingGetWelcomeMessageResponseApplicationJsonInterface other);
-  void update(void Function($RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder) updates);
-  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$RecordingGetWelcomeMessageResponseApplicationJson extends RecordingGetWelcomeMessageResponseApplicationJson {
-  @override
-  final RecordingGetWelcomeMessageResponseApplicationJson_Ocs ocs;
-
-  factory _$RecordingGetWelcomeMessageResponseApplicationJson(
-          [void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? updates]) =>
-      (RecordingGetWelcomeMessageResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$RecordingGetWelcomeMessageResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'RecordingGetWelcomeMessageResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson rebuild(
-          void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJsonBuilder toBuilder() =>
-      RecordingGetWelcomeMessageResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RecordingGetWelcomeMessageResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RecordingGetWelcomeMessageResponseApplicationJson')..add('ocs', ocs))
-        .toString();
-  }
-}
-
-class RecordingGetWelcomeMessageResponseApplicationJsonBuilder
-    implements
-        Builder<RecordingGetWelcomeMessageResponseApplicationJson,
-            RecordingGetWelcomeMessageResponseApplicationJsonBuilder>,
-        $RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder {
-  _$RecordingGetWelcomeMessageResponseApplicationJson? _$v;
-
-  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder? _ocs;
-  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
-  set ocs(covariant RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  RecordingGetWelcomeMessageResponseApplicationJsonBuilder();
-
-  RecordingGetWelcomeMessageResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RecordingGetWelcomeMessageResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RecordingGetWelcomeMessageResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RecordingGetWelcomeMessageResponseApplicationJson build() => _build();
-
-  _$RecordingGetWelcomeMessageResponseApplicationJson _build() {
-    _$RecordingGetWelcomeMessageResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$RecordingGetWelcomeMessageResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'RecordingGetWelcomeMessageResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RecordingStartResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RecordingStartResponseApplicationJson_OcsInterface other);
   void update(void Function($RecordingStartResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -41404,6 +41076,334 @@ class RecordingShareToChatResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'RecordingShareToChatResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  double? get version;
+  set version(double? version);
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
+    extends RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data {
+  @override
+  final double version;
+
+  factory _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data(
+          [void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._({required this.version}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        version, r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data', 'version');
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data rebuild(
+          void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data && version == other.version;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data')
+          ..add('version', version))
+        .toString();
+  }
+}
+
+class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+            RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder>,
+        $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data? _$v;
+
+  double? _version;
+  double? get version => _$this._version;
+  set version(covariant double? version) => _$this._version = version;
+
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
+
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _version = $v.version;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data _build() {
+    final _$result = _$v ??
+        _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._(
+            version: BuiltValueNullFieldError.checkNotNull(
+                version, r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data', 'version'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface other);
+  void update(void Function($RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs
+    extends RecordingGetWelcomeMessageResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data data;
+
+  factory _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs(
+          [void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs rebuild(
+          void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder toBuilder() =>
+      RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RecordingGetWelcomeMessageResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
+            RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder>,
+        $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
+  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? _data;
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+
+  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RecordingGetWelcomeMessageResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs build() => _build();
+
+  _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs _build() {
+    _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RecordingGetWelcomeMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder {
+  void replace($RecordingGetWelcomeMessageResponseApplicationJsonInterface other);
+  void update(void Function($RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder) updates);
+  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJson extends RecordingGetWelcomeMessageResponseApplicationJson {
+  @override
+  final RecordingGetWelcomeMessageResponseApplicationJson_Ocs ocs;
+
+  factory _$RecordingGetWelcomeMessageResponseApplicationJson(
+          [void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? updates]) =>
+      (RecordingGetWelcomeMessageResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RecordingGetWelcomeMessageResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RecordingGetWelcomeMessageResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson rebuild(
+          void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJsonBuilder toBuilder() =>
+      RecordingGetWelcomeMessageResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RecordingGetWelcomeMessageResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RecordingGetWelcomeMessageResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class RecordingGetWelcomeMessageResponseApplicationJsonBuilder
+    implements
+        Builder<RecordingGetWelcomeMessageResponseApplicationJson,
+            RecordingGetWelcomeMessageResponseApplicationJsonBuilder>,
+        $RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder {
+  _$RecordingGetWelcomeMessageResponseApplicationJson? _$v;
+
+  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder? _ocs;
+  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RecordingGetWelcomeMessageResponseApplicationJsonBuilder();
+
+  RecordingGetWelcomeMessageResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RecordingGetWelcomeMessageResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RecordingGetWelcomeMessageResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson build() => _build();
+
+  _$RecordingGetWelcomeMessageResponseApplicationJson _build() {
+    _$RecordingGetWelcomeMessageResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$RecordingGetWelcomeMessageResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RecordingGetWelcomeMessageResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -50465,232 +50465,6 @@ class RoomSetMessageExpirationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $SettingsSetsipSettingsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($SettingsSetsipSettingsResponseApplicationJson_OcsInterface other);
-  void update(void Function($SettingsSetsipSettingsResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  JsonObject? get data;
-  set data(JsonObject? data);
-}
-
-class _$SettingsSetsipSettingsResponseApplicationJson_Ocs extends SettingsSetsipSettingsResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final JsonObject data;
-
-  factory _$SettingsSetsipSettingsResponseApplicationJson_Ocs(
-          [void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (SettingsSetsipSettingsResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$SettingsSetsipSettingsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'SettingsSetsipSettingsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'SettingsSetsipSettingsResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  SettingsSetsipSettingsResponseApplicationJson_Ocs rebuild(
-          void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder toBuilder() =>
-      SettingsSetsipSettingsResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SettingsSetsipSettingsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SettingsSetsipSettingsResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class SettingsSetsipSettingsResponseApplicationJson_OcsBuilder
-    implements
-        Builder<SettingsSetsipSettingsResponseApplicationJson_Ocs,
-            SettingsSetsipSettingsResponseApplicationJson_OcsBuilder>,
-        $SettingsSetsipSettingsResponseApplicationJson_OcsInterfaceBuilder {
-  _$SettingsSetsipSettingsResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
-
-  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SettingsSetsipSettingsResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SettingsSetsipSettingsResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SettingsSetsipSettingsResponseApplicationJson_Ocs build() => _build();
-
-  _$SettingsSetsipSettingsResponseApplicationJson_Ocs _build() {
-    _$SettingsSetsipSettingsResponseApplicationJson_Ocs _$result;
-    try {
-      _$result = _$v ??
-          _$SettingsSetsipSettingsResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'SettingsSetsipSettingsResponseApplicationJson_Ocs', 'data'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'SettingsSetsipSettingsResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $SettingsSetsipSettingsResponseApplicationJsonInterfaceBuilder {
-  void replace($SettingsSetsipSettingsResponseApplicationJsonInterface other);
-  void update(void Function($SettingsSetsipSettingsResponseApplicationJsonInterfaceBuilder) updates);
-  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$SettingsSetsipSettingsResponseApplicationJson extends SettingsSetsipSettingsResponseApplicationJson {
-  @override
-  final SettingsSetsipSettingsResponseApplicationJson_Ocs ocs;
-
-  factory _$SettingsSetsipSettingsResponseApplicationJson(
-          [void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? updates]) =>
-      (SettingsSetsipSettingsResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$SettingsSetsipSettingsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'SettingsSetsipSettingsResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  SettingsSetsipSettingsResponseApplicationJson rebuild(
-          void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SettingsSetsipSettingsResponseApplicationJsonBuilder toBuilder() =>
-      SettingsSetsipSettingsResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SettingsSetsipSettingsResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SettingsSetsipSettingsResponseApplicationJson')..add('ocs', ocs)).toString();
-  }
-}
-
-class SettingsSetsipSettingsResponseApplicationJsonBuilder
-    implements
-        Builder<SettingsSetsipSettingsResponseApplicationJson, SettingsSetsipSettingsResponseApplicationJsonBuilder>,
-        $SettingsSetsipSettingsResponseApplicationJsonInterfaceBuilder {
-  _$SettingsSetsipSettingsResponseApplicationJson? _$v;
-
-  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder? _ocs;
-  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant SettingsSetsipSettingsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  SettingsSetsipSettingsResponseApplicationJsonBuilder();
-
-  SettingsSetsipSettingsResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SettingsSetsipSettingsResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SettingsSetsipSettingsResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SettingsSetsipSettingsResponseApplicationJson build() => _build();
-
-  _$SettingsSetsipSettingsResponseApplicationJson _build() {
-    _$SettingsSetsipSettingsResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$SettingsSetsipSettingsResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'SettingsSetsipSettingsResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $SettingsSetUserSettingResponseApplicationJson_OcsInterfaceBuilder {
   void replace($SettingsSetUserSettingResponseApplicationJson_OcsInterface other);
   void update(void Function($SettingsSetUserSettingResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -50909,6 +50683,232 @@ class SettingsSetUserSettingResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SettingsSetUserSettingResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SettingsSetsipSettingsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($SettingsSetsipSettingsResponseApplicationJson_OcsInterface other);
+  void update(void Function($SettingsSetsipSettingsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
+}
+
+class _$SettingsSetsipSettingsResponseApplicationJson_Ocs extends SettingsSetsipSettingsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final JsonObject data;
+
+  factory _$SettingsSetsipSettingsResponseApplicationJson_Ocs(
+          [void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (SettingsSetsipSettingsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$SettingsSetsipSettingsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'SettingsSetsipSettingsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'SettingsSetsipSettingsResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson_Ocs rebuild(
+          void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder toBuilder() =>
+      SettingsSetsipSettingsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SettingsSetsipSettingsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SettingsSetsipSettingsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class SettingsSetsipSettingsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<SettingsSetsipSettingsResponseApplicationJson_Ocs,
+            SettingsSetsipSettingsResponseApplicationJson_OcsBuilder>,
+        $SettingsSetsipSettingsResponseApplicationJson_OcsInterfaceBuilder {
+  _$SettingsSetsipSettingsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
+
+  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SettingsSetsipSettingsResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SettingsSetsipSettingsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson_Ocs build() => _build();
+
+  _$SettingsSetsipSettingsResponseApplicationJson_Ocs _build() {
+    _$SettingsSetsipSettingsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$SettingsSetsipSettingsResponseApplicationJson_Ocs._(
+              meta: meta.build(),
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'SettingsSetsipSettingsResponseApplicationJson_Ocs', 'data'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'SettingsSetsipSettingsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SettingsSetsipSettingsResponseApplicationJsonInterfaceBuilder {
+  void replace($SettingsSetsipSettingsResponseApplicationJsonInterface other);
+  void update(void Function($SettingsSetsipSettingsResponseApplicationJsonInterfaceBuilder) updates);
+  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$SettingsSetsipSettingsResponseApplicationJson extends SettingsSetsipSettingsResponseApplicationJson {
+  @override
+  final SettingsSetsipSettingsResponseApplicationJson_Ocs ocs;
+
+  factory _$SettingsSetsipSettingsResponseApplicationJson(
+          [void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? updates]) =>
+      (SettingsSetsipSettingsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$SettingsSetsipSettingsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'SettingsSetsipSettingsResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson rebuild(
+          void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJsonBuilder toBuilder() =>
+      SettingsSetsipSettingsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SettingsSetsipSettingsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SettingsSetsipSettingsResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class SettingsSetsipSettingsResponseApplicationJsonBuilder
+    implements
+        Builder<SettingsSetsipSettingsResponseApplicationJson, SettingsSetsipSettingsResponseApplicationJsonBuilder>,
+        $SettingsSetsipSettingsResponseApplicationJsonInterfaceBuilder {
+  _$SettingsSetsipSettingsResponseApplicationJson? _$v;
+
+  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder? _ocs;
+  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant SettingsSetsipSettingsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  SettingsSetsipSettingsResponseApplicationJsonBuilder();
+
+  SettingsSetsipSettingsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SettingsSetsipSettingsResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SettingsSetsipSettingsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson build() => _build();
+
+  _$SettingsSetsipSettingsResponseApplicationJson _build() {
+    _$SettingsSetsipSettingsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$SettingsSetsipSettingsResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SettingsSetsipSettingsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -51935,235 +51935,6 @@ class SignalingGetSettingsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface other);
-  void update(void Function($SignalingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  MapBuilder<String, JsonObject> get data;
-  set data(MapBuilder<String, JsonObject>? data);
-}
-
-class _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs
-    extends SignalingGetWelcomeMessageResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final BuiltMap<String, JsonObject> data;
-
-  factory _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs(
-          [void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates]) =>
-      (SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  SignalingGetWelcomeMessageResponseApplicationJson_Ocs rebuild(
-          void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder toBuilder() =>
-      SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SignalingGetWelcomeMessageResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder
-    implements
-        Builder<SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
-            SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder>,
-        $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
-  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  MapBuilder<String, JsonObject>? _data;
-  MapBuilder<String, JsonObject> get data => _$this._data ??= MapBuilder<String, JsonObject>();
-  set data(covariant MapBuilder<String, JsonObject>? data) => _$this._data = data;
-
-  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
-
-  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SignalingGetWelcomeMessageResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SignalingGetWelcomeMessageResponseApplicationJson_Ocs build() => _build();
-
-  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs _build() {
-    _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs _$result;
-    try {
-      _$result =
-          _$v ?? _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $SignalingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder {
-  void replace($SignalingGetWelcomeMessageResponseApplicationJsonInterface other);
-  void update(void Function($SignalingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder) updates);
-  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$SignalingGetWelcomeMessageResponseApplicationJson extends SignalingGetWelcomeMessageResponseApplicationJson {
-  @override
-  final SignalingGetWelcomeMessageResponseApplicationJson_Ocs ocs;
-
-  factory _$SignalingGetWelcomeMessageResponseApplicationJson(
-          [void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? updates]) =>
-      (SignalingGetWelcomeMessageResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$SignalingGetWelcomeMessageResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'SignalingGetWelcomeMessageResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  SignalingGetWelcomeMessageResponseApplicationJson rebuild(
-          void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SignalingGetWelcomeMessageResponseApplicationJsonBuilder toBuilder() =>
-      SignalingGetWelcomeMessageResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SignalingGetWelcomeMessageResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SignalingGetWelcomeMessageResponseApplicationJson')..add('ocs', ocs))
-        .toString();
-  }
-}
-
-class SignalingGetWelcomeMessageResponseApplicationJsonBuilder
-    implements
-        Builder<SignalingGetWelcomeMessageResponseApplicationJson,
-            SignalingGetWelcomeMessageResponseApplicationJsonBuilder>,
-        $SignalingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder {
-  _$SignalingGetWelcomeMessageResponseApplicationJson? _$v;
-
-  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder? _ocs;
-  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
-  set ocs(covariant SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  SignalingGetWelcomeMessageResponseApplicationJsonBuilder();
-
-  SignalingGetWelcomeMessageResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SignalingGetWelcomeMessageResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SignalingGetWelcomeMessageResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SignalingGetWelcomeMessageResponseApplicationJson build() => _build();
-
-  _$SignalingGetWelcomeMessageResponseApplicationJson _build() {
-    _$SignalingGetWelcomeMessageResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$SignalingGetWelcomeMessageResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'SignalingGetWelcomeMessageResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $SignalingSessionInterfaceBuilder {
   void replace($SignalingSessionInterface other);
   void update(void Function($SignalingSessionInterfaceBuilder) updates);
@@ -52896,6 +52667,235 @@ class SignalingSendMessagesResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SignalingSendMessagesResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface other);
+  void update(void Function($SignalingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  MapBuilder<String, JsonObject> get data;
+  set data(MapBuilder<String, JsonObject>? data);
+}
+
+class _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs
+    extends SignalingGetWelcomeMessageResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltMap<String, JsonObject> data;
+
+  factory _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs(
+          [void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates]) =>
+      (SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs rebuild(
+          void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder toBuilder() =>
+      SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingGetWelcomeMessageResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder
+    implements
+        Builder<SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
+            SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder>,
+        $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
+  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  MapBuilder<String, JsonObject>? _data;
+  MapBuilder<String, JsonObject> get data => _$this._data ??= MapBuilder<String, JsonObject>();
+  set data(covariant MapBuilder<String, JsonObject>? data) => _$this._data = data;
+
+  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+
+  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingGetWelcomeMessageResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs build() => _build();
+
+  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs _build() {
+    _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder {
+  void replace($SignalingGetWelcomeMessageResponseApplicationJsonInterface other);
+  void update(void Function($SignalingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder) updates);
+  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$SignalingGetWelcomeMessageResponseApplicationJson extends SignalingGetWelcomeMessageResponseApplicationJson {
+  @override
+  final SignalingGetWelcomeMessageResponseApplicationJson_Ocs ocs;
+
+  factory _$SignalingGetWelcomeMessageResponseApplicationJson(
+          [void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? updates]) =>
+      (SignalingGetWelcomeMessageResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$SignalingGetWelcomeMessageResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'SignalingGetWelcomeMessageResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson rebuild(
+          void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJsonBuilder toBuilder() =>
+      SignalingGetWelcomeMessageResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingGetWelcomeMessageResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingGetWelcomeMessageResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class SignalingGetWelcomeMessageResponseApplicationJsonBuilder
+    implements
+        Builder<SignalingGetWelcomeMessageResponseApplicationJson,
+            SignalingGetWelcomeMessageResponseApplicationJsonBuilder>,
+        $SignalingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder {
+  _$SignalingGetWelcomeMessageResponseApplicationJson? _$v;
+
+  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder? _ocs;
+  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+  set ocs(covariant SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  SignalingGetWelcomeMessageResponseApplicationJsonBuilder();
+
+  SignalingGetWelcomeMessageResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingGetWelcomeMessageResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingGetWelcomeMessageResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson build() => _build();
+
+  _$SignalingGetWelcomeMessageResponseApplicationJson _build() {
+    _$SignalingGetWelcomeMessageResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$SignalingGetWelcomeMessageResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'SignalingGetWelcomeMessageResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

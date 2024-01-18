@@ -9,6 +9,14 @@ function generate_spec() {
     path="$1"
     codename="$2"
     ../nextcloud-openapi-extractor/generate-spec "$path" "/tmp/nextcloud-neon/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
+
+    # Use the full spec if it exists, otherwise use the default spec which is already the full spec.
+    if [ -f "/tmp/nextcloud-neon/$codename.openapi-full.json" ]; then
+      jq --indent 4 \
+        ".info.title = \"$codename\"" \
+        "/tmp/nextcloud-neon/$codename.openapi-full.json" \
+        > "/tmp/nextcloud-neon/$codename.openapi.json"
+    fi
 }
 
 (

@@ -1357,39 +1357,6 @@ abstract class UserThemeDisableThemeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BackgroundInterface {
-  String? get backgroundImage;
-  String get backgroundColor;
-  int get version;
-}
-
-abstract class Background implements $BackgroundInterface, Built<Background, BackgroundBuilder> {
-  /// Creates a new Background object using the builder pattern.
-  factory Background([void Function(BackgroundBuilder)? b]) = _$Background;
-
-  // coverage:ignore-start
-  const Background._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Background.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Background.
-  static Serializer<Background> get serializer => _$backgroundSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $PublicCapabilities_ThemingInterface {
   String get name;
   String get url;
@@ -1524,8 +1491,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UserThemeDisableThemeResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UserThemeDisableThemeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Background), BackgroundBuilder.new)
-      ..add(Background.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
       ..add(PublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities_Theming), PublicCapabilities_ThemingBuilder.new)

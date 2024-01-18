@@ -2470,7 +2470,7 @@
         },
         "/ocs/v2.php/apps/files_sharing/api/v1/deletedshares": {
             "get": {
-                "operationId": "deleted_shareapi-list",
+                "operationId": "deleted_shareapi-index",
                 "summary": "Get a list of all deleted shares",
                 "tags": [
                     "deleted_shareapi"
