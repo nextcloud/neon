@@ -989,28 +989,6 @@
           }
         }
       },
-      "NotesCapabilities": {
-        "type": "object",
-        "required": [
-          "notes"
-        ],
-        "properties": {
-          "notes": {
-            "type": "object",
-            "properties": {
-              "api_version": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "version": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
       "NotificationsCapabilities": {
         "type": "object",
         "required": [
@@ -1450,6 +1428,28 @@
             "properties": {
               "enabled": {
                 "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "NotesCapabilities": {
+        "type": "object",
+        "required": [
+          "notes"
+        ],
+        "properties": {
+          "notes": {
+            "type": "object",
+            "properties": {
+              "api_version": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "version": {
+                "type": "string"
               }
             }
           }
@@ -2483,9 +2483,6 @@
                                   "$ref": "#/components/schemas/FilesVersionsCapabilities"
                                 },
                                 {
-                                  "$ref": "#/components/schemas/NotesCapabilities"
-                                },
-                                {
                                   "$ref": "#/components/schemas/NotificationsCapabilities"
                                 },
                                 {
@@ -2505,6 +2502,9 @@
                                 },
                                 {
                                   "$ref": "#/components/schemas/WeatherStatusCapabilities"
+                                },
+                                {
+                                  "$ref": "#/components/schemas/NotesCapabilities"
                                 }
                               ]
                             }

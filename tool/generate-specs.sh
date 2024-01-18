@@ -8,7 +8,7 @@ mkdir -p /tmp/nextcloud-neon
 function generate_spec() {
     path="$1"
     codename="$2"
-    ../nextcloud-openapi-extractor/generate-spec "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
+    ../nextcloud-openapi-extractor/generate-spec "$path" "/tmp/nextcloud-neon/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
 }
 
 (
@@ -50,7 +50,7 @@ done
   generate_spec "." "spreed"
 )
 
-for spec in packages/nextcloud/lib/src/api/*.openapi.json; do
+for spec in /tmp/nextcloud-neon/*.openapi.json; do
   name="$(basename "$spec" | cut -d "." -f 1)"
   dir="packages/nextcloud/lib/src/patches/$name"
   if [ -d "$dir" ]; then
@@ -60,12 +60,20 @@ for spec in packages/nextcloud/lib/src/api/*.openapi.json; do
   fi
 done
 
-./external/nextcloud-openapi-extractor/merge-specs --core packages/nextcloud/lib/src/api/core.openapi.json --merged /tmp/nextcloud-neon/merged.json packages/nextcloud/lib/src/api/*.openapi.json --openapi-version 3.1.0
+cp /tmp/nextcloud-neon/*.openapi.json packages/nextcloud/lib/src/api
+
+./external/nextcloud-openapi-extractor/merge-specs \
+  --core /tmp/nextcloud-neon/core.openapi.json \
+  --merged /tmp/nextcloud-neon/merged.json \
+  /tmp/nextcloud-neon/*.openapi.json \
+  packages/nextcloud/lib/src/api/news.openapi.json \
+  packages/nextcloud/lib/src/api/notes.openapi.json \
+  packages/nextcloud/lib/src/api/uppush.openapi.json \
+  --openapi-version 3.1.0
 
 jq \
   -s \
   '.[0] * {components: {schemas: .[1].components.schemas | with_entries(select(.key | endswith("Capabilities")))}, paths: {"/ocs/v2.php/cloud/capabilities": {get: {responses: .[1].paths."/ocs/v2.php/cloud/capabilities".get.responses}}}}' \
-  packages/nextcloud/lib/src/api/core.openapi.json \
+  /tmp/nextcloud-neon/core.openapi.json \
   /tmp/nextcloud-neon/merged.json \
-  > /tmp/nextcloud-neon/core.json
-cp /tmp/nextcloud-neon/core.json packages/nextcloud/lib/src/api/core.openapi.json
+  > packages/nextcloud/lib/src/api/core.openapi.json
