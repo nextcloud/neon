@@ -71,7 +71,6 @@ class WebDavClient {
     );
 
     request.headers.addAll({
-      if (rootClient.userAgent != null) HttpHeaders.userAgentHeader: rootClient.userAgent!,
       ...?rootClient.baseHeaders,
       ...?rootClient.authentications.firstOrNull?.headers,
     });

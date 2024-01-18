@@ -377,7 +377,6 @@ class DynamiteClient {
   DynamiteClient(
     Uri baseURL, {
     this.baseHeaders,
-    this.userAgent,
     http.Client? httpClient,
     this.cookieJar,
     this.authentications = const [],
@@ -396,9 +395,6 @@ class DynamiteClient {
 
   /// The base headers added to each request.
   final Map<String, String>? baseHeaders;
-
-  /// The value sent in the `user-agent` header.
-  final String? userAgent;
 
   /// The base http client.
   final http.Client httpClient;
@@ -429,7 +425,6 @@ class DynamiteClient {
       method,
       uri,
       {
-        if (userAgent != null) 'user-agent': userAgent!,
         ...?baseHeaders,
         ...headers,
       },

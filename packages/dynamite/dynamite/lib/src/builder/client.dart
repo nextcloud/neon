@@ -65,12 +65,6 @@ Class buildRootClient(
                   ),
                   Parameter(
                     (b) => b
-                      ..name = 'userAgent'
-                      ..toSuper = true
-                      ..named = true,
-                  ),
-                  Parameter(
-                    (b) => b
                       ..name = 'httpClient'
                       ..toSuper = true
                       ..named = true,
