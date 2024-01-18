@@ -72,6 +72,7 @@ cp /tmp/nextcloud-neon/*.openapi.json packages/nextcloud/lib/src/api
   --openapi-version 3.1.0
 
 jq \
+  --indent 4 \
   -s \
   '.[0] * {components: {schemas: .[1].components.schemas | with_entries(select(.key | endswith("Capabilities")))}, paths: {"/ocs/v2.php/cloud/capabilities": {get: {responses: .[1].paths."/ocs/v2.php/cloud/capabilities".get.responses}}}}' \
   /tmp/nextcloud-neon/core.openapi.json \
