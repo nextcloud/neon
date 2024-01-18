@@ -151,10 +151,16 @@ class Result<T> {
 
   @override
   bool operator ==(Object other) =>
-      other is Result && other.isLoading == isLoading && other.data == data && other.error == error;
+      other is Result &&
+      other.isLoading == isLoading &&
+      other.data == data &&
+      other.error?.toString() == error?.toString();
 
   @override
-  int get hashCode => Object.hash(data, error, isLoading, isCached);
+  int get hashCode => Object.hash(data, error?.toString(), isLoading, isCached);
+
+  @override
+  String toString() => 'Result($data, $error, isLoading: $isLoading, isCached: $isCached)';
 }
 
 /// Signature for strategies that build widgets based on asynchronous [Result]s.

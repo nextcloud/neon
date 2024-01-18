@@ -8,13 +8,13 @@ void main() {
     test('Equality', () {
       const data = 'someData';
 
-      final a = Result(
+      var a = Result(
         data,
         null,
         isLoading: true,
         isCached: false,
       );
-      final b = Result(
+      var b = Result(
         data,
         null,
         isLoading: true,
@@ -26,6 +26,21 @@ void main() {
 
       expect(a.hashCode, equals(a.hashCode), reason: 'identical');
       expect(a.hashCode, isNot(equals(b.hashCode)), reason: 'hashCode should respect the cached state');
+
+      a = Result(
+        data,
+        Exception(),
+        isLoading: true,
+        isCached: false,
+      );
+      b = Result(
+        data,
+        Exception(),
+        isLoading: true,
+        isCached: true,
+      );
+
+      expect(a, equals(b), reason: 'error should be compared as string');
     });
 
     test('Transform to loading', () {
@@ -95,6 +110,12 @@ void main() {
 
       expect(Result<dynamic>.error('error').copyWith(data: '').error, 'error');
       expect(Result<String>.error('error').copyWith(data: '').error, 'error');
+    });
+
+    test('toString', () {
+      final result = Result<dynamic>('value', Exception(), isLoading: false, isCached: true);
+
+      expect(result.toString(), 'Result(value, Exception, isLoading: false, isCached: true)');
     });
   });
 }
