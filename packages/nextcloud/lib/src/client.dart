@@ -1,4 +1,5 @@
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:universal_io/io.dart';
 
 /// Different app types to register for
 enum AppType {
@@ -33,8 +34,11 @@ class NextcloudClient extends DynamiteClient {
     super.httpClient,
     super.cookieJar,
   }) : super(
-          baseHeaders: language != null ? {'Accept-Language': language} : null,
-          userAgent: userAgentOverride ?? appType.userAgent,
+          baseHeaders: {
+            if (language != null) HttpHeaders.acceptLanguageHeader: language,
+            if ((userAgentOverride ?? appType.userAgent) != null)
+              HttpHeaders.userAgentHeader: userAgentOverride ?? appType.userAgent!,
+          },
           authentications: [
             if (appPassword != null)
               DynamiteHttpBearerAuthentication(

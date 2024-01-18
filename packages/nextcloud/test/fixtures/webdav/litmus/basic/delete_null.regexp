@@ -1,6 +1,3 @@
 DELETE http://localhost/remote\.php/webdav/delete-null\.txt
-accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)

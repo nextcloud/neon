@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
 import 'package:xml/xml.dart';
 import 'package:xml/xml_events.dart';
 
@@ -49,28 +48,5 @@ extension BytesStreamExtension on BytesStream {
         await transform(xmlBytesConverter).expand((events) => events).firstWhere((element) => element is XmlElement);
 
     return element as XmlElement;
-  }
-}
-
-/// Extension on a http responses.
-extension HttpClientResponseExtension on HttpClientResponse {
-  /// Returns a map of headers.
-  Map<String, Object?> get responseHeaders {
-    final responseHeaders = <String, Object?>{};
-    headers.forEach((name, values) {
-      responseHeaders[name] = values.last;
-    });
-
-    return responseHeaders;
-  }
-}
-
-/// Extension for http headers.
-extension HttpHeadersExtension on HttpHeaders {
-  /// Iteratively adds all header values.
-  void addAll(Map<String, String> headers) {
-    for (final header in headers.entries) {
-      add(header.key, header.value);
-    }
   }
 }

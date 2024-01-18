@@ -1,198 +1,234 @@
-// ignore_for_file: discarded_futures
-
 import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 import 'package:dynamite_end_to_end_test/parameters.openapi.dart';
 import 'package:dynamite_runtime/models.dart';
-import 'package:mockito/mockito.dart';
+import 'package:http/http.dart';
+import 'package:http/testing.dart';
 import 'package:test/test.dart';
-import 'package:universal_io/io.dart';
-
-import 'http_client_mock.mocks.dart';
-
-late MockHttpClient mockHttpClient;
-
-class MockHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext? context) => mockHttpClient;
-}
 
 void main() {
-  late $Client client;
-  late MockHttpHeaders headers;
-  late MockHttpClientResponse response;
-  late MockHttpClientRequest request;
-
-  setUp(() {
-    mockHttpClient = MockHttpClient();
-    HttpOverrides.global = MockHttpOverrides();
-
-    when(mockHttpClient.openUrl(any, any)).thenAnswer((invocation) {
-      headers = MockHttpHeaders();
-
-      response = MockHttpClientResponse();
-      when(response.headers).thenReturn(headers);
-      when(response.transform<dynamic>(any)).thenAnswer((_) => Stream.value('{}'));
-      when(response.statusCode).thenReturn(200);
-
-      request = MockHttpClientRequest();
-      when(request.headers).thenReturn(headers);
-      when(request.close()).thenAnswer((_) async => response);
-      return Future.value(request);
-    });
-
-    client = $Client(Uri.parse('example.com'));
-  });
+  final uri = Uri.parse('example.com');
 
   group(r'$get', () {
     test('no parameters', () async {
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+
+          return Response('{}', 200);
+        }),
+      );
       await client.$get();
-      final captured = verify(headers.add(captureAny, captureAny)).captured;
-      expect(captured, equals(['Accept', 'application/json']));
     });
 
     test('with contentString', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
         (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
-
       final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
 
-      await client.$get(contentString: contentString);
-      final captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?content_string=$queryComponent'),
-        ]),
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/?content_string=$queryComponent')));
+
+          return Response('{}', 200);
+        }),
       );
+      await client.$get(contentString: contentString);
     });
 
     test('with contentParameter', () async {
       final contentParameter = ContentString<BuiltMap<String, JsonObject>>(
         (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
-
       final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
 
-      await client.$get(contentParameter: contentParameter);
-      final captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?content_parameter=$queryComponent'),
-        ]),
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/?content_parameter=$queryComponent')));
+
+          return Response('{}', 200);
+        }),
       );
+      await client.$get(contentParameter: contentParameter);
     });
 
     test('with empty string', () async {
-      await client.$get(string: '');
-      final captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?string='),
-        ]),
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/?string=')));
+
+          return Response('{}', 200);
+        }),
       );
+
+      await client.$get(string: '');
     });
 
     test('with multiple query parameters', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
         (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
-
       final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
 
-      await client.$get(contentString: contentString, contentParameter: contentString);
-      final captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?content_string=$queryComponent&content_parameter=$queryComponent'),
-        ]),
-      );
-    });
-    test('oneOf', () async {
-      await client.$get(oneOf: ($bool: true, string: null));
-      var captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?oneOf=true'),
-        ]),
-      );
-      resetMockitoState();
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(
+            request.url,
+            equals(Uri.parse('example.com/?content_string=$queryComponent&content_parameter=$queryComponent')),
+          );
 
-      await client.$get(oneOf: ($bool: null, string: 'value'));
-      captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?oneOf=value'),
-        ]),
+          return Response('{}', 200);
+        }),
       );
+      await client.$get(contentString: contentString, contentParameter: contentString);
+    });
+
+    test('oneOf', () async {
+      var client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/?oneOf=true')));
+
+          return Response('{}', 200);
+        }),
+      );
+      await client.$get(oneOf: ($bool: true, string: null));
+
+      client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/?oneOf=value')));
+
+          return Response('{}', 200);
+        }),
+      );
+      await client.$get(oneOf: ($bool: null, string: 'value'));
     });
 
     test('anyOf', () async {
+      var client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/?anyOf=true')));
+
+          return Response('{}', 200);
+        }),
+      );
       await client.$get(anyOf: ($bool: true, string: null));
-      var captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?anyOf=true'),
-        ]),
-      );
-      resetMockitoState();
 
+      client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/?anyOf=value')));
+
+          return Response('{}', 200);
+        }),
+      );
       await client.$get(anyOf: ($bool: null, string: 'value'));
-      captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?anyOf=value'),
-        ]),
-      );
-      resetMockitoState();
 
-      await client.$get(anyOf: ($bool: true, string: 'value'));
-      captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/?anyOf=true'),
-        ]),
+      client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/?anyOf=true')));
+
+          return Response('{}', 200);
+        }),
       );
+      await client.$get(anyOf: ($bool: true, string: 'value'));
     });
   });
 
   group('getHeaders', () {
     test('no parameters', () async {
-      await client.getHeaders();
-      final captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/headers'),
-        ]),
-      );
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(
+            request.url,
+            equals(Uri.parse('example.com/headers')),
+          );
 
-      final capturedHeaders = verify(headers.add(captureAny, captureAny)).captured;
-      expect(capturedHeaders, ['Accept', 'application/json']);
+          return Response('{}', 200);
+        }),
+      );
+      await client.getHeaders();
     });
 
     test('all parameters', () async {
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(
+            request.headers,
+            equals({
+              'Accept': 'application/json',
+              'content_string': '{"key":"value"}',
+              'content_parameter': '{"key":"value"}',
+              'array': r'107,0.20416125852587397,false,Value$',
+              'array_string': r'Value1,Value2,Value$',
+              'bool': 'false',
+              'string': r'$String',
+              'string_binary': 'U3RyaW5nVmFsdWU=',
+              'int': '126',
+              'double': '0.5370671089544252',
+              'num': '107',
+              'object': '0.20416125852587397',
+              'oneOf': r'$String',
+              'anyOf': 'false',
+              'enum_pattern': 'a',
+            }),
+          );
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(
+            request.url,
+            equals(Uri.parse('example.com/headers')),
+          );
+
+          return Response('{}', 200);
+        }),
+      );
+
       await client.getHeaders(
         contentString: ContentString<BuiltMap<String, JsonObject>>(
           (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
@@ -222,93 +258,74 @@ void main() {
         anyOf: ($bool: false, string: r'$String'),
         enumPattern: GetHeadersEnumPattern.a,
       );
-
-      var captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/headers'),
-        ]),
-      );
-
-      captured = verify(headers.add(captureAny, captureAny)).captured;
-      final capturedHeaders = <Object?, Object?>{};
-      for (var i = 0; i < captured.length; i += 2) {
-        capturedHeaders[captured[i]] = captured[i + 1];
-      }
-
-      expect(capturedHeaders, {
-        'Accept': 'application/json',
-        'content_string': '{"key":"value"}',
-        'content_parameter': '{"key":"value"}',
-        'array': r'107,0.20416125852587397,false,Value$',
-        'array_string': r'Value1,Value2,Value$',
-        'bool': 'false',
-        'string': r'$String',
-        'string_binary': 'U3RyaW5nVmFsdWU=',
-        'int': '126',
-        'double': '0.5370671089544252',
-        'num': '107',
-        'object': '0.20416125852587397',
-        'oneOf': r'$String',
-        'anyOf': 'false',
-        'enum_pattern': 'a',
-      });
     });
   });
 
   group('getPathParameter', () {
     test('empty path', () async {
-      await client.getPathParameter(pathParameter: 'parameter');
-      final captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-      expect(
-        captured,
-        equals([
-          'get',
-          Uri.parse('example.com/parameter'),
-        ]),
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+          expect(request.url, equals(Uri.parse('example.com/parameter')));
+
+          return Response('{}', 200);
+        }),
       );
+      await client.getPathParameter(pathParameter: 'parameter');
     });
   });
 
   group('PatternCheck', () {
     test('enum', () async {
+      final client = $Client(
+        uri,
+        httpClient: MockClient((request) async {
+          expect(request.bodyBytes.length, 0);
+          expect(request.headers, equals({'Accept': 'application/json'}));
+          expect(request.method, equalsIgnoringCase('get'));
+
+          return Response('{}', 200);
+        }),
+      );
       expect(() => client.$get(enumPattern: GetEnumPattern.$0), throwsA(isA<FormatException>()));
       expect(() => client.getHeaders(enumPattern: GetHeadersEnumPattern.$0), throwsA(isA<FormatException>()));
     });
   });
 
   test('Naming Collisions', () async {
+    final client = $Client(
+      uri,
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(
+          request.headers,
+          equals({
+            'Accept': 'application/json',
+            '%24serializers': r'serializers$ value',
+            '_body': r'$body value',
+            '_parameters': r'parameters value$$$',
+            '_headers': r'headers$',
+          }),
+        );
+        expect(request.method, equalsIgnoringCase('get'));
+        expect(
+          request.url,
+          equals(Uri.parse('example.com/naming_collisions?%24jsonSerializers=jsonSerializers%20value%24')),
+        );
+
+        return Response('{}', 200);
+      }),
+    );
+
     await client.getNamingCollisions(
       jsonSerializers: r'jsonSerializers value$',
       serializers: r'serializers$ value',
       body: r'$body value',
       parameters: r'parameters value$$$',
       headers: r'headers$',
-    );
-
-    final captured = verify(headers.add(captureAny, captureAny)).captured;
-    final capturedHeaders = <Object?, Object?>{};
-    for (var i = 0; i < captured.length; i += 2) {
-      capturedHeaders[captured[i]] = captured[i + 1];
-    }
-    final capturedUrl = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
-
-    expect(capturedHeaders, {
-      'Accept': 'application/json',
-      '%24serializers': r'serializers$ value',
-      '_body': r'$body value',
-      '_parameters': r'parameters value$$$',
-      '_headers': r'headers$',
-    });
-
-    expect(
-      capturedUrl,
-      equals([
-        'get',
-        Uri.parse('example.com/naming_collisions?%24jsonSerializers=jsonSerializers%20value%24'),
-      ]),
     );
   });
 }

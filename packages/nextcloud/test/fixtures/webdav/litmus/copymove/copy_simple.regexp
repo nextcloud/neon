@@ -1,14 +1,8 @@
 MKCOL http://localhost/remote\.php/webdav/copy-simple-src
-accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)
 COPY http://localhost/remote\.php/webdav/copy-simple-src
-accept-encoding: gzip
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/copy-simple-dst
 overwrite: F
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)

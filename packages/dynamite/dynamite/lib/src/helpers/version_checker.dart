@@ -7,6 +7,7 @@ final dependencies = {
   'built_value': Version.parse('8.0.0'),
   'collection': Version.parse('1.0.0'),
   'dynamite_runtime': Version.parse('0.1.0'),
+  'http': Version.parse('1.2.0'),
   'meta': Version.parse('1.0.0'),
   'uri': Version.parse('1.0.0'),
 };

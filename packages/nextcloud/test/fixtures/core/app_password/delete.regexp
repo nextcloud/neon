@@ -1,14 +1,8 @@
 DELETE http://localhost/ocs/v2\.php/core/apppassword
-accept-encoding: gzip
 accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)
 DELETE http://localhost/ocs/v2\.php/core/apppassword
-accept-encoding: gzip
 accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)

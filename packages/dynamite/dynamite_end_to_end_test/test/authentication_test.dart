@@ -1,25 +1,10 @@
-// ignore_for_file: discarded_futures
-
 import 'package:dynamite_end_to_end_test/authentication.openapi.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:mockito/mockito.dart';
+import 'package:http/http.dart';
+import 'package:http/testing.dart';
 import 'package:test/test.dart';
-import 'package:universal_io/io.dart';
-
-import 'http_client_mock.mocks.dart';
-
-late MockHttpClient mockHttpClient;
-
-class MockHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext? context) => mockHttpClient;
-}
 
 void main() {
-  late MockHttpHeaders headers;
-  late MockHttpClientResponse response;
-  late MockHttpClientRequest request;
-
   final uri = Uri.parse('example.com');
 
   const basicAuth = DynamiteHttpBasicAuthentication(
@@ -31,172 +16,261 @@ void main() {
     token: 'bearer-token',
   );
 
-  setUp(() {
-    mockHttpClient = MockHttpClient();
-    HttpOverrides.global = MockHttpOverrides();
-
-    when(mockHttpClient.openUrl(any, any)).thenAnswer((invocation) {
-      headers = MockHttpHeaders();
-
-      response = MockHttpClientResponse();
-      when(response.headers).thenReturn(headers);
-      when(response.transform<dynamic>(any)).thenAnswer((_) => Stream.value('{}'));
-      when(response.statusCode).thenReturn(200);
-
-      request = MockHttpClientRequest();
-      when(request.headers).thenReturn(headers);
-      when(request.close()).thenAnswer((_) async => response);
-      return Future.value(request);
-    });
-  });
-
   test('No Authentication', () async {
     // no registered authentications
-    var client = $Client(uri, authentications: []);
+    var client = $Client(
+      uri,
+      authentications: [],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     await client.noAuthentication();
-    var captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(captured, equals(['Accept', 'application/json']));
 
     // registered basic authentication
-    client = $Client(uri, authentications: const [basicAuth]);
+    client = $Client(
+      uri,
+      authentications: const [basicAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     await client.noAuthentication();
-    captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(captured, equals(['Accept', 'application/json']));
 
     // registered bearer authentication
-    client = $Client(uri, authentications: const [bearerAuth]);
+    client = $Client(
+      uri,
+      authentications: const [bearerAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     await client.noAuthentication();
-    captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(captured, equals(['Accept', 'application/json']));
 
     // multiple registered authentication
-    client = $Client(uri, authentications: const [basicAuth, bearerAuth]);
+    client = $Client(
+      uri,
+      authentications: const [basicAuth, bearerAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     await client.noAuthentication();
-    captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(captured, equals(['Accept', 'application/json']));
   });
 
   test('Basic authentication', () async {
     // no registered authentications
-    var client = $Client(uri, authentications: []);
+    var client = $Client(
+      uri,
+      authentications: [],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     expect(() => client.basicAuthentication(), throwsA(isA<Exception>()));
 
     // registered basic authentication
-    client = $Client(uri, authentications: const [basicAuth]);
-    await client.basicAuthentication();
-    var captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(
-      captured,
-      equals([
-        'Accept',
-        'application/json',
-        'Authorization',
-        'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-      ]),
+    client = $Client(
+      uri,
+      authentications: const [basicAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(
+          request.headers,
+          equals({
+            'Accept': 'application/json',
+            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
+          }),
+        );
+
+        return Response('{}', 200);
+      }),
     );
+    await client.basicAuthentication();
 
     // registered bearer authentication
-    client = $Client(uri, authentications: const [bearerAuth]);
+    client = $Client(
+      uri,
+      authentications: const [bearerAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     expect(() => client.basicAuthentication(), throwsA(isA<Exception>()));
 
     // multiple registered authentication
-    client = $Client(uri, authentications: const [basicAuth, bearerAuth]);
-    await client.basicAuthentication();
-    captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(
-      captured,
-      equals([
-        'Accept',
-        'application/json',
-        'Authorization',
-        'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-      ]),
+    client = $Client(
+      uri,
+      authentications: const [basicAuth, bearerAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(
+          request.headers,
+          equals({
+            'Accept': 'application/json',
+            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
+          }),
+        );
+
+        return Response('{}', 200);
+      }),
     );
+    await client.basicAuthentication();
   });
 
   test('Bearer authentication', () async {
     // no registered authentications
-    var client = $Client(uri, authentications: []);
+    var client = $Client(
+      uri,
+      authentications: [],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     expect(() => client.bearerAuthentication(), throwsA(isA<Exception>()));
 
     // registered basic authentication
-    client = $Client(uri, authentications: const [basicAuth]);
+    client = $Client(
+      uri,
+      authentications: const [basicAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     expect(() => client.bearerAuthentication(), throwsA(isA<Exception>()));
 
     // registered bearer authentication
-    client = $Client(uri, authentications: const [bearerAuth]);
-    await client.bearerAuthentication();
-    var captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(
-      captured,
-      equals([
-        'Accept',
-        'application/json',
-        'Authorization',
-        'Bearer bearer-token',
-      ]),
+    client = $Client(
+      uri,
+      authentications: const [bearerAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(
+          request.headers,
+          equals({
+            'Accept': 'application/json',
+            'Authorization': 'Bearer bearer-token',
+          }),
+        );
+
+        return Response('{}', 200);
+      }),
     );
+    await client.bearerAuthentication();
 
     // multiple registered authentication
-    client = $Client(uri, authentications: const [basicAuth, bearerAuth]);
-    await client.bearerAuthentication();
-    captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(
-      captured,
-      equals([
-        'Accept',
-        'application/json',
-        'Authorization',
-        'Bearer bearer-token',
-      ]),
+    client = $Client(
+      uri,
+      authentications: const [basicAuth, bearerAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(
+          request.headers,
+          equals({
+            'Accept': 'application/json',
+            'Authorization': 'Bearer bearer-token',
+          }),
+        );
+
+        return Response('{}', 200);
+      }),
     );
+    await client.bearerAuthentication();
   });
 
   test('Multiple authentications', () async {
     // no registered authentications
-    var client = $Client(uri, authentications: []);
+    var client = $Client(
+      uri,
+      authentications: [],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+
+        return Response('{}', 200);
+      }),
+    );
     expect(() => client.multipleAuthentications(), throwsA(isA<Exception>()));
 
     // registered basic authentication
-    client = $Client(uri, authentications: const [basicAuth]);
-    await client.multipleAuthentications();
-    var captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(
-      captured,
-      equals([
-        'Accept',
-        'application/json',
-        'Authorization',
-        'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-      ]),
+    client = $Client(
+      uri,
+      authentications: const [basicAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(
+          request.headers,
+          equals({
+            'Accept': 'application/json',
+            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
+          }),
+        );
+
+        return Response('{}', 200);
+      }),
     );
+    await client.multipleAuthentications();
 
     // registered bearer authentication
-    client = $Client(uri, authentications: const [bearerAuth]);
-    await client.multipleAuthentications();
-    captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(
-      captured,
-      equals([
-        'Accept',
-        'application/json',
-        'Authorization',
-        'Bearer bearer-token',
-      ]),
+    client = $Client(
+      uri,
+      authentications: const [bearerAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(
+          request.headers,
+          equals({
+            'Accept': 'application/json',
+            'Authorization': 'Bearer bearer-token',
+          }),
+        );
+
+        return Response('{}', 200);
+      }),
     );
+    await client.multipleAuthentications();
 
     // multiple registered authentication
-    client = $Client(uri, authentications: const [basicAuth, bearerAuth]);
-    await client.multipleAuthentications();
-    captured = verify(headers.add(captureAny, captureAny)).captured;
-    expect(
-      captured,
-      equals([
-        'Accept',
-        'application/json',
-        'Authorization',
-        'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-      ]),
+    client = $Client(
+      uri,
+      authentications: const [basicAuth, bearerAuth],
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(
+          request.headers,
+          equals({
+            'Accept': 'application/json',
+            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
+          }),
+        );
+
+        return Response('{}', 200);
+      }),
     );
+    await client.multipleAuthentications();
   });
 }

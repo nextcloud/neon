@@ -29,7 +29,6 @@ class $Client extends _i3.DynamiteClient {
   $Client(
     super.baseURL, {
     super.baseHeaders,
-    super.userAgent,
     super.httpClient,
     super.cookieJar,
   });

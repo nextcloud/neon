@@ -1,6 +1,3 @@
 GET http://localhost/index\.php/settings/admin/log/download
-accept-encoding: gzip
 accept: application/octet-stream
 authorization: Bearer mock
-content-length: 0
-user-agent: Dart/3\.2 \(dart:io\)

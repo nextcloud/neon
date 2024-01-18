@@ -1,17 +1,8 @@
 POST http://localhost/index\.php/apps/news/api/v1-3/folders\?name=test1
-accept-encoding: gzip
 accept: application/json
 authorization: Basic mock
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)
 PUT http://localhost/index\.php/apps/news/api/v1-3/folders/1\?name=test2
-accept-encoding: gzip
 authorization: Basic mock
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)
 GET http://localhost/index\.php/apps/news/api/v1-3/folders
-accept-encoding: gzip
 accept: application/json
 authorization: Basic mock
-content-length: 0
-user-agent: Dart/3\.2 \(dart:io\)

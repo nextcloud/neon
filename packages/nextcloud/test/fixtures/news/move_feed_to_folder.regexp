@@ -1,23 +1,11 @@
 POST http://localhost/index\.php/apps/news/api/v1-3/folders\?name=test1
-accept-encoding: gzip
 accept: application/json
 authorization: Basic mock
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)
 POST http://localhost/index\.php/apps/news/api/v1-3/feeds\?url=http%3A%2F%2Flocalhost%2Fstatic%2Fwikipedia\.xml
-accept-encoding: gzip
 accept: application/json
 authorization: Basic mock
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)
 POST http://localhost/index\.php/apps/news/api/v1-3/feeds/1/move\?folderId=1
-accept-encoding: gzip
 authorization: Basic mock
-transfer-encoding: chunked
-user-agent: Dart/3\.2 \(dart:io\)
 GET http://localhost/index\.php/apps/news/api/v1-3/folders
-accept-encoding: gzip
 accept: application/json
 authorization: Basic mock
-content-length: 0
-user-agent: Dart/3\.2 \(dart:io\)

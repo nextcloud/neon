@@ -1,14 +1,8 @@
 GET http://localhost/ocs/v2\.php/cloud/apps
-accept-encoding: gzip
 accept: application/json
 authorization: Bearer mock
-content-length: 0
 ocs-apirequest: true
-user-agent: Dart/3\.2 \(dart:io\)
 (GET http://localhost/ocs/v2\.php/cloud/apps/[a-z_]+
-accept-encoding: gzip
 accept: application/json
 authorization: Bearer mock
-content-length: 0
-ocs-apirequest: true
-user-agent: Dart/3\.2 \(dart:io\)\n?)+
+ocs-apirequest: true\n?)+

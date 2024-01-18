@@ -3,14 +3,49 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
-import 'package:universal_io/io.dart';
+import 'package:universal_io/io.dart' hide HttpClient;
 
 /// Base path used on the server
 final webdavBase = PathUri.parse('/remote.php/webdav');
+
+@internal
+class WebDavRequest extends http.BaseRequest {
+  WebDavRequest(
+    super.method,
+    super.url, {
+    this.dataStream,
+    this.data,
+    Map<String, String>? headers,
+  }) : assert(dataStream == null || data == null, 'Only one of dataStream or data can be specified.') {
+    this.headers.addAll({
+      ...?headers,
+      HttpHeaders.contentTypeHeader: 'application/xml',
+    });
+  }
+
+  final Stream<List<int>>? dataStream;
+  final Uint8List? data;
+
+  @override
+  http.ByteStream finalize() {
+    super.finalize();
+
+    if (dataStream != null) {
+      return http.ByteStream(dataStream!);
+    }
+
+    if (data != null) {
+      return http.ByteStream.fromBytes(data!);
+    }
+
+    return http.ByteStream.fromBytes(Uint8List(0));
+  }
+}
 
 /// WebDavClient class
 class WebDavClient {
@@ -20,39 +55,33 @@ class WebDavClient {
   // ignore: public_member_api_docs
   final DynamiteClient rootClient;
 
-  Future<HttpClientResponse> _send(
+  Future<http.StreamedResponse> _send(
     String method,
     Uri url, {
-    Stream<Uint8List>? dataStream,
+    Stream<List<int>>? dataStream,
     Uint8List? data,
     Map<String, String>? headers,
   }) async {
-    assert(dataStream == null || data == null, 'Only one of dataStream or data can be specified.');
-
-    final request = await rootClient.httpClient.openUrl(method, url)
-      ..persistentConnection = true;
+    final request = WebDavRequest(
+      method,
+      url,
+      data: data,
+      dataStream: dataStream,
+      headers: headers,
+    );
 
     request.headers.addAll({
-      HttpHeaders.contentTypeHeader: 'application/xml',
       ...?rootClient.baseHeaders,
-      ...?headers,
       ...?rootClient.authentications.firstOrNull?.headers,
     });
 
-    if (data != null) {
-      request.add(data);
-    }
-    if (dataStream != null) {
-      await request.addStream(dataStream);
-    }
+    final response = await rootClient.httpClient.send(request);
 
-    final response = await request.close();
-
-    if (response.statusCode > 299) {
+    if (response.statusCode >= 300) {
       throw DynamiteApiException(
         response.statusCode,
-        response.responseHeaders,
-        await response.string,
+        response.headers,
+        await response.stream.string,
       );
     }
 
@@ -71,8 +100,8 @@ class WebDavClient {
     return baseURL.replace(pathSegments: segments.where((s) => s.isNotEmpty));
   }
 
-  Future<WebDavMultistatus> _parseResponse(HttpClientResponse response) async =>
-      WebDavMultistatus.fromXmlElement(await response.xml);
+  Future<WebDavMultistatus> _parseResponse(http.StreamedResponse response) async =>
+      WebDavMultistatus.fromXmlElement(await response.stream.xml);
 
   Map<String, String> _getUploadHeaders({
     required DateTime? lastModified,
@@ -92,8 +121,8 @@ class WebDavClient {
       _constructUri(),
     );
 
-    final davCapabilities = response.headers['dav']?.first;
-    final davSearchCapabilities = response.headers['dasl']?.first;
+    final davCapabilities = response.headers['dav'];
+    final davSearchCapabilities = response.headers['dasl'];
     return WebDavOptions(
       davCapabilities?.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toSet(),
       davSearchCapabilities?.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toSet(),
@@ -103,7 +132,7 @@ class WebDavClient {
   /// Creates a collection at [path].
   ///
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
-  Future<HttpClientResponse> mkcol(PathUri path) async => _send(
+  Future<http.StreamedResponse> mkcol(PathUri path) async => _send(
         'MKCOL',
         _constructUri(path),
       );
@@ -111,7 +140,7 @@ class WebDavClient {
   /// Deletes the resource at [path].
   ///
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE for more information.
-  Future<HttpClientResponse> delete(PathUri path) => _send(
+  Future<http.StreamedResponse> delete(PathUri path) => _send(
         'DELETE',
         _constructUri(path),
       );
@@ -121,7 +150,7 @@ class WebDavClient {
   /// [lastModified] sets the date when the file was last modified on the server.
   /// [created] sets the date when the file was created on the server.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
-  Future<HttpClientResponse> put(
+  Future<http.StreamedResponse> put(
     Uint8List localData,
     PathUri path, {
     DateTime? lastModified,
@@ -145,8 +174,8 @@ class WebDavClient {
   /// [contentLength] sets the length of the [localData] that is uploaded.
   /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0. [contentLength] needs to be set for it to work.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
-  Future<HttpClientResponse> putStream(
-    Stream<Uint8List> localData,
+  Future<http.StreamedResponse> putStream(
+    Stream<List<int>> localData,
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
@@ -157,10 +186,10 @@ class WebDavClient {
     return _send(
       'PUT',
       _constructUri(path),
-      dataStream: contentLength != null
+      dataStream: contentLength != null && onProgress != null
           ? localData.map((chunk) {
               uploaded += chunk.length;
-              onProgress?.call(uploaded / contentLength);
+              onProgress.call(uploaded / contentLength);
               return chunk;
             })
           : localData,
@@ -178,7 +207,7 @@ class WebDavClient {
   /// [created] sets the date when the file was created on the server.
   /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
-  Future<HttpClientResponse> putFile(
+  Future<http.StreamedResponse> putFile(
     File file,
     FileStat fileStat,
     PathUri path, {
@@ -187,7 +216,7 @@ class WebDavClient {
     void Function(double progress)? onProgress,
   }) async =>
       putStream(
-        file.openRead().cast<Uint8List>(),
+        file.openRead(),
         path,
         lastModified: lastModified,
         created: created,
@@ -196,10 +225,10 @@ class WebDavClient {
       );
 
   /// Gets the content of the file at [path].
-  Future<Uint8List> get(PathUri path) async => (await getStream(path)).bytes;
+  Future<Uint8List> get(PathUri path) async => (await getStream(path)).stream.bytes;
 
   /// Gets the content of the file at [path].
-  Future<HttpClientResponse> getStream(PathUri path) async => _send(
+  Future<http.StreamedResponse> getStream(PathUri path) async => _send(
         'GET',
         _constructUri(path),
       );
@@ -210,24 +239,24 @@ class WebDavClient {
     File file, {
     void Function(double progress)? onProgress,
   }) async {
-    final sink = file.openWrite();
     final response = await getStream(path);
-    if (response.contentLength > 0) {
+    final contentLength = response.contentLength;
+    if (contentLength != null && contentLength > 0) {
+      final sink = file.openWrite();
       final completer = Completer<void>();
       var downloaded = 0;
 
-      response.listen((chunk) async {
+      response.stream.listen((chunk) async {
         sink.add(chunk);
         downloaded += chunk.length;
-        onProgress?.call(downloaded / response.contentLength);
-        if (downloaded >= response.contentLength) {
+        onProgress?.call(downloaded / contentLength);
+        if (downloaded >= contentLength) {
           completer.complete();
         }
       });
       await completer.future;
+      await sink.close();
     }
-
-    await sink.close();
   }
 
   /// Retrieves the props for the resource at [path].
@@ -309,7 +338,7 @@ class WebDavClient {
   ///
   /// If [overwrite] is set any existing resource will be replaced.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_MOVE for more information.
-  Future<HttpClientResponse> move(
+  Future<http.StreamedResponse> move(
     PathUri sourcePath,
     PathUri destinationPath, {
     bool overwrite = false,
@@ -327,7 +356,7 @@ class WebDavClient {
   ///
   /// If [overwrite] is set any existing resource will be replaced.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_COPY for more information.
-  Future<HttpClientResponse> copy(
+  Future<http.StreamedResponse> copy(
     PathUri sourcePath,
     PathUri destinationPath, {
     bool overwrite = false,

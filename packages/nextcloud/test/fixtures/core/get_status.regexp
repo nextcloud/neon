@@ -1,5 +1,2 @@
 GET http://localhost/status\.php
-accept-encoding: gzip
 accept: application/json
-content-length: 0
-user-agent: Dart/3\.2 \(dart:io\)
