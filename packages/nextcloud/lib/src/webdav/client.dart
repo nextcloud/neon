@@ -223,13 +223,43 @@ class WebDavClient {
       );
 
   /// Gets the content of the file at [path].
-  Future<Uint8List> get(PathUri path) async => (await getStream(path)).stream.bytes;
+  Future<Uint8List> get(PathUri path) async => getStream(path).bytes;
 
   /// Gets the content of the file at [path].
-  Future<http.StreamedResponse> getStream(PathUri path) async => _send(
+  Stream<List<int>> getStream(
+    PathUri path, {
+    void Function(double progress)? onProgress,
+  }) {
+    final controller = StreamController<List<int>>();
+
+    unawaited(
+      _send(
         'GET',
         _constructUri(path),
-      );
+      ).then((response) async {
+        final contentLength = response.contentLength;
+        if (contentLength == null || contentLength <= 0) {
+          onProgress?.call(1);
+        } else {
+          final completer = Completer<void>();
+          var downloaded = 0;
+
+          response.stream.listen((chunk) async {
+            controller.add(chunk);
+            downloaded += chunk.length;
+            onProgress?.call(downloaded / contentLength);
+            if (downloaded >= contentLength) {
+              completer.complete();
+            }
+          });
+          await completer.future;
+        }
+        await controller.close();
+      }),
+    );
+
+    return controller.stream;
+  }
 
   /// Gets the content of the file at [path].
   ///
@@ -239,28 +269,12 @@ class WebDavClient {
     File file, {
     void Function(double progress)? onProgress,
   }) async {
-    final response = await getStream(path);
-    final contentLength = response.contentLength;
-
-    if (contentLength == null || contentLength <= 0) {
-      await file.create();
-      onProgress?.call(1);
-      return;
-    }
-
     final sink = file.openWrite();
-    final completer = Completer<void>();
-    var downloaded = 0;
-
-    response.stream.listen((chunk) async {
-      sink.add(chunk);
-      downloaded += chunk.length;
-      onProgress?.call(downloaded / contentLength);
-      if (downloaded >= contentLength) {
-        completer.complete();
-      }
-    });
-    await completer.future;
+    final stream = getStream(
+      path,
+      onProgress: onProgress,
+    );
+    await stream.pipe(sink);
     await sink.close();
   }
 
