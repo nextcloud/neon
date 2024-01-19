@@ -1,6 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// An extension that calls [Result.transform] on every [Result] emitted.
+extension ResultStreamTransform<T> on Stream<Result<T>> {
+  /// Transforms every [Result] in the `Stream` using [Result.transform].
+  @visibleForTesting
+  Stream<Result<R>> transformResult<R>(R Function(T data) callback) => map((e) => e.transform(callback));
+}
+
 /// Immutable representation of the most recent interaction with a data fetching
 /// computation.
 ///
