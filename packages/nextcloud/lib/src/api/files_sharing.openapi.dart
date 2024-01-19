@@ -81,9 +81,9 @@ class $DeletedShareapiClient {
   ///   * 200: Deleted shares returned
   ///
   /// See:
-  ///  * [listRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<DeletedShareapiListResponseApplicationJson, void>> list({bool? oCSAPIRequest}) async {
-    final rawResponse = listRaw(
+  ///  * [indexRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<DeletedShareapiIndexResponseApplicationJson, void>> index({bool? oCSAPIRequest}) async {
+    final rawResponse = indexRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
@@ -104,9 +104,9 @@ class $DeletedShareapiClient {
   ///   * 200: Deleted shares returned
   ///
   /// See:
-  ///  * [list] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [index] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
-  _i1.DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
+  _i1.DynamiteRawResponse<DeletedShareapiIndexResponseApplicationJson, void> indexRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -133,7 +133,7 @@ class $DeletedShareapiClient {
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
-    return _i1.DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void>(
+    return _i1.DynamiteRawResponse<DeletedShareapiIndexResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
@@ -141,7 +141,7 @@ class $DeletedShareapiClient {
         null,
         const {200},
       ),
-      bodyType: const FullType(DeletedShareapiListResponseApplicationJson),
+      bodyType: const FullType(DeletedShareapiIndexResponseApplicationJson),
       headersType: null,
       serializers: _$jsonSerializers,
     );
@@ -2421,29 +2421,29 @@ abstract class DeletedShare implements $DeletedShareInterface, Built<DeletedShar
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeletedShareapiListResponseApplicationJson_OcsInterface {
+abstract interface class $DeletedShareapiIndexResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<DeletedShare> get data;
 }
 
-abstract class DeletedShareapiListResponseApplicationJson_Ocs
+abstract class DeletedShareapiIndexResponseApplicationJson_Ocs
     implements
-        $DeletedShareapiListResponseApplicationJson_OcsInterface,
-        Built<DeletedShareapiListResponseApplicationJson_Ocs, DeletedShareapiListResponseApplicationJson_OcsBuilder> {
-  /// Creates a new DeletedShareapiListResponseApplicationJson_Ocs object using the builder pattern.
-  factory DeletedShareapiListResponseApplicationJson_Ocs([
-    void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$DeletedShareapiListResponseApplicationJson_Ocs;
+        $DeletedShareapiIndexResponseApplicationJson_OcsInterface,
+        Built<DeletedShareapiIndexResponseApplicationJson_Ocs, DeletedShareapiIndexResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DeletedShareapiIndexResponseApplicationJson_Ocs object using the builder pattern.
+  factory DeletedShareapiIndexResponseApplicationJson_Ocs([
+    void Function(DeletedShareapiIndexResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DeletedShareapiIndexResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const DeletedShareapiListResponseApplicationJson_Ocs._();
+  const DeletedShareapiIndexResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeletedShareapiListResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory DeletedShareapiIndexResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2454,34 +2454,34 @@ abstract class DeletedShareapiListResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for DeletedShareapiListResponseApplicationJson_Ocs.
-  static Serializer<DeletedShareapiListResponseApplicationJson_Ocs> get serializer =>
-      _$deletedShareapiListResponseApplicationJsonOcsSerializer;
+  /// Serializer for DeletedShareapiIndexResponseApplicationJson_Ocs.
+  static Serializer<DeletedShareapiIndexResponseApplicationJson_Ocs> get serializer =>
+      _$deletedShareapiIndexResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeletedShareapiListResponseApplicationJsonInterface {
-  DeletedShareapiListResponseApplicationJson_Ocs get ocs;
+abstract interface class $DeletedShareapiIndexResponseApplicationJsonInterface {
+  DeletedShareapiIndexResponseApplicationJson_Ocs get ocs;
 }
 
-abstract class DeletedShareapiListResponseApplicationJson
+abstract class DeletedShareapiIndexResponseApplicationJson
     implements
-        $DeletedShareapiListResponseApplicationJsonInterface,
-        Built<DeletedShareapiListResponseApplicationJson, DeletedShareapiListResponseApplicationJsonBuilder> {
-  /// Creates a new DeletedShareapiListResponseApplicationJson object using the builder pattern.
-  factory DeletedShareapiListResponseApplicationJson([
-    void Function(DeletedShareapiListResponseApplicationJsonBuilder)? b,
-  ]) = _$DeletedShareapiListResponseApplicationJson;
+        $DeletedShareapiIndexResponseApplicationJsonInterface,
+        Built<DeletedShareapiIndexResponseApplicationJson, DeletedShareapiIndexResponseApplicationJsonBuilder> {
+  /// Creates a new DeletedShareapiIndexResponseApplicationJson object using the builder pattern.
+  factory DeletedShareapiIndexResponseApplicationJson([
+    void Function(DeletedShareapiIndexResponseApplicationJsonBuilder)? b,
+  ]) = _$DeletedShareapiIndexResponseApplicationJson;
 
   // coverage:ignore-start
-  const DeletedShareapiListResponseApplicationJson._();
+  const DeletedShareapiIndexResponseApplicationJson._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeletedShareapiListResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory DeletedShareapiIndexResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2492,9 +2492,9 @@ abstract class DeletedShareapiListResponseApplicationJson
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for DeletedShareapiListResponseApplicationJson.
-  static Serializer<DeletedShareapiListResponseApplicationJson> get serializer =>
-      _$deletedShareapiListResponseApplicationJsonSerializer;
+  /// Serializer for DeletedShareapiIndexResponseApplicationJson.
+  static Serializer<DeletedShareapiIndexResponseApplicationJson> get serializer =>
+      _$deletedShareapiIndexResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -5819,15 +5819,15 @@ class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerialize
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
-        const FullType(DeletedShareapiListResponseApplicationJson),
-        DeletedShareapiListResponseApplicationJsonBuilder.new,
+        const FullType(DeletedShareapiIndexResponseApplicationJson),
+        DeletedShareapiIndexResponseApplicationJsonBuilder.new,
       )
-      ..add(DeletedShareapiListResponseApplicationJson.serializer)
+      ..add(DeletedShareapiIndexResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(DeletedShareapiListResponseApplicationJson_Ocs),
-        DeletedShareapiListResponseApplicationJson_OcsBuilder.new,
+        const FullType(DeletedShareapiIndexResponseApplicationJson_Ocs),
+        DeletedShareapiIndexResponseApplicationJson_OcsBuilder.new,
       )
-      ..add(DeletedShareapiListResponseApplicationJson_Ocs.serializer)
+      ..add(DeletedShareapiIndexResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(const FullType(DeletedShare), DeletedShareBuilder.new)

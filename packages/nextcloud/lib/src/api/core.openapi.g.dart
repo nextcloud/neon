@@ -463,8 +463,6 @@ Serializer<FilesTrashbinCapabilities> _$filesTrashbinCapabilitiesSerializer = _$
 Serializer<FilesVersionsCapabilities_Files> _$filesVersionsCapabilitiesFilesSerializer =
     _$FilesVersionsCapabilities_FilesSerializer();
 Serializer<FilesVersionsCapabilities> _$filesVersionsCapabilitiesSerializer = _$FilesVersionsCapabilitiesSerializer();
-Serializer<NotesCapabilities_Notes> _$notesCapabilitiesNotesSerializer = _$NotesCapabilities_NotesSerializer();
-Serializer<NotesCapabilities> _$notesCapabilitiesSerializer = _$NotesCapabilitiesSerializer();
 Serializer<NotificationsCapabilities_Notifications> _$notificationsCapabilitiesNotificationsSerializer =
     _$NotificationsCapabilities_NotificationsSerializer();
 Serializer<NotificationsCapabilities> _$notificationsCapabilitiesSerializer = _$NotificationsCapabilitiesSerializer();
@@ -516,6 +514,8 @@ Serializer<UserStatusCapabilities> _$userStatusCapabilitiesSerializer = _$UserSt
 Serializer<WeatherStatusCapabilities_WeatherStatus> _$weatherStatusCapabilitiesWeatherStatusSerializer =
     _$WeatherStatusCapabilities_WeatherStatusSerializer();
 Serializer<WeatherStatusCapabilities> _$weatherStatusCapabilitiesSerializer = _$WeatherStatusCapabilitiesSerializer();
+Serializer<NotesCapabilities_Notes> _$notesCapabilitiesNotesSerializer = _$NotesCapabilities_NotesSerializer();
+Serializer<NotesCapabilities> _$notesCapabilitiesSerializer = _$NotesCapabilitiesSerializer();
 Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>
     _$ocsGetCapabilitiesResponseApplicationJsonOcsDataSerializer =
     _$OcsGetCapabilitiesResponseApplicationJson_Ocs_DataSerializer();
@@ -4610,96 +4610,6 @@ class _$FilesVersionsCapabilitiesSerializer implements StructuredSerializer<File
   }
 }
 
-class _$NotesCapabilities_NotesSerializer implements StructuredSerializer<NotesCapabilities_Notes> {
-  @override
-  final Iterable<Type> types = const [NotesCapabilities_Notes, _$NotesCapabilities_Notes];
-  @override
-  final String wireName = 'NotesCapabilities_Notes';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, NotesCapabilities_Notes object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.apiVersion;
-    if (value != null) {
-      result
-        ..add('api_version')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
-    }
-    value = object.version;
-    if (value != null) {
-      result
-        ..add('version')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  NotesCapabilities_Notes deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = NotesCapabilities_NotesBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'api_version':
-          result.apiVersion.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
-          break;
-        case 'version':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$NotesCapabilitiesSerializer implements StructuredSerializer<NotesCapabilities> {
-  @override
-  final Iterable<Type> types = const [NotesCapabilities, _$NotesCapabilities];
-  @override
-  final String wireName = 'NotesCapabilities';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, NotesCapabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'notes',
-      serializers.serialize(object.notes, specifiedType: const FullType(NotesCapabilities_Notes)),
-    ];
-
-    return result;
-  }
-
-  @override
-  NotesCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = NotesCapabilitiesBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'notes':
-          result.notes.replace(serializers.deserialize(value, specifiedType: const FullType(NotesCapabilities_Notes))!
-              as NotesCapabilities_Notes);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$NotificationsCapabilities_NotificationsSerializer
     implements StructuredSerializer<NotificationsCapabilities_Notifications> {
   @override
@@ -6052,6 +5962,96 @@ class _$WeatherStatusCapabilitiesSerializer implements StructuredSerializer<Weat
           result.weatherStatus.replace(
               serializers.deserialize(value, specifiedType: const FullType(WeatherStatusCapabilities_WeatherStatus))!
                   as WeatherStatusCapabilities_WeatherStatus);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$NotesCapabilities_NotesSerializer implements StructuredSerializer<NotesCapabilities_Notes> {
+  @override
+  final Iterable<Type> types = const [NotesCapabilities_Notes, _$NotesCapabilities_Notes];
+  @override
+  final String wireName = 'NotesCapabilities_Notes';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, NotesCapabilities_Notes object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.apiVersion;
+    if (value != null) {
+      result
+        ..add('api_version')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.version;
+    if (value != null) {
+      result
+        ..add('version')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  NotesCapabilities_Notes deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = NotesCapabilities_NotesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'api_version':
+          result.apiVersion.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$NotesCapabilitiesSerializer implements StructuredSerializer<NotesCapabilities> {
+  @override
+  final Iterable<Type> types = const [NotesCapabilities, _$NotesCapabilities];
+  @override
+  final String wireName = 'NotesCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, NotesCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'notes',
+      serializers.serialize(object.notes, specifiedType: const FullType(NotesCapabilities_Notes)),
+    ];
+
+    return result;
+  }
+
+  @override
+  NotesCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = NotesCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'notes':
+          result.notes.replace(serializers.deserialize(value, specifiedType: const FullType(NotesCapabilities_Notes))!
+              as NotesCapabilities_Notes);
           break;
       }
     }
@@ -19277,213 +19277,6 @@ class FilesVersionsCapabilitiesBuilder
   }
 }
 
-abstract mixin class $NotesCapabilities_NotesInterfaceBuilder {
-  void replace($NotesCapabilities_NotesInterface other);
-  void update(void Function($NotesCapabilities_NotesInterfaceBuilder) updates);
-  ListBuilder<String> get apiVersion;
-  set apiVersion(ListBuilder<String>? apiVersion);
-
-  String? get version;
-  set version(String? version);
-}
-
-class _$NotesCapabilities_Notes extends NotesCapabilities_Notes {
-  @override
-  final BuiltList<String>? apiVersion;
-  @override
-  final String? version;
-
-  factory _$NotesCapabilities_Notes([void Function(NotesCapabilities_NotesBuilder)? updates]) =>
-      (NotesCapabilities_NotesBuilder()..update(updates))._build();
-
-  _$NotesCapabilities_Notes._({this.apiVersion, this.version}) : super._();
-
-  @override
-  NotesCapabilities_Notes rebuild(void Function(NotesCapabilities_NotesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  NotesCapabilities_NotesBuilder toBuilder() => NotesCapabilities_NotesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is NotesCapabilities_Notes && apiVersion == other.apiVersion && version == other.version;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, apiVersion.hashCode);
-    _$hash = $jc(_$hash, version.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'NotesCapabilities_Notes')
-          ..add('apiVersion', apiVersion)
-          ..add('version', version))
-        .toString();
-  }
-}
-
-class NotesCapabilities_NotesBuilder
-    implements
-        Builder<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder>,
-        $NotesCapabilities_NotesInterfaceBuilder {
-  _$NotesCapabilities_Notes? _$v;
-
-  ListBuilder<String>? _apiVersion;
-  ListBuilder<String> get apiVersion => _$this._apiVersion ??= ListBuilder<String>();
-  set apiVersion(covariant ListBuilder<String>? apiVersion) => _$this._apiVersion = apiVersion;
-
-  String? _version;
-  String? get version => _$this._version;
-  set version(covariant String? version) => _$this._version = version;
-
-  NotesCapabilities_NotesBuilder();
-
-  NotesCapabilities_NotesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _apiVersion = $v.apiVersion?.toBuilder();
-      _version = $v.version;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant NotesCapabilities_Notes other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotesCapabilities_Notes;
-  }
-
-  @override
-  void update(void Function(NotesCapabilities_NotesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  NotesCapabilities_Notes build() => _build();
-
-  _$NotesCapabilities_Notes _build() {
-    _$NotesCapabilities_Notes _$result;
-    try {
-      _$result = _$v ?? _$NotesCapabilities_Notes._(apiVersion: _apiVersion?.build(), version: version);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'apiVersion';
-        _apiVersion?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'NotesCapabilities_Notes', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $NotesCapabilitiesInterfaceBuilder {
-  void replace($NotesCapabilitiesInterface other);
-  void update(void Function($NotesCapabilitiesInterfaceBuilder) updates);
-  NotesCapabilities_NotesBuilder get notes;
-  set notes(NotesCapabilities_NotesBuilder? notes);
-}
-
-class _$NotesCapabilities extends NotesCapabilities {
-  @override
-  final NotesCapabilities_Notes notes;
-
-  factory _$NotesCapabilities([void Function(NotesCapabilitiesBuilder)? updates]) =>
-      (NotesCapabilitiesBuilder()..update(updates))._build();
-
-  _$NotesCapabilities._({required this.notes}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(notes, r'NotesCapabilities', 'notes');
-  }
-
-  @override
-  NotesCapabilities rebuild(void Function(NotesCapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  NotesCapabilitiesBuilder toBuilder() => NotesCapabilitiesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is NotesCapabilities && notes == other.notes;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, notes.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'NotesCapabilities')..add('notes', notes)).toString();
-  }
-}
-
-class NotesCapabilitiesBuilder
-    implements Builder<NotesCapabilities, NotesCapabilitiesBuilder>, $NotesCapabilitiesInterfaceBuilder {
-  _$NotesCapabilities? _$v;
-
-  NotesCapabilities_NotesBuilder? _notes;
-  NotesCapabilities_NotesBuilder get notes => _$this._notes ??= NotesCapabilities_NotesBuilder();
-  set notes(covariant NotesCapabilities_NotesBuilder? notes) => _$this._notes = notes;
-
-  NotesCapabilitiesBuilder();
-
-  NotesCapabilitiesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _notes = $v.notes.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant NotesCapabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NotesCapabilities;
-  }
-
-  @override
-  void update(void Function(NotesCapabilitiesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  NotesCapabilities build() => _build();
-
-  _$NotesCapabilities _build() {
-    _$NotesCapabilities _$result;
-    try {
-      _$result = _$v ?? _$NotesCapabilities._(notes: notes.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'notes';
-        notes.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'NotesCapabilities', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $NotificationsCapabilities_NotificationsInterfaceBuilder {
   void replace($NotificationsCapabilities_NotificationsInterface other);
   void update(void Function($NotificationsCapabilities_NotificationsInterfaceBuilder) updates);
@@ -22830,6 +22623,213 @@ class WeatherStatusCapabilitiesBuilder
         weatherStatus.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'WeatherStatusCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $NotesCapabilities_NotesInterfaceBuilder {
+  void replace($NotesCapabilities_NotesInterface other);
+  void update(void Function($NotesCapabilities_NotesInterfaceBuilder) updates);
+  ListBuilder<String> get apiVersion;
+  set apiVersion(ListBuilder<String>? apiVersion);
+
+  String? get version;
+  set version(String? version);
+}
+
+class _$NotesCapabilities_Notes extends NotesCapabilities_Notes {
+  @override
+  final BuiltList<String>? apiVersion;
+  @override
+  final String? version;
+
+  factory _$NotesCapabilities_Notes([void Function(NotesCapabilities_NotesBuilder)? updates]) =>
+      (NotesCapabilities_NotesBuilder()..update(updates))._build();
+
+  _$NotesCapabilities_Notes._({this.apiVersion, this.version}) : super._();
+
+  @override
+  NotesCapabilities_Notes rebuild(void Function(NotesCapabilities_NotesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  NotesCapabilities_NotesBuilder toBuilder() => NotesCapabilities_NotesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is NotesCapabilities_Notes && apiVersion == other.apiVersion && version == other.version;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, apiVersion.hashCode);
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'NotesCapabilities_Notes')
+          ..add('apiVersion', apiVersion)
+          ..add('version', version))
+        .toString();
+  }
+}
+
+class NotesCapabilities_NotesBuilder
+    implements
+        Builder<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder>,
+        $NotesCapabilities_NotesInterfaceBuilder {
+  _$NotesCapabilities_Notes? _$v;
+
+  ListBuilder<String>? _apiVersion;
+  ListBuilder<String> get apiVersion => _$this._apiVersion ??= ListBuilder<String>();
+  set apiVersion(covariant ListBuilder<String>? apiVersion) => _$this._apiVersion = apiVersion;
+
+  String? _version;
+  String? get version => _$this._version;
+  set version(covariant String? version) => _$this._version = version;
+
+  NotesCapabilities_NotesBuilder();
+
+  NotesCapabilities_NotesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _apiVersion = $v.apiVersion?.toBuilder();
+      _version = $v.version;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant NotesCapabilities_Notes other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$NotesCapabilities_Notes;
+  }
+
+  @override
+  void update(void Function(NotesCapabilities_NotesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  NotesCapabilities_Notes build() => _build();
+
+  _$NotesCapabilities_Notes _build() {
+    _$NotesCapabilities_Notes _$result;
+    try {
+      _$result = _$v ?? _$NotesCapabilities_Notes._(apiVersion: _apiVersion?.build(), version: version);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'apiVersion';
+        _apiVersion?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'NotesCapabilities_Notes', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $NotesCapabilitiesInterfaceBuilder {
+  void replace($NotesCapabilitiesInterface other);
+  void update(void Function($NotesCapabilitiesInterfaceBuilder) updates);
+  NotesCapabilities_NotesBuilder get notes;
+  set notes(NotesCapabilities_NotesBuilder? notes);
+}
+
+class _$NotesCapabilities extends NotesCapabilities {
+  @override
+  final NotesCapabilities_Notes notes;
+
+  factory _$NotesCapabilities([void Function(NotesCapabilitiesBuilder)? updates]) =>
+      (NotesCapabilitiesBuilder()..update(updates))._build();
+
+  _$NotesCapabilities._({required this.notes}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(notes, r'NotesCapabilities', 'notes');
+  }
+
+  @override
+  NotesCapabilities rebuild(void Function(NotesCapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  NotesCapabilitiesBuilder toBuilder() => NotesCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is NotesCapabilities && notes == other.notes;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, notes.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'NotesCapabilities')..add('notes', notes)).toString();
+  }
+}
+
+class NotesCapabilitiesBuilder
+    implements Builder<NotesCapabilities, NotesCapabilitiesBuilder>, $NotesCapabilitiesInterfaceBuilder {
+  _$NotesCapabilities? _$v;
+
+  NotesCapabilities_NotesBuilder? _notes;
+  NotesCapabilities_NotesBuilder get notes => _$this._notes ??= NotesCapabilities_NotesBuilder();
+  set notes(covariant NotesCapabilities_NotesBuilder? notes) => _$this._notes = notes;
+
+  NotesCapabilitiesBuilder();
+
+  NotesCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _notes = $v.notes.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant NotesCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$NotesCapabilities;
+  }
+
+  @override
+  void update(void Function(NotesCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  NotesCapabilities build() => _build();
+
+  _$NotesCapabilities _build() {
+    _$NotesCapabilities _$result;
+    try {
+      _$result = _$v ?? _$NotesCapabilities._(notes: notes.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'notes';
+        notes.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'NotesCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }

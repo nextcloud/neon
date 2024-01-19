@@ -125,10 +125,10 @@ final BuiltSet<ShareesapiSearchLookup> _$shareesapiSearchLookupValues =
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DeletedShare> _$deletedShareSerializer = _$DeletedShareSerializer();
-Serializer<DeletedShareapiListResponseApplicationJson_Ocs> _$deletedShareapiListResponseApplicationJsonOcsSerializer =
-    _$DeletedShareapiListResponseApplicationJson_OcsSerializer();
-Serializer<DeletedShareapiListResponseApplicationJson> _$deletedShareapiListResponseApplicationJsonSerializer =
-    _$DeletedShareapiListResponseApplicationJsonSerializer();
+Serializer<DeletedShareapiIndexResponseApplicationJson_Ocs> _$deletedShareapiIndexResponseApplicationJsonOcsSerializer =
+    _$DeletedShareapiIndexResponseApplicationJson_OcsSerializer();
+Serializer<DeletedShareapiIndexResponseApplicationJson> _$deletedShareapiIndexResponseApplicationJsonSerializer =
+    _$DeletedShareapiIndexResponseApplicationJsonSerializer();
 Serializer<DeletedShareapiUndeleteResponseApplicationJson_Ocs>
     _$deletedShareapiUndeleteResponseApplicationJsonOcsSerializer =
     _$DeletedShareapiUndeleteResponseApplicationJson_OcsSerializer();
@@ -482,18 +482,18 @@ class _$DeletedShareSerializer implements StructuredSerializer<DeletedShare> {
   }
 }
 
-class _$DeletedShareapiListResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<DeletedShareapiListResponseApplicationJson_Ocs> {
+class _$DeletedShareapiIndexResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DeletedShareapiIndexResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
-    DeletedShareapiListResponseApplicationJson_Ocs,
-    _$DeletedShareapiListResponseApplicationJson_Ocs
+    DeletedShareapiIndexResponseApplicationJson_Ocs,
+    _$DeletedShareapiIndexResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'DeletedShareapiListResponseApplicationJson_Ocs';
+  final String wireName = 'DeletedShareapiIndexResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiListResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiIndexResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
@@ -506,9 +506,9 @@ class _$DeletedShareapiListResponseApplicationJson_OcsSerializer
   }
 
   @override
-  DeletedShareapiListResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DeletedShareapiIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeletedShareapiListResponseApplicationJson_OcsBuilder();
+    final result = DeletedShareapiIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -530,31 +530,31 @@ class _$DeletedShareapiListResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$DeletedShareapiListResponseApplicationJsonSerializer
-    implements StructuredSerializer<DeletedShareapiListResponseApplicationJson> {
+class _$DeletedShareapiIndexResponseApplicationJsonSerializer
+    implements StructuredSerializer<DeletedShareapiIndexResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    DeletedShareapiListResponseApplicationJson,
-    _$DeletedShareapiListResponseApplicationJson
+    DeletedShareapiIndexResponseApplicationJson,
+    _$DeletedShareapiIndexResponseApplicationJson
   ];
   @override
-  final String wireName = 'DeletedShareapiListResponseApplicationJson';
+  final String wireName = 'DeletedShareapiIndexResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiListResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiIndexResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(DeletedShareapiListResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs, specifiedType: const FullType(DeletedShareapiIndexResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  DeletedShareapiListResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DeletedShareapiIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeletedShareapiListResponseApplicationJsonBuilder();
+    final result = DeletedShareapiIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -564,8 +564,8 @@ class _$DeletedShareapiListResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DeletedShareapiListResponseApplicationJson_Ocs))!
-              as DeletedShareapiListResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(DeletedShareapiIndexResponseApplicationJson_Ocs))!
+              as DeletedShareapiIndexResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -5367,9 +5367,9 @@ class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>,
   }
 }
 
-abstract mixin class $DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($DeletedShareapiListResponseApplicationJson_OcsInterface other);
-  void update(void Function($DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DeletedShareapiIndexResponseApplicationJson_OcsInterface other);
+  void update(void Function($DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -5377,34 +5377,34 @@ abstract mixin class $DeletedShareapiListResponseApplicationJson_OcsInterfaceBui
   set data(ListBuilder<DeletedShare>? data);
 }
 
-class _$DeletedShareapiListResponseApplicationJson_Ocs extends DeletedShareapiListResponseApplicationJson_Ocs {
+class _$DeletedShareapiIndexResponseApplicationJson_Ocs extends DeletedShareapiIndexResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
   final BuiltList<DeletedShare> data;
 
-  factory _$DeletedShareapiListResponseApplicationJson_Ocs(
-          [void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DeletedShareapiListResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DeletedShareapiIndexResponseApplicationJson_Ocs(
+          [void Function(DeletedShareapiIndexResponseApplicationJson_OcsBuilder)? updates]) =>
+      (DeletedShareapiIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DeletedShareapiListResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DeletedShareapiListResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DeletedShareapiListResponseApplicationJson_Ocs', 'data');
+  _$DeletedShareapiIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'DeletedShareapiIndexResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'DeletedShareapiIndexResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  DeletedShareapiListResponseApplicationJson_Ocs rebuild(
-          void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder) updates) =>
+  DeletedShareapiIndexResponseApplicationJson_Ocs rebuild(
+          void Function(DeletedShareapiIndexResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DeletedShareapiListResponseApplicationJson_OcsBuilder toBuilder() =>
-      DeletedShareapiListResponseApplicationJson_OcsBuilder()..replace(this);
+  DeletedShareapiIndexResponseApplicationJson_OcsBuilder toBuilder() =>
+      DeletedShareapiIndexResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DeletedShareapiListResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DeletedShareapiIndexResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
@@ -5418,18 +5418,19 @@ class _$DeletedShareapiListResponseApplicationJson_Ocs extends DeletedShareapiLi
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DeletedShareapiListResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'DeletedShareapiIndexResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class DeletedShareapiListResponseApplicationJson_OcsBuilder
+class DeletedShareapiIndexResponseApplicationJson_OcsBuilder
     implements
-        Builder<DeletedShareapiListResponseApplicationJson_Ocs, DeletedShareapiListResponseApplicationJson_OcsBuilder>,
-        $DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
-  _$DeletedShareapiListResponseApplicationJson_Ocs? _$v;
+        Builder<DeletedShareapiIndexResponseApplicationJson_Ocs,
+            DeletedShareapiIndexResponseApplicationJson_OcsBuilder>,
+        $DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder {
+  _$DeletedShareapiIndexResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
   OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
@@ -5439,9 +5440,9 @@ class DeletedShareapiListResponseApplicationJson_OcsBuilder
   ListBuilder<DeletedShare> get data => _$this._data ??= ListBuilder<DeletedShare>();
   set data(covariant ListBuilder<DeletedShare>? data) => _$this._data = data;
 
-  DeletedShareapiListResponseApplicationJson_OcsBuilder();
+  DeletedShareapiIndexResponseApplicationJson_OcsBuilder();
 
-  DeletedShareapiListResponseApplicationJson_OcsBuilder get _$this {
+  DeletedShareapiIndexResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -5452,23 +5453,23 @@ class DeletedShareapiListResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant DeletedShareapiListResponseApplicationJson_Ocs other) {
+  void replace(covariant DeletedShareapiIndexResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$DeletedShareapiListResponseApplicationJson_Ocs;
+    _$v = other as _$DeletedShareapiIndexResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(DeletedShareapiIndexResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  DeletedShareapiListResponseApplicationJson_Ocs build() => _build();
+  DeletedShareapiIndexResponseApplicationJson_Ocs build() => _build();
 
-  _$DeletedShareapiListResponseApplicationJson_Ocs _build() {
-    _$DeletedShareapiListResponseApplicationJson_Ocs _$result;
+  _$DeletedShareapiIndexResponseApplicationJson_Ocs _build() {
+    _$DeletedShareapiIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DeletedShareapiListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ?? _$DeletedShareapiIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5478,7 +5479,7 @@ class DeletedShareapiListResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DeletedShareapiListResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'DeletedShareapiIndexResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5487,38 +5488,38 @@ class DeletedShareapiListResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class $DeletedShareapiListResponseApplicationJsonInterfaceBuilder {
-  void replace($DeletedShareapiListResponseApplicationJsonInterface other);
-  void update(void Function($DeletedShareapiListResponseApplicationJsonInterfaceBuilder) updates);
-  DeletedShareapiListResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(DeletedShareapiListResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class $DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder {
+  void replace($DeletedShareapiIndexResponseApplicationJsonInterface other);
+  void update(void Function($DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder) updates);
+  DeletedShareapiIndexResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(DeletedShareapiIndexResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$DeletedShareapiListResponseApplicationJson extends DeletedShareapiListResponseApplicationJson {
+class _$DeletedShareapiIndexResponseApplicationJson extends DeletedShareapiIndexResponseApplicationJson {
   @override
-  final DeletedShareapiListResponseApplicationJson_Ocs ocs;
+  final DeletedShareapiIndexResponseApplicationJson_Ocs ocs;
 
-  factory _$DeletedShareapiListResponseApplicationJson(
-          [void Function(DeletedShareapiListResponseApplicationJsonBuilder)? updates]) =>
-      (DeletedShareapiListResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DeletedShareapiIndexResponseApplicationJson(
+          [void Function(DeletedShareapiIndexResponseApplicationJsonBuilder)? updates]) =>
+      (DeletedShareapiIndexResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DeletedShareapiListResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DeletedShareapiListResponseApplicationJson', 'ocs');
+  _$DeletedShareapiIndexResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'DeletedShareapiIndexResponseApplicationJson', 'ocs');
   }
 
   @override
-  DeletedShareapiListResponseApplicationJson rebuild(
-          void Function(DeletedShareapiListResponseApplicationJsonBuilder) updates) =>
+  DeletedShareapiIndexResponseApplicationJson rebuild(
+          void Function(DeletedShareapiIndexResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DeletedShareapiListResponseApplicationJsonBuilder toBuilder() =>
-      DeletedShareapiListResponseApplicationJsonBuilder()..replace(this);
+  DeletedShareapiIndexResponseApplicationJsonBuilder toBuilder() =>
+      DeletedShareapiIndexResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DeletedShareapiListResponseApplicationJson && ocs == other.ocs;
+    return other is DeletedShareapiIndexResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -5531,24 +5532,24 @@ class _$DeletedShareapiListResponseApplicationJson extends DeletedShareapiListRe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DeletedShareapiListResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'DeletedShareapiIndexResponseApplicationJson')..add('ocs', ocs)).toString();
   }
 }
 
-class DeletedShareapiListResponseApplicationJsonBuilder
+class DeletedShareapiIndexResponseApplicationJsonBuilder
     implements
-        Builder<DeletedShareapiListResponseApplicationJson, DeletedShareapiListResponseApplicationJsonBuilder>,
-        $DeletedShareapiListResponseApplicationJsonInterfaceBuilder {
-  _$DeletedShareapiListResponseApplicationJson? _$v;
+        Builder<DeletedShareapiIndexResponseApplicationJson, DeletedShareapiIndexResponseApplicationJsonBuilder>,
+        $DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder {
+  _$DeletedShareapiIndexResponseApplicationJson? _$v;
 
-  DeletedShareapiListResponseApplicationJson_OcsBuilder? _ocs;
-  DeletedShareapiListResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= DeletedShareapiListResponseApplicationJson_OcsBuilder();
-  set ocs(covariant DeletedShareapiListResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  DeletedShareapiIndexResponseApplicationJson_OcsBuilder? _ocs;
+  DeletedShareapiIndexResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= DeletedShareapiIndexResponseApplicationJson_OcsBuilder();
+  set ocs(covariant DeletedShareapiIndexResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DeletedShareapiListResponseApplicationJsonBuilder();
+  DeletedShareapiIndexResponseApplicationJsonBuilder();
 
-  DeletedShareapiListResponseApplicationJsonBuilder get _$this {
+  DeletedShareapiIndexResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -5558,30 +5559,30 @@ class DeletedShareapiListResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant DeletedShareapiListResponseApplicationJson other) {
+  void replace(covariant DeletedShareapiIndexResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$DeletedShareapiListResponseApplicationJson;
+    _$v = other as _$DeletedShareapiIndexResponseApplicationJson;
   }
 
   @override
-  void update(void Function(DeletedShareapiListResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(DeletedShareapiIndexResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  DeletedShareapiListResponseApplicationJson build() => _build();
+  DeletedShareapiIndexResponseApplicationJson build() => _build();
 
-  _$DeletedShareapiListResponseApplicationJson _build() {
-    _$DeletedShareapiListResponseApplicationJson _$result;
+  _$DeletedShareapiIndexResponseApplicationJson _build() {
+    _$DeletedShareapiIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DeletedShareapiListResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$DeletedShareapiIndexResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'DeletedShareapiListResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DeletedShareapiIndexResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

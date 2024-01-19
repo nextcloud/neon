@@ -21,27 +21,6 @@
             }
         },
         "schemas": {
-            "Background": {
-                "type": "object",
-                "required": [
-                    "backgroundImage",
-                    "backgroundColor",
-                    "version"
-                ],
-                "properties": {
-                    "backgroundImage": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "backgroundColor": {
-                        "type": "string"
-                    },
-                    "version": {
-                        "type": "integer",
-                        "format": "int64"
-                    }
-                }
-            },
             "OCSMeta": {
                 "type": "object",
                 "required": [

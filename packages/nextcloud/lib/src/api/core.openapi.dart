@@ -8359,73 +8359,6 @@ abstract class FilesVersionsCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NotesCapabilities_NotesInterface {
-  @BuiltValueField(wireName: 'api_version')
-  BuiltList<String>? get apiVersion;
-  String? get version;
-}
-
-abstract class NotesCapabilities_Notes
-    implements $NotesCapabilities_NotesInterface, Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
-  /// Creates a new NotesCapabilities_Notes object using the builder pattern.
-  factory NotesCapabilities_Notes([void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
-
-  // coverage:ignore-start
-  const NotesCapabilities_Notes._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory NotesCapabilities_Notes.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for NotesCapabilities_Notes.
-  static Serializer<NotesCapabilities_Notes> get serializer => _$notesCapabilitiesNotesSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $NotesCapabilitiesInterface {
-  NotesCapabilities_Notes get notes;
-}
-
-abstract class NotesCapabilities
-    implements $NotesCapabilitiesInterface, Built<NotesCapabilities, NotesCapabilitiesBuilder> {
-  /// Creates a new NotesCapabilities object using the builder pattern.
-  factory NotesCapabilities([void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
-
-  // coverage:ignore-start
-  const NotesCapabilities._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory NotesCapabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for NotesCapabilities.
-  static Serializer<NotesCapabilities> get serializer => _$notesCapabilitiesSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $NotificationsCapabilities_NotificationsInterface {
   @BuiltValueField(wireName: 'ocs-endpoints')
   BuiltList<String> get ocsEndpoints;
@@ -9432,6 +9365,73 @@ abstract class WeatherStatusCapabilities
 
   /// Serializer for WeatherStatusCapabilities.
   static Serializer<WeatherStatusCapabilities> get serializer => _$weatherStatusCapabilitiesSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $NotesCapabilities_NotesInterface {
+  @BuiltValueField(wireName: 'api_version')
+  BuiltList<String>? get apiVersion;
+  String? get version;
+}
+
+abstract class NotesCapabilities_Notes
+    implements $NotesCapabilities_NotesInterface, Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
+  /// Creates a new NotesCapabilities_Notes object using the builder pattern.
+  factory NotesCapabilities_Notes([void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
+
+  // coverage:ignore-start
+  const NotesCapabilities_Notes._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory NotesCapabilities_Notes.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for NotesCapabilities_Notes.
+  static Serializer<NotesCapabilities_Notes> get serializer => _$notesCapabilitiesNotesSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $NotesCapabilitiesInterface {
+  NotesCapabilities_Notes get notes;
+}
+
+abstract class NotesCapabilities
+    implements $NotesCapabilitiesInterface, Built<NotesCapabilities, NotesCapabilitiesBuilder> {
+  /// Creates a new NotesCapabilities object using the builder pattern.
+  factory NotesCapabilities([void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
+
+  // coverage:ignore-start
+  const NotesCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory NotesCapabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for NotesCapabilities.
+  static Serializer<NotesCapabilities> get serializer => _$notesCapabilitiesSerializer;
 }
 
 typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
@@ -13978,10 +13978,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(FilesVersionsCapabilities.serializer)
       ..addBuilderFactory(const FullType(FilesVersionsCapabilities_Files), FilesVersionsCapabilities_FilesBuilder.new)
       ..add(FilesVersionsCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilitiesBuilder.new)
-      ..add(NotesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
-      ..add(NotesCapabilities_Notes.serializer)
       ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilitiesBuilder.new)
       ..add(NotificationsCapabilities.serializer)
       ..addBuilderFactory(
@@ -14086,6 +14082,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         WeatherStatusCapabilities_WeatherStatusBuilder.new,
       )
       ..add(WeatherStatusCapabilities_WeatherStatus.serializer)
+      ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilitiesBuilder.new)
+      ..add(NotesCapabilities.serializer)
+      ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
+      ..add(NotesCapabilities_Notes.serializer)
       ..add($3dc1754764311166375258bea55197c8Extension._serializer)
       ..add(PreviewGetPreviewByFileIdA.serializer)
       ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
