@@ -6,5 +6,6 @@ dart_io_usage=("$(grep -r packages --include "*\.dart" -e "dart:io" -l | grep -v
 
 if [[ -n "${dart_io_usage[*]}" ]]; then
   printf "%s\n" "${dart_io_usage[@]}"
+  echo "Use package:universal_io/io.dart instead"
   exit 1
 fi
