@@ -450,7 +450,9 @@ class DynamiteClient {
 
     if (cookieJar != null) {
       final cookies = await cookieJar!.loadForRequest(uri);
-      request.headers['cookie'] = cookies.join('; ');
+      if (cookies.isNotEmpty) {
+        request.headers['cookie'] = cookies.join('; ');
+      }
     }
 
     final response = await httpClient.send(request);

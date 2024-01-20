@@ -40,4 +40,19 @@ void main() {
     expect(cookies[1].name, 'c');
     expect(cookies[1].value, 'd');
   });
+
+  test('No cookies', () async {
+    final mockedClient = MockClient((request) async {
+      expect(request.headers['cookie'], isNull);
+      return Response('', 200);
+    });
+
+    final client = DynamiteClient(
+      uri,
+      httpClient: mockedClient,
+      cookieJar: cookieJar,
+    );
+
+    await client.executeRequest('GET', '', {}, null, null);
+  });
 }
