@@ -3,11 +3,11 @@ set -euxo pipefail
 cd "$(dirname "$0")/.."
 
 function find_apis() {
-    path="$1"
-    grep -r "$path" --include "*\.dart" -e "client\([0-9]\)\?\.[^.]*.[^(]*(" -oh | sed "s/^client\([0-9]\)\?\.//" | sed "s/($//" | sed "s/Raw$//" | grep -v "^executeRawRequest" | sort | uniq
+    # shellcheck disable=SC2068
+    grep -r $@ --include "*\.dart" -e "client\([0-9]\)\?\.[^.]*.[^(]*(" -oh | sed "s/^client\([0-9]\)\?\.//" | sed "s/($//" | sed "s/Raw$//" | grep -v "^executeRawRequest" | sort | uniq
 }
 
-used_apis=("$(find_apis "packages/neon")")
+used_apis=("$(find_apis "packages/neon_framework" "packages/neon/"*)")
 tested_apis=("$(find_apis "packages/nextcloud")")
 
 untested_apis=()
