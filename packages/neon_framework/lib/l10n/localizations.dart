@@ -323,6 +323,12 @@ abstract class NeonLocalizations {
   /// **'Cancel'**
   String get actionCancel;
 
+  /// No description provided for @actionDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get actionDone;
+
   /// No description provided for @firstLaunchGoToSettingsToEnablePushNotifications.
   ///
   /// In en, this message translates to:

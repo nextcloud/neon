@@ -1,5 +1,13 @@
 {
   "@@locale": "en",
   "noEntries": "No entries",
-  "setUserStatus": "Set status"
+  "setUserStatus": "Set status",
+  "weather": "{code, select, clearsky{clear sky} cloudy{cloudy} fair{fair weather} partlycloudy{partly cloudy} fog{foggy} rain{rainfall} lightrain{light rainfall} heavyrain{heavy rainfall} rainshowers{rainfall showers} lightrainshowers{light rainfall showers} heavyrainshowers{heavy rainfall showers} other{}}",
+  "@weather": {
+    "placeholders": {
+      "code": {}
+    }
+  },
+  "locationSet": "Set location for weather",
+  "address": "Address"
 }

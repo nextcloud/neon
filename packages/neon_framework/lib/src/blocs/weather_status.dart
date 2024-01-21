@@ -10,8 +10,9 @@ import 'package:nextcloud/weather_status.dart' as weather_status;
 import 'package:rxdart/rxdart.dart';
 
 /// Bloc for managing the weather status.
-sealed class WeatherStatusBloc implements InteractiveBloc {
-  @internal
+@sealed
+abstract class WeatherStatusBloc implements InteractiveBloc {
+  /// Create a new weather status bloc.
   factory WeatherStatusBloc(
     Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
     Account account,

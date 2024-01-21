@@ -100,6 +100,24 @@ abstract class DashboardLocalizations {
   /// In en, this message translates to:
   /// **'Set status'**
   String get setUserStatus;
+
+  /// No description provided for @weather.
+  ///
+  /// In en, this message translates to:
+  /// **'{code, select, clearsky{clear sky} cloudy{cloudy} fair{fair weather} partlycloudy{partly cloudy} fog{foggy} rain{rainfall} lightrain{light rainfall} heavyrain{heavy rainfall} rainshowers{rainfall showers} lightrainshowers{light rainfall showers} heavyrainshowers{heavy rainfall showers} other{}}'**
+  String weather(String code);
+
+  /// No description provided for @locationSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Set location for weather'**
+  String get locationSet;
+
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
 }
 
 class _DashboardLocalizationsDelegate extends LocalizationsDelegate<DashboardLocalizations> {

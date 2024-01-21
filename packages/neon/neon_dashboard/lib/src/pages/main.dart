@@ -5,6 +5,7 @@ import 'package:intersperse/intersperse.dart';
 import 'package:neon_dashboard/l10n/localizations.dart';
 import 'package:neon_dashboard/src/blocs/dashboard.dart';
 import 'package:neon_dashboard/src/widgets/dry_intrinsic_height.dart';
+import 'package:neon_dashboard/src/widgets/set_weather_location_dialog.dart';
 import 'package:neon_dashboard/src/widgets/widget.dart';
 import 'package:neon_dashboard/src/widgets/widget_button.dart';
 import 'package:neon_dashboard/src/widgets/widget_item.dart';
@@ -28,6 +29,7 @@ class DashboardMainPage extends StatelessWidget {
     final bloc = NeonProvider.of<DashboardBloc>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final userStatusBloc = accountsBloc.activeUserStatusBloc;
+    final weatherStatusBloc = accountsBloc.activeWeatherStatusBloc;
 
     return NeonCustomBackground(
       child: ResultBuilder.behaviorSubject(
@@ -37,6 +39,7 @@ class DashboardMainPage extends StatelessWidget {
             _buildStatuses(
               account: accountsBloc.activeAccount.value!,
               userStatusBloc: userStatusBloc,
+              weatherStatusBloc: weatherStatusBloc,
             ),
           ];
 
@@ -110,6 +113,7 @@ class DashboardMainPage extends StatelessWidget {
   Widget _buildStatuses({
     required Account account,
     required UserStatusBloc userStatusBloc,
+    required WeatherStatusBloc weatherStatusBloc,
   }) =>
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -155,6 +159,76 @@ class DashboardMainPage extends StatelessWidget {
 
               return const SizedBox.shrink();
             },
+          ),
+          StreamBuilder(
+            stream: weatherStatusBloc.isSupported,
+            builder: (context, weatherStatusSupportedSnapshot) => ResultBuilder.behaviorSubject(
+              subject: weatherStatusBloc.forecasts,
+              builder: (context, forecastsResult) {
+                if (!(weatherStatusSupportedSnapshot.data ?? false)) {
+                  return const SizedBox.shrink();
+                }
+
+                Future<void> onWeatherStatusPressed() async {
+                  final location = await showDialog<String>(
+                    context: context,
+                    builder: (context) => DashboardSetWeatherLocationDialog(
+                      currentAddress: weatherStatusBloc.location.valueOrNull?.data?.address,
+                    ),
+                  );
+                  if (location != null) {
+                    weatherStatusBloc.setLocation(location);
+                  }
+                }
+
+                if (forecastsResult.hasData) {
+                  final weatherCode = forecastsResult.requireData.first.data.next1Hours.summary.symbolCode;
+                  final temperature = forecastsResult.requireData.first.data.instant.details.airTemperature;
+                  final description = DashboardLocalizations.of(context).weather(
+                    weatherCode.replaceAll(RegExp(r'_(day|night)$'), ''),
+                  );
+
+                  final icon = switch (weatherCode) {
+                    'clearsky_day' => 'sun',
+                    'clearsky_night' => 'moon',
+                    'cloudy' => 'cloud-cloud',
+                    'fair_day' => 'sun-small-cloud',
+                    'fair_night' => 'moon-small-cloud',
+                    'partlycloudy_day' => 'sun-cloud',
+                    'partlycloudy_night' => 'moon-cloud',
+                    'fog' => 'fog',
+                    'rain' => 'rain',
+                    'lightrain' => 'light-rain',
+                    'heavyrain' => 'heavy-rain',
+                    'rainshowers_day' => 'sun-cloud-rain',
+                    'rainshowers_night' => 'moon-cloud-rain',
+                    'lightrainshowers_day' => 'sun-cloud-light-rain',
+                    'lightrainshowers_night' => 'moon-cloud-light-rain',
+                    'heavyrainshowers_day' => 'sun-cloud-heavy-rain',
+                    'heavyrainshowers_night' => 'moon-cloud-heavy-rain',
+                    _ => throw UnimplementedError('Unknown icon: $weatherCode'),
+                  };
+
+                  return _buildStatus(
+                    context: context,
+                    icon: NeonServerIcon(
+                      icon: icon,
+                    ),
+                    label: Text('$temperature °C $description'),
+                    onPressed: onWeatherStatusPressed,
+                  );
+                } else {
+                  return _buildStatus(
+                    context: context,
+                    icon: const NeonServerIcon(
+                      icon: 'sun-small-cloud',
+                    ),
+                    label: Text(DashboardLocalizations.of(context).locationSet),
+                    onPressed: onWeatherStatusPressed,
+                  );
+                }
+              },
+            ),
           ),
         ]
             .intersperse(
