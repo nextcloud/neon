@@ -125,7 +125,10 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
     final initialApp = getInitialAppFallback();
     if (initialApp != null) {
-      await setActiveApp(initialApp);
+      await setActiveApp(
+        initialApp,
+        skipAlreadySet: true,
+      );
     }
 
     await checkCompatibility();
@@ -262,16 +265,19 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       openNotifications.add(null);
       return;
     }
+    if (activeApp.valueOrNull?.id == appID) {
+      return;
+    }
 
     final apps = await appImplementations.firstWhere((a) => a.hasData);
     final app = apps.requireData.tryFind(appID);
-    if (app != null) {
-      if ((!activeApp.hasValue || !skipAlreadySet || apps.requireData.tryFind(activeApp.value.id) == null) &&
-          activeApp.valueOrNull?.id != appID) {
-        activeApp.add(app);
-      }
-    } else {
+    if (app == null) {
       throw Exception('App $appID not found');
+    }
+
+    // Only override the current active app in case it is not yet set, not supported or explicitly requested
+    if (!activeApp.hasValue || !skipAlreadySet || apps.requireData.tryFind(activeApp.value.id) == null) {
+      activeApp.add(app);
     }
   }
 
