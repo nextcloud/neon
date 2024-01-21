@@ -18,49 +18,21 @@ import 'package:nextcloud/core.dart' as core;
 /// Displays an entry for every registered and supported client and one for
 /// the settings page.
 @internal
-class NeonDrawer extends StatelessWidget {
+class NeonDrawer extends StatefulWidget {
   /// Created a new Neon drawer.
   const NeonDrawer({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final appsBloc = accountsBloc.activeAppsBloc;
-
-    return ResultBuilder.behaviorSubject(
-      subject: appsBloc.appImplementations,
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return const SizedBox.shrink();
-        }
-
-        return _NeonDrawer(
-          apps: snapshot.requireData,
-        );
-      },
-    );
-  }
+  State<NeonDrawer> createState() => _NeonDrawerState();
 }
 
-class _NeonDrawer extends StatefulWidget {
-  const _NeonDrawer({
-    required this.apps,
-  });
-
-  final Iterable<AppImplementation> apps;
-
-  @override
-  State<_NeonDrawer> createState() => __NeonDrawerState();
-}
-
-class __NeonDrawerState extends State<_NeonDrawer> {
+class _NeonDrawerState extends State<NeonDrawer> {
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
-  late List<AppImplementation> _apps;
-
-  late int _activeApp;
+  List<AppImplementation>? _apps;
+  int? _activeApp;
 
   @override
   void initState() {
@@ -69,15 +41,19 @@ class __NeonDrawerState extends State<_NeonDrawer> {
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
     _appsBloc = _accountsBloc.activeAppsBloc;
 
-    _apps = widget.apps.toList();
-    _activeApp = _apps.indexWhere((app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
+    _appsBloc.appImplementations.listen((result) {
+      setState(() {
+        _apps = result.data?.toList();
+        _activeApp = _apps?.indexWhere((app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
+      });
+    });
   }
 
   void onAppChange(int index) {
     Scaffold.maybeOf(context)?.closeDrawer();
 
     // selected item is not a registered app like the SettingsPage
-    if (index >= _apps.length) {
+    if (index >= (_apps?.length ?? 0)) {
       const SettingsRoute().go(context);
       return;
     }
@@ -86,13 +62,13 @@ class __NeonDrawerState extends State<_NeonDrawer> {
       _activeApp = index;
     });
 
-    _appsBloc.setActiveApp(_apps[index].id);
+    _appsBloc.setActiveApp(_apps![index].id);
     //context.goNamed(apps[index].routeName);
   }
 
   @override
   Widget build(BuildContext context) {
-    final appDestinations = _apps.map(
+    final appDestinations = _apps?.map(
       (app) => NavigationDrawerDestinationExtension.fromNeonDestination(
         app.destination(context),
       ),
@@ -103,7 +79,7 @@ class __NeonDrawerState extends State<_NeonDrawer> {
       onDestinationSelected: onAppChange,
       children: [
         const NeonDrawerHeader(),
-        ...appDestinations,
+        ...?appDestinations,
         NavigationDrawerDestination(
           icon: const Icon(Icons.settings),
           label: Text(NeonLocalizations.of(context).settings),
