@@ -378,7 +378,7 @@ class NeonUrlImage extends StatelessWidget {
           completedUri,
           headers,
           null,
-          const {200},
+          const {200, 201},
         );
 
         return response.stream.bytes;
