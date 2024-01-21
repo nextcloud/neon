@@ -10,4 +10,4 @@ postmarket
 provokateurin
 subroutes
 uncategorized
-UPSERT
+upsert

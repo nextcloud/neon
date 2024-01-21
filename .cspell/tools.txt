@@ -5,7 +5,6 @@ autoptr
 buildscript
 buildsystem
 buildx
-cest
 classpath
 cloc
 commitlint
@@ -21,7 +20,6 @@ enduml
 euxo
 exiftool
 extglob
-fehguy
 freedesktop
 fullpath
 gboolean
@@ -46,11 +44,9 @@ libsqlite
 mipmap
 ndebug
 nodoc
-nonintegers
 nproc
 openrelay
 openrelayprojectsecret
-palo
 petstore
 plantuml
 precache
@@ -60,7 +56,6 @@ rpath
 signoff
 startuml
 staticauth
-stdlib
 strconcat
 strdupv
 strfreev
@@ -68,6 +63,5 @@ subprojects
 sysroot
 tsvg
 werror
-workdir
 xxxh
 xxxhdpi
