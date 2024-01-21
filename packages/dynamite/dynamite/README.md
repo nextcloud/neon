@@ -1,4 +1,4 @@
-Provides a [Dart Build System](https://github.com/dart-lang/build) builder for generating clients from an [OpenAPI specifications](https://swagger.io/specification/).
+Provides a [Dart Build System](https://github.com/dart-lang/build) builder for generating clients from [OpenAPI specifications](https://swagger.io/specification/).
 
 The builder generates code if it find files with an `.openapi.json` or `.openapi.yaml` extension in the lib directory.
 
