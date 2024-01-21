@@ -456,5 +456,30 @@ void main() {
 
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_buttons.png'));
     });
+
+    testWidgets('With multiple buttons', (tester) async {
+      final widgetWithMultipleButtons = widget.rebuild(
+        (b) => b.buttons = BuiltList<dashboard.Widget_Buttons>.from([button, button]).toBuilder(),
+      );
+      await tester.pumpWidget(
+        wrapWidget(
+          accountsBloc,
+          Builder(
+            builder: (context) => DashboardWidget(
+              widget: widgetWithMultipleButtons,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widgetWithMultipleButtons,
+                items: null,
+              ).toList(),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.bySubtype<FilledButton>(), findsExactly(2));
+
+      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_multiple_buttons.png'));
+    });
   });
 }
