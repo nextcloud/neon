@@ -6,4 +6,7 @@ class DashboardLocalizationsEn extends DashboardLocalizations {
 
   @override
   String get noEntries => 'No entries';
+
+  @override
+  String get setUserStatus => 'Set status';
 }

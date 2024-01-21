@@ -5,7 +5,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations_en.dart';
 import 'package:neon_framework/models.dart';
-import 'package:neon_framework/src/blocs/user_status.dart';
 import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/theme.dart';
