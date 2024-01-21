@@ -266,7 +266,8 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     final apps = await appImplementations.firstWhere((a) => a.hasData);
     final app = apps.requireData.tryFind(appID);
     if (app != null) {
-      if ((!activeApp.hasValue || !skipAlreadySet) && activeApp.valueOrNull?.id != appID) {
+      if ((!activeApp.hasValue || !skipAlreadySet || apps.requireData.tryFind(activeApp.value.id) == null) &&
+          activeApp.valueOrNull?.id != appID) {
         activeApp.add(app);
       }
     } else {
