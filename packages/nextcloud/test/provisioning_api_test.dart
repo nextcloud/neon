@@ -16,6 +16,7 @@ void main() {
         client = await TestNextcloudClient.create(
           container,
           username: 'admin',
+          passwordConfirmationWorkaround: true,
         );
       });
       tearDownAll(() async {
@@ -46,6 +47,33 @@ void main() {
           expect(response.body.ocs.data.displayname, 'User One');
           expect(response.body.ocs.data.displaynameScope, null);
           expect(response.body.ocs.data.language, 'en');
+        });
+
+        test('Edit user', () async {
+          final response = await client.provisioningApi.users.editUser(
+            userId: 'admin',
+            key: 'address',
+            value: 'Berlin',
+          );
+          expect(response.statusCode, 200);
+          expect(() => response.headers, isA<void>());
+
+          final userResponse = await client.provisioningApi.users.getCurrentUser();
+          expect(userResponse.body.ocs.data.address, 'Berlin');
+        });
+
+        test('Edit user multi value', () async {
+          final response = await client.provisioningApi.users.editUserMultiValue(
+            userId: 'admin',
+            key: 'admin@example.com',
+            value: 'test@example.com',
+            collectionName: 'additional_mail',
+          );
+          expect(response.statusCode, 200);
+          expect(() => response.headers, isA<void>());
+
+          final userResponse = await client.provisioningApi.users.getCurrentUser();
+          expect(userResponse.body.ocs.data.additionalMail, ['test@example.com']);
         });
       });
 

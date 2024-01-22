@@ -1,0 +1,8 @@
+PUT http://localhost/ocs/v2\.php/cloud/users/admin\?key=address&value=Berlin
+accept: application/json
+authorization: Basic mock
+ocs-apirequest: true
+GET http://localhost/ocs/v2\.php/cloud/user
+accept: application/json
+authorization: Basic mock
+ocs-apirequest: true
