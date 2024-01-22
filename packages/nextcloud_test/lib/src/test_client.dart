@@ -16,6 +16,7 @@ extension TestNextcloudClient on NextcloudClient {
   static Future<NextcloudClient> create(
     DockerContainer container, {
     String? username = 'user1',
+    bool passwordConfirmationWorkaround = false,
   }) async {
     String? appPassword;
     if (username != null) {
@@ -52,7 +53,7 @@ extension TestNextcloudClient on NextcloudClient {
       ),
       loginName: username,
       password: username,
-      appPassword: appPassword,
+      appPassword: passwordConfirmationWorkaround ? null : appPassword,
       cookieJar: CookieJar(),
       httpClient: getProxyHttpClient(
         onRequest: appendFixture,
