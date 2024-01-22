@@ -1,6 +1,6 @@
 name: dynamite
 version: 0.1.0
-description: The helper package used at runtime by code generated with the OpenAPI generator dynamite.
+description: Provides a Dart Build System builder for generating clients from OpenAPI specifications.
 homepage: https://github.com/nextcloud/neon
 repository: https://github.com/nextcloud/neon/tree/main/packages/dynamite/dynamite
 topics:
