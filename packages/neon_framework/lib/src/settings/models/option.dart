@@ -14,7 +14,7 @@ import 'package:rxdart/rxdart.dart';
 /// See:
 ///   * [ToggleOption] for an Option<bool>
 ///   * [SelectOption] for an Option with multiple values
-sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Disposable {
+sealed class Option<T extends Object> extends ChangeNotifier implements ValueListenable<T>, Disposable {
   /// Creates an Option
   Option({
     required this.storage,
@@ -151,7 +151,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
 /// See:
 ///   * [SelectOption] for an Option with multiple values
 
-class SelectOption<T> extends Option<T> {
+class SelectOption<T extends Object> extends Option<T> {
   /// Creates a SelectOption
   SelectOption({
     required super.storage,
@@ -210,9 +210,7 @@ class SelectOption<T> extends Option<T> {
     if (_values.keys.contains(value)) {
       super.value = value;
 
-      if (value != null) {
-        unawaited(storage.setString(key.value, serialize()!));
-      }
+      unawaited(storage.setString(key.value, serialize()!));
     } else {
       debugPrint('"$value" is not in "${_values.keys.join('", "')}", ignoring');
     }

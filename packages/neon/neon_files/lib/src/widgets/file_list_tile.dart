@@ -28,7 +28,7 @@ class FileListTile extends StatelessWidget {
       browserBloc.setPath(details.uri);
     } else if (browserBloc.mode == FilesBrowserMode.browser) {
       final sizeWarning = bloc.options.downloadSizeWarning.value;
-      if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
+      if (sizeWarning != 0 && details.size != null && details.size! > sizeWarning) {
         final decision = await showDownloadConfirmationDialog(context, sizeWarning, details.size!);
 
         if (!decision) {

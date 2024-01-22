@@ -45,7 +45,7 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
       if (!globalOptions.pushNotificationsEnabled.enabled || !globalOptions.pushNotificationsEnabled.value) {
         return;
       }
-      if (globalOptions.pushNotificationsDistributor.value != null) {
+      if (globalOptions.pushNotificationsDistributor.value.isNotEmpty) {
         return;
       }
       if (globalOptions.pushNotificationsDistributor.values.containsKey(unifiedPushNextPushID)) {

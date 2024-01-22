@@ -43,7 +43,7 @@ class ToggleSettingsTile extends InputSettingsTile<ToggleOption> {
 }
 
 @internal
-class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
+class SelectSettingsTile<T extends Object> extends InputSettingsTile<SelectOption<T>> {
   const SelectSettingsTile({
     required super.option,
     this.immediateSelection = true,
@@ -95,7 +95,7 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
 }
 
 @internal
-class SelectSettingsTileDialog<T> extends StatefulWidget {
+class SelectSettingsTileDialog<T extends Object> extends StatefulWidget {
   const SelectSettingsTileDialog({
     required this.option,
     this.immediateSelection = true,
@@ -110,7 +110,7 @@ class SelectSettingsTileDialog<T> extends StatefulWidget {
   State<SelectSettingsTileDialog<T>> createState() => _SelectSettingsTileDialogState<T>();
 }
 
-class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T>> {
+class _SelectSettingsTileDialogState<T extends Object> extends State<SelectSettingsTileDialog<T>> {
   late T value;
   late SelectOption<T> option = widget.option;
 
@@ -138,8 +138,11 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
               value: k,
               groupValue: value,
               onChanged: (value) {
+                if (value == null) {
+                  return;
+                }
                 setState(() {
-                  this.value = value as T;
+                  this.value = value;
                 });
 
                 if (widget.immediateSelection) {
@@ -174,7 +177,7 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
 }
 
 @internal
-class SelectSettingsTileScreen<T> extends StatelessWidget {
+class SelectSettingsTileScreen<T extends Object> extends StatelessWidget {
   const SelectSettingsTileScreen({
     required this.option,
     super.key,
@@ -202,7 +205,10 @@ class SelectSettingsTileScreen<T> extends StatelessWidget {
               value: k,
               groupValue: value,
               onChanged: (value) {
-                option.value = value as T;
+                if (value == null) {
+                  return;
+                }
+                option.value = value;
               },
             ),
           ),

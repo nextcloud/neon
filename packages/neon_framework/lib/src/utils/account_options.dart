@@ -20,7 +20,7 @@ class AccountOptions extends OptionsCollection {
       }
 
       initialApp.values = {
-        null: (context) => NeonLocalizations.of(context).accountOptionsAutomatic,
+        '': (context) => NeonLocalizations.of(context).accountOptionsAutomatic,
       }..addEntries(result.requireData.map((app) => MapEntry(app.id, app.name)));
     });
   }
@@ -34,12 +34,12 @@ class AccountOptions extends OptionsCollection {
 
   /// The initial app to show on app start.
   ///
-  /// Defaults to `null` letting the framework choose one.
-  late final initialApp = SelectOption<String?>(
+  /// Defaults to an empty `String` letting the framework choose one.
+  late final initialApp = SelectOption<String>(
     storage: storage,
     key: AccountOptionKeys.initialApp,
     label: (context) => NeonLocalizations.of(context).accountOptionsInitialApp,
-    defaultValue: null,
+    defaultValue: '',
     values: {},
   );
 }

@@ -102,7 +102,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
 
   Future<void> distributorListener() async {
     final distributor = globalOptions.pushNotificationsDistributor.value;
-    final disabled = distributor == null;
+    final disabled = distributor.isEmpty;
     final sameDistributor = distributor == await UnifiedPush.getDistributor();
     final accounts = accountsBloc.accounts.value;
     if (disabled || !sameDistributor) {

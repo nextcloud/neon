@@ -88,8 +88,8 @@ class FilesOptions extends AppImplementationOptions {
     },
   );
 
-  late final _sizeWarningValues = <int?, LabelBuilder>{
-    null: (context) => FilesLocalizations.of(context).optionsSizeWarningDisabled,
+  late final _sizeWarningValues = <int, LabelBuilder>{
+    0: (context) => FilesLocalizations.of(context).optionsSizeWarningDisabled,
     for (var i in [
       1,
       10,
@@ -105,7 +105,7 @@ class FilesOptions extends AppImplementationOptions {
 
   int _mb(int i) => i * 1024 * 1024;
 
-  late final uploadSizeWarning = SelectOption<int?>(
+  late final uploadSizeWarning = SelectOption<int>(
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.uploadSizeWarning,
@@ -114,7 +114,7 @@ class FilesOptions extends AppImplementationOptions {
     values: _sizeWarningValues,
   );
 
-  late final downloadSizeWarning = SelectOption<int?>(
+  late final downloadSizeWarning = SelectOption<int>(
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.downloadSizeWarning,

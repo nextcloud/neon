@@ -175,11 +175,11 @@ class GlobalOptions extends OptionsCollection {
   );
 
   /// The registered distributor for push notifications.
-  late final pushNotificationsDistributor = SelectOption<String?>.depend(
+  late final pushNotificationsDistributor = SelectOption<String>.depend(
     storage: storage,
     key: GlobalOptionKeys.pushNotificationsDistributor,
     label: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributor,
-    defaultValue: null,
+    defaultValue: '',
     values: {},
     enabled: pushNotificationsEnabled,
   );
@@ -222,11 +222,11 @@ class GlobalOptions extends OptionsCollection {
   );
 
   /// The initial account to use when opening the app.
-  late final initialAccount = SelectOption<String?>(
+  late final initialAccount = SelectOption<String>(
     storage: storage,
     key: GlobalOptionKeys.initialAccount,
     label: (context) => NeonLocalizations.of(context).globalOptionsAccountsInitialAccount,
-    defaultValue: null,
+    defaultValue: '',
     values: {},
   );
 

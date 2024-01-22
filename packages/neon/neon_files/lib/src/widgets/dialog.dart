@@ -62,7 +62,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
 
   Future<void> upload(File file) async {
     final sizeWarning = widget.bloc.options.uploadSizeWarning.value;
-    if (sizeWarning != null) {
+    if (sizeWarning != 0) {
       final stat = file.statSync();
       if (stat.size > sizeWarning) {
         final result = await showUploadConfirmationDialog(context, sizeWarning, stat.size);

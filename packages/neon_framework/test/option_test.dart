@@ -177,24 +177,24 @@ void main() {
       expect(option.value, option.defaultValue, reason: 'Should reset the value.');
     });
 
-    test('Serialize null', () {
-      final option = SelectOption<SelectValues?>(
+    test('Serialize', () {
+      final option = SelectOption<SelectValues>(
         storage: storage,
         key: key,
         label: labelBuilder,
-        defaultValue: null,
+        defaultValue: SelectValues.first,
         values: valuesLabel,
       );
 
-      expect(option.serialize(), null, reason: 'Should serialize to null. A string containing "null" is an error');
+      expect(option.serialize(), SelectValues.first.toString(), reason: 'Should serialize to SelectValues.first.');
     });
 
     test('Deserialize', () {
-      final option = SelectOption<SelectValues?>(
+      final option = SelectOption<SelectValues>(
         storage: storage,
         key: key,
         label: labelBuilder,
-        defaultValue: null,
+        defaultValue: SelectValues.first,
         values: valuesLabel,
       );
 
@@ -205,11 +205,11 @@ void main() {
     });
 
     test('Stream', () async {
-      final option = SelectOption<SelectValues?>(
+      final option = SelectOption<SelectValues>(
         storage: storage,
         key: key,
         label: labelBuilder,
-        defaultValue: null,
+        defaultValue: SelectValues.first,
         values: valuesLabel,
       );
 
