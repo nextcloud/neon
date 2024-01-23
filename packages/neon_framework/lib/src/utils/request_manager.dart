@@ -137,21 +137,22 @@ class RequestManager {
     bool emitEmptyCache = false,
     int retries = 0,
   ]) async {
-    // emit loading state with the current value if present
-    final value = subject.valueOrNull?.asLoading() ?? Result.loading();
-    subject.add(value);
-
     final key = '$clientID-$k';
 
-    unawaited(
-      _emitCached(
+    Future<bool>? cacheFuture;
+    if (retries == 0) {
+      // emit loading state with the current value if present
+      final value = subject.valueOrNull?.asLoading() ?? Result.loading();
+      subject.add(value);
+
+      cacheFuture = _emitCached(
         key,
         subject,
         unwrap,
         deserialize,
         emitEmptyCache,
-      ),
-    );
+      );
+    }
 
     try {
       final response = await timeout(call, disableTimeout: disableTimeout);
@@ -187,6 +188,8 @@ class RequestManager {
         _emitError<T>(e, subject);
       }
     }
+
+    await cacheFuture;
   }
 
   /// Re emits the current result with the given [error].
