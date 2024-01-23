@@ -115,7 +115,6 @@ class RequestManager {
     NextcloudApiCallback<WebDavMultistatus> call,
     UnwrapCallback<T, WebDavMultistatus> unwrap, {
     bool disableTimeout = false,
-    bool emitEmptyCache = false,
   }) async =>
       wrap<T, WebDavMultistatus>(
         clientID,
@@ -126,7 +125,6 @@ class RequestManager {
         (data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
         (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
         disableTimeout,
-        emitEmptyCache,
       );
 
   /// Executes a generic request.
@@ -143,13 +141,12 @@ class RequestManager {
     DeserializeCallback<R> deserialize, [
     // ignore: avoid_positional_boolean_parameters
     bool disableTimeout = false,
-    bool emitEmptyCache = false,
     Duration timeLimit = kDefaultTimeout,
     int retries = 0,
   ]) async {
     final key = '$clientID-$k';
 
-    Future<bool>? cacheFuture;
+    Future<void>? cacheFuture;
     if (retries == 0) {
       // emit loading state with the current value if present
       final value = subject.valueOrNull?.asLoading() ?? Result.loading();
@@ -160,7 +157,6 @@ class RequestManager {
         subject,
         unwrap,
         deserialize,
-        emitEmptyCache,
       );
     }
 
@@ -191,7 +187,6 @@ class RequestManager {
           serialize,
           deserialize,
           disableTimeout,
-          emitEmptyCache,
           timeLimit,
           retries + 1,
         );
@@ -221,22 +216,22 @@ class RequestManager {
   ///
   /// Requires the subject to have a value present. If this value is a
   /// successful result no value is emitted.
-  Future<bool> _emitCached<T, R>(
+  Future<void> _emitCached<T, R>(
     String key,
     BehaviorSubject<Result<T>> subject,
     UnwrapCallback<T, R> unwrap,
     DeserializeCallback<R> deserialize,
-    bool emitEmptyCache,
   ) async {
     final cacheValue = await _cache?.get(key);
+
+    // If the network fetch is faster than fetching the cached value the
+    // subject can be closed before emitting.
+    if (subject.value.hasSuccessfulData) {
+      return;
+    }
+
     if (cacheValue != null) {
       final cached = unwrap(deserialize(cacheValue));
-
-      // If the network fetch is faster than fetching the cached value the
-      // subject can be closed before emitting.
-      if (subject.value.hasSuccessfulData) {
-        return true;
-      }
 
       subject.add(
         subject.value.copyWith(
@@ -244,21 +239,7 @@ class RequestManager {
           isCached: true,
         ),
       );
-
-      return true;
     }
-
-    if (emitEmptyCache && !subject.value.hasSuccessfulData) {
-      subject.add(
-        subject.value.copyWith(
-          isCached: true,
-        ),
-      );
-
-      return true;
-    }
-
-    return false;
   }
 
   /// Calls a [callback] that is canceled after a given [timeLimit].

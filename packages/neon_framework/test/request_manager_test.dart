@@ -167,7 +167,6 @@ void main() {
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
           false,
-          false,
           const Duration(milliseconds: 50),
         );
 
@@ -210,7 +209,6 @@ void main() {
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
-          false,
           false,
           const Duration(milliseconds: 50),
         );
@@ -388,7 +386,6 @@ void main() {
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
           false,
-          false,
           const Duration(milliseconds: 50),
         );
 
@@ -434,7 +431,6 @@ void main() {
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
-          false,
           false,
           const Duration(milliseconds: 50),
         );
@@ -625,7 +621,6 @@ void main() {
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
           false,
-          false,
           const Duration(milliseconds: 50),
         );
 
@@ -678,7 +673,6 @@ void main() {
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
-          false,
           false,
           const Duration(milliseconds: 50),
         );
