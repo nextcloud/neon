@@ -62,6 +62,9 @@ class RequestManager {
   // ignore: prefer_constructors_over_static_methods
   static RequestManager get instance => _requestManager ??= RequestManager._();
 
+  @visibleForTesting
+  static set instance(RequestManager? requestManager) => _requestManager = requestManager;
+
   /// Initializes the cache.
   ///
   /// Requests made before this method has completed will not be persisted in the cache.
@@ -83,7 +86,7 @@ class RequestManager {
     UnwrapCallback<T, DynamiteResponse<B, H>> unwrap, {
     bool disableTimeout = false,
   }) async =>
-      _wrap<T, DynamiteRawResponse<B, H>>(
+      wrap<T, DynamiteRawResponse<B, H>>(
         clientID,
         k,
         subject,
@@ -113,7 +116,7 @@ class RequestManager {
     bool disableTimeout = false,
     bool emitEmptyCache = false,
   }) async =>
-      _wrap<T, WebDavMultistatus>(
+      wrap<T, WebDavMultistatus>(
         clientID,
         k,
         subject,
@@ -125,7 +128,11 @@ class RequestManager {
         emitEmptyCache,
       );
 
-  Future<void> _wrap<T, R>(
+  /// Executes a generic request.
+  ///
+  /// This method is only meant to be used in testing.
+  @visibleForTesting
+  Future<void> wrap<T, R>(
     String clientID,
     String k,
     BehaviorSubject<Result<T>> subject,
@@ -133,8 +140,10 @@ class RequestManager {
     UnwrapCallback<T, R> unwrap,
     SerializeCallback<R> serialize,
     DeserializeCallback<R> deserialize, [
+    // ignore: avoid_positional_boolean_parameters
     bool disableTimeout = false,
     bool emitEmptyCache = false,
+    Duration timeLimit = kDefaultTimeout,
     int retries = 0,
   ]) async {
     final key = '$clientID-$k';
@@ -155,7 +164,7 @@ class RequestManager {
     }
 
     try {
-      final response = await timeout(call, disableTimeout: disableTimeout);
+      final response = await timeout(call, disableTimeout: disableTimeout, timeLimit: timeLimit);
       subject.add(Result.success(unwrap(response)));
 
       final serialized = serialize(response);
@@ -172,7 +181,7 @@ class RequestManager {
 
       if (e is DynamiteApiException && e.statusCode >= 500 && retries < kMaxRetries) {
         debugPrint('Retrying...');
-        await _wrap(
+        await wrap(
           clientID,
           k,
           subject,
@@ -182,6 +191,7 @@ class RequestManager {
           deserialize,
           disableTimeout,
           emitEmptyCache,
+          timeLimit,
           retries + 1,
         );
       } else {
@@ -203,6 +213,13 @@ class RequestManager {
     subject.add(value);
   }
 
+  /// Retrieves the cached value for the given [key].
+  ///
+  /// After deserialization and unwrapping it the retrieved value is emitted in
+  /// the given [subject] as a cached `Result`.
+  ///
+  /// Requires the subject to have a value present. If this value is a
+  /// successful result no value is emitted.
   Future<bool> _emitCached<T, R>(
     String key,
     BehaviorSubject<Result<T>> subject,
@@ -248,7 +265,7 @@ class RequestManager {
     return false;
   }
 
-  /// Calls a [callback] that is canceled after a given [timeout].
+  /// Calls a [callback] that is canceled after a given [timeLimit].
   ///
   /// If the callback completes in time the resulting value is returned.
   /// Otherwise the returned future will be completed with a [TimeoutException].
@@ -257,13 +274,13 @@ class RequestManager {
   Future<T> timeout<T>(
     NextcloudApiCallback<T> callback, {
     bool disableTimeout = false,
-    Duration timeout = kDefaultTimeout,
+    Duration timeLimit = kDefaultTimeout,
   }) {
     if (disableTimeout) {
       return callback();
     }
 
-    return callback().timeout(timeout);
+    return callback().timeout(timeLimit);
   }
 }
 
