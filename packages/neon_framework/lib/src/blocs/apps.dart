@@ -161,7 +161,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     final capabilities = capabilitiesBloc.capabilities.valueOrNull;
 
     // ignore cached data
-    if (capabilities == null || apps == null || !capabilities.hasUncachedData || !apps.hasUncachedData) {
+    if (capabilities == null || apps == null || !capabilities.hasSuccessfulData || !apps.hasSuccessfulData) {
       return;
     }
 

@@ -135,8 +135,10 @@ class Result<T> {
   /// A result may both have an error and data.
   bool get hasData => data != null;
 
-  /// Returns whether this snapshot [hasData] and [isCached] is not true.
-  bool get hasUncachedData => hasData && !isCached;
+  /// Returns whether this snapshot is equal to a [Result.success].
+  ///
+  /// A successful result has data, has no error and is neither loading nor cached.
+  bool get hasSuccessfulData => hasData && !isCached && !isLoading && !hasError;
 
   /// Returns the latest data received, failing if there is no data.
   ///
@@ -151,10 +153,16 @@ class Result<T> {
 
   @override
   bool operator ==(Object other) =>
-      other is Result && other.isLoading == isLoading && other.data == data && other.error == error;
+      other is Result &&
+      other.isLoading == isLoading &&
+      other.data == data &&
+      other.error?.toString() == error?.toString();
 
   @override
-  int get hashCode => Object.hash(data, error, isLoading, isCached);
+  int get hashCode => Object.hash(data, error?.toString(), isLoading, isCached);
+
+  @override
+  String toString() => 'Result($data, $error, isLoading: $isLoading, isCached: $isCached)';
 }
 
 /// Signature for strategies that build widgets based on asynchronous [Result]s.
