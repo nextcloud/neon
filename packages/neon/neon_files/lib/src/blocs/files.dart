@@ -94,7 +94,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     wrapAction(
       () async => account.client.webdav.proppatch(
         uri,
-        set: WebDavProp(ocfavorite: 1),
+        set: const WebDavProp(ocfavorite: 1),
       ),
     );
   }
@@ -151,7 +151,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     wrapAction(
       () async => account.client.webdav.proppatch(
         uri,
-        set: WebDavProp(ocfavorite: 0),
+        set: const WebDavProp(ocfavorite: 0),
       ),
     );
   }

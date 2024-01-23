@@ -274,7 +274,9 @@ class WebDavClient {
           'PROPFIND',
           _constructUri(path),
           data: utf8.encode(
-            WebDavPropfind(prop: prop ?? WebDavPropWithoutValues()).toXmlElement(namespaces: namespaces).toXmlString(),
+            WebDavPropfind(prop: prop ?? const WebDavPropWithoutValues())
+                .toXmlElement(namespaces: namespaces)
+                .toXmlString(),
           ),
           headers: depth != null ? {'Depth': depth.value} : null,
         ),
@@ -296,7 +298,7 @@ class WebDavClient {
           data: utf8.encode(
             WebDavOcFilterFiles(
               filterRules: filterRules,
-              prop: prop ?? WebDavPropWithoutValues(), // coverage:ignore-line
+              prop: prop ?? const WebDavPropWithoutValues(), // coverage:ignore-line
             ).toXmlElement(namespaces: namespaces).toXmlString(),
           ),
         ),
