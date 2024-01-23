@@ -61,23 +61,27 @@ void main() {
     test('data check', () {
       const data = 'someData';
 
-      final a = Result<String>.loading();
-      final b = Result.success(data);
-      final c = Result(
+      final loading = Result<String>.loading();
+      final success = Result.success(data);
+      final error = Result.error(data);
+      final cached = Result(
         data,
         null,
         isLoading: false,
         isCached: true,
       );
 
-      expect(a.hasData, false);
-      expect(b.hasData, true);
+      expect(success.hasData, isTrue);
+      expect(loading.hasData, isFalse);
+      expect(error.hasData, isFalse);
 
-      expect(() => a.requireData, throwsStateError);
-      expect(b.requireData, equals(data));
+      expect(success.requireData, equals(data));
+      expect(() => loading.requireData, throwsStateError);
+      expect(() => error.requireData, throwsStateError);
 
-      expect(b.hasUncachedData, true);
-      expect(c.hasUncachedData, false);
+      expect(success.hasSuccessfulData, isTrue);
+      expect(cached.hasSuccessfulData, isFalse);
+      expect(error.hasSuccessfulData, isFalse);
     });
 
     test('error check', () {

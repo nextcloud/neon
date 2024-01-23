@@ -214,7 +214,7 @@ class RequestManager {
 
         // If the network fetch is faster than fetching the cached value the
         // subject can be closed before emitting.
-        if (subject.value.hasUncachedData) {
+        if (subject.value.hasSuccessfulData) {
           return true;
         }
 
@@ -232,7 +232,7 @@ class RequestManager {
       debugPrintStack(stackTrace: s, maxFrames: 5);
     }
 
-    if (emitEmptyCache && !subject.value.hasUncachedData) {
+    if (emitEmptyCache && !subject.value.hasSuccessfulData) {
       subject.add(
         subject.value.copyWith(
           isCached: true,

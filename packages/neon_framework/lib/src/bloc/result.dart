@@ -135,8 +135,10 @@ class Result<T> {
   /// A result may both have an error and data.
   bool get hasData => data != null;
 
-  /// Returns whether this snapshot [hasData] and [isCached] is not true.
-  bool get hasUncachedData => hasData && !isCached;
+  /// Returns whether this snapshot is equal to a [Result.success].
+  ///
+  /// A successful result has data, has no error and is neither loading nor cached.
+  bool get hasSuccessfulData => hasData && !isCached && !isLoading && !hasError;
 
   /// Returns the latest data received, failing if there is no data.
   ///
