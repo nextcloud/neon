@@ -537,10 +537,12 @@ class NeonEmojiPickerDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final constraints = NeonDialogTheme.of(context).constraints;
 
     return NeonDialog(
       content: SizedBox(
-        width: NeonDialogTheme.of(context).constraints.maxWidth,
+        width: constraints.maxWidth,
+        height: constraints.maxWidth * 1.5,
         child: EmojiPicker(
           config: Config(
             emojiSizeMax: 25,

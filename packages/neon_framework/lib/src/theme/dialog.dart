@@ -14,7 +14,6 @@ class NeonDialogTheme {
     this.constraints = const BoxConstraints(
       minWidth: 280,
       maxWidth: 560,
-      maxHeight: 560 * 1.5,
     ),
     this.padding = const EdgeInsets.all(24),
   });
