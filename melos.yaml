@@ -23,6 +23,11 @@ command:
   bootstrap:
     hooks:
       post: melos run format
+  version:
+    hooks:
+      preCommit: |
+        melos bootstrap
+        git add packages/app/pubspec.lock
 
 scripts:
   format: dart format --fix --line-length 120 .
