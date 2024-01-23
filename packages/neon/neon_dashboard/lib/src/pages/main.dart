@@ -151,9 +151,12 @@ class DashboardMainPage extends StatelessWidget {
     if (widget.buttons != null) {
       for (final button in widget.buttons!) {
         yield SizedBox(
-          height: 32,
-          child: DashboardWidgetButton(
-            button: button,
+          height: 40,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: DashboardWidgetButton(
+              button: button,
+            ),
           ),
         );
       }
