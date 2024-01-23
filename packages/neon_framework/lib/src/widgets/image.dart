@@ -7,6 +7,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/src/utils/image_utils.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
@@ -100,7 +101,10 @@ class NeonCachedImage extends StatefulWidget {
       return cached;
     }
 
-    final data = await getImage();
+    var data = await getImage();
+    try {
+      data = utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
+    } catch (_) {}
 
     unawaited(writeCache?.call(cacheManager, data) ?? _defaultCacheWriter(data, cacheKey));
 
