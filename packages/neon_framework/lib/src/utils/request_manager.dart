@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -175,11 +176,11 @@ class RequestManager {
       debugPrintStack(stackTrace: s, maxFrames: 5);
 
       _emitError<T>(e, subject);
-    } catch (e, s) {
+    } on http.ClientException catch (e, s) {
       debugPrint(e.toString());
       debugPrintStack(stackTrace: s, maxFrames: 5);
 
-      if (e is DynamiteApiException && e.statusCode >= 500 && retries < kMaxRetries) {
+      if (e is DynamiteStatusCodeException && e.statusCode >= 500 && retries < kMaxRetries) {
         debugPrint('Retrying...');
         await wrap(
           clientID,

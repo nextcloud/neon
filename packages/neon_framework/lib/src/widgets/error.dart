@@ -166,7 +166,7 @@ class NeonError extends StatelessWidget {
         );
       case NeonException():
         return error.details;
-      case DynamiteApiException():
+      case DynamiteStatusCodeException():
         if (error.statusCode == 401) {
           return NeonExceptionDetails(
             getText: (context) => NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,

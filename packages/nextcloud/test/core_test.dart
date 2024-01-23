@@ -151,7 +151,7 @@ void main() {
           await client.core.appPassword.deleteAppPassword();
           await expectLater(
             () => client.core.appPassword.deleteAppPassword(),
-            throwsA(predicate((e) => (e! as DynamiteApiException).statusCode == 401)),
+            throwsA(predicate((e) => (e! as DynamiteStatusCodeException).statusCode == 401)),
           );
         });
       });
@@ -199,7 +199,7 @@ void main() {
 
           await expectLater(
             () => client.core.clientFlowLoginV2.poll(token: response.body.poll.token),
-            throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 404)),
+            throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 404)),
           );
         });
       });

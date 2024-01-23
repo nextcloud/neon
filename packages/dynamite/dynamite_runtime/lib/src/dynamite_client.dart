@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:built_value/serializer.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/src/http_extensions.dart';
+import 'package:dynamite_runtime/src/utils/debug_mode.dart';
 import 'package:dynamite_runtime/src/utils/uri.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
@@ -251,23 +252,39 @@ class DynamiteRawResponse<B, H> {
 ///
 ///
 /// See:
-///   * [DynamiteResponse] as the response returned by an operation.
-///   * [DynamiteRawResponse] as the raw response that can be serialized.
-///   * [DynamiteAuthentication] for providing authentication methods.
-///   * [DynamiteClient] for the client providing operations.
+///   * [DynamiteStatusCodeException] as the exception thrown when the response
+///     returns an invalid status code.
 @immutable
-class DynamiteApiException implements Exception {
-  /// Creates a new dynamite exception with the given information.
-  const DynamiteApiException(
-    this.statusCode,
-    this.headers,
-    this.body,
-  );
+sealed class DynamiteApiException extends http.ClientException {
+  DynamiteApiException(super.message, super.uri);
+}
 
-  /// Creates a new Exception from the given [response].
+/// An exception caused by an invalid status code in a response.
+class DynamiteStatusCodeException extends DynamiteApiException {
+  /// Creates a new dynamite exception with the given information.
+  DynamiteStatusCodeException(
+    this.statusCode, [
+    Uri? url,
+  ]) : super('Invalid status code $statusCode.', url);
+
+  DynamiteStatusCodeException._(
+    this.statusCode,
+    Map<String, Object?> headers,
+    String body, [
+    Uri? url,
+  ]) : super('Invalid status code $statusCode, $statusCode, headers: $headers, body: $body', url);
+
+  /// The returned status code when the exception was thrown.
+  final int statusCode;
+
+  /// Creates a new Exception from the given [response] for debugging.
   ///
-  /// Tries to decode the `response` into a string.
-  static Future<DynamiteApiException> fromResponse(http.StreamedResponse response) async {
+  /// Awaits the response and tries to decode the `response` into a string.
+  /// Do not use this in production for performance reasons.
+  @visibleForTesting
+  static Future<DynamiteStatusCodeException> fromResponse(http.StreamedResponse response) async {
+    assert(kDebugMode, 'Do not use in production for performance reasons.');
+
     String body;
     try {
       body = await response.stream.string;
@@ -275,24 +292,12 @@ class DynamiteApiException implements Exception {
       body = 'binary';
     }
 
-    return DynamiteApiException(
+    return DynamiteStatusCodeException._(
       response.statusCode,
       response.headers,
       body,
     );
   }
-
-  /// The returned status code when the exception was thrown.
-  final int statusCode;
-
-  /// The returned headers when the exception was thrown.
-  final Map<String, Object?> headers;
-
-  /// The returned body code when the exception was thrown.
-  final String body;
-
-  @override
-  String toString() => 'DynamiteApiException(statusCode: $statusCode, headers: $headers, body: $body)';
 }
 
 /// Base dynamite authentication.
@@ -466,7 +471,11 @@ class DynamiteClient {
     if (validStatuses?.contains(response.statusCode) ?? true) {
       return response;
     } else {
-      throw await DynamiteApiException.fromResponse(response);
+      if (kDebugMode) {
+        throw await DynamiteStatusCodeException.fromResponse(response);
+      } else {
+        throw DynamiteStatusCodeException(response.statusCode);
+      }
     }
   }
 }
