@@ -111,7 +111,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
         depth: WebDavDepth.one,
       ),
       (response) {
-        final unwrapped = response.toWebDavFiles().sublist(1);
+        final unwrapped = response.toWebDavFiles();
 
         return unwrapped.where((file) {
           // Do not show files when selecting a directory
@@ -132,14 +132,21 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
           return true;
         }).toList();
       },
-      emitEmptyCache: true,
     );
   }
 
   @override
-  void setPath(PathUri uri) {
+  Future<void> setPath(PathUri uri) async {
     this.uri.add(uri);
-    unawaited(refresh());
+    await refresh();
+
+    // When the request fails (i.e by being offline) and the requested path
+    // is not cached return an empty list. To avoid re emitting the parent
+    // data.
+    final currentFiles = files.valueOrNull;
+    if (currentFiles != null && currentFiles.data?.first.path != uri) {
+      files.add(Result(null, currentFiles.error, isCached: true, isLoading: false));
+    }
   }
 
   @override

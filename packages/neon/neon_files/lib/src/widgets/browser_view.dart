@@ -64,7 +64,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   presort: const {
                     (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
                   },
-                  input: filesSnapshot.data,
+                  input: filesSnapshot.data?.sublist(1),
                   builder: (context, sorted) {
                     final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
 
