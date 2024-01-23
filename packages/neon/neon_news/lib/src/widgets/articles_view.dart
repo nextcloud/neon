@@ -63,7 +63,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                   widget.newsBloc.refresh(),
                 ]);
               },
-              itemCount: feeds.hasData ? sorted.length : null,
+              itemCount: sorted.length,
               itemBuilder: (context, index) {
                 final article = sorted[index];
 
