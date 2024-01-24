@@ -4,7 +4,7 @@ import 'package:pubspec_parse/pubspec_parse.dart';
 
 final dependencies = {
   'built_collection': Version.parse('5.0.0'),
-  'built_value': Version.parse('8.0.0'),
+  'built_value': Version.parse('8.9.0'),
   'collection': Version.parse('1.0.0'),
   'dynamite_runtime': Version.parse('0.1.0'),
   'http': Version.parse('1.2.0'),
@@ -13,7 +13,7 @@ final dependencies = {
 };
 
 final devDependencies = {
-  'built_value_generator': Version.parse('8.8.1'),
+  'built_value_generator': Version.parse('8.9.0'),
 };
 
 /// Checks whether the correct version of the dependencies are present in the pubspec.yaml file.
