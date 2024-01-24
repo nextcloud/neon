@@ -13,7 +13,7 @@ environment:
 
 dependencies:
   built_collection: ^5.0.0
-  built_value: ^8.0.0
+  built_value: ^8.9.0
   collection: ^1.0.0
   crypto: ^3.0.0
   crypton: ^2.0.0
@@ -30,7 +30,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.8
-  built_value_generator: ^8.8.1
+  built_value_generator: ^8.9.0
   coverage: ^1.7.2
   dynamite: ^0.1.0
   json_serializable: ^6.7.1
