@@ -115,7 +115,6 @@ class RequestManager {
     NextcloudApiCallback<WebDavMultistatus> call,
     UnwrapCallback<T, WebDavMultistatus> unwrap, {
     bool disableTimeout = false,
-    bool emitEmptyCache = false,
   }) async =>
       wrap<T, WebDavMultistatus>(
         clientID,
@@ -126,7 +125,6 @@ class RequestManager {
         (data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
         (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
         disableTimeout,
-        emitEmptyCache,
       );
 
   /// Executes a generic request.
@@ -143,13 +141,12 @@ class RequestManager {
     DeserializeCallback<R> deserialize, [
     // ignore: avoid_positional_boolean_parameters
     bool disableTimeout = false,
-    bool emitEmptyCache = false,
     Duration timeLimit = kDefaultTimeout,
     int retries = 0,
   ]) async {
     final key = '$clientID-$k';
 
-    Future<bool>? cacheFuture;
+    Future<void>? cacheFuture;
     if (retries == 0) {
       // emit loading state with the current value if present
       final value = subject.valueOrNull?.asLoading() ?? Result.loading();
@@ -160,7 +157,6 @@ class RequestManager {
         subject,
         unwrap,
         deserialize,
-        emitEmptyCache,
       );
     }
 
@@ -191,7 +187,6 @@ class RequestManager {
           serialize,
           deserialize,
           disableTimeout,
-          emitEmptyCache,
           timeLimit,
           retries + 1,
         );
@@ -221,49 +216,30 @@ class RequestManager {
   ///
   /// Requires the subject to have a value present. If this value is a
   /// successful result no value is emitted.
-  Future<bool> _emitCached<T, R>(
+  Future<void> _emitCached<T, R>(
     String key,
     BehaviorSubject<Result<T>> subject,
     UnwrapCallback<T, R> unwrap,
     DeserializeCallback<R> deserialize,
-    bool emitEmptyCache,
   ) async {
-    try {
-      final cacheValue = await _cache?.get(key);
-      if (cacheValue != null) {
-        final cached = unwrap(deserialize(cacheValue));
+    final cacheValue = await _cache?.get(key);
 
-        // If the network fetch is faster than fetching the cached value the
-        // subject can be closed before emitting.
-        if (subject.value.hasSuccessfulData) {
-          return true;
-        }
-
-        subject.add(
-          subject.value.copyWith(
-            data: cached,
-            isCached: true,
-          ),
-        );
-
-        return true;
-      }
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
+    // If the network fetch is faster than fetching the cached value the
+    // subject can be closed before emitting.
+    if (subject.value.hasSuccessfulData) {
+      return;
     }
 
-    if (emitEmptyCache && !subject.value.hasSuccessfulData) {
+    if (cacheValue != null) {
+      final cached = unwrap(deserialize(cacheValue));
+
       subject.add(
         subject.value.copyWith(
+          data: cached,
           isCached: true,
         ),
       );
-
-      return true;
     }
-
-    return false;
   }
 
   /// Calls a [callback] that is canceled after a given [timeLimit].
@@ -326,17 +302,28 @@ class Cache {
   }
 
   Future<String?> get(String key) async {
-    final result = await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
+    List<Map<String, Object?>>? result;
+    try {
+      result = await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
+    } on DatabaseException catch (e, s) {
+      debugPrint(e.toString());
+      debugPrintStack(stackTrace: s, maxFrames: 5);
+    }
 
-    return result.firstOrNull?['value'] as String?;
+    return result?.firstOrNull?['value'] as String?;
   }
 
   Future<void> set(String key, String value) async {
-    // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
-    // Using a manual solution from https://stackoverflow.com/a/38463024
-    final batch = _requireDatabase.batch()
-      ..update('cache', {'key': key, 'value': value}, where: 'key = ?', whereArgs: [key])
-      ..rawInsert('INSERT INTO cache (key, value) SELECT ?, ? WHERE (SELECT changes() = 0)', [key, value]);
-    await batch.commit(noResult: true);
+    try {
+      // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
+      // Using a manual solution from https://stackoverflow.com/a/38463024
+      final batch = _requireDatabase.batch()
+        ..update('cache', {'key': key, 'value': value}, where: 'key = ?', whereArgs: [key])
+        ..rawInsert('INSERT INTO cache (key, value) SELECT ?, ? WHERE (SELECT changes() = 0)', [key, value]);
+      await batch.commit(noResult: true);
+    } on DatabaseException catch (e, s) {
+      debugPrint(e.toString());
+      debugPrintStack(stackTrace: s, maxFrames: 5);
+    }
   }
 }
