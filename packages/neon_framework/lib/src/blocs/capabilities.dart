@@ -9,7 +9,8 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
 /// Bloc that manages the server capabilities
-sealed class CapabilitiesBloc implements InteractiveBloc {
+@sealed
+abstract class CapabilitiesBloc implements InteractiveBloc {
   /// Creates a new capabilities bloc.
   @internal
   factory CapabilitiesBloc(Account account) => _CapabilitiesBloc(account);
