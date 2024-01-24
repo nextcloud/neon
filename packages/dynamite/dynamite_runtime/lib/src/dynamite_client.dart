@@ -457,16 +457,16 @@ class DynamiteClient {
 
     final response = await httpClient.send(request);
 
+    if (validStatuses != null && !validStatuses.contains(response.statusCode)) {
+      throw await DynamiteApiException.fromResponse(response);
+    }
+
     final cookieHeader = response.headersSplitValues['set-cookie'];
     if (cookieHeader != null && cookieJar != null) {
       final cookies = cookieHeader.map(Cookie.fromSetCookieValue).toList();
       await cookieJar!.saveFromResponse(uri, cookies);
     }
 
-    if (validStatuses?.contains(response.statusCode) ?? true) {
-      return response;
-    } else {
-      throw await DynamiteApiException.fromResponse(response);
-    }
+    return response;
   }
 }
