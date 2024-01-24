@@ -117,6 +117,45 @@
                         "type": "string"
                     }
                 ]
+            },
+            "OneOfUnspecifiedArray": {
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "required": [
+                            "attribute-oneOf"
+                        ],
+                        "properties": {
+                            "attribute-oneOf": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "type": "array"
+                    }
+                ]
+            },
+            "OneOfStringArray": {
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "required": [
+                            "attribute-oneOf"
+                        ],
+                        "properties": {
+                            "attribute-oneOf": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                ]
             }
         }
     },

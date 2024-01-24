@@ -193,7 +193,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(_i4.StandardJsonPlugin(typesToLeaveAsList: const {_$b6d67dc2a96424d2f407f8e51557f3de}))
       ..addPlugin(const _i3.HeaderPlugin())
       ..addPlugin(const _i3.ContentStringPlugin()))
     .build();

@@ -2471,7 +2471,14 @@ final Serializers _$serializers = (Serializers().toBuilder()
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(
+        _i6.StandardJsonPlugin(
+          typesToLeaveAsList: const {
+            _$557344b3ba734aacc7109e5420fcb6c5,
+            _$d77829de8b7590d2e16cdb714800f5be,
+          },
+        ),
+      )
       ..addPlugin(const _i5.HeaderPlugin())
       ..addPlugin(const _i5.ContentStringPlugin()))
     .build();

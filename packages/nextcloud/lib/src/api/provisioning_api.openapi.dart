@@ -9099,7 +9099,17 @@ final Serializers _$serializers = (Serializers().toBuilder()
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(
+        _i6.StandardJsonPlugin(
+          typesToLeaveAsList: const {
+            _$c4bc4131e74e61dae681408e87e2e2bd,
+            _$b6d67dc2a96424d2f407f8e51557f3de,
+            _$b20d370ea28764b414e70ac5df151f1b,
+            _$1e1cd5e43e0a1022a23a294e58225d74,
+            _$f9d75e948689049b3f3e23e024d4be73,
+          },
+        ),
+      )
       ..addPlugin(const _i5.HeaderPlugin())
       ..addPlugin(const _i5.ContentStringPlugin()))
     .build();

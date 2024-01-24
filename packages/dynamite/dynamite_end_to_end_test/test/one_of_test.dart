@@ -1,3 +1,5 @@
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
 import 'package:dynamite_end_to_end_test/one_of.openapi.dart';
 import 'package:test/test.dart';
 
@@ -109,5 +111,49 @@ void main() {
 
     expect(object.toJson(), equals(json));
     expect($OneOfIntDoubleOtherExtension.fromJson(json), equals(object));
+  });
+
+  test('OneOfUnspecifiedArray', () {
+    OneOfUnspecifiedArray object = (
+      builtListJsonObject: BuiltList([]),
+      oneOfUnspecifiedArray0: null,
+    );
+
+    Object? json = [];
+
+    expect(object.toJson(), equals(json));
+    expect($OneOfUnspecifiedArrayExtension.fromJson(json), equals(object));
+
+    object = (
+      builtListJsonObject: BuiltList([JsonObject('value1'), JsonObject('value2'), JsonObject('value3')]),
+      oneOfUnspecifiedArray0: null,
+    );
+
+    json = ['value1', 'value2', 'value3'];
+
+    expect(object.toJson(), equals(json));
+    expect($OneOfUnspecifiedArrayExtension.fromJson(json), equals(object));
+  });
+
+  test('OneOfStringArray', () {
+    OneOfStringArray object = (
+      builtListString: BuiltList<String>(),
+      oneOfStringArray0: null,
+    );
+
+    Object? json = [];
+
+    expect(object.toJson(), equals(json));
+    expect($OneOfStringArrayExtension.fromJson(json), equals(object));
+
+    object = (
+      builtListString: BuiltList<String>(['value1', 'value2', 'value3']),
+      oneOfStringArray0: null,
+    );
+
+    json = ['value1', 'value2', 'value3'];
+
+    expect(object.toJson(), equals(json));
+    expect($OneOfStringArrayExtension.fromJson(json), equals(object));
   });
 }
