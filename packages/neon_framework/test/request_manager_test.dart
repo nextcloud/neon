@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
@@ -68,7 +69,7 @@ void main() {
     test('throwing DynamiteException should retry', () async {
       final subject = BehaviorSubject<Result<String>>();
       final callback = MockCallbackFunction<Uint8List>();
-      when(callback.call).thenAnswer((_) async => throw const DynamiteApiException(500, {}, ''));
+      when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
 
       await RequestManager.instance.wrap<String, Uint8List>(
         'clientID',
@@ -225,7 +226,7 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result<String>.error('Exception')),
+            equals(Result<String>.error('ClientException: ')),
             emitsDone,
           ]),
         );
@@ -234,7 +235,7 @@ void main() {
           'clientID',
           'key',
           subject,
-          () async => throw Exception(),
+          () async => throw ClientException(''),
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
@@ -250,7 +251,7 @@ void main() {
           emitsInOrder([
             equals(Result.success('Seed value')),
             equals(Result.success('Seed value').asLoading()),
-            equals(Result('Seed value', 'Exception', isLoading: false, isCached: false)),
+            equals(Result('Seed value', 'ClientException: ', isLoading: false, isCached: false)),
             emitsDone,
           ]),
         );
@@ -259,7 +260,7 @@ void main() {
           'clientID',
           'key',
           subject,
-          () async => throw Exception(),
+          () async => throw ClientException(''),
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
@@ -452,7 +453,7 @@ void main() {
           emitsInOrder([
             equals(Result<String>.loading()),
             equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
-            equals(Result(base64String('Cached value'), 'Exception', isLoading: false, isCached: true)),
+            equals(Result(base64String('Cached value'), 'ClientException: ', isLoading: false, isCached: true)),
             emitsDone,
           ]),
         );
@@ -461,7 +462,7 @@ void main() {
           'clientID',
           'key',
           subject,
-          () async => throw Exception(),
+          () async => throw ClientException(''),
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
@@ -480,7 +481,7 @@ void main() {
             equals(Result.success('Seed value')),
             equals(Result.success('Seed value').asLoading()),
             equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
-            equals(Result(base64String('Cached value'), 'Exception', isLoading: false, isCached: true)),
+            equals(Result(base64String('Cached value'), 'ClientException: ', isLoading: false, isCached: true)),
             emitsDone,
           ]),
         );
@@ -489,7 +490,7 @@ void main() {
           'clientID',
           'key',
           subject,
-          () async => throw Exception(),
+          () async => throw ClientException(''),
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
@@ -695,8 +696,8 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result(null, 'Exception', isLoading: false, isCached: true)),
-            equals(Result(base64String('Cached value'), 'Exception', isLoading: false, isCached: true)),
+            equals(Result(null, 'ClientException: ', isLoading: false, isCached: true)),
+            equals(Result(base64String('Cached value'), 'ClientException: ', isLoading: false, isCached: true)),
             emitsDone,
           ]),
         );
@@ -705,7 +706,7 @@ void main() {
           'clientID',
           'key',
           subject,
-          () async => throw Exception(),
+          () async => throw ClientException(''),
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),
@@ -723,8 +724,8 @@ void main() {
           emitsInOrder([
             equals(Result.success('Seed value')),
             equals(Result.success('Seed value').asLoading()),
-            equals(Result('Seed value', 'Exception', isLoading: false, isCached: true)),
-            equals(Result(base64String('Cached value'), 'Exception', isLoading: false, isCached: true)),
+            equals(Result('Seed value', 'ClientException: ', isLoading: false, isCached: true)),
+            equals(Result(base64String('Cached value'), 'ClientException: ', isLoading: false, isCached: true)),
             emitsDone,
           ]),
         );
@@ -733,7 +734,7 @@ void main() {
           'clientID',
           'key',
           subject,
-          () async => throw Exception(),
+          () async => throw ClientException(''),
           (deserialized) => base64.encode(deserialized),
           (deserialized) => utf8.decode(deserialized),
           (cached) => utf8.encode(cached),

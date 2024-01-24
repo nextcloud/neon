@@ -78,7 +78,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
           data = response.body.ocs.data;
         } catch (e) {
           // 204 is returned if the heartbeat failed because the current status is different. Ignore this and fetch the normal status
-          if (e is! DynamiteApiException || e.statusCode != 204) {
+          if (e is! DynamiteStatusCodeException || e.statusCode != 204) {
             rethrow;
           }
         }

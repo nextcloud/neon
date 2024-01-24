@@ -139,7 +139,7 @@ void main() {
             title: 'c',
             ifMatch: '"${response.body.etag}"',
           ),
-          throwsA(predicate((e) => (e! as DynamiteApiException).statusCode == 412)),
+          throwsA(predicate((e) => (e! as DynamiteStatusCodeException).statusCode == 412)),
         );
       });
 

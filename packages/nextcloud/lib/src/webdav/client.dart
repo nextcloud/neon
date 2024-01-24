@@ -78,10 +78,8 @@ class WebDavClient {
     final response = await rootClient.httpClient.send(request);
 
     if (response.statusCode >= 300) {
-      throw DynamiteApiException(
+      throw DynamiteStatusCodeException(
         response.statusCode,
-        response.headers,
-        await response.stream.string,
       );
     }
 

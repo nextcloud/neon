@@ -471,7 +471,7 @@ void main() {
             await expectLater(
               () => client.webdav.put(Uint8List(0), PathUri.parse('409me/noparent.txt')),
               // https://github.com/nextcloud/server/issues/39625
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 409)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 409)),
             );
           });
 
@@ -485,7 +485,7 @@ void main() {
           test('delete_null', () async {
             await expectLater(
               () => client.webdav.delete(PathUri.parse('delete-null.txt')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 404)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 404)),
             );
           });
 
@@ -501,7 +501,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.mkcol(PathUri.parse('mkcol-again')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 405)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 405)),
             );
           });
 
@@ -515,7 +515,7 @@ void main() {
           test('mkcol_no_parent', () async {
             await expectLater(
               () => client.webdav.mkcol(PathUri.parse('409me/noparent')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 409)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 409)),
             );
           });
 
@@ -537,7 +537,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.copy(PathUri.parse('copy-overwrite-src'), PathUri.parse('copy-overwrite-dst')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 412)),
             );
 
             final response = await client.webdav
@@ -550,7 +550,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.copy(PathUri.parse('copy-nodestcoll-src'), PathUri.parse('nonesuch/dst')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 409)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 409)),
             );
           });
 
@@ -565,7 +565,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.copy(PathUri.parse('copy-coll-src'), PathUri.parse('copy-coll-dst1')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 412)),
             );
 
             var response = await client.webdav
@@ -596,7 +596,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.move(PathUri.parse('move-src2.txt'), PathUri.parse('move-dst.txt')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 412)),
             );
 
             response = await client.webdav
@@ -616,7 +616,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.move(PathUri.parse('move-coll-dst1'), PathUri.parse('move-coll-dst2')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 412)),
             );
 
             await client.webdav.move(PathUri.parse('move-coll-dst2'), PathUri.parse('move-coll-dst1'), overwrite: true);
@@ -632,7 +632,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.move(PathUri.parse('move-coll-dst2'), PathUri.parse('move-coll-noncoll')),
-              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 412)),
             );
           });
         });
