@@ -73,7 +73,7 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
                   ),
                 );
               } else {
-                final result = await showAdaptiveDialog<T>(
+                final result = await showAdaptiveDialog<({T value})>(
                   context: context,
                   builder: (context) => SelectSettingsTileDialog(
                     option: option,
@@ -82,7 +82,7 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
                 );
 
                 if (result != null) {
-                  option.value = result;
+                  option.value = result.value;
                 }
               }
             },
@@ -94,6 +94,12 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
       );
 }
 
+/// A dialog to select an item from a [SelectOption].
+///
+/// The selected value is popped as a record with the shape `({T value})` to
+/// handle popping a null value.
+///
+/// On cupertino platforms a [SelectSettingsTileScreen] should be used.
 @internal
 class SelectSettingsTileDialog<T> extends StatefulWidget {
   const SelectSettingsTileDialog({
@@ -121,7 +127,7 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
     super.initState();
   }
 
-  void submit() => Navigator.pop(context, value);
+  void submit() => Navigator.pop(context, (value: value));
   void cancel() => Navigator.pop(context);
 
   @override
@@ -173,6 +179,12 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
   }
 }
 
+/// A Settings screen to select an item from a [SelectOption].
+///
+/// The selected value is directly applied to the option and no further saving
+/// is needed.
+///
+/// On material platforms a [SelectSettingsTileDialog] should be used.
 @internal
 class SelectSettingsTileScreen<T> extends StatelessWidget {
   const SelectSettingsTileScreen({
