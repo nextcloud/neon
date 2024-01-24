@@ -14,6 +14,7 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
+import 'package:nextcloud/user_status.dart' as user_status;
 
 /// Displays the whole dashboard page layout.
 class DashboardMainPage extends StatelessWidget {
@@ -136,7 +137,10 @@ class DashboardMainPage extends StatelessWidget {
 
                 return _buildStatus(
                   context: context,
-                  icon: NeonServerIcon(icon: 'user-status-${status.status == 'offline' ? 'invisible' : status.status}'),
+                  icon: NeonServerIcon(
+                    icon:
+                        'user-status-${status.status == user_status.$Type.offline ? user_status.$Type.invisible : status.status}',
+                  ),
                   label: Text(label.toString()),
                   onPressed: () async {
                     await showDialog<void>(

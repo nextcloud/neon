@@ -255,7 +255,7 @@ void main() {
               ..message = 'predefined message'
               ..icon = '😅'
               ..clearAt = now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000
-              ..status = 'online'
+              ..status = user_status.$Type.online
               ..messageId = 'id1'
               ..messageIsPredefined = true
               ..statusIsUserDefined = true,

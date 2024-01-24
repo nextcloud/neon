@@ -23,7 +23,7 @@ void main() {
       });
 
       Future<void> resetStatus() async {
-        await client.userStatus.userStatus.setStatus(statusType: 'online');
+        await client.userStatus.userStatus.setStatus(statusType: user_status.$Type.online.value);
         await client.userStatus.userStatus.clearMessage();
       }
 
@@ -67,7 +67,7 @@ void main() {
         test('Set', () async {
           await resetStatus();
 
-          final response = await client.userStatus.userStatus.setStatus(statusType: 'online');
+          final response = await client.userStatus.userStatus.setStatus(statusType: user_status.$Type.online.value);
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -77,7 +77,7 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, false);
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, null);
-          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.status, user_status.$Type.online);
           expect(response.body.ocs.data.statusIsUserDefined, true);
         });
 
@@ -94,7 +94,7 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, false);
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, null);
-          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.status, user_status.$Type.online);
           expect(response.body.ocs.data.statusIsUserDefined, true);
         });
 
@@ -109,7 +109,7 @@ void main() {
           expect(response.body.ocs.data.message, null);
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, null);
-          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.status, user_status.$Type.online);
         });
 
         test('Set predefined message', () async {
@@ -129,7 +129,7 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, true);
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, clearAt);
-          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.status, user_status.$Type.online);
           expect(response.body.ocs.data.statusIsUserDefined, true);
         });
 
@@ -151,7 +151,7 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, false);
           expect(response.body.ocs.data.icon, '😀');
           expect(response.body.ocs.data.clearAt, clearAt);
-          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.status, user_status.$Type.online);
           expect(response.body.ocs.data.statusIsUserDefined, true);
         });
 
@@ -176,7 +176,7 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, false);
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, null);
-          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.status, user_status.$Type.online);
           expect(response.body.ocs.data.statusIsUserDefined, true);
         });
       });
@@ -193,7 +193,7 @@ void main() {
           expect(response.body.ocs.data[0].message, null);
           expect(response.body.ocs.data[0].icon, null);
           expect(response.body.ocs.data[0].clearAt, null);
-          expect(response.body.ocs.data[0].status, 'online');
+          expect(response.body.ocs.data[0].status, user_status.$Type.online);
         });
       });
 
@@ -201,7 +201,7 @@ void main() {
         test('Heartbeat', () async {
           await resetStatus();
 
-          final response = await client.userStatus.heartbeat.heartbeat(status: 'online');
+          final response = await client.userStatus.heartbeat.heartbeat(status: user_status.$Type.online.value);
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -211,7 +211,7 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, false);
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, null);
-          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.status, user_status.$Type.online);
           expect(response.body.ocs.data.statusIsUserDefined, true);
         });
       });

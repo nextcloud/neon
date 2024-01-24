@@ -1226,7 +1226,7 @@ class $ShareapiClient {
   ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
   ///   * [password] Password for the share. Defaults to `''`.
   ///   * [sendPasswordByTalk] Send the password for the share over Talk.
-  ///   * [expireDate] Expiry date of the share. Defaults to `''`.
+  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `''`.
   ///   * [note] Note for the share. Defaults to `''`.
   ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
   ///   * [attributes] Additional attributes for the share.
@@ -1287,7 +1287,7 @@ class $ShareapiClient {
   ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
   ///   * [password] Password for the share. Defaults to `''`.
   ///   * [sendPasswordByTalk] Send the password for the share over Talk.
-  ///   * [expireDate] Expiry date of the share. Defaults to `''`.
+  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `''`.
   ///   * [note] Note for the share. Defaults to `''`.
   ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
   ///   * [attributes] Additional attributes for the share.

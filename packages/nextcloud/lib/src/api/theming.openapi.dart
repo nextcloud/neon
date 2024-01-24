@@ -525,6 +525,7 @@ class $ThemingClient {
   ///
   /// Status codes:
   ///   * 200: Manifest returned
+  ///   * 404: App not found
   ///
   /// See:
   ///  * [getManifestRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
@@ -548,6 +549,7 @@ class $ThemingClient {
   ///
   /// Status codes:
   ///   * 200: Manifest returned
+  ///   * 404: App not found
   ///
   /// See:
   ///  * [getManifest] for an operation that returns a `DynamiteResponse` with a stable API.
