@@ -75,24 +75,24 @@ final BuiltSet<EnumDynamic> _$enumDynamicValues = BuiltSet<EnumDynamic>(const <E
   _$enumDynamic$false,
 ]);
 
-const WrappedEnum_CustomString _$wrappedEnumCustomStringTest = WrappedEnum_CustomString._('test');
-const WrappedEnum_CustomString _$wrappedEnumCustomString$default = WrappedEnum_CustomString._('\$default');
+const WrappedEnum_$String _$wrappedEnum$StringTest = WrappedEnum_$String._('test');
+const WrappedEnum_$String _$wrappedEnum$String$default = WrappedEnum_$String._('\$default');
 
-WrappedEnum_CustomString _$valueOfWrappedEnum_CustomString(String name) {
+WrappedEnum_$String _$valueOfWrappedEnum_$String(String name) {
   switch (name) {
     case 'test':
-      return _$wrappedEnumCustomStringTest;
+      return _$wrappedEnum$StringTest;
     case '\$default':
-      return _$wrappedEnumCustomString$default;
+      return _$wrappedEnum$String$default;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<WrappedEnum_CustomString> _$wrappedEnumCustomStringValues =
-    BuiltSet<WrappedEnum_CustomString>(const <WrappedEnum_CustomString>[
-  _$wrappedEnumCustomStringTest,
-  _$wrappedEnumCustomString$default,
+final BuiltSet<WrappedEnum_$String> _$wrappedEnum$StringValues =
+    BuiltSet<WrappedEnum_$String>(const <WrappedEnum_$String>[
+  _$wrappedEnum$StringTest,
+  _$wrappedEnum$String$default,
 ]);
 
 const WrappedEnum_Integer _$wrappedEnumInteger$0 = WrappedEnum_Integer._('\$0');
@@ -132,8 +132,8 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
   Iterable<Object?> serialize(Serializers serializers, WrappedEnum object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'custom-string',
-      serializers.serialize(object.customString, specifiedType: const FullType(WrappedEnum_CustomString)),
+      'String',
+      serializers.serialize(object.string, specifiedType: const FullType(WrappedEnum_$String)),
       'integer',
       serializers.serialize(object.integer, specifiedType: const FullType(WrappedEnum_Integer)),
     ];
@@ -152,9 +152,9 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'custom-string':
-          result.customString = serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_CustomString))!
-              as WrappedEnum_CustomString;
+        case 'String':
+          result.string = serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_$String))!
+              as WrappedEnum_$String;
           break;
         case 'integer':
           result.integer = serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_Integer))!
@@ -208,8 +208,8 @@ class _$EnumReferenceSerializer implements StructuredSerializer<EnumReference> {
 abstract mixin class $WrappedEnumInterfaceBuilder {
   void replace($WrappedEnumInterface other);
   void update(void Function($WrappedEnumInterfaceBuilder) updates);
-  WrappedEnum_CustomString? get customString;
-  set customString(WrappedEnum_CustomString? customString);
+  WrappedEnum_$String? get string;
+  set string(WrappedEnum_$String? string);
 
   WrappedEnum_Integer? get integer;
   set integer(WrappedEnum_Integer? integer);
@@ -217,15 +217,15 @@ abstract mixin class $WrappedEnumInterfaceBuilder {
 
 class _$WrappedEnum extends WrappedEnum {
   @override
-  final WrappedEnum_CustomString customString;
+  final WrappedEnum_$String string;
   @override
   final WrappedEnum_Integer integer;
 
   factory _$WrappedEnum([void Function(WrappedEnumBuilder)? updates]) =>
       (WrappedEnumBuilder()..update(updates))._build();
 
-  _$WrappedEnum._({required this.customString, required this.integer}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(customString, r'WrappedEnum', 'customString');
+  _$WrappedEnum._({required this.string, required this.integer}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(string, r'WrappedEnum', 'string');
     BuiltValueNullFieldError.checkNotNull(integer, r'WrappedEnum', 'integer');
   }
 
@@ -238,13 +238,13 @@ class _$WrappedEnum extends WrappedEnum {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is WrappedEnum && customString == other.customString && integer == other.integer;
+    return other is WrappedEnum && string == other.string && integer == other.integer;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, customString.hashCode);
+    _$hash = $jc(_$hash, string.hashCode);
     _$hash = $jc(_$hash, integer.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -253,7 +253,7 @@ class _$WrappedEnum extends WrappedEnum {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'WrappedEnum')
-          ..add('customString', customString)
+          ..add('string', string)
           ..add('integer', integer))
         .toString();
   }
@@ -262,9 +262,9 @@ class _$WrappedEnum extends WrappedEnum {
 class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $WrappedEnumInterfaceBuilder {
   _$WrappedEnum? _$v;
 
-  WrappedEnum_CustomString? _customString;
-  WrappedEnum_CustomString? get customString => _$this._customString;
-  set customString(covariant WrappedEnum_CustomString? customString) => _$this._customString = customString;
+  WrappedEnum_$String? _string;
+  WrappedEnum_$String? get string => _$this._string;
+  set string(covariant WrappedEnum_$String? string) => _$this._string = string;
 
   WrappedEnum_Integer? _integer;
   WrappedEnum_Integer? get integer => _$this._integer;
@@ -275,7 +275,7 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
   WrappedEnumBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _customString = $v.customString;
+      _string = $v.string;
       _integer = $v.integer;
       _$v = null;
     }
@@ -299,7 +299,7 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
   _$WrappedEnum _build() {
     final _$result = _$v ??
         _$WrappedEnum._(
-            customString: BuiltValueNullFieldError.checkNotNull(customString, r'WrappedEnum', 'customString'),
+            string: BuiltValueNullFieldError.checkNotNull(string, r'WrappedEnum', 'string'),
             integer: BuiltValueNullFieldError.checkNotNull(integer, r'WrappedEnum', 'integer'));
     replace(_$result);
     return _$result;
