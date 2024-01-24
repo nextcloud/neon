@@ -156,7 +156,7 @@ void main() {
       test('List directory', () async {
         final responses = (await client.webdav.propfind(
           PathUri.parse('/'),
-          prop: WebDavPropWithoutValues.fromBools(
+          prop: const WebDavPropWithoutValues.fromBools(
             nchaspreview: true,
             davgetcontenttype: true,
             davgetlastmodified: true,
@@ -185,7 +185,7 @@ void main() {
       test('Get file props', () async {
         final response = (await client.webdav.propfind(
           PathUri.parse('Nextcloud.png'),
-          prop: WebDavPropWithoutValues.fromBools(
+          prop: const WebDavPropWithoutValues.fromBools(
             davgetlastmodified: true,
             davgetetag: true,
             davgetcontenttype: true,
@@ -272,7 +272,7 @@ void main() {
 
         final response = (await client.webdav.propfind(
           PathUri.parse('dir-props'),
-          prop: WebDavPropWithoutValues.fromBools(
+          prop: const WebDavPropWithoutValues.fromBools(
             davgetcontenttype: true,
             davgetlastmodified: true,
             davresourcetype: true,
@@ -308,17 +308,17 @@ void main() {
         final id = response.headers['oc-fileid'];
         await client.webdav.proppatch(
           PathUri.parse('filter.txt'),
-          set: WebDavProp(
+          set: const WebDavProp(
             ocfavorite: 1,
           ),
         );
 
         final responses = (await client.webdav.report(
           PathUri.parse('/'),
-          WebDavOcFilterRules(
+          const WebDavOcFilterRules(
             ocfavorite: 1,
           ),
-          prop: WebDavPropWithoutValues.fromBools(
+          prop: const WebDavPropWithoutValues.fromBools(
             ocid: true,
             ocfavorite: true,
           ),
@@ -344,7 +344,7 @@ void main() {
 
         final updated = await client.webdav.proppatch(
           PathUri.parse('set-props.txt'),
-          set: WebDavProp(
+          set: const WebDavProp(
             ocfavorite: 1,
           ),
         );
@@ -352,7 +352,7 @@ void main() {
 
         final props = (await client.webdav.propfind(
           PathUri.parse('set-props.txt'),
-          prop: WebDavPropWithoutValues.fromBools(
+          prop: const WebDavPropWithoutValues.fromBools(
             ocfavorite: true,
             davgetlastmodified: true,
             nccreationtime: true,
@@ -375,7 +375,7 @@ void main() {
 
         var updated = await client.webdav.proppatch(
           PathUri.parse('remove-props.txt'),
-          set: WebDavProp(
+          set: const WebDavProp(
             ocfavorite: 1,
           ),
         );
@@ -383,7 +383,7 @@ void main() {
 
         var props = (await client.webdav.propfind(
           PathUri.parse('remove-props.txt'),
-          prop: WebDavPropWithoutValues.fromBools(
+          prop: const WebDavPropWithoutValues.fromBools(
             ocfavorite: true,
             nccreationtime: true,
             ncuploadtime: true,
@@ -398,7 +398,7 @@ void main() {
 
         updated = await client.webdav.proppatch(
           PathUri.parse('remove-props.txt'),
-          remove: WebDavPropWithoutValues.fromBools(
+          remove: const WebDavPropWithoutValues.fromBools(
             ocfavorite: true,
           ),
         );
@@ -406,7 +406,7 @@ void main() {
 
         props = (await client.webdav.propfind(
           PathUri.parse('remove-props.txt'),
-          prop: WebDavPropWithoutValues.fromBools(
+          prop: const WebDavPropWithoutValues.fromBools(
             ocfavorite: true,
           ),
         ))

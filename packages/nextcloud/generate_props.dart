@@ -12,10 +12,10 @@ void main() {
     final name = prop[1];
     final variable = namespacePrefix + name.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
     valueProps.add(
-      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  $type? $variable;",
+      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  final $type? $variable;",
     );
     findProps.add(
-      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: true, isSelfClosing: true,)\n  List<String?>? $variable;",
+      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: true, isSelfClosing: true,)\n final List<String?>? $variable;",
     );
     variables.add(variable);
   }
@@ -23,6 +23,7 @@ void main() {
     [
       '// ignore_for_file: public_member_api_docs',
       '// coverage:ignore-file',
+      "import 'package:meta/meta.dart';",
       "import 'package:nextcloud/src/webdav/webdav.dart';",
       "import 'package:xml/xml.dart';",
       "import 'package:xml_annotation/xml_annotation.dart' as annotation;",
@@ -66,17 +67,18 @@ List<String> generateClass(
   required bool isPropfind,
 }) =>
     [
+      '@immutable',
       '@annotation.XmlSerializable(createMixin: true)',
       "@annotation.XmlRootElement(name: '$elementName', namespace: $namespace)",
       'class $name with _\$${name}XmlSerializableMixin {',
-      '  $name({',
+      '  const $name({',
       ...variables.map((variable) => '    this.$variable,'),
       '  });',
       '',
       if (isPropfind) ...[
-        '  $name.fromBools({',
+        '  const $name.fromBools({',
         ...variables.map((variable) => '    bool $variable = false,'),
-        '  }) : ${variables.map((variable) => '$variable = $variable ? [null] : null').join(', ')};',
+        '  }) : ${variables.map((variable) => '$variable = $variable ? const [null] : null').join(', ')};',
         '',
       ],
       '  factory $name.fromXmlElement(XmlElement element) => _\$${name}FromXmlElement(element);',

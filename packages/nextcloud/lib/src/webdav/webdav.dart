@@ -2,6 +2,7 @@
 // coverage:ignore-file
 
 import 'package:intl/intl.dart';
+import 'package:meta/meta.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
@@ -25,10 +26,11 @@ const Map<String, String> namespaces = {
   namespaceOpenCloudMesh: 'ocm',
 };
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'multistatus', namespace: namespaceDav)
 class WebDavMultistatus with _$WebDavMultistatusXmlSerializableMixin {
-  WebDavMultistatus({
+  const WebDavMultistatus({
     required this.responses,
   });
 
@@ -38,10 +40,11 @@ class WebDavMultistatus with _$WebDavMultistatusXmlSerializableMixin {
   final List<WebDavResponse> responses;
 }
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'response', namespace: namespaceDav)
 class WebDavResponse with _$WebDavResponseXmlSerializableMixin {
-  WebDavResponse({
+  const WebDavResponse({
     required this.href,
     required this.propstats,
   });
@@ -55,10 +58,11 @@ class WebDavResponse with _$WebDavResponseXmlSerializableMixin {
   final List<WebDavPropstat> propstats;
 }
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'propstat', namespace: namespaceDav)
 class WebDavPropstat with _$WebDavPropstatXmlSerializableMixin {
-  WebDavPropstat({
+  const WebDavPropstat({
     required this.status,
     required this.prop,
   });
@@ -72,10 +76,11 @@ class WebDavPropstat with _$WebDavPropstatXmlSerializableMixin {
   final WebDavProp prop;
 }
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'propertyupdate', namespace: namespaceDav)
 class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
-  WebDavPropertyupdate({
+  const WebDavPropertyupdate({
     this.set,
     this.remove,
   });
@@ -87,10 +92,11 @@ class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
   final WebDavRemove? remove;
 }
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'set', namespace: namespaceDav)
 class WebDavSet with _$WebDavSetXmlSerializableMixin {
-  WebDavSet({
+  const WebDavSet({
     required this.prop,
   });
 
@@ -100,10 +106,11 @@ class WebDavSet with _$WebDavSetXmlSerializableMixin {
   final WebDavProp prop; // coverage:ignore-line
 }
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'remove', namespace: namespaceDav)
 class WebDavRemove with _$WebDavRemoveXmlSerializableMixin {
-  WebDavRemove({
+  const WebDavRemove({
     required this.prop,
   });
 
@@ -113,10 +120,11 @@ class WebDavRemove with _$WebDavRemoveXmlSerializableMixin {
   final WebDavPropWithoutValues prop; // coverage:ignore-line
 }
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'propfind', namespace: namespaceDav)
 class WebDavPropfind with _$WebDavPropfindXmlSerializableMixin {
-  WebDavPropfind({
+  const WebDavPropfind({
     required this.prop,
   });
 
@@ -124,10 +132,11 @@ class WebDavPropfind with _$WebDavPropfindXmlSerializableMixin {
   final WebDavPropWithoutValues prop;
 }
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'filter-files', namespace: namespaceOwncloud)
 class WebDavOcFilterFiles with _$WebDavOcFilterFilesXmlSerializableMixin {
-  WebDavOcFilterFiles({
+  const WebDavOcFilterFiles({
     required this.filterRules,
     required this.prop,
   });
@@ -139,10 +148,11 @@ class WebDavOcFilterFiles with _$WebDavOcFilterFilesXmlSerializableMixin {
   final WebDavPropWithoutValues prop;
 }
 
+@immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'resourcetype', namespace: namespaceDav)
 class WebDavResourcetype with _$WebDavResourcetypeXmlSerializableMixin {
-  WebDavResourcetype({
+  const WebDavResourcetype({
     required this.collection,
   });
 
