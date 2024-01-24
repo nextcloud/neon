@@ -8,7 +8,9 @@
 /// one of test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i4;
 import 'package:dynamite_runtime/built_value.dart' as _i3;
@@ -135,6 +137,68 @@ abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneOb
 /// One of with an integer, double and other value.
 typedef OneOfIntDoubleOther = ({num? $num, String? string});
 
+@BuiltValue(instantiable: false)
+abstract interface class $OneOfUnspecifiedArray0Interface {
+  @BuiltValueField(wireName: 'attribute-oneOf')
+  String get attributeOneOf;
+}
+
+abstract class OneOfUnspecifiedArray0
+    implements $OneOfUnspecifiedArray0Interface, Built<OneOfUnspecifiedArray0, OneOfUnspecifiedArray0Builder> {
+  /// Creates a new OneOfUnspecifiedArray0 object using the builder pattern.
+  factory OneOfUnspecifiedArray0([void Function(OneOfUnspecifiedArray0Builder)? b]) = _$OneOfUnspecifiedArray0;
+
+  const OneOfUnspecifiedArray0._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory OneOfUnspecifiedArray0.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for OneOfUnspecifiedArray0.
+  static Serializer<OneOfUnspecifiedArray0> get serializer => _$oneOfUnspecifiedArray0Serializer;
+}
+
+typedef OneOfUnspecifiedArray = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  OneOfUnspecifiedArray0? oneOfUnspecifiedArray0
+});
+
+@BuiltValue(instantiable: false)
+abstract interface class $OneOfStringArray0Interface {
+  @BuiltValueField(wireName: 'attribute-oneOf')
+  String get attributeOneOf;
+}
+
+abstract class OneOfStringArray0
+    implements $OneOfStringArray0Interface, Built<OneOfStringArray0, OneOfStringArray0Builder> {
+  /// Creates a new OneOfStringArray0 object using the builder pattern.
+  factory OneOfStringArray0([void Function(OneOfStringArray0Builder)? b]) = _$OneOfStringArray0;
+
+  const OneOfStringArray0._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory OneOfStringArray0.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for OneOfStringArray0.
+  static Serializer<OneOfStringArray0> get serializer => _$oneOfStringArray0Serializer;
+}
+
+typedef OneOfStringArray = ({BuiltList<String>? builtListString, OneOfStringArray0? oneOfStringArray0});
+
 /// Serialization extension for `ObjectOneOf`.
 extension $ObjectOneOfExtension on ObjectOneOf {
   /// Serializer for ObjectOneOf.
@@ -169,6 +233,30 @@ extension $OneOfIntDoubleOtherExtension on OneOfIntDoubleOther {
   ///
   /// Use `toJson` to serialize it back into json.
   static OneOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
+/// Serialization extension for `OneOfUnspecifiedArray`.
+extension $OneOfUnspecifiedArrayExtension on OneOfUnspecifiedArray {
+  /// Serializer for OneOfUnspecifiedArray.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<OneOfUnspecifiedArray> get serializer => $00f31f9753d01398a2c3705cd335c56eExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static OneOfUnspecifiedArray fromJson(Object? json) => $00f31f9753d01398a2c3705cd335c56eExtension._fromJson(json);
+}
+
+/// Serialization extension for `OneOfStringArray`.
+extension $OneOfStringArrayExtension on OneOfStringArray {
+  /// Serializer for OneOfStringArray.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<OneOfStringArray> get serializer => $5fb8a7f8bbb305dd61a4a05d6996c58bExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static OneOfStringArray fromJson(Object? json) => $5fb8a7f8bbb305dd61a4a05d6996c58bExtension._fromJson(json);
 }
 
 typedef _$6c828020e1dac1d58ded0a29ef8b0c41 = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
@@ -378,6 +466,156 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }
 }
 
+typedef _$00f31f9753d01398a2c3705cd335c56e = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  OneOfUnspecifiedArray0? oneOfUnspecifiedArray0
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $00f31f9753d01398a2c3705cd335c56eExtension on _$00f31f9753d01398a2c3705cd335c56e {
+  List<dynamic> get _values => [builtListJsonObject, oneOfUnspecifiedArray0];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i1.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i1.validateAnyOf(_values);
+  static Serializer<_$00f31f9753d01398a2c3705cd335c56e> get _serializer =>
+      const _$00f31f9753d01398a2c3705cd335c56eSerializer();
+  static _$00f31f9753d01398a2c3705cd335c56e _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$00f31f9753d01398a2c3705cd335c56eSerializer implements PrimitiveSerializer<_$00f31f9753d01398a2c3705cd335c56e> {
+  const _$00f31f9753d01398a2c3705cd335c56eSerializer();
+
+  @override
+  Iterable<Type> get types => const [_$00f31f9753d01398a2c3705cd335c56e];
+
+  @override
+  String get wireName => r'_$00f31f9753d01398a2c3705cd335c56e';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$00f31f9753d01398a2c3705cd335c56e object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListJsonObject;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+    }
+    value = object.oneOfUnspecifiedArray0;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(OneOfUnspecifiedArray0))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$00f31f9753d01398a2c3705cd335c56e deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<JsonObject>? builtListJsonObject;
+    try {
+      builtListJsonObject = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+    } catch (_) {}
+    OneOfUnspecifiedArray0? oneOfUnspecifiedArray0;
+    try {
+      oneOfUnspecifiedArray0 = serializers.deserialize(data, specifiedType: const FullType(OneOfUnspecifiedArray0))!
+          as OneOfUnspecifiedArray0;
+    } catch (_) {}
+    return (builtListJsonObject: builtListJsonObject, oneOfUnspecifiedArray0: oneOfUnspecifiedArray0);
+  }
+}
+
+typedef _$5fb8a7f8bbb305dd61a4a05d6996c58b = ({
+  BuiltList<String>? builtListString,
+  OneOfStringArray0? oneOfStringArray0
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $5fb8a7f8bbb305dd61a4a05d6996c58bExtension on _$5fb8a7f8bbb305dd61a4a05d6996c58b {
+  List<dynamic> get _values => [builtListString, oneOfStringArray0];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i1.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i1.validateAnyOf(_values);
+  static Serializer<_$5fb8a7f8bbb305dd61a4a05d6996c58b> get _serializer =>
+      const _$5fb8a7f8bbb305dd61a4a05d6996c58bSerializer();
+  static _$5fb8a7f8bbb305dd61a4a05d6996c58b _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$5fb8a7f8bbb305dd61a4a05d6996c58bSerializer implements PrimitiveSerializer<_$5fb8a7f8bbb305dd61a4a05d6996c58b> {
+  const _$5fb8a7f8bbb305dd61a4a05d6996c58bSerializer();
+
+  @override
+  Iterable<Type> get types => const [_$5fb8a7f8bbb305dd61a4a05d6996c58b];
+
+  @override
+  String get wireName => r'_$5fb8a7f8bbb305dd61a4a05d6996c58b';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$5fb8a7f8bbb305dd61a4a05d6996c58b object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListString;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!;
+    }
+    value = object.oneOfStringArray0;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(OneOfStringArray0))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$5fb8a7f8bbb305dd61a4a05d6996c58b deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<String>? builtListString;
+    try {
+      builtListString = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
+    } catch (_) {}
+    OneOfStringArray0? oneOfStringArray0;
+    try {
+      oneOfStringArray0 =
+          serializers.deserialize(data, specifiedType: const FullType(OneOfStringArray0))! as OneOfStringArray0;
+    } catch (_) {}
+    return (builtListString: builtListString, oneOfStringArray0: oneOfStringArray0);
+  }
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -396,7 +634,15 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add($d1b40dfcebdca2dfa1f3e52ac98462a5Extension._serializer)
       ..addBuilderFactory(const FullType(OneObjectOneOf0), OneObjectOneOf0Builder.new)
       ..add(OneObjectOneOf0.serializer)
-      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer))
+      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
+      ..addBuilderFactory(const FullType(OneOfUnspecifiedArray0), OneOfUnspecifiedArray0Builder.new)
+      ..add(OneOfUnspecifiedArray0.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..add($00f31f9753d01398a2c3705cd335c56eExtension._serializer)
+      ..addBuilderFactory(const FullType(OneOfStringArray0), OneOfStringArray0Builder.new)
+      ..add(OneOfStringArray0.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..add($5fb8a7f8bbb305dd61a4a05d6996c58bExtension._serializer))
     .build();
 
 /// Serializer for all values in this library.
@@ -407,7 +653,17 @@ final Serializers _$serializers = (Serializers().toBuilder()
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(
+        _i4.StandardJsonPlugin(
+          typesToLeaveAsList: const {
+            _$6c828020e1dac1d58ded0a29ef8b0c41,
+            _$d1b40dfcebdca2dfa1f3e52ac98462a5,
+            _$b6d67dc2a96424d2f407f8e51557f3de,
+            _$00f31f9753d01398a2c3705cd335c56e,
+            _$5fb8a7f8bbb305dd61a4a05d6996c58b,
+          },
+        ),
+      )
       ..addPlugin(const _i3.HeaderPlugin())
       ..addPlugin(const _i3.ContentStringPlugin()))
     .build();

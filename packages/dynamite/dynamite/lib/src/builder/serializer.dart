@@ -62,7 +62,17 @@ List<Spec> buildSerializer(State state) => [
               ])
               .cascade('addPlugin')
               .call([
-                refer('StandardJsonPlugin', 'package:built_value/standard_json_plugin.dart').newInstance(const []),
+                refer('StandardJsonPlugin', 'package:built_value/standard_json_plugin.dart').newInstance(const [], {
+                  if (state.uniqueSomeOfTypes.isNotEmpty)
+                    'typesToLeaveAsList': literalConstSet(
+                      state.uniqueSomeOfTypes
+                          .where((e) => e.optimizedSubTypes.length > 1)
+                          .map(
+                            (e) => refer('_${e.typeName}'),
+                          )
+                          .toSet(),
+                    ),
+                }),
               ])
               .cascade('addPlugin')
               .call([refer('HeaderPlugin', 'package:dynamite_runtime/built_value.dart').constInstance(const [])])
