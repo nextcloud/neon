@@ -216,59 +216,59 @@ class _$EnumDynamicSerializer implements PrimitiveSerializer<EnumDynamic> {
       _fromWire[serialized]!;
 }
 
-class WrappedEnum_CustomString extends EnumClass {
-  const WrappedEnum_CustomString._(super.name);
+class WrappedEnum_$String extends EnumClass {
+  const WrappedEnum_$String._(super.name);
 
   /// `test`
-  static const WrappedEnum_CustomString test = _$wrappedEnumCustomStringTest;
+  static const WrappedEnum_$String test = _$wrappedEnum$StringTest;
 
   /// `default`
   @BuiltValueEnumConst(wireName: 'default')
-  static const WrappedEnum_CustomString $default = _$wrappedEnumCustomString$default;
+  static const WrappedEnum_$String $default = _$wrappedEnum$String$default;
 
   /// Returns a set with all values this enum contains.
-  static BuiltSet<WrappedEnum_CustomString> get values => _$wrappedEnumCustomStringValues;
+  static BuiltSet<WrappedEnum_$String> get values => _$wrappedEnum$StringValues;
 
   /// Returns the enum value associated to the [name].
-  static WrappedEnum_CustomString valueOf(String name) => _$valueOfWrappedEnum_CustomString(name);
+  static WrappedEnum_$String valueOf(String name) => _$valueOfWrappedEnum_$String(name);
 
   /// Returns the serialized value of this enum value.
   String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
-  /// Serializer for WrappedEnum_CustomString.
+  /// Serializer for WrappedEnum_$String.
   @BuiltValueSerializer(custom: true)
-  static Serializer<WrappedEnum_CustomString> get serializer => const _$WrappedEnum_CustomStringSerializer();
+  static Serializer<WrappedEnum_$String> get serializer => const _$WrappedEnum_$StringSerializer();
 }
 
-class _$WrappedEnum_CustomStringSerializer implements PrimitiveSerializer<WrappedEnum_CustomString> {
-  const _$WrappedEnum_CustomStringSerializer();
+class _$WrappedEnum_$StringSerializer implements PrimitiveSerializer<WrappedEnum_$String> {
+  const _$WrappedEnum_$StringSerializer();
 
-  static const Map<WrappedEnum_CustomString, Object> _toWire = <WrappedEnum_CustomString, Object>{
-    WrappedEnum_CustomString.test: 'test',
-    WrappedEnum_CustomString.$default: 'default',
+  static const Map<WrappedEnum_$String, Object> _toWire = <WrappedEnum_$String, Object>{
+    WrappedEnum_$String.test: 'test',
+    WrappedEnum_$String.$default: 'default',
   };
 
-  static const Map<Object, WrappedEnum_CustomString> _fromWire = <Object, WrappedEnum_CustomString>{
-    'test': WrappedEnum_CustomString.test,
-    'default': WrappedEnum_CustomString.$default,
+  static const Map<Object, WrappedEnum_$String> _fromWire = <Object, WrappedEnum_$String>{
+    'test': WrappedEnum_$String.test,
+    'default': WrappedEnum_$String.$default,
   };
 
   @override
-  Iterable<Type> get types => const [WrappedEnum_CustomString];
+  Iterable<Type> get types => const [WrappedEnum_$String];
 
   @override
-  String get wireName => 'WrappedEnum_CustomString';
+  String get wireName => r'WrappedEnum_$String';
 
   @override
   Object serialize(
     Serializers serializers,
-    WrappedEnum_CustomString object, {
+    WrappedEnum_$String object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  WrappedEnum_CustomString deserialize(
+  WrappedEnum_$String deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -343,15 +343,13 @@ class _$WrappedEnum_IntegerSerializer implements PrimitiveSerializer<WrappedEnum
       _fromWire[serialized]!;
 }
 
-/// Due to limitations in built_value we can not call the class String. See https://github.com/google/built_value.dart/issues/1292.
 @BuiltValue(instantiable: false)
 abstract interface class $WrappedEnumInterface {
-  @BuiltValueField(wireName: 'custom-string')
-  WrappedEnum_CustomString get customString;
+  @BuiltValueField(wireName: 'String')
+  WrappedEnum_$String get string;
   WrappedEnum_Integer get integer;
 }
 
-/// Due to limitations in built_value we can not call the class String. See https://github.com/google/built_value.dart/issues/1292.
 abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, WrappedEnumBuilder> {
   /// Creates a new WrappedEnum object using the builder pattern.
   factory WrappedEnum([void Function(WrappedEnumBuilder)? b]) = _$WrappedEnum;
@@ -410,7 +408,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(EnumDynamic.serializer)
       ..addBuilderFactory(const FullType(WrappedEnum), WrappedEnumBuilder.new)
       ..add(WrappedEnum.serializer)
-      ..add(WrappedEnum_CustomString.serializer)
+      ..add(WrappedEnum_$String.serializer)
       ..add(WrappedEnum_Integer.serializer)
       ..addBuilderFactory(const FullType(EnumReference), EnumReferenceBuilder.new)
       ..add(EnumReference.serializer))

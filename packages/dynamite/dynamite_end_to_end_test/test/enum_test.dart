@@ -100,12 +100,12 @@ void main() {
     test('serialize', () {
       final object = WrappedEnum(
         (b) => b
-          ..customString = WrappedEnum_CustomString.$default
+          ..string = WrappedEnum_$String.$default
           ..integer = WrappedEnum_Integer.$2,
       );
 
       const json = {
-        'custom-string': 'default',
+        'String': 'default',
         'integer': 2,
       };
 
