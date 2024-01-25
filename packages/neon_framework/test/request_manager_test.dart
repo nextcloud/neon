@@ -7,10 +7,14 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
+
+// ignore: avoid_implementing_value_types
+class MockAccount extends Mock implements Account {}
 
 class MockCallbackFunction<T> extends Mock {
   FutureOr<T> call();
@@ -21,6 +25,9 @@ class MockedCache extends Mock implements Cache {}
 String base64String(String value) => base64.encode(utf8.encode(value));
 
 void main() {
+  final account = MockAccount();
+  when(() => account.id).thenReturn('clientID');
+
   tearDown(() {
     RequestManager.instance = null;
     Cache.instance = null;
@@ -72,7 +79,7 @@ void main() {
       when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
 
       await RequestManager.instance.wrap<String, Uint8List>(
-        'clientID',
+        account,
         'key',
         subject,
         () async => callback.call(),
@@ -99,7 +106,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () async => utf8.encode('Test value'),
@@ -124,7 +131,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () async => utf8.encode('Test value'),
@@ -159,7 +166,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
@@ -202,7 +209,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
@@ -230,7 +237,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () async => throw ClientException(''),
@@ -255,7 +262,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () async => throw ClientException(''),
@@ -305,7 +312,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.value(utf8.encode('Test value')),
@@ -333,7 +340,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.value(utf8.encode('Test value')),
@@ -378,7 +385,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
@@ -424,7 +431,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
@@ -455,7 +462,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () async => throw ClientException(''),
@@ -483,7 +490,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () async => throw ClientException(''),
@@ -534,7 +541,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.value(utf8.encode('Test value')),
@@ -561,7 +568,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.value(utf8.encode('Test value')),
@@ -613,7 +620,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
@@ -666,7 +673,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
@@ -697,7 +704,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () async => throw ClientException(''),
@@ -725,7 +732,7 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          'clientID',
+          account,
           'key',
           subject,
           () async => throw ClientException(''),

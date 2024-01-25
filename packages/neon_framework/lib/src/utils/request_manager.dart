@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/result.dart';
+import 'package:neon_framework/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -80,16 +81,16 @@ class RequestManager {
 
   /// Executes a request to a Nextcloud API endpoint.
   Future<void> wrapNextcloud<T, B, H>(
-    String clientID,
-    String k,
+    Account account,
+    String cacheKey,
     BehaviorSubject<Result<T>> subject,
     DynamiteRawResponse<B, H> rawResponse,
     UnwrapCallback<T, DynamiteResponse<B, H>> unwrap, {
     bool disableTimeout = false,
   }) async =>
       wrap<T, DynamiteRawResponse<B, H>>(
-        clientID,
-        k,
+        account,
+        cacheKey,
         subject,
         () async {
           await rawResponse.future;
@@ -109,16 +110,16 @@ class RequestManager {
 
   /// Executes a WebDAV request.
   Future<void> wrapWebDav<T>(
-    String clientID,
-    String k,
+    Account account,
+    String cacheKey,
     BehaviorSubject<Result<T>> subject,
     NextcloudApiCallback<WebDavMultistatus> call,
     UnwrapCallback<T, WebDavMultistatus> unwrap, {
     bool disableTimeout = false,
   }) async =>
       wrap<T, WebDavMultistatus>(
-        clientID,
-        k,
+        account,
+        cacheKey,
         subject,
         call,
         unwrap,
@@ -132,8 +133,8 @@ class RequestManager {
   /// This method is only meant to be used in testing.
   @visibleForTesting
   Future<void> wrap<T, R>(
-    String clientID,
-    String k,
+    Account account,
+    String cacheKey,
     BehaviorSubject<Result<T>> subject,
     NextcloudApiCallback<R> call,
     UnwrapCallback<T, R> unwrap,
@@ -144,7 +145,7 @@ class RequestManager {
     Duration timeLimit = kDefaultTimeout,
     int retries = 0,
   ]) async {
-    final key = '$clientID-$k';
+    final key = '${account.id}-$cacheKey';
 
     Future<void>? cacheFuture;
     if (retries == 0) {
@@ -179,8 +180,8 @@ class RequestManager {
       if (e is DynamiteStatusCodeException && e.statusCode >= 500 && retries < kMaxRetries) {
         debugPrint('Retrying...');
         await wrap(
-          clientID,
-          k,
+          account,
+          cacheKey,
           subject,
           call,
           unwrap,

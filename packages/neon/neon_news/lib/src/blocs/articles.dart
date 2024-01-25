@@ -146,7 +146,7 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
     }
 
     await RequestManager.instance.wrapNextcloud<BuiltList<news.Article>, news.ListArticles, void>(
-      account.id,
+      account,
       'news-articles-${type.index}-$id-$getRead',
       articles,
       account.client.news.listArticlesRaw(

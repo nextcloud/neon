@@ -65,7 +65,7 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud<BuiltList<notifications.Notification>,
         notifications.EndpointListNotificationsResponseApplicationJson, void>(
-      account.id,
+      account,
       'notifications-notifications',
       notificationsList,
       account.client.notifications.endpoint.listNotificationsRaw(),
