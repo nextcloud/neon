@@ -59,18 +59,14 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<String, void> $getRaw() {
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/';
     return _i1.DynamiteRawResponse<String, void>(
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        null,
+        headers: _headers,
       ),
       bodyType: const FullType(String),
       headersType: null,
@@ -106,18 +102,15 @@ class $Client extends _i1.DynamiteClient {
   ///  * [put] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<String, void> putRaw() {
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/';
     return _i1.DynamiteRawResponse<String, void>(
       response: executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(String),
       headersType: null,
@@ -155,18 +148,14 @@ class $Client extends _i1.DynamiteClient {
   ///  * [post] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<String, void> postRaw() {
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/';
     return _i1.DynamiteRawResponse<String, void>(
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        null,
+        headers: _headers,
       ),
       bodyType: const FullType(String),
       headersType: null,
@@ -202,18 +191,15 @@ class $Client extends _i1.DynamiteClient {
   ///  * [patch] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<String, void> patchRaw() {
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/';
     return _i1.DynamiteRawResponse<String, void>(
       response: executeRequest(
         'patch',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           201,
         },

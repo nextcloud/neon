@@ -154,9 +154,7 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': '*/*',
-    };
+    final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -199,9 +197,8 @@ class $AvatarClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -264,9 +261,7 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -305,9 +300,8 @@ class $AvatarClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(AvatarUploadAvatarResponseApplicationJson),
       headersType: null,
@@ -368,9 +362,7 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -409,9 +401,8 @@ class $AvatarClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(AvatarDeleteAvatarResponseApplicationJson),
       headersType: null,
@@ -484,9 +475,7 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -532,9 +521,8 @@ class $AvatarClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(AvatarEmojiAvatarResponseApplicationJson),
       headersType: null,
@@ -595,9 +583,7 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': '*/*',
-    };
+    final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -637,9 +623,8 @@ class $AvatarClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -737,9 +722,7 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -794,9 +777,8 @@ class $BotClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           201,
           400,
           401,
@@ -880,9 +862,7 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -928,9 +908,8 @@ class $BotClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           201,
           400,
@@ -1013,9 +992,7 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1062,9 +1039,8 @@ class $BotClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
           404,
@@ -1130,9 +1106,7 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1172,9 +1146,8 @@ class $BotClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BotListBotsResponseApplicationJson),
       headersType: null,
@@ -1244,9 +1217,7 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1289,9 +1260,8 @@ class $BotClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           201,
         },
@@ -1362,9 +1332,7 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1407,9 +1375,8 @@ class $BotClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BotDisableBotResponseApplicationJson),
       headersType: null,
@@ -1469,9 +1436,7 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1504,9 +1469,8 @@ class $BotClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
       headersType: null,
@@ -1591,9 +1555,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1649,9 +1611,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
       headersType: null,
@@ -1712,9 +1673,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1758,9 +1717,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
       headersType: null,
@@ -1830,9 +1788,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1880,9 +1836,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {201},
+        headers: _headers,
+        validStatuses: const {201},
       ),
       bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
       headersType: null,
@@ -1950,9 +1905,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1998,9 +1951,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
       headersType: null,
@@ -2063,9 +2015,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2107,9 +2057,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
       headersType: null,
@@ -2174,9 +2123,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2220,9 +2167,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
       headersType: null,
@@ -2285,9 +2231,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2331,9 +2275,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
       headersType: null,
@@ -2396,9 +2339,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2440,9 +2381,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
       headersType: null,
@@ -2510,9 +2450,7 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2559,9 +2497,8 @@ class $BreakoutRoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
       headersType: null,
@@ -2629,9 +2566,7 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2670,9 +2605,8 @@ class $CallClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(CallGetPeersForCallResponseApplicationJson),
       headersType: null,
@@ -2742,9 +2676,7 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2786,9 +2718,8 @@ class $CallClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
           404,
@@ -2877,9 +2808,7 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2935,9 +2864,8 @@ class $CallClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           404,
         },
@@ -3008,9 +2936,7 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3052,9 +2978,8 @@ class $CallClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           404,
         },
@@ -3127,9 +3052,7 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3172,9 +3095,8 @@ class $CallClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
           404,
@@ -3250,9 +3172,7 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3294,9 +3214,8 @@ class $CallClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           201,
           400,
           404,
@@ -3377,9 +3296,7 @@ class $CertificateClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3418,9 +3335,8 @@ class $CertificateClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
       headersType: null,
@@ -3545,9 +3461,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3632,9 +3546,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           304,
         },
@@ -3733,9 +3646,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3794,9 +3705,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {201},
+        headers: _headers,
+        validStatuses: const {201},
       ),
       bodyType: const FullType(ChatSendMessageResponseApplicationJson),
       headersType: const FullType(ChatChatSendMessageHeaders),
@@ -3861,9 +3771,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3904,9 +3812,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           202,
         },
@@ -3985,9 +3892,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4032,9 +3937,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           202,
         },
@@ -4112,9 +4016,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4161,9 +4063,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           304,
         },
@@ -4234,9 +4135,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4280,9 +4179,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ChatGetReminderResponseApplicationJson),
       headersType: null,
@@ -4355,9 +4253,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4405,9 +4301,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {201},
+        headers: _headers,
+        validStatuses: const {201},
       ),
       bodyType: const FullType(ChatSetReminderResponseApplicationJson),
       headersType: null,
@@ -4475,9 +4370,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4522,9 +4415,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           404,
         },
@@ -4593,9 +4485,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4640,9 +4530,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
       headersType: const FullType(ChatChatSetReadMarkerHeaders),
@@ -4703,9 +4592,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4745,9 +4632,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ChatMarkUnreadResponseApplicationJson),
       headersType: const FullType(ChatChatMarkUnreadHeaders),
@@ -4823,9 +4709,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4877,9 +4761,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ChatMentionsResponseApplicationJson),
       headersType: null,
@@ -4957,9 +4840,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5012,9 +4893,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
       headersType: const FullType(ChatChatGetObjectsSharedInRoomHeaders),
@@ -5112,9 +4992,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5173,9 +5051,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {201},
+        headers: _headers,
+        validStatuses: const {201},
       ),
       bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
       headersType: const FullType(ChatChatShareObjectToChatHeaders),
@@ -5243,9 +5120,7 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5291,9 +5166,8 @@ class $ChatClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
       headersType: null,
@@ -5373,9 +5247,7 @@ class $FilesIntegrationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5418,9 +5290,8 @@ class $FilesIntegrationClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
       headersType: null,
@@ -5495,9 +5366,7 @@ class $FilesIntegrationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5539,9 +5408,8 @@ class $FilesIntegrationClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
       headersType: null,
@@ -5618,9 +5486,7 @@ class $GuestClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5663,9 +5529,8 @@ class $GuestClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           403,
           404,
@@ -5765,9 +5630,7 @@ class $HostedSignalingServerClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5819,9 +5682,8 @@ class $HostedSignalingServerClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
       headersType: null,
@@ -5885,9 +5747,7 @@ class $HostedSignalingServerClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5923,9 +5783,8 @@ class $HostedSignalingServerClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {204},
+        headers: _headers,
+        validStatuses: const {204},
       ),
       bodyType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
       headersType: null,
@@ -5993,9 +5852,7 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6036,9 +5893,8 @@ class $MatterbridgeClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
       headersType: null,
@@ -6111,9 +5967,7 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6169,9 +6023,8 @@ class $MatterbridgeClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
       headersType: null,
@@ -6234,9 +6087,7 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6279,9 +6130,8 @@ class $MatterbridgeClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
       headersType: null,
@@ -6342,9 +6192,7 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6388,9 +6236,8 @@ class $MatterbridgeClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
       headersType: null,
@@ -6459,9 +6306,7 @@ class $MatterbridgeSettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6496,9 +6341,8 @@ class $MatterbridgeSettingsClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
       headersType: null,
@@ -6562,9 +6406,7 @@ class $MatterbridgeSettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6599,9 +6441,8 @@ class $MatterbridgeSettingsClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
       headersType: null,
@@ -6691,9 +6532,7 @@ class $PollClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6746,9 +6585,8 @@ class $PollClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {201},
+        headers: _headers,
+        validStatuses: const {201},
       ),
       bodyType: const FullType(PollCreatePollResponseApplicationJson),
       headersType: null,
@@ -6816,9 +6654,7 @@ class $PollClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6859,9 +6695,8 @@ class $PollClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(PollShowPollResponseApplicationJson),
       headersType: null,
@@ -6936,9 +6771,7 @@ class $PollClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6984,9 +6817,8 @@ class $PollClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(PollVotePollResponseApplicationJson),
       headersType: null,
@@ -7060,9 +6892,7 @@ class $PollClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7103,9 +6933,8 @@ class $PollClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(PollClosePollResponseApplicationJson),
       headersType: null,
@@ -7181,9 +7010,7 @@ class $PublicShareAuthClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7218,9 +7045,8 @@ class $PublicShareAuthClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {201},
+        headers: _headers,
+        validStatuses: const {201},
       ),
       bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
       headersType: null,
@@ -7300,9 +7126,7 @@ class $ReactionClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7348,9 +7172,8 @@ class $ReactionClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ReactionGetReactionsResponseApplicationJson),
       headersType: null,
@@ -7427,9 +7250,7 @@ class $ReactionClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7474,9 +7295,8 @@ class $ReactionClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           201,
         },
@@ -7554,9 +7374,7 @@ class $ReactionClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7601,9 +7419,8 @@ class $ReactionClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ReactionDeleteResponseApplicationJson),
       headersType: null,
@@ -7678,9 +7495,7 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7724,9 +7539,8 @@ class $RecordingClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RecordingStartResponseApplicationJson),
       headersType: null,
@@ -7789,9 +7603,7 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7831,9 +7643,8 @@ class $RecordingClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RecordingStopResponseApplicationJson),
       headersType: null,
@@ -7903,9 +7714,7 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7947,9 +7756,8 @@ class $RecordingClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RecordingStoreResponseApplicationJson),
       headersType: null,
@@ -8017,9 +7825,7 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8065,9 +7871,8 @@ class $RecordingClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RecordingNotificationDismissResponseApplicationJson),
       headersType: null,
@@ -8140,9 +7945,7 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8191,9 +7994,8 @@ class $RecordingClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RecordingShareToChatResponseApplicationJson),
       headersType: null,
@@ -8262,9 +8064,7 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8301,9 +8101,8 @@ class $RecordingClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
       headersType: null,
@@ -8381,9 +8180,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8431,9 +8228,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomGetRoomsResponseApplicationJson),
       headersType: const FullType(RoomRoomGetRoomsHeaders),
@@ -8527,9 +8323,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8586,9 +8380,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           201,
         },
@@ -8652,9 +8445,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8692,9 +8483,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomGetListedRoomsResponseApplicationJson),
       headersType: null,
@@ -8757,9 +8547,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8793,9 +8581,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
       headersType: const FullType(RoomRoomGetNoteToSelfConversationHeaders),
@@ -8860,9 +8647,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8901,9 +8686,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
       headersType: const FullType(RoomRoomGetSingleRoomHeaders),
@@ -8971,9 +8755,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9015,9 +8797,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -9083,9 +8864,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9123,9 +8902,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -9195,9 +8973,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9239,9 +9015,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
       headersType: null,
@@ -9304,9 +9079,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9346,9 +9119,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -9414,9 +9186,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9456,9 +9226,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -9529,9 +9298,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9574,9 +9341,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -9647,9 +9413,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9693,9 +9457,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -9766,9 +9529,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9812,9 +9573,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -9887,9 +9647,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9931,9 +9689,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           403,
         },
@@ -10009,9 +9766,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10064,9 +9819,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomSetPermissionsResponseApplicationJson),
       headersType: null,
@@ -10136,9 +9890,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10183,9 +9935,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
       headersType: const FullType(RoomRoomGetParticipantsHeaders),
@@ -10262,9 +10013,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10314,9 +10063,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomAddParticipantToRoomResponseApplicationJson),
       headersType: null,
@@ -10389,9 +10137,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10442,9 +10188,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
       headersType: const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
@@ -10509,9 +10254,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10553,9 +10296,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
           404,
@@ -10631,9 +10373,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10676,9 +10416,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
           403,
@@ -10765,9 +10504,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10819,9 +10556,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
           403,
@@ -10899,9 +10635,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10954,9 +10688,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
       headersType: null,
@@ -11033,9 +10766,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11083,9 +10814,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomJoinRoomResponseApplicationJson),
       headersType: null,
@@ -11146,9 +10876,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11187,9 +10915,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
       headersType: null,
@@ -11257,9 +10984,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11305,9 +11030,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           404,
         },
@@ -11380,9 +11104,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11425,9 +11147,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomSetSessionStateResponseApplicationJson),
       headersType: null,
@@ -11499,9 +11220,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11544,9 +11263,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
           403,
@@ -11623,9 +11341,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11668,9 +11384,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
           403,
@@ -11736,9 +11451,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11779,9 +11492,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomAddToFavoritesResponseApplicationJson),
       headersType: null,
@@ -11842,9 +11554,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11885,9 +11595,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
       headersType: null,
@@ -11955,9 +11664,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12002,9 +11709,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -12075,9 +11781,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12122,9 +11826,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -12200,9 +11903,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12249,9 +11950,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
       headersType: null,
@@ -12325,9 +12025,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12372,9 +12070,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomSetsipEnabledResponseApplicationJson),
       headersType: null,
@@ -12444,9 +12141,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12492,9 +12187,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomSetRecordingConsentResponseApplicationJson),
       headersType: null,
@@ -12562,9 +12256,7 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12607,9 +12299,8 @@ class $RoomClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RoomSetMessageExpirationResponseApplicationJson),
       headersType: null,
@@ -12684,9 +12375,7 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12726,9 +12415,8 @@ class $SettingsClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },
@@ -12806,9 +12494,7 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12856,9 +12542,8 @@ class $SettingsClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(SettingsSetsipSettingsResponseApplicationJson),
       headersType: null,
@@ -12930,9 +12615,7 @@ class $SignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12968,9 +12651,8 @@ class $SignalingClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
       headersType: null,
@@ -13037,9 +12719,7 @@ class $SignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13078,9 +12758,8 @@ class $SignalingClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           404,
           409,
@@ -13152,9 +12831,7 @@ class $SignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13197,9 +12874,8 @@ class $SignalingClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
       headersType: null,
@@ -13270,9 +12946,7 @@ class $SignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13309,9 +12983,8 @@ class $SignalingClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
       headersType: null,
@@ -13368,9 +13041,7 @@ class $TempAvatarClient {
   ///  * [postAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13398,9 +13069,8 @@ class $TempAvatarClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(TempAvatarPostAvatarResponseApplicationJson),
       headersType: null,
@@ -13450,9 +13120,7 @@ class $TempAvatarClient {
   ///  * [deleteAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13480,9 +13148,8 @@ class $TempAvatarClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           400,
         },

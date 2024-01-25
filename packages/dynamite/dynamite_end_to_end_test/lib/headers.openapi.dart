@@ -64,16 +64,12 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<void, GetHeaders> $getRaw() {
-    final _headers = <String, String>{};
-
     const _path = '/';
     return _i1.DynamiteRawResponse<void, GetHeaders>(
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: const FullType(GetHeaders),
@@ -107,16 +103,12 @@ class $Client extends _i1.DynamiteClient {
   ///  * [withContentOperationId] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
-    final _headers = <String, String>{};
-
     const _path = '/with_content/operation_id';
     return _i1.DynamiteRawResponse<void, WithContentOperationIdHeaders>(
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: const FullType(WithContentOperationIdHeaders),
@@ -150,18 +142,15 @@ class $Client extends _i1.DynamiteClient {
   ///  * [getWithContent] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
-    const _headers = <String, String>{
-      'Accept': 'application/octet-stream',
-    };
+    const _headers = <String, String>{'Accept': 'application/octet-stream'};
 
     const _path = '/with_content';
     return _i1.DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: const FullType(GetWithContentHeaders),

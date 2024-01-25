@@ -76,9 +76,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        _body,
-        null,
+        headers: _headers,
+        body: _body,
       ),
       bodyType: null,
       headersType: null,
@@ -126,9 +125,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        _body,
-        null,
+        headers: _headers,
+        body: _body,
       ),
       bodyType: null,
       headersType: null,

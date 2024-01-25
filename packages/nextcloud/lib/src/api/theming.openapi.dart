@@ -108,9 +108,7 @@ class $IconClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getFaviconRaw({String? app}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'image/x-icon',
-    };
+    final _headers = <String, String>{'Accept': 'image/x-icon'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -136,9 +134,8 @@ class $IconClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -189,9 +186,7 @@ class $IconClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getTouchIconRaw({String? app}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'image/png',
-    };
+    final _headers = <String, String>{'Accept': 'image/png'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -217,9 +212,8 @@ class $IconClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -279,9 +273,7 @@ class $IconClient {
     required String image,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'image/svg+xml',
-    };
+    final _headers = <String, String>{'Accept': 'image/svg+xml'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -314,9 +306,8 @@ class $IconClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -388,9 +379,7 @@ class $ThemingClient {
     ThemingGetThemeStylesheetWithCustomCss? withCustomCss,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'text/css',
-    };
+    final _headers = <String, String>{'Accept': 'text/css'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -427,9 +416,8 @@ class $ThemingClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(String),
       headersType: null,
@@ -489,9 +477,7 @@ class $ThemingClient {
     ThemingGetImageUseSvg? useSvg,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': '*/*',
-    };
+    final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -520,9 +506,8 @@ class $ThemingClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -569,9 +554,7 @@ class $ThemingClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({String? app}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -597,9 +580,8 @@ class $ThemingClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ThemingGetManifestResponseApplicationJson),
       headersType: null,
@@ -646,9 +628,7 @@ class $UserThemeClient {
   ///  * [getBackground] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getBackgroundRaw() {
-    final _headers = <String, String>{
-      'Accept': '*/*',
-    };
+    final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -672,9 +652,8 @@ class $UserThemeClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -734,9 +713,7 @@ class $UserThemeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -767,9 +744,8 @@ class $UserThemeClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UserThemeEnableThemeResponseApplicationJson),
       headersType: null,
@@ -829,9 +805,7 @@ class $UserThemeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -862,9 +836,8 @@ class $UserThemeClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UserThemeDisableThemeResponseApplicationJson),
       headersType: null,

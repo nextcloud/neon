@@ -111,9 +111,7 @@ class $Client extends _i2.DynamiteClient {
     int? limit,
   }) {
     final _parameters = <String, dynamic>{};
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     final $tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['tags'] = $tags;
@@ -126,9 +124,8 @@ class $Client extends _i2.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(BuiltList, [FullType(Pet)]),
       headersType: null,
@@ -170,9 +167,7 @@ class $Client extends _i2.DynamiteClient {
   ///  * [addPet] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i3.experimental
   _i2.DynamiteRawResponse<Pet, void> addPetRaw({required NewPet newPet}) {
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
     Uint8List? _body;
 
     _headers['Content-Type'] = 'application/json';
@@ -182,9 +177,9 @@ class $Client extends _i2.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        _body,
-        const {200},
+        headers: _headers,
+        body: _body,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Pet),
       headersType: null,
@@ -233,9 +228,7 @@ class $Client extends _i2.DynamiteClient {
   @_i3.experimental
   _i2.DynamiteRawResponse<Pet, void> findPetByIdRaw({required int id}) {
     final _parameters = <String, dynamic>{};
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
@@ -245,9 +238,8 @@ class $Client extends _i2.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Pet),
       headersType: null,
@@ -296,7 +288,6 @@ class $Client extends _i2.DynamiteClient {
   @_i3.experimental
   _i2.DynamiteRawResponse<void, void> deletePetRaw({required int id}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{};
 
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
@@ -306,9 +297,7 @@ class $Client extends _i2.DynamiteClient {
       response: executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {204},
+        validStatuses: const {204},
       ),
       bodyType: null,
       headersType: null,

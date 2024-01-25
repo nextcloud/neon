@@ -107,9 +107,7 @@ class $DeletedShareapiClient {
   ///  * [index] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<DeletedShareapiIndexResponseApplicationJson, void> indexRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -137,9 +135,8 @@ class $DeletedShareapiClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(DeletedShareapiIndexResponseApplicationJson),
       headersType: null,
@@ -197,9 +194,7 @@ class $DeletedShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -230,9 +225,8 @@ class $DeletedShareapiClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(DeletedShareapiUndeleteResponseApplicationJson),
       headersType: null,
@@ -292,9 +286,7 @@ class $PublicPreviewClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<Uint8List, void> directLinkRaw({required String token}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': '*/*',
-    };
+    final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -319,9 +311,8 @@ class $PublicPreviewClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -398,9 +389,7 @@ class $PublicPreviewClient {
     PublicPreviewGetPreviewA? a,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': '*/*',
-    };
+    final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -442,9 +431,8 @@ class $PublicPreviewClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
@@ -497,9 +485,7 @@ class $RemoteClient {
   ///  * [getShares] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void> getSharesRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -527,9 +513,8 @@ class $RemoteClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RemoteGetSharesResponseApplicationJson),
       headersType: null,
@@ -577,9 +562,7 @@ class $RemoteClient {
   ///  * [getOpenShares] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -607,9 +590,8 @@ class $RemoteClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RemoteGetOpenSharesResponseApplicationJson),
       headersType: null,
@@ -667,9 +649,7 @@ class $RemoteClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -701,9 +681,8 @@ class $RemoteClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RemoteAcceptShareResponseApplicationJson),
       headersType: null,
@@ -761,9 +740,7 @@ class $RemoteClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -795,9 +772,8 @@ class $RemoteClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RemoteDeclineShareResponseApplicationJson),
       headersType: null,
@@ -855,9 +831,7 @@ class $RemoteClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -888,9 +862,8 @@ class $RemoteClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RemoteGetShareResponseApplicationJson),
       headersType: null,
@@ -950,9 +923,7 @@ class $RemoteClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -983,9 +954,8 @@ class $RemoteClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(RemoteUnshareResponseApplicationJson),
       headersType: null,
@@ -1062,9 +1032,7 @@ class $ShareInfoClient {
     int? depth,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1100,9 +1068,8 @@ class $ShareInfoClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareInfo),
       headersType: null,
@@ -1187,9 +1154,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1239,9 +1204,8 @@ class $ShareapiClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareapiGetSharesResponseApplicationJson),
       headersType: null,
@@ -1353,9 +1317,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1424,9 +1386,8 @@ class $ShareapiClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareapiCreateShareResponseApplicationJson),
       headersType: null,
@@ -1486,9 +1447,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1519,9 +1478,8 @@ class $ShareapiClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
       headersType: null,
@@ -1569,9 +1527,7 @@ class $ShareapiClient {
   ///  * [pendingShares] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1599,9 +1555,8 @@ class $ShareapiClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareapiPendingSharesResponseApplicationJson),
       headersType: null,
@@ -1664,9 +1619,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1703,9 +1656,8 @@ class $ShareapiClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareapiGetShareResponseApplicationJson),
       headersType: null,
@@ -1812,9 +1764,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1874,9 +1824,8 @@ class $ShareapiClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareapiUpdateShareResponseApplicationJson),
       headersType: null,
@@ -1936,9 +1885,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1969,9 +1916,8 @@ class $ShareapiClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareapiDeleteShareResponseApplicationJson),
       headersType: null,
@@ -2031,9 +1977,7 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2064,9 +2008,8 @@ class $ShareapiClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareapiAcceptShareResponseApplicationJson),
       headersType: null,
@@ -2156,9 +2099,7 @@ class $ShareesapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2210,9 +2151,8 @@ class $ShareesapiClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareesapiSearchResponseApplicationJson),
       headersType: const FullType(ShareesapiShareesapiSearchHeaders),
@@ -2273,9 +2213,7 @@ class $ShareesapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2311,9 +2249,8 @@ class $ShareesapiClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ShareesapiFindRecommendedResponseApplicationJson),
       headersType: null,

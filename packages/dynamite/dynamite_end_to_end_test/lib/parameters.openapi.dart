@@ -147,9 +147,7 @@ class $Client extends _i3.DynamiteClient {
     GetEnumPattern? enumPattern,
   }) {
     final _parameters = <String, dynamic>{};
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     final $contentString = _$jsonSerializers.serialize(
       contentString,
@@ -216,9 +214,8 @@ class $Client extends _i3.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
@@ -329,9 +326,7 @@ class $Client extends _i3.DynamiteClient {
     GetHeadersAnyOf? anyOf,
     GetHeadersEnumPattern? enumPattern,
   }) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
     final $contentString = _$jsonSerializers.serialize(
       contentString,
@@ -424,9 +419,8 @@ class $Client extends _i3.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
@@ -463,9 +457,7 @@ class $Client extends _i3.DynamiteClient {
   @_i4.experimental
   _i3.DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
     final _parameters = <String, dynamic>{};
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     final $pathParameter = _$jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
     _parameters['path_parameter'] = $pathParameter;
@@ -475,9 +467,8 @@ class $Client extends _i3.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
@@ -530,9 +521,7 @@ class $Client extends _i3.DynamiteClient {
     required String headers,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
     final $jsonSerializers = _$jsonSerializers.serialize(jsonSerializers, specifiedType: const FullType(String));
     _parameters['%24jsonSerializers'] = $jsonSerializers;
@@ -562,9 +551,8 @@ class $Client extends _i3.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,

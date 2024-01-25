@@ -117,9 +117,7 @@ class $HeartbeatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -150,9 +148,8 @@ class $HeartbeatClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(HeartbeatHeartbeatResponseApplicationJson),
       headersType: null,
@@ -207,9 +204,7 @@ class $PredefinedStatusClient {
   ///  * [findAll] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void> findAllRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -237,9 +232,8 @@ class $PredefinedStatusClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(PredefinedStatusFindAllResponseApplicationJson),
       headersType: null,
@@ -307,9 +301,7 @@ class $StatusesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -343,9 +335,8 @@ class $StatusesClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(StatusesFindAllResponseApplicationJson),
       headersType: null,
@@ -403,9 +394,7 @@ class $StatusesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -436,9 +425,8 @@ class $StatusesClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(StatusesFindResponseApplicationJson),
       headersType: null,
@@ -495,9 +483,7 @@ class $UserStatusClient {
   ///  * [getStatus] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void> getStatusRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -525,9 +511,8 @@ class $UserStatusClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UserStatusGetStatusResponseApplicationJson),
       headersType: null,
@@ -585,9 +570,7 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -619,9 +602,8 @@ class $UserStatusClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UserStatusSetStatusResponseApplicationJson),
       headersType: null,
@@ -684,9 +666,7 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -722,9 +702,8 @@ class $UserStatusClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
       headersType: null,
@@ -792,9 +771,7 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -833,9 +810,8 @@ class $UserStatusClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UserStatusSetCustomMessageResponseApplicationJson),
       headersType: null,
@@ -883,9 +859,7 @@ class $UserStatusClient {
   ///  * [clearMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void> clearMessageRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -913,9 +887,8 @@ class $UserStatusClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UserStatusClearMessageResponseApplicationJson),
       headersType: null,
@@ -971,9 +944,7 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1005,9 +976,8 @@ class $UserStatusClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UserStatusRevertStatusResponseApplicationJson),
       headersType: null,

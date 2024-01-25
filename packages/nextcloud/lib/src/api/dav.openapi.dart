@@ -117,9 +117,7 @@ class $DirectClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -153,9 +151,8 @@ class $DirectClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(DirectGetUrlResponseApplicationJson),
       headersType: null,
@@ -222,9 +219,7 @@ class $OutOfOfficeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -255,9 +250,8 @@ class $OutOfOfficeClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
       headersType: null,
@@ -315,9 +309,7 @@ class $OutOfOfficeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -348,9 +340,8 @@ class $OutOfOfficeClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson),
       headersType: null,
@@ -430,9 +421,7 @@ class $OutOfOfficeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -477,9 +466,8 @@ class $OutOfOfficeClient {
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
       headersType: null,
@@ -537,9 +525,7 @@ class $OutOfOfficeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -570,9 +556,8 @@ class $OutOfOfficeClient {
       response: _rootClient.executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {
+        headers: _headers,
+        validStatuses: const {
           200,
           401,
         },

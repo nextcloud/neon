@@ -104,9 +104,7 @@ class $WeatherStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -137,9 +135,8 @@ class $WeatherStatusClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(WeatherStatusSetModeResponseApplicationJson),
       headersType: null,
@@ -189,9 +186,7 @@ class $WeatherStatusClient {
   _i1.DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
     bool? oCSAPIRequest,
   }) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -219,9 +214,8 @@ class $WeatherStatusClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
       headersType: null,
@@ -269,9 +263,7 @@ class $WeatherStatusClient {
   ///  * [getLocation] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -299,9 +291,8 @@ class $WeatherStatusClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(WeatherStatusGetLocationResponseApplicationJson),
       headersType: null,
@@ -367,9 +358,7 @@ class $WeatherStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -407,9 +396,8 @@ class $WeatherStatusClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(WeatherStatusSetLocationResponseApplicationJson),
       headersType: null,
@@ -459,9 +447,7 @@ class $WeatherStatusClient {
   ///  * [getForecast] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
   _i1.DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -489,9 +475,8 @@ class $WeatherStatusClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(WeatherStatusGetForecastResponseApplicationJson),
       headersType: null,
@@ -541,9 +526,7 @@ class $WeatherStatusClient {
   _i1.DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({
     bool? oCSAPIRequest,
   }) {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -571,9 +554,8 @@ class $WeatherStatusClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
       headersType: null,
@@ -629,9 +611,7 @@ class $WeatherStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -664,9 +644,8 @@ class $WeatherStatusClient {
       response: _rootClient.executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
       headersType: null,

@@ -118,9 +118,7 @@ class $PreviewClient {
     String? version,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': '*/*',
-    };
+    final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -160,9 +158,8 @@ class $PreviewClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
