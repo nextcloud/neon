@@ -420,7 +420,7 @@ class DynamiteClient {
   Future<http.StreamedResponse> executeRequest(
     String method,
     String path,
-    Map<String, String> headers,
+    Map<String, String>? headers,
     Uint8List? body,
     Set<int>? validStatuses,
   ) {
@@ -429,10 +429,7 @@ class DynamiteClient {
     return executeRawRequest(
       method,
       uri,
-      {
-        ...?baseHeaders,
-        ...headers,
-      },
+      headers,
       body,
       validStatuses,
     );
@@ -442,12 +439,19 @@ class DynamiteClient {
   Future<http.StreamedResponse> executeRawRequest(
     String method,
     Uri uri,
-    Map<String, String> headers,
+    Map<String, String>? headers,
     Uint8List? body,
     Set<int>? validStatuses,
   ) async {
     final request = http.Request(method, uri);
-    request.headers.addAll(headers);
+
+    if (baseHeaders != null) {
+      request.headers.addAll(baseHeaders!);
+    }
+
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
 
     if (body != null) {
       request.bodyBytes = body;
