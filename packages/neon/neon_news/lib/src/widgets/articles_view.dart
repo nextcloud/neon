@@ -137,7 +137,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             ),
             if (article.mediaThumbnail != null) ...[
               NeonUrlImage(
-                url: article.mediaThumbnail!,
+                uri: Uri.parse(article.mediaThumbnail!),
                 size: const Size(100, 50),
                 fit: BoxFit.cover,
               ),

@@ -27,7 +27,7 @@ class DashboardWidgetItem extends StatelessWidget {
         borderRadius: roundIcon ? BorderRadius.circular(largeIconSize) : null,
         child: item.iconUrl.isNotEmpty
             ? NeonUrlImage(
-                url: item.iconUrl,
+                uri: Uri.parse(item.iconUrl),
                 size: const Size.square(largeIconSize),
               )
             : Icon(
@@ -49,7 +49,7 @@ class DashboardWidgetItem extends StatelessWidget {
               child: SizedBox.square(
                 dimension: smallIconSize,
                 child: NeonUrlImage(
-                  url: overlayIconUrl,
+                  uri: Uri.parse(overlayIconUrl),
                   size: const Size.square(smallIconSize),
                 ),
               ),

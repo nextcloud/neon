@@ -113,7 +113,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     if (entry.thumbnailUrl.isNotEmpty) {
       return NeonUrlImage.withAccount(
         size: const Size.square(largeIconSize),
-        url: entry.thumbnailUrl,
+        uri: Uri.parse(entry.thumbnailUrl),
         account: account,
         // The thumbnail URL might be set but a 404 is returned because there is no preview available
         errorBuilder: (context, _) => _buildFallbackIcon(context, account, entry),
@@ -131,7 +131,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     if (entry.icon.startsWith('/')) {
       return NeonUrlImage.withAccount(
         size: Size.square(IconTheme.of(context).size!),
-        url: entry.icon,
+        uri: Uri.parse(entry.icon),
         account: account,
       );
     }

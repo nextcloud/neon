@@ -140,7 +140,7 @@ class NeonDrawerHeader extends StatelessWidget {
             ),
             Flexible(
               child: NeonUrlImage(
-                url: theme.logo,
+                uri: Uri.parse(theme.logo),
               ),
             ),
           ],
