@@ -72,7 +72,7 @@ class WebDavClient {
 
     request.headers.addAll({
       ...?rootClient.baseHeaders,
-      ...?rootClient.authentications.firstOrNull?.headers,
+      ...?rootClient.authentications?.firstOrNull?.headers,
     });
 
     final response = await rootClient.httpClient.send(request);

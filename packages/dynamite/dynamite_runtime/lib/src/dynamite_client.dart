@@ -384,7 +384,7 @@ class DynamiteClient {
     this.baseHeaders,
     http.Client? httpClient,
     this.cookieJar,
-    this.authentications = const [],
+    this.authentications,
   })  : httpClient = httpClient ?? http.Client(),
         baseURL = baseURL.normalizeEmptyPath() {
     if (baseURL.queryParametersAll.isNotEmpty) {
@@ -410,7 +410,7 @@ class DynamiteClient {
   /// The available authentications for this client.
   ///
   /// The first one matching the required authentication type will be used.
-  final List<DynamiteAuthentication> authentications;
+  final List<DynamiteAuthentication>? authentications;
 
   /// Makes a request against a given [path].
   ///

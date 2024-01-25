@@ -573,7 +573,7 @@ Iterable<String> buildAuthCheck(
 
   yield '''
 // coverage:ignore-start
-final authentication = $client.authentications.firstWhereOrNull(
+final authentication = $client.authentications?.firstWhereOrNull(
     (auth) => switch (auth) {
 ''';
 

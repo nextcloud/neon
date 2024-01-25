@@ -190,7 +190,7 @@ class $AppPasswordClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -271,7 +271,7 @@ class $AppPasswordClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -352,7 +352,7 @@ class $AppPasswordClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -469,7 +469,7 @@ class $AutoCompleteClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -586,7 +586,7 @@ class $AvatarClient {
     final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -673,7 +673,7 @@ class $AvatarClient {
     final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -758,7 +758,7 @@ class $ClientFlowLoginV2Client {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -822,7 +822,7 @@ class $ClientFlowLoginV2Client {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -910,7 +910,7 @@ class $CollaborationResourcesClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1003,7 +1003,7 @@ class $CollaborationResourcesClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1100,7 +1100,7 @@ class $CollaborationResourcesClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1206,7 +1206,7 @@ class $CollaborationResourcesClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1316,7 +1316,7 @@ class $CollaborationResourcesClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1421,7 +1421,7 @@ class $CollaborationResourcesClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1531,7 +1531,7 @@ class $CollaborationResourcesClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1638,7 +1638,7 @@ class $GuestAvatarClient {
     final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1735,7 +1735,7 @@ class $GuestAvatarClient {
     final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1837,7 +1837,7 @@ class $HoverCardClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1934,7 +1934,7 @@ class $NavigationClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2026,7 +2026,7 @@ class $NavigationClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2108,7 +2108,7 @@ class $OcmClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2186,7 +2186,7 @@ class $OcsClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2309,7 +2309,7 @@ class $PreviewClient {
     final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2454,7 +2454,7 @@ class $PreviewClient {
     final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2588,7 +2588,7 @@ class $ProfileApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2682,7 +2682,7 @@ class $ReferenceClient {
     final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2771,7 +2771,7 @@ class $ReferenceApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2864,7 +2864,7 @@ class $ReferenceApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -2967,7 +2967,7 @@ class $ReferenceApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3057,7 +3057,7 @@ class $ReferenceApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3147,7 +3147,7 @@ class $ReferenceApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3237,7 +3237,7 @@ class $TextProcessingApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3341,7 +3341,7 @@ class $TextProcessingApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3442,7 +3442,7 @@ class $TextProcessingApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3532,7 +3532,7 @@ class $TextProcessingApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3627,7 +3627,7 @@ class $TextProcessingApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3719,7 +3719,7 @@ class $TextToImageApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3821,7 +3821,7 @@ class $TextToImageApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -3923,7 +3923,7 @@ class $TextToImageApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4013,7 +4013,7 @@ class $TextToImageApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4110,7 +4110,7 @@ class $TextToImageApiClient {
     final _headers = <String, String>{'Accept': '*/*'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4206,7 +4206,7 @@ class $TextToImageApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4296,7 +4296,7 @@ class $TranslationApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4395,7 +4395,7 @@ class $TranslationApiClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4495,7 +4495,7 @@ class $UnifiedSearchClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4615,7 +4615,7 @@ class $UnifiedSearchClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4721,7 +4721,7 @@ class $WhatsNewClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4808,7 +4808,7 @@ class $WhatsNewClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4896,7 +4896,7 @@ class $WipeClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -4971,7 +4971,7 @@ class $WipeClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
