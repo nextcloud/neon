@@ -116,9 +116,7 @@ class $Client extends _i2.DynamiteClient {
     int? limit,
   }) {
     final _parameters = <String, dynamic>{};
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     final $tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['tags'] = $tags;
@@ -131,9 +129,7 @@ class $Client extends _i2.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        null,
+        headers: _headers,
       ),
       bodyType: const FullType(Object1),
       headersType: null,
@@ -179,18 +175,14 @@ class $NonRootClientClient {
   ///  * [setMode] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i3.experimental
   _i2.DynamiteRawResponse<Object1, void> setModeRaw() {
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/other-endpoint';
     return _i2.DynamiteRawResponse<Object1, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        null,
+        headers: _headers,
       ),
       bodyType: const FullType(Object1),
       headersType: null,

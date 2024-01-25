@@ -74,9 +74,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [getSupportedApiVersions] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i3.experimental
   _i1.DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -100,9 +98,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(SupportedAPIVersions),
       headersType: null,
@@ -136,9 +133,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [listFolders] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i3.experimental
   _i1.DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -162,9 +157,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ListFolders),
       headersType: null,
@@ -207,9 +201,7 @@ class $Client extends _i1.DynamiteClient {
   @_i3.experimental
   _i1.DynamiteRawResponse<ListFolders, void> createFolderRaw({required String name}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -236,9 +228,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ListFolders),
       headersType: null,
@@ -318,9 +309,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -384,9 +374,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -467,9 +456,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -503,9 +491,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [listFeeds] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i3.experimental
   _i1.DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -529,9 +515,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ListFeeds),
       headersType: null,
@@ -583,9 +568,7 @@ class $Client extends _i1.DynamiteClient {
     int? folderId,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -615,9 +598,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ListFeeds),
       headersType: null,
@@ -681,9 +663,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -763,9 +744,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -846,9 +826,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -929,9 +908,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -1003,9 +981,7 @@ class $Client extends _i1.DynamiteClient {
     int? oldestFirst,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1055,9 +1031,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ListArticles),
       headersType: null,
@@ -1114,9 +1089,7 @@ class $Client extends _i1.DynamiteClient {
     int? lastModified,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1153,9 +1126,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(ListArticles),
       headersType: null,
@@ -1219,9 +1191,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -1285,9 +1256,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -1351,9 +1321,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,
@@ -1417,9 +1386,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: null,
       headersType: null,

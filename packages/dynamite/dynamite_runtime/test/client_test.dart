@@ -32,7 +32,7 @@ void main() {
       );
 
       await cookieJar.saveFromResponse(uri, [Cookie('a', 'b')]);
-      await client.executeRequest('GET', '', {}, null, null);
+      await client.executeRequest('GET', '');
 
       final cookies = await cookieJar.loadForRequest(uri);
       expect(cookies, hasLength(2));
@@ -54,7 +54,7 @@ void main() {
         cookieJar: cookieJar,
       );
 
-      await client.executeRequest('GET', '', {}, null, null);
+      await client.executeRequest('GET', '');
     });
   });
 
@@ -82,7 +82,7 @@ void main() {
         },
       );
 
-      await client.executeRawRequest('GET', uri, null, null, null);
+      await client.executeRawRequest('GET', uri);
     });
 
     test('request overwrites base headers', () async {
@@ -108,7 +108,7 @@ void main() {
         },
       );
 
-      await client.executeRawRequest('GET', uri, {'some-key': 'some-other-value'}, null, null);
+      await client.executeRawRequest('GET', uri, headers: {'some-key': 'some-other-value'});
     });
   });
 }

@@ -419,30 +419,30 @@ class DynamiteClient {
   /// All [baseHeaders] are added to the request.
   Future<http.StreamedResponse> executeRequest(
     String method,
-    String path,
+    String path, {
     Map<String, String>? headers,
     Uint8List? body,
     Set<int>? validStatuses,
-  ) {
+  }) {
     final uri = Uri.parse('$baseURL$path');
 
     return executeRawRequest(
       method,
       uri,
-      headers,
-      body,
-      validStatuses,
+      headers: headers,
+      body: body,
+      validStatuses: validStatuses,
     );
   }
 
   /// Executes a HTTP request against give full [uri].
   Future<http.StreamedResponse> executeRawRequest(
     String method,
-    Uri uri,
+    Uri uri, {
     Map<String, String>? headers,
     Uint8List? body,
     Set<int>? validStatuses,
-  ) async {
+  }) async {
     final request = http.Request(method, uri);
 
     if (baseHeaders != null) {

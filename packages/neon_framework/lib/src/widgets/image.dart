@@ -374,9 +374,8 @@ class NeonUrlImage extends StatelessWidget {
         final response = await account.client.executeRawRequest(
           'GET',
           completedUri,
-          account.getAuthorizationHeaders(completedUri),
-          null,
-          const {200, 201},
+          headers: account.getAuthorizationHeaders(completedUri),
+          validStatuses: const {200, 201},
         );
 
         return response.stream.bytes;

@@ -62,18 +62,15 @@ class $Client extends _i1.DynamiteClient {
   ///  * [noAuthentication] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<JsonObject, void> noAuthenticationRaw() {
-    const _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/';
     return _i1.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
@@ -107,9 +104,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [basicAuthentication] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<JsonObject, void> basicAuthenticationRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -133,9 +128,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
@@ -169,9 +163,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [bearerAuthentication] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<JsonObject, void> bearerAuthenticationRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -195,9 +187,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
@@ -231,9 +222,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [multipleAuthentications] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<JsonObject, void> multipleAuthenticationsRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -257,9 +246,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,

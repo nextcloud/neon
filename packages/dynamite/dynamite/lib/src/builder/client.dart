@@ -186,6 +186,7 @@ Iterable<Method> buildTags(
       ]..sort(sortRequiredParameters);
       final name = toDartName(filterMethodName(operationName, tag ?? ''));
 
+      final hasContentEncoding = operation.requestBody?.content?.entries.isNotEmpty ?? false;
       final hasAuthentication = needsAuthCheck(pathEntry, operation, spec, client);
       var hasUriParameters = false;
       var hasHeaderParameters = false;
@@ -232,15 +233,29 @@ Iterable<Method> buildTags(
       if (hasUriParameters) {
         code.writeln('final _parameters = <String, dynamic>{};');
       }
-      if (acceptHeader.isNotEmpty) {
-        if (hasHeaderParameters || hasAuthentication) {
-          code.writeln("final _headers = <String, String>{'Accept': '$acceptHeader',};");
-        } else {
-          code.writeln("const _headers = <String, String>{'Accept': '$acceptHeader',};");
-        }
-      } else if (acceptHeader.isEmpty) {
-        code.writeln('final _headers = <String, String>{};');
+
+      Expression? headersExpression;
+      if (hasHeaderParameters || hasAuthentication || hasContentEncoding) {
+        headersExpression = declareFinal('_headers');
+      } else if (acceptHeader.isNotEmpty) {
+        headersExpression = declareConst('_headers');
       }
+
+      if (headersExpression != null) {
+        final headersCode = headersExpression
+            .assign(
+              literalMap(
+                {if (acceptHeader.isNotEmpty) 'Accept': acceptHeader},
+                refer('String'),
+                refer('String'),
+              ),
+            )
+            .statement
+            .accept(state.emitter);
+
+        code.writeln(headersCode);
+      }
+
       if (operation.requestBody != null) {
         code.writeln('Uint8List? _body;');
       }
@@ -401,13 +416,13 @@ Iterable<Method> buildTags(
           'response': refer(client).property('executeRequest').call([
             literalString(httpMethod),
             refer('_path'),
-            refer('_headers'),
-            if (operation.requestBody != null) refer('_body') else literalNull,
+          ], {
+            if (acceptHeader.isNotEmpty || hasHeaderParameters || hasAuthentication || hasContentEncoding)
+              'headers': refer('_headers'),
+            if (operation.requestBody != null) 'body': refer('_body'),
             if (responses.values.isNotEmpty && !statusCodes.contains('default'))
-              literalConstSet(statusCodes)
-            else
-              literalNull,
-          ]),
+              'validStatuses': literalConstSet(statusCodes),
+          }),
           'bodyType': refer(dataType?.fullType ?? 'null'),
           'headersType': refer(headersType?.fullType ?? 'null'),
           'serializers': refer(r'_$jsonSerializers'),

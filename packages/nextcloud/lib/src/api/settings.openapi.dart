@@ -89,9 +89,7 @@ class $LogSettingsClient {
   ///  * [download] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/octet-stream',
-    };
+    final _headers = <String, String>{'Accept': 'application/octet-stream'};
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -115,9 +113,8 @@ class $LogSettingsClient {
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(Uint8List),
       headersType: const FullType(LogSettingsLogSettingsDownloadHeaders),

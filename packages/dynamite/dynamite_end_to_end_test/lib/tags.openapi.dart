@@ -70,16 +70,11 @@ class $FirstClient {
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<void, void> $getRaw() {
-    final _headers = <String, String>{};
-
     const _path = '/';
     return _i1.DynamiteRawResponse<void, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        null,
       ),
       bodyType: null,
       headersType: null,
@@ -120,16 +115,11 @@ class $SecondClient {
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   _i1.DynamiteRawResponse<void, void> $getRaw() {
-    final _headers = <String, String>{};
-
     const _path = '/';
     return _i1.DynamiteRawResponse<void, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        null,
       ),
       bodyType: null,
       headersType: null,

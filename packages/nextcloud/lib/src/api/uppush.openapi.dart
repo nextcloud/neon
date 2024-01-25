@@ -76,9 +76,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [check] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i3.experimental
   _i1.DynamiteRawResponse<CheckResponseApplicationJson, void> checkRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -102,9 +100,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(CheckResponseApplicationJson),
       headersType: null,
@@ -155,9 +152,7 @@ class $Client extends _i1.DynamiteClient {
   @_i3.experimental
   _i1.DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required int keepalive}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -184,9 +179,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(SetKeepaliveResponseApplicationJson),
       headersType: null,
@@ -235,9 +229,7 @@ class $Client extends _i1.DynamiteClient {
   @_i3.experimental
   _i1.DynamiteRawResponse<CreateDeviceResponseApplicationJson, void> createDeviceRaw({required String deviceName}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -264,9 +256,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(CreateDeviceResponseApplicationJson),
       headersType: null,
@@ -311,9 +302,7 @@ class $Client extends _i1.DynamiteClient {
   @_i3.experimental
   _i1.DynamiteRawResponse<SyncDeviceResponseApplicationJson, void> syncDeviceRaw({required String deviceId}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -340,9 +329,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {401},
+        headers: _headers,
+        validStatuses: const {401},
       ),
       bodyType: const FullType(SyncDeviceResponseApplicationJson),
       headersType: null,
@@ -385,9 +373,7 @@ class $Client extends _i1.DynamiteClient {
   @_i3.experimental
   _i1.DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({required String deviceId}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -414,9 +400,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(DeleteDeviceResponseApplicationJson),
       headersType: null,
@@ -472,9 +457,7 @@ class $Client extends _i1.DynamiteClient {
     required String appName,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -504,9 +487,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'put',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(CreateAppResponseApplicationJson),
       headersType: null,
@@ -547,9 +529,7 @@ class $Client extends _i1.DynamiteClient {
   @_i3.experimental
   _i1.DynamiteRawResponse<DeleteAppResponseApplicationJson, void> deleteAppRaw({required String token}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -576,9 +556,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'delete',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(DeleteAppResponseApplicationJson),
       headersType: null,
@@ -623,9 +602,7 @@ class $Client extends _i1.DynamiteClient {
     required String token,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -652,9 +629,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(UnifiedpushDiscoveryResponseApplicationJson),
       headersType: null,
@@ -695,9 +671,7 @@ class $Client extends _i1.DynamiteClient {
   @_i3.experimental
   _i1.DynamiteRawResponse<PushResponseApplicationJson, void> pushRaw({required String token}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -724,9 +698,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {201},
+        headers: _headers,
+        validStatuses: const {201},
       ),
       bodyType: const FullType(PushResponseApplicationJson),
       headersType: null,
@@ -764,9 +737,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [gatewayMatrixDiscovery] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i3.experimental
   _i1.DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -790,9 +761,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'get',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
       headersType: null,
@@ -830,9 +800,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [gatewayMatrix] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i3.experimental
   _i1.DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
+    final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -856,9 +824,8 @@ class $Client extends _i1.DynamiteClient {
       response: executeRequest(
         'post',
         _path,
-        _headers,
-        null,
-        const {200},
+        headers: _headers,
+        validStatuses: const {200},
       ),
       bodyType: const FullType(GatewayMatrixResponseApplicationJson),
       headersType: null,
