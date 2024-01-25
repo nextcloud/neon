@@ -119,7 +119,7 @@ class $Client extends _i1.DynamiteClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = authentications.firstWhereOrNull(
+    final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -236,7 +236,7 @@ class $Client extends _i1.DynamiteClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = authentications.firstWhereOrNull(
+    final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -337,7 +337,7 @@ class $Client extends _i1.DynamiteClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = authentications.firstWhereOrNull(
+    final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -449,7 +449,7 @@ class $Client extends _i1.DynamiteClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = authentications.firstWhereOrNull(
+    final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -536,7 +536,7 @@ class $Client extends _i1.DynamiteClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = authentications.firstWhereOrNull(
+    final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -598,7 +598,7 @@ class $Client extends _i1.DynamiteClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = authentications.firstWhereOrNull(
+    final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -660,7 +660,7 @@ class $Client extends _i1.DynamiteClient {
     Uint8List? _body;
 
 // coverage:ignore-start
-    final authentication = authentications.firstWhereOrNull(
+    final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,

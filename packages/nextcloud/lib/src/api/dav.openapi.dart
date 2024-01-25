@@ -120,7 +120,7 @@ class $DirectClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -222,7 +222,7 @@ class $OutOfOfficeClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -312,7 +312,7 @@ class $OutOfOfficeClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -424,7 +424,7 @@ class $OutOfOfficeClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -528,7 +528,7 @@ class $OutOfOfficeClient {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
