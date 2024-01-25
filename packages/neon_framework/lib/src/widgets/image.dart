@@ -370,18 +370,11 @@ class NeonUrlImage extends StatelessWidget {
         }
 
         final completedUri = account.completeUri(uri);
-        final headers = <String, String>{};
-
-        // Only send the authentication headers when sending the request to the server of the account
-        if (completedUri.toString().startsWith(account.serverURL.toString()) &&
-            account.client.authentications.isNotEmpty) {
-          headers.addAll(account.client.authentications.first.headers);
-        }
 
         final response = await account.client.executeRawRequest(
           'GET',
           completedUri,
-          headers,
+          account.getAuthorizationHeaders(completedUri),
           null,
           const {200, 201},
         );

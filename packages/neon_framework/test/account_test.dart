@@ -62,6 +62,31 @@ void main() {
     }
   });
 
+  test('getAuthorizationHeaders', () {
+    final account = Account(
+      serverURL: Uri.parse('https://example.com:443/test'),
+      username: 'example',
+      password: 'example',
+    );
+
+    for (final (url, shouldHaveHeaders) in [
+      ('https://example.com:443/test/bla.png', true),
+      // Different ports
+      ('https://example.com/test/bla.png', true),
+      ('https://example.com:80/test/bla.png', false),
+      // Different paths
+      ('https://example.com:443/bla.png', false),
+      ('https://example.com:443/123/bla.png', false),
+      // Different protocol
+      ('http://example.com:443/test/bla.png', false),
+      // Different domains
+      ('https://test.example.com:443/test/bla.png', false),
+      ('https://test.com:443/test/bla.png', false),
+    ]) {
+      expect(account.getAuthorizationHeaders(Uri.parse(url)), shouldHaveHeaders ? isNotNull : isNull);
+    }
+  });
+
   group('Account', () {
     final account = Account(
       serverURL: Uri(scheme: 'http', host: 'example.com'),
