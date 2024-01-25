@@ -171,7 +171,7 @@ class DashboardMainPage extends StatelessWidget {
 
     if (widget.iconUrl.isNotEmpty) {
       return NeonUrlImage(
-        url: widget.iconUrl,
+        uri: Uri.parse(widget.iconUrl),
         svgColorFilter: colorFilter,
         size: const Size.square(largeIconSize),
       );

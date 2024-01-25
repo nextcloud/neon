@@ -299,7 +299,7 @@ class NeonUrlImage extends StatelessWidget {
   ///
   /// See [NeonUrlImage.withAccount] for using a specific account.
   const NeonUrlImage({
-    required this.url,
+    required this.uri,
     this.reviver,
     this.writeCache,
     this.isSvgHint = false,
@@ -314,7 +314,7 @@ class NeonUrlImage extends StatelessWidget {
   ///
   /// See [NeonUrlImage] for using the active account.
   const NeonUrlImage.withAccount({
-    required this.url,
+    required this.uri,
     required Account this.account,
     this.reviver,
     this.writeCache,
@@ -331,8 +331,10 @@ class NeonUrlImage extends StatelessWidget {
   /// Defaults to the currently active account in [AccountsBloc.activeAccount].
   final Account? account;
 
-  /// Image url.
-  final String url;
+  /// Image URI.
+  ///
+  /// This can also be a data URI.
+  final Uri uri;
 
   /// Custom cache reviver function.
   final CacheReviver? reviver;
@@ -359,7 +361,6 @@ class NeonUrlImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
-    final uri = Uri.parse(url);
     final dataUri = uri.data;
 
     return NeonCachedImage(
@@ -387,7 +388,7 @@ class NeonUrlImage extends StatelessWidget {
 
         return response.stream.bytes;
       },
-      cacheKey: '${account.id}-$url',
+      cacheKey: '${account.id}-$uri',
       reviver: reviver,
       writeCache: writeCache,
       isSvgHint: isSvgHint || (dataUri?.mimeType.contains('svg') ?? false),
