@@ -5,54 +5,110 @@ import 'package:test/test.dart';
 
 void main() {
   final uri = Uri.parse('http://example.com');
-  late CookieJar cookieJar;
 
-  setUp(() {
-    cookieJar = CookieJar();
+  group('Cookies', () {
+    late CookieJar cookieJar;
+    setUp(() {
+      cookieJar = CookieJar();
+    });
+
+    test('Cookies', () async {
+      final mockedClient = MockClient((request) async {
+        expect(request.headers['cookie'], equals(Cookie('a', 'b').toString()));
+
+        return Response(
+          '',
+          200,
+          headers: {
+            'set-cookie': Cookie('c', 'd').toString(),
+          },
+        );
+      });
+
+      final client = DynamiteClient(
+        uri,
+        httpClient: mockedClient,
+        cookieJar: cookieJar,
+      );
+
+      await cookieJar.saveFromResponse(uri, [Cookie('a', 'b')]);
+      await client.executeRequest('GET', '', {}, null, null);
+
+      final cookies = await cookieJar.loadForRequest(uri);
+      expect(cookies, hasLength(2));
+      expect(cookies[0].name, 'a');
+      expect(cookies[0].value, 'b');
+      expect(cookies[1].name, 'c');
+      expect(cookies[1].value, 'd');
+    });
+
+    test('No cookies', () async {
+      final mockedClient = MockClient((request) async {
+        expect(request.headers['cookie'], isNull);
+        return Response('', 200);
+      });
+
+      final client = DynamiteClient(
+        uri,
+        httpClient: mockedClient,
+        cookieJar: cookieJar,
+      );
+
+      await client.executeRequest('GET', '', {}, null, null);
+    });
   });
 
-  test('Cookies', () async {
-    final mockedClient = MockClient((request) async {
-      expect(request.headers['cookie'], equals(Cookie('a', 'b').toString()));
+  group('headers', () {
+    test('raw request base headers', () async {
+      final mockedClient = MockClient((request) async {
+        expect(
+          request.headers,
+          equals({
+            'some-key': 'some-value',
+          }),
+        );
 
-      return Response(
-        '',
-        200,
-        headers: {
-          'set-cookie': Cookie('c', 'd').toString(),
+        return Response(
+          '',
+          200,
+        );
+      });
+
+      final client = DynamiteClient(
+        uri,
+        httpClient: mockedClient,
+        baseHeaders: {
+          'some-key': 'some-value',
         },
       );
+
+      await client.executeRawRequest('GET', uri, null, null, null);
     });
 
-    final client = DynamiteClient(
-      uri,
-      httpClient: mockedClient,
-      cookieJar: cookieJar,
-    );
+    test('request overwrites base headers', () async {
+      final mockedClient = MockClient((request) async {
+        expect(
+          request.headers,
+          equals({
+            'some-key': 'some-other-value',
+          }),
+        );
 
-    await cookieJar.saveFromResponse(uri, [Cookie('a', 'b')]);
-    await client.executeRequest('GET', '', {}, null, null);
+        return Response(
+          '',
+          200,
+        );
+      });
 
-    final cookies = await cookieJar.loadForRequest(uri);
-    expect(cookies, hasLength(2));
-    expect(cookies[0].name, 'a');
-    expect(cookies[0].value, 'b');
-    expect(cookies[1].name, 'c');
-    expect(cookies[1].value, 'd');
-  });
+      final client = DynamiteClient(
+        uri,
+        httpClient: mockedClient,
+        baseHeaders: {
+          'some-key': 'some-value',
+        },
+      );
 
-  test('No cookies', () async {
-    final mockedClient = MockClient((request) async {
-      expect(request.headers['cookie'], isNull);
-      return Response('', 200);
+      await client.executeRawRequest('GET', uri, {'some-key': 'some-other-value'}, null, null);
     });
-
-    final client = DynamiteClient(
-      uri,
-      httpClient: mockedClient,
-      cookieJar: cookieJar,
-    );
-
-    await client.executeRequest('GET', '', {}, null, null);
   });
 }
