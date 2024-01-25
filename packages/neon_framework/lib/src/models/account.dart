@@ -117,13 +117,12 @@ class Account implements Credentials, Findable {
   /// Get the necessary `Authorization` headers for a given [uri].
   ///
   /// This method ensures no credentials are sent to the wrong server.
-  Map<String, String> getAuthorizationHeaders(Uri uri) {
-    // Only send the authentication headers when sending the request to the server of the account
-    if (uri.toString().startsWith(serverURL.toString()) && client.authentications.isNotEmpty) {
-      return client.authentications.first.headers;
+  Map<String, String>? getAuthorizationHeaders(Uri uri) {
+    if (uri.toString().startsWith(serverURL.toString())) {
+      return client.authentications.firstOrNull?.headers;
     }
 
-    return <String, String>{};
+    return null;
   }
 
   /// Removes the [serverURL] part from the [uri].
