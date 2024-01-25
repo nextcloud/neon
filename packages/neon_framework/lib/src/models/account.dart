@@ -114,6 +114,18 @@ class Account implements Credentials, Findable {
     return result;
   }
 
+  /// Get the necessary `Authorization` headers for a given [uri].
+  ///
+  /// This method ensures no credentials are sent to the wrong server.
+  Map<String, String> getAuthorizationHeaders(Uri uri) {
+    // Only send the authentication headers when sending the request to the server of the account
+    if (uri.toString().startsWith(serverURL.toString()) && client.authentications.isNotEmpty) {
+      return client.authentications.first.headers;
+    }
+
+    return <String, String>{};
+  }
+
   /// Removes the [serverURL] part from the [uri].
   ///
   /// Should be used when trying to push a [uri] from an API to the router as it might contain the scheme, host and sub path of the instance which will not work with the router.
