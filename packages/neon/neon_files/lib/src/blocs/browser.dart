@@ -95,7 +95,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapWebDav<List<WebDavFile>>(
-      account.id,
+      account,
       'files-${uri.value.path}',
       files,
       () => account.client.webdav.propfind(

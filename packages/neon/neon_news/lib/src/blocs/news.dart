@@ -112,14 +112,14 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
   Future<void> refresh() async {
     await Future.wait([
       RequestManager.instance.wrapNextcloud<BuiltList<news.Folder>, news.ListFolders, void>(
-        account.id,
+        account,
         'news-folders',
         folders,
         account.client.news.listFoldersRaw(),
         (response) => response.body.folders,
       ),
       RequestManager.instance.wrapNextcloud<BuiltList<news.Feed>, news.ListFeeds, void>(
-        account.id,
+        account,
         'news-feeds',
         feeds,
         account.client.news.listFeedsRaw(),
