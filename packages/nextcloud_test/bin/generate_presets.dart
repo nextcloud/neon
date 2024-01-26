@@ -15,6 +15,7 @@ Future<void> main() async {
   final httpClient = HttpClient();
 
   final serverVersions = await _getServerVersions(httpClient);
+  serverVersions.sort((a, b) => b.compareTo(a));
   final apps = await _getApps(appIDs, httpClient);
 
   for (final app in apps) {
