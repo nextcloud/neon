@@ -250,11 +250,11 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud(
-      account,
-      'apps-apps',
-      apps,
-      account.client.core.navigation.getAppsNavigationRaw(),
-      (response) => response.body.ocs.data,
+      account: account,
+      cacheKey: 'apps-apps',
+      subject: apps,
+      rawResponse: account.client.core.navigation.getAppsNavigationRaw(),
+      unwrap: (response) => response.body.ocs.data,
     );
   }
 

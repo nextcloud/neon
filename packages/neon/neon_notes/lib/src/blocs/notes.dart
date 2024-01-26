@@ -65,11 +65,11 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud<BuiltList<notes.Note>, BuiltList<notes.Note>, void>(
-      account,
-      'notes-notes',
-      notesList,
-      account.client.notes.getNotesRaw(),
-      (response) => response.body,
+      account: account,
+      cacheKey: 'notes-notes',
+      subject: notesList,
+      rawResponse: account.client.notes.getNotesRaw(),
+      unwrap: (response) => response.body,
     );
   }
 

@@ -40,11 +40,11 @@ class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud(
-      account,
-      'capabilities',
-      capabilities,
-      account.client.core.ocs.getCapabilitiesRaw(),
-      (response) => response.body.ocs.data,
+      account: account,
+      cacheKey: 'capabilities',
+      subject: capabilities,
+      rawResponse: account.client.core.ocs.getCapabilitiesRaw(),
+      unwrap: (response) => response.body.ocs.data,
     );
   }
 }
