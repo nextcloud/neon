@@ -14,6 +14,9 @@ If you need to add a new package to the Neon project please make sure to execute
 
 ```bash
 melos version --no-git-tag-version
+
+# If necessary adjust the required dynamite_runtime version in dynamite and stage the changes
+
 # Needed until https://github.com/invertase/melos/issues/591 is supported
 git commit --amend --signoff --no-edit
 
