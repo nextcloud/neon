@@ -28,9 +28,6 @@ typedef SerializeCallback<T> = String Function(T);
 @internal
 typedef DeserializeCallback<T> = T Function(String);
 
-/// A callback that retrieves a value of type [R] from the Nextcloud API.
-typedef NextcloudApiCallback<R> = AsyncValueGetter<R>;
-
 /// How often a request will be tried.
 ///
 /// A request will not be retried if the returned status code is in the `500`
@@ -80,71 +77,70 @@ class RequestManager {
   Cache? _cache;
 
   /// Executes a request to a Nextcloud API endpoint.
-  Future<void> wrapNextcloud<T, B, H>(
-    Account account,
-    String cacheKey,
-    BehaviorSubject<Result<T>> subject,
-    DynamiteRawResponse<B, H> rawResponse,
-    UnwrapCallback<T, DynamiteResponse<B, H>> unwrap, {
+  Future<void> wrapNextcloud<T, B, H>({
+    required Account account,
+    required String cacheKey,
+    required BehaviorSubject<Result<T>> subject,
+    required DynamiteRawResponse<B, H> rawResponse,
+    required UnwrapCallback<T, DynamiteResponse<B, H>> unwrap,
     bool disableTimeout = false,
   }) async =>
       wrap<T, DynamiteRawResponse<B, H>>(
-        account,
-        cacheKey,
-        subject,
-        () async {
+        account: account,
+        cacheKey: cacheKey,
+        subject: subject,
+        request: () async {
           await rawResponse.future;
 
           return rawResponse;
         },
-        (rawResponse) => unwrap(rawResponse.response),
-        (data) => json.encode(data),
-        (data) => DynamiteRawResponse<B, H>.fromJson(
+        unwrap: (rawResponse) => unwrap(rawResponse.response),
+        serialize: (data) => json.encode(data),
+        deserialize: (data) => DynamiteRawResponse<B, H>.fromJson(
           json.decode(data) as Map<String, Object?>,
           serializers: rawResponse.serializers,
           bodyType: rawResponse.bodyType,
           headersType: rawResponse.headersType,
         ),
-        disableTimeout,
+        disableTimeout: disableTimeout,
       );
 
   /// Executes a WebDAV request.
-  Future<void> wrapWebDav<T>(
-    Account account,
-    String cacheKey,
-    BehaviorSubject<Result<T>> subject,
-    NextcloudApiCallback<WebDavMultistatus> call,
-    UnwrapCallback<T, WebDavMultistatus> unwrap, {
+  Future<void> wrapWebDav<T>({
+    required Account account,
+    required String cacheKey,
+    required BehaviorSubject<Result<T>> subject,
+    required AsyncValueGetter<WebDavMultistatus> request,
+    required UnwrapCallback<T, WebDavMultistatus> unwrap,
     bool disableTimeout = false,
   }) async =>
       wrap<T, WebDavMultistatus>(
-        account,
-        cacheKey,
-        subject,
-        call,
-        unwrap,
-        (data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
-        (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
-        disableTimeout,
+        account: account,
+        cacheKey: cacheKey,
+        subject: subject,
+        request: request,
+        unwrap: unwrap,
+        serialize: (data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
+        deserialize: (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
+        disableTimeout: disableTimeout,
       );
 
   /// Executes a generic request.
   ///
   /// This method is only meant to be used in testing.
   @visibleForTesting
-  Future<void> wrap<T, R>(
-    Account account,
-    String cacheKey,
-    BehaviorSubject<Result<T>> subject,
-    NextcloudApiCallback<R> call,
-    UnwrapCallback<T, R> unwrap,
-    SerializeCallback<R> serialize,
-    DeserializeCallback<R> deserialize, [
-    // ignore: avoid_positional_boolean_parameters
+  Future<void> wrap<T, R>({
+    required Account account,
+    required String cacheKey,
+    required BehaviorSubject<Result<T>> subject,
+    required AsyncValueGetter<R> request,
+    required UnwrapCallback<T, R> unwrap,
+    required SerializeCallback<R> serialize,
+    required DeserializeCallback<R> deserialize,
     bool disableTimeout = false,
     Duration timeLimit = kDefaultTimeout,
     int retries = 0,
-  ]) async {
+  }) async {
     final key = '${account.id}-$cacheKey';
 
     Future<void>? cacheFuture;
@@ -162,7 +158,11 @@ class RequestManager {
     }
 
     try {
-      final response = await timeout(call, disableTimeout: disableTimeout, timeLimit: timeLimit);
+      final response = await timeout(
+        request,
+        disableTimeout: disableTimeout,
+        timeLimit: timeLimit,
+      );
       subject.add(Result.success(unwrap(response)));
 
       final serialized = serialize(response);
@@ -180,16 +180,16 @@ class RequestManager {
       if (e is DynamiteStatusCodeException && e.statusCode >= 500 && retries < kMaxRetries) {
         debugPrint('Retrying...');
         await wrap(
-          account,
-          cacheKey,
-          subject,
-          call,
-          unwrap,
-          serialize,
-          deserialize,
-          disableTimeout,
-          timeLimit,
-          retries + 1,
+          account: account,
+          cacheKey: cacheKey,
+          subject: subject,
+          request: request,
+          unwrap: unwrap,
+          serialize: serialize,
+          deserialize: deserialize,
+          disableTimeout: disableTimeout,
+          timeLimit: timeLimit,
+          retries: retries + 1,
         );
       } else {
         _emitError<T>(e, subject);
@@ -250,7 +250,7 @@ class RequestManager {
   /// If the timeout is disabled through [disableTimeout] the future of the
   /// callback is returned immediately.
   Future<T> timeout<T>(
-    NextcloudApiCallback<T> callback, {
+    AsyncValueGetter<T> callback, {
     bool disableTimeout = false,
     Duration timeLimit = kDefaultTimeout,
   }) {

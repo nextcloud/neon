@@ -79,16 +79,18 @@ void main() {
       when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
 
       await RequestManager.instance.wrap<String, Uint8List>(
-        account,
-        'key',
-        subject,
-        () async => callback.call(),
-        (deserialized) => utf8.decode(deserialized),
-        (deserialized) => base64.encode(deserialized),
-        (cached) => base64.decode(cached),
+        account: account,
+        cacheKey: 'key',
+        subject: subject,
+        request: () async => callback.call(),
+        unwrap: (deserialized) => base64.encode(deserialized),
+        serialize: (deserialized) => utf8.decode(deserialized),
+        deserialize: (serialized) => utf8.encode(serialized),
       );
 
       verify(callback.call).called(kMaxRetries + 1);
+
+      await subject.close();
     });
 
     group('wrap without cache', () {
@@ -106,13 +108,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () async => utf8.encode('Test value'),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => utf8.encode('Test value'),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -131,13 +133,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () async => utf8.encode('Test value'),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => utf8.encode('Test value'),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -166,15 +168,14 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
-          false,
-          const Duration(milliseconds: 50),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
+          timeLimit: const Duration(milliseconds: 50),
         );
 
         await subject.close();
@@ -209,15 +210,14 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
-          false,
-          const Duration(milliseconds: 50),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
+          timeLimit: const Duration(milliseconds: 50),
         );
 
         await subject.close();
@@ -237,13 +237,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () async => throw ClientException(''),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => throw ClientException(''),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -262,13 +262,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () async => throw ClientException(''),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => throw ClientException(''),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -312,13 +312,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.value(utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.value(utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -340,13 +340,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.value(utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.value(utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -385,15 +385,14 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
-          false,
-          const Duration(milliseconds: 50),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
+          timeLimit: const Duration(milliseconds: 50),
         );
 
         await subject.close();
@@ -431,15 +430,14 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
-          false,
-          const Duration(milliseconds: 50),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
+          timeLimit: const Duration(milliseconds: 50),
         );
 
         await subject.close();
@@ -462,13 +460,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () async => throw ClientException(''),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => throw ClientException(''),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -490,13 +488,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () async => throw ClientException(''),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => throw ClientException(''),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -541,13 +539,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.value(utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.value(utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -568,13 +566,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.value(utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.value(utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -620,15 +618,14 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
-          false,
-          const Duration(milliseconds: 50),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
+          timeLimit: const Duration(milliseconds: 50),
         );
 
         await subject.close();
@@ -673,15 +670,14 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
-          false,
-          const Duration(milliseconds: 50),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
+          timeLimit: const Duration(milliseconds: 50),
         );
 
         await subject.close();
@@ -704,13 +700,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () async => throw ClientException(''),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => throw ClientException(''),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();
@@ -732,13 +728,13 @@ void main() {
         );
 
         await RequestManager.instance.wrap<String, Uint8List>(
-          account,
-          'key',
-          subject,
-          () async => throw ClientException(''),
-          (deserialized) => base64.encode(deserialized),
-          (deserialized) => utf8.decode(deserialized),
-          (cached) => utf8.encode(cached),
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => throw ClientException(''),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
         );
 
         await subject.close();

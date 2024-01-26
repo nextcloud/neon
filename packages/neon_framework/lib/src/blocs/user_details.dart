@@ -38,11 +38,11 @@ class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud(
-      account,
-      'user-details',
-      userDetails,
-      account.client.provisioningApi.users.getCurrentUserRaw(),
-      (response) => response.body.ocs.data,
+      account: account,
+      cacheKey: 'user-details',
+      subject: userDetails,
+      rawResponse: account.client.provisioningApi.users.getCurrentUserRaw(),
+      unwrap: (response) => response.body.ocs.data,
     );
   }
 }

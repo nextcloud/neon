@@ -95,10 +95,10 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapWebDav<List<WebDavFile>>(
-      account,
-      'files-${uri.value.path}',
-      files,
-      () => account.client.webdav.propfind(
+      account: account,
+      cacheKey: 'files-${uri.value.path}',
+      subject: files,
+      request: () => account.client.webdav.propfind(
         uri.value,
         prop: const WebDavPropWithoutValues.fromBools(
           davgetcontenttype: true,
@@ -110,7 +110,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
         ),
         depth: WebDavDepth.one,
       ),
-      (response) {
+      unwrap: (response) {
         final unwrapped = response.toWebDavFiles();
 
         return unwrapped.where((file) {
