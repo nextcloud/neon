@@ -2,6 +2,7 @@ import 'package:build/build.dart';
 import 'package:pub_semver/pub_semver.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 
+// Also update the README.md if you change this.
 final dependencies = {
   'built_collection': Version.parse('5.0.0'),
   'built_value': Version.parse('8.9.0'),
@@ -12,6 +13,7 @@ final dependencies = {
   'uri': Version.parse('1.0.0'),
 };
 
+// Also update the README.md if you change this.
 final devDependencies = {
   'built_value_generator': Version.parse('8.9.0'),
 };

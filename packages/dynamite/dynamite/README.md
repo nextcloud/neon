@@ -8,14 +8,15 @@ The generated code makes use of various third party packages. Please add the fol
 ```yaml
 dependencies:
   built_collection: ^5.0.0
-  built_value: ^8.0.0
+  built_value: ^8.9.0
   collection: ^1.0.0
-  dynamite_runtime: ^0.0.1
+  dynamite_runtime: ^0.1.0
+  http: ^1.2.0
   meta: ^1.0.0
   uri: ^1.0.0
 dev_dependencies:
-  build_runner: ^2.4.0
-  built_value_generator: ^8.8.1
+  build_runner: ^2.4.8
+  built_value_generator: ^8.9.0
 ```
 
 # Generating
