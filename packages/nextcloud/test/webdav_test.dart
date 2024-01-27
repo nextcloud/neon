@@ -2,11 +2,16 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
 import 'package:universal_io/io.dart';
+
+class MockCallbackFunction extends Mock {
+  void progressCallback(double progress);
+}
 
 void main() {
   group('constructUri', () {
@@ -652,6 +657,31 @@ void main() {
         });
 
         // props: Most of them are either not applicable or hard/impossible to implement because we don't allow just writing any props
+      });
+
+      test('Upload and download empty file', () async {
+        final callback = MockCallbackFunction();
+
+        final destinationDir = Directory.systemTemp.createTempSync();
+        final destination = File('${destinationDir.path}/empty-file');
+        final source = File('${destinationDir.path}/empty-file-source')..createSync();
+
+        await client.webdav.putFile(
+          source,
+          source.statSync(),
+          PathUri.parse('empty-file'),
+        );
+        await client.webdav.getFile(
+          PathUri.parse('empty-file'),
+          destination,
+          onProgress: callback.progressCallback,
+        );
+
+        verify(() => callback.progressCallback(1)).called(1);
+        verifyNever(() => callback.progressCallback(any(that: isNot(1))));
+
+        expect(destination.readAsBytesSync(), isEmpty);
+        destinationDir.deleteSync(recursive: true);
       });
     },
     retry: retryCount,
