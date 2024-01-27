@@ -111,7 +111,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
 
   Widget _buildThumbnail(BuildContext context, Account account, core.UnifiedSearchResultEntry entry) {
     if (entry.thumbnailUrl.isNotEmpty) {
-      return NeonUrlImage.withAccount(
+      return NeonUriImage.withAccount(
         size: const Size.square(largeIconSize),
         uri: Uri.parse(entry.thumbnailUrl),
         account: account,
@@ -129,7 +129,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     core.UnifiedSearchResultEntry entry,
   ) {
     if (entry.icon.startsWith('/')) {
-      return NeonUrlImage.withAccount(
+      return NeonUriImage.withAccount(
         size: Size.square(IconTheme.of(context).size!),
         uri: Uri.parse(entry.icon),
         account: account,

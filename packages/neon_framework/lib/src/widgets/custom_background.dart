@@ -51,7 +51,7 @@ class NeonCustomBackground extends StatelessWidget {
         return Stack(
           children: [
             Positioned.fill(
-              child: NeonUrlImage(
+              child: NeonUriImage(
                 uri: Uri.parse(theme.background),
                 fit: BoxFit.cover,
               ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:built_value/serializer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -130,6 +131,84 @@ class RequestManager {
         deserialize: (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
         disableTimeout: disableTimeout,
       );
+
+  /// Executes a HTTP request for binary content.
+  Future<void> wrapBinary({
+    required Account account,
+    required String cacheKey,
+    required AsyncValueGetter<CacheParameters> getCacheParameters,
+    required DynamiteRawResponse<Uint8List, dynamic> rawResponse,
+    required UnwrapCallback<Uint8List, Uint8List>? unwrap,
+    required BehaviorSubject<Result<Uint8List>> subject,
+    bool disableTimeout = false,
+  }) async =>
+      wrap<Uint8List, DynamiteRawResponse<Uint8List, dynamic>>(
+        account: account,
+        cacheKey: cacheKey,
+        subject: subject,
+        request: () async {
+          await rawResponse.future;
+          return rawResponse;
+        },
+        unwrap: (rawResponse) {
+          var data = rawResponse.response.body;
+          if (unwrap != null) {
+            data = unwrap(data);
+          }
+
+          return data;
+        },
+        serialize: (rawResponse) => base64.encode(rawResponse.response.body),
+        deserialize: (data) => DynamiteRawResponse<Uint8List, Map<String, String>>.fromJson(
+          {
+            'statusCode': 200,
+            'body': base64.decode(data),
+            'headers': <String, String>{},
+          },
+          bodyType: const FullType(Uint8List),
+          headersType: const FullType(Map, [FullType(String), FullType(String)]),
+          serializers: Serializers(),
+        ),
+        getCacheParameters: getCacheParameters,
+        disableTimeout: disableTimeout,
+      );
+
+  /// Executes a HTTP request for binary content using a simplified [uri] based approach.
+  Future<void> wrapUri({
+    required Account account,
+    required Uri uri,
+    required UnwrapCallback<Uint8List, Uint8List>? unwrap,
+    required BehaviorSubject<Result<Uint8List>> subject,
+  }) {
+    final headers = account.getAuthorizationHeaders(uri);
+
+    return wrapBinary(
+      account: account,
+      cacheKey: uri.toString(),
+      getCacheParameters: () async {
+        final response = await account.client.executeRawRequest(
+          'HEAD',
+          uri,
+          headers: headers,
+        );
+
+        return CacheParameters.parseHeaders(response.headers);
+      },
+      rawResponse: DynamiteRawResponse<Uint8List, Map<String, String>>(
+        response: account.client.executeRawRequest(
+          'GET',
+          uri,
+          headers: headers,
+          validStatuses: const {200, 201},
+        ),
+        bodyType: const FullType(Uint8List),
+        headersType: const FullType(Map, [FullType(String), FullType(String)]),
+        serializers: Serializers(),
+      ),
+      unwrap: unwrap,
+      subject: subject,
+    );
+  }
 
   /// Executes a generic request.
   ///

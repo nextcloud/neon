@@ -5,20 +5,22 @@ import 'dart:ui';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_svg/flutter_svg.dart' show vg;
+import 'package:flutter_svg/flutter_svg.dart' show SvgBytesLoader, vg;
 import 'package:image/image.dart' as img;
 import 'package:meta/meta.dart';
+import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/utils/findable.dart';
+import 'package:neon_framework/src/utils/image_utils.dart';
 import 'package:neon_framework/src/utils/localizations.dart';
-import 'package:neon_framework/src/utils/universal_svg_file_loader.dart';
+import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
+import 'package:rxdart/rxdart.dart';
 
 @internal
 @immutable
@@ -118,27 +120,42 @@ class PushUtils {
             if (notification.icon?.endsWith('.svg') ?? false) {
               // Only SVG icons are supported right now (should be most of them)
 
-              final cacheManager = DefaultCacheManager();
-              final file = await cacheManager.getSingleFile(notification.icon!);
+              final uri = Uri.parse(notification.icon!);
+              final subject = BehaviorSubject<Result<Uint8List>>();
+              await RequestManager.instance.wrapUri(
+                account: account,
+                uri: uri,
+                unwrap: (data) {
+                  try {
+                    return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
+                  } catch (_) {}
+                  return data;
+                },
+                subject: subject,
+              );
+              final rawImage = subject.valueOrNull?.data;
+              unawaited(subject.close());
 
-              final pictureInfo = await vg.loadPicture(UniversalSvgFileLoader(file), null);
+              if (rawImage != null) {
+                final pictureInfo = await vg.loadPicture(SvgBytesLoader(rawImage), null);
 
-              const largeIconSize = 256;
-              final scale = largeIconSize / pictureInfo.size.longestSide;
-              final scaledSize = pictureInfo.size * scale;
+                const largeIconSize = 256;
+                final scale = largeIconSize / pictureInfo.size.longestSide;
+                final scaledSize = pictureInfo.size * scale;
 
-              final recorder = PictureRecorder();
-              Canvas(recorder)
-                ..scale(scale)
-                ..drawPicture(pictureInfo.picture)
-                ..drawColor(NcColors.primary, BlendMode.srcIn);
+                final recorder = PictureRecorder();
+                Canvas(recorder)
+                  ..scale(scale)
+                  ..drawPicture(pictureInfo.picture)
+                  ..drawColor(NcColors.primary, BlendMode.srcIn);
 
-              pictureInfo.picture.dispose();
+                pictureInfo.picture.dispose();
 
-              final image = recorder.endRecording().toImageSync(scaledSize.width.toInt(), scaledSize.height.toInt());
-              final bytes = await image.toByteData(format: ImageByteFormat.png);
+                final image = recorder.endRecording().toImageSync(scaledSize.width.toInt(), scaledSize.height.toInt());
+                final bytes = await image.toByteData(format: ImageByteFormat.png);
 
-              largeIconBitmap = ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
+                largeIconBitmap = ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
+              }
             }
           }
         } catch (e, s) {
