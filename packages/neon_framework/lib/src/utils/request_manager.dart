@@ -3,7 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -38,6 +40,10 @@ const kMaxRetries = 3;
 ///
 /// Requests that take longer than this duration will be canceled.
 const kDefaultTimeout = Duration(seconds: 30);
+
+/// Implements https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats
+@visibleForTesting
+final httpDateFormat = DateFormat('E, d MMM yyyy HH:mm:ss v', 'en_US');
 
 /// A singleton class that handles requests to the Nextcloud API.
 ///
@@ -137,24 +143,60 @@ class RequestManager {
     required UnwrapCallback<T, R> unwrap,
     required SerializeCallback<R> serialize,
     required DeserializeCallback<R> deserialize,
+    AsyncValueGetter<CacheParameters>? getCacheParameters,
     bool disableTimeout = false,
     Duration timeLimit = kDefaultTimeout,
     int retries = 0,
   }) async {
     final key = '${account.id}-$cacheKey';
 
-    Future<void>? cacheFuture;
     if (retries == 0) {
       // emit loading state with the current value if present
       final value = subject.valueOrNull?.asLoading() ?? Result.loading();
       subject.add(value);
 
-      cacheFuture = _emitCached(
-        key,
-        subject,
-        unwrap,
-        deserialize,
-      );
+      final cachedParameters = await _cache?.getParameters(key);
+
+      if (cachedParameters != null) {
+        if (cachedParameters.expires != null && !cachedParameters.isExpired) {
+          final cachedValue = await _cache?.get(key);
+          if (cachedValue != null) {
+            subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+            return;
+          }
+        }
+
+        if (cachedParameters.etag != null) {
+          final cacheParameters = await timeout(
+            () async => getCacheParameters?.call(),
+            timeLimit: timeLimit,
+          );
+          if (cacheParameters != null && cacheParameters.etag == cachedParameters.etag) {
+            final cachedValue = await _cache?.get(key);
+            if (cachedValue != null) {
+              unawaited(
+                _cache?.updateParameters(
+                  key,
+                  cacheParameters,
+                ),
+              );
+              subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+              return;
+            }
+          }
+        }
+      }
+
+      final cachedValue = await _cache?.get(key);
+      if (cachedValue != null) {
+        subject.add(
+          subject.value.copyWith(
+            data: unwrap(deserialize(cachedValue)),
+            isLoading: true,
+            isCached: true,
+          ),
+        );
+      }
     }
 
     try {
@@ -166,7 +208,13 @@ class RequestManager {
       subject.add(Result.success(unwrap(response)));
 
       final serialized = serialize(response);
-      await _cache?.set(key, serialized);
+
+      CacheParameters? cacheParameters;
+      if (response is DynamiteRawResponse && response.rawHeaders != null) {
+        cacheParameters = CacheParameters.parseHeaders(response.rawHeaders!);
+      }
+
+      await _cache?.set(key, serialized, cacheParameters);
     } on TimeoutException catch (e, s) {
       debugPrint('Request timed out ...');
       debugPrint(e.toString());
@@ -195,8 +243,6 @@ class RequestManager {
         _emitError<T>(e, subject);
       }
     }
-
-    await cacheFuture;
   }
 
   /// Re emits the current result with the given [error].
@@ -208,39 +254,6 @@ class RequestManager {
   ) {
     final value = subject.valueOrNull?.copyWith(error: error, isLoading: false) ?? Result.error(error);
     subject.add(value);
-  }
-
-  /// Retrieves the cached value for the given [key].
-  ///
-  /// After deserialization and unwrapping it the retrieved value is emitted in
-  /// the given [subject] as a cached `Result`.
-  ///
-  /// Requires the subject to have a value present. If this value is a
-  /// successful result no value is emitted.
-  Future<void> _emitCached<T, R>(
-    String key,
-    BehaviorSubject<Result<T>> subject,
-    UnwrapCallback<T, R> unwrap,
-    DeserializeCallback<R> deserialize,
-  ) async {
-    final cacheValue = await _cache?.get(key);
-
-    // If the network fetch is faster than fetching the cached value the
-    // subject can be closed before emitting.
-    if (subject.value.hasSuccessfulData) {
-      return;
-    }
-
-    if (cacheValue != null) {
-      final cached = unwrap(deserialize(cacheValue));
-
-      subject.add(
-        subject.value.copyWith(
-          data: cached,
-          isCached: true,
-        ),
-      );
-    }
   }
 
   /// Calls a [callback] that is canceled after a given [timeLimit].
@@ -284,9 +297,20 @@ class Cache {
     final cacheDir = await getApplicationCacheDirectory();
     _database = await openDatabase(
       p.join(cacheDir.path, 'cache.db'),
-      version: 1,
+      version: 2,
       onCreate: (db, version) async {
-        await db.execute('CREATE TABLE cache (id INTEGER PRIMARY KEY, key TEXT, value TEXT, UNIQUE(key))');
+        await db.execute(
+          'CREATE TABLE cache (id INTEGER PRIMARY KEY, key TEXT, value TEXT, etag TEXT, expires INTEGER, UNIQUE(key))',
+        );
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        final batch = db.batch();
+        if (oldVersion == 1) {
+          batch
+            ..execute('ALTER TABLE cache ADD COLUMN etag TEXT')
+            ..execute('ALTER TABLE cache ADD COLUMN expires INTEGER');
+        }
+        await batch.commit();
       },
     );
   }
@@ -314,17 +338,105 @@ class Cache {
     return result?.firstOrNull?['value'] as String?;
   }
 
-  Future<void> set(String key, String value) async {
+  Future<void> set(String key, String value, CacheParameters? parameters) async {
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
       // Using a manual solution from https://stackoverflow.com/a/38463024
       final batch = _requireDatabase.batch()
-        ..update('cache', {'key': key, 'value': value}, where: 'key = ?', whereArgs: [key])
-        ..rawInsert('INSERT INTO cache (key, value) SELECT ?, ? WHERE (SELECT changes() = 0)', [key, value]);
+        ..update(
+          'cache',
+          {
+            'key': key,
+            'value': value,
+            'etag': parameters?.etag,
+            'expires': parameters?.expires?.millisecondsSinceEpoch,
+          },
+          where: 'key = ?',
+          whereArgs: [key],
+        )
+        ..rawInsert(
+          'INSERT INTO cache (key, value, etag, expires) SELECT ?, ?, ?, ? WHERE (SELECT changes() = 0)',
+          [key, value, parameters?.etag, parameters?.expires?.millisecondsSinceEpoch],
+        );
       await batch.commit(noResult: true);
     } on DatabaseException catch (e, s) {
       debugPrint(e.toString());
       debugPrintStack(stackTrace: s, maxFrames: 5);
     }
   }
+
+  Future<CacheParameters> getParameters(String key) async {
+    List<Map<String, Object?>>? result;
+    try {
+      result = await _requireDatabase.rawQuery('SELECT etag, expires FROM cache WHERE key = ?', [key]);
+    } on DatabaseException catch (e, s) {
+      debugPrint(e.toString());
+      debugPrintStack(stackTrace: s, maxFrames: 5);
+    }
+
+    final row = result?.firstOrNull;
+
+    final expires = row?['expires'] as int?;
+    return CacheParameters(
+      etag: row?['etag'] as String?,
+      expires: expires != null ? DateTime.fromMillisecondsSinceEpoch(expires) : null,
+    );
+  }
+
+  /// Updates the cache [parameters] for a given [key] without modifying the `value`.
+  Future<void> updateParameters(String key, CacheParameters? parameters) async {
+    try {
+      await _requireDatabase.update(
+        'cache',
+        {
+          'etag': parameters?.etag,
+          'expires': parameters?.expires?.millisecondsSinceEpoch,
+        },
+        where: 'key = ?',
+        whereArgs: [key],
+      );
+    } on DatabaseException catch (e, s) {
+      debugPrint(e.toString());
+      debugPrintStack(stackTrace: s, maxFrames: 5);
+    }
+  }
+}
+
+/// Parameters for values in [Cache].
+@immutable
+class CacheParameters {
+  /// Creates new cache parameters.
+  const CacheParameters({
+    required this.etag,
+    required this.expires,
+  });
+
+  /// Parse the cache parameters from HTTP response headers.
+  factory CacheParameters.parseHeaders(Map<String, dynamic> headers) {
+    final expiry = headers.containsKey('expires') ? httpDateFormat.parse(headers['expires']! as String) : null;
+    return CacheParameters(
+      etag: headers['etag'] as String?,
+      expires: _isExpired(expiry) ? null : expiry,
+    );
+  }
+
+  /// `ETag` of the resource.
+  final String? etag;
+
+  /// `Expires` of the resource.
+  final DateTime? expires;
+
+  /// Whether the resource has expired based on [expires].
+  bool get isExpired => _isExpired(expires);
+
+  static bool _isExpired(DateTime? date) => date?.isBefore(DateTime.now()) ?? true;
+
+  @override
+  bool operator ==(Object other) => other is CacheParameters && other.etag == etag && other.expires == expires;
+
+  @override
+  int get hashCode => Object.hashAll([etag, expires]);
+
+  @override
+  String toString() => 'CacheParameters(etag: $etag, expires: $expires)';
 }
