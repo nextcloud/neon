@@ -13,5 +13,5 @@ extension WebDAVExtension on NextcloudClient {
   static final _webdav = Expando<WebDavClient>();
 
   /// Client for WebDAV
-  WebDavClient get webdav => _webdav[this] ??= WebDavClient(this);
+  WebDavClient get webdav => _webdav[this] ??= WebDavClient.webdav(this);
 }

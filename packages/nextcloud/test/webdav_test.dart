@@ -23,30 +23,31 @@ void main() {
     ]) {
       final baseURL = Uri.parse(values.$1);
       final sanitizedBaseURL = Uri.parse(values.$2);
+      final webdavBase = PathUri.webdav();
 
       test(baseURL, () {
         expect(
-          WebDavClient.constructUri(baseURL).toString(),
+          WebDavClient.constructUri(baseURL: baseURL, davBase: webdavBase, path: webdavBase).toString(),
           '$sanitizedBaseURL$webdavBase',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('/')).toString(),
+          WebDavClient.constructUri(baseURL: baseURL, davBase: webdavBase, path: PathUri.parse('/')).toString(),
           '$sanitizedBaseURL$webdavBase',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('test')).toString(),
+          WebDavClient.constructUri(baseURL: baseURL, davBase: webdavBase, path: PathUri.parse('test')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('test/')).toString(),
+          WebDavClient.constructUri(baseURL: baseURL, davBase: webdavBase, path: PathUri.parse('test/')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('/test')).toString(),
+          WebDavClient.constructUri(baseURL: baseURL, davBase: webdavBase, path: PathUri.parse('/test')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('/test/')).toString(),
+          WebDavClient.constructUri(baseURL: baseURL, davBase: webdavBase, path: PathUri.parse('/test/')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
       });

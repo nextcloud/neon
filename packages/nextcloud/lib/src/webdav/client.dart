@@ -10,9 +10,6 @@ import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:universal_io/io.dart' hide HttpClient;
 
-/// Base path used on the server
-final webdavBase = PathUri.parse('/remote.php/webdav');
-
 @internal
 class WebDavRequest extends http.BaseRequest {
   WebDavRequest(
@@ -50,10 +47,15 @@ class WebDavRequest extends http.BaseRequest {
 /// WebDavClient class
 class WebDavClient {
   // ignore: public_member_api_docs
-  WebDavClient(this.rootClient);
+  WebDavClient.webdav(this.rootClient) : davBase = PathUri.webdav();
+
+  // ignore: public_member_api_docs
+  WebDavClient.dav(this.rootClient) : davBase = PathUri.dav();
 
   // ignore: public_member_api_docs
   final DynamiteClient rootClient;
+  // ignore: public_member_api_docs
+  final PathUri davBase;
 
   Future<http.StreamedResponse> _send(
     String method,
@@ -86,12 +88,12 @@ class WebDavClient {
     return response;
   }
 
-  Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, path);
+  Uri _constructUri([PathUri? path]) => constructUri(baseURL: rootClient.baseURL, davBase: davBase, path: path);
 
   @visibleForTesting
   // ignore: public_member_api_docs
-  static Uri constructUri(Uri baseURL, [PathUri? path]) {
-    final segments = baseURL.pathSegments.toList()..addAll(webdavBase.pathSegments);
+  static Uri constructUri({required Uri baseURL, required PathUri davBase, PathUri? path}) {
+    final segments = baseURL.pathSegments.toList()..addAll(davBase.pathSegments);
     if (path != null) {
       segments.addAll(path.pathSegments);
     }

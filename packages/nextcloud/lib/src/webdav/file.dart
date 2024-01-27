@@ -1,4 +1,3 @@
-import 'package:nextcloud/src/webdav/client.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
@@ -28,7 +27,7 @@ class WebDavFile {
     return PathUri(
       isAbsolute: false,
       isDirectory: href.isDirectory,
-      pathSegments: href.pathSegments.sublist(webdavBase.pathSegments.length),
+      pathSegments: href.pathSegments.sublist(PathUri.webdav().pathSegments.length),
     );
   }();
 

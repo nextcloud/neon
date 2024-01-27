@@ -12,6 +12,12 @@ class PathUri {
     required this.pathSegments,
   });
 
+  /// Base path used for dav on the server
+  factory PathUri.dav() => PathUri.parse('/remote.php/dav');
+
+  /// Base path used for webdav on the server
+  factory PathUri.webdav() => PathUri.parse('/remote.php/webdav');
+
   /// Creates a new `PathUri` object by parsing a [path] string.
   ///
   /// An empty [path] is considered to be the current working directory.
