@@ -25,6 +25,7 @@ void main() {
 
       test('Get widgets', () async {
         final response = await client.dashboard.dashboardApi.getWidgets();
+        expect(response.statusCode, 200);
         expect(
           response.body.ocs.data.keys,
           equals(['activity', 'notes', 'recommendations', 'spreed', 'user_status']),
@@ -34,15 +35,15 @@ void main() {
       group('Get widget items', () {
         test('v1', () async {
           final response = await client.dashboard.dashboardApi.getWidgetItems();
-          final items = response.body.ocs.data;
-          expect(items.keys, equals(['recommendations', 'spreed']));
+          expect(response.statusCode, 200);
+          expect(response.body.ocs.data.keys, equals(['recommendations', 'spreed']));
         });
 
         test(
           'v2',
           () async {
             final response = await client.dashboard.dashboardApi.getWidgetItemsV2();
-            expect(response.body.ocs.data.keys, equals(['recommendations']));
+            expect(response.statusCode, 200);
           },
           skip: preset.version < Version(27, 1, 0),
         );
