@@ -156,11 +156,13 @@ class DynamiteRawResponse<B, H> {
   /// they are not expected to be serialized again.
   Object? _rawBody;
 
+  Map<String, Object?>? _rawHeaders;
+
   /// Caches the serialized response headers for later serialization in [toJson].
   ///
   /// Responses revived with [DynamiteRawResponse.fromJson] are not cached as
   /// they are not expected to be serialized again.
-  Map<String, Object?>? _rawHeaders;
+  Map<String, Object?>? get rawHeaders => _rawHeaders;
 
   DynamiteResponse<B, H>? _response;
 
