@@ -232,6 +232,8 @@ class WebDavClient {
       );
 
   /// Gets the content of the file at [path].
+  ///
+  /// If the response is empty the file will be created with no data.
   Future<void> getFile(
     PathUri path,
     File file, {
@@ -239,22 +241,27 @@ class WebDavClient {
   }) async {
     final response = await getStream(path);
     final contentLength = response.contentLength;
-    if (contentLength != null && contentLength > 0) {
-      final sink = file.openWrite();
-      final completer = Completer<void>();
-      var downloaded = 0;
 
-      response.stream.listen((chunk) async {
-        sink.add(chunk);
-        downloaded += chunk.length;
-        onProgress?.call(downloaded / contentLength);
-        if (downloaded >= contentLength) {
-          completer.complete();
-        }
-      });
-      await completer.future;
-      await sink.close();
+    if (contentLength == null || contentLength <= 0) {
+      await file.create();
+      onProgress?.call(1);
+      return;
     }
+
+    final sink = file.openWrite();
+    final completer = Completer<void>();
+    var downloaded = 0;
+
+    response.stream.listen((chunk) async {
+      sink.add(chunk);
+      downloaded += chunk.length;
+      onProgress?.call(downloaded / contentLength);
+      if (downloaded >= contentLength) {
+        completer.complete();
+      }
+    });
+    await completer.future;
+    await sink.close();
   }
 
   /// Retrieves the props for the resource at [path].
