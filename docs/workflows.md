@@ -12,6 +12,9 @@ If you need to add a new package to the Neon project please make sure to execute
 
 ## Publishing new versions of the packages
 
+Be aware that dart pub publish will upload the current state of your working directory including uncommitted changes.
+Make sure that you have a clean working tree before running `melos publish`.
+
 ```bash
 melos version --no-git-tag-version
 
