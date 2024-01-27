@@ -322,8 +322,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
-        verify(() => cache.set(any(that: equals('clientID-key')), any(that: equals('Test value')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
+        verify(() => cache.set('clientID-key', 'Test value')).called(1);
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -350,8 +350,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
-        verify(() => cache.set(any(that: equals('clientID-key')), any(that: equals('Test value')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
+        verify(() => cache.set('clientID-key', 'Test value')).called(1);
       });
 
       test('timeout request', () async {
@@ -396,7 +396,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
@@ -441,7 +441,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any()));
       });
 
@@ -470,7 +470,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
@@ -498,7 +498,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any()));
       });
     });
@@ -549,8 +549,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
-        verify(() => cache.set(any(that: equals('clientID-key')), any(that: equals('Test value')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
+        verify(() => cache.set('clientID-key', 'Test value')).called(1);
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -576,8 +576,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
-        verify(() => cache.set(any(that: equals('clientID-key')), any(that: equals('Test value')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
+        verify(() => cache.set('clientID-key', 'Test value')).called(1);
       });
 
       test('timeout request', () async {
@@ -629,7 +629,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
@@ -681,7 +681,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any()));
       });
 
@@ -710,7 +710,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
@@ -738,7 +738,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(any(that: equals('clientID-key')))).called(1);
+        verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any()));
       });
     });
