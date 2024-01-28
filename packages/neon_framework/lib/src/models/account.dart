@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
+import 'package:http/http.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/utils/findable.dart';
@@ -32,6 +33,7 @@ class Account implements Credentials, Findable {
     required this.username,
     this.password,
     this.userAgent,
+    @visibleForTesting Client? httpClient,
   }) : client = NextcloudClient(
           serverURL,
           loginName: username,
@@ -39,6 +41,7 @@ class Account implements Credentials, Findable {
           appPassword: password,
           userAgentOverride: userAgent,
           cookieJar: CookieJar(),
+          httpClient: httpClient,
         );
 
   /// Creates a new account object from the given [json] data.

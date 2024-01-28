@@ -1,11 +1,24 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations_en.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/user_status.dart' as user_status;
+import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+// ignore: avoid_implementing_value_types
+class MockAccount extends Mock implements Account {}
+
+class MockAccountsBloc extends Mock implements AccountsBloc {}
+
+class MockUserStatusBloc extends Mock implements UserStatusBloc {}
 
 Widget wrapDialog(Widget dialog, [TargetPlatform platform = TargetPlatform.android]) {
   final theme = AppTheme.test(platform: platform);
@@ -227,6 +240,166 @@ void main() {
 
       await tester.tap(find.text('😀'));
       expect(await future, '😀');
+    });
+
+    testWidgets('NeonUserStatusDialog', (tester) async {
+      SharedPreferences.setMockInitialValues({});
+
+      final now = DateTime(2024, 1, 20);
+
+      final status = BehaviorSubject<Result<user_status.$PublicInterface>>.seeded(
+        Result.success(
+          user_status.Private(
+            (b) => b
+              ..userId = 'test'
+              ..message = 'predefined message'
+              ..icon = '😅'
+              ..clearAt = now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000
+              ..status = 'online'
+              ..messageId = 'id1'
+              ..messageIsPredefined = true
+              ..statusIsUserDefined = true,
+          ),
+        ),
+      );
+      final predefinedStatuses = BehaviorSubject<Result<BuiltList<user_status.Predefined>>>.seeded(
+        Result.success(
+          BuiltList.from([
+            user_status.Predefined(
+              (b) => b
+                ..id = 'id1'
+                ..icon = '😁'
+                ..message = 'message1'
+                ..clearAt = user_status.ClearAt(
+                  (b) => b
+                    ..type = user_status.ClearAt_Type.period
+                    ..time = (
+                      $int: 60 * 60 * 7,
+                      clearAtTimeType: null,
+                    ),
+                ).toBuilder(),
+            ),
+            user_status.Predefined(
+              (b) => b
+                ..id = 'id2'
+                ..icon = '😆'
+                ..message = 'message2'
+                ..clearAt = user_status.ClearAt(
+                  (b) => b
+                    ..type = user_status.ClearAt_Type.endOf
+                    ..time = (
+                      $int: null,
+                      clearAtTimeType: user_status.ClearAtTimeType.week,
+                    ),
+                ).toBuilder(),
+            ),
+          ]),
+        ),
+      );
+
+      final userStatusBloc = MockUserStatusBloc();
+      when(() => userStatusBloc.status).thenAnswer((_) => status);
+      when(() => userStatusBloc.predefinedStatuses).thenAnswer((_) => predefinedStatuses);
+
+      final account = MockAccount();
+      final accountsBloc = MockAccountsBloc();
+      when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
+
+      await tester.pumpWidget(
+        wrapDialog(
+          NeonProvider<AccountsBloc>(
+            create: (_) => accountsBloc,
+            child: NeonUserStatusDialog(
+              account: account,
+              now: now,
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('predefined message'), findsOne);
+      expect(find.text('😅'), findsOne);
+      expect(find.text('7 hours'), findsOne);
+
+      await expectLater(find.byType(NeonUserStatusDialog), matchesGoldenFile('goldens/user_status_dialog.png'));
+
+      // Other status type
+      await tester.tap(find.text('Away'));
+      verify(() => userStatusBloc.setStatusType('away')).called(1);
+
+      // Predefined with period clearAt
+      await tester.tap(find.text('message1'));
+      verify(
+        () => userStatusBloc.setPredefinedMessage(
+          id: 'id1',
+          clearAt: now.add(const Duration(hours: 7)).millisecondsSinceEpoch ~/ 1000,
+        ),
+      ).called(1);
+
+      // Predefined with end-of clearAt
+      await tester.tap(find.text('message2'));
+      verify(
+        () => userStatusBloc.setPredefinedMessage(
+          id: 'id2',
+          clearAt: now.add(const Duration(days: 2)).millisecondsSinceEpoch ~/ 1000,
+        ),
+      ).called(1);
+
+      // Set emoji
+      await tester.tap(find.byType(IconButton));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byIcon(Icons.tag_faces));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('😀'));
+      verify(
+        () => userStatusBloc.setCustomMessage(
+          message: 'predefined message',
+          icon: '😀',
+          clearAt: now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000,
+        ),
+      ).called(1);
+
+      // Set message
+      await tester.enterText(find.byType(TextField), 'custom message');
+      verify(
+        () => userStatusBloc.setCustomMessage(
+          message: 'custom message',
+          icon: '😅',
+          clearAt: now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000,
+        ),
+      ).called(1);
+
+      // Set clearAt
+      await tester.dragUntilVisible(
+        find.byType(DropdownButton<user_status.ClearAt?>),
+        find.byType(SingleChildScrollView),
+        const Offset(0, 50),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(DropdownButton<user_status.ClearAt?>));
+      await tester.pumpAndSettle();
+      expect(find.text('7 hours'), findsOne);
+      expect(find.text('Do not clear'), findsOne);
+      expect(find.text('30 minutes'), findsOne);
+      expect(find.text('1 hour'), findsOne);
+      expect(find.text('4 hours'), findsOne);
+      expect(find.text('Today'), findsOne);
+      expect(find.text('This week'), findsExactly(2)); // From predefined end-of
+      await tester.tap(find.text('4 hours'));
+      await tester.pumpAndSettle();
+      verify(
+        () => userStatusBloc.setCustomMessage(
+          message: 'predefined message',
+          icon: '😅',
+          clearAt: now.add(const Duration(hours: 4)).millisecondsSinceEpoch ~/ 1000,
+        ),
+      ).called(1);
+
+      await tester.tap(find.text('Clear status'));
+      verify(userStatusBloc.clearMessage).called(1);
+
+      await status.close();
+      await predefinedStatuses.close();
     });
   });
 }

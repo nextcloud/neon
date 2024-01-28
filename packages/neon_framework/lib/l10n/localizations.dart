@@ -754,6 +754,90 @@ abstract class NeonLocalizations {
   /// In en, this message translates to:
   /// **'{time} {time,plural, =1{year}other{years}}'**
   String relativeTimeYears(int time);
+
+  /// No description provided for @userStatusSetStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Set status'**
+  String get userStatusSetStatus;
+
+  /// No description provided for @userStatusOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'Online'**
+  String get userStatusOnline;
+
+  /// No description provided for @userStatusAway.
+  ///
+  /// In en, this message translates to:
+  /// **'Away'**
+  String get userStatusAway;
+
+  /// No description provided for @userStatusDoNotDisturb.
+  ///
+  /// In en, this message translates to:
+  /// **'Do not disturb'**
+  String get userStatusDoNotDisturb;
+
+  /// No description provided for @userStatusDoNotDisturbDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Mute all notifications'**
+  String get userStatusDoNotDisturbDescription;
+
+  /// No description provided for @userStatusInvisible.
+  ///
+  /// In en, this message translates to:
+  /// **'Invisible'**
+  String get userStatusInvisible;
+
+  /// No description provided for @userStatusInvisibleDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Appear offline'**
+  String get userStatusInvisibleDescription;
+
+  /// No description provided for @userStatusClearAfter.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear status after'**
+  String get userStatusClearAfter;
+
+  /// No description provided for @userStatusClearAtDoNotClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Do not clear'**
+  String get userStatusClearAtDoNotClear;
+
+  /// No description provided for @userStatusClearAtToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get userStatusClearAtToday;
+
+  /// No description provided for @userStatusClearAtThisWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'This week'**
+  String get userStatusClearAtThisWeek;
+
+  /// No description provided for @userStatusActionClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear status'**
+  String get userStatusActionClear;
+
+  /// No description provided for @userStatusStatusMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Status message'**
+  String get userStatusStatusMessage;
+
+  /// No description provided for @userStatusOnlineStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Online status'**
+  String get userStatusOnlineStatus;
 }
 
 class _NeonLocalizationsDelegate extends LocalizationsDelegate<NeonLocalizations> {

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:intersperse/intersperse.dart';
 import 'package:neon_dashboard/l10n/localizations.dart';
 import 'package:neon_dashboard/src/blocs/dashboard.dart';
 import 'package:neon_dashboard/src/widgets/dry_intrinsic_height.dart';
@@ -8,6 +9,7 @@ import 'package:neon_dashboard/src/widgets/widget.dart';
 import 'package:neon_dashboard/src/widgets/widget_button.dart';
 import 'package:neon_dashboard/src/widgets/widget_item.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
@@ -23,17 +25,25 @@ class DashboardMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = NeonProvider.of<DashboardBloc>(context);
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+    final userStatusBloc = accountsBloc.activeUserStatusBloc;
 
     return NeonCustomBackground(
       child: ResultBuilder.behaviorSubject(
         subject: bloc.widgets,
-        builder: (context, snapshot) {
-          Widget? child;
-          if (snapshot.hasData) {
+        builder: (context, result) {
+          final children = <Widget>[
+            _buildStatuses(
+              account: accountsBloc.activeAccount.value!,
+              userStatusBloc: userStatusBloc,
+            ),
+          ];
+
+          if (result.hasData) {
             var minHeight = 504.0;
 
-            final children = <Widget>[];
-            for (final widget in snapshot.requireData.entries) {
+            final widgets = <Widget>[];
+            for (final widget in result.requireData.entries) {
               final items = buildWidgetItems(
                 context: context,
                 widget: widget.key,
@@ -43,7 +53,7 @@ class DashboardMainPage extends StatelessWidget {
               final height = items.map((i) => i.height!).reduce((a, b) => a + b);
               minHeight = max(minHeight, height);
 
-              children.add(
+              widgets.add(
                 DashboardWidget(
                   widget: widget.key,
                   children: items,
@@ -51,32 +61,42 @@ class DashboardMainPage extends StatelessWidget {
               );
             }
 
-            child = Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 8,
-              runSpacing: 8,
-              children: children
-                  .map(
-                    (widget) => SizedBox(
-                      width: 320,
-                      height: minHeight + 24,
-                      child: widget,
-                    ),
-                  )
-                  .toList(),
+            children.add(
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 8,
+                runSpacing: 8,
+                children: widgets
+                    .map(
+                      (widget) => SizedBox(
+                        width: 320,
+                        height: minHeight + 24,
+                        child: widget,
+                      ),
+                    )
+                    .toList(),
+              ),
             );
           }
 
           return Center(
             child: NeonListView.custom(
               scrollKey: 'dashboard',
-              isLoading: snapshot.isLoading,
-              error: snapshot.error,
+              isLoading: result.isLoading,
+              error: result.error,
               onRefresh: bloc.refresh,
               sliver: SliverFillRemaining(
                 hasScrollBody: false,
-                child: Center(
-                  child: child,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: children
+                      .intersperse(
+                        const SizedBox(
+                          height: 40,
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
             ),
@@ -85,6 +105,80 @@ class DashboardMainPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildStatuses({
+    required Account account,
+    required UserStatusBloc userStatusBloc,
+  }) =>
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          ResultBuilder.behaviorSubject(
+            subject: userStatusBloc.status,
+            builder: (context, statusResult) {
+              if (statusResult.hasData) {
+                final status = statusResult.requireData;
+
+                final label = StringBuffer();
+                if (status.icon == null && status.message == null) {
+                  label.write(DashboardLocalizations.of(context).setUserStatus);
+                } else {
+                  if (status.icon != null) {
+                    label.write(status.icon);
+                  }
+                  if (status.icon != null && status.message != null) {
+                    label.write(' ');
+                  }
+                  if (status.message != null) {
+                    label.write(status.message);
+                  }
+                }
+
+                return _buildStatus(
+                  context: context,
+                  icon: NeonServerIcon(icon: 'user-status-${status.status == 'offline' ? 'invisible' : status.status}'),
+                  label: Text(label.toString()),
+                  onPressed: () async {
+                    await showDialog<void>(
+                      context: context,
+                      builder: (context) => NeonUserStatusDialog(
+                        account: account,
+                      ),
+                    );
+                  },
+                );
+              }
+
+              return const SizedBox.shrink();
+            },
+          ),
+        ]
+            .intersperse(
+              const SizedBox(
+                width: 20,
+              ),
+            )
+            .toList(),
+      );
+
+  Widget _buildStatus({
+    required BuildContext context,
+    required Widget icon,
+    required Widget label,
+    required VoidCallback onPressed,
+  }) =>
+      ActionChip(
+        avatar: icon,
+        label: label,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+          side: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+        padding: const EdgeInsets.all(15),
+        onPressed: onPressed,
+      );
 
   /// Builds the list of messages, [items] and buttons for a [widget].
   @visibleForTesting

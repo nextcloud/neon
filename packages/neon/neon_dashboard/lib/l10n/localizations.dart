@@ -94,6 +94,12 @@ abstract class DashboardLocalizations {
   /// In en, this message translates to:
   /// **'No entries'**
   String get noEntries;
+
+  /// No description provided for @setUserStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Set status'**
+  String get setUserStatus;
 }
 
 class _DashboardLocalizationsDelegate extends LocalizationsDelegate<DashboardLocalizations> {

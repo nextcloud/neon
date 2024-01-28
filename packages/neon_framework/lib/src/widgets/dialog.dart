@@ -1,14 +1,21 @@
+import 'dart:async';
+
+import 'package:built_collection/built_collection.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/theme/dialog.dart';
+import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
+import 'package:neon_framework/src/utils/user_status_clear_at.dart';
 import 'package:neon_framework/src/widgets/account_tile.dart';
+import 'package:neon_framework/src/widgets/error.dart';
+import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
+import 'package:neon_framework/src/widgets/server_icon.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:url_launcher/url_launcher_string.dart';
 
 /// An button typically used in an [AlertDialog.adaptive].
@@ -427,12 +434,16 @@ class NeonAccountSelectionDialog extends StatelessWidget {
   /// Creates a new account selection dialog.
   const NeonAccountSelectionDialog({
     this.highlightActiveAccount = false,
+    this.showChangeStatusButton = true,
     this.children,
     super.key,
   });
 
   /// Whether the selected account is highlighted with a leading check icon.
   final bool highlightActiveAccount;
+
+  /// Whether a button for setting the status of the active account should be shown.
+  final bool showChangeStatusButton;
 
   /// The (optional) trailing children of this dialog.
   final List<Widget>? children;
@@ -461,6 +472,26 @@ class NeonAccountSelectionDialog extends StatelessWidget {
         .toList();
     if (highlightActiveAccount && accounts.length > 1) {
       tiles.insert(1, const Divider());
+    }
+    if (showChangeStatusButton) {
+      tiles.insert(
+        1,
+        TextButton.icon(
+          onPressed: () async {
+            await showDialog<void>(
+              context: context,
+              builder: (context) => NeonUserStatusDialog(
+                account: activeAccount,
+              ),
+            );
+            if (context.mounted) {
+              Navigator.of(context).pop();
+            }
+          },
+          icon: const Icon(Icons.edit),
+          label: Text(NeonLocalizations.of(context).userStatusSetStatus),
+        ),
+      );
     }
 
     final body = SingleChildScrollView(
@@ -557,6 +588,379 @@ class NeonEmojiPickerDialog extends StatelessWidget {
             Navigator.of(context).pop(emoji.emoji);
           },
         ),
+      ),
+    );
+  }
+}
+
+/// Shows a dialog to set the user status.
+class NeonUserStatusDialog extends StatefulWidget {
+  /// Creates a new user status dialog.
+  const NeonUserStatusDialog({
+    required this.account,
+    @visibleForTesting this.now,
+    super.key,
+  });
+
+  /// Account to set the status for.
+  final Account account;
+
+  /// The current time, only used for testing.
+  final DateTime? now;
+
+  @override
+  State<NeonUserStatusDialog> createState() => _NeonUserStatusDialogState();
+}
+
+class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
+  late final UserStatusBloc bloc;
+  final messageController = TextEditingController();
+  late final StreamSubscription<Result<user_status.$PublicInterface?>> statusSubscription;
+
+  late final onlineStatuses = {
+    'online': (
+      ['online'],
+      NeonLocalizations.of(context).userStatusOnline,
+      null,
+    ),
+    'dnd': (
+      ['dnd'],
+      NeonLocalizations.of(context).userStatusDoNotDisturb,
+      NeonLocalizations.of(context).userStatusDoNotDisturbDescription
+    ),
+    'away': (
+      ['away'],
+      NeonLocalizations.of(context).userStatusAway,
+      null,
+    ),
+    'invisible': (
+      ['invisible', 'offline'],
+      NeonLocalizations.of(context).userStatusInvisible,
+      NeonLocalizations.of(context).userStatusInvisibleDescription
+    ),
+  };
+
+  final predefinedClearAts = [
+    user_status.ClearAt(
+      (b) => b
+        ..type = user_status.ClearAt_Type.period
+        ..time = ($int: 1800, clearAtTimeType: null),
+    ),
+    user_status.ClearAt(
+      (b) => b
+        ..type = user_status.ClearAt_Type.period
+        ..time = ($int: 3600, clearAtTimeType: null),
+    ),
+    user_status.ClearAt(
+      (b) => b
+        ..type = user_status.ClearAt_Type.period
+        ..time = ($int: 14400, clearAtTimeType: null),
+    ),
+    user_status.ClearAt(
+      (b) => b
+        ..type = user_status.ClearAt_Type.endOf
+        ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.day),
+    ),
+    user_status.ClearAt(
+      (b) => b
+        ..type = user_status.ClearAt_Type.endOf
+        ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
+    ),
+  ];
+
+  @override
+  void dispose() {
+    messageController.dispose();
+    unawaited(statusSubscription.cancel());
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    bloc = NeonProvider.of<AccountsBloc>(context).getUserStatusBlocFor(widget.account);
+
+    statusSubscription = bloc.status.listen((result) {
+      if (result.hasData) {
+        messageController.text = result.requireData.message ?? '';
+      }
+    });
+
+    messageController.addListener(() {
+      if ((bloc.status.valueOrNull?.data?.message ?? '') != messageController.text) {
+        bloc.setCustomMessage(
+          message: messageController.text,
+          icon: bloc.status.valueOrNull?.data?.icon,
+          clearAt: bloc.status.valueOrNull?.data?.clearAt,
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final body = SingleChildScrollView(
+      child: ResultBuilder.behaviorSubject(
+        subject: bloc.predefinedStatuses,
+        builder: (context, predefinedStatusesResult) => ResultBuilder.behaviorSubject(
+          subject: bloc.status,
+          builder: (context, statusResult) => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                NeonLocalizations.of(context).userStatusOnlineStatus,
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              NeonError(
+                statusResult.error,
+                onRetry: bloc.refresh,
+              ),
+              NeonLinearProgressIndicator(
+                visible: statusResult.isLoading,
+              ),
+              buildOnlineStatuses(
+                status: statusResult.data,
+              ),
+              const Divider(),
+              Text(
+                NeonLocalizations.of(context).userStatusStatusMessage,
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              NeonError(
+                predefinedStatusesResult.error,
+                onRetry: bloc.refresh,
+              ),
+              NeonLinearProgressIndicator(
+                visible: predefinedStatusesResult.isLoading,
+              ),
+              if (predefinedStatusesResult.hasData)
+                buildPredefinedStatuses(
+                  predefinedStatuses: predefinedStatusesResult.requireData,
+                  status: statusResult.data,
+                ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                controller: messageController,
+                decoration: InputDecoration(
+                  hintText: NeonLocalizations.of(context).userStatusStatusMessage,
+                  icon: SizedBox.square(
+                    dimension: 50,
+                    child: IconButton(
+                      onPressed: () async {
+                        final emoji = await showDialog<String>(
+                          context: context,
+                          builder: (context) => const NeonEmojiPickerDialog(),
+                        );
+                        if (emoji != null) {
+                          bloc.setCustomMessage(
+                            message: bloc.status.valueOrNull?.data?.message,
+                            icon: emoji,
+                            clearAt: bloc.status.valueOrNull?.data?.clearAt,
+                          );
+                        }
+                      },
+                      icon: Text(
+                        statusResult.data?.icon ?? '😀',
+                        style: const TextStyle(
+                          fontSize: 25,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              buildClearAt(
+                status: statusResult.data,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    return NeonDialog(
+      content: body,
+      automaticallyShowCancel: false,
+      actions: [
+        NeonDialogAction(
+          onPressed: () {
+            bloc.clearMessage();
+            Navigator.of(context).pop();
+          },
+          child: Text(NeonLocalizations.of(context).userStatusActionClear),
+        ),
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(NeonLocalizations.of(context).actionClose),
+        ),
+      ],
+    );
+  }
+
+  Widget buildOnlineStatuses({
+    required user_status.$PublicInterface? status,
+  }) =>
+      buildGrid(
+        children: onlineStatuses.entries.map(
+          (onlineStatus) {
+            final (types, title, subtitle) = onlineStatus.value;
+            return buildCard(
+              selected: types.contains(status?.status),
+              child: ListTile(
+                leading: NeonServerIcon(icon: 'user-status-${onlineStatus.key}'),
+                title: Text(
+                  title,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                subtitle: Text(
+                  subtitle ?? '',
+                  overflow: TextOverflow.ellipsis,
+                ),
+                onTap: () {
+                  bloc.setStatusType(onlineStatus.key);
+                },
+              ),
+            );
+          },
+        ).toList(),
+      );
+
+  Widget buildPredefinedStatuses({
+    required BuiltList<user_status.Predefined> predefinedStatuses,
+    required user_status.$PublicInterface? status,
+  }) {
+    final localizations = NeonLocalizations.of(context);
+
+    final selectedPredefinedStatus = status is user_status.Private ? status.messageId : null;
+
+    return buildGrid(
+      children: predefinedStatuses.map(
+        (status) {
+          final clearAt = status.clearAt;
+
+          return buildCard(
+            selected: selectedPredefinedStatus == status.id,
+            child: ListTile(
+              leading: Text(
+                status.icon,
+                style: const TextStyle(fontSize: 18),
+              ),
+              title: Text(status.message),
+              subtitle: Text(clearAt?.formatRelative(localizations) ?? localizations.userStatusClearAtDoNotClear),
+              onTap: () {
+                bloc.setPredefinedMessage(
+                  id: status.id,
+                  clearAt: clearAt != null ? clearAt.toDateTime(widget.now)!.millisecondsSinceEpoch ~/ 1000 : null,
+                );
+              },
+            ),
+          );
+        },
+      ).toList(),
+    );
+  }
+
+  Widget buildClearAt({
+    required user_status.$PublicInterface? status,
+  }) {
+    final localizations = NeonLocalizations.of(context);
+
+    final selected = status?.clearAt != null
+        ? user_status.ClearAt(
+            (b) => b
+              ..type = user_status.ClearAt_Type.period
+              ..time = (
+                $int: DateTime.fromMillisecondsSinceEpoch(status!.clearAt! * 1000).difference(DateTime.now()).inSeconds,
+                clearAtTimeType: null
+              ),
+          )
+        : null;
+
+    return InputDecorator(
+      decoration: InputDecoration(
+        icon: Text(NeonLocalizations.of(context).userStatusClearAfter),
+        isDense: true,
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 8,
+          horizontal: 12,
+        ),
+      ),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<user_status.ClearAt?>(
+          onChanged: (clearAt) {
+            bloc.setCustomMessage(
+              message: bloc.status.valueOrNull?.data?.message,
+              icon: bloc.status.valueOrNull?.data?.icon,
+              clearAt: clearAt != null ? clearAt.toDateTime(widget.now)!.millisecondsSinceEpoch ~/ 1000 : null,
+            );
+          },
+          value: selected,
+          items: [
+            if (selected != null) selected,
+            null,
+            ...predefinedClearAts,
+          ]
+              .map(
+                (clearAt) => DropdownMenuItem(
+                  value: clearAt,
+                  enabled: selected == null || clearAt != selected,
+                  child: Text(clearAt?.formatRelative(localizations) ?? localizations.userStatusClearAtDoNotClear),
+                ),
+              )
+              .toList(),
+        ),
+      ),
+    );
+  }
+
+  Widget buildCard({
+    required bool selected,
+    required Widget child,
+  }) =>
+      Card(
+        clipBehavior: Clip.hardEdge,
+        shape: selected ? selectedBorder : null,
+        child: child,
+      );
+
+  ShapeBorder get selectedBorder => RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(
+          color: Theme.of(context).colorScheme.primary,
+          width: 1.5,
+        ),
+      );
+
+  Widget buildGrid({
+    required List<Widget> children,
+  }) {
+    final constraints = NeonDialogTheme.of(context).constraints;
+    return Flexible(
+      child: Wrap(
+        children: children
+            .map(
+              (child) => SizedBox(
+                height: 72,
+                width: constraints.maxWidth / 2,
+                child: child,
+              ),
+            )
+            .toList(),
       ),
     );
   }

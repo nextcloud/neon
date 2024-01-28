@@ -1,4 +1,5 @@
 {
   "@@locale": "en",
-  "noEntries": "No entries"
+  "noEntries": "No entries",
+  "setUserStatus": "Set status"
 }
