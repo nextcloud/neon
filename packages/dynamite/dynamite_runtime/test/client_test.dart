@@ -1,3 +1,4 @@
+import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
