@@ -11,7 +11,7 @@ Iterable<Spec> generateSchemas(
 ) sync* {
   if (spec.components?.schemas != null) {
     for (final schema in spec.components!.schemas!.entries) {
-      final identifier = toDartName(schema.key, uppercaseFirstCharacter: true);
+      final identifier = toDartName(schema.key, className: true);
       final result = resolveType(
         spec,
         state,

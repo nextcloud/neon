@@ -17,7 +17,7 @@ void main() {
     final basename = p.basename(file.path);
     final id = basename.substring(0, basename.length - 13);
     final variablePrefix = toDartName(id);
-    final classPrefix = toDartName(id, uppercaseFirstCharacter: true);
+    final classPrefix = toDartName(id, className: true);
 
     idStatements
       ..writeln('  /// ID for the $id app.')

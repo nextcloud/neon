@@ -20,7 +20,7 @@ void main() {
 
       for (final value in values) {
         expect(toDartName(value.$1), value.$2);
-        expect(toDartName(value.$1, uppercaseFirstCharacter: true), value.$3);
+        expect(toDartName(value.$1, className: true), value.$3);
       }
     });
 

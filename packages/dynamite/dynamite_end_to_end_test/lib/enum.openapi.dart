@@ -216,59 +216,59 @@ class _$EnumDynamicSerializer implements PrimitiveSerializer<EnumDynamic> {
       _fromWire[serialized]!;
 }
 
-class WrappedEnum_$String extends EnumClass {
-  const WrappedEnum_$String._(super.name);
+class WrappedEnum_String extends EnumClass {
+  const WrappedEnum_String._(super.name);
 
   /// `test`
-  static const WrappedEnum_$String test = _$wrappedEnum$StringTest;
+  static const WrappedEnum_String test = _$wrappedEnumStringTest;
 
   /// `default`
   @BuiltValueEnumConst(wireName: 'default')
-  static const WrappedEnum_$String $default = _$wrappedEnum$String$default;
+  static const WrappedEnum_String $default = _$wrappedEnumString$default;
 
   /// Returns a set with all values this enum contains.
-  static BuiltSet<WrappedEnum_$String> get values => _$wrappedEnum$StringValues;
+  static BuiltSet<WrappedEnum_String> get values => _$wrappedEnumStringValues;
 
   /// Returns the enum value associated to the [name].
-  static WrappedEnum_$String valueOf(String name) => _$valueOfWrappedEnum_$String(name);
+  static WrappedEnum_String valueOf(String name) => _$valueOfWrappedEnum_String(name);
 
   /// Returns the serialized value of this enum value.
   String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
-  /// Serializer for WrappedEnum_$String.
+  /// Serializer for WrappedEnum_String.
   @BuiltValueSerializer(custom: true)
-  static Serializer<WrappedEnum_$String> get serializer => const _$WrappedEnum_$StringSerializer();
+  static Serializer<WrappedEnum_String> get serializer => const _$WrappedEnum_StringSerializer();
 }
 
-class _$WrappedEnum_$StringSerializer implements PrimitiveSerializer<WrappedEnum_$String> {
-  const _$WrappedEnum_$StringSerializer();
+class _$WrappedEnum_StringSerializer implements PrimitiveSerializer<WrappedEnum_String> {
+  const _$WrappedEnum_StringSerializer();
 
-  static const Map<WrappedEnum_$String, Object> _toWire = <WrappedEnum_$String, Object>{
-    WrappedEnum_$String.test: 'test',
-    WrappedEnum_$String.$default: 'default',
+  static const Map<WrappedEnum_String, Object> _toWire = <WrappedEnum_String, Object>{
+    WrappedEnum_String.test: 'test',
+    WrappedEnum_String.$default: 'default',
   };
 
-  static const Map<Object, WrappedEnum_$String> _fromWire = <Object, WrappedEnum_$String>{
-    'test': WrappedEnum_$String.test,
-    'default': WrappedEnum_$String.$default,
+  static const Map<Object, WrappedEnum_String> _fromWire = <Object, WrappedEnum_String>{
+    'test': WrappedEnum_String.test,
+    'default': WrappedEnum_String.$default,
   };
 
   @override
-  Iterable<Type> get types => const [WrappedEnum_$String];
+  Iterable<Type> get types => const [WrappedEnum_String];
 
   @override
-  String get wireName => r'WrappedEnum_$String';
+  String get wireName => 'WrappedEnum_String';
 
   @override
   Object serialize(
     Serializers serializers,
-    WrappedEnum_$String object, {
+    WrappedEnum_String object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  WrappedEnum_$String deserialize(
+  WrappedEnum_String deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -346,7 +346,7 @@ class _$WrappedEnum_IntegerSerializer implements PrimitiveSerializer<WrappedEnum
 @BuiltValue(instantiable: false)
 abstract interface class $WrappedEnumInterface {
   @BuiltValueField(wireName: 'String')
-  WrappedEnum_$String get string;
+  WrappedEnum_String get string;
   WrappedEnum_Integer get integer;
 }
 
@@ -408,7 +408,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(EnumDynamic.serializer)
       ..addBuilderFactory(const FullType(WrappedEnum), WrappedEnumBuilder.new)
       ..add(WrappedEnum.serializer)
-      ..add(WrappedEnum_$String.serializer)
+      ..add(WrappedEnum_String.serializer)
       ..add(WrappedEnum_Integer.serializer)
       ..addBuilderFactory(const FullType(EnumReference), EnumReferenceBuilder.new)
       ..add(EnumReference.serializer))

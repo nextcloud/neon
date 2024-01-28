@@ -25,7 +25,7 @@ TypeResult? resolveMimeTypeDecode(
       final result = resolveType(
         spec,
         state,
-        toDartName('$identifier-$mimeType', uppercaseFirstCharacter: true),
+        toDartName('$identifier-$mimeType', className: true),
         mediaType.schema!,
       );
 
@@ -67,7 +67,7 @@ Iterable<String> resolveMimeTypeEncode(
       final result = resolveType(
         spec,
         state,
-        toDartName('$identifier-request-$mimeType', uppercaseFirstCharacter: true),
+        toDartName('$identifier-request-$mimeType', className: true),
         mediaType.schema!,
         nullable: dartParameterNullable,
       );

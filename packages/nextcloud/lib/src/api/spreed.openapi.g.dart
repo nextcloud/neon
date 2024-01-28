@@ -7744,10 +7744,10 @@ Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs>
     _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer();
 Serializer<SettingsSetsipSettingsResponseApplicationJson> _$settingsSetsipSettingsResponseApplicationJsonSerializer =
     _$SettingsSetsipSettingsResponseApplicationJsonSerializer();
-Serializer<SignalingSettings_HelloAuthParams_$10> _$signalingSettingsHelloAuthParams$10Serializer =
-    _$SignalingSettings_HelloAuthParams_$10Serializer();
-Serializer<SignalingSettings_HelloAuthParams_$20> _$signalingSettingsHelloAuthParams$20Serializer =
-    _$SignalingSettings_HelloAuthParams_$20Serializer();
+Serializer<SignalingSettings_HelloAuthParams_10> _$signalingSettingsHelloAuthParams10Serializer =
+    _$SignalingSettings_HelloAuthParams_10Serializer();
+Serializer<SignalingSettings_HelloAuthParams_20> _$signalingSettingsHelloAuthParams20Serializer =
+    _$SignalingSettings_HelloAuthParams_20Serializer();
 Serializer<SignalingSettings_HelloAuthParams> _$signalingSettingsHelloAuthParamsSerializer =
     _$SignalingSettings_HelloAuthParamsSerializer();
 Serializer<SignalingSettings_Stunservers> _$signalingSettingsStunserversSerializer =
@@ -19828,15 +19828,15 @@ class _$SettingsSetsipSettingsResponseApplicationJsonSerializer
   }
 }
 
-class _$SignalingSettings_HelloAuthParams_$10Serializer
-    implements StructuredSerializer<SignalingSettings_HelloAuthParams_$10> {
+class _$SignalingSettings_HelloAuthParams_10Serializer
+    implements StructuredSerializer<SignalingSettings_HelloAuthParams_10> {
   @override
-  final Iterable<Type> types = const [SignalingSettings_HelloAuthParams_$10, _$SignalingSettings_HelloAuthParams_$10];
+  final Iterable<Type> types = const [SignalingSettings_HelloAuthParams_10, _$SignalingSettings_HelloAuthParams_10];
   @override
-  final String wireName = 'SignalingSettings_HelloAuthParams_\$10';
+  final String wireName = 'SignalingSettings_HelloAuthParams_10';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SignalingSettings_HelloAuthParams_$10 object,
+  Iterable<Object?> serialize(Serializers serializers, SignalingSettings_HelloAuthParams_10 object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ticket',
@@ -19853,9 +19853,9 @@ class _$SignalingSettings_HelloAuthParams_$10Serializer
   }
 
   @override
-  SignalingSettings_HelloAuthParams_$10 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SignalingSettings_HelloAuthParams_10 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SignalingSettings_HelloAuthParams_$10Builder();
+    final result = SignalingSettings_HelloAuthParams_10Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -19876,15 +19876,15 @@ class _$SignalingSettings_HelloAuthParams_$10Serializer
   }
 }
 
-class _$SignalingSettings_HelloAuthParams_$20Serializer
-    implements StructuredSerializer<SignalingSettings_HelloAuthParams_$20> {
+class _$SignalingSettings_HelloAuthParams_20Serializer
+    implements StructuredSerializer<SignalingSettings_HelloAuthParams_20> {
   @override
-  final Iterable<Type> types = const [SignalingSettings_HelloAuthParams_$20, _$SignalingSettings_HelloAuthParams_$20];
+  final Iterable<Type> types = const [SignalingSettings_HelloAuthParams_20, _$SignalingSettings_HelloAuthParams_20];
   @override
-  final String wireName = 'SignalingSettings_HelloAuthParams_\$20';
+  final String wireName = 'SignalingSettings_HelloAuthParams_20';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SignalingSettings_HelloAuthParams_$20 object,
+  Iterable<Object?> serialize(Serializers serializers, SignalingSettings_HelloAuthParams_20 object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'token',
@@ -19895,9 +19895,9 @@ class _$SignalingSettings_HelloAuthParams_$20Serializer
   }
 
   @override
-  SignalingSettings_HelloAuthParams_$20 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SignalingSettings_HelloAuthParams_20 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SignalingSettings_HelloAuthParams_$20Builder();
+    final result = SignalingSettings_HelloAuthParams_20Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -19926,9 +19926,9 @@ class _$SignalingSettings_HelloAuthParamsSerializer implements StructuredSeriali
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '1.0',
-      serializers.serialize(object.$10, specifiedType: const FullType(SignalingSettings_HelloAuthParams_$10)),
+      serializers.serialize(object.$10, specifiedType: const FullType(SignalingSettings_HelloAuthParams_10)),
       '2.0',
-      serializers.serialize(object.$20, specifiedType: const FullType(SignalingSettings_HelloAuthParams_$20)),
+      serializers.serialize(object.$20, specifiedType: const FullType(SignalingSettings_HelloAuthParams_20)),
     ];
 
     return result;
@@ -19947,13 +19947,13 @@ class _$SignalingSettings_HelloAuthParamsSerializer implements StructuredSeriali
       switch (key) {
         case '1.0':
           result.$10.replace(
-              serializers.deserialize(value, specifiedType: const FullType(SignalingSettings_HelloAuthParams_$10))!
-                  as SignalingSettings_HelloAuthParams_$10);
+              serializers.deserialize(value, specifiedType: const FullType(SignalingSettings_HelloAuthParams_10))!
+                  as SignalingSettings_HelloAuthParams_10);
           break;
         case '2.0':
           result.$20.replace(
-              serializers.deserialize(value, specifiedType: const FullType(SignalingSettings_HelloAuthParams_$20))!
-                  as SignalingSettings_HelloAuthParams_$20);
+              serializers.deserialize(value, specifiedType: const FullType(SignalingSettings_HelloAuthParams_20))!
+                  as SignalingSettings_HelloAuthParams_20);
           break;
       }
     }
@@ -50917,9 +50917,9 @@ class SettingsSetsipSettingsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $SignalingSettings_HelloAuthParams_$10InterfaceBuilder {
-  void replace($SignalingSettings_HelloAuthParams_$10Interface other);
-  void update(void Function($SignalingSettings_HelloAuthParams_$10InterfaceBuilder) updates);
+abstract mixin class $SignalingSettings_HelloAuthParams_10InterfaceBuilder {
+  void replace($SignalingSettings_HelloAuthParams_10Interface other);
+  void update(void Function($SignalingSettings_HelloAuthParams_10InterfaceBuilder) updates);
   String? get userid;
   set userid(String? userid);
 
@@ -50927,32 +50927,32 @@ abstract mixin class $SignalingSettings_HelloAuthParams_$10InterfaceBuilder {
   set ticket(String? ticket);
 }
 
-class _$SignalingSettings_HelloAuthParams_$10 extends SignalingSettings_HelloAuthParams_$10 {
+class _$SignalingSettings_HelloAuthParams_10 extends SignalingSettings_HelloAuthParams_10 {
   @override
   final String? userid;
   @override
   final String ticket;
 
-  factory _$SignalingSettings_HelloAuthParams_$10(
-          [void Function(SignalingSettings_HelloAuthParams_$10Builder)? updates]) =>
-      (SignalingSettings_HelloAuthParams_$10Builder()..update(updates))._build();
+  factory _$SignalingSettings_HelloAuthParams_10(
+          [void Function(SignalingSettings_HelloAuthParams_10Builder)? updates]) =>
+      (SignalingSettings_HelloAuthParams_10Builder()..update(updates))._build();
 
-  _$SignalingSettings_HelloAuthParams_$10._({this.userid, required this.ticket}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ticket, r'SignalingSettings_HelloAuthParams_$10', 'ticket');
+  _$SignalingSettings_HelloAuthParams_10._({this.userid, required this.ticket}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ticket, r'SignalingSettings_HelloAuthParams_10', 'ticket');
   }
 
   @override
-  SignalingSettings_HelloAuthParams_$10 rebuild(void Function(SignalingSettings_HelloAuthParams_$10Builder) updates) =>
+  SignalingSettings_HelloAuthParams_10 rebuild(void Function(SignalingSettings_HelloAuthParams_10Builder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SignalingSettings_HelloAuthParams_$10Builder toBuilder() =>
-      SignalingSettings_HelloAuthParams_$10Builder()..replace(this);
+  SignalingSettings_HelloAuthParams_10Builder toBuilder() =>
+      SignalingSettings_HelloAuthParams_10Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SignalingSettings_HelloAuthParams_$10 && userid == other.userid && ticket == other.ticket;
+    return other is SignalingSettings_HelloAuthParams_10 && userid == other.userid && ticket == other.ticket;
   }
 
   @override
@@ -50966,18 +50966,18 @@ class _$SignalingSettings_HelloAuthParams_$10 extends SignalingSettings_HelloAut
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SignalingSettings_HelloAuthParams_$10')
+    return (newBuiltValueToStringHelper(r'SignalingSettings_HelloAuthParams_10')
           ..add('userid', userid)
           ..add('ticket', ticket))
         .toString();
   }
 }
 
-class SignalingSettings_HelloAuthParams_$10Builder
+class SignalingSettings_HelloAuthParams_10Builder
     implements
-        Builder<SignalingSettings_HelloAuthParams_$10, SignalingSettings_HelloAuthParams_$10Builder>,
-        $SignalingSettings_HelloAuthParams_$10InterfaceBuilder {
-  _$SignalingSettings_HelloAuthParams_$10? _$v;
+        Builder<SignalingSettings_HelloAuthParams_10, SignalingSettings_HelloAuthParams_10Builder>,
+        $SignalingSettings_HelloAuthParams_10InterfaceBuilder {
+  _$SignalingSettings_HelloAuthParams_10? _$v;
 
   String? _userid;
   String? get userid => _$this._userid;
@@ -50987,9 +50987,9 @@ class SignalingSettings_HelloAuthParams_$10Builder
   String? get ticket => _$this._ticket;
   set ticket(covariant String? ticket) => _$this._ticket = ticket;
 
-  SignalingSettings_HelloAuthParams_$10Builder();
+  SignalingSettings_HelloAuthParams_10Builder();
 
-  SignalingSettings_HelloAuthParams_$10Builder get _$this {
+  SignalingSettings_HelloAuthParams_10Builder get _$this {
     final $v = _$v;
     if ($v != null) {
       _userid = $v.userid;
@@ -51000,60 +51000,60 @@ class SignalingSettings_HelloAuthParams_$10Builder
   }
 
   @override
-  void replace(covariant SignalingSettings_HelloAuthParams_$10 other) {
+  void replace(covariant SignalingSettings_HelloAuthParams_10 other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SignalingSettings_HelloAuthParams_$10;
+    _$v = other as _$SignalingSettings_HelloAuthParams_10;
   }
 
   @override
-  void update(void Function(SignalingSettings_HelloAuthParams_$10Builder)? updates) {
+  void update(void Function(SignalingSettings_HelloAuthParams_10Builder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SignalingSettings_HelloAuthParams_$10 build() => _build();
+  SignalingSettings_HelloAuthParams_10 build() => _build();
 
-  _$SignalingSettings_HelloAuthParams_$10 _build() {
+  _$SignalingSettings_HelloAuthParams_10 _build() {
     final _$result = _$v ??
-        _$SignalingSettings_HelloAuthParams_$10._(
+        _$SignalingSettings_HelloAuthParams_10._(
             userid: userid,
-            ticket: BuiltValueNullFieldError.checkNotNull(ticket, r'SignalingSettings_HelloAuthParams_$10', 'ticket'));
+            ticket: BuiltValueNullFieldError.checkNotNull(ticket, r'SignalingSettings_HelloAuthParams_10', 'ticket'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $SignalingSettings_HelloAuthParams_$20InterfaceBuilder {
-  void replace($SignalingSettings_HelloAuthParams_$20Interface other);
-  void update(void Function($SignalingSettings_HelloAuthParams_$20InterfaceBuilder) updates);
+abstract mixin class $SignalingSettings_HelloAuthParams_20InterfaceBuilder {
+  void replace($SignalingSettings_HelloAuthParams_20Interface other);
+  void update(void Function($SignalingSettings_HelloAuthParams_20InterfaceBuilder) updates);
   String? get token;
   set token(String? token);
 }
 
-class _$SignalingSettings_HelloAuthParams_$20 extends SignalingSettings_HelloAuthParams_$20 {
+class _$SignalingSettings_HelloAuthParams_20 extends SignalingSettings_HelloAuthParams_20 {
   @override
   final String token;
 
-  factory _$SignalingSettings_HelloAuthParams_$20(
-          [void Function(SignalingSettings_HelloAuthParams_$20Builder)? updates]) =>
-      (SignalingSettings_HelloAuthParams_$20Builder()..update(updates))._build();
+  factory _$SignalingSettings_HelloAuthParams_20(
+          [void Function(SignalingSettings_HelloAuthParams_20Builder)? updates]) =>
+      (SignalingSettings_HelloAuthParams_20Builder()..update(updates))._build();
 
-  _$SignalingSettings_HelloAuthParams_$20._({required this.token}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(token, r'SignalingSettings_HelloAuthParams_$20', 'token');
+  _$SignalingSettings_HelloAuthParams_20._({required this.token}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(token, r'SignalingSettings_HelloAuthParams_20', 'token');
   }
 
   @override
-  SignalingSettings_HelloAuthParams_$20 rebuild(void Function(SignalingSettings_HelloAuthParams_$20Builder) updates) =>
+  SignalingSettings_HelloAuthParams_20 rebuild(void Function(SignalingSettings_HelloAuthParams_20Builder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SignalingSettings_HelloAuthParams_$20Builder toBuilder() =>
-      SignalingSettings_HelloAuthParams_$20Builder()..replace(this);
+  SignalingSettings_HelloAuthParams_20Builder toBuilder() =>
+      SignalingSettings_HelloAuthParams_20Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SignalingSettings_HelloAuthParams_$20 && token == other.token;
+    return other is SignalingSettings_HelloAuthParams_20 && token == other.token;
   }
 
   @override
@@ -51066,23 +51066,23 @@ class _$SignalingSettings_HelloAuthParams_$20 extends SignalingSettings_HelloAut
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SignalingSettings_HelloAuthParams_$20')..add('token', token)).toString();
+    return (newBuiltValueToStringHelper(r'SignalingSettings_HelloAuthParams_20')..add('token', token)).toString();
   }
 }
 
-class SignalingSettings_HelloAuthParams_$20Builder
+class SignalingSettings_HelloAuthParams_20Builder
     implements
-        Builder<SignalingSettings_HelloAuthParams_$20, SignalingSettings_HelloAuthParams_$20Builder>,
-        $SignalingSettings_HelloAuthParams_$20InterfaceBuilder {
-  _$SignalingSettings_HelloAuthParams_$20? _$v;
+        Builder<SignalingSettings_HelloAuthParams_20, SignalingSettings_HelloAuthParams_20Builder>,
+        $SignalingSettings_HelloAuthParams_20InterfaceBuilder {
+  _$SignalingSettings_HelloAuthParams_20? _$v;
 
   String? _token;
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  SignalingSettings_HelloAuthParams_$20Builder();
+  SignalingSettings_HelloAuthParams_20Builder();
 
-  SignalingSettings_HelloAuthParams_$20Builder get _$this {
+  SignalingSettings_HelloAuthParams_20Builder get _$this {
     final $v = _$v;
     if ($v != null) {
       _token = $v.token;
@@ -51092,23 +51092,23 @@ class SignalingSettings_HelloAuthParams_$20Builder
   }
 
   @override
-  void replace(covariant SignalingSettings_HelloAuthParams_$20 other) {
+  void replace(covariant SignalingSettings_HelloAuthParams_20 other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SignalingSettings_HelloAuthParams_$20;
+    _$v = other as _$SignalingSettings_HelloAuthParams_20;
   }
 
   @override
-  void update(void Function(SignalingSettings_HelloAuthParams_$20Builder)? updates) {
+  void update(void Function(SignalingSettings_HelloAuthParams_20Builder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SignalingSettings_HelloAuthParams_$20 build() => _build();
+  SignalingSettings_HelloAuthParams_20 build() => _build();
 
-  _$SignalingSettings_HelloAuthParams_$20 _build() {
+  _$SignalingSettings_HelloAuthParams_20 _build() {
     final _$result = _$v ??
-        _$SignalingSettings_HelloAuthParams_$20._(
-            token: BuiltValueNullFieldError.checkNotNull(token, r'SignalingSettings_HelloAuthParams_$20', 'token'));
+        _$SignalingSettings_HelloAuthParams_20._(
+            token: BuiltValueNullFieldError.checkNotNull(token, r'SignalingSettings_HelloAuthParams_20', 'token'));
     replace(_$result);
     return _$result;
   }
@@ -51117,18 +51117,18 @@ class SignalingSettings_HelloAuthParams_$20Builder
 abstract mixin class $SignalingSettings_HelloAuthParamsInterfaceBuilder {
   void replace($SignalingSettings_HelloAuthParamsInterface other);
   void update(void Function($SignalingSettings_HelloAuthParamsInterfaceBuilder) updates);
-  SignalingSettings_HelloAuthParams_$10Builder get $10;
-  set $10(SignalingSettings_HelloAuthParams_$10Builder? $10);
+  SignalingSettings_HelloAuthParams_10Builder get $10;
+  set $10(SignalingSettings_HelloAuthParams_10Builder? $10);
 
-  SignalingSettings_HelloAuthParams_$20Builder get $20;
-  set $20(SignalingSettings_HelloAuthParams_$20Builder? $20);
+  SignalingSettings_HelloAuthParams_20Builder get $20;
+  set $20(SignalingSettings_HelloAuthParams_20Builder? $20);
 }
 
 class _$SignalingSettings_HelloAuthParams extends SignalingSettings_HelloAuthParams {
   @override
-  final SignalingSettings_HelloAuthParams_$10 $10;
+  final SignalingSettings_HelloAuthParams_10 $10;
   @override
-  final SignalingSettings_HelloAuthParams_$20 $20;
+  final SignalingSettings_HelloAuthParams_20 $20;
 
   factory _$SignalingSettings_HelloAuthParams([void Function(SignalingSettings_HelloAuthParamsBuilder)? updates]) =>
       (SignalingSettings_HelloAuthParamsBuilder()..update(updates))._build();
@@ -51175,15 +51175,13 @@ class SignalingSettings_HelloAuthParamsBuilder
         $SignalingSettings_HelloAuthParamsInterfaceBuilder {
   _$SignalingSettings_HelloAuthParams? _$v;
 
-  SignalingSettings_HelloAuthParams_$10Builder? _$10;
-  SignalingSettings_HelloAuthParams_$10Builder get $10 =>
-      _$this._$10 ??= SignalingSettings_HelloAuthParams_$10Builder();
-  set $10(covariant SignalingSettings_HelloAuthParams_$10Builder? $10) => _$this._$10 = $10;
+  SignalingSettings_HelloAuthParams_10Builder? _$10;
+  SignalingSettings_HelloAuthParams_10Builder get $10 => _$this._$10 ??= SignalingSettings_HelloAuthParams_10Builder();
+  set $10(covariant SignalingSettings_HelloAuthParams_10Builder? $10) => _$this._$10 = $10;
 
-  SignalingSettings_HelloAuthParams_$20Builder? _$20;
-  SignalingSettings_HelloAuthParams_$20Builder get $20 =>
-      _$this._$20 ??= SignalingSettings_HelloAuthParams_$20Builder();
-  set $20(covariant SignalingSettings_HelloAuthParams_$20Builder? $20) => _$this._$20 = $20;
+  SignalingSettings_HelloAuthParams_20Builder? _$20;
+  SignalingSettings_HelloAuthParams_20Builder get $20 => _$this._$20 ??= SignalingSettings_HelloAuthParams_20Builder();
+  set $20(covariant SignalingSettings_HelloAuthParams_20Builder? $20) => _$this._$20 = $20;
 
   SignalingSettings_HelloAuthParamsBuilder();
 

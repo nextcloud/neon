@@ -15,7 +15,7 @@ String filterMethodName(String operationId, String tag) {
   return output.join('-');
 }
 
-String clientName(String tag) => '\$${toDartName(tag, uppercaseFirstCharacter: true)}Client';
+String clientName(String tag) => '\$${toDartName(tag, className: true)}Client';
 
 bool isDartParameterNullable(
   bool required,
