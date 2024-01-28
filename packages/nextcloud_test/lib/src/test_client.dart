@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:cookie_jar/cookie_jar.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/src/docker_container.dart';
 import 'package:nextcloud_test/src/fixtures.dart';
