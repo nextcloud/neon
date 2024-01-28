@@ -657,7 +657,7 @@ class $BotClient {
   ///
   /// Status codes:
   ///   * 201: Message sent successfully
-  ///   * 400: Sending message is not possible
+  ///   * 400: When the replyTo is invalid or message is empty
   ///   * 401: Sending message is not allowed
   ///   * 413: Message too long
   ///
@@ -705,7 +705,7 @@ class $BotClient {
   ///
   /// Status codes:
   ///   * 201: Message sent successfully
-  ///   * 400: Sending message is not possible
+  ///   * 400: When the replyTo is invalid or message is empty
   ///   * 401: Sending message is not allowed
   ///   * 413: Message too long
   ///

@@ -366,6 +366,16 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "App not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }

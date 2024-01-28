@@ -618,23 +618,23 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
   late final StreamSubscription<Result<user_status.$PublicInterface?>> statusSubscription;
 
   late final onlineStatuses = {
-    'online': (
-      ['online'],
+    user_status.$Type.online: (
+      [user_status.$Type.online],
       NeonLocalizations.of(context).userStatusOnline,
       null,
     ),
-    'dnd': (
-      ['dnd'],
+    user_status.$Type.dnd: (
+      [user_status.$Type.dnd],
       NeonLocalizations.of(context).userStatusDoNotDisturb,
       NeonLocalizations.of(context).userStatusDoNotDisturbDescription
     ),
-    'away': (
-      ['away'],
+    user_status.$Type.away: (
+      [user_status.$Type.away],
       NeonLocalizations.of(context).userStatusAway,
       null,
     ),
-    'invisible': (
-      ['invisible', 'offline'],
+    user_status.$Type.invisible: (
+      [user_status.$Type.invisible, user_status.$Type.offline],
       NeonLocalizations.of(context).userStatusInvisible,
       NeonLocalizations.of(context).userStatusInvisibleDescription
     ),
@@ -832,7 +832,7 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 onTap: () {
-                  bloc.setStatusType(onlineStatus.key);
+                  bloc.setStatusType(onlineStatus.key.value);
                 },
               ),
             );

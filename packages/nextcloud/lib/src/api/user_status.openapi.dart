@@ -1021,13 +1021,94 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
+class $Type extends EnumClass {
+  const $Type._(super.name);
+
+  /// `online`
+  static const $Type online = _$$typeOnline;
+
+  /// `away`
+  static const $Type away = _$$typeAway;
+
+  /// `dnd`
+  static const $Type dnd = _$$typeDnd;
+
+  /// `busy`
+  static const $Type busy = _$$typeBusy;
+
+  /// `offline`
+  static const $Type offline = _$$typeOffline;
+
+  /// `invisible`
+  static const $Type invisible = _$$typeInvisible;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<$Type> get values => _$$typeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static $Type valueOf(String name) => _$valueOf$Type(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for $Type.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<$Type> get serializer => const _$$TypeSerializer();
+}
+
+class _$$TypeSerializer implements PrimitiveSerializer<$Type> {
+  const _$$TypeSerializer();
+
+  static const Map<$Type, Object> _toWire = <$Type, Object>{
+    $Type.online: 'online',
+    $Type.away: 'away',
+    $Type.dnd: 'dnd',
+    $Type.busy: 'busy',
+    $Type.offline: 'offline',
+    $Type.invisible: 'invisible',
+  };
+
+  static const Map<Object, $Type> _fromWire = <Object, $Type>{
+    'online': $Type.online,
+    'away': $Type.away,
+    'dnd': $Type.dnd,
+    'busy': $Type.busy,
+    'offline': $Type.offline,
+    'invisible': $Type.invisible,
+  };
+
+  @override
+  Iterable<Type> get types => const [$Type];
+
+  @override
+  String get wireName => r'$Type';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    $Type object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  $Type deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $PublicInterface {
   String get userId;
   String? get message;
   String? get icon;
   int? get clearAt;
-  String get status;
+  $Type get status;
 }
 
 abstract class Public implements $PublicInterface, Built<Public, PublicBuilder> {
@@ -2326,6 +2407,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Private.serializer)
       ..addBuilderFactory(const FullType(Public), PublicBuilder.new)
       ..add(Public.serializer)
+      ..add($Type.serializer)
       ..addBuilderFactory(
         const FullType(PredefinedStatusFindAllResponseApplicationJson),
         PredefinedStatusFindAllResponseApplicationJsonBuilder.new,

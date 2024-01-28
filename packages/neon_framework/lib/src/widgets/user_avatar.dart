@@ -129,7 +129,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
       );
     } else if (result.hasData) {
       final type = result.data!.status;
-      if (type != 'offline') {
+      if (type != user_status.$Type.offline) {
         child = NeonServerIcon(icon: 'user-status-$type');
       }
     }

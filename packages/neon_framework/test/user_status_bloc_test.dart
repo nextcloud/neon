@@ -8,6 +8,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/user_status.dart' as user_status;
 
 class MockNeonPlatform extends Mock implements NeonPlatform {}
 
@@ -192,15 +193,15 @@ void main() {
     expectLater(
       bloc.status.transformResult((e) => e.status),
       emitsInOrder([
-        Result<String>.loading(),
-        Result.success('offline'),
-        Result.success('offline').asLoading(),
-        Result.success('offline'),
-        Result.success('online'),
-        Result.success('online').asLoading(),
-        Result.success('online'),
-        Result.success('dnd'),
-        Result.success('dnd').asLoading(),
+        Result<user_status.$Type>.loading(),
+        Result.success(user_status.$Type.offline),
+        Result.success(user_status.$Type.offline).asLoading(),
+        Result.success(user_status.$Type.offline),
+        Result.success(user_status.$Type.online),
+        Result.success(user_status.$Type.online).asLoading(),
+        Result.success(user_status.$Type.online),
+        Result.success(user_status.$Type.dnd),
+        Result.success(user_status.$Type.dnd).asLoading(),
         Result<String>.error(
           await DynamiteStatusCodeException.fromResponse(StreamedResponse(Stream.value(utf8.encode('')), 201)),
         ),
@@ -218,21 +219,21 @@ void main() {
 
     // Trigger heartbeat 204
     await Future<void>.delayed(const Duration(milliseconds: 1));
-    bloc.setStatusType('online');
+    bloc.setStatusType(user_status.$Type.online.value);
     await Future<void>.delayed(const Duration(milliseconds: 1));
     bloc.load('test', force: true);
 
     // Trigger error
     await Future<void>.delayed(const Duration(milliseconds: 1));
-    bloc.setStatusType('dnd');
+    bloc.setStatusType(user_status.$Type.dnd.value);
     await Future<void>.delayed(const Duration(milliseconds: 1));
     bloc.load('test', force: true);
   });
 
   test('Set status type', () async {
-    bloc.setStatusType('dnd');
+    bloc.setStatusType(user_status.$Type.dnd.value);
 
-    expect(bloc.status.transformResult((e) => e.status), emits(Result.success('dnd')));
+    expect(bloc.status.transformResult((e) => e.status), emits(Result.success(user_status.$Type.dnd)));
   });
 
   test('Set predefined message', () async {

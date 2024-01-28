@@ -690,30 +690,23 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $SuccessInterface {
   bool get success;
 }
 
-abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
-    implements
-        $WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusSetModeResponseApplicationJson_Ocs_Data,
-            WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new WeatherStatusSetModeResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory WeatherStatusSetModeResponseApplicationJson_Ocs_Data([
-    void Function(WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusSetModeResponseApplicationJson_Ocs_Data;
+abstract class Success implements $SuccessInterface, Built<Success, SuccessBuilder> {
+  /// Creates a new Success object using the builder pattern.
+  factory Success([void Function(SuccessBuilder)? b]) = _$Success;
 
   // coverage:ignore-start
-  const WeatherStatusSetModeResponseApplicationJson_Ocs_Data._();
+  const Success._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory WeatherStatusSetModeResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Success.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -723,15 +716,14 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for WeatherStatusSetModeResponseApplicationJson_Ocs_Data.
-  static Serializer<WeatherStatusSetModeResponseApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusSetModeResponseApplicationJsonOcsDataSerializer;
+  /// Serializer for Success.
+  static Serializer<Success> get serializer => _$successSerializer;
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetModeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  WeatherStatusSetModeResponseApplicationJson_Ocs_Data get data;
+  Success get data;
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
@@ -806,32 +798,55 @@ abstract class WeatherStatusSetModeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface {
-  bool get success;
-  double? get lat;
-  double? get lon;
+abstract interface class $LocationInterface {
+  String? get lat;
+  String? get lon;
   String? get address;
 }
 
-abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
-    implements
-        $WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data,
-            WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data([
-    void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data;
+abstract class Location implements $LocationInterface, Built<Location, LocationBuilder> {
+  /// Creates a new Location object using the builder pattern.
+  factory Location([void Function(LocationBuilder)? b]) = _$Location;
 
   // coverage:ignore-start
-  const WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data._();
+  const Location._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory Location.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Location.
+  static Serializer<Location> get serializer => _$locationSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $LocationWithSuccessInterface implements $LocationInterface, $SuccessInterface {}
+
+abstract class LocationWithSuccess
+    implements $LocationWithSuccessInterface, Built<LocationWithSuccess, LocationWithSuccessBuilder> {
+  /// Creates a new LocationWithSuccess object using the builder pattern.
+  factory LocationWithSuccess([void Function(LocationWithSuccessBuilder)? b]) = _$LocationWithSuccess;
+
+  // coverage:ignore-start
+  const LocationWithSuccess._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory LocationWithSuccess.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -842,15 +857,14 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.
-  static Serializer<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusUsePersonalAddressResponseApplicationJsonOcsDataSerializer;
+  /// Serializer for LocationWithSuccess.
+  static Serializer<LocationWithSuccess> get serializer => _$locationWithSuccessSerializer;
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data get data;
+  LocationWithSuccess get data;
 }
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
@@ -927,33 +941,23 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface {
-  double get lat;
-  double get lon;
-  String get address;
+abstract interface class $ModeInterface {
   int get mode;
 }
 
-abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
-    implements
-        $WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusGetLocationResponseApplicationJson_Ocs_Data,
-            WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new WeatherStatusGetLocationResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory WeatherStatusGetLocationResponseApplicationJson_Ocs_Data([
-    void Function(WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusGetLocationResponseApplicationJson_Ocs_Data;
+abstract class Mode implements $ModeInterface, Built<Mode, ModeBuilder> {
+  /// Creates a new Mode object using the builder pattern.
+  factory Mode([void Function(ModeBuilder)? b]) = _$Mode;
 
   // coverage:ignore-start
-  const WeatherStatusGetLocationResponseApplicationJson_Ocs_Data._();
+  const Mode._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Mode.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -963,15 +967,44 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.
-  static Serializer<WeatherStatusGetLocationResponseApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusGetLocationResponseApplicationJsonOcsDataSerializer;
+  /// Serializer for Mode.
+  static Serializer<Mode> get serializer => _$modeSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $LocationWithModeInterface implements $LocationInterface, $ModeInterface {}
+
+abstract class LocationWithMode
+    implements $LocationWithModeInterface, Built<LocationWithMode, LocationWithModeBuilder> {
+  /// Creates a new LocationWithMode object using the builder pattern.
+  factory LocationWithMode([void Function(LocationWithModeBuilder)? b]) = _$LocationWithMode;
+
+  // coverage:ignore-start
+  const LocationWithMode._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory LocationWithMode.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for LocationWithMode.
+  static Serializer<LocationWithMode> get serializer => _$locationWithModeSerializer;
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusGetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  WeatherStatusGetLocationResponseApplicationJson_Ocs_Data get data;
+  LocationWithMode get data;
 }
 
 abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
@@ -1047,51 +1080,9 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface {
-  bool get success;
-  double? get lat;
-  double? get lon;
-  String? get address;
-}
-
-abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
-    implements
-        $WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusSetLocationResponseApplicationJson_Ocs_Data,
-            WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new WeatherStatusSetLocationResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory WeatherStatusSetLocationResponseApplicationJson_Ocs_Data([
-    void Function(WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusSetLocationResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const WeatherStatusSetLocationResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.
-  static Serializer<WeatherStatusSetLocationResponseApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusSetLocationResponseApplicationJsonOcsDataSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  WeatherStatusSetLocationResponseApplicationJson_Ocs_Data get data;
+  LocationWithSuccess get data;
 }
 
 abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
@@ -1169,31 +1160,17 @@ abstract class WeatherStatusSetLocationResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Instant_DetailsInterface {
   @BuiltValueField(wireName: 'air_pressure_at_sea_level')
-  double get airPressureAtSeaLevel;
+  num get airPressureAtSeaLevel;
   @BuiltValueField(wireName: 'air_temperature')
-  double get airTemperature;
+  num get airTemperature;
   @BuiltValueField(wireName: 'cloud_area_fraction')
-  double get cloudAreaFraction;
-  @BuiltValueField(wireName: 'cloud_area_fraction_high')
-  double get cloudAreaFractionHigh;
-  @BuiltValueField(wireName: 'cloud_area_fraction_low')
-  double get cloudAreaFractionLow;
-  @BuiltValueField(wireName: 'cloud_area_fraction_medium')
-  double get cloudAreaFractionMedium;
-  @BuiltValueField(wireName: 'dew_point_temperature')
-  double get dewPointTemperature;
-  @BuiltValueField(wireName: 'fog_area_fraction')
-  double get fogAreaFraction;
+  num get cloudAreaFraction;
   @BuiltValueField(wireName: 'relative_humidity')
-  double get relativeHumidity;
-  @BuiltValueField(wireName: 'ultraviolet_index_clear_sky')
-  double get ultravioletIndexClearSky;
+  num get relativeHumidity;
   @BuiltValueField(wireName: 'wind_from_direction')
-  double get windFromDirection;
+  num get windFromDirection;
   @BuiltValueField(wireName: 'wind_speed')
-  double get windSpeed;
-  @BuiltValueField(wireName: 'wind_speed_of_gust')
-  double get windSpeedOfGust;
+  num get windSpeed;
 }
 
 abstract class Forecast_Data_Instant_Details
@@ -1299,8 +1276,8 @@ abstract class Forecast_Data_Next12Hours_Summary
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next12Hours_DetailsInterface {
-  @BuiltValueField(wireName: 'probability_of_precipitation')
-  double get probabilityOfPrecipitation;
+  @BuiltValueField(wireName: 'precipitation_amount')
+  num? get precipitationAmount;
 }
 
 abstract class Forecast_Data_Next12Hours_Details
@@ -1408,15 +1385,7 @@ abstract class Forecast_Data_Next1Hours_Summary
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next1Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
-  double get precipitationAmount;
-  @BuiltValueField(wireName: 'precipitation_amount_max')
-  double get precipitationAmountMax;
-  @BuiltValueField(wireName: 'precipitation_amount_min')
-  double get precipitationAmountMin;
-  @BuiltValueField(wireName: 'probability_of_precipitation')
-  double get probabilityOfPrecipitation;
-  @BuiltValueField(wireName: 'probability_of_thunder')
-  double get probabilityOfThunder;
+  num? get precipitationAmount;
 }
 
 abstract class Forecast_Data_Next1Hours_Details
@@ -1523,18 +1492,8 @@ abstract class Forecast_Data_Next6Hours_Summary
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next6Hours_DetailsInterface {
-  @BuiltValueField(wireName: 'air_temperature_max')
-  double get airTemperatureMax;
-  @BuiltValueField(wireName: 'air_temperature_min')
-  double get airTemperatureMin;
   @BuiltValueField(wireName: 'precipitation_amount')
-  double get precipitationAmount;
-  @BuiltValueField(wireName: 'precipitation_amount_max')
-  double get precipitationAmountMax;
-  @BuiltValueField(wireName: 'precipitation_amount_min')
-  double get precipitationAmountMin;
-  @BuiltValueField(wireName: 'probability_of_precipitation')
-  double get probabilityOfPrecipitation;
+  num? get precipitationAmount;
 }
 
 abstract class Forecast_Data_Next6Hours_Details
@@ -1672,9 +1631,53 @@ abstract class Forecast implements $ForecastInterface, Built<Forecast, ForecastB
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface {
+  String get error;
+}
+
+abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1
+    implements
+        $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface,
+        Built<WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1,
+            WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder> {
+  /// Creates a new WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1 object using the builder pattern.
+  factory WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1([
+    void Function(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder)? b,
+  ]) = _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1;
+
+  // coverage:ignore-start
+  const WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1.
+  static Serializer<WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1> get serializer =>
+      _$weatherStatusGetForecastResponseApplicationJsonOcsData1Serializer;
+}
+
+typedef WeatherStatusGetForecastResponseApplicationJson_Ocs_Data = ({
+  BuiltList<Forecast>? builtListForecast,
+  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1
+});
+
+@BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusGetForecastResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  BuiltList<Forecast> get data;
+  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
@@ -1709,6 +1712,11 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
   /// Serializer for WeatherStatusGetForecastResponseApplicationJson_Ocs.
   static Serializer<WeatherStatusGetForecastResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusGetForecastResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusGetForecastResponseApplicationJson_OcsBuilder b) {
+    b.data?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1829,48 +1837,9 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface {
-  bool get success;
-}
-
-abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
-    implements
-        $WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface,
-        Built<WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data,
-            WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data([
-    void Function(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.
-  static Serializer<WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data> get serializer =>
-      _$weatherStatusSetFavoritesResponseApplicationJsonOcsDataSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data get data;
+  Success get data;
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
@@ -2014,6 +1983,103 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
+/// Serialization extension for `WeatherStatusGetForecastResponseApplicationJson_Ocs_Data`.
+extension $WeatherStatusGetForecastResponseApplicationJson_Ocs_DataExtension
+    on WeatherStatusGetForecastResponseApplicationJson_Ocs_Data {
+  /// Serializer for WeatherStatusGetForecastResponseApplicationJson_Ocs_Data.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<WeatherStatusGetForecastResponseApplicationJson_Ocs_Data> get serializer =>
+      $20fe3de793aed6fbf929c9b82b472b1aExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static WeatherStatusGetForecastResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
+      $20fe3de793aed6fbf929c9b82b472b1aExtension._fromJson(json);
+}
+
+typedef _$20fe3de793aed6fbf929c9b82b472b1a = ({
+  BuiltList<Forecast>? builtListForecast,
+  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $20fe3de793aed6fbf929c9b82b472b1aExtension on _$20fe3de793aed6fbf929c9b82b472b1a {
+  List<dynamic> get _values => [builtListForecast, weatherStatusGetForecastResponseApplicationJsonOcsData1];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i2.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i2.validateAnyOf(_values);
+  static Serializer<_$20fe3de793aed6fbf929c9b82b472b1a> get _serializer =>
+      const _$20fe3de793aed6fbf929c9b82b472b1aSerializer();
+  static _$20fe3de793aed6fbf929c9b82b472b1a _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$20fe3de793aed6fbf929c9b82b472b1aSerializer implements PrimitiveSerializer<_$20fe3de793aed6fbf929c9b82b472b1a> {
+  const _$20fe3de793aed6fbf929c9b82b472b1aSerializer();
+
+  @override
+  Iterable<Type> get types => const [_$20fe3de793aed6fbf929c9b82b472b1a];
+
+  @override
+  String get wireName => r'_$20fe3de793aed6fbf929c9b82b472b1a';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$20fe3de793aed6fbf929c9b82b472b1a object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListForecast;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Forecast)]))!;
+    }
+    value = object.weatherStatusGetForecastResponseApplicationJsonOcsData1;
+    if (value != null) {
+      return serializers.serialize(
+        value,
+        specifiedType: const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1),
+      )!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$20fe3de793aed6fbf929c9b82b472b1a deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<Forecast>? builtListForecast;
+    try {
+      builtListForecast = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Forecast)]))!
+          as BuiltList<Forecast>;
+    } catch (_) {}
+    WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1;
+    try {
+      weatherStatusGetForecastResponseApplicationJsonOcsData1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1),
+      )! as WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1;
+    } catch (_) {}
+    return (
+      builtListForecast: builtListForecast,
+      weatherStatusGetForecastResponseApplicationJsonOcsData1: weatherStatusGetForecastResponseApplicationJsonOcsData1
+    );
+  }
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -2034,11 +2100,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(WeatherStatusSetModeResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetModeResponseApplicationJson_Ocs_Data),
-        WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(WeatherStatusSetModeResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(Success), SuccessBuilder.new)
+      ..add(Success.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
         WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder.new,
@@ -2049,11 +2112,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data),
-        WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(LocationWithSuccess), LocationWithSuccessBuilder.new)
+      ..add(LocationWithSuccess.serializer)
+      ..addBuilderFactory(const FullType(Location), LocationBuilder.new)
+      ..add(Location.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetLocationResponseApplicationJson),
         WeatherStatusGetLocationResponseApplicationJsonBuilder.new,
@@ -2064,11 +2126,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         WeatherStatusGetLocationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusGetLocationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusGetLocationResponseApplicationJson_Ocs_Data),
-        WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(LocationWithMode), LocationWithModeBuilder.new)
+      ..add(LocationWithMode.serializer)
+      ..addBuilderFactory(const FullType(Mode), ModeBuilder.new)
+      ..add(Mode.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetLocationResponseApplicationJson),
         WeatherStatusSetLocationResponseApplicationJsonBuilder.new,
@@ -2079,11 +2140,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         WeatherStatusSetLocationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusSetLocationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetLocationResponseApplicationJson_Ocs_Data),
-        WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetForecastResponseApplicationJson),
         WeatherStatusGetForecastResponseApplicationJsonBuilder.new,
@@ -2128,6 +2184,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Forecast_Data_Next6Hours_Details.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Forecast)]), ListBuilder<Forecast>.new)
       ..addBuilderFactory(
+        const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1),
+        WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder.new,
+      )
+      ..add(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1.serializer)
+      ..add($20fe3de793aed6fbf929c9b82b472b1aExtension._serializer)
+      ..addBuilderFactory(
         const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
         WeatherStatusGetFavoritesResponseApplicationJsonBuilder.new,
       )
@@ -2148,11 +2210,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusSetFavoritesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data),
-        WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_WeatherStatus), Capabilities_WeatherStatusBuilder.new)
@@ -2167,7 +2224,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(_i6.StandardJsonPlugin(typesToLeaveAsList: const {_$20fe3de793aed6fbf929c9b82b472b1a}))
       ..addPlugin(const _i5.HeaderPlugin())
       ..addPlugin(const _i5.ContentStringPlugin()))
     .build();

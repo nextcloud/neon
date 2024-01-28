@@ -6,6 +6,41 @@ part of 'user_status.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const $Type _$$typeOnline = $Type._('online');
+const $Type _$$typeAway = $Type._('away');
+const $Type _$$typeDnd = $Type._('dnd');
+const $Type _$$typeBusy = $Type._('busy');
+const $Type _$$typeOffline = $Type._('offline');
+const $Type _$$typeInvisible = $Type._('invisible');
+
+$Type _$valueOf$Type(String name) {
+  switch (name) {
+    case 'online':
+      return _$$typeOnline;
+    case 'away':
+      return _$$typeAway;
+    case 'dnd':
+      return _$$typeDnd;
+    case 'busy':
+      return _$$typeBusy;
+    case 'offline':
+      return _$$typeOffline;
+    case 'invisible':
+      return _$$typeInvisible;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<$Type> _$$typeValues = BuiltSet<$Type>(const <$Type>[
+  _$$typeOnline,
+  _$$typeAway,
+  _$$typeDnd,
+  _$$typeBusy,
+  _$$typeOffline,
+  _$$typeInvisible,
+]);
+
 const ClearAt_Type _$clearAtTypePeriod = ClearAt_Type._('period');
 const ClearAt_Type _$clearAtTypeEndOf = ClearAt_Type._('endOf');
 
@@ -181,7 +216,7 @@ class _$PublicSerializer implements StructuredSerializer<Public> {
       'userId',
       serializers.serialize(object.userId, specifiedType: const FullType(String)),
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status, specifiedType: const FullType($Type)),
     ];
     Object? value;
     value = object.message;
@@ -229,7 +264,7 @@ class _$PublicSerializer implements StructuredSerializer<Public> {
           result.clearAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value, specifiedType: const FullType($Type))! as $Type;
           break;
       }
     }
@@ -255,7 +290,7 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
       'userId',
       serializers.serialize(object.userId, specifiedType: const FullType(String)),
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status, specifiedType: const FullType($Type)),
     ];
     Object? value;
     value = object.messageId;
@@ -318,7 +353,7 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
           result.clearAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value, specifiedType: const FullType($Type))! as $Type;
           break;
       }
     }
@@ -1604,8 +1639,8 @@ abstract mixin class $PublicInterfaceBuilder {
   int? get clearAt;
   set clearAt(int? clearAt);
 
-  String? get status;
-  set status(String? status);
+  $Type? get status;
+  set status($Type? status);
 }
 
 class _$Public extends Public {
@@ -1618,7 +1653,7 @@ class _$Public extends Public {
   @override
   final int? clearAt;
   @override
-  final String status;
+  final $Type status;
 
   factory _$Public([void Function(PublicBuilder)? updates]) => (PublicBuilder()..update(updates))._build();
 
@@ -1687,9 +1722,9 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceB
   int? get clearAt => _$this._clearAt;
   set clearAt(covariant int? clearAt) => _$this._clearAt = clearAt;
 
-  String? _status;
-  String? get status => _$this._status;
-  set status(covariant String? status) => _$this._status = status;
+  $Type? _status;
+  $Type? get status => _$this._status;
+  set status(covariant $Type? status) => _$this._status = status;
 
   PublicBuilder();
 
@@ -1757,8 +1792,8 @@ abstract mixin class $PrivateInterfaceBuilder implements $PublicInterfaceBuilder
   int? get clearAt;
   set clearAt(covariant int? clearAt);
 
-  String? get status;
-  set status(covariant String? status);
+  $Type? get status;
+  set status(covariant $Type? status);
 }
 
 class _$Private extends Private {
@@ -1777,7 +1812,7 @@ class _$Private extends Private {
   @override
   final int? clearAt;
   @override
-  final String status;
+  final $Type status;
 
   factory _$Private([void Function(PrivateBuilder)? updates]) => (PrivateBuilder()..update(updates))._build();
 
@@ -1878,9 +1913,9 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
   int? get clearAt => _$this._clearAt;
   set clearAt(covariant int? clearAt) => _$this._clearAt = clearAt;
 
-  String? _status;
-  String? get status => _$this._status;
-  set status(covariant String? status) => _$this._status = status;
+  $Type? _status;
+  $Type? get status => _$this._status;
+  set status(covariant $Type? status) => _$this._status = status;
 
   PrivateBuilder();
 

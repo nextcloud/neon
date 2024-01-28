@@ -159,6 +159,7 @@ const _reservedNames = [
   'super',
   'switch',
   'sync',
+  'Type',
   'this',
   'throw',
   'true',
