@@ -26,7 +26,7 @@ TypeResult resolveType(
     final subResult = resolveType(
       spec,
       state,
-      toDartName(name, uppercaseFirstCharacter: true),
+      toDartName(name, className: true),
       spec.components!.schemas![name]!,
       nullable: nullable,
     );

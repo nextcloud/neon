@@ -75,24 +75,23 @@ final BuiltSet<EnumDynamic> _$enumDynamicValues = BuiltSet<EnumDynamic>(const <E
   _$enumDynamic$false,
 ]);
 
-const WrappedEnum_$String _$wrappedEnum$StringTest = WrappedEnum_$String._('test');
-const WrappedEnum_$String _$wrappedEnum$String$default = WrappedEnum_$String._('\$default');
+const WrappedEnum_String _$wrappedEnumStringTest = WrappedEnum_String._('test');
+const WrappedEnum_String _$wrappedEnumString$default = WrappedEnum_String._('\$default');
 
-WrappedEnum_$String _$valueOfWrappedEnum_$String(String name) {
+WrappedEnum_String _$valueOfWrappedEnum_String(String name) {
   switch (name) {
     case 'test':
-      return _$wrappedEnum$StringTest;
+      return _$wrappedEnumStringTest;
     case '\$default':
-      return _$wrappedEnum$String$default;
+      return _$wrappedEnumString$default;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<WrappedEnum_$String> _$wrappedEnum$StringValues =
-    BuiltSet<WrappedEnum_$String>(const <WrappedEnum_$String>[
-  _$wrappedEnum$StringTest,
-  _$wrappedEnum$String$default,
+final BuiltSet<WrappedEnum_String> _$wrappedEnumStringValues = BuiltSet<WrappedEnum_String>(const <WrappedEnum_String>[
+  _$wrappedEnumStringTest,
+  _$wrappedEnumString$default,
 ]);
 
 const WrappedEnum_Integer _$wrappedEnumInteger$0 = WrappedEnum_Integer._('\$0');
@@ -133,7 +132,7 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'String',
-      serializers.serialize(object.string, specifiedType: const FullType(WrappedEnum_$String)),
+      serializers.serialize(object.string, specifiedType: const FullType(WrappedEnum_String)),
       'integer',
       serializers.serialize(object.integer, specifiedType: const FullType(WrappedEnum_Integer)),
     ];
@@ -153,8 +152,8 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
       final Object? value = iterator.current;
       switch (key) {
         case 'String':
-          result.string = serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_$String))!
-              as WrappedEnum_$String;
+          result.string =
+              serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_String))! as WrappedEnum_String;
           break;
         case 'integer':
           result.integer = serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_Integer))!
@@ -208,8 +207,8 @@ class _$EnumReferenceSerializer implements StructuredSerializer<EnumReference> {
 abstract mixin class $WrappedEnumInterfaceBuilder {
   void replace($WrappedEnumInterface other);
   void update(void Function($WrappedEnumInterfaceBuilder) updates);
-  WrappedEnum_$String? get string;
-  set string(WrappedEnum_$String? string);
+  WrappedEnum_String? get string;
+  set string(WrappedEnum_String? string);
 
   WrappedEnum_Integer? get integer;
   set integer(WrappedEnum_Integer? integer);
@@ -217,7 +216,7 @@ abstract mixin class $WrappedEnumInterfaceBuilder {
 
 class _$WrappedEnum extends WrappedEnum {
   @override
-  final WrappedEnum_$String string;
+  final WrappedEnum_String string;
   @override
   final WrappedEnum_Integer integer;
 
@@ -262,9 +261,9 @@ class _$WrappedEnum extends WrappedEnum {
 class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $WrappedEnumInterfaceBuilder {
   _$WrappedEnum? _$v;
 
-  WrappedEnum_$String? _string;
-  WrappedEnum_$String? get string => _$this._string;
-  set string(covariant WrappedEnum_$String? string) => _$this._string = string;
+  WrappedEnum_String? _string;
+  WrappedEnum_String? get string => _$this._string;
+  set string(covariant WrappedEnum_String? string) => _$this._string = string;
 
   WrappedEnum_Integer? _integer;
   WrappedEnum_Integer? get integer => _$this._integer;

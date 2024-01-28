@@ -43,7 +43,10 @@ TypeResultObject resolveObject(
       var result = resolveType(
         spec,
         state,
-        '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
+        toDartName(
+          propertyName,
+          identifier: identifier,
+        ),
         propertySchema,
         nullable: isDartParameterNullable(
           schema.required.contains(propertyName),

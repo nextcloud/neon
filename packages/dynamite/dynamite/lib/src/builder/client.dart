@@ -288,7 +288,7 @@ Iterable<Method> buildTags(
           state,
           toDartName(
             '$operationName-${parameter.name}',
-            uppercaseFirstCharacter: true,
+            className: true,
           ),
           parameter.schema!,
           nullable: !parameterRequired,
@@ -319,10 +319,10 @@ Iterable<Method> buildTags(
         if (response.headers != null) {
           final identifierBuilder = StringBuffer();
           if (tag != null) {
-            identifierBuilder.write(toDartName(tag, uppercaseFirstCharacter: true));
+            identifierBuilder.write(toDartName(tag, className: true));
           }
           identifierBuilder
-            ..write(toDartName(operationName, uppercaseFirstCharacter: true))
+            ..write(toDartName(operationName, className: true))
             ..write('Headers');
           headersType = resolveObject(
             spec,
@@ -356,7 +356,7 @@ Iterable<Method> buildTags(
           response,
           spec,
           state,
-          toDartName(identifierBuilder.toString(), uppercaseFirstCharacter: true),
+          toDartName(identifierBuilder.toString(), className: true),
         );
 
         if (!hasUriParameters) {
@@ -581,7 +581,7 @@ final authentication = $client.authentications?.firstWhereOrNull(
     final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
     final dynamiteAuth = toDartName(
       'Dynamite-${securityScheme.fullName.join('-')}-Authentication',
-      uppercaseFirstCharacter: true,
+      className: true,
     );
     return refer(dynamiteAuth, 'package:dynamite_runtime/http_client.dart')
         .newInstance(const [])

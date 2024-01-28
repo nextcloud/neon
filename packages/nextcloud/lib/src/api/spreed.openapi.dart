@@ -37232,28 +37232,28 @@ class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_HelloAuthParams_$10Interface {
+abstract interface class $SignalingSettings_HelloAuthParams_10Interface {
   String? get userid;
   String get ticket;
 }
 
-abstract class SignalingSettings_HelloAuthParams_$10
+abstract class SignalingSettings_HelloAuthParams_10
     implements
-        $SignalingSettings_HelloAuthParams_$10Interface,
-        Built<SignalingSettings_HelloAuthParams_$10, SignalingSettings_HelloAuthParams_$10Builder> {
-  /// Creates a new SignalingSettings_HelloAuthParams_$10 object using the builder pattern.
-  factory SignalingSettings_HelloAuthParams_$10([void Function(SignalingSettings_HelloAuthParams_$10Builder)? b]) =
-      _$SignalingSettings_HelloAuthParams_$10;
+        $SignalingSettings_HelloAuthParams_10Interface,
+        Built<SignalingSettings_HelloAuthParams_10, SignalingSettings_HelloAuthParams_10Builder> {
+  /// Creates a new SignalingSettings_HelloAuthParams_10 object using the builder pattern.
+  factory SignalingSettings_HelloAuthParams_10([void Function(SignalingSettings_HelloAuthParams_10Builder)? b]) =
+      _$SignalingSettings_HelloAuthParams_10;
 
   // coverage:ignore-start
-  const SignalingSettings_HelloAuthParams_$10._();
+  const SignalingSettings_HelloAuthParams_10._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams_$10.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSettings_HelloAuthParams_10.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -37264,33 +37264,33 @@ abstract class SignalingSettings_HelloAuthParams_$10
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SignalingSettings_HelloAuthParams_$10.
-  static Serializer<SignalingSettings_HelloAuthParams_$10> get serializer =>
-      _$signalingSettingsHelloAuthParams$10Serializer;
+  /// Serializer for SignalingSettings_HelloAuthParams_10.
+  static Serializer<SignalingSettings_HelloAuthParams_10> get serializer =>
+      _$signalingSettingsHelloAuthParams10Serializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_HelloAuthParams_$20Interface {
+abstract interface class $SignalingSettings_HelloAuthParams_20Interface {
   String get token;
 }
 
-abstract class SignalingSettings_HelloAuthParams_$20
+abstract class SignalingSettings_HelloAuthParams_20
     implements
-        $SignalingSettings_HelloAuthParams_$20Interface,
-        Built<SignalingSettings_HelloAuthParams_$20, SignalingSettings_HelloAuthParams_$20Builder> {
-  /// Creates a new SignalingSettings_HelloAuthParams_$20 object using the builder pattern.
-  factory SignalingSettings_HelloAuthParams_$20([void Function(SignalingSettings_HelloAuthParams_$20Builder)? b]) =
-      _$SignalingSettings_HelloAuthParams_$20;
+        $SignalingSettings_HelloAuthParams_20Interface,
+        Built<SignalingSettings_HelloAuthParams_20, SignalingSettings_HelloAuthParams_20Builder> {
+  /// Creates a new SignalingSettings_HelloAuthParams_20 object using the builder pattern.
+  factory SignalingSettings_HelloAuthParams_20([void Function(SignalingSettings_HelloAuthParams_20Builder)? b]) =
+      _$SignalingSettings_HelloAuthParams_20;
 
   // coverage:ignore-start
-  const SignalingSettings_HelloAuthParams_$20._();
+  const SignalingSettings_HelloAuthParams_20._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams_$20.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSettings_HelloAuthParams_20.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -37301,17 +37301,17 @@ abstract class SignalingSettings_HelloAuthParams_$20
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SignalingSettings_HelloAuthParams_$20.
-  static Serializer<SignalingSettings_HelloAuthParams_$20> get serializer =>
-      _$signalingSettingsHelloAuthParams$20Serializer;
+  /// Serializer for SignalingSettings_HelloAuthParams_20.
+  static Serializer<SignalingSettings_HelloAuthParams_20> get serializer =>
+      _$signalingSettingsHelloAuthParams20Serializer;
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $SignalingSettings_HelloAuthParamsInterface {
   @BuiltValueField(wireName: '1.0')
-  SignalingSettings_HelloAuthParams_$10 get $10;
+  SignalingSettings_HelloAuthParams_10 get $10;
   @BuiltValueField(wireName: '2.0')
-  SignalingSettings_HelloAuthParams_$20 get $20;
+  SignalingSettings_HelloAuthParams_20 get $20;
 }
 
 abstract class SignalingSettings_HelloAuthParams
@@ -40439,15 +40439,15 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(SignalingSettings_HelloAuthParams.serializer)
       ..addBuilderFactory(
-        const FullType(SignalingSettings_HelloAuthParams_$10),
-        SignalingSettings_HelloAuthParams_$10Builder.new,
+        const FullType(SignalingSettings_HelloAuthParams_10),
+        SignalingSettings_HelloAuthParams_10Builder.new,
       )
-      ..add(SignalingSettings_HelloAuthParams_$10.serializer)
+      ..add(SignalingSettings_HelloAuthParams_10.serializer)
       ..addBuilderFactory(
-        const FullType(SignalingSettings_HelloAuthParams_$20),
-        SignalingSettings_HelloAuthParams_$20Builder.new,
+        const FullType(SignalingSettings_HelloAuthParams_20),
+        SignalingSettings_HelloAuthParams_20Builder.new,
       )
-      ..add(SignalingSettings_HelloAuthParams_$20.serializer)
+      ..add(SignalingSettings_HelloAuthParams_20.serializer)
       ..addBuilderFactory(const FullType(SignalingSettings_Stunservers), SignalingSettings_StunserversBuilder.new)
       ..add(SignalingSettings_Stunservers.serializer)
       ..addBuilderFactory(

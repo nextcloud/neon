@@ -100,7 +100,7 @@ void main() {
     test('serialize', () {
       final object = WrappedEnum(
         (b) => b
-          ..string = WrappedEnum_$String.$default
+          ..string = WrappedEnum_String.$default
           ..integer = WrappedEnum_Integer.$2,
       );
 

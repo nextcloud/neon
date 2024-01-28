@@ -145,7 +145,10 @@ Iterable<String> deserializeProperty(
     final result = resolveType(
       spec,
       state,
-      '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
+      toDartName(
+        propertyName,
+        identifier: identifier,
+      ),
       propertySchema,
       nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
     );
@@ -174,7 +177,10 @@ Iterable<String> serializePropertyNullable(
     final result = resolveType(
       spec,
       state,
-      '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
+      toDartName(
+        propertyName,
+        identifier: identifier,
+      ),
       propertySchema,
       nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
     );
@@ -206,7 +212,10 @@ Iterable<String> serializeProperty(
     final result = resolveType(
       spec,
       state,
-      '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
+      toDartName(
+        propertyName,
+        identifier: identifier,
+      ),
       propertySchema,
       nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
     );

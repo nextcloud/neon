@@ -88,7 +88,10 @@ TypeResult resolveAllOf(
             final result = resolveType(
               spec,
               state,
-              '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
+              toDartName(
+                propertyName,
+                identifier: identifier,
+              ),
               propertySchema,
               nullable: isDartParameterNullable(
                 s.required.contains(propertyName),

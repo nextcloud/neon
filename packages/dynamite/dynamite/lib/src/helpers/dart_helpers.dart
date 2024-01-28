@@ -1,10 +1,59 @@
+/// Converts the provided [name] into a `lowerCamelCase` alphanumerical
+/// representation.
+///
+/// If the resulting name is reserved by dart or only contains numbers it is
+/// prefixed with a `$`.
+/// Specify [className] to return a `UpperCamelCase` name.
+///
+/// The optional [identifier] will be prefixed and separated by an `_` if
+/// provided. The reserved name check will be made against the resulting
+/// string. The identifier itself is not checked to be a valid dart name, nor
+/// will `className` have any affect.
+///
+/// ```dart
+/// print(toDartName(
+///   'test-variable-name',
+/// )); // testVariableName
+///
+/// print(toDartName(
+///   'test-variable-name',
+///   className: true,
+/// )); // TestVariableName
+///
+/// print(toDartName(
+///   '10',
+/// )); // $10
+///
+/// print(toDartName(
+///   'String',
+/// )); // string
+///
+/// print(toDartName(
+///   'String',
+///   className: true,
+/// )); // $String
+///
+/// print(toDartName(
+///   'string',
+///   identifier: 'Identifier'
+/// )); // Identifier_String
+///
+/// print(toDartName(
+///   'string',
+///   identifier: 'Identifier'
+///   className: false,
+/// )); // Identifier_String
+/// ```
 String toDartName(
   String name, {
-  bool uppercaseFirstCharacter = false,
+  String? identifier,
+  bool className = false,
 }) {
+  final capitalize = identifier != null || className;
+
   var result = '';
-  var upperCase = uppercaseFirstCharacter;
-  var firstCharacter = !uppercaseFirstCharacter;
+  var upperCase = capitalize;
+  var firstCharacter = !capitalize;
   for (final char in name.split('')) {
     if (_isNonAlphaNumericString(char)) {
       upperCase = true;
@@ -13,6 +62,10 @@ String toDartName(
       upperCase = false;
       firstCharacter = false;
     }
+  }
+
+  if (identifier != null) {
+    return '${identifier}_$result';
   }
 
   if (_reservedNames.contains(result) || RegExp(r'^[0-9]+$', multiLine: true).hasMatch(result)) {
