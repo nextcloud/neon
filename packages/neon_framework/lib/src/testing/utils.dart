@@ -9,6 +9,8 @@ class TestApp extends StatelessWidget {
   const TestApp({
     this.child,
     this.platform = TargetPlatform.android,
+    this.localizationsDelegates,
+    this.supportedLocales,
     this.locale = const Locale('en'),
     this.wrapMaterial = true,
     super.key,
@@ -32,6 +34,16 @@ class TestApp extends StatelessWidget {
   /// Defaults to `true`.
   final bool wrapMaterial;
 
+  /// Additional [LocalizationsDelegate]s.
+  ///
+  /// [NeonLocalizations.localizationsDelegates] are always added.
+  final List<LocalizationsDelegate<dynamic>>? localizationsDelegates;
+
+  /// Additional supported [Locale]s.
+  ///
+  /// [NeonLocalizations.supportedLocales] are always added.
+  final List<Locale>? supportedLocales;
+
   /// {@macro flutter.widgets.widgetsApp.locale}
   final Locale locale;
 
@@ -46,8 +58,14 @@ class TestApp extends StatelessWidget {
 
     return MaterialApp(
       theme: theme.lightTheme,
-      localizationsDelegates: NeonLocalizations.localizationsDelegates,
-      supportedLocales: NeonLocalizations.supportedLocales,
+      localizationsDelegates: [
+        ...NeonLocalizations.localizationsDelegates,
+        ...?localizationsDelegates,
+      ],
+      supportedLocales: [
+        ...NeonLocalizations.supportedLocales,
+        ...?supportedLocales,
+      ],
       locale: locale,
       home: child,
     );
