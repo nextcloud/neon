@@ -86,6 +86,7 @@
   "actionExit": "Exit",
   "actionContinue": "Continue",
   "actionCancel": "Cancel",
+  "actionDone": "Done",
   "firstLaunchGoToSettingsToEnablePushNotifications": "Go to the settings to enable push notifications",
   "nextPushSupported": "NextPush is supported!",
   "nextPushSupportedText": "NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.",

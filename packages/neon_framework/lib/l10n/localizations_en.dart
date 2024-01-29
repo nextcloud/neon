@@ -154,6 +154,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get actionCancel => 'Cancel';
 
   @override
+  String get actionDone => 'Done';
+
+  @override
   String get firstLaunchGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
 
   @override

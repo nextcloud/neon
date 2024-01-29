@@ -10,6 +10,7 @@ import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/blocs/user_details.dart';
 import 'package:neon_framework/src/blocs/user_status.dart';
+import 'package:neon_framework/src/blocs/weather_status.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
@@ -130,6 +131,16 @@ abstract interface class AccountsBloc implements Disposable {
   ///
   /// Use [activeUnifiedSearchBloc] to get them for the [activeAccount].
   UnifiedSearchBloc getUnifiedSearchBlocFor(Account account);
+
+  /// The WeatherStatusBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getWeatherStatusBlocFor] with the currently active account.
+  WeatherStatusBloc get activeWeatherStatusBloc;
+
+  /// The WeatherStatusBloc for the specified [account].
+  ///
+  /// Use [activeWeatherStatusBloc] to get them for the [activeAccount].
+  WeatherStatusBloc getWeatherStatusBlocFor(Account account);
 }
 
 /// Implementation of [AccountsBloc].
@@ -201,6 +212,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   final userDetailsBlocs = AccountCache<UserDetailsBloc>();
   final userStatusBlocs = AccountCache<UserStatusBloc>();
   final unifiedSearchBlocs = AccountCache<UnifiedSearchBloc>();
+  final weatherStatusBlocs = AccountCache<WeatherStatusBloc>();
 
   @override
   void dispose() {
@@ -211,6 +223,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     userDetailsBlocs.dispose();
     userStatusBlocs.dispose();
     unifiedSearchBlocs.dispose();
+    weatherStatusBlocs.dispose();
     accountsOptions.dispose();
   }
 
@@ -339,6 +352,15 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   @override
   UnifiedSearchBloc getUnifiedSearchBlocFor(Account account) => unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
         getAppsBlocFor(account),
+        account,
+      );
+
+  @override
+  WeatherStatusBloc get activeWeatherStatusBloc => getWeatherStatusBlocFor(aa);
+
+  @override
+  WeatherStatusBloc getWeatherStatusBlocFor(Account account) => weatherStatusBlocs[account] ??= WeatherStatusBloc(
+        getCapabilitiesBlocFor(account).capabilities,
         account,
       );
 }

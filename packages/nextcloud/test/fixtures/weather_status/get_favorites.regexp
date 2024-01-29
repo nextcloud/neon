@@ -1,0 +1,8 @@
+PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/favorites\?favorites%5B%5D=a&favorites%5B%5D=b
+accept: application/json
+authorization: Bearer mock
+ocs-apirequest: true
+GET http://localhost/ocs/v2\.php/apps/weather_status/api/v1/favorites
+accept: application/json
+authorization: Bearer mock
+ocs-apirequest: true
