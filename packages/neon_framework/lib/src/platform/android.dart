@@ -38,13 +38,18 @@ class AndroidNeonPlatform implements NeonPlatform {
   bool get canUseSharing => true;
 
   @override
+  bool get canUsePaths => true;
+
+  @override
   void init() {}
 
   @override
-  Future<String?> saveFileWithPickDialog(String fileName, Uint8List data) => FlutterFileDialog.saveFile(
-        params: SaveFileDialogParams(
-          data: data,
-          fileName: fileName,
-        ),
-      );
+  Future<void> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data) async {
+    await FlutterFileDialog.saveFile(
+      params: SaveFileDialogParams(
+        data: data,
+        fileName: fileName,
+      ),
+    );
+  }
 }

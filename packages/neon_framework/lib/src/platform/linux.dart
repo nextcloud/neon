@@ -40,20 +40,21 @@ class LinuxNeonPlatform implements NeonPlatform {
   bool get canUseSharing => false;
 
   @override
+  bool get canUsePaths => true;
+
+  @override
   void init() {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
   }
 
   @override
-  Future<String?> saveFileWithPickDialog(String fileName, Uint8List data) async {
+  Future<void> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data) async {
     final result = await FilePicker.platform.saveFile(
       fileName: fileName,
     );
     if (result != null) {
       await File(result).writeAsBytes(data);
     }
-
-    return result;
   }
 }

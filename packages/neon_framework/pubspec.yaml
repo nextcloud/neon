@@ -50,13 +50,15 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/sort_box
   sqflite: ^2.3.0
-  sqflite_common_ffi: ^2.2.8-2
+  sqflite_common_ffi: ^2.3.2
+  sqflite_common_ffi_web: ^0.4.2+3
   unifiedpush: ^5.0.0
   unifiedpush_android: ^2.0.0
   universal_io: ^2.0.0
   url_launcher: ^6.1.0
   vector_graphics: ^1.0.0
   version: ^3.0.0
+  web: ^0.4.2
   window_manager: ^0.3.0
   xml: ^6.0.0
 
@@ -84,3 +86,6 @@ flutter:
         dartPluginClass: LinuxNeonPlatform
       android:
         dartPluginClass: AndroidNeonPlatform
+      web:
+        pluginClass: WebNeonPlatform
+        fileName: src/platform/web.dart
