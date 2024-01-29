@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 // ignore: depend_on_referenced_packages
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
@@ -50,3 +51,5 @@ class MockSharedPreferences extends Mock implements SharedPreferences {}
 class MockCallbackFunction<T> extends Mock {
   FutureOr<T> call();
 }
+
+class MockCacheManager extends Mock implements DefaultCacheManager {}
