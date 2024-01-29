@@ -1,0 +1,2 @@
+web/sqflite_sw.js -diff
+web/sqlite3.wasm -diff

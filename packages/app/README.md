@@ -6,6 +6,14 @@ A beautiful convergent cross-platform client for Nextcloud written in Flutter.
 You can build it yourself from source or download it from the automatic build pipelines.  
 The app will be published on F-Droid, the Google Playstore and Flathub later on.
 
+## Run on web
+
+Due to CORS issues the app must be run with web security disabled.
+
+```bash
+fvm flutter run -d chrome --web-browser-flag "--disable-web-security"
+```
+
 ## Screenshots
 
 For more screenshots see `./screenshots/`.
