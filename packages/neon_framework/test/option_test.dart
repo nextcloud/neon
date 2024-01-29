@@ -1,18 +1,11 @@
-// ignore_for_file: discarded_futures
-
-import 'dart:async';
+// ignore_for_file: discarded_futures, inference_failure_on_instance_creation
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
-
-class MockStorage extends Mock implements SettingsStorage {}
-
-class MockCallbackFunction extends Mock {
-  FutureOr<void> call();
-}
+import 'package:neon_framework/testing.dart';
 
 enum StorageKey implements Storable {
   key._('storage-key');

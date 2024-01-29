@@ -1,8 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/models/disposable.dart';
-
-class DisposableMock extends Mock implements Disposable {}
+import 'package:neon_framework/testing.dart';
 
 void main() {
   test('Disposable extensions', () {

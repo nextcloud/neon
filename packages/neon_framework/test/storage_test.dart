@@ -1,9 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-class SharedPreferencesMock extends Mock implements SharedPreferences {}
 
 void main() {
   test('NeonStorage', () async {

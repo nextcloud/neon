@@ -7,10 +7,9 @@ import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
-
-class MockNeonPlatform extends Mock implements NeonPlatform {}
 
 Account mockUserStatusAccount() {
   var messageIsPredefined = false;

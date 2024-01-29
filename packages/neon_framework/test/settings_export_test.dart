@@ -3,28 +3,9 @@ import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/models/account.dart';
-import 'package:neon_framework/src/models/app_implementation.dart';
-import 'package:neon_framework/src/settings/models/exportable.dart';
-import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/src/settings/utils/settings_export_helper.dart';
-import 'package:neon_framework/src/utils/account_options.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:rxdart/rxdart.dart';
-
-// ignore: missing_override_of_must_be_overridden, avoid_implementing_value_types
-class FakeAppImplementation extends Mock implements AppImplementation {}
-
-class AppImplementationOptionsMock extends Mock implements AppImplementationOptions {}
-
-class AccountsBlocMock extends Mock implements AccountsBloc {}
-
-// ignore: avoid_implementing_value_types
-class FakeAccount extends Mock implements Account {}
-
-class AccountOptionsMock extends Mock implements AccountOptions {}
-
-class ExporterMock extends Mock implements Exportable {}
 
 void main() {
   group('Exporter', () {
@@ -34,7 +15,7 @@ void main() {
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'app': <String, dynamic>{}});
 
-      final fakeApp = FakeAppImplementation();
+      final fakeApp = AppImplementationMock();
       final fakeOptions = AppImplementationOptionsMock();
       exporter = AppImplementationsExporter([fakeApp]);
 
@@ -67,7 +48,7 @@ void main() {
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'accounts': <String, dynamic>{}});
 
-      final fakeAccount = FakeAccount();
+      final fakeAccount = AccountMock();
       final fakeOptions = AccountOptionsMock();
       when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded([fakeAccount]));
       when(() => bloc.getOptionsFor(fakeAccount)).thenReturn(fakeOptions);

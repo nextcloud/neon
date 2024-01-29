@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_lambdas
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
@@ -7,25 +5,16 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
-
-// ignore: avoid_implementing_value_types
-class MockAccount extends Mock implements Account {}
-
-class MockCallbackFunction<T> extends Mock {
-  FutureOr<T> call();
-}
-
-class MockedCache extends Mock implements Cache {}
 
 String base64String(String value) => base64.encode(utf8.encode(value));
 
 void main() {
-  final account = MockAccount();
+  final account = AccountMock();
   when(() => account.id).thenReturn('clientID');
 
   tearDown(() {

@@ -6,23 +6,13 @@ import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/blocs/apps.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
-
-class MockAccountsBloc extends Mock implements AccountsBloc {}
-
-class MockAppsBloc extends Mock implements AppsBloc {}
-
-class MockCapabilitiesBloc extends Mock implements CapabilitiesBloc {}
-
-// ignore: missing_override_of_must_be_overridden, avoid_implementing_value_types
-class MockAppImplementation extends Mock implements AppImplementation {}
 
 class BuildContextFake extends Fake implements BuildContext {}
 
@@ -32,7 +22,7 @@ void main() {
   });
 
   testWidgets('Drawer', (tester) async {
-    final appImplementation = MockAppImplementation();
+    final appImplementation = AppImplementationMock();
     when(() => appImplementation.id).thenReturn('id');
     when(() => appImplementation.destination(any())).thenReturn(
       NeonNavigationDestination(
@@ -57,7 +47,7 @@ void main() {
     final capabilitiesBloc = MockCapabilitiesBloc();
     when(() => capabilitiesBloc.capabilities).thenAnswer((_) => capabilities);
 
-    final accountsBloc = MockAccountsBloc();
+    final accountsBloc = AccountsBlocMock();
     when(() => accountsBloc.activeAppsBloc).thenReturn(appsBloc);
     when(() => accountsBloc.activeCapabilitiesBloc).thenReturn(capabilitiesBloc);
 
