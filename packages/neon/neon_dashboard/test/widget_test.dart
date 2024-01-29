@@ -35,7 +35,7 @@ Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
 void main() {
   NeonCachedImage.cacheManager = MockCacheManager();
 
-  final accountsBloc = AccountsBlocMock();
+  final accountsBloc = MockAccountsBloc();
   when(() => accountsBloc.activeAccount).thenAnswer(
     (invocation) => BehaviorSubject.seeded(
       Account(

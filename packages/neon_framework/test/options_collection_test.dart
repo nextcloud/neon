@@ -22,8 +22,8 @@ enum Keys implements Storable {
 
 void main() {
   group('OptionsCollection', () {
-    final option1 = OptionMock();
-    final option2 = OptionMock();
+    final option1 = MockOption();
+    final option2 = MockOption();
     final collection = Collection([
       option1,
       option2,

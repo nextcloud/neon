@@ -14,7 +14,7 @@ import 'package:rxdart/rxdart.dart';
 String base64String(String value) => base64.encode(utf8.encode(value));
 
 void main() {
-  final account = AccountMock();
+  final account = MockAccount();
   when(() => account.id).thenReturn('clientID');
 
   tearDown(() {
@@ -268,7 +268,7 @@ void main() {
       late Cache cache;
 
       setUp(() async {
-        cache = MockedCache();
+        cache = MockCache();
         Cache.mocked(cache);
 
         when(() => cache.get(any())).thenAnswer(
@@ -496,7 +496,7 @@ void main() {
       late Cache cache;
 
       setUp(() async {
-        cache = MockedCache();
+        cache = MockCache();
         Cache.mocked(cache);
 
         when(() => cache.get(any())).thenAnswer(

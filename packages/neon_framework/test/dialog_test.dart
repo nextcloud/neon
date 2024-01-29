@@ -263,8 +263,8 @@ void main() {
       when(() => userStatusBloc.status).thenAnswer((_) => status);
       when(() => userStatusBloc.predefinedStatuses).thenAnswer((_) => predefinedStatuses);
 
-      final account = AccountMock();
-      final accountsBloc = AccountsBlocMock();
+      final account = MockAccount();
+      final accountsBloc = MockAccountsBloc();
       when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
 
       await tester.pumpWidget(

@@ -5,9 +5,9 @@ import 'package:neon_framework/testing.dart';
 
 void main() {
   test('Disposable extensions', () {
-    final disposable0 = DisposableMock();
-    final disposable1 = DisposableMock();
-    final disposable3 = DisposableMock();
+    final disposable0 = MockDisposable();
+    final disposable1 = MockDisposable();
+    final disposable3 = MockDisposable();
 
     final list = [
       disposable0,

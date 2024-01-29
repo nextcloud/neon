@@ -22,7 +22,7 @@ void main() {
   });
 
   testWidgets('Drawer', (tester) async {
-    final appImplementation = AppImplementationMock();
+    final appImplementation = MockAppImplementation();
     when(() => appImplementation.id).thenReturn('id');
     when(() => appImplementation.destination(any())).thenReturn(
       NeonNavigationDestination(
@@ -47,7 +47,7 @@ void main() {
     final capabilitiesBloc = MockCapabilitiesBloc();
     when(() => capabilitiesBloc.capabilities).thenAnswer((_) => capabilities);
 
-    final accountsBloc = AccountsBlocMock();
+    final accountsBloc = MockAccountsBloc();
     when(() => accountsBloc.activeAppsBloc).thenReturn(appsBloc);
     when(() => accountsBloc.activeCapabilitiesBloc).thenReturn(capabilitiesBloc);
 

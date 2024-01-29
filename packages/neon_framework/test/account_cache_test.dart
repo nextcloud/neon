@@ -4,17 +4,17 @@ import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/testing.dart';
 
 void main() {
-  final disposable0 = DisposableMock();
-  final disposable1 = DisposableMock();
-  final account0 = AccountMock();
-  final account1 = AccountMock();
+  final disposable0 = MockDisposable();
+  final disposable1 = MockDisposable();
+  final account0 = MockAccount();
+  final account1 = MockAccount();
 
   when(() => account0.id).thenReturn('key0');
   when(() => account1.id).thenReturn('key1');
 
   group('AccountCache', () {
     test('map functionality', () {
-      final cache = AccountCache<DisposableMock>();
+      final cache = AccountCache<MockDisposable>();
 
       expect(cache[account0], isNull);
 
@@ -26,7 +26,7 @@ void main() {
     });
 
     test('prune', () {
-      final cache = AccountCache<DisposableMock>();
+      final cache = AccountCache<MockDisposable>();
       cache[account0] = disposable0;
       cache[account1] = disposable1;
 
@@ -38,7 +38,7 @@ void main() {
     });
 
     test('dispose', () {
-      final cache = AccountCache<DisposableMock>();
+      final cache = AccountCache<MockDisposable>();
       cache[account0] = disposable0;
       cache[account1] = disposable1;
 
@@ -51,7 +51,7 @@ void main() {
     });
 
     test('remove', () {
-      final cache = AccountCache<DisposableMock>();
+      final cache = AccountCache<MockDisposable>();
       cache[account0] = disposable0;
       cache[account1] = disposable1;
 
