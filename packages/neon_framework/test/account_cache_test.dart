@@ -1,13 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
-import 'package:neon_framework/src/models/disposable.dart';
-
-class DisposableMock extends Mock implements Disposable {}
-
-// ignore: avoid_implementing_value_types
-class AccountMock extends Mock implements Account {}
+import 'package:neon_framework/testing.dart';
 
 void main() {
   final disposable0 = DisposableMock();

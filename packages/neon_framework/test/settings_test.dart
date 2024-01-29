@@ -3,14 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/settings/widgets/option_settings_tile.dart';
-import 'package:neon_framework/src/theme/theme.dart';
-
-// ignore: missing_override_of_must_be_overridden
-class MockStorage extends Mock implements SettingsStorage {}
+import 'package:neon_framework/testing.dart';
 
 enum StorageKey implements Storable {
   key._('storage-key');
@@ -25,19 +21,6 @@ enum SelectValues {
   first,
   second,
   third,
-}
-
-Widget wrapWidget(Widget widget, [TargetPlatform platform = TargetPlatform.android]) {
-  final theme = AppTheme.test(platform: platform);
-  const locale = Locale('en');
-
-  return MaterialApp(
-    theme: theme.lightTheme,
-    localizationsDelegates: NeonLocalizations.localizationsDelegates,
-    supportedLocales: NeonLocalizations.supportedLocales,
-    locale: locale,
-    home: Material(child: widget),
-  );
 }
 
 void main() {
@@ -59,7 +42,7 @@ void main() {
         defaultValue: true,
       );
 
-      final widget = wrapWidget(OptionSettingsTile(option: option));
+      final widget = TestApp(child: OptionSettingsTile(option: option));
       await widgetTester.pumpWidget(widget);
 
       expect(find.text('label'), findsOneWidget);
@@ -91,7 +74,7 @@ void main() {
       });
 
       testWidgets('ToggleOption material', (widgetTester) async {
-        final widget = wrapWidget(OptionSettingsTile(option: option));
+        final widget = TestApp(child: OptionSettingsTile(option: option));
         await widgetTester.pumpWidget(widget);
 
         expect(find.text('label'), findsOneWidget);
@@ -116,7 +99,7 @@ void main() {
       });
 
       testWidgets('ToggleOption cupertino', (widgetTester) async {
-        final widget = wrapWidget(OptionSettingsTile(option: option), TargetPlatform.macOS);
+        final widget = TestApp(platform: TargetPlatform.macOS, child: OptionSettingsTile(option: option));
         await widgetTester.pumpWidget(widget);
 
         expect(find.text('label'), findsOneWidget);

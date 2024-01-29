@@ -4,34 +4,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations_en.dart';
-import 'package:neon_framework/models.dart';
-import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
-import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-// ignore: avoid_implementing_value_types
-class MockAccount extends Mock implements Account {}
-
-class MockAccountsBloc extends Mock implements AccountsBloc {}
-
-class MockUserStatusBloc extends Mock implements UserStatusBloc {}
-
-Widget wrapDialog(Widget dialog, [TargetPlatform platform = TargetPlatform.android]) {
-  final theme = AppTheme.test(platform: platform);
-  const locale = Locale('en');
-
-  return MaterialApp(
-    theme: theme.lightTheme,
-    localizationsDelegates: NeonLocalizations.localizationsDelegates,
-    supportedLocales: NeonLocalizations.supportedLocales,
-    locale: locale,
-    home: dialog,
-  );
-}
 
 void main() {
   group('dialog', () {
@@ -39,7 +17,7 @@ void main() {
       testWidgets('NeonConfirmationDialog widget', (widgetTester) async {
         const title = 'My Title';
         var dialog = const NeonConfirmationDialog(title: title);
-        await widgetTester.pumpWidget(wrapDialog(dialog));
+        await widgetTester.pumpWidget(TestApp(child: dialog));
 
         expect(find.text(title), findsOneWidget);
         expect(find.byType(NeonDialogAction), findsExactly(2));
@@ -53,7 +31,7 @@ void main() {
           isDestructive: false,
         );
 
-        await widgetTester.pumpWidget(wrapDialog(dialog));
+        await widgetTester.pumpWidget(TestApp(child: dialog));
 
         expect(find.byType(NeonDialogAction), findsExactly(2));
         expect(find.byType(OutlinedButton), findsExactly(2));
@@ -69,7 +47,7 @@ void main() {
           confirmAction: confirmAction,
           declineAction: declineAction,
         );
-        await widgetTester.pumpWidget(wrapDialog(dialog));
+        await widgetTester.pumpWidget(TestApp(child: dialog));
 
         expect(find.byIcon(Icons.error), findsOneWidget);
         expect(find.byKey(const Key('content')), findsOneWidget);
@@ -79,7 +57,7 @@ void main() {
 
       testWidgets('NeonConfirmationDialog actions', (widgetTester) async {
         const title = 'My Title';
-        await widgetTester.pumpWidget(wrapDialog(const Placeholder()));
+        await widgetTester.pumpWidget(const TestApp(child: Placeholder()));
         final context = widgetTester.element(find.byType(Placeholder));
 
         // confirm
@@ -107,7 +85,7 @@ void main() {
         const title = 'My Title';
         const value = 'My value';
         const dialog = NeonRenameDialog(title: title, value: value);
-        await widgetTester.pumpWidget(wrapDialog(dialog));
+        await widgetTester.pumpWidget(const TestApp(child: dialog));
 
         expect(find.text(title), findsExactly(2), reason: 'The title is also used for the confirmation button');
         expect(find.text(value), findsOneWidget);
@@ -117,7 +95,7 @@ void main() {
       testWidgets('NeonRenameDialog actions', (widgetTester) async {
         const title = 'My Title';
         const value = 'My value';
-        await widgetTester.pumpWidget(wrapDialog(const Placeholder()));
+        await widgetTester.pumpWidget(const TestApp(child: Placeholder()));
         final context = widgetTester.element(find.byType(Placeholder));
 
         // Equal value should not submit
@@ -152,7 +130,7 @@ void main() {
         const title = 'My Title';
         const content = 'My content';
         var dialog = const NeonErrorDialog(content: content, title: title);
-        await widgetTester.pumpWidget(wrapDialog(dialog));
+        await widgetTester.pumpWidget(TestApp(child: dialog));
 
         expect(find.byIcon(Icons.error), findsOneWidget);
         expect(find.text(title), findsOneWidget);
@@ -160,14 +138,14 @@ void main() {
         expect(find.byType(NeonDialogAction), findsOneWidget);
 
         dialog = const NeonErrorDialog(content: content);
-        await widgetTester.pumpWidget(wrapDialog(dialog));
+        await widgetTester.pumpWidget(TestApp(child: dialog));
 
         expect(find.text(NeonLocalizationsEn().errorDialog), findsOneWidget);
       });
 
       testWidgets('NeonErrorDialog actions', (widgetTester) async {
         const content = 'My content';
-        await widgetTester.pumpWidget(wrapDialog(const Placeholder()));
+        await widgetTester.pumpWidget(const TestApp(child: Placeholder()));
         final context = widgetTester.element(find.byType(Placeholder));
 
         final result = showErrorDialog(context: context, message: content);
@@ -179,7 +157,7 @@ void main() {
 
     testWidgets('UnimplementedDialog', (widgetTester) async {
       const title = 'My Title';
-      await widgetTester.pumpWidget(wrapDialog(const Placeholder()));
+      await widgetTester.pumpWidget(const TestApp(child: Placeholder()));
       final context = widgetTester.element(find.byType(Placeholder));
 
       final result = showUnimplementedDialog(context: context, title: title);
@@ -192,7 +170,7 @@ void main() {
       var dialog = const NeonDialog(
         actions: [],
       );
-      await widgetTester.pumpWidget(wrapDialog(dialog, TargetPlatform.macOS));
+      await widgetTester.pumpWidget(TestApp(platform: TargetPlatform.macOS, child: dialog));
       expect(
         find.byType(NeonDialogAction),
         findsOneWidget,
@@ -203,31 +181,15 @@ void main() {
         automaticallyShowCancel: false,
         actions: [],
       );
-      await widgetTester.pumpWidget(wrapDialog(dialog, TargetPlatform.macOS));
+      await widgetTester.pumpWidget(TestApp(platform: TargetPlatform.macOS, child: dialog));
       expect(find.byType(NeonDialogAction), findsNothing);
     });
 
     testWidgets('NeonEmojiPickerDialog', (tester) async {
       SharedPreferences.setMockInitialValues({});
 
-      await tester.pumpWidget(
-        MaterialApp(
-          localizationsDelegates: NeonLocalizations.localizationsDelegates,
-          supportedLocales: NeonLocalizations.supportedLocales,
-          theme: ThemeData(
-            extensions: const [
-              NeonTheme(
-                branding: Branding(
-                  name: '',
-                  logo: SizedBox.shrink(),
-                ),
-              ),
-            ],
-          ),
-          home: const SizedBox.shrink(),
-        ),
-      );
-      final BuildContext context = tester.element(find.byType(SizedBox));
+      await tester.pumpWidget(const TestApp(child: Placeholder()));
+      final BuildContext context = tester.element(find.byType(Placeholder));
 
       final future = showDialog<String>(
         context: context,
@@ -301,13 +263,14 @@ void main() {
       when(() => userStatusBloc.status).thenAnswer((_) => status);
       when(() => userStatusBloc.predefinedStatuses).thenAnswer((_) => predefinedStatuses);
 
-      final account = MockAccount();
-      final accountsBloc = MockAccountsBloc();
+      final account = AccountMock();
+      final accountsBloc = AccountsBlocMock();
       when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
 
       await tester.pumpWidget(
-        wrapDialog(
-          NeonProvider<AccountsBloc>(
+        TestApp(
+          wrapMaterial: false,
+          child: NeonProvider<AccountsBloc>(
             create: (_) => accountsBloc,
             child: NeonUserStatusDialog(
               account: account,

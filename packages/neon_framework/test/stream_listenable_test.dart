@@ -3,17 +3,14 @@ import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/utils/stream_listenable.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:rxdart/rxdart.dart';
-
-class MockCallbackFunction extends Mock {
-  FutureOr<void> call();
-}
 
 void main() {
   group('StreamListenable', () {
     test('stream', () async {
       final stream = BehaviorSubject<bool>();
-      final callback = MockCallbackFunction();
+      final callback = MockCallbackFunction<void>();
 
       StreamListenable(stream).addListener(callback.call);
 
@@ -33,7 +30,7 @@ void main() {
     test('multiStream', () async {
       final stream = BehaviorSubject<bool>();
       final stream2 = BehaviorSubject<int>();
-      final callback = MockCallbackFunction();
+      final callback = MockCallbackFunction<void>();
 
       StreamListenable.multiListenable({
         stream,

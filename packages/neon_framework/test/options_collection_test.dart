@@ -2,9 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
-
-// ignore: missing_override_of_must_be_overridden
-class OptionMock extends Mock implements ToggleOption {}
+import 'package:neon_framework/testing.dart';
 
 class Collection extends AppImplementationOptions {
   Collection(List<Option<Object>> options) : super(const AppStorage(StorageKeys.apps)) {

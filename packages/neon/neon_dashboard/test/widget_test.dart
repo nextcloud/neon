@@ -11,14 +11,12 @@ import 'package:neon_dashboard/src/widgets/widget_button.dart';
 import 'package:neon_dashboard/src/widgets/widget_item.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:rxdart/rxdart.dart';
-
-// ignore: subtype_of_sealed_class
-class MockAccountsBloc extends Mock implements AccountsBloc {}
 
 class MockCacheManager extends Mock implements DefaultCacheManager {}
 
@@ -37,7 +35,7 @@ Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
 void main() {
   NeonCachedImage.cacheManager = MockCacheManager();
 
-  final accountsBloc = MockAccountsBloc();
+  final accountsBloc = AccountsBlocMock();
   when(() => accountsBloc.activeAccount).thenAnswer(
     (invocation) => BehaviorSubject.seeded(
       Account(
