@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 // ignore: depend_on_referenced_packages
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
@@ -17,15 +18,15 @@ import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AccountMock extends Mock implements Account {}
+class MockAccount extends Mock implements Account {}
 
-class AppImplementationMock extends Mock implements AppImplementation {}
+class MockAppImplementation extends Mock implements AppImplementation {}
 
-class AccountsBlocMock extends Mock implements AccountsBloc {}
+class MockAccountsBloc extends Mock implements AccountsBloc {}
 
 class MockNeonPlatform extends Mock implements NeonPlatform {}
 
-class DisposableMock extends Mock implements Disposable {}
+class MockDisposable extends Mock implements Disposable {}
 
 class MockUserStatusBloc extends Mock implements UserStatusBloc {}
 
@@ -35,18 +36,20 @@ class MockCapabilitiesBloc extends Mock implements CapabilitiesBloc {}
 
 class MockStorage extends Mock implements SettingsStorage {}
 
-class AccountOptionsMock extends Mock implements AccountOptions {}
+class MockAccountOptions extends Mock implements AccountOptions {}
 
-class ExporterMock extends Mock implements Exportable {}
+class MockExporter extends Mock implements Exportable {}
 
-class OptionMock extends Mock implements ToggleOption {}
+class MockOption extends Mock implements ToggleOption {}
 
-class AppImplementationOptionsMock extends Mock implements AppImplementationOptions {}
+class MockAppImplementationOptions extends Mock implements AppImplementationOptions {}
 
-class MockedCache extends Mock implements Cache {}
+class MockCache extends Mock implements Cache {}
 
-class SharedPreferencesMock extends Mock implements SharedPreferences {}
+class MockSharedPreferences extends Mock implements SharedPreferences {}
 
 class MockCallbackFunction<T> extends Mock {
   FutureOr<T> call();
 }
+
+class MockCacheManager extends Mock implements DefaultCacheManager {}

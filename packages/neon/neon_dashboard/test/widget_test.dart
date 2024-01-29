@@ -1,6 +1,5 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_dashboard/l10n/localizations.dart' show DashboardLocalizations;
@@ -18,8 +17,6 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:rxdart/rxdart.dart';
 
-class MockCacheManager extends Mock implements DefaultCacheManager {}
-
 Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
       localizationsDelegates: DashboardLocalizations.localizationsDelegates,
       supportedLocales: DashboardLocalizations.supportedLocales,
@@ -35,7 +32,7 @@ Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
 void main() {
   NeonCachedImage.cacheManager = MockCacheManager();
 
-  final accountsBloc = AccountsBlocMock();
+  final accountsBloc = MockAccountsBloc();
   when(() => accountsBloc.activeAccount).thenAnswer(
     (invocation) => BehaviorSubject.seeded(
       Account(

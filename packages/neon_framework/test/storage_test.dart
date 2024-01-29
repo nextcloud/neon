@@ -28,7 +28,7 @@ void main() {
     });
 
     test('interface', () async {
-      final sharedPreferences = SharedPreferencesMock();
+      final sharedPreferences = MockSharedPreferences();
       NeonStorage.mock(sharedPreferences);
       const appStorage = AppStorage(StorageKeys.accounts);
       const key = 'key';
@@ -77,7 +77,7 @@ void main() {
   });
 
   test('SingleValueStorage', () async {
-    final sharedPreferences = SharedPreferencesMock();
+    final sharedPreferences = MockSharedPreferences();
     NeonStorage.mock(sharedPreferences);
     const storage = SingleValueStorage(StorageKeys.global);
     final key = StorageKeys.global.value;

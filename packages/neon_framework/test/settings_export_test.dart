@@ -15,8 +15,8 @@ void main() {
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'app': <String, dynamic>{}});
 
-      final fakeApp = AppImplementationMock();
-      final fakeOptions = AppImplementationOptionsMock();
+      final fakeApp = MockAppImplementation();
+      final fakeOptions = MockAppImplementationOptions();
       exporter = AppImplementationsExporter([fakeApp]);
 
       const appValue = MapEntry('appID', 'value');
@@ -36,7 +36,7 @@ void main() {
     });
 
     test('AccountsBlocExporter', () {
-      final bloc = AccountsBlocMock();
+      final bloc = MockAccountsBloc();
       final exporter = AccountsBlocExporter(bloc);
 
       const accountValue = MapEntry('accountID', 'value');
@@ -48,8 +48,8 @@ void main() {
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'accounts': <String, dynamic>{}});
 
-      final fakeAccount = AccountMock();
-      final fakeOptions = AccountOptionsMock();
+      final fakeAccount = MockAccount();
+      final fakeOptions = MockAccountOptions();
       when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded([fakeAccount]));
       when(() => bloc.getOptionsFor(fakeAccount)).thenReturn(fakeOptions);
       when(fakeOptions.export).thenReturn(accountValue);
@@ -65,7 +65,7 @@ void main() {
 
   group('SettingsExportHelper', () {
     test('SettingsExportHelper.json', () async {
-      final exportable = ExporterMock();
+      final exportable = MockExporter();
       final settingsExporter = SettingsExportHelper(
         exportables: {
           exportable,
@@ -84,7 +84,7 @@ void main() {
     });
 
     test('SettingsExportHelper.file', () async {
-      final exportable = ExporterMock();
+      final exportable = MockExporter();
       final settingsExporter = SettingsExportHelper(
         exportables: {
           exportable,

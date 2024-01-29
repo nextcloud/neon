@@ -6,8 +6,8 @@ import 'package:neon_framework/src/utils/findable.dart';
 void main() {
   group('group name', () {
     test('AccountFind', () {
-      final app1 = AppImplementationMock();
-      final app2 = AppImplementationMock();
+      final app1 = MockAppImplementation();
+      final app2 = MockAppImplementation();
 
       final apps = {
         app1,
