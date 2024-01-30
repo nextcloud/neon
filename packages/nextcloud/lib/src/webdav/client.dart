@@ -13,6 +13,9 @@ import 'package:universal_io/io.dart' hide HttpClient;
 /// Base path used on the server
 final webdavBase = PathUri.parse('/remote.php/webdav');
 
+// ignore: do_not_use_environment
+const bool _kIsWeb = bool.fromEnvironment('dart.library.js_util');
+
 @internal
 class WebDavRequest extends http.BaseRequest {
   WebDavRequest(
@@ -55,6 +58,8 @@ class WebDavClient {
   // ignore: public_member_api_docs
   final DynamiteClient rootClient;
 
+  String? _token;
+
   Future<http.StreamedResponse> _send(
     String method,
     Uri url, {
@@ -74,6 +79,29 @@ class WebDavClient {
       ...?rootClient.baseHeaders,
       ...?rootClient.authentications?.firstOrNull?.headers,
     });
+
+    // On web we need to send a CSRF token because we also send the cookies.  In theory this should not be required as
+    // long as we send the OCS-APIRequest header, but the server has a bug that only triggers when you also send the
+    // cookies. On non-web platforms we don't send the cookies so we are fine, but on web the browser always does it
+    // and therefore we need this workaround.
+    // TODO: Fix this bug in server.
+    if (_kIsWeb) {
+      if (_token == null) {
+        final response = await rootClient.httpClient.get(Uri.parse('${rootClient.baseURL}/index.php'));
+        if (response.statusCode >= 300) {
+          throw DynamiteStatusCodeException(
+            response.statusCode,
+          );
+        }
+
+        _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
+      }
+
+      request.headers.addAll({
+        'OCS-APIRequest': 'true',
+        'requesttoken': _token!,
+      });
+    }
 
     final response = await rootClient.httpClient.send(request);
 
