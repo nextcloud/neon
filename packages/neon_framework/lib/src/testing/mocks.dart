@@ -45,6 +45,8 @@ class MockAppImplementationOptions extends Mock implements AppImplementationOpti
 
 class MockCache extends Mock implements Cache {}
 
+class MockNeonStorage extends Mock implements NeonStorage {}
+
 class MockSharedPreferences extends Mock implements SharedPreferences {}
 
 class MockCallbackFunction<T> extends Mock {

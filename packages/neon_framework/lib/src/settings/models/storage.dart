@@ -65,28 +65,28 @@ final class SingleValueStorage implements KeyValueStorage {
   final StorageKeys key;
 
   @override
-  bool hasValue() => NeonStorage.database.containsKey(key.value);
+  bool hasValue() => NeonStorage().database.containsKey(key.value);
 
   @override
-  Future<bool> remove() => NeonStorage.database.remove(key.value);
+  Future<bool> remove() => NeonStorage().database.remove(key.value);
 
   @override
-  String? getString() => NeonStorage.database.getString(key.value);
+  String? getString() => NeonStorage().database.getString(key.value);
 
   @override
-  Future<bool> setString(String value) => NeonStorage.database.setString(key.value, value);
+  Future<bool> setString(String value) => NeonStorage().database.setString(key.value, value);
 
   @override
-  bool? getBool() => NeonStorage.database.getBool(key.value);
+  bool? getBool() => NeonStorage().database.getBool(key.value);
 
   @override
-  Future<bool> setBool(bool value) => NeonStorage.database.setBool(key.value, value);
+  Future<bool> setBool(bool value) => NeonStorage().database.setBool(key.value, value);
 
   @override
-  List<String>? getStringList() => NeonStorage.database.getStringList(key.value);
+  List<String>? getStringList() => NeonStorage().database.getStringList(key.value);
 
   @override
-  Future<bool> setStringList(List<String> value) => NeonStorage.database.setStringList(key.value, value);
+  Future<bool> setStringList(List<String> value) => NeonStorage().database.setStringList(key.value, value);
 }
 
 /// A storage that can save a group of values.
@@ -137,31 +137,31 @@ final class AppStorage implements SettingsStorage {
   /// {@template NeonStorage.containsKey}
   /// Returns true if the persistent storage contains the given [key].
   /// {@endtemplate}
-  bool containsKey(String key) => NeonStorage.database.containsKey(formatKey(key));
+  bool containsKey(String key) => NeonStorage().database.containsKey(formatKey(key));
 
   @override
-  Future<bool> remove(String key) => NeonStorage.database.remove(formatKey(key));
+  Future<bool> remove(String key) => NeonStorage().database.remove(formatKey(key));
 
   @override
-  String? getString(String key) => NeonStorage.database.getString(formatKey(key));
+  String? getString(String key) => NeonStorage().database.getString(formatKey(key));
 
   @override
-  Future<bool> setString(String key, String value) => NeonStorage.database.setString(formatKey(key), value);
+  Future<bool> setString(String key, String value) => NeonStorage().database.setString(formatKey(key), value);
 
   @override
-  bool? getBool(String key) => NeonStorage.database.getBool(formatKey(key));
+  bool? getBool(String key) => NeonStorage().database.getBool(formatKey(key));
 
   @override
-  Future<bool> setBool(String key, bool value) => NeonStorage.database.setBool(formatKey(key), value);
+  Future<bool> setBool(String key, bool value) => NeonStorage().database.setBool(formatKey(key), value);
 
   /// {@template NeonStorage.getStringList}
   /// Reads a set of string values from persistent storage, throwing an `Exception` if it's not a `String` set.
   /// {@endtemplate}
-  List<String>? getStringList(String key) => NeonStorage.database.getStringList(formatKey(key));
+  List<String>? getStringList(String key) => NeonStorage().database.getStringList(formatKey(key));
 
   /// {@template NeonStorage.setStringList}
   /// Saves a list of `String` [value]s to persistent storage in the background.
   /// {@endtemplate}
   Future<bool> setStringList(String key, List<String> value) =>
-      NeonStorage.database.setStringList(formatKey(key), value);
+      NeonStorage().database.setStringList(formatKey(key), value);
 }

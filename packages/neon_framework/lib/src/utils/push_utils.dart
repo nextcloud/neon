@@ -88,7 +88,7 @@ class PushUtils {
         }
       },
     );
-    await NeonStorage.init();
+    await NeonStorage().init();
 
     final keypair = loadRSAKeypair();
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
