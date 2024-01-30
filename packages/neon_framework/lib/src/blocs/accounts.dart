@@ -152,7 +152,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     this.globalOptions,
     this.allAppImplementations,
   ) {
-    const lastUsedStorage = SingleValueStorage(StorageKeys.lastUsedAccount);
+    final lastUsedStorage = NeonStorage().singleValueStore(StorageKeys.lastUsedAccount);
 
     accounts
       ..add(loadAccounts())
@@ -368,17 +368,18 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 ///
 /// It is not checked whether the stored information is still valid.
 List<Account> loadAccounts() {
-  const storage = SingleValueStorage(StorageKeys.accountOptions);
+  final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
 
   if (storage.hasValue()) {
     return storage.getStringList()!.map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>)).toList();
   }
+
   return [];
 }
 
 /// Saves the given [accounts] to the storage.
 Future<void> saveAccounts(List<Account> accounts) async {
-  const storage = SingleValueStorage(StorageKeys.accountOptions);
+  final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
   final values = accounts.map((a) => json.encode(a.toJson())).toList();
 
   await storage.setStringList(values);

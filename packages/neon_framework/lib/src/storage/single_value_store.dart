@@ -1,6 +1,7 @@
+import 'package:meta/meta.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-export 'package:neon_framework/src/storage/storage_manager.dart';
 
 /// A storage that itself is a single entry of a key value store.
 ///
@@ -53,4 +54,44 @@ abstract interface class KeyValueStorage {
 
   /// {@macro NeonStorage.setStringList}
   Future<bool> setStringList(List<String> value);
+}
+
+/// A storage that saves a single value.
+///
+/// [NeonStorage.init] must be called and completed before accessing individual values.
+///
+/// See:
+///   * [NeonStorage] to initialize and manage the storage backends.
+@immutable
+@internal
+final class SingleValueStorage implements KeyValueStorage {
+  /// Creates a new storage for a single value.
+  const SingleValueStorage(this.key);
+
+  @override
+  final StorageKeys key;
+
+  @override
+  bool hasValue() => NeonStorage().database.containsKey(key.value);
+
+  @override
+  Future<bool> remove() => NeonStorage().database.remove(key.value);
+
+  @override
+  String? getString() => NeonStorage().database.getString(key.value);
+
+  @override
+  Future<bool> setString(String value) => NeonStorage().database.setString(key.value, value);
+
+  @override
+  bool? getBool() => NeonStorage().database.getBool(key.value);
+
+  @override
+  Future<bool> setBool(bool value) => NeonStorage().database.setBool(key.value, value);
+
+  @override
+  List<String>? getStringList() => NeonStorage().database.getStringList(key.value);
+
+  @override
+  Future<bool> setStringList(List<String> value) => NeonStorage().database.setStringList(key.value, value);
 }

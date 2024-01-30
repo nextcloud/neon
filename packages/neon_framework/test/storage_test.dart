@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
+import 'package:neon_framework/src/storage/single_value_store.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:shared_preferences/shared_preferences.dart';

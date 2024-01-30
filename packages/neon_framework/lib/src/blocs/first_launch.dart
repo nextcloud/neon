@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Bloc that manages tasks that only need to run at the first launch of the app.
@@ -23,7 +24,7 @@ class _FirstLaunchBloc extends Bloc implements FirstLaunchBloc {
   _FirstLaunchBloc({
     bool disabled = false,
   }) {
-    const storage = SingleValueStorage(StorageKeys.firstLaunch);
+    final storage = NeonStorage().singleValueStore(StorageKeys.firstLaunch);
 
     if (!disabled && !storage.hasValue()) {
       onFirstLaunch.add(null);
