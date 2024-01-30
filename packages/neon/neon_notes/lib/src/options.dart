@@ -1,5 +1,6 @@
 import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/sort_box.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 
 class NotesOptions extends AppImplementationOptions {

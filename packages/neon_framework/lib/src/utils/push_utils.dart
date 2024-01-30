@@ -14,7 +14,8 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
+
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';

@@ -6,7 +6,6 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/models/label_builder.dart';
 import 'package:neon_framework/src/settings/models/options_category.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:rxdart/rxdart.dart';
 

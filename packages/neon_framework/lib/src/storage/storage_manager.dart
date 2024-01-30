@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:meta/meta.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:neon_framework/src/storage/single_value_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -8,7 +8,8 @@ import 'package:neon_framework/src/models/account.dart' show Account;
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
+
 import 'package:neon_framework/src/utils/findable.dart';
 
 /// Helper class to export all [Option]s.

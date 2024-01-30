@@ -2,6 +2,7 @@ import 'package:filesize/filesize.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/sort_box.dart';
+import 'package:neon_framework/storage.dart';
 
 class FilesOptions extends AppImplementationOptions {
   FilesOptions(super.storage) {

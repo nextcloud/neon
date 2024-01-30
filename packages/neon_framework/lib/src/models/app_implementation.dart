@@ -10,7 +10,8 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
+
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';

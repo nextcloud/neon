@@ -3,7 +3,7 @@ import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/storage.dart';
 
 /// Account related options.
 @internal
