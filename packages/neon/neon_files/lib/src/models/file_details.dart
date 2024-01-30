@@ -28,8 +28,8 @@ class FileDetails {
   FileDetails.fromUploadTask({
     required FilesUploadTask this.task,
   })  : uri = task.uri,
-        size = task.stat.size,
-        lastModified = task.stat.modified,
+        size = task.size,
+        lastModified = task.lastModified,
         etag = null,
         mimeType = null,
         hasPreview = null,

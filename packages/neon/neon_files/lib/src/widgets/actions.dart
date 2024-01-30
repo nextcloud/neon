@@ -20,7 +20,7 @@ class FileActions extends StatelessWidget {
     final bloc = NeonProvider.of<FilesBloc>(context);
     switch (action) {
       case FilesFileAction.share:
-        bloc.shareFileNative(details.uri, details.etag!);
+        bloc.shareFileNative(details.uri, details.etag!, details.mimeType);
       case FilesFileAction.toggleFavorite:
         if (details.isFavorite ?? false) {
           bloc.removeFavorite(details.uri);
