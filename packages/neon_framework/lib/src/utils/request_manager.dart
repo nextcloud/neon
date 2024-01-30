@@ -9,6 +9,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -355,7 +356,7 @@ class RequestManager {
 }
 
 @internal
-class Cache {
+class Cache implements CacheInterface {
   factory Cache() => instance ??= Cache._();
 
   Cache._();
@@ -405,6 +406,7 @@ class Cache {
     return database;
   }
 
+  @override
   Future<String?> get(String key) async {
     List<Map<String, Object?>>? result;
     try {
@@ -417,6 +419,7 @@ class Cache {
     return result?.firstOrNull?['value'] as String?;
   }
 
+  @override
   Future<void> set(String key, String value, CacheParameters? parameters) async {
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
@@ -444,6 +447,7 @@ class Cache {
     }
   }
 
+  @override
   Future<CacheParameters> getParameters(String key) async {
     List<Map<String, Object?>>? result;
     try {
@@ -462,7 +466,7 @@ class Cache {
     );
   }
 
-  /// Updates the cache [parameters] for a given [key] without modifying the `value`.
+  @override
   Future<void> updateParameters(String key, CacheParameters? parameters) async {
     try {
       await _requireDatabase.update(
