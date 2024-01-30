@@ -137,11 +137,6 @@ final class AppStorage implements SettingsStorage {
     return '${groupKey.value}-$key';
   }
 
-  /// {@template NeonStorage.containsKey}
-  /// Returns true if the persistent storage contains the given [key].
-  /// {@endtemplate}
-  bool containsKey(String key) => NeonStorage().database.containsKey(formatKey(key));
-
   @override
   Future<bool> remove(String key) => NeonStorage().database.remove(formatKey(key));
 
@@ -156,15 +151,4 @@ final class AppStorage implements SettingsStorage {
 
   @override
   Future<bool> setBool(String key, bool value) => NeonStorage().database.setBool(formatKey(key), value);
-
-  /// {@template NeonStorage.getStringList}
-  /// Reads a set of string values from persistent storage, throwing an `Exception` if it's not a `String` set.
-  /// {@endtemplate}
-  List<String>? getStringList(String key) => NeonStorage().database.getStringList(formatKey(key));
-
-  /// {@template NeonStorage.setStringList}
-  /// Saves a list of `String` [value]s to persistent storage in the background.
-  /// {@endtemplate}
-  Future<bool> setStringList(String key, List<String> value) =>
-      NeonStorage().database.setStringList(formatKey(key), value);
 }

@@ -44,14 +44,15 @@ class PushUtils {
     const keyDevicePrivateKey = 'device-private-key';
 
     final RSAKeypair keypair;
-    if (!storage.containsKey(keyDevicePrivateKey) || (storage.getString(keyDevicePrivateKey)!.isEmpty)) {
+    final privateKey = storage.getString(keyDevicePrivateKey);
+    if (privateKey == null || privateKey.isEmpty) {
       debugPrint('Generating RSA keys for push notifications');
       // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
       // ignore: avoid_redundant_argument_values
       keypair = RSAKeypair.fromRandom(keySize: 2048);
       unawaited(storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM()));
     } else {
-      keypair = RSAKeypair(RSAPrivateKey.fromPEM(storage.getString(keyDevicePrivateKey)!));
+      keypair = RSAKeypair(RSAPrivateKey.fromPEM(privateKey));
     }
 
     return keypair;

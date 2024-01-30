@@ -48,13 +48,8 @@ void main() {
       const key = 'key';
       final formattedKey = appStorage.formatKey(key);
 
-      when(() => sharedPreferences.containsKey(formattedKey)).thenReturn(true);
-      dynamic result = appStorage.containsKey(key);
-      expect(result, equals(true));
-      verify(() => sharedPreferences.containsKey(formattedKey)).called(1);
-
       when(() => sharedPreferences.remove(formattedKey)).thenAnswer((_) => Future.value(false));
-      result = await appStorage.remove(key);
+      dynamic result = await appStorage.remove(key);
       expect(result, equals(false));
       verify(() => sharedPreferences.remove(formattedKey)).called(1);
 
@@ -77,16 +72,6 @@ void main() {
       result = await appStorage.setBool(key, true);
       expect(result, true);
       verify(() => sharedPreferences.setBool(formattedKey, true)).called(1);
-
-      when(() => sharedPreferences.getStringList(formattedKey)).thenReturn(['hi there']);
-      result = appStorage.getStringList(key);
-      expect(result, equals(['hi there']));
-      verify(() => sharedPreferences.getStringList(formattedKey)).called(1);
-
-      when(() => sharedPreferences.setStringList(formattedKey, ['hi there'])).thenAnswer((_) => Future.value(false));
-      result = await appStorage.setStringList(key, ['hi there']);
-      expect(result, false);
-      verify(() => sharedPreferences.setStringList(formattedKey, ['hi there'])).called(1);
     });
 
     test('SingleValueStorage', () async {
