@@ -12,9 +12,9 @@ import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MockAccount extends Mock implements Account {}

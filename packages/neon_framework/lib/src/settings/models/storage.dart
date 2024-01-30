@@ -1,51 +1,7 @@
 import 'package:meta/meta.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/ids.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-/// Storage interface used by `Option`s.
-///
-/// Mimics the interface of [SharedPreferences].
-///
-/// See:
-///   * [SingleValueStorage] for a storage that saves a single value.
-///   * [AppStorage] for a storage that fully implements the [SharedPreferences] interface.
-///   * [NeonStorage] that manages the storage backend.
-@internal
-abstract interface class SettingsStorage {
-  /// {@template NeonStorage.getString}
-  /// Reads a value from persistent storage, throwing an `Exception` if it's not a `String`.
-  /// {@endtemplate}
-  String? getString(String key);
-
-  /// {@template NeonStorage.setString}
-  /// Saves a `String` [value] to persistent storage in the background.
-  ///
-  /// Note: Due to limitations in Android's SharedPreferences,
-  /// values cannot start with any one of the following:
-  ///
-  /// - 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBhIGxpc3Qu'
-  /// - 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBCaWdJbnRlZ2Vy'
-  /// - 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBEb3VibGUu'
-  /// {@endtemplate}
-  Future<bool> setString(String key, String value);
-
-  /// {@template NeonStorage.getBool}
-  /// Reads a value from persistent storage, throwing an `Exception` if it's not a `bool`.
-  /// {@endtemplate}
-  bool? getBool(String key);
-
-  /// {@template NeonStorage.setBool}
-  /// Saves a `bool` [value] to persistent storage in the background.
-  /// {@endtemplate}
-  // ignore: avoid_positional_boolean_parameters
-  // ignore: avoid_positional_boolean_parameters
-  Future<bool> setBool(String key, bool value);
-
-  /// {@template NeonStorage.remove}
-  /// Removes an entry from persistent storage.
-  /// {@endtemplate}
-  Future<bool> remove(String key);
-}
 
 /// Interface of a storable element.
 ///
@@ -91,55 +47,6 @@ enum StorageKeys implements Storable {
   final String value;
 }
 
-/// Neon storage that manages the storage backend.
-///
-/// [init] must be called and completed before accessing individual storages.
-///
-/// See:
-///   * [SingleValueStorage] for a storage that saves a single value.
-///   * [AppStorage] for a storage that fully implements the [SharedPreferences] interface.
-///   * [SettingsStorage] for the public interface used in `Option`s.
-@internal
-final class NeonStorage {
-  const NeonStorage._();
-
-  /// Shared preferences instance.
-  ///
-  /// Use [database] to access it.
-  /// Make sure it has been initialized with [init] before.
-  static SharedPreferences? _sharedPreferences;
-
-  /// Initializes the database instance with a mocked value.
-  @visibleForTesting
-  // ignore: use_setters_to_change_properties
-  static void mock(SharedPreferences mock) => _sharedPreferences = mock;
-
-  /// Sets up the [SharedPreferences] instance.
-  ///
-  /// Required to be called before accessing [database].
-  static Future<void> init() async {
-    if (_sharedPreferences != null) {
-      return;
-    }
-
-    _sharedPreferences = await SharedPreferences.getInstance();
-  }
-
-  /// Returns the database instance.
-  ///
-  /// Throws a `StateError` if [init] has not completed.
-  @visibleForTesting
-  static SharedPreferences get database {
-    if (_sharedPreferences == null) {
-      throw StateError(
-        'NeonStorage has not been initialized yet. Please make sure NeonStorage.init() has been called before and completed.',
-      );
-    }
-
-    return _sharedPreferences!;
-  }
-}
-
 /// A storage that saves a single value.
 ///
 /// [NeonStorage.init] must be called and completed before accessing individual values.
@@ -150,36 +57,35 @@ final class NeonStorage {
 ///   * [SettingsStorage] for the public interface used in `Option`s.
 @immutable
 @internal
-final class SingleValueStorage {
+final class SingleValueStorage implements KeyValueStorage {
   /// Creates a new storage for a single value.
   const SingleValueStorage(this.key);
 
-  /// The key used by the storage backend.
+  @override
   final StorageKeys key;
 
-  /// {@macro NeonStorage.containsKey}
+  @override
   bool hasValue() => NeonStorage.database.containsKey(key.value);
 
-  /// {@macro NeonStorage.remove}
+  @override
   Future<bool> remove() => NeonStorage.database.remove(key.value);
 
-  /// {@macro NeonStorage.getString}
+  @override
   String? getString() => NeonStorage.database.getString(key.value);
 
-  /// {@macro NeonStorage.setString}
+  @override
   Future<bool> setString(String value) => NeonStorage.database.setString(key.value, value);
 
-  /// {@macro NeonStorage.getBool}
+  @override
   bool? getBool() => NeonStorage.database.getBool(key.value);
 
-  /// {@macro NeonStorage.setBool}
-  // ignore: avoid_positional_boolean_parameters
+  @override
   Future<bool> setBool(bool value) => NeonStorage.database.setBool(key.value, value);
 
-  /// {@macro NeonStorage.getStringList}
+  @override
   List<String>? getStringList() => NeonStorage.database.getStringList(key.value);
 
-  /// {@macro NeonStorage.setStringList}
+  @override
   Future<bool> setStringList(List<String> value) => NeonStorage.database.setStringList(key.value, value);
 }
 

@@ -20,6 +20,7 @@ import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
 import 'package:neon_framework/src/utils/localizations.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
 

@@ -46,7 +46,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// Localized name of this app.
   String name(BuildContext context) => nameFromLocalization(NeonLocalizations.of(context));
 
-  /// The [SettingsStorage] for this app.
+  /// The storage bucket for this app.
   @protected
   late final AppStorage storage = AppStorage(StorageKeys.apps, id);
 

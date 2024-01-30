@@ -11,12 +11,12 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/platform/platform.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/theme/neon.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/utils/user_agent.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
