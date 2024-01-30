@@ -19,6 +19,7 @@ import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
@@ -311,7 +312,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   AccountOptions getOptionsFor(Account account) => accountsOptions[account] ??= AccountOptions(
-        AppStorage(StorageKeys.accountOptions, account.id),
+        NeonStorage().settingsStorage(StorageKeys.accountOptions, account.id),
         getAppsBlocFor(account),
       );
 

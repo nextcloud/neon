@@ -3,7 +3,7 @@ import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/options_category.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/storage.dart';
 
 /// Collection of [Option]s.
 abstract class OptionsCollection implements Exportable, Disposable {
@@ -12,7 +12,7 @@ abstract class OptionsCollection implements Exportable, Disposable {
 
   /// Storage backend to use.
   @protected
-  final AppStorage storage;
+  final SettingsStorage storage;
 
   /// Collection of options.
   @protected

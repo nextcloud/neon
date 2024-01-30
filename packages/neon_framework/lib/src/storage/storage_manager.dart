@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:meta/meta.dart';
+import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Neon storage that manages the storage backend.
@@ -54,4 +56,7 @@ class NeonStorage {
 
     return _sharedPreferences!;
   }
+
+  /// Initializes a new `SettingsStorage`.
+  SettingsStorage settingsStorage(StorageKeys groupKey, [String? suffix]) => AppStorage(groupKey, suffix);
 }

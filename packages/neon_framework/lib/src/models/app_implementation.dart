@@ -14,6 +14,7 @@ import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart' show VersionCheck;
 import 'package:provider/provider.dart';
@@ -48,7 +49,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
 
   /// The storage bucket for this app.
   @protected
-  late final AppStorage storage = AppStorage(StorageKeys.apps, id);
+  late final SettingsStorage storage = NeonStorage().settingsStorage(StorageKeys.apps, id);
 
   /// The options associated with this app.
   ///

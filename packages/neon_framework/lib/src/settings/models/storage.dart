@@ -1,7 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/ids.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 /// Interface of a storable element.
 ///
@@ -14,10 +13,6 @@ abstract interface class Storable {
 /// Unique storage keys.
 ///
 /// Required by the users of the [NeonStorage] storage backend.
-///
-/// See:
-///   * [AppStorage] for a storage that fully implements the [SharedPreferences] interface.
-///   * [SettingsStorage] for the public interface used in `Option`s.
 @internal
 enum StorageKeys implements Storable {
   /// The key for the `AppImplementation`s.
@@ -56,8 +51,6 @@ enum StorageKeys implements Storable {
 ///
 /// See:
 ///   * [NeonStorage] to initialize the storage backend.
-///   * [AppStorage] for a storage that fully implements the [SharedPreferences] interface.
-///   * [SettingsStorage] for the public interface used in `Option`s.
 @immutable
 @internal
 final class SingleValueStorage implements KeyValueStorage {
@@ -90,65 +83,4 @@ final class SingleValueStorage implements KeyValueStorage {
 
   @override
   Future<bool> setStringList(List<String> value) => NeonStorage().database.setStringList(key.value, value);
-}
-
-/// A storage that can save a group of values.
-///
-/// Implements the interface of [SharedPreferences].
-/// [NeonStorage.init] must be called and completed before accessing individual values.
-///
-/// See:
-///   * [NeonStorage] to initialize the storage backend.
-///   * [SingleValueStorage] for a storage that saves a single value.
-///   * [SettingsStorage] for the public interface used in `Option`s.
-@immutable
-@internal
-final class AppStorage implements SettingsStorage {
-  /// Creates a new app storage.
-  const AppStorage(
-    this.groupKey, [
-    this.suffix,
-  ]);
-
-  /// The group key for this app storage.
-  ///
-  /// Keys are formatted with [formatKey]
-  final StorageKeys groupKey;
-
-  /// The optional suffix of the storage key.
-  ///
-  /// Used to differentiate between multiple AppStorages with the same [groupKey].
-  final String? suffix;
-
-  /// Returns the id for this app storage.
-  ///
-  /// Uses the [suffix] and falling back to the [groupKey] if not present.
-  /// This uniquely identifies the storage and is used in `Exportable` classes.
-  String get id => suffix ?? groupKey.value;
-
-  /// Concatenates the [groupKey], [suffix] and [key] to build a unique key
-  /// used in the storage backend.
-  @visibleForTesting
-  String formatKey(String key) {
-    if (suffix != null) {
-      return '${groupKey.value}-$suffix-$key';
-    }
-
-    return '${groupKey.value}-$key';
-  }
-
-  @override
-  Future<bool> remove(String key) => NeonStorage().database.remove(formatKey(key));
-
-  @override
-  String? getString(String key) => NeonStorage().database.getString(formatKey(key));
-
-  @override
-  Future<bool> setString(String key, String value) => NeonStorage().database.setString(formatKey(key), value);
-
-  @override
-  bool? getBool(String key) => NeonStorage().database.getBool(formatKey(key));
-
-  @override
-  Future<bool> setBool(String key, bool value) => NeonStorage().database.setBool(formatKey(key), value);
 }
