@@ -123,7 +123,7 @@ class AccountsBlocExporter implements Exportable {
   final AccountsBloc accountsBloc;
 
   /// Key the exported value will be stored at.
-  static final _key = StorageKeys.accounts.value;
+  static final _key = StorageKeys.accountOptions.value;
 
   @override
   MapEntry<String, Object?> export() => MapEntry(_key, Map.fromEntries(_serialize()));

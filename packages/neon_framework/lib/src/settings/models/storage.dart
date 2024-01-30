@@ -24,7 +24,10 @@ enum StorageKeys implements Storable {
   apps._('app'),
 
   /// The key for the `Account`s and their `AccountOptions`.
-  accounts._('accounts'),
+  accountOptions._('accounts'),
+
+  /// The key for the list of logged in `Account`s.
+  accounts._('accounts-accounts'),
 
   /// The key for the `GlobalOptions`.
   global._('global'),

@@ -22,8 +22,6 @@ import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
-const _keyAccounts = 'accounts';
-
 /// The Bloc responsible for managing the [Account]s
 @sealed
 abstract interface class AccountsBloc implements Disposable {
@@ -313,7 +311,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   AccountOptions getOptionsFor(Account account) => accountsOptions[account] ??= AccountOptions(
-        AppStorage(StorageKeys.accounts, account.id),
+        AppStorage(StorageKeys.accountOptions, account.id),
         getAppsBlocFor(account),
       );
 
@@ -369,21 +367,18 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 ///
 /// It is not checked whether the stored information is still valid.
 List<Account> loadAccounts() {
-  const storage = AppStorage(StorageKeys.accounts);
+  const storage = SingleValueStorage(StorageKeys.accountOptions);
 
-  if (storage.containsKey(_keyAccounts)) {
-    return storage
-        .getStringList(_keyAccounts)!
-        .map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
-        .toList();
+  if (storage.hasValue()) {
+    return storage.getStringList()!.map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>)).toList();
   }
   return [];
 }
 
 /// Saves the given [accounts] to the storage.
 Future<void> saveAccounts(List<Account> accounts) async {
-  const storage = AppStorage(StorageKeys.accounts);
+  const storage = SingleValueStorage(StorageKeys.accountOptions);
   final values = accounts.map((a) => json.encode(a.toJson())).toList();
 
-  await storage.setStringList(_keyAccounts, values);
+  await storage.setStringList(values);
 }

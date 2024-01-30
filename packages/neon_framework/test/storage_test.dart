@@ -32,19 +32,19 @@ void main() {
     });
 
     test('AppStorage formatKey', () async {
-      var appStorage = const AppStorage(StorageKeys.accounts);
+      var appStorage = const AppStorage(StorageKeys.accountOptions);
       var key = appStorage.formatKey('test-key');
       expect(key, 'accounts-test-key');
-      expect(appStorage.id, StorageKeys.accounts.value);
+      expect(appStorage.id, StorageKeys.accountOptions.value);
 
-      appStorage = const AppStorage(StorageKeys.accounts, 'test-suffix');
+      appStorage = const AppStorage(StorageKeys.accountOptions, 'test-suffix');
       key = appStorage.formatKey('test-key');
       expect(key, 'accounts-test-suffix-test-key');
       expect(appStorage.id, 'test-suffix');
     });
 
     test('AppStorage interface', () async {
-      const appStorage = AppStorage(StorageKeys.accounts);
+      const appStorage = AppStorage(StorageKeys.accountOptions);
       const key = 'key';
       final formattedKey = appStorage.formatKey(key);
 
