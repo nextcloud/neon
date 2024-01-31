@@ -3,213 +3,150 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
 import 'package:neon_framework/src/utils/provider.dart';
+import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
-
-/// The signature of a function reviving image data from the [cache].
-typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cache);
-
-/// The signature of a function downloading image data.
-typedef ImageDownloader = FutureOr<Uint8List> Function();
-
-/// The signature of a function writing [image] data to the [cache].
-typedef CacheWriter = Future<void> Function(CacheManager cache, Uint8List image);
+import 'package:rxdart/rxdart.dart';
 
 /// The signature of a function building a widget displaying [error].
 typedef ErrorWidgetBuilder = Widget? Function(BuildContext context, Object? error);
 
 /// The signature of a function downloading image data from a the nextcloud api through [client].
-typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>> Function(NextcloudClient client);
+typedef ApiImageDownloader = DynamiteRawResponse<Uint8List, dynamic> Function(NextcloudClient client);
 
 /// A widget painting an Image.
 ///
-/// The image is cached in the [DefaultCacheManager] to avoid expensive
-/// fetches.
-///
 /// See:
 ///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
-///  * [NeonUrlImage] for an image widget from an arbitrary URL.
+///  * [NeonUriImage] for an image widget from an arbitrary URL.
 ///  * [NeonImageWrapper] for a wrapping widget for images
-class NeonCachedImage extends StatefulWidget {
+class NeonImage extends StatelessWidget {
   /// Custom image implementation.
-  ///
-  /// It is possible to provide custom [reviver] and [writeCache] functions to
-  /// adjust the caching.
-  NeonCachedImage({
-    required ImageDownloader getImage,
-    required String cacheKey,
-    CacheReviver? reviver,
-    CacheWriter? writeCache,
+  const NeonImage({
+    required this.image,
+    required this.onRetry,
     this.isSvgHint = false,
     this.size,
     this.fit,
     this.svgColorFilter,
     this.errorBuilder,
-  })  : image = _customImageGetter(
-          reviver,
-          getImage,
-          writeCache,
-          cacheKey,
-        ),
-        super(key: Key(cacheKey));
+    super.key,
+  });
 
-  /// The image content.
-  final Future<Uint8List> image;
+  /// {@template NeonImage.image}
+  /// The subject containing the image data.
+  /// {@endtemplate}
+  final BehaviorSubject<Result<Uint8List>> image;
 
-  /// {@template NeonCachedImage.svgHint}
+  /// {@template NeonImage.onRetry}
+  /// The function called to retry loading the image if it failed.
+  /// {@endtemplate}
+  final VoidCallback onRetry;
+
+  /// {@template NeonImage.svgHint}
   /// Hint whether the image is an SVG.
   /// {@endtemplate}
   final bool isSvgHint;
 
-  /// {@template NeonCachedImage.size}
+  /// {@template NeonImage.size}
   /// Dimensions for the painted image.
   /// {@endtemplate}
   final Size? size;
 
-  /// {@template NeonCachedImage.fit}
+  /// {@template NeonImage.fit}
   /// How to inscribe the image into the space allocated during layout.
   /// {@endtemplate}
   final BoxFit? fit;
 
-  /// {@template NeonCachedImage.svgColorFilter}
+  /// {@template NeonImage.svgColorFilter}
   /// The color filter to use when drawing SVGs.
   /// {@endtemplate}
   final ColorFilter? svgColorFilter;
 
-  /// {@template NeonCachedImage.errorBuilder}
+  /// {@template NeonImage.errorBuilder}
   /// Builder function building the error widget.
   ///
-  /// Defaults to a [NeonError] awaiting [image] again onRetry.
+  /// Defaults to a [NeonError].
   /// {@endtemplate}
   final ErrorWidgetBuilder? errorBuilder;
 
-  static Future<Uint8List> _customImageGetter(
-    CacheReviver? checkCache,
-    ImageDownloader getImage,
-    CacheWriter? writeCache,
-    String cacheKey,
-  ) async {
-    final cached = await checkCache?.call(cacheManager) ?? await _defaultCacheReviver(cacheKey);
-    if (cached != null) {
-      return cached;
-    }
-
-    var data = await getImage();
-    try {
-      data = utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
-    } catch (_) {}
-
-    unawaited(writeCache?.call(cacheManager, data) ?? _defaultCacheWriter(data, cacheKey));
-
-    return data;
-  }
-
-  static Future<Uint8List?> _defaultCacheReviver(String cacheKey) async {
-    final cacheFile = await cacheManager.getFileFromCache(cacheKey);
-    if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
-      return cacheFile.file.readAsBytes();
-    }
-
-    return null;
-  }
-
-  static Future<void> _defaultCacheWriter(
-    Uint8List data,
-    String cacheKey,
-  ) async {
-    await cacheManager.putFile(
-      cacheKey,
-      data,
-      maxAge: const Duration(days: 7),
-    );
-  }
-
-  /// The [CacheManager] instance.
-  @visibleForTesting
-  static DefaultCacheManager cacheManager = DefaultCacheManager();
-
   @override
-  State<NeonCachedImage> createState() => _NeonCachedImageState();
-}
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
+        subject: image,
+        builder: (context, imageResult) {
+          final data = imageResult.data;
+          if (data != null) {
+            try {
+              // TODO: Is this safe enough?
+              if (isSvgHint || utf8.decode(data).contains('<svg')) {
+                return SvgPicture.memory(
+                  data,
+                  height: size?.height,
+                  width: size?.width,
+                  fit: fit ?? BoxFit.contain,
+                  colorFilter: svgColorFilter,
+                );
+              }
+            } catch (_) {
+              // If the data is not UTF-8
+            }
 
-class _NeonCachedImageState extends State<NeonCachedImage> {
-  @override
-  Widget build(BuildContext context) => FutureBuilder(
-        future: widget.image,
-        builder: (context, fileSnapshot) {
-          if (fileSnapshot.hasError) {
-            return _buildError(fileSnapshot.error);
-          }
-
-          if (!fileSnapshot.hasData) {
-            return SizedBox(
-              width: widget.size?.width,
-              child: const NeonLinearProgressIndicator(),
+            return Image.memory(
+              data,
+              height: size?.height,
+              width: size?.width,
+              fit: fit,
+              gaplessPlayback: true,
+              errorBuilder: (context, error, stacktrace) => _buildError(context, error),
             );
           }
 
-          final content = fileSnapshot.requireData;
-
-          try {
-            // TODO: Is this safe enough?
-            if (widget.isSvgHint || utf8.decode(content).contains('<svg')) {
-              return SvgPicture.memory(
-                content,
-                height: widget.size?.height,
-                width: widget.size?.width,
-                fit: widget.fit ?? BoxFit.contain,
-                colorFilter: widget.svgColorFilter,
-              );
-            }
-          } catch (_) {
-            // If the data is not UTF-8
+          if (imageResult.hasError) {
+            return _buildError(context, imageResult.error);
           }
 
-          return Image.memory(
-            content,
-            height: widget.size?.height,
-            width: widget.size?.width,
-            fit: widget.fit,
-            gaplessPlayback: true,
-            errorBuilder: (context, error, stacktrace) => _buildError(error),
+          return SizedBox(
+            width: size?.width,
+            child: const NeonLinearProgressIndicator(),
           );
         },
       );
 
-  Widget _buildError(Object? error) =>
-      widget.errorBuilder?.call(context, error) ??
+  Widget _buildError(BuildContext context, Object? error) =>
+      errorBuilder?.call(context, error) ??
       NeonError(
         error,
-        onRetry: () {
-          setState(() {});
-        },
+        onRetry: onRetry,
         type: NeonErrorType.iconOnly,
-        iconSize: widget.size?.shortestSide,
+        iconSize: size?.shortestSide,
       );
 }
 
 /// A widget painting an Image fetched from the Nextcloud API.
 ///
+/// The image is cached in the [RequestManager] to avoid expensive
+/// fetches.
+///
 /// See:
-///  * [NeonCachedImage] for a customized image
-///  * [NeonUrlImage] for an image widget from an arbitrary URL.
+///  * [NeonImage] for a customized image
+///  * [NeonUriImage] for an image widget from an arbitrary URL.
 ///  * [NeonImageWrapper] for a wrapping widget for images
-class NeonApiImage extends StatelessWidget {
+class NeonApiImage extends StatefulWidget {
   /// Creates a new Neon API image fetching the image with the currently active account.
   ///
   /// See [NeonApiImage.withAccount] to fetch the image using a specific account.
   const NeonApiImage({
     required this.getImage,
     required this.cacheKey,
-    this.reviver,
-    this.writeCache,
+    required this.etag,
+    required this.expires,
     this.isSvgHint = false,
     this.size,
     this.fit,
@@ -224,9 +161,9 @@ class NeonApiImage extends StatelessWidget {
   const NeonApiImage.withAccount({
     required this.getImage,
     required this.cacheKey,
+    required this.etag,
+    required this.expires,
     required Account this.account,
-    this.reviver,
-    this.writeCache,
     this.isSvgHint = false,
     this.size,
     this.fit,
@@ -240,68 +177,103 @@ class NeonApiImage extends StatelessWidget {
   /// Defaults to the currently active account in [AccountsBloc.activeAccount].
   final Account? account;
 
-  /// Image downloader.
+  /// {@macro NeonImage.getImage}
   final ApiImageDownloader getImage;
 
-  /// Cache key used for [NeonCachedImage.key].
+  /// {@macro NeonImage.cacheKey}
   final String cacheKey;
 
-  /// Custom cache reviver function.
-  final CacheReviver? reviver;
+  /// The ETag used for invalidating the cache.
+  final String? etag;
 
-  /// Custom cache writer function.
-  final CacheWriter? writeCache;
+  /// The expiration date used for invalidating the cache.
+  final DateTime? expires;
 
-  /// {@macro NeonCachedImage.svgHint}
+  /// {@macro NeonImage.svgHint}
   final bool isSvgHint;
 
-  /// {@macro NeonCachedImage.size}
+  /// {@macro NeonImage.size}
   final Size? size;
 
-  /// {@macro NeonCachedImage.fit}
+  /// {@macro NeonImage.fit}
   final BoxFit? fit;
 
-  /// {@macro NeonCachedImage.svgColorFilter}
+  /// {@macro NeonImage.svgColorFilter}
   final ColorFilter? svgColorFilter;
 
-  /// {@macro NeonCachedImage.errorBuilder}
+  /// {@macro NeonImage.errorBuilder}
   final ErrorWidgetBuilder? errorBuilder;
 
   @override
-  Widget build(BuildContext context) {
-    final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
-
-    return NeonCachedImage(
-      getImage: () async {
-        final response = await getImage(account.client);
-        return response.body;
-      },
-      cacheKey: '${account.id}-$cacheKey',
-      reviver: reviver,
-      writeCache: writeCache,
-      isSvgHint: isSvgHint,
-      size: size,
-      fit: fit,
-      svgColorFilter: svgColorFilter,
-      errorBuilder: errorBuilder,
-    );
-  }
+  State<NeonApiImage> createState() => _NeonApiImageState();
 }
 
-/// A widget painting an Image fetched from an arbitrary URL.
+class _NeonApiImageState extends State<NeonApiImage> {
+  late Account account;
+  final image = BehaviorSubject<Result<Uint8List>>();
+
+  @override
+  void initState() {
+    super.initState();
+
+    account = widget.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+
+    unawaited(load());
+  }
+
+  @override
+  void dispose() {
+    unawaited(image.close());
+
+    super.dispose();
+  }
+
+  Future<void> load() async {
+    await RequestManager.instance.wrapBinary(
+      account: account,
+      cacheKey: widget.cacheKey,
+      getCacheParameters: () async => CacheParameters(
+        etag: widget.etag,
+        expires: widget.expires,
+      ),
+      rawResponse: widget.getImage(account.client),
+      unwrap: (data) {
+        try {
+          return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
+        } catch (_) {}
+        return data;
+      },
+      subject: image,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) => NeonImage(
+        image: image,
+        onRetry: load,
+        isSvgHint: widget.isSvgHint,
+        size: widget.size,
+        fit: widget.fit,
+        svgColorFilter: widget.svgColorFilter,
+        errorBuilder: widget.errorBuilder,
+      );
+}
+
+/// A widget painting an Image fetched from an arbitrary URI.
+///
+/// The image is cached in the [RequestManager] to avoid expensive
+/// fetches.
 ///
 /// See:
-///  * [NeonCachedImage] for a customized image
+///  * [NeonImage] for a customized image
 ///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
 ///  * [NeonImageWrapper] for a wrapping widget for images
-class NeonUrlImage extends StatelessWidget {
+class NeonUriImage extends StatefulWidget {
   /// Creates a new Neon URL image with the active account.
   ///
-  /// See [NeonUrlImage.withAccount] for using a specific account.
-  const NeonUrlImage({
+  /// See [NeonUriImage.withAccount] for using a specific account.
+  const NeonUriImage({
     required this.uri,
-    this.reviver,
-    this.writeCache,
     this.isSvgHint = false,
     this.size,
     this.fit,
@@ -312,12 +284,10 @@ class NeonUrlImage extends StatelessWidget {
 
   /// Creates a new Neon URL image with the given [account].
   ///
-  /// See [NeonUrlImage] for using the active account.
-  const NeonUrlImage.withAccount({
+  /// See [NeonUriImage] for using the active account.
+  const NeonUriImage.withAccount({
     required this.uri,
     required Account this.account,
-    this.reviver,
-    this.writeCache,
     this.isSvgHint = false,
     this.size,
     this.fit,
@@ -336,60 +306,80 @@ class NeonUrlImage extends StatelessWidget {
   /// This can also be a data URI.
   final Uri uri;
 
-  /// Custom cache reviver function.
-  final CacheReviver? reviver;
-
-  /// Custom cache writer function.
-  final CacheWriter? writeCache;
-
-  /// {@macro NeonCachedImage.svgHint}
+  /// {@macro NeonImage.svgHint}
   final bool isSvgHint;
 
-  /// {@macro NeonCachedImage.size}
+  /// {@macro NeonImage.size}
   final Size? size;
 
-  /// {@macro NeonCachedImage.fit}
+  /// {@macro NeonImage.fit}
   final BoxFit? fit;
 
-  /// {@macro NeonCachedImage.svgColorFilter}
+  /// {@macro NeonImage.svgColorFilter}
   final ColorFilter? svgColorFilter;
 
-  /// {@macro NeonCachedImage.errorBuilder}
+  /// {@macro NeonImage.errorBuilder}
   final ErrorWidgetBuilder? errorBuilder;
 
   @override
-  Widget build(BuildContext context) {
-    final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+  State<NeonUriImage> createState() => _NeonUriImageState();
+}
 
-    final dataUri = uri.data;
+class _NeonUriImageState extends State<NeonUriImage> {
+  late Account account;
+  final image = BehaviorSubject<Result<Uint8List>>();
 
-    return NeonCachedImage(
-      getImage: () async {
-        if (dataUri != null) {
-          return dataUri.contentAsBytes();
-        }
+  @override
+  void initState() {
+    super.initState();
 
-        final completedUri = account.completeUri(uri);
+    account = widget.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
-        final response = await account.client.executeRawRequest(
-          'GET',
-          completedUri,
-          headers: account.getAuthorizationHeaders(completedUri),
-          validStatuses: const {200, 201},
-        );
+    unawaited(load());
+  }
 
-        return response.stream.bytes;
+  @override
+  void dispose() {
+    unawaited(image.close());
+
+    super.dispose();
+  }
+
+  Future<void> load() async {
+    if (widget.uri.data != null) {
+      var data = widget.uri.data!.contentAsBytes();
+      try {
+        data = utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
+      } catch (_) {}
+      image.add(Result.success(data));
+      return;
+    }
+
+    final completedUri = account.completeUri(widget.uri);
+
+    await RequestManager.instance.wrapUri(
+      account: account,
+      uri: completedUri,
+      unwrap: (data) {
+        try {
+          return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
+        } catch (_) {}
+        return data;
       },
-      cacheKey: '${account.id}-$uri',
-      reviver: reviver,
-      writeCache: writeCache,
-      isSvgHint: isSvgHint || (dataUri?.mimeType.contains('svg') ?? false),
-      size: size,
-      fit: fit,
-      svgColorFilter: svgColorFilter,
-      errorBuilder: errorBuilder,
+      subject: image,
     );
   }
+
+  @override
+  Widget build(BuildContext context) => NeonImage(
+        image: image,
+        onRetry: load,
+        isSvgHint: widget.isSvgHint || (widget.uri.data?.mimeType.contains('svg') ?? false),
+        size: widget.size,
+        fit: widget.fit,
+        svgColorFilter: widget.svgColorFilter,
+        errorBuilder: widget.errorBuilder,
+      );
 }
 
 /// Nextcloud image wrapper widget.
@@ -397,9 +387,9 @@ class NeonUrlImage extends StatelessWidget {
 /// Wraps a child (most commonly an image) into a uniformly styled container.
 ///
 /// See:
-///  * [NeonCachedImage] for a customized image
+///  * [NeonImage] for a customized image
 ///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
-///  * [NeonUrlImage] for an image widget from an arbitrary URL.
+///  * [NeonUriImage] for an image widget from an arbitrary URL.
 class NeonImageWrapper extends StatelessWidget {
   /// Creates a new image wrapper.
   const NeonImageWrapper({

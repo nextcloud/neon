@@ -101,19 +101,13 @@ class FilePreviewImage extends NeonApiImage {
     required int width,
     required int height,
   }) : super(
-          getImage: (client) async => client.core.preview.getPreview(
+          getImage: (client) => client.core.preview.getPreviewRaw(
             file: file.uri.path,
             x: width,
             y: height,
           ),
-          writeCache: (cacheManager, data) async {
-            await cacheManager.putFile(
-              cacheKey,
-              data,
-              maxAge: const Duration(days: 7),
-              eTag: file.etag,
-            );
-          },
+          etag: file.etag,
+          expires: null,
           isSvgHint: file.mimeType?.contains('svg') ?? false,
         );
 }

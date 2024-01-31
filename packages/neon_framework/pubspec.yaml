@@ -19,7 +19,6 @@ dependencies:
   filesize: ^2.0.0
   flutter:
     sdk: flutter
-  flutter_cache_manager: ^3.0.0
   flutter_file_dialog: ^3.0.0
   flutter_local_notifications: ^16.0.0
   flutter_localizations:
@@ -49,6 +48,7 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/sort_box
+  sqflite: ^2.3.0
   sqflite_common_ffi: ^2.2.8-2
   unifiedpush: ^5.0.0
   unifiedpush_android: ^2.0.0

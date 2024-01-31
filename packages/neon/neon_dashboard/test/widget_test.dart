@@ -30,8 +30,6 @@ Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
     );
 
 void main() {
-  NeonCachedImage.cacheManager = MockCacheManager();
-
   final accountsBloc = MockAccountsBloc();
   when(() => accountsBloc.activeAccount).thenAnswer(
     (invocation) => BehaviorSubject.seeded(
@@ -84,7 +82,7 @@ void main() {
           BorderRadius.circular(largeIconSize),
         ),
       );
-      expect(find.byType(NeonCachedImage), findsNWidgets(2));
+      expect(find.byType(NeonImage), findsNWidgets(2));
 
       await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item.png'));
     });
@@ -144,7 +142,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(NeonCachedImage), findsOneWidget);
+      expect(find.byType(NeonImage), findsOneWidget);
     });
   });
 
@@ -293,7 +291,7 @@ void main() {
           BorderRadius.circular(largeIconSize),
         ),
       );
-      expect(find.byType(NeonCachedImage), findsNWidgets(3));
+      expect(find.byType(NeonImage), findsNWidgets(3));
       expect(find.byType(DashboardWidgetItem), findsOneWidget);
       expect(find.bySubtype<FilledButton>(), findsOneWidget);
       expect(find.byIcon(Icons.add), findsOneWidget);

@@ -26,7 +26,7 @@ class DashboardWidgetItem extends StatelessWidget {
       child: NeonImageWrapper(
         borderRadius: roundIcon ? BorderRadius.circular(largeIconSize) : null,
         child: item.iconUrl.isNotEmpty
-            ? NeonUrlImage(
+            ? NeonUriImage(
                 uri: Uri.parse(item.iconUrl),
                 size: const Size.square(largeIconSize),
               )
@@ -48,7 +48,7 @@ class DashboardWidgetItem extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: SizedBox.square(
                 dimension: smallIconSize,
-                child: NeonUrlImage(
+                child: NeonUriImage(
                   uri: Uri.parse(overlayIconUrl),
                   size: const Size.square(smallIconSize),
                 ),

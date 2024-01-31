@@ -342,7 +342,7 @@ class DashboardMainPage extends StatelessWidget {
     final colorFilter = ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn);
 
     if (widget.iconUrl.isNotEmpty) {
-      return NeonUrlImage(
+      return NeonUriImage(
         uri: Uri.parse(widget.iconUrl),
         svgColorFilter: colorFilter,
         size: const Size.square(largeIconSize),
