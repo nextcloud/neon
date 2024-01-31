@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/storage_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// Storage interface used by `Option`s.
 ///
@@ -64,9 +65,12 @@ abstract interface class SettingsStore {
 final class DefaultSettingsStore implements SettingsStore {
   /// Creates a new app storage.
   const DefaultSettingsStore(
+    this._database,
     this.groupKey, [
     this.suffix,
   ]);
+
+  final SharedPreferences _database;
 
   /// The group key for this app storage.
   ///
@@ -96,17 +100,17 @@ final class DefaultSettingsStore implements SettingsStore {
   }
 
   @override
-  Future<bool> remove(String key) => NeonStorage().database.remove(formatKey(key));
+  Future<bool> remove(String key) => _database.remove(formatKey(key));
 
   @override
-  String? getString(String key) => NeonStorage().database.getString(formatKey(key));
+  String? getString(String key) => _database.getString(formatKey(key));
 
   @override
-  Future<bool> setString(String key, String value) => NeonStorage().database.setString(formatKey(key), value);
+  Future<bool> setString(String key, String value) => _database.setString(formatKey(key), value);
 
   @override
-  bool? getBool(String key) => NeonStorage().database.getBool(formatKey(key));
+  bool? getBool(String key) => _database.getBool(formatKey(key));
 
   @override
-  Future<bool> setBool(String key, bool value) => NeonStorage().database.setBool(formatKey(key), value);
+  Future<bool> setBool(String key, bool value) => _database.setBool(formatKey(key), value);
 }

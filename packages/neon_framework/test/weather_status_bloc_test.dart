@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
@@ -151,6 +153,11 @@ void main() {
   late Account account;
   late BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities;
   late WeatherStatusBloc bloc;
+
+  setUpAll(() {
+    final storage = MockNeonStorage();
+    when(() => storage.requestCache).thenReturn(null);
+  });
 
   setUp(() {
     account = mockWeatherStatusAccount();

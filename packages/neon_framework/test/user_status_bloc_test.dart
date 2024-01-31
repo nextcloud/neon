@@ -155,6 +155,9 @@ void main() {
     final platform = MockNeonPlatform();
     when(() => platform.canUseWindowManager).thenReturn(false);
     NeonPlatform.mocked(platform);
+
+    final storage = MockNeonStorage();
+    when(() => storage.requestCache).thenReturn(null);
   });
 
   setUp(() {

@@ -11,10 +11,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:xml/xml.dart' as xml;
 
 /// A callback that unwraps elements of type [R] into [T].
@@ -52,10 +49,7 @@ final httpDateFormat = DateFormat('E, d MMM yyyy HH:mm:ss v', 'en_US');
 /// Requests need to be made through the [nextcloud](https://pub.dev/packages/nextcloud)
 /// package.
 ///
-/// Requests can be persisted in the local cache if enabled. The local cache
-/// must be initialized through [initCache]. A network request is always made,
-/// even if a value already exists in the cache. The cached value will only be
-/// emitted when the network request has not yet finished.
+/// Requests can be persisted in the local cache if enabled and set up by the [NeonStorage].
 class RequestManager {
   RequestManager._();
 
@@ -72,17 +66,7 @@ class RequestManager {
   @visibleForTesting
   static set instance(RequestManager? requestManager) => _requestManager = requestManager;
 
-  /// Initializes the cache.
-  ///
-  /// Requests made before this method has completed will not be persisted in the cache.
-  Future<void> initCache() async {
-    final cache = Cache();
-    await cache.init();
-
-    _cache = cache;
-  }
-
-  Cache? _cache;
+  final RequestCache? _cache = NeonStorage().requestCache;
 
   /// Executes a request to a Nextcloud API endpoint.
   Future<void> wrapNextcloud<T, B, H>({
@@ -355,137 +339,7 @@ class RequestManager {
   }
 }
 
-@internal
-class Cache implements RequestCache {
-  factory Cache() => instance ??= Cache._();
-
-  Cache._();
-
-  @visibleForTesting
-  factory Cache.mocked(Cache mocked) => instance = mocked;
-
-  @visibleForTesting
-  static Cache? instance;
-
-  Database? _database;
-
-  Future<void> init() async {
-    if (_database != null) {
-      return;
-    }
-
-    final cacheDir = await getApplicationCacheDirectory();
-    _database = await openDatabase(
-      p.join(cacheDir.path, 'cache.db'),
-      version: 2,
-      onCreate: (db, version) async {
-        await db.execute(
-          'CREATE TABLE cache (id INTEGER PRIMARY KEY, key TEXT, value TEXT, etag TEXT, expires INTEGER, UNIQUE(key))',
-        );
-      },
-      onUpgrade: (db, oldVersion, newVersion) async {
-        final batch = db.batch();
-        if (oldVersion == 1) {
-          batch
-            ..execute('ALTER TABLE cache ADD COLUMN etag TEXT')
-            ..execute('ALTER TABLE cache ADD COLUMN expires INTEGER');
-        }
-        await batch.commit();
-      },
-    );
-  }
-
-  Database get _requireDatabase {
-    final database = _database;
-    if (database == null) {
-      throw StateError(
-        'Cache has not been set up yet. Please make sure Cache.init() has been called before and completed.',
-      );
-    }
-
-    return database;
-  }
-
-  @override
-  Future<String?> get(String key) async {
-    List<Map<String, Object?>>? result;
-    try {
-      result = await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
-    } on DatabaseException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
-    }
-
-    return result?.firstOrNull?['value'] as String?;
-  }
-
-  @override
-  Future<void> set(String key, String value, CacheParameters? parameters) async {
-    try {
-      // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
-      // Using a manual solution from https://stackoverflow.com/a/38463024
-      final batch = _requireDatabase.batch()
-        ..update(
-          'cache',
-          {
-            'key': key,
-            'value': value,
-            'etag': parameters?.etag,
-            'expires': parameters?.expires?.millisecondsSinceEpoch,
-          },
-          where: 'key = ?',
-          whereArgs: [key],
-        )
-        ..rawInsert(
-          'INSERT INTO cache (key, value, etag, expires) SELECT ?, ?, ?, ? WHERE (SELECT changes() = 0)',
-          [key, value, parameters?.etag, parameters?.expires?.millisecondsSinceEpoch],
-        );
-      await batch.commit(noResult: true);
-    } on DatabaseException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
-    }
-  }
-
-  @override
-  Future<CacheParameters> getParameters(String key) async {
-    List<Map<String, Object?>>? result;
-    try {
-      result = await _requireDatabase.rawQuery('SELECT etag, expires FROM cache WHERE key = ?', [key]);
-    } on DatabaseException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
-    }
-
-    final row = result?.firstOrNull;
-
-    final expires = row?['expires'] as int?;
-    return CacheParameters(
-      etag: row?['etag'] as String?,
-      expires: expires != null ? DateTime.fromMillisecondsSinceEpoch(expires) : null,
-    );
-  }
-
-  @override
-  Future<void> updateParameters(String key, CacheParameters? parameters) async {
-    try {
-      await _requireDatabase.update(
-        'cache',
-        {
-          'etag': parameters?.etag,
-          'expires': parameters?.expires?.millisecondsSinceEpoch,
-        },
-        where: 'key = ?',
-        whereArgs: [key],
-      );
-    } on DatabaseException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
-    }
-  }
-}
-
-/// Parameters for values in [Cache].
+/// Parameters for values in [RequestCache].
 @immutable
 class CacheParameters {
   /// Creates new cache parameters.

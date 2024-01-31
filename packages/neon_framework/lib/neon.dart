@@ -14,7 +14,6 @@ import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/theme/neon.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
-import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/utils/user_agent.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -35,7 +34,6 @@ Future<void> runNeon({
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
   await NeonPlatform.setup();
-  await RequestManager.instance.initCache();
   await NeonStorage().init();
 
   final packageInfo = await PackageInfo.fromPlatform();

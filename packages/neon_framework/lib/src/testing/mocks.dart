@@ -13,7 +13,6 @@ import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
-import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -43,7 +42,7 @@ class MockOption extends Mock implements ToggleOption {}
 
 class MockAppImplementationOptions extends Mock implements AppImplementationOptions {}
 
-class MockCache extends Mock implements Cache {}
+class MockRequestCache extends Mock implements RequestCache {}
 
 class MockNeonStorage extends Mock implements NeonStorage {
   MockNeonStorage() {
@@ -51,9 +50,9 @@ class MockNeonStorage extends Mock implements NeonStorage {
   }
 }
 
-class MockSettingsStore extends Mock implements SettingsStore {}
-
 class MockSharedPreferences extends Mock implements SharedPreferences {}
+
+class MockSettingsStore extends Mock implements SettingsStore {}
 
 class MockCallbackFunction<T> extends Mock {
   FutureOr<T> call();

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
+import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:neon_framework/src/storage/single_value_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,32 +45,37 @@ class NeonStorage {
       return;
     }
 
+    final requestCache = DefaultRequestCache();
+    await requestCache.init();
+    _requestCache = requestCache;
+
     _sharedPreferences = await SharedPreferences.getInstance();
 
     _initialized = true;
   }
 
-  /// Returns the database instance.
-  ///
-  /// Throws a `StateError` if [init] has not completed.
-  SharedPreferences get database {
+  /// Request cache instance.
+  RequestCache? _requestCache;
+
+  /// The current request cache if available.
+  RequestCache? get requestCache {
     _assertInitialized();
 
-    return _sharedPreferences;
+    return _requestCache;
   }
 
   /// Initializes a new `SettingsStorage`.
   SettingsStore settingsStore(StorageKeys groupKey, [String? suffix]) {
     _assertInitialized();
 
-    return DefaultSettingsStore(groupKey, suffix);
+    return DefaultSettingsStore(_sharedPreferences, groupKey, suffix);
   }
 
   /// Initializes a new `KeyValueStorage`.
   SingleValueStore singleValueStore(StorageKeys key) {
     _assertInitialized();
 
-    return DefaultSingleValueStore(key);
+    return DefaultSingleValueStore(_sharedPreferences, key);
   }
 
   void _assertInitialized() {

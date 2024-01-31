@@ -66,32 +66,34 @@ abstract interface class SingleValueStore {
 @internal
 final class DefaultSingleValueStore implements SingleValueStore {
   /// Creates a new storage for a single value.
-  const DefaultSingleValueStore(this.key);
+  const DefaultSingleValueStore(this._database, this.key);
+
+  final SharedPreferences _database;
 
   @override
   final StorageKeys key;
 
   @override
-  bool hasValue() => NeonStorage().database.containsKey(key.value);
+  bool hasValue() => _database.containsKey(key.value);
 
   @override
-  Future<bool> remove() => NeonStorage().database.remove(key.value);
+  Future<bool> remove() => _database.remove(key.value);
 
   @override
-  String? getString() => NeonStorage().database.getString(key.value);
+  String? getString() => _database.getString(key.value);
 
   @override
-  Future<bool> setString(String value) => NeonStorage().database.setString(key.value, value);
+  Future<bool> setString(String value) => _database.setString(key.value, value);
 
   @override
-  bool? getBool() => NeonStorage().database.getBool(key.value);
+  bool? getBool() => _database.getBool(key.value);
 
   @override
-  Future<bool> setBool(bool value) => NeonStorage().database.setBool(key.value, value);
+  Future<bool> setBool(bool value) => _database.setBool(key.value, value);
 
   @override
-  List<String>? getStringList() => NeonStorage().database.getStringList(key.value);
+  List<String>? getStringList() => _database.getStringList(key.value);
 
   @override
-  Future<bool> setStringList(List<String> value) => NeonStorage().database.setStringList(key.value, value);
+  Future<bool> setStringList(List<String> value) => _database.setStringList(key.value, value);
 }
