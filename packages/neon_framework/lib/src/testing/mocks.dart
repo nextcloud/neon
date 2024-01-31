@@ -33,7 +33,7 @@ class MockAppsBloc extends Mock implements AppsBloc {}
 
 class MockCapabilitiesBloc extends Mock implements CapabilitiesBloc {}
 
-class MockStorage extends Mock implements SettingsStorage {}
+class MockStorage extends Mock implements SettingsStore {}
 
 class MockAccountOptions extends Mock implements AccountOptions {}
 

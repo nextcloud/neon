@@ -41,7 +41,7 @@ class PushUtils {
   static Future<void> Function(PushNotification notification)? onLocalNotificationClicked;
 
   static RSAKeypair loadRSAKeypair() {
-    final storage = NeonStorage().settingsStorage(StorageKeys.notifications);
+    final storage = NeonStorage().settingsStore(StorageKeys.notifications);
     const keyDevicePrivateKey = 'device-private-key';
 
     final RSAKeypair keypair;

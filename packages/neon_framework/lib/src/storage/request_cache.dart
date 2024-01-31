@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:neon_framework/src/utils/request_manager.dart';
 
 /// A storage used to cache a key value pair.
-abstract interface class CacheInterface {
+abstract interface class RequestCache {
   /// Get's the cached value for the given [key].
   ///
   /// Use [getParameters] if you only need to check whether the cache is still

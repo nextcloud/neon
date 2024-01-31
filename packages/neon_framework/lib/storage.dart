@@ -5,6 +5,6 @@ library;
 
 export 'package:neon_framework/src/storage/keys.dart' show Storable;
 export 'package:neon_framework/src/storage/request_cache.dart';
-export 'package:neon_framework/src/storage/settings_store.dart' show SettingsStorage;
-export 'package:neon_framework/src/storage/single_value_store.dart' show KeyValueStorage;
+export 'package:neon_framework/src/storage/settings_store.dart' show SettingsStore;
+export 'package:neon_framework/src/storage/single_value_store.dart' show SingleValueStore;
 export 'package:neon_framework/src/storage/storage_manager.dart';

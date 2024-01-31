@@ -59,8 +59,8 @@ class NeonStorage {
   }
 
   /// Initializes a new `SettingsStorage`.
-  SettingsStorage settingsStorage(StorageKeys groupKey, [String? suffix]) => AppStorage(groupKey, suffix);
+  SettingsStore settingsStore(StorageKeys groupKey, [String? suffix]) => DefaultSettingsStore(groupKey, suffix);
 
   /// Initializes a new `KeyValueStorage`.
-  KeyValueStorage singleValueStore(StorageKeys key) => SingleValueStorage(key);
+  SingleValueStore singleValueStore(StorageKeys key) => DefaultSingleValueStore(key);
 }

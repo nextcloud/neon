@@ -34,19 +34,19 @@ void main() {
     });
 
     test('AppStorage formatKey', () async {
-      var appStorage = const AppStorage(StorageKeys.accountOptions);
+      var appStorage = const DefaultSettingsStore(StorageKeys.accountOptions);
       var key = appStorage.formatKey('test-key');
       expect(key, 'accounts-test-key');
       expect(appStorage.id, StorageKeys.accountOptions.value);
 
-      appStorage = const AppStorage(StorageKeys.accountOptions, 'test-suffix');
+      appStorage = const DefaultSettingsStore(StorageKeys.accountOptions, 'test-suffix');
       key = appStorage.formatKey('test-key');
       expect(key, 'accounts-test-suffix-test-key');
       expect(appStorage.id, 'test-suffix');
     });
 
     test('AppStorage interface', () async {
-      const appStorage = AppStorage(StorageKeys.accountOptions);
+      const appStorage = DefaultSettingsStore(StorageKeys.accountOptions);
       const key = 'key';
       final formattedKey = appStorage.formatKey(key);
 
@@ -77,7 +77,7 @@ void main() {
     });
 
     test('SingleValueStorage', () async {
-      const storage = SingleValueStorage(StorageKeys.global);
+      const storage = DefaultSingleValueStore(StorageKeys.global);
       final key = StorageKeys.global.value;
 
       when(() => sharedPreferences.containsKey(key)).thenReturn(true);

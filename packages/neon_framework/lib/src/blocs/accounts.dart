@@ -312,7 +312,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   AccountOptions getOptionsFor(Account account) => accountsOptions[account] ??= AccountOptions(
-        NeonStorage().settingsStorage(StorageKeys.accountOptions, account.id),
+        NeonStorage().settingsStore(StorageKeys.accountOptions, account.id),
         getAppsBlocFor(account),
       );
 

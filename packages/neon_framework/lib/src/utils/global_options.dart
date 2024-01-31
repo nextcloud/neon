@@ -22,7 +22,7 @@ class GlobalOptions extends OptionsCollection {
   /// Creates a new global options collection.
   GlobalOptions(
     this._packageInfo,
-  ) : super(NeonStorage().settingsStorage(StorageKeys.global)) {
+  ) : super(NeonStorage().settingsStore(StorageKeys.global)) {
     pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
     rememberLastUsedAccount.addListener(_rememberLastUsedAccountListener);
   }

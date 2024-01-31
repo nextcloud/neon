@@ -50,7 +50,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
 
   /// The storage bucket for this app.
   @protected
-  late final SettingsStorage storage = NeonStorage().settingsStorage(StorageKeys.apps, id);
+  late final SettingsStore storage = NeonStorage().settingsStore(StorageKeys.apps, id);
 
   /// The options associated with this app.
   ///

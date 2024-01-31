@@ -6,7 +6,7 @@ import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:neon_framework/testing.dart';
 
 class Collection extends AppImplementationOptions {
-  Collection(List<Option<Object>> options) : super(const AppStorage(StorageKeys.apps)) {
+  Collection(List<Option<Object>> options) : super(const DefaultSettingsStore(StorageKeys.apps)) {
     super.options = options;
   }
 }

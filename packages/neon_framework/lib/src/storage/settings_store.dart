@@ -6,7 +6,7 @@ import 'package:neon_framework/src/storage/storage_manager.dart';
 ///
 /// See:
 ///   * [NeonStorage] that manages the storage backend.
-abstract interface class SettingsStorage {
+abstract interface class SettingsStore {
   /// The group key for this app storage.
   StorageKeys get groupKey;
 
@@ -61,9 +61,9 @@ abstract interface class SettingsStorage {
 ///   * [NeonStorage] to initialize and manage the storage backends.
 @immutable
 @internal
-final class AppStorage implements SettingsStorage {
+final class DefaultSettingsStore implements SettingsStore {
   /// Creates a new app storage.
-  const AppStorage(
+  const DefaultSettingsStore(
     this.groupKey, [
     this.suffix,
   ]);

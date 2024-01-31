@@ -356,7 +356,7 @@ class RequestManager {
 }
 
 @internal
-class Cache implements CacheInterface {
+class Cache implements RequestCache {
   factory Cache() => instance ??= Cache._();
 
   Cache._();

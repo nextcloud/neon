@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///
 /// See:
 ///   * `NeonStorage` to initialize and manage the storage backends.
-abstract interface class KeyValueStorage {
+abstract interface class SingleValueStore {
   /// The key used by the storage backend.
   StorageKeys get key;
 
@@ -64,9 +64,9 @@ abstract interface class KeyValueStorage {
 ///   * [NeonStorage] to initialize and manage the storage backends.
 @immutable
 @internal
-final class SingleValueStorage implements KeyValueStorage {
+final class DefaultSingleValueStore implements SingleValueStore {
   /// Creates a new storage for a single value.
-  const SingleValueStorage(this.key);
+  const DefaultSingleValueStore(this.key);
 
   @override
   final StorageKeys key;

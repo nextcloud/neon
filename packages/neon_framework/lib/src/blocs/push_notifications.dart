@@ -43,7 +43,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   }
 
   final AccountsBloc accountsBloc;
-  late final storage = NeonStorage().settingsStorage(StorageKeys.lastEndpoint);
+  late final storage = NeonStorage().settingsStore(StorageKeys.lastEndpoint);
   final GlobalOptions globalOptions;
 
   StreamSubscription<List<Account>>? accountsListener;

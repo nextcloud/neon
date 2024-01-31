@@ -12,7 +12,7 @@ abstract class OptionsCollection implements Exportable, Disposable {
 
   /// Storage backend to use.
   @protected
-  final SettingsStorage storage;
+  final SettingsStore storage;
 
   /// Collection of options.
   @protected
