@@ -6,8 +6,6 @@ import 'package:crypto/crypto.dart';
 import 'package:crypton/crypton.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-export 'package:crypton/crypton.dart' show RSAKeypair, RSAPrivateKey, RSAPublicKey;
-
 part 'notifications.g.dart';
 
 /// Generates the push token hash which is just sha512

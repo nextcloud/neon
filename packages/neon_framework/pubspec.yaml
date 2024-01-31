@@ -12,6 +12,7 @@ dependencies:
   collection: ^1.0.0
   cookie_jar: ^4.0.0
   crypto: ^3.0.0
+  crypton: ^2.0.0
   cupertino_icons: ^1.0.0
   dynamic_color: ^1.0.0
   emoji_picker_flutter: ^2.0.0
