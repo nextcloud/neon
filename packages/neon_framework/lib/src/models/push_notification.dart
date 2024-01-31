@@ -1,6 +1,7 @@
+import 'package:crypton/crypton.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/notifications.dart' show DecryptedSubject, RSAPrivateKey, decryptPushNotificationSubject;
+import 'package:nextcloud/notifications.dart' show DecryptedSubject, decryptPushNotificationSubject;
 
 part 'push_notification.g.dart';
 

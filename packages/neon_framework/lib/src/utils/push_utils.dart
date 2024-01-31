@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:crypto/crypto.dart';
+import 'package:crypton/crypton.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -37,19 +38,19 @@ class PushUtils {
   /// The callback will only be set if the current flutter engine was opened in the foreground.
   static Future<void> Function(PushNotification notification)? onLocalNotificationClicked;
 
-  static notifications.RSAKeypair loadRSAKeypair() {
+  static RSAKeypair loadRSAKeypair() {
     const storage = AppStorage(StorageKeys.notifications);
     const keyDevicePrivateKey = 'device-private-key';
 
-    final notifications.RSAKeypair keypair;
+    final RSAKeypair keypair;
     if (!storage.containsKey(keyDevicePrivateKey) || (storage.getString(keyDevicePrivateKey)!.isEmpty)) {
       debugPrint('Generating RSA keys for push notifications');
       // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
       // ignore: avoid_redundant_argument_values
-      keypair = notifications.RSAKeypair.fromRandom(keySize: 2048);
+      keypair = RSAKeypair.fromRandom(keySize: 2048);
       unawaited(storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM()));
     } else {
-      keypair = notifications.RSAKeypair(notifications.RSAPrivateKey.fromPEM(storage.getString(keyDevicePrivateKey)!));
+      keypair = RSAKeypair(RSAPrivateKey.fromPEM(storage.getString(keyDevicePrivateKey)!));
     }
 
     return keypair;
