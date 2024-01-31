@@ -2,11 +2,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/storage/keys.dart';
-import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:neon_framework/testing.dart';
 
 class Collection extends AppImplementationOptions {
-  Collection(List<Option<Object>> options) : super(const DefaultSettingsStore(StorageKeys.apps)) {
+  Collection(List<Option<Object>> options, MockSettingsStore storage) : super(storage) {
+    when(() => storage.id).thenReturn('app');
+
     super.options = options;
   }
 }
@@ -25,10 +26,13 @@ void main() {
   group('OptionsCollection', () {
     final option1 = MockOption();
     final option2 = MockOption();
-    final collection = Collection([
-      option1,
-      option2,
-    ]);
+    final collection = Collection(
+      [
+        option1,
+        option2,
+      ],
+      MockSettingsStore(),
+    );
 
     test('reset', () {
       collection.reset();

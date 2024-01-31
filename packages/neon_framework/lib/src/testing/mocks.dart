@@ -45,7 +45,13 @@ class MockAppImplementationOptions extends Mock implements AppImplementationOpti
 
 class MockCache extends Mock implements Cache {}
 
-class MockNeonStorage extends Mock implements NeonStorage {}
+class MockNeonStorage extends Mock implements NeonStorage {
+  MockNeonStorage() {
+    NeonStorage.mocked(this);
+  }
+}
+
+class MockSettingsStore extends Mock implements SettingsStore {}
 
 class MockSharedPreferences extends Mock implements SharedPreferences {}
 

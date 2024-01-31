@@ -28,39 +28,55 @@ class NeonStorage {
   @visibleForTesting
   static NeonStorage? instance;
 
-  /// Shared preferences instance.
-  ///
-  /// Use [database] to access it.
-  /// Make sure it has been initialized with [init] before.
-  SharedPreferences? _sharedPreferences;
+  bool _initialized = false;
 
-  /// Sets up the [SharedPreferences] instance.
+  /// Whether the storages have been initialized.
+  bool get initialized => _initialized;
+
+  /// Shared preferences instance.
+  late SharedPreferences _sharedPreferences;
+
+  /// Sets the individual storages.
   ///
-  /// Required to be called before accessing [database].
+  /// Required to be called before accessing any individual one.
   Future<void> init() async {
-    if (_sharedPreferences != null) {
+    if (_initialized) {
       return;
     }
 
     _sharedPreferences = await SharedPreferences.getInstance();
+
+    _initialized = true;
   }
 
   /// Returns the database instance.
   ///
   /// Throws a `StateError` if [init] has not completed.
   SharedPreferences get database {
-    if (_sharedPreferences == null) {
+    _assertInitialized();
+
+    return _sharedPreferences;
+  }
+
+  /// Initializes a new `SettingsStorage`.
+  SettingsStore settingsStore(StorageKeys groupKey, [String? suffix]) {
+    _assertInitialized();
+
+    return DefaultSettingsStore(groupKey, suffix);
+  }
+
+  /// Initializes a new `KeyValueStorage`.
+  SingleValueStore singleValueStore(StorageKeys key) {
+    _assertInitialized();
+
+    return DefaultSingleValueStore(key);
+  }
+
+  void _assertInitialized() {
+    if (!_initialized) {
       throw StateError(
         'NeonStorage has not been initialized yet. Please make sure NeonStorage.init() has been called before and completed.',
       );
     }
-
-    return _sharedPreferences!;
   }
-
-  /// Initializes a new `SettingsStorage`.
-  SettingsStore settingsStore(StorageKeys groupKey, [String? suffix]) => DefaultSettingsStore(groupKey, suffix);
-
-  /// Initializes a new `KeyValueStorage`.
-  SingleValueStore singleValueStore(StorageKeys key) => DefaultSingleValueStore(key);
 }

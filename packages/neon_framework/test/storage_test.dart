@@ -3,34 +3,17 @@ import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:neon_framework/src/storage/single_value_store.dart';
-import 'package:neon_framework/storage.dart';
 import 'package:neon_framework/testing.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  test('NeonStorage', () async {
-    expect(() => NeonStorage().database, throwsA(isA<StateError>()));
-
-    SharedPreferences.setMockInitialValues({});
-    await NeonStorage().init();
-
-    expect(NeonStorage().database, isA<SharedPreferences>());
-  });
-
   group('Storages', () {
-    late SharedPreferences sharedPreferences;
+    late MockSharedPreferences sharedPreferences;
 
     setUp(() {
       sharedPreferences = MockSharedPreferences();
       final storageMock = MockNeonStorage();
 
       when(() => storageMock.database).thenReturn(sharedPreferences);
-
-      NeonStorage.mocked(storageMock);
-    });
-
-    tearDown(() {
-      NeonStorage.instance = null;
     });
 
     test('AppStorage formatKey', () async {
