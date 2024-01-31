@@ -576,13 +576,22 @@ class NeonEmojiPickerDialog extends StatelessWidget {
         height: constraints.maxWidth * 1.5,
         child: EmojiPicker(
           config: Config(
-            emojiSizeMax: 25,
-            columns: 10,
-            bgColor: Colors.transparent,
-            indicatorColor: theme.colorScheme.primary,
-            iconColorSelected: theme.colorScheme.primary,
-            skinToneDialogBgColor: theme.dialogBackgroundColor,
-            skinToneIndicatorColor: theme.colorScheme.primary,
+            emojiViewConfig: const EmojiViewConfig(
+              emojiSizeMax: 25,
+              backgroundColor: Colors.transparent,
+            ),
+            categoryViewConfig: CategoryViewConfig(
+              backgroundColor: Colors.transparent,
+              indicatorColor: theme.colorScheme.primary,
+              iconColorSelected: theme.colorScheme.primary,
+            ),
+            skinToneConfig: SkinToneConfig(
+              dialogBackgroundColor: theme.dialogBackgroundColor,
+              indicatorColor: theme.colorScheme.primary,
+            ),
+            bottomActionBarConfig: const BottomActionBarConfig(
+              enabled: false,
+            ),
           ),
           onEmojiSelected: (category, emoji) {
             Navigator.of(context).pop(emoji.emoji);
