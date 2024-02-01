@@ -13,6 +13,7 @@
     "**/l10n/!(en.arb)",
     "**.openapi.dart",
     "**.openapi.json",
+    "**/CHANGELOG.md",
     "external",
     "packages/dynamite/dynamite/example/lib",
     "packages/file_icons/lib/src/data.dart",
