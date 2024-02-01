@@ -184,7 +184,7 @@ Iterable<Method> buildTags(
         ...?pathEntry.value.parameters,
         ...?operation.parameters,
       ]..sort(sortRequiredParameters);
-      final name = toDartName(filterMethodName(operationName, tag ?? ''));
+      final name = toMethodName(operationName, tag);
 
       final hasContentEncoding = operation.requestBody?.content?.entries.isNotEmpty ?? false;
       final hasAuthentication = needsAuthCheck(pathEntry, operation, spec, client);

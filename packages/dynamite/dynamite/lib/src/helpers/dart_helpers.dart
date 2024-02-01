@@ -75,6 +75,29 @@ String toDartName(
   return result;
 }
 
+String toMethodName(String operationId, String? tag) {
+  String? filtered;
+  if (tag != null && tag.isNotEmpty) {
+    final expandedTag = tag.split('/').toList();
+    final parts = operationId.split('-');
+    final output = <String>[];
+    for (var i = 0; i < parts.length; i++) {
+      if (expandedTag.length <= i || expandedTag[i] != parts[i]) {
+        output.add(parts[i]);
+      }
+    }
+    filtered = output.join('-');
+  }
+
+  final dartName = toDartName(filtered ?? operationId);
+
+  if (_reservedMethodNames.contains(dartName)) {
+    return '\$$dartName';
+  }
+
+  return dartName;
+}
+
 /// Helper methods to work with strings.
 extension StringUtils on String {
   /// Capitalizes this string.
@@ -97,6 +120,11 @@ extension StringUtils on String {
     return trimmed.replaceRange(0, 1, capitalChar);
   }
 }
+
+const _reservedMethodNames = [
+  'executeRequest',
+  'executeRawRequest',
+];
 
 /// A list of dart keywords and type names that need to be escaped.
 const _reservedNames = [
