@@ -403,7 +403,7 @@ class $AutoCompleteClient {
   ///   * [itemType] Type of the items to search for.
   ///   * [itemId] ID of the items to search for.
   ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients".
-  ///   * [shareTypes] Types of shares to search for.
+  ///   * [shareTypes] Types of shares to search for. Defaults to `[]`.
   ///   * [limit] Maximum number of results to return. Defaults to `10`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -446,7 +446,7 @@ class $AutoCompleteClient {
   ///   * [itemType] Type of the items to search for.
   ///   * [itemId] ID of the items to search for.
   ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients".
-  ///   * [shareTypes] Types of shares to search for.
+  ///   * [shareTypes] Types of shares to search for. Defaults to `[]`.
   ///   * [limit] Maximum number of results to return. Defaults to `10`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -497,8 +497,9 @@ class $AutoCompleteClient {
     final $sorter = _$jsonSerializers.serialize(sorter, specifiedType: const FullType(String));
     _parameters['sorter'] = $sorter;
 
-    final $shareTypes =
+    var $shareTypes =
         _$jsonSerializers.serialize(shareTypes, specifiedType: const FullType(BuiltList, [FullType(int)]));
+    $shareTypes ??= [];
     _parameters['shareTypes%5B%5D'] = $shareTypes;
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));

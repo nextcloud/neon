@@ -78,7 +78,7 @@ class $DirectClient {
   ///  * [getUrlRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
     required int fileId,
-    int? expirationTime,
+    required int expirationTime,
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUrlRaw(
@@ -113,7 +113,7 @@ class $DirectClient {
   @_i4.experimental
   _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
     required int fileId,
-    int? expirationTime,
+    required int expirationTime,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
