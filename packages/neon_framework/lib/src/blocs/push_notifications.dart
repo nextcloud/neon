@@ -7,10 +7,11 @@ import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/platform/platform.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/push_utils.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:unifiedpush/unifiedpush.dart';
 
@@ -42,7 +43,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   }
 
   final AccountsBloc accountsBloc;
-  late final storage = const AppStorage(StorageKeys.lastEndpoint);
+  late final storage = NeonStorage().settingsStore(StorageKeys.lastEndpoint);
   final GlobalOptions globalOptions;
 
   StreamSubscription<List<Account>>? accountsListener;

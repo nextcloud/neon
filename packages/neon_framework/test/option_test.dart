@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:neon_framework/testing.dart';
 
 enum StorageKey implements Storable {

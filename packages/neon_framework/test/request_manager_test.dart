@@ -17,16 +17,15 @@ String base64String(String value) => base64.encode(utf8.encode(value));
 void main() {
   final account = MockAccount();
   when(() => account.id).thenReturn('clientID');
+  late MockNeonStorage storage;
+
+  setUp(() {
+    storage = MockNeonStorage();
+    when(() => storage.requestCache).thenReturn(null);
+  });
 
   tearDown(() {
     RequestManager.instance = null;
-    Cache.instance = null;
-  });
-
-  group('Cache', () {
-    test('singleton', () {
-      expect(identical(Cache(), Cache()), isTrue);
-    });
   });
 
   group('RequestManager', () {
@@ -266,11 +265,10 @@ void main() {
     });
 
     group('wrap with cache', () {
-      late Cache cache;
+      late MockRequestCache cache;
 
       setUp(() async {
-        cache = MockCache();
-        Cache.mocked(cache);
+        cache = MockRequestCache();
 
         when(() => cache.get(any())).thenAnswer(
           (_) => Future.value('Cached value'),
@@ -288,11 +286,7 @@ void main() {
           (_) => Future.value(),
         );
 
-        when(() => cache.init()).thenAnswer(
-          (_) => Future.value(),
-        );
-
-        await RequestManager.instance.initCache();
+        when(() => storage.requestCache).thenReturn(cache);
       });
 
       test('successful request', () async {

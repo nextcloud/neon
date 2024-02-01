@@ -8,7 +8,8 @@ import 'package:neon_framework/src/models/account.dart' show Account;
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
+
 import 'package:neon_framework/src/utils/findable.dart';
 
 /// Helper class to export all [Option]s.
@@ -123,7 +124,7 @@ class AccountsBlocExporter implements Exportable {
   final AccountsBloc accountsBloc;
 
   /// Key the exported value will be stored at.
-  static final _key = StorageKeys.accounts.value;
+  static final _key = StorageKeys.accountOptions.value;
 
   @override
   MapEntry<String, Object?> export() => MapEntry(_key, Map.fromEntries(_serialize()));

@@ -6,10 +6,10 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/models/label_builder.dart';
 import 'package:neon_framework/src/settings/models/options_category.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-/// Listenable option that is persisted in the [SettingsStorage].
+/// Listenable option that is persisted in the [SettingsStore].
 ///
 /// See:
 ///   * [ToggleOption] for an Option<bool>
@@ -44,7 +44,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
   }
 
   /// Storage to persist the state.
-  final SettingsStorage storage;
+  final SettingsStore storage;
 
   /// Storage key to save the state at.
   final Storable key;

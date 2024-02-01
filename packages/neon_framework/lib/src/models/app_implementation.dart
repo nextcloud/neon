@@ -10,10 +10,12 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
+
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart' show VersionCheck;
 import 'package:provider/provider.dart';
@@ -46,9 +48,9 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// Localized name of this app.
   String name(BuildContext context) => nameFromLocalization(NeonLocalizations.of(context));
 
-  /// The [SettingsStorage] for this app.
+  /// The storage bucket for this app.
   @protected
-  late final AppStorage storage = AppStorage(StorageKeys.apps, id);
+  late final SettingsStore storage = NeonStorage().settingsStore(StorageKeys.apps, id);
 
   /// The options associated with this app.
   ///

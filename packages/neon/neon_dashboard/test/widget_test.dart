@@ -40,6 +40,11 @@ void main() {
     ),
   );
 
+  setUp(() {
+    final storage = MockNeonStorage();
+    when(() => storage.requestCache).thenReturn(null);
+  });
+
   group('Widget item', () {
     final item = dashboard.WidgetItem(
       (b) => b

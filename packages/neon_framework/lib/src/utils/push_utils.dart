@@ -14,12 +14,14 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
+
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
 import 'package:neon_framework/src/utils/localizations.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
 
@@ -39,18 +41,19 @@ class PushUtils {
   static Future<void> Function(PushNotification notification)? onLocalNotificationClicked;
 
   static RSAKeypair loadRSAKeypair() {
-    const storage = AppStorage(StorageKeys.notifications);
+    final storage = NeonStorage().settingsStore(StorageKeys.notifications);
     const keyDevicePrivateKey = 'device-private-key';
 
     final RSAKeypair keypair;
-    if (!storage.containsKey(keyDevicePrivateKey) || (storage.getString(keyDevicePrivateKey)!.isEmpty)) {
+    final privateKey = storage.getString(keyDevicePrivateKey);
+    if (privateKey == null || privateKey.isEmpty) {
       debugPrint('Generating RSA keys for push notifications');
       // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
       // ignore: avoid_redundant_argument_values
       keypair = RSAKeypair.fromRandom(keySize: 2048);
       unawaited(storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM()));
     } else {
-      keypair = RSAKeypair(RSAPrivateKey.fromPEM(storage.getString(keyDevicePrivateKey)!));
+      keypair = RSAKeypair(RSAPrivateKey.fromPEM(privateKey));
     }
 
     return keypair;
@@ -87,7 +90,7 @@ class PushUtils {
         }
       },
     );
-    await NeonStorage.init();
+    await NeonStorage().init();
 
     final keypair = loadRSAKeypair();
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {

@@ -15,14 +15,13 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/disposable.dart';
-import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
-
-const _keyAccounts = 'accounts';
 
 /// The Bloc responsible for managing the [Account]s
 @sealed
@@ -153,7 +152,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     this.globalOptions,
     this.allAppImplementations,
   ) {
-    const lastUsedStorage = SingleValueStorage(StorageKeys.lastUsedAccount);
+    final lastUsedStorage = NeonStorage().singleValueStore(StorageKeys.lastUsedAccount);
 
     accounts
       ..add(loadAccounts())
@@ -313,7 +312,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   AccountOptions getOptionsFor(Account account) => accountsOptions[account] ??= AccountOptions(
-        AppStorage(StorageKeys.accounts, account.id),
+        NeonStorage().settingsStore(StorageKeys.accountOptions, account.id),
         getAppsBlocFor(account),
       );
 
@@ -369,21 +368,19 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 ///
 /// It is not checked whether the stored information is still valid.
 List<Account> loadAccounts() {
-  const storage = AppStorage(StorageKeys.accounts);
+  final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
 
-  if (storage.containsKey(_keyAccounts)) {
-    return storage
-        .getStringList(_keyAccounts)!
-        .map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
-        .toList();
+  if (storage.hasValue()) {
+    return storage.getStringList()!.map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>)).toList();
   }
+
   return [];
 }
 
 /// Saves the given [accounts] to the storage.
 Future<void> saveAccounts(List<Account> accounts) async {
-  const storage = AppStorage(StorageKeys.accounts);
+  final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
   final values = accounts.map((a) => json.encode(a.toJson())).toList();
 
-  await storage.setStringList(_keyAccounts, values);
+  await storage.setStringList(values);
 }
