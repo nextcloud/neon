@@ -22,7 +22,7 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework
-  nextcloud: ^4.0.0
+  nextcloud: ^5.0.0
   queue: ^3.0.0
   rxdart: ^0.27.0
   url_launcher: ^6.0.0

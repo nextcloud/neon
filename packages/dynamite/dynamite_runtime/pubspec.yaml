@@ -1,6 +1,6 @@
 name: dynamite_runtime
 description: The helper package used at runtime by code generated with the OpenAPI generator dynamite.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/nextcloud/neon
 repository: https://github.com/nextcloud/neon/tree/main/packages/dynamite/dynamite_runtime
 topics:
