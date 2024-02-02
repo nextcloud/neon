@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-fvm dart run commitlint_cli --edit "$1"
+FLUTTER_SDK="$(pwd)/.fvm/flutter_sdk/bin"
+
+"$FLUTTER_SDK/dart" run commitlint_cli --edit "$1"
