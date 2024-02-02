@@ -34,83 +34,86 @@ class DashboardMainPage extends StatelessWidget {
     return NeonCustomBackground(
       child: ResultBuilder.behaviorSubject(
         subject: bloc.widgets,
-        builder: (context, result) {
-          final children = <Widget>[
-            _buildStatuses(
-              account: accountsBloc.activeAccount.value!,
-              userStatusBloc: userStatusBloc,
-              weatherStatusBloc: weatherStatusBloc,
-            ),
-          ];
-
-          var minHeight = 504.0;
-          if (result.hasData) {
-            final widgets = <Widget>[];
-            for (final widget in result.requireData.entries) {
-              final items = buildWidgetItems(
-                context: context,
-                widget: widget.key,
-                items: widget.value,
-              ).toList();
-
-              final height = items.map((i) => i.height!).reduce((a, b) => a + b);
-              minHeight = max(minHeight, height);
-
-              widgets.add(
-                DashboardWidget(
-                  widget: widget.key,
-                  children: items,
-                ),
-              );
-            }
-
-            children.add(
-              Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 8,
-                runSpacing: 8,
-                children: widgets
-                    .map(
-                      (widget) => SizedBox(
-                        width: 320,
-                        height: minHeight + 24,
-                        child: widget,
-                      ),
-                    )
-                    .toList(),
+        builder: (context, widgetsResult) => ResultBuilder.behaviorSubject(
+          subject: bloc.items,
+          builder: (context, itemsResult) {
+            final children = <Widget>[
+              _buildStatuses(
+                account: accountsBloc.activeAccount.value!,
+                userStatusBloc: userStatusBloc,
+                weatherStatusBloc: weatherStatusBloc,
               ),
-            );
-          } else {
-            children.add(
-              SizedBox(
-                height: minHeight,
-              ),
-            );
-          }
+            ];
 
-          return Center(
-            child: NeonListView.custom(
-              scrollKey: 'dashboard',
-              isLoading: result.isLoading,
-              error: result.error,
-              onRefresh: bloc.refresh,
-              sliver: SliverFillRemaining(
-                hasScrollBody: false,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: children
-                      .intersperse(
-                        const SizedBox(
-                          height: 40,
+            var minHeight = 504.0;
+            if (widgetsResult.hasData) {
+              final widgets = <Widget>[];
+              for (final widget in widgetsResult.requireData) {
+                final items = buildWidgetItems(
+                  context: context,
+                  widget: widget,
+                  items: itemsResult.data?[widget.id],
+                ).toList();
+
+                final height = items.map((i) => i.height!).reduce((a, b) => a + b);
+                minHeight = max(minHeight, height);
+
+                widgets.add(
+                  DashboardWidget(
+                    widget: widget,
+                    children: items,
+                  ),
+                );
+              }
+
+              children.add(
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: widgets
+                      .map(
+                        (widget) => SizedBox(
+                          width: 320,
+                          height: minHeight + 24,
+                          child: widget,
                         ),
                       )
                       .toList(),
                 ),
+              );
+            } else {
+              children.add(
+                SizedBox(
+                  height: minHeight,
+                ),
+              );
+            }
+
+            return Center(
+              child: NeonListView.custom(
+                scrollKey: 'dashboard',
+                isLoading: widgetsResult.isLoading || itemsResult.isLoading,
+                error: widgetsResult.error ?? itemsResult.error,
+                onRefresh: bloc.refresh,
+                sliver: SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: children
+                        .intersperse(
+                          const SizedBox(
+                            height: 40,
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

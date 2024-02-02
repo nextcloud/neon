@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:rxdart/rxdart.dart';
 
@@ -16,7 +16,10 @@ sealed class DashboardBloc implements InteractiveBloc {
   factory DashboardBloc(Account account) => _DashboardBloc(account);
 
   /// Dashboard widgets that are displayed.
-  BehaviorSubject<Result<Map<dashboard.Widget, dashboard.WidgetItems?>>> get widgets;
+  BehaviorSubject<Result<BuiltList<dashboard.Widget>>> get widgets;
+
+  /// Dashboard items that are displayed.
+  BehaviorSubject<Result<BuiltMap<String, dashboard.WidgetItems>>> get items;
 }
 
 /// Implementation of [DashboardBloc].
@@ -24,6 +27,52 @@ sealed class DashboardBloc implements InteractiveBloc {
 /// Automatically starts fetching the widgets and their items and refreshes everything every 30 seconds.
 class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
   _DashboardBloc(this.account) {
+    itemsV1.listen((_) => _updateItems());
+    itemsV2.listen((_) => _updateItems());
+
+    widgets.listen((result) async {
+      if (!result.hasData) {
+        return;
+      }
+
+      final v1WidgetIDs = ListBuilder<String>();
+      final v2WidgetIDs = ListBuilder<String>();
+
+      for (final widget in result.requireData) {
+        final itemApiVersions = widget.itemApiVersions;
+        if (itemApiVersions != null && itemApiVersions.contains(2)) {
+          v2WidgetIDs.add(widget.id);
+        } else {
+          v1WidgetIDs.add(widget.id);
+        }
+      }
+
+      await Future.wait<void>([
+        if (v1WidgetIDs.isNotEmpty)
+          RequestManager.instance.wrapNextcloud(
+            account: account,
+            cacheKey: 'dashboard-widgets-v1',
+            subject: itemsV1,
+            rawResponse: account.client.dashboard.dashboardApi.getWidgetItemsRaw(
+              widgets: v1WidgetIDs.build(),
+              limit: maxItems,
+            ),
+            unwrap: (response) => response.body.ocs.data,
+          ),
+        if (v2WidgetIDs.isNotEmpty)
+          RequestManager.instance.wrapNextcloud(
+            account: account,
+            cacheKey: 'dashboard-widgets-v2',
+            subject: itemsV2,
+            rawResponse: account.client.dashboard.dashboardApi.getWidgetItemsV2Raw(
+              widgets: v2WidgetIDs.build(),
+              limit: maxItems,
+            ),
+            unwrap: (response) => response.body.ocs.data,
+          ),
+      ]);
+    });
+
     unawaited(refresh());
 
     timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
@@ -31,97 +80,74 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
 
   final Account account;
   late final NeonTimer timer;
+  final itemsV1 = BehaviorSubject<Result<BuiltMap<String, BuiltList<dashboard.WidgetItem>>>>();
+  final itemsV2 = BehaviorSubject<Result<BuiltMap<String, dashboard.WidgetItems>>>();
   static const int maxItems = 7;
 
   @override
-  BehaviorSubject<Result<Map<dashboard.Widget, dashboard.WidgetItems?>>> widgets = BehaviorSubject();
+  final widgets = BehaviorSubject<Result<BuiltList<dashboard.Widget>>>();
+
+  @override
+  final items = BehaviorSubject<Result<BuiltMap<String, dashboard.WidgetItems>>>();
 
   @override
   void dispose() {
     timer.cancel();
+    unawaited(itemsV1.close());
+    unawaited(itemsV2.close());
     unawaited(widgets.close());
+    unawaited(items.close());
     super.dispose();
   }
 
   @override
   Future<void> refresh() async {
-    widgets.add(widgets.valueOrNull?.asLoading() ?? Result.loading());
+    await RequestManager.instance.wrapNextcloud(
+      account: account,
+      cacheKey: 'dashboard-widgets',
+      subject: widgets,
+      rawResponse: account.client.dashboard.dashboardApi.getWidgetsRaw(),
+      // Filter all widgets that don't support v1 nor v2
+      unwrap: (response) => BuiltList(
+        response.body.ocs.data.values
+            .where((widget) => widget.itemApiVersions == null || widget.itemApiVersions!.isNotEmpty),
+      ),
+    );
+  }
 
-    try {
-      final widgets = <String, dashboard.WidgetItems?>{};
-      final v1WidgetIDs = ListBuilder<String>();
-      final v2WidgetIDs = ListBuilder<String>();
+  void _updateItems() {
+    final data = MapBuilder<String, dashboard.WidgetItems>();
 
-      final response = await account.client.dashboard.dashboardApi.getWidgets();
-
-      for (final widget in response.body.ocs.data.values) {
-        final itemApiVersions = widget.itemApiVersions;
-        if (itemApiVersions != null && itemApiVersions.contains(2)) {
-          v2WidgetIDs.add(widget.id);
-        } else if (itemApiVersions == null || itemApiVersions.contains(1)) {
-          // If the field isn't present the server only supports v1
-          v1WidgetIDs.add(widget.id);
-        } else {
-          debugPrint('Widget supports none of the API versions: ${widget.id}');
-        }
-      }
-
-      if (v1WidgetIDs.isNotEmpty) {
-        final widgetsIDs = v1WidgetIDs.build();
-        debugPrint('Loading v1 widgets: ${widgetsIDs.join(', ')}');
-
-        final response = await account.client.dashboard.dashboardApi.getWidgetItems(
-          widgets: widgetsIDs,
-          limit: maxItems,
-        );
-        for (final entry in response.body.ocs.data.entries) {
-          widgets[entry.key] = dashboard.WidgetItems(
-            (b) => b
-              ..items = entry.value.sublist(0, min(entry.value.length, maxItems)).toBuilder()
-              ..emptyContentMessage = ''
-              ..halfEmptyContentMessage = '',
-          );
-        }
-      }
-
-      if (v2WidgetIDs.isNotEmpty) {
-        final widgetsIDs = v2WidgetIDs.build();
-        debugPrint('Loading v2 widgets: ${widgetsIDs.join(', ')}');
-
-        final response = await account.client.dashboard.dashboardApi.getWidgetItemsV2(
-          widgets: widgetsIDs,
-          limit: maxItems,
-        );
-        widgets.addEntries(
-          response.body.ocs.data.entries.map(
-            (entry) => MapEntry(
-              entry.key,
-              entry.value.rebuild((b) {
-                if (b.items.length > maxItems) {
-                  b.items.removeRange(maxItems, b.items.length);
-                }
-              }),
-            ),
-          ),
+    final resultV1 = itemsV1.valueOrNull;
+    if (resultV1 != null && resultV1.hasData) {
+      for (final entry in resultV1.requireData.entries) {
+        data[entry.key] = dashboard.WidgetItems(
+          (b) => b
+            ..items.replace(entry.value.sublist(0, min(entry.value.length, maxItems)))
+            ..emptyContentMessage = ''
+            ..halfEmptyContentMessage = '',
         );
       }
-
-      this.widgets.add(
-            Result.success(
-              widgets.map(
-                (id, items) => MapEntry(
-                  response.body.ocs.data.values.firstWhere((widget) => widget.id == id),
-                  items,
-                ),
-              ),
-            ),
-          );
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-
-      widgets.add(Result.error(e));
-      return;
     }
+
+    final resultV2 = itemsV2.valueOrNull;
+    if (resultV2 != null && resultV2.hasData) {
+      for (final entry in resultV2.requireData.entries) {
+        data[entry.key] = entry.value.rebuild((b) {
+          if (b.items.length > maxItems) {
+            b.items.removeRange(maxItems, b.items.length);
+          }
+        });
+      }
+    }
+
+    items.add(
+      Result(
+        data.build(),
+        resultV1?.error ?? resultV2?.error,
+        isLoading: (resultV1?.isLoading ?? true) || (resultV2?.isLoading ?? true),
+        isCached: (resultV1?.isCached ?? true) || (resultV2?.isCached ?? true),
+      ),
+    );
   }
 }
