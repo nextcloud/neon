@@ -82,6 +82,10 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
       return;
     }
 
+    if (location.valueOrNull == null) {
+      return;
+    }
+
     await Future.wait([
       RequestManager.instance.wrapNextcloud(
         account: account,
