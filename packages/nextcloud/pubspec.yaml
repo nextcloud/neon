@@ -47,7 +47,7 @@ dev_dependencies:
   process_run: ^0.14.1
   test: ^1.25.2
   test_api: ^0.7.0
-  xml_serializable: ^2.4.1
+  xml_serializable: ^2.5.0
 
 platforms:
   windows:
