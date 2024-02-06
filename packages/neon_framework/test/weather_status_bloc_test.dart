@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
-import 'package:http/testing.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/src/models/account.dart';
@@ -31,7 +30,7 @@ Account mockWeatherStatusAccount() {
         200,
       );
 
-  final requests = <RegExp, Map<String, Response Function(RegExpMatch match, Map<String, String> queryParameters)>>{
+  return mockServer({
     RegExp(r'/ocs/v2\.php/apps/weather_status/api/v1/location'): {
       'get': (match, queryParameters) => locationResponse(),
       'put': (match, queryParameters) {
@@ -92,26 +91,7 @@ Account mockWeatherStatusAccount() {
             200,
           ),
     },
-  };
-
-  return Account(
-    serverURL: Uri.parse('https://example.com'),
-    username: 'test',
-    password: 'test',
-    httpClient: MockClient((request) async {
-      for (final entry in requests.entries) {
-        final match = entry.key.firstMatch(request.url.path);
-        if (match != null) {
-          final call = entry.value[request.method];
-          if (call != null) {
-            return call(match, request.url.queryParameters);
-          }
-        }
-      }
-
-      throw Exception(request);
-    }),
-  );
+  });
 }
 
 core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({required bool enabled}) =>
