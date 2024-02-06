@@ -72,8 +72,8 @@ Account mockUnifiedSearchAccount() => mockServer({
       },
     });
 
-Future<void> main() async {
-  final error = await DynamiteStatusCodeException.fromResponse(StreamedResponse(Stream.value(utf8.encode('')), 400));
+void main() {
+  final error = DynamiteStatusCodeException.fromResponse(Response('', 400));
 
   late BehaviorSubject<AppImplementation> activeApp;
   late AppsBloc appsBloc;
