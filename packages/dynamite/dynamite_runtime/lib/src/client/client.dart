@@ -2,7 +2,10 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:cookie_jar/cookie_jar.dart';
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/src/client/authentication.dart';
+import 'package:dynamite_runtime/src/client/exception.dart';
+import 'package:dynamite_runtime/src/client/request.dart';
+import 'package:dynamite_runtime/src/client/response.dart';
 import 'package:dynamite_runtime/src/utils/debug_mode.dart';
 import 'package:dynamite_runtime/src/utils/uri.dart';
 import 'package:http/http.dart' as http;
@@ -95,18 +98,7 @@ class DynamiteClient with http.BaseClient {
       request.bodyBytes = body;
     }
 
-    final response = await send(request);
-
-    if (validStatuses?.contains(response.statusCode) ?? true) {
-      return response;
-    } else {
-      if (kDebugMode) {
-        final result = await http.Response.fromStream(response);
-        throw DynamiteStatusCodeException.fromResponse(result);
-      } else {
-        throw DynamiteStatusCodeException(response.statusCode);
-      }
-    }
+    return send(request);
   }
 
   @override
@@ -128,6 +120,17 @@ class DynamiteClient with http.BaseClient {
     if (cookieHeader != null && cookieJar != null) {
       final cookies = cookieHeader.map(Cookie.fromSetCookieValue).toList();
       await cookieJar!.saveFromResponse(request.url, cookies);
+    }
+
+    if (request case DynamiteRequest(:final validStatuses)
+        when validStatuses != null && !validStatuses.contains(response.statusCode)) {
+      if (kDebugMode) {
+        // ignore: invalid_use_of_visible_for_testing_member
+        final result = await http.Response.fromStream(response);
+        throw DynamiteStatusCodeException.fromResponse(result);
+      } else {
+        throw DynamiteStatusCodeException(response.statusCode);
+      }
     }
 
     return response;
