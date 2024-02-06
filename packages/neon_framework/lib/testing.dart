@@ -7,5 +7,6 @@ library;
 
 import 'package:flutter/material.dart';
 
+export 'package:neon_framework/src/testing/mock_server.dart';
 export 'package:neon_framework/src/testing/mocks.dart';
 export 'package:neon_framework/src/testing/utils.dart';
