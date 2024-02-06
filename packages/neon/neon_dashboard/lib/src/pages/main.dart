@@ -230,13 +230,7 @@ class DashboardMainPage extends StatelessWidget {
               },
             ),
           ),
-        ]
-            .intersperse(
-              const SizedBox(
-                width: 20,
-              ),
-            )
-            .toList(),
+        ],
       );
 
   Widget _buildStatus({
@@ -245,17 +239,20 @@ class DashboardMainPage extends StatelessWidget {
     required Widget label,
     required VoidCallback onPressed,
   }) =>
-      ActionChip(
-        avatar: icon,
-        label: label,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
-          side: BorderSide(
-            color: Theme.of(context).colorScheme.primary,
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: ActionChip(
+          avatar: icon,
+          label: label,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+            side: BorderSide(
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
+          padding: const EdgeInsets.all(15),
+          onPressed: onPressed,
         ),
-        padding: const EdgeInsets.all(15),
-        onPressed: onPressed,
       );
 
   /// Builds the list of messages, [items] and buttons for a [widget].
