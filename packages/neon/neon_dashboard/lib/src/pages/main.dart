@@ -43,9 +43,8 @@ class DashboardMainPage extends StatelessWidget {
             ),
           ];
 
+          var minHeight = 504.0;
           if (result.hasData) {
-            var minHeight = 504.0;
-
             final widgets = <Widget>[];
             for (final widget in result.requireData.entries) {
               final items = buildWidgetItems(
@@ -79,6 +78,12 @@ class DashboardMainPage extends StatelessWidget {
                       ),
                     )
                     .toList(),
+              ),
+            );
+          } else {
+            children.add(
+              SizedBox(
+                height: minHeight,
               ),
             );
           }
@@ -121,43 +126,43 @@ class DashboardMainPage extends StatelessWidget {
           ResultBuilder.behaviorSubject(
             subject: userStatusBloc.status,
             builder: (context, statusResult) {
-              if (statusResult.hasData) {
-                final status = statusResult.requireData;
+              final status = statusResult.data;
 
-                final label = StringBuffer();
-                if (status.icon == null && status.message == null) {
-                  label.write(DashboardLocalizations.of(context).setUserStatus);
-                } else {
-                  if (status.icon != null) {
-                    label.write(status.icon);
-                  }
-                  if (status.icon != null && status.message != null) {
-                    label.write(' ');
-                  }
-                  if (status.message != null) {
-                    label.write(status.message);
-                  }
+              final label = StringBuffer();
+              if (status?.icon == null && status?.message == null) {
+                label.write(DashboardLocalizations.of(context).setUserStatus);
+              } else {
+                if (status?.icon != null) {
+                  label.write(status!.icon);
                 }
-
-                return _buildStatus(
-                  context: context,
-                  icon: NeonServerIcon(
-                    icon:
-                        'user-status-${status.status == user_status.$Type.offline ? user_status.$Type.invisible : status.status}',
-                  ),
-                  label: Text(label.toString()),
-                  onPressed: () async {
-                    await showDialog<void>(
-                      context: context,
-                      builder: (context) => NeonUserStatusDialog(
-                        account: account,
-                      ),
-                    );
-                  },
-                );
+                if (status?.icon != null && status?.message != null) {
+                  label.write(' ');
+                }
+                if (status?.message != null) {
+                  label.write(status!.message);
+                }
               }
 
-              return const SizedBox.shrink();
+              var statusIcon = status?.status ?? user_status.$Type.online;
+              if (statusIcon == user_status.$Type.offline) {
+                statusIcon = user_status.$Type.invisible;
+              }
+
+              return _buildStatus(
+                context: context,
+                icon: NeonServerIcon(
+                  icon: 'user-status-$statusIcon',
+                ),
+                label: Text(label.toString()),
+                onPressed: () async {
+                  await showDialog<void>(
+                    context: context,
+                    builder: (context) => NeonUserStatusDialog(
+                      account: account,
+                    ),
+                  );
+                },
+              );
             },
           ),
           StreamBuilder(
@@ -165,7 +170,7 @@ class DashboardMainPage extends StatelessWidget {
             builder: (context, weatherStatusSupportedSnapshot) => ResultBuilder.behaviorSubject(
               subject: weatherStatusBloc.forecasts,
               builder: (context, forecastsResult) {
-                if (!(weatherStatusSupportedSnapshot.data ?? false)) {
+                if (weatherStatusSupportedSnapshot.hasData && !weatherStatusSupportedSnapshot.requireData) {
                   return const SizedBox.shrink();
                 }
 
