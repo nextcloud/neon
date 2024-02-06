@@ -9,6 +9,7 @@ import 'package:xml/xml_events.dart';
 /// A stream of bytes.
 ///
 /// Usually a `Stream<Uint8List>`.
+@Deprecated('use ByteStream from package:http')
 typedef BytesStream = Stream<List<int>>;
 
 /// Converter for UTF-8 encoded bytes to JSON.
@@ -21,6 +22,7 @@ final xmlBytesConverter =
     utf8.decoder.fuse(XmlEventDecoder()).fuse(const XmlNormalizeEvents()).fuse(const XmlNodeDecoder());
 
 /// Extension on byte streams that enable efficient transformations.
+@Deprecated('use HttpBytesStreamExtension to convert a ByteStream')
 extension BytesStreamExtension on BytesStream {
   /// Collects all bytes from this stream into one Uint8List.
   ///

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 import 'package:meta/meta.dart';
 import 'package:xml/xml.dart';
 import 'package:xml/xml_events.dart';
@@ -28,12 +29,12 @@ extension HttpBytesStreamExtension on http.ByteStream {
   }
 
   /// Collect the data of this stream in a json object, decoded according to
-  /// [encoding], which defaults to `UTF8`.
+  /// [encoding], which defaults to [utf8].
   Future<Object?> bytesToJson([Encoding encoding = utf8]) =>
       encoding.decoder.fuse(const JsonDecoder()).bind(this).first;
 
   /// Collect the data of this stream in [XmlElement], decoded according to
-  /// [encoding], which defaults to `UTF8`.
+  /// [encoding], which defaults to [utf8].
   Future<Object?> bytesToXml([Encoding encoding = utf8]) async {
     final element = await encoding.decoder
         .fuse(xmlConverter)
