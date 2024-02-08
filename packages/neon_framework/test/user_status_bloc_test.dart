@@ -74,25 +74,25 @@ Account mockUserStatusAccount() {
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/predefined'): {
       'put': (match, queryParameters) {
-        messageId = queryParameters['messageId'];
+        messageId = queryParameters['messageId']!.single;
         messageIsPredefined = true;
-        clearAt = int.parse(queryParameters['clearAt']!);
+        clearAt = int.parse(queryParameters['clearAt']!.single);
         return statusResponse();
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/custom'): {
       'put': (match, queryParameters) {
         messageId = null;
-        message = queryParameters['message'];
+        message = queryParameters['message']!.single;
         messageIsPredefined = false;
-        icon = queryParameters['statusIcon'];
-        clearAt = int.parse(queryParameters['clearAt']!);
+        icon = queryParameters['statusIcon']!.single;
+        clearAt = int.parse(queryParameters['clearAt']!.single);
         return statusResponse();
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/status'): {
       'put': (match, queryParameters) {
-        status = queryParameters['statusType']!;
+        status = queryParameters['statusType']!.single;
         statusIsUserDefined = true;
         return statusResponse();
       },
@@ -119,7 +119,7 @@ Account mockUserStatusAccount() {
           return Response('', 201);
         }
 
-        status = queryParameters['status']!;
+        status = queryParameters['status']!.single;
         statusIsUserDefined = false;
         return statusResponse();
       },

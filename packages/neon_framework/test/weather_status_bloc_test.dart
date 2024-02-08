@@ -34,9 +34,9 @@ Account mockWeatherStatusAccount() {
     RegExp(r'/ocs/v2\.php/apps/weather_status/api/v1/location'): {
       'get': (match, queryParameters) => locationResponse(),
       'put': (match, queryParameters) {
-        lat = queryParameters['lat'];
-        lon = queryParameters['lon'];
-        address = queryParameters['address'];
+        lat = queryParameters['lat']?.single;
+        lon = queryParameters['lon']?.single;
+        address = queryParameters['address']!.single;
         return locationResponse();
       },
     },
