@@ -28,6 +28,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   go_router_builder: ^2.4.1
+  http: ^1.2.0
   mocktail: ^1.0.3
   neon_lints:
     git:
