@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
@@ -46,7 +47,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   late final storage = NeonStorage().settingsStore(StorageKeys.lastEndpoint);
   final GlobalOptions globalOptions;
 
-  StreamSubscription<List<Account>>? accountsListener;
+  StreamSubscription<BuiltList<Account>>? accountsListener;
 
   @override
   void dispose() {
@@ -118,7 +119,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     }
   }
 
-  Future<void> unregisterUnifiedPushInstances(List<Account> accounts) async {
+  Future<void> unregisterUnifiedPushInstances(BuiltList<Account> accounts) async {
     for (final account in accounts) {
       try {
         await account.client.notifications.push.removeDevice();
@@ -130,7 +131,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     }
   }
 
-  Future<void> registerUnifiedPushInstances(List<Account> accounts) async {
+  Future<void> registerUnifiedPushInstances(BuiltList<Account> accounts) async {
     // Notifications will only work on accounts with app password
     for (final account in accounts.where((a) => a.password != null)) {
       await UnifiedPush.registerApp(account.id);

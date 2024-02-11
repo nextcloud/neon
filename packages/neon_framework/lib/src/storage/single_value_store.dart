@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/storage_manager.dart';
@@ -50,10 +51,10 @@ abstract interface class SingleValueStore {
   Future<bool> remove();
 
   /// {@macro NeonStorage.getStringList}
-  List<String>? getStringList();
+  BuiltList<String>? getStringList();
 
   /// {@macro NeonStorage.setStringList}
-  Future<bool> setStringList(List<String> value);
+  Future<bool> setStringList(BuiltList<String> value);
 }
 
 /// A storage that saves a single value.
@@ -92,8 +93,8 @@ final class DefaultSingleValueStore implements SingleValueStore {
   Future<bool> setBool(bool value) => _database.setBool(key.value, value);
 
   @override
-  List<String>? getStringList() => _database.getStringList(key.value);
+  BuiltList<String>? getStringList() => _database.getStringList(key.value)?.toBuiltList();
 
   @override
-  Future<bool> setStringList(List<String> value) => _database.setStringList(key.value, value);
+  Future<bool> setStringList(BuiltList<String> value) => _database.setStringList(key.value, value.toList());
 }

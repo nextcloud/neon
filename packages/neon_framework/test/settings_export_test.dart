@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/settings/utils/settings_export_helper.dart';
@@ -44,13 +45,13 @@ void main() {
         'accounts': {'accountID': 'value'},
       };
 
-      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded([]));
+      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded(BuiltList()));
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'accounts': <String, dynamic>{}});
 
       final fakeAccount = MockAccount();
       final fakeOptions = MockAccountOptions();
-      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded([fakeAccount]));
+      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded(BuiltList([fakeAccount])));
       when(() => bloc.getOptionsFor(fakeAccount)).thenReturn(fakeOptions);
       when(fakeOptions.export).thenReturn(accountValue);
       when(() => fakeAccount.id).thenReturn('accountID');

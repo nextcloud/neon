@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
@@ -60,7 +61,7 @@ abstract interface class AccountsBloc implements Disposable {
   /// All registered accounts.
   ///
   /// An empty value represents a state where no account is logged in.
-  BehaviorSubject<List<Account>> get accounts;
+  BehaviorSubject<BuiltList<Account>> get accounts;
 
   /// Currently active account.
   ///
@@ -227,7 +228,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   }
 
   @override
-  BehaviorSubject<List<Account>> accounts = BehaviorSubject<List<Account>>.seeded([]);
+  BehaviorSubject<BuiltList<Account>> accounts = BehaviorSubject<BuiltList<Account>>.seeded(BuiltList());
 
   @override
   BehaviorSubject<Account?> activeAccount = BehaviorSubject();
@@ -237,12 +238,12 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     if (activeAccount.valueOrNull == null) {
       setActiveAccount(account);
     }
-    accounts.add(accounts.value..add(account));
+    accounts.add(accounts.value.rebuild((b) => b..add(account)));
   }
 
   @override
   void removeAccount(Account account) {
-    accounts.add(accounts.value..removeWhere((a) => a.id == account.id));
+    accounts.add(accounts.value.rebuild((b) => b..removeWhere((a) => a.id == account.id)));
 
     final as = accounts.value;
     final aa = activeAccount.valueOrNull;
@@ -273,18 +274,17 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   void updateAccount(Account account) {
-    final as = accounts.value;
+    var as = accounts.value;
     final index = as.indexWhere((a) => a.id == account.id);
-    if (index == -1) {
-      // TODO: Figure out how we can remove the old account without potentially race conditioning
-      as.add(account);
-    } else {
-      as.replaceRange(
-        index,
-        index + 1,
-        [account],
-      );
-    }
+
+    as = as.rebuild((b) {
+      if (index == -1) {
+        // TODO: Figure out how we can remove the old account without potentially race conditioning
+        b.add(account);
+      } else {
+        b[index] = account;
+      }
+    });
 
     accounts.add(as);
     setActiveAccount(account);
@@ -367,20 +367,20 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 /// Gets a list of logged in accounts from storage.
 ///
 /// It is not checked whether the stored information is still valid.
-List<Account> loadAccounts() {
+BuiltList<Account> loadAccounts() {
   final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
 
   if (storage.hasValue()) {
-    return storage.getStringList()!.map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>)).toList();
+    return storage.getStringList()!.map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>)).toBuiltList();
   }
 
-  return [];
+  return BuiltList();
 }
 
 /// Saves the given [accounts] to the storage.
-Future<void> saveAccounts(List<Account> accounts) async {
+Future<void> saveAccounts(BuiltList<Account> accounts) async {
   final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
-  final values = accounts.map((a) => json.encode(a.toJson())).toList();
+  final values = accounts.map((a) => json.encode(a.toJson())).toBuiltList();
 
   await storage.setStringList(values);
 }

@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
@@ -95,7 +96,7 @@ class GlobalOptions extends OptionsCollection {
   /// Updates the available values of [initialAccount].
   ///
   /// If the current `initialAccount` is not supported anymore the option will be reset.
-  void updateAccounts(List<Account> accounts) {
+  void updateAccounts(BuiltList<Account> accounts) {
     initialAccount.values = Map.fromEntries(
       accounts.map(
         (account) => MapEntry(account.id, (context) => account.humanReadableID),
