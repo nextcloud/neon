@@ -236,26 +236,32 @@ class WebDavClient {
       _send(
         'GET',
         _constructUri(path),
-      ).then((response) async {
-        final contentLength = response.contentLength;
-        if (contentLength == null || contentLength <= 0) {
-          onProgress?.call(1);
-        } else {
-          final completer = Completer<void>();
-          var downloaded = 0;
+      ).then(
+        (response) async {
+          final contentLength = response.contentLength;
+          if (contentLength == null || contentLength <= 0) {
+            onProgress?.call(1);
+          } else {
+            final completer = Completer<void>();
+            var downloaded = 0;
 
-          response.stream.listen((chunk) async {
-            controller.add(chunk);
-            downloaded += chunk.length;
-            onProgress?.call(downloaded / contentLength);
-            if (downloaded >= contentLength) {
-              completer.complete();
-            }
-          });
-          await completer.future;
-        }
-        await controller.close();
-      }),
+            response.stream.listen((chunk) async {
+              controller.add(chunk);
+              downloaded += chunk.length;
+              onProgress?.call(downloaded / contentLength);
+              if (downloaded >= contentLength) {
+                completer.complete();
+              }
+            });
+            await completer.future;
+          }
+          await controller.close();
+        },
+        // ignore: avoid_types_on_closure_parameters
+        onError: (Object error) {
+          controller.addError(error);
+        },
+      ),
     );
 
     return controller.stream;

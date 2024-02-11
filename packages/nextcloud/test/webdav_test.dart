@@ -469,6 +469,13 @@ void main() {
         destinationDir.deleteSync(recursive: true);
       });
 
+      test('getStream error handling', () async {
+        expect(
+          client.webdav.getStream(PathUri.parse('404.txt')),
+          emitsError(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 404)),
+        );
+      });
+
       group('litmus', () {
         group('basic', () {
           test('options', () async {
