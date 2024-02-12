@@ -58,8 +58,11 @@ See [here](packages/app/README.md) for screenshots.
 | Calendar                                          | :rocket:           |
 | Contacts                                          | :rocket:           |
 | Cookbook                                          | :rocket:           |
+| Cospend                                           | :rocket:           |
+| Deck                                              | :rocket:           |
 | Photos                                            | :rocket:           |
-| Talk                                              | :rocket:           |
+| Photos                                            | :rocket:           |
+| Talk                                              | :construction:     |
 | Tasks                                             | :rocket:           |
 
 ## Platform support
