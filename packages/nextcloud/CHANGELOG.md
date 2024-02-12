@@ -1,3 +1,7 @@
+## 5.0.1
+
+ - **FIX**(nextcloud): Emit errors in WebDAV getStream. ([42619979](https://github.com/nextcloud/neon/commit/4261997994d89cc2234cc2fdbce65733c1d027e8))
+
 ## 5.0.0
 
 > Note: This release has breaking changes.

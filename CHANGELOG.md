@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-02-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nextcloud` - `v5.0.1`](#nextcloud---v501)
+
+---
+
+#### `nextcloud` - `v5.0.1`
+
+ - **FIX**(nextcloud): Emit errors in WebDAV getStream. ([42619979](https://github.com/nextcloud/neon/commit/4261997994d89cc2234cc2fdbce65733c1d027e8))
+
+
 ## 2024-02-01
 
 ### Changes
