@@ -27,7 +27,7 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework
-  nextcloud: ^5.0.0
+  nextcloud: ^5.0.1
   open_file: ^3.0.0
   path: ^1.0.0
   path_provider: ^2.0.0
