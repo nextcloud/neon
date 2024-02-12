@@ -432,11 +432,11 @@ void main() {
         await client.webdav.putFile(
           source,
           source.statSync(),
-          PathUri.parse('upload.png'),
+          PathUri.parse('upload_file.png'),
           onProgress: progressValues.add,
         );
         await client.webdav.getFile(
-          PathUri.parse('upload.png'),
+          PathUri.parse('upload_file.png'),
           destination,
           onProgress: progressValues.add,
         );
@@ -444,6 +444,36 @@ void main() {
         expect(destination.readAsBytesSync(), source.readAsBytesSync());
 
         destinationDir.deleteSync(recursive: true);
+      });
+
+      test('Upload and download stream', () async {
+        final destinationDir = Directory.systemTemp.createTempSync();
+        final destination = File('${destinationDir.path}/test.png');
+        final source = File('test/files/test.png');
+        final progressValues = <double>[];
+
+        await client.webdav.putStream(
+          source.openRead(),
+          PathUri.parse('upload_stream.png'),
+          contentLength: source.lengthSync(),
+          onProgress: progressValues.add,
+        );
+        final stream = client.webdav.getStream(
+          PathUri.parse('upload_stream.png'),
+          onProgress: progressValues.add,
+        );
+        await stream.pipe(destination.openWrite());
+        expect(progressValues, containsAll([1.0, 1.0]));
+        expect(destination.readAsBytesSync(), source.readAsBytesSync());
+
+        destinationDir.deleteSync(recursive: true);
+      });
+
+      test('getStream error handling', () async {
+        expect(
+          client.webdav.getStream(PathUri.parse('404.txt')),
+          emitsError(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 404)),
+        );
       });
 
       group('litmus', () {
