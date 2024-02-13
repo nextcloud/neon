@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -236,7 +235,7 @@ void main() {
     );
     final items = dashboard.WidgetItems(
       (b) => b
-        ..items = BuiltList<dashboard.WidgetItem>.from([item]).toBuilder()
+        ..items.replace([item])
         ..emptyContentMessage = ''
         ..halfEmptyContentMessage = '',
     );
@@ -255,9 +254,9 @@ void main() {
         ..iconUrl = 'https://example.com/iconUrl'
         ..widgetUrl = 'https://example.com/widgetUrl'
         ..itemIconsRound = true
-        ..itemApiVersions = BuiltList<int>.from([1, 2]).toBuilder()
+        ..itemApiVersions.replace([1, 2])
         ..reloadInterval = 0
-        ..buttons = BuiltList<dashboard.Widget_Buttons>.from([button]).toBuilder(),
+        ..buttons.replace([button]),
     );
 
     testWidgets('Everything filled', (tester) async {
@@ -457,7 +456,7 @@ void main() {
 
     testWidgets('With multiple buttons', (tester) async {
       final widgetWithMultipleButtons = widget.rebuild(
-        (b) => b.buttons = BuiltList<dashboard.Widget_Buttons>.from([button, button]).toBuilder(),
+        (b) => b.buttons.replace([button, button]),
       );
       await tester.pumpWidget(
         wrapWidget(

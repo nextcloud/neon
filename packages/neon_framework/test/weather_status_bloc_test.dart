@@ -97,7 +97,7 @@ Account mockWeatherStatusAccount() {
 core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({required bool enabled}) =>
     core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
       (b) => b
-        ..version = core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version(
+        ..version.update(
           (b) => b
             ..major = 0
             ..minor = 0
@@ -105,7 +105,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({requi
             ..string = ''
             ..edition = ''
             ..extendedSupport = false,
-        ).toBuilder()
+        )
         ..capabilities = (
           commentsCapabilities: null,
           davCapabilities: null,
@@ -122,9 +122,9 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({requi
           userStatusCapabilities: null,
           weatherStatusCapabilities: core.WeatherStatusCapabilities(
             (b) => b
-              ..weatherStatus = core.WeatherStatusCapabilities_WeatherStatus(
+              ..weatherStatus.update(
                 (b) => b..enabled = enabled,
-              ).toBuilder(),
+              ),
           ),
         ),
     );
