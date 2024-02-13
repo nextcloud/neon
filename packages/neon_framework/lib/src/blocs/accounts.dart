@@ -228,10 +228,10 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   }
 
   @override
-  BehaviorSubject<BuiltList<Account>> accounts = BehaviorSubject<BuiltList<Account>>.seeded(BuiltList());
+  final accounts = BehaviorSubject.seeded(BuiltList());
 
   @override
-  BehaviorSubject<Account?> activeAccount = BehaviorSubject();
+  final activeAccount = BehaviorSubject();
 
   @override
   void addAccount(Account account) {

@@ -94,31 +94,31 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
   }
 
   @override
-  BehaviorSubject<Result<BuiltList<news.Feed>>> feeds = BehaviorSubject<Result<BuiltList<news.Feed>>>();
+  final feeds = BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<BuiltList<news.Folder>>> folders = BehaviorSubject<Result<BuiltList<news.Folder>>>();
+  final folders = BehaviorSubject();
 
   @override
-  BehaviorSubject<int> unreadCounter = BehaviorSubject<int>();
+  final unreadCounter = BehaviorSubject();
 
   @override
-  late BehaviorSubject<Result<BuiltList<news.Article>>> articles = mainArticlesBloc.articles;
+  late final articles = mainArticlesBloc.articles;
 
   @override
-  late BehaviorSubject<FilterType> filterType = mainArticlesBloc.filterType;
+  late final filterType = mainArticlesBloc.filterType;
 
   @override
   Future<void> refresh() async {
     await Future.wait([
-      RequestManager.instance.wrapNextcloud<BuiltList<news.Folder>, news.ListFolders, void>(
+      RequestManager.instance.wrapNextcloud(
         account: account,
         cacheKey: 'news-folders',
         subject: folders,
         rawResponse: account.client.news.listFoldersRaw(),
         unwrap: (response) => response.body.folders,
       ),
-      RequestManager.instance.wrapNextcloud<BuiltList<news.Feed>, news.ListFeeds, void>(
+      RequestManager.instance.wrapNextcloud(
         account: account,
         cacheKey: 'news-feeds',
         subject: feeds,

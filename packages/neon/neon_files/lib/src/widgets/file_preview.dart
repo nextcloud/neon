@@ -44,7 +44,7 @@ class FilePreview extends StatelessWidget {
             );
           }
 
-          return ValueListenableBuilder<bool>(
+          return ValueListenableBuilder(
             valueListenable: bloc.options.showPreviewsOption,
             builder: (context, showPreviews, _) {
               if (showPreviews && (details.hasPreview ?? false)) {

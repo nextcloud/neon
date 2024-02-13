@@ -38,5 +38,5 @@ class _FirstLaunchBloc extends Bloc implements FirstLaunchBloc {
   }
 
   @override
-  final BehaviorSubject<void> onFirstLaunch = BehaviorSubject();
+  final onFirstLaunch = BehaviorSubject();
 }

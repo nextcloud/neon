@@ -33,7 +33,7 @@ class _LoginCheckServerStatusBloc extends InteractiveBloc implements LoginCheckS
   }
 
   @override
-  BehaviorSubject<Result<core.Status>> state = BehaviorSubject();
+  final state = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

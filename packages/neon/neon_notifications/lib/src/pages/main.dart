@@ -35,11 +35,11 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<BuiltList<notifications.Notification>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: bloc.notificationsList,
         builder: (context, notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
-          floatingActionButton: StreamBuilder<int>(
+          floatingActionButton: StreamBuilder(
             stream: bloc.unreadCounter,
             builder: (context, snapshot) {
               final unreadCount = snapshot.data ?? 0;

@@ -6,7 +6,6 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
-import 'package:neon_news/src/options.dart';
 import 'package:neon_news/src/pages/feed.dart';
 import 'package:neon_news/src/sort/feeds.dart';
 import 'package:neon_news/src/widgets/dialog.dart';
@@ -25,11 +24,11 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<BuiltList<news.Folder>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: bloc.folders,
-        builder: (context, folders) => ResultBuilder<BuiltList<news.Feed>>.behaviorSubject(
+        builder: (context, folders) => ResultBuilder.behaviorSubject(
           subject: bloc.feeds,
-          builder: (context, feeds) => SortBoxBuilder<FeedsSortProperty, news.Feed>(
+          builder: (context, feeds) => SortBoxBuilder(
             sortBox: feedsSortBox,
             sortProperty: bloc.options.feedsSortPropertyOption,
             sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
@@ -87,7 +86,7 @@ class NewsFeedsView extends StatelessWidget {
                   ),
                 ),
               ),
-            PopupMenuButton<NewsFeedAction>(
+            PopupMenuButton(
               itemBuilder: (context) => [
                 PopupMenuItem(
                   value: NewsFeedAction.showURL,

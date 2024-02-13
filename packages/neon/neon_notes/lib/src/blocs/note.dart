@@ -92,7 +92,7 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   }
 
   @override
-  BehaviorSubject<String> category = BehaviorSubject<String>();
+  final category = BehaviorSubject();
 
   @override
   Future<void> refresh() async {}

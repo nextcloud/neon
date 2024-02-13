@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
@@ -6,7 +5,6 @@ import 'package:neon_framework/widgets.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
 import 'package:neon_notes/src/widgets/category_select.dart';
-import 'package:nextcloud/notes.dart' as notes;
 
 /// A dialog for creating a note.
 class NotesCreateNoteDialog extends StatefulWidget {
@@ -61,7 +59,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
       ),
     );
 
-    final folderSelector = ResultBuilder<BuiltList<notes.Note>>.behaviorSubject(
+    final folderSelector = ResultBuilder.behaviorSubject(
       subject: widget.bloc.notesList,
       builder: (context, notes) {
         if (notes.hasError) {
@@ -149,7 +147,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final folderSelector = ResultBuilder<BuiltList<notes.Note>>.behaviorSubject(
+    final folderSelector = ResultBuilder.behaviorSubject(
       subject: widget.bloc.notesList,
       builder: (context, notes) {
         if (notes.hasError) {

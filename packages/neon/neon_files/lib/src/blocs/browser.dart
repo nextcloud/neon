@@ -87,14 +87,14 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   }
 
   @override
-  BehaviorSubject<Result<List<WebDavFile>>> files = BehaviorSubject<Result<List<WebDavFile>>>();
+  final files = BehaviorSubject();
 
   @override
-  BehaviorSubject<PathUri> uri = BehaviorSubject.seeded(PathUri.cwd());
+  final uri = BehaviorSubject.seeded(PathUri.cwd());
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapWebDav<List<WebDavFile>>(
+    await RequestManager.instance.wrapWebDav(
       account: account,
       cacheKey: 'files-${uri.value.path}',
       subject: files,

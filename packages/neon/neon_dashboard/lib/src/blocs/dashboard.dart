@@ -47,7 +47,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         }
       }
 
-      await Future.wait<void>([
+      await Future.wait([
         if (v1WidgetIDs.isNotEmpty)
           RequestManager.instance.wrapNextcloud(
             account: account,
@@ -85,10 +85,10 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
   static const int maxItems = 7;
 
   @override
-  final widgets = BehaviorSubject<Result<BuiltList<dashboard.Widget>>>();
+  final widgets = BehaviorSubject();
 
   @override
-  final items = BehaviorSubject<Result<BuiltMap<String, dashboard.WidgetItems>>>();
+  final items = BehaviorSubject();
 
   @override
   void dispose() {

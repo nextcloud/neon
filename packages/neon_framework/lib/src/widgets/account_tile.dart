@@ -11,7 +11,6 @@ import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 import 'package:neon_framework/src/widgets/user_avatar.dart';
-import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 
 /// List tile to display account information.
 @internal
@@ -53,7 +52,7 @@ class NeonAccountTile extends StatelessWidget {
         showStatus: showStatus,
       ),
       trailing: trailing,
-      title: ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
+      title: ResultBuilder.behaviorSubject(
         subject: userDetailsBloc.userDetails,
         builder: (context, userDetails) => Row(
           children: [

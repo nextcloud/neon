@@ -74,7 +74,7 @@ void main() {
       final enabled = ValueNotifier(false);
       final callback = MockCallbackFunction();
 
-      option = SelectOption<SelectValues>.depend(
+      option = SelectOption.depend(
         storage: storage,
         key: key,
         label: labelBuilder,

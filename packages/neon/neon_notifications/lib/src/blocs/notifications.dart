@@ -55,16 +55,14 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   }
 
   @override
-  BehaviorSubject<Result<BuiltList<notifications.Notification>>> notificationsList =
-      BehaviorSubject<Result<BuiltList<notifications.Notification>>>();
+  final notificationsList = BehaviorSubject();
 
   @override
-  BehaviorSubject<int> unreadCounter = BehaviorSubject<int>();
+  final unreadCounter = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud<BuiltList<notifications.Notification>,
-        notifications.EndpointListNotificationsResponseApplicationJson, void>(
+    await RequestManager.instance.wrapNextcloud(
       account: account,
       cacheKey: 'notifications-notifications',
       subject: notificationsList,

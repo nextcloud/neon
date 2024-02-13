@@ -28,7 +28,7 @@ class NewsFolderSelect extends StatelessWidget {
             child: Text(NewsLocalizations.of(context).folderRoot),
           ),
           ...folders.map(
-            (f) => DropdownMenuItem<news.Folder>(
+            (f) => DropdownMenuItem(
               value: f,
               child: Text(f.name),
             ),

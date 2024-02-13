@@ -38,11 +38,11 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<List<WebDavFile>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: widget.bloc.files,
-        builder: (context, filesSnapshot) => StreamBuilder<PathUri>(
+        builder: (context, filesSnapshot) => StreamBuilder(
           stream: widget.bloc.uri,
-          builder: (context, uriSnapshot) => StreamBuilder<List<FilesTask>>(
+          builder: (context, uriSnapshot) => StreamBuilder(
             stream: widget.filesBloc.tasks,
             builder: (context, tasksSnapshot) {
               if (!uriSnapshot.hasData || !tasksSnapshot.hasData) {
@@ -57,7 +57,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   }
                   return false;
                 },
-                child: SortBoxBuilder<FilesSortProperty, WebDavFile>(
+                child: SortBoxBuilder(
                   sortBox: filesSortBox,
                   sortProperty: widget.bloc.options.filesSortPropertyOption,
                   sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,

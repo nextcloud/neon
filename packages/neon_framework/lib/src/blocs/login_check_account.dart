@@ -49,7 +49,7 @@ class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccoun
   }
 
   @override
-  BehaviorSubject<Result<Account>> state = BehaviorSubject();
+  final state = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

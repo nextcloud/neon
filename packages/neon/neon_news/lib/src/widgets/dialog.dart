@@ -86,7 +86,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
       ),
     );
 
-    final folderSelector = ResultBuilder<BuiltList<news.Folder>>.behaviorSubject(
+    final folderSelector = ResultBuilder.behaviorSubject(
       subject: widget.bloc.folders,
       builder: (context, folders) {
         if (folders.hasError) {

@@ -99,10 +99,10 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
   }
 
   @override
-  BehaviorSubject<Result<BuiltList<news.Article>>> articles = BehaviorSubject<Result<BuiltList<news.Article>>>();
+  final articles = BehaviorSubject();
 
   @override
-  BehaviorSubject<FilterType> filterType = BehaviorSubject<FilterType>();
+  final filterType = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
@@ -145,7 +145,7 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
         }
     }
 
-    await RequestManager.instance.wrapNextcloud<BuiltList<news.Article>, news.ListArticles, void>(
+    await RequestManager.instance.wrapNextcloud(
       account: account,
       cacheKey: 'news-articles-${type.index}-$id-$getRead',
       subject: articles,

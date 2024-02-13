@@ -35,7 +35,7 @@ class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
   }
 
   @override
-  BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities = BehaviorSubject();
+  final capabilities = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

@@ -55,11 +55,10 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   String term = '';
 
   @override
-  BehaviorSubject<bool> enabled = BehaviorSubject.seeded(false);
+  final enabled = BehaviorSubject.seeded(false);
 
   @override
-  BehaviorSubject<Result<Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>?>> results =
-      BehaviorSubject.seeded(Result.success(null));
+  final results = BehaviorSubject.seeded(Result.success(null));
 
   @override
   void dispose() {

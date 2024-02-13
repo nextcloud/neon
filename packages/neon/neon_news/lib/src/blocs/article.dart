@@ -58,10 +58,10 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   }
 
   @override
-  BehaviorSubject<bool> starred = BehaviorSubject<bool>();
+  final starred = BehaviorSubject();
 
   @override
-  BehaviorSubject<bool> unread = BehaviorSubject<bool>();
+  final unread = BehaviorSubject();
 
   @override
   Future<void> refresh() async {}

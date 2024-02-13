@@ -136,7 +136,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                     strokeWidth: 2,
                   ),
                 ),
-              StreamBuilder<bool>(
+              StreamBuilder(
                 stream: widget.bloc.starred,
                 builder: (context, starredSnapshot) {
                   final starred = starredSnapshot.data ?? false;
@@ -155,7 +155,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                   );
                 },
               ),
-              StreamBuilder<bool>(
+              StreamBuilder(
                 stream: widget.bloc.unread,
                 builder: (context, unreadSnapshot) {
                   final unread = unreadSnapshot.data ?? false;
