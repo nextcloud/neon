@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:neon_framework/src/app.dart';
@@ -23,7 +24,7 @@ import 'package:provider/provider.dart';
 ///
 /// Optionally provide a [theme] to set the default style.
 Future<void> runNeon({
-  required Set<AppImplementation> appImplementations,
+  required BuiltSet<AppImplementation> appImplementations,
   required NeonTheme theme,
   @visibleForTesting WidgetsBinding? bindingOverride,
   @visibleForTesting Account? account,
@@ -72,7 +73,7 @@ Future<void> runNeon({
         NeonProvider<AccountsBloc>.value(value: accountsBloc),
         NeonProvider<FirstLaunchBloc>.value(value: firstLaunchBloc),
         NeonProvider<NextPushBloc>.value(value: nextPushBloc),
-        Provider<Iterable<AppImplementation>>(
+        Provider<BuiltSet<AppImplementation>>(
           create: (_) => appImplementations,
           dispose: (_, appImplementations) => appImplementations.disposeAll(),
         ),

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/settings/utils/settings_export_helper.dart';
@@ -10,14 +11,14 @@ import 'package:rxdart/rxdart.dart';
 void main() {
   group('Exporter', () {
     test('AccountsBlocExporter', () {
-      var exporter = const AppImplementationsExporter([]);
+      var exporter = AppImplementationsExporter(BuiltSet());
 
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'app': <String, dynamic>{}});
 
       final fakeApp = MockAppImplementation();
       final fakeOptions = MockAppImplementationOptions();
-      exporter = AppImplementationsExporter([fakeApp]);
+      exporter = AppImplementationsExporter(BuiltSet({fakeApp}));
 
       const appValue = MapEntry('appID', 'value');
       const appExport = {

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,7 @@ class NeonApp extends StatefulWidget {
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowListener {
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
-  late final Iterable<AppImplementation> _appImplementations;
+  late final BuiltSet<AppImplementation> _appImplementations;
   late final GlobalOptions _globalOptions;
   late final AccountsBloc _accountsBloc;
   late final _routerDelegate = buildAppRouter(
@@ -67,7 +68,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
   void initState() {
     super.initState();
 
-    _appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    _appImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
     _globalOptions = NeonProvider.of<GlobalOptions>(context);
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
 
@@ -114,7 +115,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
             return;
           }
 
-          final allAppImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+          final allAppImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
           final app = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
 
           if (app == null) {
@@ -130,7 +131,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
           }
           _accountsBloc.setActiveAccount(account);
 
-          final allAppImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+          final allAppImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
 
           final notificationsApp = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
           if (notificationsApp != null) {

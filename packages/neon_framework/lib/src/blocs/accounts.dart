@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
@@ -29,7 +30,7 @@ abstract interface class AccountsBloc implements Disposable {
   @internal
   factory AccountsBloc(
     GlobalOptions globalOptions,
-    Iterable<AppImplementation> allAppImplementations,
+    BuiltSet<AppImplementation> allAppImplementations,
   ) =>
       _AccountsBloc(
         globalOptions,
@@ -203,7 +204,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   }
 
   final GlobalOptions globalOptions;
-  final Iterable<AppImplementation> allAppImplementations;
+  final BuiltSet<AppImplementation> allAppImplementations;
 
   final accountsOptions = AccountCache<AccountOptions>();
   final appsBlocs = AccountCache<AppsBloc>();

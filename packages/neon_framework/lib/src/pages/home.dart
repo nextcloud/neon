@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
@@ -107,7 +108,7 @@ class _HomePageState extends State<HomePage> {
         if (unifiedSearchEnabledSnapshot.data ?? false) {
           return const NeonUnifiedSearchResults();
         }
-        return ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
+        return ResultBuilder<BuiltSet<AppImplementation>>.behaviorSubject(
           subject: _appsBloc.appImplementations,
           builder: (context, appImplementations) {
             if (!appImplementations.hasData) {
