@@ -232,28 +232,28 @@ void main() {
                 ..id = 'id1'
                 ..icon = '😁'
                 ..message = 'message1'
-                ..clearAt = user_status.ClearAt(
+                ..clearAt.update(
                   (b) => b
                     ..type = user_status.ClearAt_Type.period
                     ..time = (
                       $int: 60 * 60 * 7,
                       clearAtTimeType: null,
                     ),
-                ).toBuilder(),
+                ),
             ),
             user_status.Predefined(
               (b) => b
                 ..id = 'id2'
                 ..icon = '😆'
                 ..message = 'message2'
-                ..clearAt = user_status.ClearAt(
+                ..clearAt.update(
                   (b) => b
                     ..type = user_status.ClearAt_Type.endOf
                     ..time = (
                       $int: null,
                       clearAtTimeType: user_status.ClearAtTimeType.week,
                     ),
-                ).toBuilder(),
+                ),
             ),
           ]),
         ),
