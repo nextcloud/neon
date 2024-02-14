@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
@@ -186,7 +187,7 @@ class NotificationIconButton extends StatefulWidget {
 class _NotificationIconButtonState extends State<NotificationIconButton> {
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
-  late List<Account> _accounts;
+  late BuiltList<Account> _accounts;
   late Account _account;
   late StreamSubscription<void> notificationSubscription;
 

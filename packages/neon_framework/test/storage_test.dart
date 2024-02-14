@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/storage/keys.dart';
@@ -96,7 +97,7 @@ void main() {
       verify(() => sharedPreferences.getStringList(key)).called(1);
 
       when(() => sharedPreferences.setStringList(key, ['hi there'])).thenAnswer((_) => Future.value(false));
-      result = await storage.setStringList(['hi there']);
+      result = await storage.setStringList(BuiltList(['hi there']));
       expect(result, false);
       verify(() => sharedPreferences.setStringList(key, ['hi there'])).called(1);
     });
