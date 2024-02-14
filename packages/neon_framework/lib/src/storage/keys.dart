@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/ids.dart';
 
 /// Interface of a storable element.
@@ -12,7 +11,7 @@ abstract interface class Storable {
 
 /// Unique storage keys.
 ///
-/// Required by the users of the [NeonStorage] storage backend.
+/// Required by the users of the `NeonStorage` storage backend.
 @internal
 enum StorageKeys implements Storable {
   /// The key for the `AppImplementation`s.
