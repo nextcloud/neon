@@ -1,7 +1,9 @@
 // ignore_for_file: unnecessary_lambdas
 
 import 'package:built_collection/built_collection.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:neon_framework/src/storage/secure_persistence.dart';
 import 'package:neon_framework/src/storage/shared_preferences_persistence.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
@@ -148,6 +150,32 @@ void main() {
         await persistence.reload();
         expect(persistence.containsKey('key'), isTrue);
       });
+    });
+
+    test('FlutterSecureStorage', () async {
+      FlutterSecureStorage.setMockInitialValues({
+        'key2': 'value2',
+      });
+
+      const persistence = SecurePersistence();
+
+      dynamic result = await persistence.containsKey('key');
+      expect(result, isFalse);
+
+      result = await persistence.setValue('key', 'value');
+      expect(result, isTrue);
+      result = await persistence.getValue('key');
+      expect(result, equals('value'));
+
+      result = await persistence.remove('key');
+      expect(result, isTrue);
+      result = await persistence.containsKey('key');
+      expect(result, isFalse);
+
+      result = await persistence.clear();
+      expect(result, isTrue);
+      result = await persistence.containsKey('key2');
+      expect(result, isFalse);
     });
   });
 }

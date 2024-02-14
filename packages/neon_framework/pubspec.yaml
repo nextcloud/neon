@@ -3,7 +3,7 @@ version: 1.0.0
 publish_to: 'none'
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: '>=3.3.0 <4.0.0'
   flutter: '>=3.13.0'
 
 dependencies:
@@ -26,9 +26,11 @@ dependencies:
     sdk: flutter
   flutter_material_design_icons: ^1.0.0
   flutter_native_splash: ^2.0.0
+  flutter_secure_storage: ^9.0.0
   flutter_svg: ^2.0.0
   flutter_zxing: ^1.0.0
   go_router: ^13.0.0
+  hex: ^0.2.0
   http: ^1.0.0
   image: ^4.0.0
   intersperse: ^2.0.0

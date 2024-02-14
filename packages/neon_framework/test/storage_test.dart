@@ -4,16 +4,17 @@ import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/storage/keys.dart';
+import 'package:neon_framework/src/storage/secure_storage.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:neon_framework/src/storage/single_value_store.dart';
 import 'package:neon_framework/testing.dart';
 
 void main() {
   group('Storages', () {
-    late MockPersistence persistence;
+    late MockCachedPersistence persistence;
 
     setUp(() {
-      persistence = MockPersistence();
+      persistence = MockCachedPersistence();
     });
 
     test('AppStorage interface', () async {
@@ -89,6 +90,24 @@ void main() {
       result = await storage.setStringList(BuiltList(['hi there']));
       expect(result, false);
       verify(() => persistence.setValue(key, BuiltList(['hi there']))).called(1);
+    });
+
+    test('NeonSecureStorage', () async {
+      final persistence = MockPersistence<String>();
+      final storage = NeonSecureStorage(persistence);
+
+      when(() => persistence.getValue('encryption')).thenAnswer((_) => 'superSecure');
+      var result = await storage.encryptionKey;
+      expect(result, equals('superSecure'));
+      verify(() => persistence.getValue('encryption')).called(1);
+      verifyNever(() => persistence.setValue('encryption', any()));
+
+      when(() => persistence.getValue('encryption')).thenAnswer((_) => null);
+      when(() => persistence.setValue('encryption', any())).thenAnswer((_) async => true);
+      result = await storage.encryptionKey;
+      expect(result, hasLength(64));
+      verify(() => persistence.getValue('encryption')).called(1);
+      verify(() => persistence.setValue('encryption', result)).called(1);
     });
   });
 }

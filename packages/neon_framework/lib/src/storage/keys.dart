@@ -9,6 +9,12 @@ abstract interface class Storable {
   String get value;
 }
 
+/// Mixin class that uses the `name` of an `Enum` as the storage key.
+mixin StorableEnum on Enum implements Storable {
+  @override
+  String get value => name;
+}
+
 /// Unique storage keys.
 ///
 /// Required by the users of the `NeonStorage` storage backend.
