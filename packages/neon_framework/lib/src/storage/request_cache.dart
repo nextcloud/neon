@@ -27,12 +27,26 @@ abstract interface class RequestCache {
   Future<void> updateParameters(String key, CacheParameters? parameters);
 }
 
+/// Default implementation of the [RequestCache].
+///
+/// Values are persisted locally in an SQLite database in the application cache
+/// directory.
+///
+/// The database must be initialized with by calling `DefaultRequestCache().init()`
+/// and awaiting it's completion. If the database is not yet initialized a
+/// `StateError` will be thrown.
 @internal
 class DefaultRequestCache implements RequestCache {
+  /// Creates a new request cache instance.
+  ///
+  /// There should be no need to create multiple instances.
   DefaultRequestCache();
 
   Database? _database;
 
+  /// Initializes this request cache by setting up the backing SQLite database.
+  ///
+  /// This must called and completed before accessing other methods of the cache.
   Future<void> init() async {
     if (_database != null) {
       return;

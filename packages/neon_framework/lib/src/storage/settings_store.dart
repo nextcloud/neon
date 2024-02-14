@@ -1,12 +1,16 @@
+// ignore_for_file: avoid_positional_boolean_parameters
+
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
-import 'package:neon_framework/src/storage/storage_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Storage interface used by `Option`s.
+/// A storage that can save a group of values primarily used by `Option`s.
+///
+/// Mimics a subset of the `SharedPreferences` interface to synchronously
+/// access data while persisting changes in the background.
 ///
 /// See:
-///   * [NeonStorage] that manages the storage backend.
+///   * `NeonStorage` to initialize and manage different storage backends.
 abstract interface class SettingsStore {
   /// The group key for this app storage.
   StorageKeys get groupKey;
@@ -16,61 +20,42 @@ abstract interface class SettingsStore {
   /// Used to differentiate between multiple AppStorages with the same [groupKey].
   String? get suffix;
 
-  /// The id for this app storage.
+  /// The id that uniquely identifies this app storage.
+  ///
+  /// Used in `Exportable` classes.
   String get id;
 
-  /// {@template NeonStorage.getString}
-  /// Reads a value from persistent storage, throwing an `Exception` if it's not a `String`.
-  /// {@endtemplate}
+  /// Reads a value from persistent storage, throwing an `Exception` if it is
+  /// not a `String`.
   String? getString(String key);
 
-  /// {@template NeonStorage.setString}
   /// Saves a `String` [value] to persistent storage in the background.
-  ///
-  /// Note: Due to limitations in Android's SharedPreferences,
-  /// values cannot start with any one of the following:
-  ///
-  /// - 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBhIGxpc3Qu'
-  /// - 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBCaWdJbnRlZ2Vy'
-  /// - 'VGhpcyBpcyB0aGUgcHJlZml4IGZvciBEb3VibGUu'
-  /// {@endtemplate}
   Future<bool> setString(String key, String value);
 
-  /// {@template NeonStorage.getBool}
-  /// Reads a value from persistent storage, throwing an `Exception` if it's not a `bool`.
-  /// {@endtemplate}
+  /// Reads a value from persistent storage, throwing an `Exception` if it is
+  /// not a `bool`.
   bool? getBool(String key);
 
-  /// {@template NeonStorage.setBool}
   /// Saves a `bool` [value] to persistent storage in the background.
-  /// {@endtemplate}
-  // ignore: avoid_positional_boolean_parameters
   Future<bool> setBool(String key, bool value);
 
-  /// {@template NeonStorage.remove}
   /// Removes an entry from persistent storage.
-  /// {@endtemplate}
   Future<bool> remove(String key);
 }
 
-/// A storage that can save a group of values.
-///
-/// Implements the interface of `SharedPreferences`.
-/// [NeonStorage.init] must be called and completed before accessing individual values.
-///
-/// See:
-///   * [NeonStorage] to initialize and manage the storage backends.
+/// Default implementation of the [SettingsStore] backed by the given [database].
 @immutable
 @internal
 final class DefaultSettingsStore implements SettingsStore {
   /// Creates a new app storage.
   const DefaultSettingsStore(
-    this._database,
+    this.database,
     this.groupKey, [
     this.suffix,
   ]);
 
-  final SharedPreferences _database;
+  @protected
+  final SharedPreferences database;
 
   /// The group key for this app storage.
   ///
@@ -100,17 +85,17 @@ final class DefaultSettingsStore implements SettingsStore {
   }
 
   @override
-  Future<bool> remove(String key) => _database.remove(formatKey(key));
+  Future<bool> remove(String key) => database.remove(formatKey(key));
 
   @override
-  String? getString(String key) => _database.getString(formatKey(key));
+  String? getString(String key) => database.getString(formatKey(key));
 
   @override
-  Future<bool> setString(String key, String value) => _database.setString(formatKey(key), value);
+  Future<bool> setString(String key, String value) => database.setString(formatKey(key), value);
 
   @override
-  bool? getBool(String key) => _database.getBool(formatKey(key));
+  bool? getBool(String key) => database.getBool(formatKey(key));
 
   @override
-  Future<bool> setBool(String key, bool value) => _database.setBool(formatKey(key), value);
+  Future<bool> setBool(String key, bool value) => database.setBool(formatKey(key), value);
 }
