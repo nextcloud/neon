@@ -51,9 +51,9 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/sort_box
-  sqflite: ^2.3.0
-  sqflite_common_ffi: ^2.3.2
-  sqflite_common_ffi_web: ^0.4.2+3
+  sqflite_common_ffi: ^2.2.8-2
+  sqlcipher_flutter_libs: ^0.6.1
+  sqlite3: ^2.3.0
   unifiedpush: ^5.0.0
   unifiedpush_android: ^2.0.0
   universal_io: ^2.0.0

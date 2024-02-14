@@ -4,13 +4,23 @@ import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/request_cache.dart';
+import 'package:neon_framework/src/storage/secure_storage.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:neon_framework/src/storage/shared_preferences_persistence.dart';
 import 'package:neon_framework/src/storage/single_value_store.dart';
+import 'package:neon_framework/src/storage/sqlite_persistence.dart';
 
 /// Neon storage that manages the storage backend.
 ///
 /// [init] must be called and completed before accessing individual storages.
+///
+/// Platform implementation:
+///   * `Web`: The storages are backed by an unencrypted [SharedPreferencesPersistence],
+///     and with no enabled [requestCache] as requests are already cached by the
+///     underlying browser.
+///   * `Mobile` and `Desktop`: Both the [requestCache] and storages are
+///     persisted in an sqlcipher encrypted [SQLitePersistence]. The encryption
+///     key is securely stored in the [NeonSecureStorage] using the local key-chains.
 @sealed
 class NeonStorage {
   /// Accesses the current instance of the storage, creating a new one if non
@@ -43,13 +53,17 @@ class NeonStorage {
       return;
     }
 
-    if (!kIsWeb) {
-      final requestCache = DefaultRequestCache();
-      await requestCache.init();
-      _requestCache = requestCache;
-    }
+    if (kIsWeb) {
+      await SharedPreferencesPersistence.init();
+    } else {
+      final encryptionKey = await const NeonSecureStorage().encryptionKey;
 
-    await SharedPreferencesPersistence.init();
+      final requestCache = DefaultRequestCache();
+      await requestCache.init(encryptionKey);
+      _requestCache = requestCache;
+
+      await SQLitePersistence.init(encryptionKey);
+    }
 
     _initialized = true;
   }
@@ -74,14 +88,14 @@ class NeonStorage {
     var key = groupKey.value;
 
     if (key.isEmpty) {
-      throw ArgumentError('The group key must not be empty to avoid conflicts with the `SingleValueStore`.');
+      throw ArgumentError.value(key, 'key', 'must not be empty to avoid conflicts with the `SingleValueStore`.');
     }
 
     if (suffix != null) {
       key = '$key-$suffix';
     }
 
-    final storage = SharedPreferencesPersistence(prefix: key);
+    final storage = kIsWeb ? SharedPreferencesPersistence(prefix: key) : SQLitePersistence(prefix: key);
     return DefaultSettingsStore(storage, suffix ?? groupKey.name);
   }
 
@@ -89,7 +103,7 @@ class NeonStorage {
   SingleValueStore singleValueStore(StorageKeys key) {
     _assertInitialized();
 
-    const storage = SharedPreferencesPersistence();
+    final storage = kIsWeb ? const SharedPreferencesPersistence() : SQLitePersistence();
     return DefaultSingleValueStore(storage, key);
   }
 

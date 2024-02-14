@@ -1,11 +1,16 @@
-// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: unnecessary_lambdas, inference_failure_on_instance_creation, strict_raw_type
+// ignore_for_file: inference_failure_on_collection_literal
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/secure_persistence.dart';
 import 'package:neon_framework/src/storage/shared_preferences_persistence.dart';
+import 'package:neon_framework/src/storage/sqlite_persistence.dart';
+import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 void main() {
   group('Persistences', () {
@@ -176,6 +181,177 @@ void main() {
       expect(result, isTrue);
       result = await persistence.containsKey('key2');
       expect(result, isFalse);
+    });
+
+    test('RequestCache', () async {
+      final cache = DefaultRequestCache();
+      sqfliteFfiInit();
+      databaseFactory = databaseFactoryFfi;
+
+      expect(() async => cache.get('key'), throwsA(isA<StateError>()));
+
+      cache.database = await openDatabase(
+        inMemoryDatabasePath,
+        version: 1,
+        onCreate: DefaultRequestCache.onCreate,
+      );
+
+      dynamic result = await cache.get('key');
+      expect(result, isNull);
+
+      await cache.set('key', 'value', null);
+      result = await cache.get('key');
+      expect(result, equals('value'));
+
+      await cache.set('key', 'upsert', null);
+      result = await cache.get('key');
+      expect(result, equals('upsert'));
+
+      var parameters = const CacheParameters(etag: null, expires: null);
+      result = await cache.getParameters('newKey');
+      expect(result, equals(parameters));
+
+      await cache.set('key', 'value', parameters);
+      result = await cache.getParameters('key');
+      expect(result, equals(parameters));
+
+      parameters = CacheParameters(
+        etag: 'etag',
+        expires: DateTime.fromMillisecondsSinceEpoch(DateTime.now().microsecondsSinceEpoch),
+      );
+      await cache.updateParameters('key', parameters);
+      result = await cache.getParameters('key');
+      expect(result, equals(parameters));
+    });
+
+    group('SQLitePersistence', () {
+      setUpAll(() {
+        sqfliteFfiInit();
+        databaseFactory = databaseFactoryFfi;
+      });
+
+      setUp(() async {
+        SQLitePersistence.database = await openDatabase(
+          inMemoryDatabasePath,
+          version: 1,
+          onCreate: SQLitePersistence.onCreate,
+          singleInstance: false,
+        );
+      });
+
+      tearDown(() {
+        SQLitePersistence.globalCache.clear();
+        SQLitePersistence.database = null;
+      });
+
+      test('Uninitialized', () {
+        SQLitePersistence.database = null;
+
+        expect(() async => SQLitePersistence().clear(), throwsA(isA<StateError>()));
+      });
+
+      test('init reloads all values', () async {
+        await SQLitePersistence().setValue('key', 'value');
+
+        SQLitePersistence(prefix: 'garbage').setCache('key2', 'value2');
+        SQLitePersistence(prefix: 'garbage2').setCache('key2', 'value2');
+
+        await SQLitePersistence.getAll();
+        expect(
+          SQLitePersistence.globalCache,
+          equals(
+            {
+              '': {'key': 'value'},
+            },
+          ),
+        );
+      });
+
+      test('reload unrelated persistence', () async {
+        await SQLitePersistence().setValue('key', 'value');
+
+        SQLitePersistence().setCache('key2', 'value2');
+        SQLitePersistence(prefix: 'garbage').setCache('key2', 'value2');
+
+        await SQLitePersistence().reload();
+        expect(
+          SQLitePersistence.globalCache,
+          equals(
+            {
+              '': {'key': 'value'},
+              'garbage': {'key2': 'value2'},
+            },
+          ),
+        );
+      });
+
+      test('remove unrelated persistence', () async {
+        await SQLitePersistence().setValue('key', 'value');
+        await SQLitePersistence(prefix: 'prefix').setValue('pKey', 'pValue');
+
+        await SQLitePersistence().remove('key');
+        expect(
+          SQLitePersistence.globalCache,
+          equals(
+            {
+              '': {},
+              'prefix': {'pKey': 'pValue'},
+            },
+          ),
+        );
+
+        await SQLitePersistence().reload();
+        expect(
+          SQLitePersistence.globalCache,
+          equals(
+            {
+              '': {},
+              'prefix': {'pKey': 'pValue'},
+            },
+          ),
+        );
+      });
+
+      test('persist built_collection', () async {
+        await SQLitePersistence().setValue('string-key', 'value');
+        await SQLitePersistence().setValue('num-key', 4);
+        await SQLitePersistence().setValue('bool-key', false);
+        await SQLitePersistence().setValue('built-list-key', BuiltList(['hi', 'there']));
+        await SQLitePersistence().setValue('built-map-key', BuiltMap({'hi': 'again'}));
+
+        await SQLitePersistence().reload();
+        expect(
+          SQLitePersistence().cache,
+          equals({
+            'bool-key': false,
+            'built-list-key': BuiltList(['hi', 'there']),
+            'built-map-key': BuiltMap({'hi': 'again'}),
+            'num-key': 4,
+            'string-key': 'value',
+          }),
+        );
+        expect(SQLitePersistence().getValue('built-list-key'), isA<BuiltList>());
+        expect(SQLitePersistence().getValue('built-map-key'), isA<BuiltMap>());
+      });
+
+      test('clear unrelated persistence', () async {
+        await SQLitePersistence().setValue('key', 'value');
+        await SQLitePersistence(prefix: 'prefix').setValue('pKey', 'pValue');
+
+        await SQLitePersistence(prefix: 'prefix').clear();
+        expect(SQLitePersistence(prefix: 'prefix').cache, isEmpty);
+        expect(SQLitePersistence().cache, isNotEmpty);
+
+        await SQLitePersistence(prefix: 'prefix').reload();
+        expect(SQLitePersistence(prefix: 'prefix').cache, isEmpty);
+        expect(SQLitePersistence().cache, isNotEmpty);
+      });
+
+      test('contains key', () async {
+        SQLitePersistence().setCache('key', 'value');
+        expect(SQLitePersistence().containsKey('key'), isTrue);
+        expect(SQLitePersistence(prefix: 'prefix').containsKey('key'), isFalse);
+      });
     });
   });
 }

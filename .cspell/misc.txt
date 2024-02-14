@@ -9,6 +9,7 @@ persistences
 playstore
 postmarket
 provokateurin
+sqlcipher
 subroutes
 uncategorized
 upsert

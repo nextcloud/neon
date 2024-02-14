@@ -44,8 +44,7 @@ class LinuxNeonPlatform implements NeonPlatform {
 
   @override
   void init() {
-    sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
+    databaseFactory = createDatabaseFactoryFfi();
   }
 
   @override

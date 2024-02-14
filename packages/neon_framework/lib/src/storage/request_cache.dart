@@ -37,19 +37,20 @@ abstract interface class RequestCache {
 /// and awaiting it's completion. If the database is not yet initialized a
 /// `StateError` will be thrown.
 @internal
-class DefaultRequestCache implements RequestCache {
+final class DefaultRequestCache implements RequestCache {
   /// Creates a new request cache instance.
   ///
   /// There should be no need to create multiple instances.
   DefaultRequestCache();
 
-  Database? _database;
+  @visibleForTesting
+  Database? database;
 
   /// Initializes this request cache by setting up the backing SQLite database.
   ///
   /// This must called and completed before accessing other methods of the cache.
-  Future<void> init() async {
-    if (_database != null) {
+  Future<void> init(String encryptionKey) async {
+    if (database != null) {
       return;
     }
 
@@ -58,14 +59,22 @@ class DefaultRequestCache implements RequestCache {
       'Tried to initialize DefaultRequestCache on a platform without support for paths',
     );
     final cacheDir = await getApplicationCacheDirectory();
-    _database = await openDatabase(
+    database = await openDatabase(
       p.join(cacheDir.path, 'cache.db'),
       version: 2,
-      onCreate: (db, version) async {
-        await db.execute(
-          'CREATE TABLE cache (id INTEGER PRIMARY KEY, key TEXT, value TEXT, etag TEXT, expires INTEGER, UNIQUE(key))',
-        );
+      onConfigure: (db) async {
+        final cipherVersion = await db.rawQuery('PRAGMA cipher_version');
+        if (cipherVersion.isEmpty) {
+          // Make sure that we're actually using SQLCipher, since the pragma used to encrypt
+          // databases just fails silently with regular sqlite3 (meaning that we'd accidentally
+          // use plaintext databases).
+          throw StateError('SQLCipher library is not available, please check your dependencies!');
+        }
+
+        // Set the encryption key for the database
+        await db.execute("PRAGMA KEY=\"x'$encryptionKey'\"");
       },
+      onCreate: onCreate,
       onUpgrade: (db, oldVersion, newVersion) async {
         final batch = db.batch();
         if (oldVersion == 1) {
@@ -78,8 +87,22 @@ class DefaultRequestCache implements RequestCache {
     );
   }
 
+  @visibleForTesting
+  static Future<void> onCreate(Database db, int version) async {
+    await db.execute('''
+CREATE TABLE "cache" (
+	"id"	INTEGER UNIQUE,
+	"key"	TEXT,
+	"value"	TEXT,
+	"etag"	TEXT,
+	"expires"	INTEGER,
+	PRIMARY KEY("id")
+);
+''');
+  }
+
   Database get _requireDatabase {
-    final database = _database;
+    final database = this.database;
     if (database == null) {
       throw StateError(
         'Cache has not been set up yet. Please make sure DefaultRequestCache.init() has been called before and completed.',

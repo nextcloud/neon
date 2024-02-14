@@ -4,8 +4,6 @@ import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/platform.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'package:web/web.dart';
 
 @immutable
@@ -39,9 +37,7 @@ class WebNeonPlatform implements NeonPlatform {
   bool get canUsePaths => false;
 
   @override
-  FutureOr<void> init() {
-    databaseFactory = databaseFactoryFfiWeb;
-  }
+  void init() {}
 
   @override
   Future<String?> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data) async {
