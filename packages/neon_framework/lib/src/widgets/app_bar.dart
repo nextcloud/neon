@@ -65,7 +65,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder<BuiltSet<AppImplementation>>.behaviorSubject(
         subject: appsBloc.appImplementations,
         builder: (context, appImplementations) => StreamBuilder(
           stream: appsBloc.activeApp,

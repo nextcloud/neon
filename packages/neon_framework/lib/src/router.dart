@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -464,7 +465,7 @@ class AppImplementationSettingsRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    final appImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
     final appImplementation = appImplementations.tryFind(appid)!;
 
     return AppImplementationSettingsPage(appImplementation: appImplementation);

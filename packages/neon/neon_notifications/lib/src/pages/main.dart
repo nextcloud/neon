@@ -65,7 +65,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
     BuildContext context,
     notifications.Notification notification,
   ) {
-    final app = NeonProvider.of<Iterable<AppImplementation>>(context).tryFind(notification.app);
+    final app = NeonProvider.of<BuiltSet<AppImplementation>>(context).tryFind(notification.app);
 
     return ListTile(
       title: Text(notification.subject),

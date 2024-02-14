@@ -11,14 +11,14 @@ import 'package:rxdart/rxdart.dart';
 void main() {
   group('Exporter', () {
     test('AccountsBlocExporter', () {
-      var exporter = const AppImplementationsExporter([]);
+      var exporter = AppImplementationsExporter(BuiltSet());
 
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'app': <String, dynamic>{}});
 
       final fakeApp = MockAppImplementation();
       final fakeOptions = MockAppImplementationOptions();
-      exporter = AppImplementationsExporter([fakeApp]);
+      exporter = AppImplementationsExporter(BuiltSet({fakeApp}));
 
       const appValue = MapEntry('appID', 'value');
       const appExport = {

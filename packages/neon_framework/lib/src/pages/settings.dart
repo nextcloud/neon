@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    final appImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
     final branding = Branding.of(context);
 
     final appBar = AppBar(
@@ -415,7 +416,7 @@ class _SettingsPageState extends State<SettingsPage> {
   SettingsExportHelper _buildSettingsExportHelper(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    final appImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
 
     return SettingsExportHelper(
       exportables: {

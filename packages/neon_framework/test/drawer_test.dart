@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -36,7 +37,7 @@ void main() {
       ),
     );
 
-    final appImplementations = BehaviorSubject<Result<Iterable<AppImplementation>>>();
+    final appImplementations = BehaviorSubject<Result<BuiltSet<AppImplementation>>>();
     final activeApp = BehaviorSubject<AppImplementation>();
     final appsBloc = MockAppsBloc();
     when(() => appsBloc.activeApp).thenAnswer((_) => activeApp);
@@ -69,7 +70,7 @@ void main() {
     expect(find.byType(NavigationDrawerDestination), findsOne);
 
     activeApp.add(appImplementation);
-    appImplementations.add(Result.success([appImplementation]));
+    appImplementations.add(Result.success(BuiltSet({appImplementation})));
 
     await tester.pumpAndSettle();
 

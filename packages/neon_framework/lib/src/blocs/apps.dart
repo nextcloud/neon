@@ -27,7 +27,7 @@ abstract class AppsBloc implements InteractiveBloc {
     CapabilitiesBloc capabilitiesBloc,
     AccountsBloc accountsBloc,
     Account account,
-    Iterable<AppImplementation> allAppImplementations,
+    BuiltSet<AppImplementation> allAppImplementations,
   ) =>
       _AppsBloc(
         capabilitiesBloc,
@@ -45,7 +45,7 @@ abstract class AppsBloc implements InteractiveBloc {
   /// A collection of clients used in the app drawer.
   ///
   /// It does not contain clients for that are specially handled like for the notifications.
-  BehaviorSubject<Result<Iterable<AppImplementation>>> get appImplementations;
+  BehaviorSubject<Result<BuiltSet<AppImplementation>>> get appImplementations;
 
   /// The interface of the notifications app.
   BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
@@ -213,13 +213,13 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     return null;
   }
 
-  Iterable<AppImplementation> filteredAppImplementations(Iterable<String> appIds) =>
-      allAppImplementations.where((a) => appIds.contains(a.id));
+  BuiltSet<AppImplementation> filteredAppImplementations(Iterable<String> appIds) =>
+      BuiltSet(allAppImplementations.where((a) => appIds.contains(a.id)));
 
   final CapabilitiesBloc capabilitiesBloc;
   final AccountsBloc accountsBloc;
   final Account account;
-  final Iterable<AppImplementation> allAppImplementations;
+  final BuiltSet<AppImplementation> allAppImplementations;
   final apps = BehaviorSubject<Result<BuiltList<core.NavigationEntry>>>();
 
   @override
@@ -238,7 +238,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   BehaviorSubject<AppImplementation> activeApp = BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<Iterable<AppImplementation<Bloc, AppImplementationOptions>>>> appImplementations =
+  BehaviorSubject<Result<BuiltSet<AppImplementation<Bloc, AppImplementationOptions>>>> appImplementations =
       BehaviorSubject();
 
   @override
