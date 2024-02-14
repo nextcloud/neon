@@ -12,9 +12,10 @@ import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
+import 'package:neon_framework/src/storage/persistence.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
 class MockAccount extends Mock implements Account {}
 
@@ -50,9 +51,14 @@ class MockNeonStorage extends Mock implements NeonStorage {
   }
 }
 
-class MockSharedPreferences extends Mock implements SharedPreferences {}
+class MockPersistence extends Mock implements CachedPersistence {}
 
 class MockSettingsStore extends Mock implements SettingsStore {}
+
+class MockSharedPreferencesPlatform extends Mock implements SharedPreferencesStorePlatform {
+  @override
+  bool get isMock => true;
+}
 
 class MockCallbackFunction<T> extends Mock {
   FutureOr<T> call();

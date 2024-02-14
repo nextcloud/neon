@@ -3,7 +3,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:neon_framework/src/storage/persistence.dart';
 
 /// A storage that itself is a single entry of a key value store.
 ///
@@ -44,40 +44,51 @@ abstract interface class SingleValueStore {
   Future<bool> setStringList(BuiltList<String> value);
 }
 
-/// Default implementation of the [SingleValueStore] backed by the given [database].
+/// Default implementation of the [SingleValueStore] backed by the given [persistence].
 @immutable
 @internal
 final class DefaultSingleValueStore implements SingleValueStore {
   /// Creates a new storage for a single value.
-  const DefaultSingleValueStore(this.database, this.key);
+  const DefaultSingleValueStore(this.persistence, this.key);
 
+  /// The cached persistence backing this storage.
   @protected
-  final SharedPreferences database;
+  final CachedPersistence persistence;
 
   @override
   final StorageKeys key;
 
   @override
-  bool hasValue() => database.containsKey(key.value);
+  bool hasValue() => persistence.containsKey(key.value);
 
   @override
-  Future<bool> remove() => database.remove(key.value);
+  Future<bool> remove() => persistence.remove(key.value);
 
   @override
-  String? getString() => database.getString(key.value);
+  String? getString() => persistence.getValue(key.value) as String?;
+  @override
+  Future<bool> setString(String value) => persistence.setValue(key.value, value);
 
   @override
-  Future<bool> setString(String value) => database.setString(key.value, value);
+  bool? getBool() => persistence.getValue(key.value) as bool?;
 
   @override
-  bool? getBool() => database.getBool(key.value);
+  Future<bool> setBool(bool value) => persistence.setValue(key.value, value);
 
   @override
-  Future<bool> setBool(bool value) => database.setBool(key.value, value);
+  BuiltList<String>? getStringList() {
+    final key = this.key.value;
+    var list = persistence.getValue(key) as Iterable?;
+
+    if (list is! BuiltList<String>?) {
+      list = BuiltList<String>.from(list);
+      persistence.setCache(key, list);
+      return list;
+    }
+
+    return list;
+  }
 
   @override
-  BuiltList<String>? getStringList() => database.getStringList(key.value)?.toBuiltList();
-
-  @override
-  Future<bool> setStringList(BuiltList<String> value) => database.setStringList(key.value, value.toList());
+  Future<bool> setStringList(BuiltList<String> value) => persistence.setValue(key.value, value);
 }

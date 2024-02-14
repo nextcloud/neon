@@ -1,8 +1,7 @@
 // ignore_for_file: avoid_positional_boolean_parameters
 
 import 'package:meta/meta.dart';
-import 'package:neon_framework/src/storage/keys.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:neon_framework/src/storage/persistence.dart';
 
 /// A storage that can save a group of values primarily used by `Option`s.
 ///
@@ -12,14 +11,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// See:
 ///   * `NeonStorage` to initialize and manage different storage backends.
 abstract interface class SettingsStore {
-  /// The group key for this app storage.
-  StorageKeys get groupKey;
-
-  /// The optional suffix of the storage key.
-  ///
-  /// Used to differentiate between multiple AppStorages with the same [groupKey].
-  String? get suffix;
-
   /// The id that uniquely identifies this app storage.
   ///
   /// Used in `Exportable` classes.
@@ -43,59 +34,32 @@ abstract interface class SettingsStore {
   Future<bool> remove(String key);
 }
 
-/// Default implementation of the [SettingsStore] backed by the given [database].
+/// Default implementation of the [SettingsStore] backed by the given [persistence].
 @immutable
 @internal
 final class DefaultSettingsStore implements SettingsStore {
   /// Creates a new app storage.
-  const DefaultSettingsStore(
-    this.database,
-    this.groupKey, [
-    this.suffix,
-  ]);
+  const DefaultSettingsStore(this.persistence, this.id);
 
+  /// The cached persistence backing this storage.
   @protected
-  final SharedPreferences database;
-
-  /// The group key for this app storage.
-  ///
-  /// Keys are formatted with [formatKey]
-  @override
-  final StorageKeys groupKey;
+  final CachedPersistence persistence;
 
   @override
-  final String? suffix;
-
-  /// Returns the id for this app storage.
-  ///
-  /// Uses the [suffix] and falling back to the [groupKey] if not present.
-  /// This uniquely identifies the storage and is used in `Exportable` classes.
-  @override
-  String get id => suffix ?? groupKey.value;
-
-  /// Concatenates the [groupKey], [suffix] and [key] to build a unique key
-  /// used in the storage backend.
-  @visibleForTesting
-  String formatKey(String key) {
-    if (suffix != null) {
-      return '${groupKey.value}-$suffix-$key';
-    }
-
-    return '${groupKey.value}-$key';
-  }
+  final String id;
 
   @override
-  Future<bool> remove(String key) => database.remove(formatKey(key));
+  Future<bool> remove(String key) => persistence.remove(key);
 
   @override
-  String? getString(String key) => database.getString(formatKey(key));
+  String? getString(String key) => persistence.getValue(key) as String?;
 
   @override
-  Future<bool> setString(String key, String value) => database.setString(formatKey(key), value);
+  Future<bool> setString(String key, String value) => persistence.setValue(key, value);
 
   @override
-  bool? getBool(String key) => database.getBool(formatKey(key));
+  bool? getBool(String key) => persistence.getValue(key) as bool?;
 
   @override
-  Future<bool> setBool(String key, bool value) => database.setBool(formatKey(key), value);
+  Future<bool> setBool(String key, bool value) => persistence.setValue(key, value);
 }
