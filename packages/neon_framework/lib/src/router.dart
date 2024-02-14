@@ -295,7 +295,7 @@ class LoginCheckServerStatusRoute extends GoRouteData {
     required this.serverUrl,
     required String this.loginName,
     required String this.password,
-  }) : assert(!kIsWeb, 'Might leak the password to the browser history');
+  });
 
   /// {@macro AppRoutes.LoginFlow.serverUrl}
   final Uri serverUrl;
@@ -360,7 +360,7 @@ class LoginCheckAccountRoute extends GoRouteData {
     required this.serverUrl,
     required this.loginName,
     required this.password,
-  }) : assert(!kIsWeb, 'Might leak the password to the browser history');
+  });
 
   /// {@macro AppRoutes.LoginFlow.serverUrl}
   final Uri serverUrl;
