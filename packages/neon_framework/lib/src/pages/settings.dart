@@ -251,7 +251,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 } catch (e, s) {
                   debugPrint(e.toString());
                   debugPrint(s.toString());
-                  if (mounted) {
+                  if (context.mounted) {
                     NeonError.showSnackbar(context, e);
                   }
                 }
@@ -276,7 +276,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   }
 
                   if (!result.files.single.path!.endsWith('.json')) {
-                    if (mounted) {
+                    if (context.mounted) {
                       NeonError.showSnackbar(
                         context,
                         NeonLocalizations.of(context).settingsImportWrongFileExtension,
@@ -289,7 +289,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 } catch (e, s) {
                   debugPrint(e.toString());
                   debugPrint(s.toString());
-                  if (mounted) {
+                  if (context.mounted) {
                     NeonError.showSnackbar(context, e);
                   }
                 }
