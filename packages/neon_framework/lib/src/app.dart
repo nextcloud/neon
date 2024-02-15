@@ -25,7 +25,6 @@ import 'package:neon_framework/src/utils/localizations.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/push_utils.dart';
 import 'package:neon_framework/src/widgets/options_collection_builder.dart';
-import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:universal_io/io.dart';
@@ -200,11 +199,11 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
   Widget build(BuildContext context) => DynamicColorBuilder(
         builder: (deviceThemeLight, deviceThemeDark) => OptionsCollectionBuilder(
           valueListenable: _globalOptions,
-          builder: (context, options, _) => StreamBuilder<Account?>(
+          builder: (context, options, _) => StreamBuilder(
             stream: _accountsBloc.activeAccount,
             builder: (context, activeAccountSnapshot) {
               FlutterNativeSplash.remove();
-              return ResultBuilder<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data?>.behaviorSubject(
+              return ResultBuilder.behaviorSubject(
                 subject: activeAccountSnapshot.hasData
                     ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
                     : null,

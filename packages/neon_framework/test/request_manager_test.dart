@@ -108,7 +108,7 @@ void main() {
 
         await subject.close();
 
-        subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
+        subject = BehaviorSubject.seeded(Result.success('Seed value'));
 
         // ignore: unawaited_futures
         expectLater(

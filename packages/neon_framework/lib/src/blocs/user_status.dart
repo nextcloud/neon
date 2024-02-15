@@ -82,17 +82,17 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }
 
   @override
-  final status = BehaviorSubject<Result<user_status.$PublicInterface>>();
+  final status = BehaviorSubject();
 
   @override
-  final statuses = BehaviorSubject<Map<String, Result<user_status.$PublicInterface>>>.seeded({});
+  final statuses = BehaviorSubject.seeded({});
 
   @override
-  final predefinedStatuses = BehaviorSubject<Result<BuiltList<user_status.Predefined>>>();
+  final predefinedStatuses = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
-    await Future.wait<void>([
+    await Future.wait([
       RequestManager.instance.wrapNextcloud(
         account: account,
         cacheKey: 'user_status-predefined-statuses',

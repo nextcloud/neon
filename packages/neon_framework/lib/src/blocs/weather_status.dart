@@ -68,13 +68,13 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
   }
 
   @override
-  final isSupported = BehaviorSubject<bool>();
+  final isSupported = BehaviorSubject();
 
   @override
-  final location = BehaviorSubject<Result<weather_status.$LocationInterface>>();
+  final location = BehaviorSubject();
 
   @override
-  final forecasts = BehaviorSubject<Result<BuiltList<weather_status.Forecast>>>();
+  final forecasts = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

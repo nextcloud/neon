@@ -33,7 +33,7 @@ class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
   }
 
   @override
-  BehaviorSubject<Result<provisioning_api.UserDetails>> userDetails = BehaviorSubject();
+  final userDetails = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

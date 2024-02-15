@@ -15,7 +15,6 @@ import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
-import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 
 /// Account settings page.
 ///
@@ -105,7 +104,7 @@ class AccountSettingsPage extends StatelessWidget {
         SettingsCategory(
           title: Text(NeonLocalizations.of(context).accountOptionsCategoryStorageInfo),
           tiles: [
-            ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
+            ResultBuilder.behaviorSubject(
               subject: userDetailsBloc.userDetails,
               builder: (context, userDetails) {
                 if (userDetails.hasError) {

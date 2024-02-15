@@ -28,7 +28,7 @@ class NotesCategorySelect extends StatelessWidget {
   final VoidCallback onSubmitted;
 
   @override
-  Widget build(BuildContext context) => Autocomplete<String>(
+  Widget build(BuildContext context) => Autocomplete(
         initialValue: initialValue != null
             ? TextEditingValue(
                 text: initialValue!,

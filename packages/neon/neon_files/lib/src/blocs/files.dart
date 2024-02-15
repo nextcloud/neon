@@ -87,7 +87,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  BehaviorSubject<List<FilesTask>> tasks = BehaviorSubject<List<FilesTask>>.seeded([]);
+  final tasks = BehaviorSubject.seeded([]);
 
   @override
   void addFavorite(PathUri uri) {

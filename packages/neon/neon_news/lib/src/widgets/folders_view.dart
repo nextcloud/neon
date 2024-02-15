@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
@@ -6,11 +5,9 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
-import 'package:neon_news/src/options.dart';
 import 'package:neon_news/src/pages/folder.dart';
 import 'package:neon_news/src/sort/folders.dart';
 import 'package:neon_news/utils/dialog.dart';
-import 'package:nextcloud/news.dart' as news;
 
 class NewsFoldersView extends StatelessWidget {
   const NewsFoldersView({
@@ -21,11 +18,11 @@ class NewsFoldersView extends StatelessWidget {
   final NewsBloc bloc;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<BuiltList<news.Folder>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: bloc.folders,
-        builder: (context, folders) => ResultBuilder<BuiltList<news.Feed>>.behaviorSubject(
+        builder: (context, folders) => ResultBuilder.behaviorSubject(
           subject: bloc.feeds,
-          builder: (context, feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
+          builder: (context, feeds) => SortBoxBuilder(
             sortBox: foldersSortBox,
             sortProperty: bloc.options.foldersSortPropertyOption,
             sortBoxOrder: bloc.options.foldersSortBoxOrderOption,
@@ -86,7 +83,7 @@ class NewsFoldersView extends StatelessWidget {
           ],
         ),
       ),
-      trailing: PopupMenuButton<NewsFolderAction>(
+      trailing: PopupMenuButton(
         itemBuilder: (context) => [
           PopupMenuItem(
             value: NewsFolderAction.delete,

@@ -10,7 +10,6 @@ import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/notifications_interface.dart';
-import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/core.dart' as core;
@@ -235,20 +234,19 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   }
 
   @override
-  BehaviorSubject<AppImplementation> activeApp = BehaviorSubject();
+  final activeApp = BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<BuiltSet<AppImplementation<Bloc, AppImplementationOptions>>>> appImplementations =
-      BehaviorSubject();
+  final appImplementations = BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<NotificationsAppInterface?>> notificationsAppImplementation = BehaviorSubject();
+  final notificationsAppImplementation = BehaviorSubject();
 
   @override
-  BehaviorSubject<void> openNotifications = BehaviorSubject();
+  final openNotifications = BehaviorSubject();
 
   @override
-  BehaviorSubject<Map<String, VersionCheck>> appVersionChecks = BehaviorSubject();
+  final appVersionChecks = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

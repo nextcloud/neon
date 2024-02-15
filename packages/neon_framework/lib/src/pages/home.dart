@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
@@ -8,7 +7,6 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/models/account.dart';
-import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/utils/dialog.dart';
 import 'package:neon_framework/src/utils/global_options.dart' as global_options;
 import 'package:neon_framework/src/utils/global_popups.dart';
@@ -108,7 +106,7 @@ class _HomePageState extends State<HomePage> {
         if (unifiedSearchEnabledSnapshot.data ?? false) {
           return const NeonUnifiedSearchResults();
         }
-        return ResultBuilder<BuiltSet<AppImplementation>>.behaviorSubject(
+        return ResultBuilder.behaviorSubject(
           subject: _appsBloc.appImplementations,
           builder: (context, appImplementations) {
             if (!appImplementations.hasData) {

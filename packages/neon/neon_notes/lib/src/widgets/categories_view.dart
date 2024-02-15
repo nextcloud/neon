@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon_framework/blocs.dart';
@@ -7,11 +6,9 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
-import 'package:neon_notes/src/options.dart';
 import 'package:neon_notes/src/pages/category.dart';
 import 'package:neon_notes/src/sort/categories.dart';
 import 'package:neon_notes/src/utils/category_color.dart';
-import 'package:nextcloud/notes.dart' as notes;
 
 class NotesCategoriesView extends StatelessWidget {
   const NotesCategoriesView({
@@ -22,9 +19,9 @@ class NotesCategoriesView extends StatelessWidget {
   final NotesBloc bloc;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<BuiltList<notes.Note>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: bloc.notesList,
-        builder: (context, notes) => SortBoxBuilder<CategoriesSortProperty, NoteCategory>(
+        builder: (context, notes) => SortBoxBuilder(
           sortBox: categoriesSortBox,
           sortProperty: bloc.options.categoriesSortPropertyOption,
           sortBoxOrder: bloc.options.categoriesSortBoxOrderOption,

@@ -7,7 +7,6 @@ import 'package:neon_framework/src/models/label_builder.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/src/storage/keys.dart';
-
 import 'package:neon_framework/storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -119,7 +118,7 @@ class GlobalOptions extends OptionsCollection {
   }
 
   /// The theme mode of the app implementing the Neon framework.
-  late final themeMode = SelectOption(
+  late final themeMode = SelectOption<ThemeMode>(
     storage: storage,
     key: GlobalOptionKeys.themeMode,
     label: (context) => NeonLocalizations.of(context).globalOptionsThemeMode,
@@ -233,7 +232,7 @@ class GlobalOptions extends OptionsCollection {
     values: {},
   );
 
-  late final navigationMode = SelectOption(
+  late final navigationMode = SelectOption<NavigationMode>(
     storage: storage,
     key: GlobalOptionKeys.navigationMode,
     label: (context) => NeonLocalizations.of(context).globalOptionsNavigationMode,

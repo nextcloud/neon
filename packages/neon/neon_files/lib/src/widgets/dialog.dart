@@ -226,7 +226,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final dialogTheme = NeonDialogTheme.of(context);
 
-    return StreamBuilder<PathUri>(
+    return StreamBuilder(
       stream: bloc.uri,
       builder: (context, uriSnapshot) {
         final actions = [

@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon_framework/blocs.dart';
@@ -26,9 +25,9 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<BuiltList<notes.Note>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: bloc.notesList,
-        builder: (context, notesList) => SortBoxBuilder<NotesSortProperty, notes.Note>(
+        builder: (context, notesList) => SortBoxBuilder(
           sortBox: notesSortBox,
           presort: const {
             (property: NotesSortProperty.favorite, order: SortBoxOrder.ascending),

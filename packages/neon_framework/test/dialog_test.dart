@@ -209,7 +209,7 @@ void main() {
 
       final now = DateTime(2024, 1, 20);
 
-      final status = BehaviorSubject<Result<user_status.$PublicInterface>>.seeded(
+      final status = BehaviorSubject.seeded(
         Result.success(
           user_status.Private(
             (b) => b

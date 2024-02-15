@@ -80,7 +80,7 @@ class FileActions extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => PopupMenuButton<FilesFileAction>(
+  Widget build(BuildContext context) => PopupMenuButton(
         itemBuilder: (context) => [
           if (!details.isDirectory && NeonPlatform.instance.canUseSharing)
             PopupMenuItem(

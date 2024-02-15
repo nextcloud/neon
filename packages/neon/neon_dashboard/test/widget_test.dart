@@ -21,7 +21,7 @@ Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
       supportedLocales: DashboardLocalizations.supportedLocales,
       home: Scaffold(
         backgroundColor: Colors.transparent,
-        body: NeonProvider<AccountsBloc>.value(
+        body: NeonProvider.value(
           value: accountsBloc,
           child: child,
         ),

@@ -31,12 +31,12 @@ class _NewsFolderViewState extends State<NewsFolderView> {
         children: [
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15),
-            child: DropdownButton<DefaultFolderViewType>(
+            child: DropdownButton(
               isExpanded: true,
               value: _viewType,
               items: option.values.keys
                   .map(
-                    (key) => DropdownMenuItem<DefaultFolderViewType>(
+                    (key) => DropdownMenuItem(
                       value: key,
                       child: Text(option.values[key]!(context)),
                     ),

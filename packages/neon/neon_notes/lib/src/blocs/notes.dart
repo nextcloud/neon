@@ -60,11 +60,11 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
   }
 
   @override
-  BehaviorSubject<Result<BuiltList<notes.Note>>> notesList = BehaviorSubject<Result<BuiltList<notes.Note>>>();
+  final notesList = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud<BuiltList<notes.Note>, BuiltList<notes.Note>, void>(
+    await RequestManager.instance.wrapNextcloud(
       account: account,
       cacheKey: 'notes-notes',
       subject: notesList,

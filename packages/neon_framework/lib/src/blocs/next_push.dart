@@ -92,5 +92,5 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
   }
 
   @override
-  BehaviorSubject<void> onNextPushSupported = BehaviorSubject();
+  final onNextPushSupported = BehaviorSubject();
 }

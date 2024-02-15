@@ -8,7 +8,6 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/models/account.dart';
-import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/notifications_interface.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/account_switcher_button.dart';
@@ -65,7 +64,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<BuiltSet<AppImplementation>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: appsBloc.appImplementations,
         builder: (context, appImplementations) => StreamBuilder(
           stream: appsBloc.activeApp,
@@ -250,7 +249,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<NotificationsAppInterface?>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: _appsBloc.notificationsAppImplementation,
         builder: (context, notificationsAppImplementation) {
           if (!notificationsAppImplementation.hasData) {

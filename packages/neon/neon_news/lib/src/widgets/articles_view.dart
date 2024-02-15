@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
@@ -44,11 +43,11 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder<BuiltList<news.Feed>>.behaviorSubject(
+  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
         subject: widget.newsBloc.feeds,
-        builder: (context, feeds) => ResultBuilder<BuiltList<news.Article>>.behaviorSubject(
+        builder: (context, feeds) => ResultBuilder.behaviorSubject(
           subject: widget.bloc.articles,
-          builder: (context, articles) => SortBoxBuilder<ArticlesSortProperty, news.Article>(
+          builder: (context, articles) => SortBoxBuilder(
             sortBox: articlesSortBox,
             sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
             sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
@@ -74,11 +73,11 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 );
               },
               topFixedChildren: [
-                StreamBuilder<FilterType>(
+                StreamBuilder(
                   stream: widget.bloc.filterType,
                   builder: (context, selectedFilterTypeSnapshot) => Container(
                     margin: const EdgeInsets.symmetric(horizontal: 15),
-                    child: DropdownButton<FilterType>(
+                    child: DropdownButton(
                       isExpanded: true,
                       value: selectedFilterTypeSnapshot.data,
                       items: [
@@ -87,7 +86,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                         if (widget.bloc.listType == null) ...[
                           FilterType.starred,
                         ],
-                      ].map<DropdownMenuItem<FilterType>>(
+                      ].map(
                         (a) {
                           late final String label;
                           switch (a) {

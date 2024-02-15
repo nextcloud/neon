@@ -91,7 +91,7 @@ class _FileIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget icon = Center(
       child: details.hasTask
-          ? StreamBuilder<double>(
+          ? StreamBuilder(
               stream: details.task!.progress,
               builder: (context, progress) => Column(
                 children: [
