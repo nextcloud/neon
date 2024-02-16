@@ -50,6 +50,12 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
     });
 
     timer = TimerBloc().registerTimer(const Duration(minutes: 5), refresh);
+
+    location.listen((locationResult) async {
+      if (!locationResult.isLoading && !locationResult.hasError) {
+        await refreshForecast();
+      }
+    });
   }
 
   final Account account;
@@ -82,10 +88,6 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
       return;
     }
 
-    if (location.valueOrNull == null) {
-      return;
-    }
-
     await Future.wait([
       RequestManager.instance.wrapNextcloud(
         account: account,
@@ -94,7 +96,6 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
         rawResponse: account.client.weatherStatus.weatherStatus.getLocationRaw(),
         unwrap: (response) => response.body.ocs.data,
       ),
-      refreshForecast(),
     ]);
   }
 
