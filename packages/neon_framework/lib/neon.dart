@@ -34,7 +34,7 @@ Future<void> runNeon({
   final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
-  await NeonPlatform.setup();
+  await NeonPlatform.instance.init();
   await NeonStorage().init();
 
   final packageInfo = await PackageInfo.fromPlatform();
