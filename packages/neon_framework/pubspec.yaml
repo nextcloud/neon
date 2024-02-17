@@ -78,3 +78,9 @@ flutter:
   assets:
     - assets/
     - assets/icons/server/
+  plugin:
+    platforms:
+      linux:
+        dartPluginClass: LinuxNeonPlatform
+      android:
+        dartPluginClass: AndroidNeonPlatform

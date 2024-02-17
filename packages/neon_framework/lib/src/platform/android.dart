@@ -2,19 +2,22 @@ import 'dart:typed_data';
 
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/src/platform/linux.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 
 /// Android specific platform information.
 ///
 /// See:
 ///   * [NeonPlatform] to initialize and acquire an instance
-///   * [LinuxNeonPlatform] for the Linux implementation
+///   * `LinuxNeonPlatform` for the Linux implementation
 @immutable
-@internal
 class AndroidNeonPlatform implements NeonPlatform {
   /// Creates a new Android Neon platform.
   const AndroidNeonPlatform();
+
+  /// Registers this platform.
+  static void registerWith() {
+    NeonPlatform.instance = const AndroidNeonPlatform();
+  }
 
   @override
   bool get canUseCamera => true;

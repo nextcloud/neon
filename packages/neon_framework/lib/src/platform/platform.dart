@@ -2,55 +2,27 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
-import 'package:neon_framework/src/platform/android.dart';
-import 'package:neon_framework/src/platform/linux.dart';
-import 'package:universal_io/io.dart';
 
 /// Implements platform specific functionality and exposes the availability of certain features.
 ///
-/// [NeonPlatform.setup] mus be called and completed before acquiring the [instance].
-///
 /// See:
-///   * [AndroidNeonPlatform] for the Android implementation
-///   * [LinuxNeonPlatform] for the Linux implementation
+///   * `AndroidNeonPlatform` for the Android implementation
+///   * `LinuxNeonPlatform` for the Linux implementation
 @immutable
 abstract interface class NeonPlatform {
-  /// Initializes the platform with the given mocked [platform].
-  @visibleForTesting
-  factory NeonPlatform.mocked(NeonPlatform platform) => _platform = platform;
+  static NeonPlatform? _instance;
 
-  static NeonPlatform? _platform;
-
-  /// Infers and configures the platform automatically.
-  ///
-  /// Required to be called before accessing [NeonPlatform.instance].
-  static Future<void> setup() async {
-    if (_platform != null) {
-      return;
-    }
-
-    if (Platform.isAndroid) {
-      _platform = const AndroidNeonPlatform();
-    } else if (Platform.isLinux) {
-      _platform = const LinuxNeonPlatform();
-    } else {
-      throw UnimplementedError('No implementation for platform ${Platform.operatingSystem} found');
-    }
-
-    await _platform!.init();
-  }
+  static set instance(NeonPlatform instance) => _instance = instance;
 
   /// Gets the current instance of [NeonPlatform].
-  ///
-  /// Make sure [NeonPlatform.setup] has been called before accessing the instance.
   static NeonPlatform get instance {
-    if (_platform == null) {
+    if (_instance == null) {
       throw StateError(
         'NeonPlatform has not been set up yet. Please make sure NeonPlatform.setup() has been called before and completed.',
       );
     }
 
-    return _platform!;
+    return _instance!;
   }
 
   /// Whether this platform supports web views.
@@ -78,7 +50,7 @@ abstract interface class NeonPlatform {
   /// The support depends on `https://pub.dev/packages/unifiedpush`.
   abstract final bool canUsePushNotifications;
 
-  /// Wether this platform can use native sharing.
+  /// Whether this platform can use native sharing.
   ///
   /// The support depends on `https://pub.dev/packages/share_plus`.
   abstract final bool canUseSharing;
