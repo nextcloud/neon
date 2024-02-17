@@ -45,7 +45,7 @@ class _RouteNotFoundPageState extends State<RouteNotFoundPage> {
       return;
     }
 
-    if (context.mounted) {
+    if (mounted) {
       const HomeRoute().go(context);
     }
   }
