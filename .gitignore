@@ -15,3 +15,5 @@ packages/**/doc/api
 
 # Melos reccomends not adding them to vcs but we need them as we don't use melos in CI
 # **/pubspec_overrides.yaml
+
+.fvm/
