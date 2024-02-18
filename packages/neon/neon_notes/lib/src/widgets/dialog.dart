@@ -60,7 +60,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
     );
 
     final folderSelector = ResultBuilder.behaviorSubject(
-      subject: widget.bloc.notesList,
+      subject: widget.bloc.notes,
       builder: (context, notes) {
         if (notes.hasError) {
           return Center(
@@ -148,7 +148,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
   @override
   Widget build(BuildContext context) {
     final folderSelector = ResultBuilder.behaviorSubject(
-      subject: widget.bloc.notesList,
+      subject: widget.bloc.notes,
       builder: (context, notes) {
         if (notes.hasError) {
           return Center(
