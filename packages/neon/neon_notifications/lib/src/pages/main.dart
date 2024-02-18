@@ -36,7 +36,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
 
   @override
   Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.notificationsList,
+        subject: bloc.notifications,
         builder: (context, notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
           floatingActionButton: StreamBuilder(

@@ -26,7 +26,7 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.notesList,
+        subject: bloc.notes,
         builder: (context, notesList) => SortBoxBuilder(
           sortBox: notesSortBox,
           presort: const {

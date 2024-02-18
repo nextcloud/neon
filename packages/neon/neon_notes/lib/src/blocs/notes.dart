@@ -6,7 +6,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_notes/src/options.dart';
-import 'package:nextcloud/notes.dart' as notes;
+import 'package:nextcloud/notes.dart' as $notes;
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotesBloc implements InteractiveBloc {
@@ -36,7 +36,7 @@ sealed class NotesBloc implements InteractiveBloc {
 
   void deleteNote(int id);
 
-  BehaviorSubject<Result<BuiltList<notes.Note>>> get notesList;
+  BehaviorSubject<Result<BuiltList<$notes.Note>>> get notes;
 
   NotesOptions get options;
 }
@@ -55,19 +55,19 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
 
   @override
   void dispose() {
-    unawaited(notesList.close());
+    unawaited(notes.close());
     super.dispose();
   }
 
   @override
-  final notesList = BehaviorSubject();
+  final notes = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud(
       account: account,
       cacheKey: 'notes-notes',
-      subject: notesList,
+      subject: notes,
       rawResponse: account.client.notes.getNotesRaw(),
       unwrap: (response) => response.body,
     );

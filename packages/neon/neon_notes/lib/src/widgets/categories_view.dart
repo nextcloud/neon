@@ -20,7 +20,7 @@ class NotesCategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.notesList,
+        subject: bloc.notes,
         builder: (context, notes) => SortBoxBuilder(
           sortBox: categoriesSortBox,
           sortProperty: bloc.options.categoriesSortPropertyOption,
