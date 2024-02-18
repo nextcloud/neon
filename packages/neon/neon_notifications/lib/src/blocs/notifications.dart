@@ -6,7 +6,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_notifications/src/options.dart';
-import 'package:nextcloud/notifications.dart' as notifications;
+import 'package:nextcloud/notifications.dart' as $notifications;
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
@@ -22,7 +22,7 @@ sealed class NotificationsBloc implements NotificationsBlocInterface, Interactiv
 
   void deleteAllNotifications();
 
-  BehaviorSubject<Result<BuiltList<notifications.Notification>>> get notificationsList;
+  BehaviorSubject<Result<BuiltList<$notifications.Notification>>> get notifications;
 
   BehaviorSubject<int> get unreadCounter;
 }
@@ -32,7 +32,7 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
     this.options,
     this.account,
   ) {
-    notificationsList.listen((result) {
+    notifications.listen((result) {
       if (result.hasData) {
         unreadCounter.add(result.requireData.length);
       }
@@ -49,13 +49,13 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   @override
   void dispose() {
     timer.cancel();
-    unawaited(notificationsList.close());
+    unawaited(notifications.close());
     unawaited(unreadCounter.close());
     super.dispose();
   }
 
   @override
-  final notificationsList = BehaviorSubject();
+  final notifications = BehaviorSubject();
 
   @override
   final unreadCounter = BehaviorSubject();
@@ -65,7 +65,7 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
     await RequestManager.instance.wrapNextcloud(
       account: account,
       cacheKey: 'notifications-notifications',
-      subject: notificationsList,
+      subject: notifications,
       rawResponse: account.client.notifications.endpoint.listNotificationsRaw(),
       unwrap: (response) => response.body.ocs.data,
     );
