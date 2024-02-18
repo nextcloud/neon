@@ -77,7 +77,7 @@ void main() {
         deserialize: (serialized) => utf8.encode(serialized),
       );
 
-      verify(callback.call).called(kMaxRetries + 1);
+      verify(callback.call).called(kMaxTries);
 
       await subject.close();
     });

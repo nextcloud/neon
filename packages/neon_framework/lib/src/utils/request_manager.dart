@@ -33,7 +33,7 @@ typedef DeserializeCallback<T> = T Function(String);
 ///
 /// A request will not be retried if the returned status code is in the `500`
 /// range or if the request has timed out.
-const kMaxRetries = 3;
+const kMaxTries = 3;
 
 /// The default timeout for requests.
 ///
@@ -210,102 +210,92 @@ class RequestManager {
     AsyncValueGetter<CacheParameters>? getCacheParameters,
     bool disableTimeout = false,
     Duration timeLimit = kDefaultTimeout,
-    int retries = 0,
   }) async {
     final key = '${account.id}-$cacheKey';
 
-    if (retries == 0) {
-      // emit loading state with the current value if present
-      final value = subject.valueOrNull?.asLoading() ?? Result.loading();
-      subject.add(value);
+    // emit loading state with the current value if present
+    final value = subject.valueOrNull?.asLoading() ?? Result.loading();
+    subject.add(value);
 
-      final cachedParameters = await _cache?.getParameters(key);
+    final cachedParameters = await _cache?.getParameters(key);
 
-      if (cachedParameters != null) {
-        if (cachedParameters.expires != null && !cachedParameters.isExpired) {
+    if (cachedParameters != null) {
+      if (cachedParameters.expires != null && !cachedParameters.isExpired) {
+        final cachedValue = await _cache?.get(key);
+        if (cachedValue != null) {
+          subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+          return;
+        }
+      }
+
+      if (cachedParameters.etag != null) {
+        final cacheParameters = await timeout(
+          () async => getCacheParameters?.call(),
+          timeLimit: timeLimit,
+        );
+        if (cacheParameters != null && cacheParameters.etag == cachedParameters.etag) {
           final cachedValue = await _cache?.get(key);
           if (cachedValue != null) {
+            unawaited(
+              _cache?.updateParameters(
+                key,
+                cacheParameters,
+              ),
+            );
             subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
             return;
           }
         }
-
-        if (cachedParameters.etag != null) {
-          final cacheParameters = await timeout(
-            () async => getCacheParameters?.call(),
-            timeLimit: timeLimit,
-          );
-          if (cacheParameters != null && cacheParameters.etag == cachedParameters.etag) {
-            final cachedValue = await _cache?.get(key);
-            if (cachedValue != null) {
-              unawaited(
-                _cache?.updateParameters(
-                  key,
-                  cacheParameters,
-                ),
-              );
-              subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
-              return;
-            }
-          }
-        }
-      }
-
-      final cachedValue = await _cache?.get(key);
-      if (cachedValue != null) {
-        subject.add(
-          subject.value.copyWith(
-            data: unwrap(deserialize(cachedValue)),
-            isLoading: true,
-            isCached: true,
-          ),
-        );
       }
     }
 
-    try {
-      final response = await timeout(
-        request,
-        disableTimeout: disableTimeout,
-        timeLimit: timeLimit,
+    final cachedValue = await _cache?.get(key);
+    if (cachedValue != null) {
+      subject.add(
+        subject.value.copyWith(
+          data: unwrap(deserialize(cachedValue)),
+          isLoading: true,
+          isCached: true,
+        ),
       );
-      subject.add(Result.success(unwrap(response)));
+    }
 
-      final serialized = serialize(response);
-
-      CacheParameters? cacheParameters;
-      if (response is DynamiteRawResponse && response.rawHeaders != null) {
-        cacheParameters = CacheParameters.parseHeaders(response.rawHeaders!);
-      }
-
-      await _cache?.set(key, serialized, cacheParameters);
-    } on TimeoutException catch (e, s) {
-      debugPrint('Request timed out ...');
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
-
-      _emitError<T>(e, subject);
-    } on http.ClientException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
-
-      if (e is DynamiteStatusCodeException && e.statusCode >= 500 && retries < kMaxRetries) {
-        debugPrint('Retrying...');
-        await wrap(
-          account: account,
-          cacheKey: cacheKey,
-          subject: subject,
-          request: request,
-          unwrap: unwrap,
-          serialize: serialize,
-          deserialize: deserialize,
+    for (var i = 0; i < kMaxTries; i++) {
+      try {
+        final response = await timeout(
+          request,
           disableTimeout: disableTimeout,
           timeLimit: timeLimit,
-          retries: retries + 1,
         );
-      } else {
+        subject.add(Result.success(unwrap(response)));
+
+        final serialized = serialize(response);
+
+        CacheParameters? cacheParameters;
+        if (response is DynamiteRawResponse && response.rawHeaders != null) {
+          cacheParameters = CacheParameters.parseHeaders(response.rawHeaders!);
+        }
+
+        await _cache?.set(key, serialized, cacheParameters);
+        break;
+      } on TimeoutException catch (e, s) {
+        debugPrint('Request timed out ...');
+        debugPrint(e.toString());
+        debugPrintStack(stackTrace: s, maxFrames: 5);
+
         _emitError<T>(e, subject);
+        break;
+      } on http.ClientException catch (e, s) {
+        debugPrint(e.toString());
+        debugPrintStack(stackTrace: s, maxFrames: 5);
+
+        if (e is! DynamiteStatusCodeException || e.statusCode < 500) {
+          _emitError<T>(e, subject);
+          break;
+        }
       }
+
+      debugPrint('Retrying...');
     }
   }
 
