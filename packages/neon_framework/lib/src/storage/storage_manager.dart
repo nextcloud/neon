@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/request_cache.dart';
@@ -45,9 +46,11 @@ class NeonStorage {
       return;
     }
 
-    final requestCache = DefaultRequestCache();
-    await requestCache.init();
-    _requestCache = requestCache;
+    if (!kIsWeb) {
+      final requestCache = DefaultRequestCache();
+      await requestCache.init();
+      _requestCache = requestCache;
+    }
 
     _sharedPreferences = await SharedPreferences.getInstance();
 

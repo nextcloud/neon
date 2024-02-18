@@ -67,11 +67,11 @@ See [here](packages/app/README.md) for screenshots.
 
 ## Platform support
 
-| Platform  | Progress           |
-|-----------|--------------------|
-| Android   | :heavy_check_mark: |
-| iOS       | :construction:     |
-| MacOS     | :construction:     |
-| Linux     | :heavy_check_mark: |
-| Windows   | :rocket:           |
-| Web       | :construction:     |
+| Platform | Progress           |
+|----------|--------------------|
+| Android  | :heavy_check_mark: |
+| iOS      | :construction:     |
+| MacOS    | :construction:     |
+| Linux    | :heavy_check_mark: |
+| Windows  | :rocket:           |
+| Web      | :heavy_check_mark: |

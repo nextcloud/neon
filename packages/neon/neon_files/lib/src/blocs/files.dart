@@ -8,8 +8,9 @@ import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/utils/task.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
+import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -31,9 +32,11 @@ sealed class FilesBloc implements InteractiveBloc {
 
   void uploadFile(PathUri uri, String localPath);
 
+  void uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified});
+
   void openFile(PathUri uri, String etag, String? mimeType);
 
-  void shareFileNative(PathUri uri, String etag);
+  void shareFileNative(PathUri uri, String etag, String? mimeType);
 
   void delete(PathUri uri);
 
@@ -118,11 +121,15 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   void openFile(PathUri uri, String etag, String? mimeType) {
     wrapAction(
       () async {
-        final file = await cacheFile(uri, etag);
-
-        final result = await OpenFile.open(file.path, type: mimeType);
-        if (result.type != ResultType.done) {
-          throw const UnableToOpenFileException();
+        if (NeonPlatform.instance.canUsePaths) {
+          final file = await cacheFile(uri, etag);
+          final result = await OpenFile.open(file.path, type: mimeType);
+          if (result.type != ResultType.done) {
+            throw const UnableToOpenFileException();
+          }
+        } else {
+          final bytes = await downloadMemory(uri);
+          await NeonPlatform.instance.saveFileWithPickDialog(uri.name, mimeType ?? 'application/octet-stream', bytes);
         }
       },
       disableTimeout: true,
@@ -130,12 +137,15 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void shareFileNative(PathUri uri, String etag) {
+  void shareFileNative(PathUri uri, String etag, String? mimeType) {
     wrapAction(
       () async {
-        final file = await cacheFile(uri, etag);
-
-        await Share.shareXFiles([XFile(file.path)]);
+        if (NeonPlatform.instance.canUsePaths) {
+          final file = await cacheFile(uri, etag);
+          await Share.shareXFiles([XFile(file.path)]);
+        } else {
+          throw UnimplementedError('Sharing is not supported on web');
+        }
       },
       disableTimeout: true,
     );
@@ -170,9 +180,27 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   void uploadFile(PathUri uri, String localPath) {
     wrapAction(
       () async {
-        final task = FilesUploadTask(
+        final task = FilesUploadTaskIO(
           uri: uri,
           file: File(localPath),
+        );
+        tasks.add(tasks.value..add(task));
+        await uploadQueue.add(() => task.execute(account.client));
+        tasks.add(tasks.value..remove(task));
+      },
+      disableTimeout: true,
+    );
+  }
+
+  @override
+  void uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified}) {
+    wrapAction(
+      () async {
+        final task = FilesUploadTaskMemory(
+          uri: uri,
+          size: bytes.length,
+          lastModified: lastModified,
+          bytes: bytes,
         );
         tasks.add(tasks.value..add(task));
         await uploadQueue.add(() => task.execute(account.client));
@@ -191,23 +219,33 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
       if (!file.parent.existsSync()) {
         await file.parent.create(recursive: true);
       }
-      await downloadFile(uri, file);
+      await downloadIO(uri, file);
     }
 
     return file;
   }
 
-  Future<void> downloadFile(
-    PathUri uri,
-    File file,
-  ) async {
-    final task = FilesDownloadTask(
+  Future<void> downloadIO(PathUri uri, File file) async {
+    final task = FilesDownloadTaskIO(
       uri: uri,
       file: file,
     );
+
     tasks.add(tasks.value..add(task));
     await downloadQueue.add(() => task.execute(account.client));
     tasks.add(tasks.value..remove(task));
+  }
+
+  Future<Uint8List> downloadMemory(PathUri uri) async {
+    final task = FilesDownloadTaskMemory(uri: uri);
+    // We need to listen to the stream, otherwise it will get stuck.
+    final future = task.stream.bytes;
+
+    tasks.add(tasks.value..add(task));
+    await downloadQueue.add(() => task.execute(account.client));
+    tasks.add(tasks.value..remove(task));
+
+    return future;
   }
 
   @override

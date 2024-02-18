@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -52,6 +53,10 @@ class DefaultRequestCache implements RequestCache {
       return;
     }
 
+    assert(
+      NeonPlatform.instance.canUsePaths,
+      'Tried to initialize DefaultRequestCache on a platform without support for paths',
+    );
     final cacheDir = await getApplicationCacheDirectory();
     _database = await openDatabase(
       p.join(cacheDir.path, 'cache.db'),

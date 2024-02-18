@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:image_picker/image_picker.dart';
@@ -15,8 +16,6 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:path/path.dart' as p;
-import 'package:universal_io/io.dart';
 
 /// Creates an adaptive bottom sheet to select an action to add a file.
 class FilesChooseCreateModal extends StatefulWidget {
@@ -55,27 +54,36 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
 
     if (result != null) {
       for (final file in result.files) {
-        await upload(File(file.path!));
+        if (!await confirmUpload(file.size)) {
+          return;
+        }
+        if (kIsWeb) {
+          widget.bloc.uploadMemory(
+            baseUri.join(PathUri.parse(file.name)),
+            file.bytes!,
+          );
+        } else {
+          widget.bloc.uploadFile(
+            baseUri.join(PathUri.parse(file.name)),
+            file.path!,
+          );
+        }
       }
     }
   }
 
-  Future<void> upload(File file) async {
+  Future<bool> confirmUpload(int size) async {
     final sizeWarning = widget.bloc.options.uploadSizeWarning.value;
     if (sizeWarning != null) {
-      final stat = file.statSync();
-      if (stat.size > sizeWarning) {
-        final result = await showUploadConfirmationDialog(context, sizeWarning, stat.size);
+      if (size > sizeWarning) {
+        final result = await showUploadConfirmationDialog(context, sizeWarning, size);
 
         if (!result) {
-          return;
+          return false;
         }
       }
     }
-    widget.bloc.uploadFile(
-      baseUri.join(PathUri.parse(p.basename(file.path))),
-      file.path,
-    );
+    return true;
   }
 
   Widget wrapAction({
@@ -140,7 +148,21 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
             final picker = ImagePicker();
             final result = await picker.pickImage(source: ImageSource.camera);
             if (result != null) {
-              await upload(File(result.path));
+              final length = await result.length();
+              if (!await confirmUpload(length)) {
+                return;
+              }
+              if (kIsWeb) {
+                widget.bloc.uploadMemory(
+                  baseUri.join(PathUri.parse(result.name)),
+                  await result.readAsBytes(),
+                );
+              } else {
+                widget.bloc.uploadFile(
+                  baseUri.join(PathUri.parse(result.name)),
+                  result.path,
+                );
+              }
             }
           },
         ),

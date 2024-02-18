@@ -21,6 +21,9 @@ migration:
     - platform: linux
       create_revision: b0366e0a3f089e15fd89c97604ab402fe26b724c
       base_revision: b0366e0a3f089e15fd89c97604ab402fe26b724c
+    - platform: web
+      create_revision: b0366e0a3f089e15fd89c97604ab402fe26b724c
+      base_revision: b0366e0a3f089e15fd89c97604ab402fe26b724c
 
   # User provided section
 

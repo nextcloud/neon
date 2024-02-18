@@ -22,22 +22,29 @@ function copy_app_svg() {
   sed -i "s/fill=\"#[^\"]*\"/fill=\"$color\"/g" "$target"
 }
 
+function export_icon() {
+    source="$1"
+    size="$2"
+    destination="$3"
+    inkscape "$source" -o "$destination" -w "$size" -h "$size"
+}
+
 function export_mipmap_icon() {
     source="$1"
-    name="$2"
-    size="$3"
+    size="$2"
+    name="$3"
     dpi="$4"
-    inkscape "$source" -o "android/app/src/main/res/mipmap-${dpi}dpi/$name.png" -w "$size" -h "$size"
+    export_icon "$source" "$size" "android/app/src/main/res/mipmap-${dpi}dpi/$name.png"
 }
 
 function export_mipmap_icon_all() {
     source="$1"
     name="$2"
-    export_mipmap_icon "$source" "$name" 72 h &
-    export_mipmap_icon "$source" "$name" 48 m &
-    export_mipmap_icon "$source" "$name" 96 xh &
-    export_mipmap_icon "$source" "$name" 144 xxh &
-    export_mipmap_icon "$source" "$name" 192 xxxh &
+    export_mipmap_icon "$source" 72  "$name" h    &
+    export_mipmap_icon "$source" 48  "$name" m    &
+    export_mipmap_icon "$source" 96  "$name" xh   &
+    export_mipmap_icon "$source" 144 "$name" xxh  &
+    export_mipmap_icon "$source" 192 "$name" xxxh &
     wait
 }
 
@@ -91,7 +98,12 @@ copy_app_svg notifications external/nextcloud-notifications
   done
   wait
 
+  export_icon "assets/logo.svg" 192 "web/icons/Icon-192.png"
+  export_icon "assets/logo.svg" 512 "web/icons/Icon-512.png"
+  export_icon "assets/logo.svg"  16 "web/favicon.png"
+
   fvm dart run flutter_native_splash:create
+  fvm dart run sqflite_common_ffi_web:setup --force
 
   precompile_assets
 )

@@ -247,7 +247,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   final fileName = 'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json';
 
                   final data = settingsExportHelper.exportToFile();
-                  await NeonPlatform.instance.saveFileWithPickDialog(fileName, data);
+                  await NeonPlatform.instance.saveFileWithPickDialog(fileName, 'application/json', data);
                 } catch (e, s) {
                   debugPrint(e.toString());
                   debugPrint(s.toString());

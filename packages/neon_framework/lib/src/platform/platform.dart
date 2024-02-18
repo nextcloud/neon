@@ -55,11 +55,14 @@ abstract interface class NeonPlatform {
   /// The support depends on `https://pub.dev/packages/share_plus`.
   abstract final bool canUseSharing;
 
+  /// Whether this platform can use paths.
+  ///
+  /// The support depends on `https://pub.dev/packages/path_provider`.
+  abstract final bool canUsePaths;
+
   /// Initializes this platform.
   FutureOr<void> init();
 
   /// Saves a file with the user choosing the location.
-  ///
-  /// Returns the path of the chosen location.
-  Future<String?> saveFileWithPickDialog(String fileName, Uint8List data);
+  Future<void> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data);
 }

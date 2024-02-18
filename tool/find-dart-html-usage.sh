@@ -6,6 +6,6 @@ dart_html_usage=("$(grep -r packages --include "*\.dart" -e "dart:html" -l | gre
 
 if [[ -n "${dart_html_usage[*]}" ]]; then
   printf "%s\n" "${dart_html_usage[@]}"
-    echo "Use package:universal_html/html.dart instead"
+    echo "Use package:web/web.dart instead"
   exit 1
 fi
