@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-02-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nextcloud` - `v5.0.2`](#nextcloud---v502)
+
+---
+
+#### `nextcloud` - `v5.0.2`
+
+ - **FIX**(nextcloud): Set correct intl version constraint to allow all 0.19.x versions. ([5aea8499](https://github.com/nextcloud/neon/commit/5aea84996b34676f64414a7565c55f5091b508f5))
+ - **FIX**(nextcloud): Workaround WebDAV CSRF bug on web. ([c1e051b2](https://github.com/nextcloud/neon/commit/c1e051b265fa53c24b0de5cfda77d4c04557f07a))
+
+
 ## 2024-02-12
 
 ### Changes

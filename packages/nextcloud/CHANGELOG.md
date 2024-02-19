@@ -1,3 +1,8 @@
+## 5.0.2
+
+ - **FIX**(nextcloud): Set correct intl version constraint to allow all 0.19.x versions. ([5aea8499](https://github.com/nextcloud/neon/commit/5aea84996b34676f64414a7565c55f5091b508f5))
+ - **FIX**(nextcloud): Workaround WebDAV CSRF bug on web. ([c1e051b2](https://github.com/nextcloud/neon/commit/c1e051b265fa53c24b0de5cfda77d4c04557f07a))
+
 ## 5.0.1
 
  - **FIX**(nextcloud): Emit errors in WebDAV getStream. ([42619979](https://github.com/nextcloud/neon/commit/4261997994d89cc2234cc2fdbce65733c1d027e8))
