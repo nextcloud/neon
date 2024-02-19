@@ -34,21 +34,13 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon/neon_notifications
-  universal_io: any
   vector_graphics: any
 
 dev_dependencies:
-  flutter_material_design_icons: any
-  flutter_test:
-    sdk: flutter
-  integration_test:
-    sdk: flutter
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
-  nextcloud: ^5.0.1
-  shared_preferences: any
   vector_graphics_compiler: any
 
 flutter:
