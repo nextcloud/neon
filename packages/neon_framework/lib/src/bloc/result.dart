@@ -1,4 +1,7 @@
-import 'package:flutter/widgets.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_framework/src/widgets/error.dart';
+import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// An extension that calls [Result.transform] on every [Result] emitted.
@@ -260,4 +263,98 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
 
   @override
   Widget build(BuildContext context, Result<T> currentSummary) => builder(context, currentSummary);
+}
+
+/// Widget that builds a list view based on the latest snapshot of a [BehaviorSubject<Result<BuiltList<T>>>].
+///
+/// It will handle showing error and loading states automatically.
+/// Instead of rebuilding everything every time the [Result] changes, only the necessary parts will be updated.
+@immutable
+class ResultListBuilder<T> extends StatelessWidget {
+  /// Creates a new result list builder.
+  const ResultListBuilder({
+    required this.subject,
+    required this.onRefresh,
+    required this.builder,
+    required this.scrollKey,
+    this.topFixedChildren,
+    this.topScrollingChildren,
+    this.reverse = false,
+    super.key,
+  });
+
+  /// The [BehaviorSubject] that contains the events.
+  final BehaviorSubject<Result<BuiltList<T>>> subject;
+
+  /// The callback invoked when the user refreshes the list.
+  final RefreshCallback onRefresh;
+
+  /// Builder function called with the current [BuiltList<T>] value.
+  ///
+  /// Must return a Sliver.
+  final Widget Function(BuildContext, BuiltList<T>) builder;
+
+  /// The scroll key attached to this list view.
+  final String scrollKey;
+
+  /// A list of widgets that are displayed at the top of the but do not scroll with it.
+  final List<Widget>? topFixedChildren;
+
+  /// A list of widgets that are displayed at the top of the list and scroll with it.
+  final List<Widget>? topScrollingChildren;
+
+  /// Whether the scroll view scrolls in the reading direction.
+  ///
+  /// Defaults to `false`.
+  final bool reverse;
+
+  @override
+  Widget build(BuildContext context) {
+    final refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
+    final hasFloatingActionButton = Scaffold.maybeOf(context)?.hasFloatingActionButton ?? false;
+
+    return StreamBuilder(
+      stream: subject,
+      builder: (context, snapshot) => RefreshIndicator.adaptive(
+        key: refreshIndicatorKey,
+        onRefresh: onRefresh,
+        child: CustomScrollView(
+          key: PageStorageKey<String>(scrollKey),
+          primary: true,
+          reverse: reverse,
+          slivers: [
+            if (topFixedChildren != null)
+              SliverList.builder(
+                itemCount: topFixedChildren!.length,
+                itemBuilder: (context, index) => topFixedChildren![index],
+              ),
+            SliverToBoxAdapter(
+              child: NeonLinearProgressIndicator(
+                visible: snapshot.data?.isLoading ?? false,
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: NeonError(
+                snapshot.data?.error,
+                onRetry: () async => refreshIndicatorKey.currentState!.show(),
+              ),
+            ),
+            if (topScrollingChildren != null)
+              SliverList.builder(
+                itemCount: topScrollingChildren!.length,
+                itemBuilder: (context, index) => topScrollingChildren![index],
+              ),
+            SliverPadding(
+              padding: hasFloatingActionButton ? const EdgeInsets.only(bottom: 88) : EdgeInsets.zero,
+              sliver: builder(context, snapshot.data?.data ?? BuiltList()),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
