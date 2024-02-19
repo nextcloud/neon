@@ -86,7 +86,7 @@ void main() {
           BorderRadius.circular(largeIconSize),
         ),
       );
-      expect(find.byType(NeonImage), findsNWidgets(2));
+      expect(find.byType(NeonUriImage), findsNWidgets(2));
 
       await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item.png'));
     });
@@ -146,7 +146,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(NeonImage), findsOneWidget);
+      expect(find.byType(NeonUriImage), findsOneWidget);
     });
   });
 
@@ -295,7 +295,7 @@ void main() {
           BorderRadius.circular(largeIconSize),
         ),
       );
-      expect(find.byType(NeonImage), findsNWidgets(3));
+      expect(find.byType(NeonUriImage), findsNWidgets(3));
       expect(find.byType(DashboardWidgetItem), findsOneWidget);
       expect(find.bySubtype<FilledButton>(), findsOneWidget);
       expect(find.byIcon(Icons.add), findsOneWidget);
