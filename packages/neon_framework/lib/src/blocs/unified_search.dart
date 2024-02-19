@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
@@ -7,6 +8,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
+import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
@@ -34,8 +36,11 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
   /// Contains whether unified search is currently enabled.
   BehaviorSubject<bool> get enabled;
 
+  /// The available search providers.
+  BehaviorSubject<Result<BuiltList<core.UnifiedSearchProvider>>> get providers;
+
   /// Contains the unified search results mapped by provider.
-  BehaviorSubject<Result<Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>?>> get results;
+  BehaviorSubject<BuiltMap<String, Result<core.UnifiedSearchResult>>> get results;
 }
 
 class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
@@ -48,6 +53,19 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
         disable();
       }
     });
+
+    providers.listen((result) async {
+      if (result.isLoading) {
+        return;
+      }
+
+      if (term.isEmpty) {
+        results.add(BuiltMap());
+        return;
+      }
+
+      await searchProviders(result.requireData.map((provider) => provider.id).toList());
+    });
   }
 
   final AppsBloc appsBloc;
@@ -58,37 +76,28 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   final enabled = BehaviorSubject.seeded(false);
 
   @override
-  final results = BehaviorSubject.seeded(Result.success(null));
+  final providers = BehaviorSubject.seeded(Result.success(BuiltList()));
+
+  @override
+  final results = BehaviorSubject.seeded(BuiltMap());
 
   @override
   void dispose() {
     unawaited(enabled.close());
+    unawaited(providers.close());
     unawaited(results.close());
     super.dispose();
   }
 
   @override
   Future<void> refresh() async {
-    if (term.isEmpty) {
-      results.add(Result.success(null));
-      return;
-    }
-
-    try {
-      results.add(results.value.asLoading());
-      final response = await account.client.core.unifiedSearch.getProviders();
-      final providers = response.body.ocs.data;
-      results.add(
-        Result.success(Map.fromEntries(getLoadingProviders(providers))),
-      );
-      for (final provider in providers) {
-        unawaited(searchProvider(provider));
-      }
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-      results.add(Result.error(e));
-    }
+    await RequestManager.instance.wrapNextcloud(
+      account: account,
+      cacheKey: 'unified-search-providers',
+      subject: providers,
+      rawResponse: account.client.core.unifiedSearch.getProvidersRaw(),
+      unwrap: (response) => response.body.ocs.data,
+    );
   }
 
   @override
@@ -105,49 +114,59 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   @override
   void disable() {
     enabled.add(false);
-    results.add(Result.success(null));
+    results.add(BuiltMap());
     term = '';
   }
 
-  Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> getLoadingProviders(
-    Iterable<core.UnifiedSearchProvider> providers,
-  ) sync* {
-    for (final provider in providers) {
-      yield MapEntry(provider, Result.loading());
-    }
+  Future<void> searchProviders(List<String> providerIDs) async {
+    results.add(
+      BuiltMap.build((b) {
+        final loadingEvent = Result<core.UnifiedSearchResult>.loading();
+
+        for (final providerID in providerIDs) {
+          b[providerID] = loadingEvent;
+        }
+      }),
+    );
+
+    await Future.wait(
+      providerIDs.map((providerID) async {
+        try {
+          final response = await account.client.core.unifiedSearch.search(
+            providerId: providerID,
+            term: term,
+          );
+          updateResults(providerID, Result.success(response.body.ocs.data));
+        } catch (e, s) {
+          debugPrint(e.toString());
+          debugPrint(s.toString());
+          updateResults(providerID, Result.error(e));
+        }
+      }),
+    );
   }
 
-  Future<void> searchProvider(core.UnifiedSearchProvider provider) async {
-    updateResults(provider, Result.loading());
-    try {
-      final response = await account.client.core.unifiedSearch.search(
-        providerId: provider.id,
-        term: term,
-      );
-      updateResults(provider, Result.success(response.body.ocs.data));
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-      updateResults(provider, Result.error(e));
-    }
-  }
-
-  void updateResults(core.UnifiedSearchProvider provider, Result<core.UnifiedSearchResult> result) => results.add(
-        Result.success(
-          Map.fromEntries(
-            sortResults({
-              ...?results.value.data,
-              provider: result,
+  void updateResults(String providerID, Result<core.UnifiedSearchResult> result) {
+    results.add(
+      BuiltMap.build((b) {
+        b.addEntries(
+          sortResults(
+            results.value.rebuild((b) {
+              b[providerID] = result;
             }),
           ),
-        ),
-      );
+        );
+      }),
+    );
+  }
 
-  Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> sortResults(
-    Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>> results,
+  Iterable<MapEntry<String, Result<core.UnifiedSearchResult>>> sortResults(
+    BuiltMap<String, Result<core.UnifiedSearchResult>> results,
   ) sync* {
     final activeApp = appsBloc.activeApp.value;
 
+    // Unlike non-matching providers (below) we don't filter the empty results,
+    // as the active app is more relevant and we want to know if there are no results for the active app.
     yield* results.entries
         .where((entry) => providerMatchesApp(entry.key, activeApp))
         .sorted((a, b) => sortEntriesCount(a.value, b.value));
@@ -157,8 +176,8 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
         .sorted((a, b) => sortEntriesCount(a.value, b.value));
   }
 
-  bool providerMatchesApp(core.UnifiedSearchProvider provider, AppImplementation app) =>
-      provider.id == app.id || provider.id.startsWith('${app.id}_');
+  bool providerMatchesApp(String providerID, AppImplementation app) =>
+      providerID == app.id || providerID.startsWith('${app.id}_');
 
   bool hasEntries(Result<core.UnifiedSearchResult> result) => !result.hasData || result.requireData.entries.isNotEmpty;
 
