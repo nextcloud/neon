@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
@@ -155,7 +154,10 @@ void main() {
     expect(
       bloc.items
           .transformResult(
-            (e) => BuiltList<String>(e.values.map((items) => items.items.map((item) => item.title)).flattened),
+            (e) => BuiltList<String>([
+              for (final items in e.values)
+                for (final item in items.items) item.title,
+            ]),
           )
           .distinct(),
       emitsInOrder([
