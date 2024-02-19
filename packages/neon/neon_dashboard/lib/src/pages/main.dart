@@ -32,9 +32,11 @@ class DashboardMainPage extends StatelessWidget {
     final weatherStatusBloc = accountsBloc.activeWeatherStatusBloc;
 
     return NeonCustomBackground(
-      child: ResultBuilder.behaviorSubject(
+      child: ResultListBuilder(
+        scrollKey: 'dashboard',
+        onRefresh: bloc.refresh,
         subject: bloc.widgets,
-        builder: (context, widgetsResult) => ResultBuilder.behaviorSubject(
+        builder: (context, widgets) => ResultBuilder.behaviorSubject(
           subject: bloc.items,
           builder: (context, itemsResult) {
             final children = <Widget>[
@@ -46,9 +48,9 @@ class DashboardMainPage extends StatelessWidget {
             ];
 
             var minHeight = 504.0;
-            if (widgetsResult.hasData) {
-              final widgets = <Widget>[];
-              for (final widget in widgetsResult.requireData) {
+            if (widgets.isNotEmpty) {
+              final subChildren = <Widget>[];
+              for (final widget in widgets) {
                 final items = buildWidgetItems(
                   context: context,
                   widget: widget,
@@ -58,7 +60,7 @@ class DashboardMainPage extends StatelessWidget {
                 final height = items.map((i) => i.height!).reduce((a, b) => a + b);
                 minHeight = max(minHeight, height);
 
-                widgets.add(
+                subChildren.add(
                   DashboardWidget(
                     widget: widget,
                     children: items,
@@ -71,7 +73,7 @@ class DashboardMainPage extends StatelessWidget {
                   alignment: WrapAlignment.center,
                   spacing: 8,
                   runSpacing: 8,
-                  children: widgets
+                  children: subChildren
                       .map(
                         (widget) => SizedBox(
                           width: 320,
@@ -90,26 +92,17 @@ class DashboardMainPage extends StatelessWidget {
               );
             }
 
-            return Center(
-              child: NeonListView.custom(
-                scrollKey: 'dashboard',
-                isLoading: widgetsResult.isLoading || itemsResult.isLoading,
-                error: widgetsResult.error ?? itemsResult.error,
-                onRefresh: bloc.refresh,
-                sliver: SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: children
-                        .intersperse(
-                          const SizedBox(
-                            height: 40,
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
+            return SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: children
+                    .intersperse(
+                      const SizedBox(
+                        height: 40,
+                      ),
+                    )
+                    .toList(),
               ),
             );
           },

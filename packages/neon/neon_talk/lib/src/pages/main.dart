@@ -40,15 +40,13 @@ class _TalkMainPageState extends State<TalkMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
+  Widget build(BuildContext context) => ResultListBuilder(
+        scrollKey: 'talk-rooms',
         subject: bloc.rooms,
-        builder: (context, rooms) => NeonListView(
-          scrollKey: 'talk-rooms',
-          isLoading: rooms.isLoading,
-          error: rooms.error,
-          onRefresh: bloc.refresh,
-          itemCount: rooms.data?.length ?? 0,
-          itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
+        onRefresh: bloc.refresh,
+        builder: (context, rooms) => SliverList.builder(
+          itemCount: rooms.length,
+          itemBuilder: (context, index) => buildRoom(rooms[index]),
         ),
       );
 

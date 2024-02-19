@@ -39,42 +39,52 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: widget.bloc.files,
-        builder: (context, filesSnapshot) => StreamBuilder(
-          stream: widget.bloc.uri,
-          builder: (context, uriSnapshot) => StreamBuilder(
-            stream: widget.filesBloc.tasks,
-            builder: (context, tasksSnapshot) {
-              if (!uriSnapshot.hasData || !tasksSnapshot.hasData) {
-                return const SizedBox();
+  Widget build(BuildContext context) => StreamBuilder(
+        stream: widget.bloc.uri.distinct(),
+        builder: (context, uriSnapshot) {
+          if (!uriSnapshot.hasData) {
+            return const SizedBox.shrink();
+          }
+          return BackButtonListener(
+            onBackButtonPressed: () async {
+              final parent = uriSnapshot.requireData.parent;
+              if (parent != null) {
+                widget.bloc.setPath(parent);
+                return true;
               }
-              return BackButtonListener(
-                onBackButtonPressed: () async {
-                  final parent = uriSnapshot.requireData.parent;
-                  if (parent != null) {
-                    widget.bloc.setPath(parent);
-                    return true;
-                  }
-                  return false;
+              return false;
+            },
+            child: ResultListBuilder(
+              subject: widget.bloc.files,
+              scrollKey: 'files-${uriSnapshot.requireData.path}',
+              onRefresh: widget.bloc.refresh,
+              topScrollingChildren: [
+                FilesBrowserNavigator(
+                  uri: uriSnapshot.requireData,
+                  bloc: widget.bloc,
+                ),
+              ],
+              builder: (context, files) => SortBoxBuilder(
+                sortBox: filesSortBox,
+                sortProperty: widget.bloc.options.filesSortPropertyOption,
+                sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,
+                presort: const {
+                  (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
                 },
-                child: SortBoxBuilder(
-                  sortBox: filesSortBox,
-                  sortProperty: widget.bloc.options.filesSortPropertyOption,
-                  sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,
-                  presort: const {
-                    (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
-                  },
-                  input: filesSnapshot.data?.sublist(1).toList(),
-                  builder: (context, sorted) {
-                    final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
+                input: files.isNotEmpty ? files.sublist(1).toList() : <WebDavFile>[],
+                builder: (context, sorted) => StreamBuilder(
+                  stream: widget.filesBloc.tasks,
+                  builder: (context, tasksSnapshot) {
+                    final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.data ?? BuiltList(), sorted).toList();
 
-                    return NeonListView(
-                      scrollKey: 'files-${uriSnapshot.requireData.path}',
-                      itemCount: sorted.length,
+                    return SliverList.builder(
+                      itemCount: uploadingTaskTiles.length + sorted.length,
                       itemBuilder: (context, index) {
-                        final file = sorted[index];
-                        final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
+                        if (index < uploadingTaskTiles.length) {
+                          return uploadingTaskTiles[index];
+                        }
+                        final file = sorted[index - uploadingTaskTiles.length];
+                        final matchingTask = tasksSnapshot.data?.firstWhereOrNull(
                           (task) => file.name == task.uri.name && widget.bloc.uri.value == task.uri.parent,
                         );
 
@@ -93,23 +103,13 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                           details: details,
                         );
                       },
-                      isLoading: filesSnapshot.isLoading,
-                      error: filesSnapshot.error,
-                      onRefresh: widget.bloc.refresh,
-                      topScrollingChildren: [
-                        FilesBrowserNavigator(
-                          uri: uriSnapshot.requireData,
-                          bloc: widget.bloc,
-                        ),
-                        ...uploadingTaskTiles,
-                      ],
                     );
                   },
                 ),
-              );
-            },
-          ),
-        ),
+              ),
+            ),
+          );
+        },
       );
 
   Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<WebDavFile> files) sync* {

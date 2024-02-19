@@ -24,23 +24,19 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
+  Widget build(BuildContext context) => ResultListBuilder(
         subject: bloc.notes,
-        builder: (context, notesList) => SortBoxBuilder(
+        scrollKey: 'notes-notes',
+        onRefresh: bloc.refresh,
+        builder: (context, data) => SortBoxBuilder(
           sortBox: notesSortBox,
           presort: const {
             (property: NotesSortProperty.favorite, order: SortBoxOrder.ascending),
           },
           sortProperty: bloc.options.notesSortPropertyOption,
           sortBoxOrder: bloc.options.notesSortBoxOrderOption,
-          input: category != null
-              ? notesList.data?.where((note) => note.category == category).toList()
-              : notesList.data?.toList(),
-          builder: (context, sorted) => NeonListView(
-            scrollKey: 'notes-notes',
-            isLoading: notesList.isLoading,
-            error: notesList.error,
-            onRefresh: bloc.refresh,
+          input: category != null ? data.where((note) => note.category == category).toList() : data.toList(),
+          builder: (context, sorted) => SliverList.builder(
             itemCount: sorted.length,
             itemBuilder: (context, index) => _buildNote(context, sorted[index]),
           ),
