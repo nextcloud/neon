@@ -19,7 +19,7 @@ dependencies:
   crypton: ^2.0.0
   dynamite_runtime: ^0.2.0
   http: ^1.2.0
-  intl: '>=0.17.0 <=0.19.0'
+  intl: '>=0.17.0 <0.20.0'
   json_annotation: ^4.8.1
   meta: ^1.0.0
   universal_io: ^2.0.0
