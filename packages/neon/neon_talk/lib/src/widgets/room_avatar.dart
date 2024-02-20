@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -40,11 +41,11 @@ class TalkRoomAvatar extends StatelessWidget {
       spreed.RoomType.oneToOne => NeonUserAvatar(
           username: room.name,
         ),
-      spreed.RoomType.group => _buildIconAvatar(Icons.group),
-      spreed.RoomType.public => _buildIconAvatar(Icons.link),
-      spreed.RoomType.changelog => _buildIconAvatar(Icons.text_snippet_outlined),
-      spreed.RoomType.oneToOneFormer => _buildIconAvatar(Icons.lock),
-      spreed.RoomType.noteToSelf => _buildIconAvatar(Icons.edit_note),
+      spreed.RoomType.group => _buildIconAvatar(AdaptiveIcons.group),
+      spreed.RoomType.public => _buildIconAvatar(AdaptiveIcons.link),
+      spreed.RoomType.changelog => _buildIconAvatar(AdaptiveIcons.text_snippet_outlined),
+      spreed.RoomType.oneToOneFormer => _buildIconAvatar(AdaptiveIcons.lock),
+      spreed.RoomType.noteToSelf => _buildIconAvatar(AdaptiveIcons.edit_note),
     };
   }
 

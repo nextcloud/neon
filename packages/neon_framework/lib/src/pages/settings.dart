@@ -19,6 +19,7 @@ import 'package:neon_framework/src/settings/widgets/settings_tile.dart';
 import 'package:neon_framework/src/settings/widgets/text_settings_tile.dart';
 import 'package:neon_framework/src/theme/branding.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
@@ -395,7 +396,7 @@ class _SettingsPageState extends State<SettingsPage> {
       final addAccountTile = CustomSettingsTile(
         title: ElevatedButton.icon(
           onPressed: () async => const LoginRoute().push(context),
-          icon: const Icon(MdiIcons.accountPlus),
+          icon: Icon(AdaptiveIcons.add_account),
           label: Text(NeonLocalizations.of(context).globalOptionsAccountsAdd),
         ),
       );

@@ -187,7 +187,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           tooltip:
               article.starred ? NewsLocalizations.of(context).articleUnstar : NewsLocalizations.of(context).articleStar,
           icon: Icon(
-            article.starred ? Icons.star : Icons.star_outline,
+            article.starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
             color: Theme.of(context).colorScheme.primary,
           ),
         ),

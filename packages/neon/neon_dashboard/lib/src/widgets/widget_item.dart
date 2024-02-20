@@ -31,7 +31,7 @@ class DashboardWidgetItem extends StatelessWidget {
                 size: const Size.square(largeIconSize),
               )
             : Icon(
-                Icons.question_mark,
+                AdaptiveIcons.question_mark,
                 color: Theme.of(context).colorScheme.error,
               ),
       ),

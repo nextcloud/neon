@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/article.dart';
@@ -151,7 +151,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                     tooltip: starred
                         ? NewsLocalizations.of(context).articleUnstar
                         : NewsLocalizations.of(context).articleStar,
-                    icon: Icon(starred ? Icons.star : Icons.star_outline),
+                    icon: Icon(starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline),
                   );
                 },
               ),
@@ -170,7 +170,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                     tooltip: unread
                         ? NewsLocalizations.of(context).articleMarkRead
                         : NewsLocalizations.of(context).articleMarkUnread,
-                    icon: Icon(unread ? MdiIcons.email : MdiIcons.emailMarkAsUnread),
+                    icon: Icon(unread ? AdaptiveIcons.email : AdaptiveIcons.email_mark_as_unread),
                   );
                 },
               ),
@@ -190,7 +190,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                     await Share.share(await _getURL());
                   },
                   tooltip: NewsLocalizations.of(context).articleShare,
-                  icon: const Icon(Icons.share),
+                  icon: Icon(Icons.adaptive.share),
                 ),
               ],
             ],

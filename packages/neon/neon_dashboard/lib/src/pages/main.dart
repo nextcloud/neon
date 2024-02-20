@@ -363,7 +363,7 @@ class DashboardMainPage extends StatelessWidget {
     }
 
     return Icon(
-      Icons.question_mark,
+      AdaptiveIcons.question_mark,
       color: Theme.of(context).colorScheme.primary,
       size: largeIconSize,
     );
@@ -379,8 +379,8 @@ class DashboardMainPage extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            const Icon(
-              Icons.check,
+            Icon(
+              AdaptiveIcons.check,
               size: largeIconSize,
             ),
             Text(message),

@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/router.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/utils/exceptions.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
@@ -97,7 +98,7 @@ class NeonError extends StatelessWidget {
 
     final message = details.getText(context);
     final errorIcon = Icon(
-      Icons.error_outline,
+      AdaptiveIcons.error_outline,
       size: iconSize ?? 30,
       color: color,
     );

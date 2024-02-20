@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
 import 'package:neon_notes/src/widgets/dialog.dart';
@@ -32,6 +33,6 @@ class NotesFloatingActionButton extends StatelessWidget {
           }
         },
         tooltip: NotesLocalizations.of(context).noteCreate,
-        child: const Icon(Icons.add),
+        child: Icon(AdaptiveIcons.add),
       );
 }

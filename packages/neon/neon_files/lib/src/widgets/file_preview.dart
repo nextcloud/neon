@@ -1,6 +1,5 @@
 import 'package:file_icons/file_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/models/file_details.dart';
 import 'package:neon_framework/theme.dart';
@@ -38,7 +37,7 @@ class FilePreview extends StatelessWidget {
         builder: (context) {
           if (details.isDirectory) {
             return Icon(
-              MdiIcons.folder,
+              AdaptiveIcons.folder,
               color: color,
               size: size.shortestSide,
             );

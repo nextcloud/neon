@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
@@ -64,7 +63,7 @@ class NotesView extends StatelessWidget {
                 width: 8,
               ),
               Icon(
-                MdiIcons.tag,
+                AdaptiveIcons.tag,
                 size: smallIconSize,
                 color: NotesCategoryColor.compute(note.category),
               ),
@@ -85,7 +84,7 @@ class NotesView extends StatelessWidget {
           },
           tooltip: note.favorite ? NotesLocalizations.of(context).noteUnstar : NotesLocalizations.of(context).noteStar,
           icon: Icon(
-            note.favorite ? Icons.star : Icons.star_outline,
+            note.favorite ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
             color: Theme.of(context).colorScheme.primary,
           ),
         ),

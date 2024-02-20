@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/theme/sizes.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/image.dart';
@@ -144,7 +145,7 @@ class NeonUserStatusIndicator extends StatelessWidget {
       );
     } else if (result.hasError) {
       child = Icon(
-        Icons.error_outline,
+        AdaptiveIcons.error_outline,
         size: scaledSize,
         color: Theme.of(context).colorScheme.error,
       );

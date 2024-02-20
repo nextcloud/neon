@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
@@ -64,11 +65,11 @@ class _NewsMainPageState extends State<NewsMainPage> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: const Icon(Icons.newspaper),
+            icon: Icon(AdaptiveIcons.newspaper),
             label: NewsLocalizations.of(context).articles,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.folder),
+            icon: Icon(AdaptiveIcons.folder),
             label: NewsLocalizations.of(context).folders,
           ),
           BottomNavigationBarItem(

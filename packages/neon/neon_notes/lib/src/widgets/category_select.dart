@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/utils/category_color.dart';
 
@@ -73,7 +73,7 @@ class NotesCategorySelect extends StatelessWidget {
                   final option = options.elementAt(index);
                   return ListTile(
                     leading: Icon(
-                      MdiIcons.tag,
+                      AdaptiveIcons.tag,
                       color: option.isNotEmpty ? NotesCategoryColor.compute(option) : null,
                     ),
                     title: Text(

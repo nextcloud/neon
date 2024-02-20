@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/browser.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:nextcloud/webdav.dart';
 
 class FilesBrowserNavigator extends StatelessWidget {
@@ -31,7 +32,7 @@ class FilesBrowserNavigator extends StatelessWidget {
                   vertical: VisualDensity.minimumDensity,
                 ),
                 tooltip: FilesLocalizations.of(context).goToPath(''),
-                icon: const Icon(Icons.house),
+                icon: Icon(AdaptiveIcons.house),
                 onPressed: () {
                   bloc.setPath(PathUri.cwd());
                 },
@@ -53,7 +54,7 @@ class FilesBrowserNavigator extends StatelessWidget {
               ),
             );
           },
-          separatorBuilder: (context, index) => const Icon(Icons.keyboard_arrow_right),
+          separatorBuilder: (context, index) => Icon(AdaptiveIcons.chevron_right),
         ),
       );
 }

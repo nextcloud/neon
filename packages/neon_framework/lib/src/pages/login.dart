@@ -5,6 +5,7 @@ import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/branding.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/utils/validators.dart';
 import 'package:neon_framework/src/widgets/nextcloud_logo.dart';
 
@@ -92,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: 'https://...',
                         labelText: NeonLocalizations.of(context).loginUsingServerAddress,
                         suffixIcon: IconButton(
-                          icon: const Icon(Icons.arrow_forward),
+                          icon: Icon(AdaptiveIcons.arrow_forward),
                           onPressed: () {
                             login(_controller.text);
                           },
@@ -110,8 +111,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     IconButton(
                       tooltip: NeonLocalizations.of(context).loginUsingQRcode,
-                      icon: const Icon(
-                        Icons.qr_code_scanner_rounded,
+                      icon: Icon(
+                        AdaptiveIcons.qr_code_scanner,
                         size: 60,
                       ),
                       onPressed: () => const LoginQRcodeRoute().go(context),

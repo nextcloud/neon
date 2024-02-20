@@ -68,7 +68,7 @@ class NewsFoldersView extends StatelessWidget {
         child: Stack(
           children: [
             Icon(
-              Icons.folder,
+              AdaptiveIcons.folder,
               size: largeIconSize,
               color: Theme.of(context).colorScheme.primary,
             ),

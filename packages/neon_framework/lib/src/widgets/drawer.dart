@@ -6,6 +6,7 @@ import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/router.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
 import 'package:neon_framework/src/widgets/error.dart';
@@ -81,7 +82,7 @@ class _NeonDrawerState extends State<NeonDrawer> {
         const NeonDrawerHeader(),
         ...?appDestinations,
         NavigationDrawerDestination(
-          icon: const Icon(Icons.settings),
+          icon: Icon(AdaptiveIcons.settings),
           label: Text(NeonLocalizations.of(context).settings),
         ),
       ],
