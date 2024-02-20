@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
@@ -66,7 +65,7 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
           return const SizedBox.shrink();
         }
 
-        final entries = result.data?.entries ?? BuiltList<core.UnifiedSearchResultEntry>();
+        final entries = result.data?.entries;
 
         return Card(
           child: Container(
@@ -85,7 +84,7 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
                 NeonLinearProgressIndicator(
                   visible: result.isLoading,
                 ),
-                if (!result.isLoading && entries.isEmpty) ...[
+                if (!result.isLoading && entries != null && entries.isEmpty)
                   AdaptiveListTile(
                     leading: const Icon(
                       Icons.close,
@@ -93,20 +92,19 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
                     ),
                     title: Text(NeonLocalizations.of(context).searchNoResults),
                   ),
-                ],
-                for (final entry in entries) ...[
-                  AdaptiveListTile(
-                    leading: NeonImageWrapper(
-                      size: const Size.square(largeIconSize),
-                      child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
+                if (entries != null)
+                  for (final entry in entries)
+                    AdaptiveListTile(
+                      leading: NeonImageWrapper(
+                        size: const Size.square(largeIconSize),
+                        child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
+                      ),
+                      title: Text(entry.title),
+                      subtitle: Text(entry.subline),
+                      onTap: () async {
+                        context.go(entry.resourceUrl);
+                      },
                     ),
-                    title: Text(entry.title),
-                    subtitle: Text(entry.subline),
-                    onTap: () async {
-                      context.go(entry.resourceUrl);
-                    },
-                  ),
-                ],
               ],
             ),
           ),
