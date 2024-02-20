@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
@@ -6,6 +7,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/theme/sizes.dart';
+import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon_framework/src/widgets/error.dart';
@@ -65,50 +67,60 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
           return const SizedBox.shrink();
         }
 
-        final entries = result.data?.entries;
+        final showCupertino = isCupertino(context);
+        final title = Text(provider.name);
 
-        return Card(
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  provider.name,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                NeonError(
-                  result.error,
-                  onRetry: bloc.refresh,
-                ),
-                NeonLinearProgressIndicator(
-                  visible: result.isLoading,
-                ),
-                if (!result.isLoading && entries != null && entries.isEmpty)
-                  AdaptiveListTile(
-                    leading: const Icon(
-                      Icons.close,
-                      size: largeIconSize,
-                    ),
-                    title: Text(NeonLocalizations.of(context).searchNoResults),
-                  ),
-                if (entries != null)
-                  for (final entry in entries)
-                    AdaptiveListTile(
-                      leading: NeonImageWrapper(
-                        size: const Size.square(largeIconSize),
-                        child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
-                      ),
-                      title: Text(entry.title),
-                      subtitle: Text(entry.subline),
-                      onTap: () async {
-                        context.go(entry.resourceUrl);
-                      },
-                    ),
-              ],
+        final children = <Widget>[
+          if (!showCupertino)
+            DefaultTextStyle(
+              style: Theme.of(context).textTheme.headlineSmall!,
+              child: title,
             ),
-          ),
-        );
+          if (result.hasError)
+            NeonError(
+              result.error,
+              onRetry: bloc.refresh,
+            ),
+          if (result.isLoading) const NeonLinearProgressIndicator(),
+          if (result.hasData && result.requireData.entries.isEmpty)
+            AdaptiveListTile(
+              leading: const Icon(
+                Icons.close,
+                size: largeIconSize,
+              ),
+              title: Text(NeonLocalizations.of(context).searchNoResults),
+            ),
+          if (result.hasData)
+            for (final entry in result.requireData.entries)
+              AdaptiveListTile(
+                leading: NeonImageWrapper(
+                  size: const Size.square(largeIconSize),
+                  child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
+                ),
+                title: Text(entry.title),
+                subtitle: Text(entry.subline),
+                onTap: () {
+                  context.go(entry.resourceUrl);
+                },
+              ),
+        ];
+
+        if (isCupertino(context)) {
+          return CupertinoListSection.insetGrouped(
+            header: title,
+            children: children,
+          );
+        } else {
+          return Card(
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: children,
+              ),
+            ),
+          );
+        }
       },
     );
   }
