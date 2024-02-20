@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
@@ -27,6 +28,7 @@ typedef ApiImageDownloader = DynamiteRawResponse<Uint8List, dynamic> Function(Ne
 ///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
 ///  * [NeonUriImage] for an image widget from an arbitrary URL.
 ///  * [NeonImageWrapper] for a wrapping widget for images
+@internal
 class NeonImage extends StatelessWidget {
   /// Custom image implementation.
   const NeonImage({
