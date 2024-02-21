@@ -43,3 +43,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+
+dependency_overrides:
+  package_info_plus:
+    git:
+      url: https://github.com/fluttercommunity/plus_plugins
+      path: packages/package_info_plus/package_info_plus
+      ref: baa336fe79c29411542fc343d332846bcd7752c1
