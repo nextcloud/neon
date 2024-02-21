@@ -55,6 +55,12 @@ final class SharedPreferencesPersistence implements CachedPersistence {
     final fromSystem = await _store.getAll();
     _globalCache.addAll(fromSystem);
 
+    const versionKey = 'neon-version';
+    const persistence = SharedPreferencesPersistence();
+    if (!persistence.containsKey(versionKey)) {
+      await persistence.setValue(versionKey, kSharedPreferenceVersion);
+    }
+
     _initialized = true;
   }
 

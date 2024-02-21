@@ -77,6 +77,7 @@ void main() {
         expect(
           stored,
           equals({
+            'flutter.neon-version': kSharedPreferenceVersion,
             'flutter.no_prefix': 56,
             'flutter.another-prefix': true,
           }),
@@ -137,7 +138,11 @@ void main() {
 
         await persistence.clear();
         stored = await sharedPreferences.getAll();
-        expect(stored, isEmpty);
+        expect(
+          stored,
+          isEmpty,
+          reason: 'An empty prefix matches every non empty one. Clearing everything.',
+        );
 
         await sharedPreferences.setValue('valueType', 'flutter.key', 'value');
         await persistence.reload();
