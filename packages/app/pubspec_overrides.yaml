@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: dynamite_runtime,neon_framework,neon_lints,nextcloud,sort_box
+# melos_managed_dependency_overrides: dynamite_runtime,file_icons,neon_dashboard,neon_files,neon_framework,neon_lints,neon_news,neon_notes,neon_notifications,nextcloud,sort_box,package_info_plus
 dependency_overrides:
   dynamite_runtime:
     path: ../dynamite/dynamite_runtime
@@ -22,3 +22,8 @@ dependency_overrides:
     path: ../nextcloud
   sort_box:
     path: ../sort_box
+  package_info_plus:
+    git:
+      url: https://github.com/fluttercommunity/plus_plugins
+      ref: baa336fe79c29411542fc343d332846bcd7752c1
+      path: packages/package_info_plus/package_info_plus
