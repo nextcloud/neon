@@ -31,7 +31,10 @@ jobs:
       - name: Install dart
         uses: dart-lang/setup-dart@fedb1266e91cf51be2fdb382869461a434b920a3 # v1
       - name: Setup
-        run: ./tool/setup.sh
+        run: |
+          ./tool/setup.sh
+          # Remove any changes from the automatic formatting
+          git checkout .
 
       - name: Check formatting
         run: melos run format:check
