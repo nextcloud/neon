@@ -19,7 +19,7 @@ import 'package:rxdart/rxdart.dart';
 
 /// Global app bar for the Neon app.
 @internal
-class NeonAppBar extends StatefulWidget implements PreferredSizeWidget {
+class NeonAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Creates a new Neon app bar.
   const NeonAppBar({super.key});
 
@@ -27,128 +27,152 @@ class NeonAppBar extends StatefulWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
-  State<NeonAppBar> createState() => _NeonAppBarState();
+  Widget build(BuildContext context) {
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+    final unifiedSearchBloc = accountsBloc.activeUnifiedSearchBloc;
+
+    return StreamBuilder(
+      stream: unifiedSearchBloc.enabled,
+      initialData: false,
+      builder: (context, unifiedSearchEnabledSnapshot) {
+        final unifiedSearchEnabled = unifiedSearchEnabledSnapshot.requireData;
+
+        return AppBar(
+          title: unifiedSearchEnabled ? null : _buildTitle(context),
+          actions: [
+            if (unifiedSearchEnabled) const NeonSearchBar() else const SearchIconButton(),
+            const NotificationIconButton(),
+            const AccountSwitcherButton(),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildTitle(BuildContext context) {
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+    final account = accountsBloc.activeAccount.value!;
+    final accounts = accountsBloc.accounts.value;
+    final appsBloc = accountsBloc.activeAppsBloc;
+
+    final title = ResultBuilder.behaviorSubject(
+      subject: appsBloc.appImplementations,
+      builder: (context, appImplementations) => StreamBuilder(
+        stream: appsBloc.activeApp,
+        initialData: appsBloc.activeApp.valueOrNull,
+        builder: (context, activeAppSnapshot) {
+          const padding = EdgeInsetsDirectional.only(start: 8);
+
+          return Row(
+            children: [
+              if (activeAppSnapshot.hasData)
+                Flexible(
+                  child: Text(
+                    activeAppSnapshot.requireData.name(context),
+                  ),
+                ),
+              if (appImplementations.hasError)
+                Padding(
+                  padding: padding,
+                  child: NeonError(
+                    appImplementations.error,
+                    onRetry: appsBloc.refresh,
+                    type: NeonErrorType.iconOnly,
+                  ),
+                ),
+              if (appImplementations.isLoading)
+                Expanded(
+                  child: Padding(
+                    padding: padding,
+                    child: NeonLinearProgressIndicator(
+                      color: Theme.of(context).appBarTheme.foregroundColor,
+                    ),
+                  ),
+                ),
+            ],
+          );
+        },
+      ),
+    );
+
+    if (accounts.length == 1) {
+      return title;
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        title,
+        Text(
+          account.humanReadableID,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+      ],
+    );
+  }
 }
 
-class _NeonAppBarState extends State<NeonAppBar> {
-  late final AccountsBloc accountsBloc = NeonProvider.of<AccountsBloc>(context);
-  late final accounts = accountsBloc.accounts.value;
-  late final account = accountsBloc.activeAccount.value!;
-  late final appsBloc = accountsBloc.activeAppsBloc;
-  late final unifiedSearchBloc = accountsBloc.activeUnifiedSearchBloc;
+/// Search bar handling the `UnifiedSearchBloc`.
+///
+/// The `UnifiedSearchBloc` must be enabled.
+@internal
+class NeonSearchBar extends StatefulWidget {
+  /// Creates a new neon search bar.
+  const NeonSearchBar({super.key});
 
-  final _searchBarFocusNode = FocusNode();
-  final _searchTermController = StreamController<String>();
+  @override
+  State<NeonSearchBar> createState() => _NeonSearchBarState();
+}
+
+class _NeonSearchBarState extends State<NeonSearchBar> {
+  late final AccountsBloc accountsBloc = NeonProvider.of<AccountsBloc>(context);
+  late final unifiedSearchBloc = accountsBloc.activeUnifiedSearchBloc;
+  final searchBarFocusNode = FocusNode();
+  final searchTermController = StreamController<String>();
   late final StreamSubscription<String> _searchTermSubscription;
 
   @override
   void initState() {
     super.initState();
 
-    unifiedSearchBloc.enabled.listen((enabled) {
-      if (enabled) {
-        _searchBarFocusNode.requestFocus();
-      }
-    });
+    searchBarFocusNode.requestFocus();
 
     _searchTermSubscription =
-        _searchTermController.stream.debounceTime(const Duration(milliseconds: 250)).listen(unifiedSearchBloc.search);
+        searchTermController.stream.debounceTime(const Duration(milliseconds: 250)).listen(unifiedSearchBloc.search);
   }
 
   @override
   void dispose() {
-    _searchBarFocusNode.dispose();
+    searchBarFocusNode.dispose();
     unawaited(_searchTermSubscription.cancel());
-    unawaited(_searchTermController.close());
+    unawaited(searchTermController.close());
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: appsBloc.appImplementations,
-        builder: (context, appImplementations) => StreamBuilder(
-          stream: appsBloc.activeApp,
-          builder: (context, activeAppSnapshot) => StreamBuilder(
-            stream: unifiedSearchBloc.enabled,
-            builder: (context, unifiedSearchEnabledSnapshot) {
-              final unifiedSearchEnabled = unifiedSearchEnabledSnapshot.data ?? false;
-              return AppBar(
-                title: unifiedSearchEnabled
-                    ? null
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              if (activeAppSnapshot.hasData) ...[
-                                Flexible(
-                                  child: Text(
-                                    activeAppSnapshot.requireData.name(context),
-                                  ),
-                                ),
-                              ],
-                              if (appImplementations.hasError) ...[
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                NeonError(
-                                  appImplementations.error,
-                                  onRetry: appsBloc.refresh,
-                                  type: NeonErrorType.iconOnly,
-                                ),
-                              ],
-                              if (appImplementations.isLoading) ...[
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                Expanded(
-                                  child: NeonLinearProgressIndicator(
-                                    color: Theme.of(context).appBarTheme.foregroundColor,
-                                  ),
-                                ),
-                              ],
-                            ],
-                          ),
-                          if (accounts.length > 1) ...[
-                            Text(
-                              account.humanReadableID,
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ],
-                        ],
-                      ),
-                actions: [
-                  if (unifiedSearchEnabled) ...[
-                    Flexible(
-                      child: SearchBar(
-                        focusNode: _searchBarFocusNode,
-                        hintText: NeonLocalizations.of(context).search,
-                        padding: const MaterialStatePropertyAll(EdgeInsets.only(left: 16)),
-                        onChanged: _searchTermController.add,
-                        trailing: [
-                          IconButton(
-                            onPressed: () {
-                              unifiedSearchBloc.disable();
-                            },
-                            tooltip: NeonLocalizations.of(context).searchCancel,
-                            icon: const Icon(
-                              Icons.close,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ] else ...[
-                    const SearchIconButton(),
-                  ],
-                  const NotificationIconButton(),
-                  const AccountSwitcherButton(),
-                ],
-              );
+  Widget build(BuildContext context) {
+    const padding = EdgeInsetsDirectional.only(start: 16);
+
+    return Flexible(
+      child: SearchBar(
+        focusNode: searchBarFocusNode,
+        hintText: NeonLocalizations.of(context).search,
+        padding: const MaterialStatePropertyAll(padding),
+        onChanged: searchTermController.add,
+        trailing: [
+          IconButton(
+            onPressed: () {
+              unifiedSearchBloc.disable();
             },
+            tooltip: NeonLocalizations.of(context).searchCancel,
+            icon: const Icon(
+              Icons.close,
+            ),
           ),
-        ),
-      );
+        ],
+      ),
+    );
+  }
 }
 
 /// Button opening the unified search page.
