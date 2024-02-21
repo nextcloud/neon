@@ -57,7 +57,7 @@ dependencies:
   universal_io: ^2.0.0
   url_launcher: ^6.1.0
   vector_graphics: ^1.0.0
-  web: ^0.4.2
+  web: ^0.5.0
   window_manager: ^0.3.0
   xml: ^6.0.0
 
