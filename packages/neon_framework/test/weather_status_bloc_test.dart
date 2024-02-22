@@ -147,6 +147,7 @@ void main() {
 
   tearDown(() async {
     await capabilities.close();
+    bloc.dispose();
   });
 
   test('isSupported', () async {

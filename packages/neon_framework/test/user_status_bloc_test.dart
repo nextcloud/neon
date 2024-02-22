@@ -145,6 +145,10 @@ void main() {
     bloc = UserStatusBloc(account);
   });
 
+  tearDown(() {
+    bloc.dispose();
+  });
+
   test('refresh', () async {
     expect(
       bloc.predefinedStatuses.transformResult((e) => e.single.id),
