@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
@@ -27,32 +28,20 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final bloc = accountsBloc.activeUnifiedSearchBloc;
     return ResultBuilder.behaviorSubject(
-      subject: bloc.results,
-      builder: (context, results) {
-        final values = results.data?.entries.toList();
-
-        return NeonListView(
-          scrollKey: 'unified-search',
-          isLoading: results.isLoading,
-          error: results.error,
-          onRefresh: bloc.refresh,
-          itemCount: values?.length ?? 0,
-          itemBuilder: (context, index) {
-            final snapshot = values![index];
-
-            return AnimatedSize(
-              duration: const Duration(milliseconds: 100),
-              child: _buildProvider(
-                context,
-                accountsBloc,
-                bloc,
-                snapshot.key,
-                snapshot.value,
-              ),
-            );
-          },
-        );
-      },
+      subject: bloc.providers,
+      builder: (context, providers) => NeonListView(
+        scrollKey: 'unified-search',
+        isLoading: providers.isLoading,
+        error: providers.error,
+        onRefresh: bloc.refresh,
+        itemCount: providers.data?.length ?? 0,
+        itemBuilder: (context, index) => _buildProvider(
+          context,
+          accountsBloc,
+          bloc,
+          providers.requireData[index],
+        ),
+      ),
     );
   }
 
@@ -61,53 +50,62 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     AccountsBloc accountsBloc,
     UnifiedSearchBloc bloc,
     core.UnifiedSearchProvider provider,
-    Result<core.UnifiedSearchResult> result,
-  ) {
-    final entries = result.data?.entries ?? <core.UnifiedSearchResultEntry>[];
-    return Card(
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              provider.name,
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            NeonError(
-              result.error,
-              onRetry: bloc.refresh,
-            ),
-            NeonLinearProgressIndicator(
-              visible: result.isLoading,
-            ),
-            if (entries.isEmpty) ...[
-              AdaptiveListTile(
-                leading: const Icon(
-                  Icons.close,
-                  size: largeIconSize,
-                ),
-                title: Text(NeonLocalizations.of(context).searchNoResults),
+  ) =>
+      StreamBuilder(
+        stream: bloc.results.map((results) => results[provider.id]),
+        builder: (context, snapshot) {
+          final result = snapshot.data;
+          if (result == null) {
+            return const SizedBox.shrink();
+          }
+
+          final entries = result.data?.entries ?? BuiltList<core.UnifiedSearchResultEntry>();
+
+          return Card(
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    provider.name,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  NeonError(
+                    result.error,
+                    onRetry: bloc.refresh,
+                  ),
+                  NeonLinearProgressIndicator(
+                    visible: result.isLoading,
+                  ),
+                  if (!result.isLoading && entries.isEmpty) ...[
+                    AdaptiveListTile(
+                      leading: const Icon(
+                        Icons.close,
+                        size: largeIconSize,
+                      ),
+                      title: Text(NeonLocalizations.of(context).searchNoResults),
+                    ),
+                  ],
+                  for (final entry in entries) ...[
+                    AdaptiveListTile(
+                      leading: NeonImageWrapper(
+                        size: const Size.square(largeIconSize),
+                        child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
+                      ),
+                      title: Text(entry.title),
+                      subtitle: Text(entry.subline),
+                      onTap: () async {
+                        context.go(entry.resourceUrl);
+                      },
+                    ),
+                  ],
+                ],
               ),
-            ],
-            for (final entry in entries) ...[
-              AdaptiveListTile(
-                leading: NeonImageWrapper(
-                  size: const Size.square(largeIconSize),
-                  child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
-                ),
-                title: Text(entry.title),
-                subtitle: Text(entry.subline),
-                onTap: () async {
-                  context.go(entry.resourceUrl);
-                },
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
+            ),
+          );
+        },
+      );
 
   Widget _buildThumbnail(BuildContext context, Account account, core.UnifiedSearchResultEntry entry) {
     if (entry.thumbnailUrl.isNotEmpty) {
