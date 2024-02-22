@@ -159,27 +159,27 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
   }
 
   @override
-  void markArticleAsRead(news.Article article) {
-    wrapAction(() async => account.client.news.markArticleAsRead(itemId: article.id));
+  Future<void> markArticleAsRead(news.Article article) async {
+    await wrapAction(() async => account.client.news.markArticleAsRead(itemId: article.id));
   }
 
   @override
-  void markArticleAsUnread(news.Article article) {
-    wrapAction(() async => account.client.news.markArticleAsUnread(itemId: article.id));
+  Future<void> markArticleAsUnread(news.Article article) async {
+    await wrapAction(() async => account.client.news.markArticleAsUnread(itemId: article.id));
   }
 
   @override
-  void setFilterType(FilterType type) {
-    wrapAction(() async => filterType.add(type));
+  Future<void> setFilterType(FilterType type) async {
+    await wrapAction(() async => filterType.add(type));
   }
 
   @override
-  void starArticle(news.Article article) {
-    wrapAction(() async => account.client.news.starArticle(itemId: article.id));
+  Future<void> starArticle(news.Article article) async {
+    await wrapAction(() async => account.client.news.starArticle(itemId: article.id));
   }
 
   @override
-  void unstarArticle(news.Article article) {
-    wrapAction(() async => account.client.news.unstarArticle(itemId: article.id));
+  Future<void> unstarArticle(news.Article article) async {
+    await wrapAction(() async => account.client.news.unstarArticle(itemId: article.id));
   }
 }

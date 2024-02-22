@@ -178,8 +178,8 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }
 
   @override
-  void setStatusType(String statusType) {
-    wrapAction(
+  Future<void> setStatusType(String statusType) async {
+    await wrapAction(
       () async {
         final response = await account.client.userStatus.userStatus.setStatus(statusType: statusType);
 
@@ -190,11 +190,11 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }
 
   @override
-  void setPredefinedMessage({
+  Future<void> setPredefinedMessage({
     required String id,
     required int? clearAt,
-  }) {
-    wrapAction(
+  }) async {
+    await wrapAction(
       () async {
         final response = await account.client.userStatus.userStatus.setPredefinedMessage(
           messageId: id,
@@ -208,12 +208,12 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }
 
   @override
-  void setCustomMessage({
+  Future<void> setCustomMessage({
     required String? message,
     required String? icon,
     required int? clearAt,
-  }) {
-    wrapAction(
+  }) async {
+    await wrapAction(
       () async {
         final response = await account.client.userStatus.userStatus.setCustomMessage(
           statusIcon: icon,
@@ -228,8 +228,8 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }
 
   @override
-  void clearMessage() {
-    wrapAction(
+  Future<void> clearMessage() async {
+    await wrapAction(
       () async {
         await account.client.userStatus.userStatus.clearMessage();
       },

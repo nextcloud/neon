@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -64,44 +63,39 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   final unread = BehaviorSubject();
 
   @override
-  Future<void> refresh() async {}
+  Future<void> refresh() async {
+    await newsArticlesBloc.refresh();
+  }
 
   @override
-  void markArticleAsRead() {
-    wrapArticleAction(() async {
+  Future<void> markArticleAsRead() async {
+    await wrapAction(() async {
       await account.client.news.markArticleAsRead(itemId: id);
       unread.add(false);
     });
   }
 
   @override
-  void markArticleAsUnread() {
-    wrapArticleAction(() async {
+  Future<void> markArticleAsUnread() async {
+    await wrapAction(() async {
       await account.client.news.markArticleAsUnread(itemId: id);
       unread.add(true);
     });
   }
 
   @override
-  void starArticle() {
-    wrapArticleAction(() async {
+  Future<void> starArticle() async {
+    await wrapAction(() async {
       await account.client.news.starArticle(itemId: id);
       starred.add(true);
     });
   }
 
   @override
-  void unstarArticle() {
-    wrapArticleAction(() async {
+  Future<void> unstarArticle() async {
+    await wrapAction(() async {
       await account.client.news.unstarArticle(itemId: id);
       starred.add(false);
     });
   }
-
-  void wrapArticleAction(AsyncCallback call) => wrapAction(
-        call,
-        refresh: () async {
-          await newsArticlesBloc.refresh();
-        },
-      );
 }

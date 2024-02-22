@@ -150,7 +150,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   }
 
   @override
-  void createFolder(PathUri uri) {
-    wrapAction(() async => account.client.webdav.mkcol(uri));
+  Future<void> createFolder(PathUri uri) async {
+    await wrapAction(() async => account.client.webdav.mkcol(uri));
   }
 }

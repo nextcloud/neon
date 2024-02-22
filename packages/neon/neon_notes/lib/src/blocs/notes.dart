@@ -74,8 +74,8 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
   }
 
   @override
-  void createNote({String title = '', String category = ''}) {
-    wrapAction(
+  Future<void> createNote({String title = '', String category = ''}) async {
+    await wrapAction(
       () async => account.client.notes.createNote(
         title: title,
         category: category,
@@ -84,20 +84,20 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
   }
 
   @override
-  void deleteNote(int id) {
-    wrapAction(() async => account.client.notes.deleteNote(id: id));
+  Future<void> deleteNote(int id) async {
+    await wrapAction(() async => account.client.notes.deleteNote(id: id));
   }
 
   @override
-  void updateNote(
+  Future<void> updateNote(
     int id,
     String etag, {
     String? title,
     String? category,
     String? content,
     bool? favorite,
-  }) {
-    wrapAction(
+  }) async {
+    await wrapAction(
       () async => account.client.notes.updateNote(
         id: id,
         title: title,
