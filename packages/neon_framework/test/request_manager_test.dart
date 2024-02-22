@@ -324,7 +324,6 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
-            equals(Result.success('Seed value').asLoading()),
             equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
             equals(Result.success(base64String('Test value'))),
             emitsDone,
@@ -398,7 +397,6 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
-            equals(Result.success('Seed value').asLoading()),
             equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
             equals(
               Result(
@@ -472,7 +470,6 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
-            equals(Result.success('Seed value').asLoading()),
             equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
             equals(Result(base64String('Cached value'), 'ClientException: ', isLoading: false, isCached: true)),
             emitsDone,

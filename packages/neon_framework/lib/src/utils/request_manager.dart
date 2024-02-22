@@ -213,9 +213,9 @@ class RequestManager {
   }) async {
     final key = '${account.id}-$cacheKey';
 
-    // emit loading state with the current value if present
-    final value = subject.valueOrNull?.asLoading() ?? Result.loading();
-    subject.add(value);
+    if (!subject.hasValue) {
+      subject.add(Result.loading());
+    }
 
     final cachedParameters = await _cache?.getParameters(key);
 
@@ -258,6 +258,8 @@ class RequestManager {
           isCached: true,
         ),
       );
+    } else if (!subject.value.isLoading) {
+      subject.add(subject.value.asLoading());
     }
 
     for (var i = 0; i < kMaxTries; i++) {
@@ -283,31 +285,30 @@ class RequestManager {
         debugPrint(e.toString());
         debugPrintStack(stackTrace: s, maxFrames: 5);
 
-        _emitError<T>(e, subject);
+        subject.add(
+          subject.value.copyWith(
+            error: e,
+            isLoading: false,
+          ),
+        );
         break;
       } on http.ClientException catch (e, s) {
         debugPrint(e.toString());
         debugPrintStack(stackTrace: s, maxFrames: 5);
 
         if (e is! DynamiteStatusCodeException || e.statusCode < 500) {
-          _emitError<T>(e, subject);
+          subject.add(
+            subject.value.copyWith(
+              error: e,
+              isLoading: false,
+            ),
+          );
           break;
         }
       }
 
       debugPrint('Retrying...');
     }
-  }
-
-  /// Re emits the current result with the given [error].
-  ///
-  /// Defaults to a [Result.error] if none has been emitted yet.
-  void _emitError<T>(
-    Object error,
-    BehaviorSubject<Result<T>> subject,
-  ) {
-    final value = subject.valueOrNull?.copyWith(error: error, isLoading: false) ?? Result.error(error);
-    subject.add(value);
   }
 
   /// Calls a [callback] that is canceled after a given [timeLimit].
