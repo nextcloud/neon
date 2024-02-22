@@ -126,6 +126,12 @@ void main() {
     bloc = DashboardBloc(account);
   });
 
+  tearDown(() async {
+    // Wait for all events to be processed
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+    bloc.dispose();
+  });
+
   test('refresh', () async {
     final widgets = BuiltList<String>([
       'null',
