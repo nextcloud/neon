@@ -112,59 +112,29 @@ class PushUtils {
         final localizations = await appLocalizationsFromSystem();
 
         final accounts = loadAccounts();
-        Account? account;
+        final account = accounts.tryFind(instance);
+
         notifications.Notification? notification;
         AndroidBitmap<Object>? largeIconBitmap;
-        try {
-          account = accounts.tryFind(instance);
-          if (account != null) {
+        if (account != null) {
+          try {
             final response =
                 await account.client.notifications.endpoint.getNotification(id: pushNotification.subject.nid!);
             notification = response.body.ocs.data;
-            if (notification.icon?.endsWith('.svg') ?? false) {
-              // Only SVG icons are supported right now (should be most of them)
+          } catch (e, s) {
+            debugPrint(e.toString());
+            debugPrint(s.toString());
+          }
 
-              final uri = Uri.parse(notification.icon!);
-              final subject = BehaviorSubject<Result<Uint8List>>();
-              await RequestManager.instance.wrapUri(
-                account: account,
-                uri: uri,
-                unwrap: (data) {
-                  try {
-                    return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
-                  } catch (_) {}
-                  return data;
-                },
-                subject: subject,
-              );
-              final rawImage = subject.valueOrNull?.data;
-              unawaited(subject.close());
-
-              if (rawImage != null) {
-                final pictureInfo = await vg.loadPicture(SvgBytesLoader(rawImage), null);
-
-                const largeIconSize = 256;
-                final scale = largeIconSize / pictureInfo.size.longestSide;
-                final scaledSize = pictureInfo.size * scale;
-
-                final recorder = PictureRecorder();
-                Canvas(recorder)
-                  ..scale(scale)
-                  ..drawPicture(pictureInfo.picture)
-                  ..drawColor(NcColors.primary, BlendMode.srcIn);
-
-                pictureInfo.picture.dispose();
-
-                final image = recorder.endRecording().toImageSync(scaledSize.width.toInt(), scaledSize.height.toInt());
-                final bytes = await image.toByteData(format: ImageByteFormat.png);
-
-                largeIconBitmap = ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
-              }
+          final icon = notification?.icon;
+          // Only SVG icons are supported right now (should be most of them)
+          if (icon != null && icon.endsWith('.svg')) {
+            final uri = Uri.parse(icon);
+            final rawImage = await _fetchIcon(account, uri);
+            if (rawImage != null) {
+              largeIconBitmap = await _decodeIcon(rawImage);
             }
           }
-        } catch (e, s) {
-          debugPrint(e.toString());
-          debugPrint(s.toString());
         }
 
         if (notification?.shouldNotify ?? true) {
@@ -206,6 +176,46 @@ class PushUtils {
 
       await onPushNotificationReceived?.call(instance);
     }
+  }
+
+  static Future<Uint8List?> _fetchIcon(Account account, Uri uri) async {
+    final subject = BehaviorSubject<Result<Uint8List>>();
+    await RequestManager.instance.wrapUri(
+      account: account,
+      uri: uri,
+      unwrap: (data) {
+        try {
+          return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
+        } catch (_) {}
+        return data;
+      },
+      subject: subject,
+    );
+    final rawImage = subject.valueOrNull?.data;
+    unawaited(subject.close());
+
+    return rawImage;
+  }
+
+  static Future<ByteArrayAndroidBitmap?> _decodeIcon(Uint8List rawImage) async {
+    final pictureInfo = await vg.loadPicture(SvgBytesLoader(rawImage), null);
+
+    const largeIconSize = 256;
+    final scale = largeIconSize / pictureInfo.size.longestSide;
+    final scaledSize = pictureInfo.size * scale;
+
+    final recorder = PictureRecorder();
+    Canvas(recorder)
+      ..scale(scale)
+      ..drawPicture(pictureInfo.picture)
+      ..drawColor(NcColors.primary, BlendMode.srcIn);
+
+    pictureInfo.picture.dispose();
+
+    final image = recorder.endRecording().toImageSync(scaledSize.width.toInt(), scaledSize.height.toInt());
+    final bytes = await image.toByteData(format: ImageByteFormat.png);
+
+    return ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
   }
 
   static int _getNotificationID(
