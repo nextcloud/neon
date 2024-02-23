@@ -55,7 +55,7 @@ abstract class UserStatusBloc implements InteractiveBloc {
   BehaviorSubject<Result<user_status.$PublicInterface>> get status;
 
   /// All user status mapped by username.
-  BehaviorSubject<Map<String, Result<user_status.$PublicInterface>>> get statuses;
+  BehaviorSubject<BuiltMap<String, Result<user_status.$PublicInterface>>> get statuses;
 
   /// All predefined statuses.
   BehaviorSubject<Result<BuiltList<user_status.Predefined>>> get predefinedStatuses;
@@ -85,7 +85,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   final status = BehaviorSubject();
 
   @override
-  final statuses = BehaviorSubject.seeded({});
+  final statuses = BehaviorSubject.seeded(BuiltMap());
 
   @override
   final predefinedStatuses = BehaviorSubject();
@@ -168,10 +168,11 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }
 
   void updateStatus(String username, Result<user_status.$PublicInterface> status) {
-    statuses.add({
-      ...statuses.value,
-      username: status,
-    });
+    statuses.add(
+      statuses.value.rebuild((b) {
+        b[username] = status;
+      }),
+    );
     if (username == account.username) {
       this.status.add(status);
     }

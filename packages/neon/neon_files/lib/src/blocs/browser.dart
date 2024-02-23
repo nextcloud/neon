@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_files/src/options.dart';
 import 'package:neon_framework/blocs.dart';
@@ -41,7 +42,7 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
 
   void createFolder(PathUri uri);
 
-  BehaviorSubject<Result<List<WebDavFile>>> get files;
+  BehaviorSubject<Result<BuiltList<WebDavFile>>> get files;
 
   BehaviorSubject<PathUri> get uri;
 
@@ -110,28 +111,26 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
         ),
         depth: WebDavDepth.one,
       ),
-      unwrap: (response) {
-        final unwrapped = response.toWebDavFiles();
-
-        return unwrapped.where((file) {
+      unwrap: (response) => BuiltList<WebDavFile>.build((b) {
+        for (final file in response.toWebDavFiles()) {
           // Do not show files when selecting a directory
           if (mode == FilesBrowserMode.selectDirectory && !file.isDirectory) {
-            return false;
+            continue;
           }
 
           // Do not show itself when selecting a directory
           if (mode == FilesBrowserMode.selectDirectory && initialPath == file.path) {
-            return false;
+            continue;
           }
 
           // Do not show hidden files unless the option is enabled
           if (!options.showHiddenFilesOption.value && file.isHidden) {
-            return false;
+            continue;
           }
 
-          return true;
-        }).toList();
-      },
+          b.add(file);
+        }
+      }),
     );
   }
 
