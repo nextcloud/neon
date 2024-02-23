@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
@@ -59,9 +60,13 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
           try {
             final response = await account.client.uppush.check();
             supported[account] = response.body.success;
-          } catch (e, s) {
-            debugPrint(e.toString());
-            debugPrint(s.toString());
+          } on http.ClientException catch (error, stackTrace) {
+            log.warning(
+              'Error checking NextPush availability.',
+              error,
+              stackTrace,
+            );
+
             supported[account] = false;
           }
         }
@@ -81,6 +86,9 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
       onNextPushSupported.add(null);
     });
   }
+
+  @override
+  final log = Logger('NextPushBloc');
 
   final AccountsBloc accountsBloc;
   final GlobalOptions globalOptions;

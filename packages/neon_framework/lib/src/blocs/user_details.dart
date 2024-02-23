@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -23,6 +24,9 @@ class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
   ) {
     unawaited(refresh());
   }
+
+  @override
+  final log = Logger('UserDetailsBloc');
 
   final Account account;
 

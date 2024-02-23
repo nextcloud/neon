@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/utils/exceptions.dart';
 import 'package:neon_framework/src/widgets/error.dart';
+
+final _log = Logger('LoginQRcodePage');
 
 @internal
 class LoginQRcodePage extends StatefulWidget {
@@ -49,13 +52,16 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
                   loginName: match.username,
                   password: match.password,
                 ).pushReplacement(context);
-              } catch (e, s) {
+              } on InvalidQRcodeException catch (error, stackTrace) {
                 if (_lastErrorURL != url) {
-                  debugPrint(e.toString());
-                  debugPrint(s.toString());
+                  _log.warning(
+                    'Error parsing parsing qr code.',
+                    error,
+                    stackTrace,
+                  );
 
                   _lastErrorURL = url;
-                  NeonError.showSnackbar(context, e);
+                  NeonError.showSnackbar(context, error);
                 }
               }
             },

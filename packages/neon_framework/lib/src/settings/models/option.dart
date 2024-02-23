@@ -2,12 +2,15 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/models/label_builder.dart';
 import 'package:neon_framework/src/settings/models/options_category.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:rxdart/rxdart.dart';
+
+final _log = Logger('Option');
 
 /// Listenable option that is persisted in the [SettingsStore].
 ///
@@ -214,7 +217,7 @@ class SelectOption<T> extends Option<T> {
         unawaited(storage.setString(key.value, serialize()!));
       }
     } else {
-      debugPrint('"$value" is not in "${_values.keys.join('", "')}", ignoring');
+      _log.info('"$value" is not in "${_values.keys.join('", "')}", ignoring');
     }
   }
 
@@ -233,7 +236,7 @@ class SelectOption<T> extends Option<T> {
     }
     _values = newValues;
     if (!_values.keys.contains(_value)) {
-      debugPrint('"$value" is not in "${_values.keys.join('", "')}", resetting "${key.value}"');
+      _log.info('"$value" is not in "${_values.keys.join('", "')}", resetting "${key.value}"');
       reset();
     }
     notifyListeners();

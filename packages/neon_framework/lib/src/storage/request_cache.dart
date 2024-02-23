@@ -1,12 +1,14 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+final _log = Logger('RequestCache');
 
 /// A storage used to cache a key value pair.
 abstract interface class RequestCache {
@@ -94,9 +96,12 @@ class DefaultRequestCache implements RequestCache {
     List<Map<String, Object?>>? result;
     try {
       result = await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
-    } on DatabaseException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
+    } on DatabaseException catch (error, stackTrace) {
+      _log.severe(
+        'Error while getting `$key` from cache.',
+        error,
+        stackTrace,
+      );
     }
 
     return result?.firstOrNull?['value'] as String?;
@@ -124,9 +129,12 @@ class DefaultRequestCache implements RequestCache {
           [key, value, parameters?.etag, parameters?.expires?.millisecondsSinceEpoch],
         );
       await batch.commit(noResult: true);
-    } on DatabaseException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
+    } on DatabaseException catch (error, stackTrace) {
+      _log.severe(
+        'Error while setting `$value` at `$key` in the cache.',
+        error,
+        stackTrace,
+      );
     }
   }
 
@@ -135,9 +143,12 @@ class DefaultRequestCache implements RequestCache {
     List<Map<String, Object?>>? result;
     try {
       result = await _requireDatabase.rawQuery('SELECT etag, expires FROM cache WHERE key = ?', [key]);
-    } on DatabaseException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
+    } on DatabaseException catch (error, stackTrace) {
+      _log.severe(
+        'Error getting the cache parameters for `$key` from cache.',
+        error,
+        stackTrace,
+      );
     }
 
     final row = result?.firstOrNull;
@@ -161,9 +172,12 @@ class DefaultRequestCache implements RequestCache {
         where: 'key = ?',
         whereArgs: [key],
       );
-    } on DatabaseException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrintStack(stackTrace: s, maxFrames: 5);
+    } on DatabaseException catch (error, stackTrace) {
+      _log.severe(
+        'Error while updating cache parameters at `$key`.',
+        error,
+        stackTrace,
+      );
     }
   }
 }

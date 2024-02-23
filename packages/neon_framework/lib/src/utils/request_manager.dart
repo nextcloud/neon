@@ -5,6 +5,7 @@ import 'package:built_value/serializer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -13,6 +14,8 @@ import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:xml/xml.dart' as xml;
+
+final _log = Logger('RequestManager');
 
 /// A callback that unwraps elements of type [R] into [T].
 ///
@@ -280,34 +283,43 @@ class RequestManager {
 
         await _cache?.set(key, serialized, cacheParameters);
         break;
-      } on TimeoutException catch (e, s) {
-        debugPrint('Request timed out ...');
-        debugPrint(e.toString());
-        debugPrintStack(stackTrace: s, maxFrames: 5);
+      } on TimeoutException catch (error, stackTrace) {
+        _log.info(
+          'Request timeout',
+          error,
+          stackTrace,
+        );
 
         subject.add(
           subject.value.copyWith(
-            error: e,
+            error: error,
             isLoading: false,
           ),
         );
         break;
-      } on http.ClientException catch (e, s) {
-        debugPrint(e.toString());
-        debugPrintStack(stackTrace: s, maxFrames: 5);
+      } on http.ClientException catch (error, stackTrace) {
+        if (error is! DynamiteStatusCodeException || error.statusCode < 500) {
+          _log.warning(
+            'Unexpected status code. The request will not be retried.',
+            error,
+            stackTrace,
+          );
 
-        if (e is! DynamiteStatusCodeException || e.statusCode < 500) {
           subject.add(
             subject.value.copyWith(
-              error: e,
+              error: error,
               isLoading: false,
             ),
           );
           break;
         }
-      }
 
-      debugPrint('Retrying...');
+        _log.info(
+          'Error while executing the request. Retrying ...',
+          error,
+          stackTrace,
+        );
+      }
     }
   }
 

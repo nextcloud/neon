@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -25,6 +26,9 @@ class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
   ) {
     unawaited(refresh());
   }
+
+  @override
+  final log = Logger('CapabilitiesBloc');
 
   final Account account;
 

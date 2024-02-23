@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -102,6 +102,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     unawaited(refresh());
   }
 
+  @override
+  final log = Logger('AppsBloc');
+
   /// Disposes all unsupported apps, sets the active app and checks the app compatibility.
   ///
   /// Blocs of apps that are no longer present on the server are disposed.
@@ -172,14 +175,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
     final notSupported = MapBuilder<String, VersionCheck>();
 
-    try {
-      final coreCheck = account.client.core.getVersionCheck(capabilities.requireData);
-      if (!coreCheck.isSupported && !capabilities.requireData.version.string.contains('dev')) {
-        notSupported['core'] = coreCheck;
-      }
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
+    final coreCheck = account.client.core.getVersionCheck(capabilities.requireData);
+    if (!coreCheck.isSupported && !capabilities.requireData.version.string.contains('dev')) {
+      notSupported['core'] = coreCheck;
     }
 
     for (final app in apps.requireData) {
@@ -193,9 +191,12 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
         if (!check.isSupported) {
           notSupported[app.id] = check;
         }
-      } catch (e, s) {
-        debugPrint(e.toString());
-        debugPrint(s.toString());
+      } on Exception catch (error, stackTrace) {
+        log.warning(
+          'An Exception occurred while checking the installed version of $app.',
+          error,
+          stackTrace,
+        );
       }
     }
 

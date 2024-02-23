@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -51,6 +52,9 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
 
     timer = TimerBloc().registerTimer(const Duration(minutes: 5), refresh);
   }
+
+  @override
+  final log = Logger('WeatherStatusBloc');
 
   final Account account;
   late final StreamSubscription<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>

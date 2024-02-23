@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 
@@ -15,6 +16,12 @@ abstract class Bloc implements Disposable {
   @override
   @mustCallSuper
   void dispose();
+
+  /// The logger used for this bloc.
+  ///
+  /// Use the package `https://pub.dev/packages/logging`.
+  @protected
+  Logger get log;
 }
 
 /// A bloc implementing basic data fetching.
@@ -63,9 +70,13 @@ abstract class InteractiveBloc extends Bloc {
       }
 
       await (refresh ?? this.refresh)();
-    } catch (error, stacktrace) {
-      debugPrint(error.toString());
-      debugPrint(stacktrace.toString());
+    } on Exception catch (error, stackTrace) {
+      log.info(
+        'An Exception has occurred executing an action.',
+        error,
+        stackTrace,
+      );
+
       addError(error);
     }
   }
