@@ -105,8 +105,8 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
   }
 
   @override
-  void setLocation(String address) {
-    wrapAction(
+  Future<void> setLocation(String address) async {
+    await wrapAction(
       () async {
         final response = await account.client.weatherStatus.weatherStatus.setLocation(
           address: address,

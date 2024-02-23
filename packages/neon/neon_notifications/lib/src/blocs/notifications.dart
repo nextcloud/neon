@@ -72,12 +72,12 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   }
 
   @override
-  void deleteAllNotifications() {
-    wrapAction(() async => account.client.notifications.endpoint.deleteAllNotifications());
+  Future<void> deleteAllNotifications() async {
+    await wrapAction(() async => account.client.notifications.endpoint.deleteAllNotifications());
   }
 
   @override
-  void deleteNotification(int id) {
-    wrapAction(() async => account.client.notifications.endpoint.deleteNotification(id: id));
+  Future<void> deleteNotification(int id) async {
+    await wrapAction(() async => account.client.notifications.endpoint.deleteNotification(id: id));
   }
 }

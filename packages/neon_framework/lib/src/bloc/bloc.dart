@@ -50,8 +50,7 @@ abstract class InteractiveBloc extends Bloc {
   /// callback falling back to [this.refresh] if not supplied. Any errors will
   /// be forwarded to [addError].
   @protected
-  // ignore: avoid_void_async
-  void wrapAction(
+  Future<void> wrapAction(
     AsyncCallback action, {
     bool disableTimeout = false,
     AsyncCallback? refresh,

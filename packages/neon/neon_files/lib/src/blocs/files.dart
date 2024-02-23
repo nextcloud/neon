@@ -93,8 +93,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   final tasks = BehaviorSubject.seeded([]);
 
   @override
-  void addFavorite(PathUri uri) {
-    wrapAction(
+  Future<void> addFavorite(PathUri uri) async {
+    await wrapAction(
       () async => account.client.webdav.proppatch(
         uri,
         set: const WebDavProp(ocfavorite: 1),
@@ -103,23 +103,23 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void copy(PathUri uri, PathUri destination) {
-    wrapAction(() async => account.client.webdav.copy(uri, destination));
+  Future<void> copy(PathUri uri, PathUri destination) async {
+    await wrapAction(() async => account.client.webdav.copy(uri, destination));
   }
 
   @override
-  void delete(PathUri uri) {
-    wrapAction(() async => account.client.webdav.delete(uri));
+  Future<void> delete(PathUri uri) async {
+    await wrapAction(() async => account.client.webdav.delete(uri));
   }
 
   @override
-  void move(PathUri uri, PathUri destination) {
-    wrapAction(() async => account.client.webdav.move(uri, destination));
+  Future<void> move(PathUri uri, PathUri destination) async {
+    await wrapAction(() async => account.client.webdav.move(uri, destination));
   }
 
   @override
-  void openFile(PathUri uri, String etag, String? mimeType) {
-    wrapAction(
+  Future<void> openFile(PathUri uri, String etag, String? mimeType) async {
+    await wrapAction(
       () async {
         if (NeonPlatform.instance.canUsePaths) {
           final file = await cacheFile(uri, etag);
@@ -137,8 +137,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void shareFileNative(PathUri uri, String etag, String? mimeType) {
-    wrapAction(
+  Future<void> shareFileNative(PathUri uri, String etag, String? mimeType) async {
+    await wrapAction(
       () async {
         if (NeonPlatform.instance.canUsePaths) {
           final file = await cacheFile(uri, etag);
@@ -157,8 +157,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void removeFavorite(PathUri uri) {
-    wrapAction(
+  Future<void> removeFavorite(PathUri uri) async {
+    await wrapAction(
       () async => account.client.webdav.proppatch(
         uri,
         set: const WebDavProp(ocfavorite: 0),
@@ -167,8 +167,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void rename(PathUri uri, String name) {
-    wrapAction(
+  Future<void> rename(PathUri uri, String name) async {
+    await wrapAction(
       () async => account.client.webdav.move(
         uri,
         uri.rename(name),
@@ -177,8 +177,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void uploadFile(PathUri uri, String localPath) {
-    wrapAction(
+  Future<void> uploadFile(PathUri uri, String localPath) async {
+    await wrapAction(
       () async {
         final task = FilesUploadTaskIO(
           uri: uri,
@@ -193,8 +193,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  void uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified}) {
-    wrapAction(
+  Future<void> uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified}) async {
+    await wrapAction(
       () async {
         final task = FilesUploadTaskMemory(
           uri: uri,
