@@ -37,6 +37,7 @@ extension CoreStatusVersionCheck on core.Status {
       );
 }
 
+// https://github.com/nextcloud/server/blob/master/lib/public/Share/IShare.php
 enum ShareType {
   user,
   group,
@@ -54,4 +55,7 @@ enum ShareType {
   userroom,
   deck,
   deckUser,
+  // ignore: unused_field
+  _unused,
+  scienceMesh,
 }
