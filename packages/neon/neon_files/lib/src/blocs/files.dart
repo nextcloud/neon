@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_files/l10n/localizations.dart';
@@ -50,7 +51,7 @@ sealed class FilesBloc implements InteractiveBloc {
 
   void removeFavorite(PathUri uri);
 
-  BehaviorSubject<List<FilesTask>> get tasks;
+  BehaviorSubject<BuiltList<FilesTask>> get tasks;
 
   FilesOptions get options;
 
@@ -90,7 +91,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  final tasks = BehaviorSubject.seeded([]);
+  final tasks = BehaviorSubject.seeded(BuiltList());
 
   @override
   Future<void> addFavorite(PathUri uri) async {
@@ -184,9 +185,9 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
           uri: uri,
           file: File(localPath),
         );
-        tasks.add(tasks.value..add(task));
+        tasks.add(tasks.value.rebuild((b) => b.add(task)));
         await uploadQueue.add(() => task.execute(account.client));
-        tasks.add(tasks.value..remove(task));
+        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
       },
       disableTimeout: true,
     );
@@ -202,9 +203,9 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
           lastModified: lastModified,
           bytes: bytes,
         );
-        tasks.add(tasks.value..add(task));
+        tasks.add(tasks.value.rebuild((b) => b.add(task)));
         await uploadQueue.add(() => task.execute(account.client));
-        tasks.add(tasks.value..remove(task));
+        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
       },
       disableTimeout: true,
     );
@@ -231,9 +232,9 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
       file: file,
     );
 
-    tasks.add(tasks.value..add(task));
+    tasks.add(tasks.value.rebuild((b) => b.add(task)));
     await downloadQueue.add(() => task.execute(account.client));
-    tasks.add(tasks.value..remove(task));
+    tasks.add(tasks.value.rebuild((b) => b.remove(task)));
   }
 
   Future<Uint8List> downloadMemory(PathUri uri) async {
@@ -241,9 +242,9 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     // We need to listen to the stream, otherwise it will get stuck.
     final future = task.stream.bytes;
 
-    tasks.add(tasks.value..add(task));
+    tasks.add(tasks.value.rebuild((b) => b.add(task)));
     await downloadQueue.add(() => task.execute(account.client));
-    tasks.add(tasks.value..remove(task));
+    tasks.add(tasks.value.rebuild((b) => b.remove(task)));
 
     return future;
   }

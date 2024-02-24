@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_files/src/blocs/browser.dart';
@@ -64,7 +65,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   presort: const {
                     (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
                   },
-                  input: filesSnapshot.data?.sublist(1),
+                  input: filesSnapshot.data?.sublist(1).toList(),
                   builder: (context, sorted) {
                     final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
 
@@ -111,7 +112,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
         ),
       );
 
-  Iterable<Widget> buildUploadTasks(List<FilesTask> tasks, List<WebDavFile> files) sync* {
+  Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<WebDavFile> files) sync* {
     for (final task in tasks) {
       if (task is! FilesUploadTask) {
         continue;

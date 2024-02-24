@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   late global_options.GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
-  late StreamSubscription<Map<String, VersionCheck>> _versionCheckSubscription;
+  late StreamSubscription<BuiltMap<String, VersionCheck>> _versionCheckSubscription;
 
   @override
   void initState() {

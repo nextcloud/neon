@@ -56,7 +56,7 @@ abstract class AppsBloc implements InteractiveBloc {
   BehaviorSubject<void> get openNotifications;
 
   /// A collection of unsupported apps and their minimum required version.
-  BehaviorSubject<Map<String, VersionCheck>> get appVersionChecks;
+  BehaviorSubject<BuiltMap<String, VersionCheck>> get appVersionChecks;
 
   /// Returns the active [Bloc] for the given [appImplementation].
   ///
@@ -169,7 +169,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       return;
     }
 
-    final notSupported = <String, VersionCheck>{};
+    final notSupported = MapBuilder<String, VersionCheck>();
 
     try {
       final coreCheck = account.client.core.getVersionCheck(capabilities.requireData);
@@ -199,7 +199,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     }
 
     if (notSupported.isNotEmpty) {
-      appVersionChecks.add(notSupported);
+      appVersionChecks.add(notSupported.build());
     }
   }
 
