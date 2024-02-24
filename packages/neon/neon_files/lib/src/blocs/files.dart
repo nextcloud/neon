@@ -94,28 +94,42 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   final tasks = BehaviorSubject.seeded(BuiltList());
 
   @override
-  Future<void> addFavorite(PathUri uri) async {
+  Future<void> refresh() async {
+    await browser.refresh();
+  }
+
+  @override
+  Future<void> uploadFile(PathUri uri, String localPath) async {
     await wrapAction(
-      () async => account.client.webdav.proppatch(
-        uri,
-        set: const WebDavProp(ocfavorite: 1),
-      ),
+      () async {
+        final task = FilesUploadTaskIO(
+          uri: uri,
+          file: File(localPath),
+        );
+        tasks.add(tasks.value.rebuild((b) => b.add(task)));
+        await uploadQueue.add(() => task.execute(account.client));
+        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
+      },
+      disableTimeout: true,
     );
   }
 
   @override
-  Future<void> copy(PathUri uri, PathUri destination) async {
-    await wrapAction(() async => account.client.webdav.copy(uri, destination));
-  }
-
-  @override
-  Future<void> delete(PathUri uri) async {
-    await wrapAction(() async => account.client.webdav.delete(uri));
-  }
-
-  @override
-  Future<void> move(PathUri uri, PathUri destination) async {
-    await wrapAction(() async => account.client.webdav.move(uri, destination));
+  Future<void> uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified}) async {
+    await wrapAction(
+      () async {
+        final task = FilesUploadTaskMemory(
+          uri: uri,
+          size: bytes.length,
+          lastModified: lastModified,
+          bytes: bytes,
+        );
+        tasks.add(tasks.value.rebuild((b) => b.add(task)));
+        await uploadQueue.add(() => task.execute(account.client));
+        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
+      },
+      disableTimeout: true,
+    );
   }
 
   @override
@@ -153,18 +167,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> refresh() async {
-    await browser.refresh();
-  }
-
-  @override
-  Future<void> removeFavorite(PathUri uri) async {
-    await wrapAction(
-      () async => account.client.webdav.proppatch(
-        uri,
-        set: const WebDavProp(ocfavorite: 0),
-      ),
-    );
+  Future<void> delete(PathUri uri) async {
+    await wrapAction(() async => account.client.webdav.delete(uri));
   }
 
   @override
@@ -178,36 +182,32 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> uploadFile(PathUri uri, String localPath) async {
+  Future<void> move(PathUri uri, PathUri destination) async {
+    await wrapAction(() async => account.client.webdav.move(uri, destination));
+  }
+
+  @override
+  Future<void> copy(PathUri uri, PathUri destination) async {
+    await wrapAction(() async => account.client.webdav.copy(uri, destination));
+  }
+
+  @override
+  Future<void> addFavorite(PathUri uri) async {
     await wrapAction(
-      () async {
-        final task = FilesUploadTaskIO(
-          uri: uri,
-          file: File(localPath),
-        );
-        tasks.add(tasks.value.rebuild((b) => b.add(task)));
-        await uploadQueue.add(() => task.execute(account.client));
-        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
-      },
-      disableTimeout: true,
+      () async => account.client.webdav.proppatch(
+        uri,
+        set: const WebDavProp(ocfavorite: 1),
+      ),
     );
   }
 
   @override
-  Future<void> uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified}) async {
+  Future<void> removeFavorite(PathUri uri) async {
     await wrapAction(
-      () async {
-        final task = FilesUploadTaskMemory(
-          uri: uri,
-          size: bytes.length,
-          lastModified: lastModified,
-          bytes: bytes,
-        );
-        tasks.add(tasks.value.rebuild((b) => b.add(task)));
-        await uploadQueue.add(() => task.execute(account.client));
-        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
-      },
-      disableTimeout: true,
+      () async => account.client.webdav.proppatch(
+        uri,
+        set: const WebDavProp(ocfavorite: 0),
+      ),
     );
   }
 
