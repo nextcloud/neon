@@ -138,8 +138,14 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
       }
 
       if (data == null) {
-        final response = await account.client.userStatus.statuses.find(userId: username);
-        data = response.body.ocs.data;
+        try {
+          final response = await account.client.userStatus.statuses.find(userId: username);
+          data = response.body.ocs.data;
+        } on DynamiteStatusCodeException catch (e) {
+          if (e.statusCode != 404) {
+            rethrow;
+          }
+        }
       }
 
       updateStatus(username, Result.success(correctStatus(data)));
@@ -151,7 +157,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }
 
   /// Reconstructs the message and icon for a private [status] using the [predefinedStatuses] in case it is a predefined status.
-  user_status.$PublicInterface correctStatus(user_status.$PublicInterface status) {
+  user_status.$PublicInterface? correctStatus(user_status.$PublicInterface? status) {
     if (status is user_status.Private && status.messageIsPredefined) {
       final id = status.messageId;
       final predefinedStatus =
