@@ -724,6 +724,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  neon_talk:
+    dependency: "direct main"
+    description:
+      path: "../neon/neon_talk"
+      relative: true
+    source: path
+    version: "1.0.0"
   nested:
     dependency: transitive
     description:

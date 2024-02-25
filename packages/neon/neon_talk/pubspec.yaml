@@ -1,0 +1,42 @@
+name: neon_talk
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: '>=3.13.0'
+
+dependencies:
+  built_collection: ^5.0.0
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  go_router: ^13.0.0
+  meta: ^1.0.0
+  neon_framework:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_framework
+  nextcloud: ^5.0.2
+
+dev_dependencies:
+  build_runner: ^2.4.8
+  go_router_builder: ^2.4.1
+  neon_lints:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints
+  vector_graphics_compiler: ^1.1.11+1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+
+dependency_overrides:
+  package_info_plus:
+    git:
+      url: https://github.com/fluttercommunity/plus_plugins
+      path: packages/package_info_plus/package_info_plus
+      ref: baa336fe79c29411542fc343d332846bcd7752c1

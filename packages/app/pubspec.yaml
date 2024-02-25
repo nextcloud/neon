@@ -34,6 +34,10 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon/neon_notifications
+  neon_talk:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon/neon_talk
   vector_graphics: any
 
 dev_dependencies:

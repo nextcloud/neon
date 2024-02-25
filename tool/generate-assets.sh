@@ -80,6 +80,7 @@ copy_app_svg files external/nextcloud-server/apps/files
 copy_app_svg news external/nextcloud-news
 copy_app_svg notes external/nextcloud-notes
 copy_app_svg notifications external/nextcloud-notifications
+copy_app_svg talk external/nextcloud-spreed
 
 (
   cd packages/app
