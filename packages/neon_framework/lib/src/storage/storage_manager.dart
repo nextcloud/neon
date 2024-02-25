@@ -5,8 +5,8 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
+import 'package:neon_framework/src/storage/shared_preferences_persistence.dart';
 import 'package:neon_framework/src/storage/single_value_store.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 /// Neon storage that manages the storage backend.
 ///
@@ -35,9 +35,6 @@ class NeonStorage {
   /// Whether the storages have been initialized.
   bool get initialized => _initialized;
 
-  /// Shared preferences instance.
-  late SharedPreferences _sharedPreferences;
-
   /// Sets the individual storages.
   ///
   /// Required to be called before accessing any individual one.
@@ -52,7 +49,7 @@ class NeonStorage {
       _requestCache = requestCache;
     }
 
-    _sharedPreferences = await SharedPreferences.getInstance();
+    await SharedPreferencesPersistence.init();
 
     _initialized = true;
   }
@@ -68,17 +65,32 @@ class NeonStorage {
   }
 
   /// Initializes a new `SettingsStorage`.
+  ///
+  /// The value of the provided [groupKey] must not be empty to avoid conflicts
+  /// with the [SingleValueStore].
   SettingsStore settingsStore(StorageKeys groupKey, [String? suffix]) {
     _assertInitialized();
 
-    return DefaultSettingsStore(_sharedPreferences, groupKey, suffix);
+    var key = groupKey.value;
+
+    if (key.isEmpty) {
+      throw ArgumentError('The group key must not be empty to avoid conflicts with the `SingleValueStore`.');
+    }
+
+    if (suffix != null) {
+      key = '$key-$suffix';
+    }
+
+    final storage = SharedPreferencesPersistence(prefix: key);
+    return DefaultSettingsStore(storage, suffix ?? groupKey.name);
   }
 
   /// Initializes a new `KeyValueStorage`.
   SingleValueStore singleValueStore(StorageKeys key) {
     _assertInitialized();
 
-    return DefaultSingleValueStore(_sharedPreferences, key);
+    const storage = SharedPreferencesPersistence();
+    return DefaultSingleValueStore(storage, key);
   }
 
   void _assertInitialized() {

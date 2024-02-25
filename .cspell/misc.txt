@@ -5,6 +5,7 @@ deeplinking
 flathub
 foss
 fullscreen
+persistences
 playstore
 postmarket
 provokateurin
