@@ -22,6 +22,7 @@ rules:
       - neon_news
       - neon_notes
       - neon_notifications
+      - neon_talk
       - nextcloud
       - nextcloud_test
       - release

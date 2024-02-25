@@ -24,6 +24,7 @@ class NeonLocalizationsEn extends NeonLocalizations {
         'news': 'News',
         'notes': 'Notes',
         'notifications': 'Notifications',
+        'talk': 'Talk',
         'other': '',
       },
     );
