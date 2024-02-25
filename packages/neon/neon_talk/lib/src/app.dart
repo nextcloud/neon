@@ -9,6 +9,7 @@ import 'package:neon_talk/src/options.dart';
 import 'package:neon_talk/src/pages/main.dart';
 import 'package:neon_talk/src/routes.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:rxdart/rxdart.dart';
 
 /// Implementation of the server `talk` app.
 @experimental
@@ -39,4 +40,7 @@ class TalkApp extends AppImplementation<TalkBloc, TalkOptions> {
 
   @override
   final RouteBase route = $talkAppRoute;
+
+  @override
+  BehaviorSubject<int> getUnreadCounter(TalkBloc bloc) => bloc.unreadCounter;
 }

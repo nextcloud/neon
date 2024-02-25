@@ -88,6 +88,12 @@ abstract class TalkLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+
+  /// No description provided for @actorSelf.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get actorSelf;
 }
 
 class _TalkLocalizationsDelegate extends LocalizationsDelegate<TalkLocalizations> {
