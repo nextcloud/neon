@@ -52,6 +52,7 @@ trashbin
 turnservers
 undelete
 unifiedpush
+unmute
 unstar
 updatenotification
 uppush

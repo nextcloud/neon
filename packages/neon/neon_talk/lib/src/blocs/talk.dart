@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 
@@ -20,6 +21,12 @@ sealed class TalkBloc implements InteractiveBloc {
 
   /// The total number of unread messages.
   BehaviorSubject<int> get unreadCounter;
+
+  void createRoom(
+    spreed.RoomType type,
+    String? roomName,
+    core.AutocompleteResult? invite,
+  );
 }
 
 class _TalkBloc extends InteractiveBloc implements TalkBloc {
@@ -69,6 +76,22 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
         response.body.ocs.data.rebuild(
           (b) => b.sort((a, b) => b.lastActivity.compareTo(a.lastActivity)),
         ),
+      ),
+    );
+  }
+
+  @override
+  Future<void> createRoom(
+    spreed.RoomType type,
+    String? roomName,
+    core.AutocompleteResult? invite,
+  ) async {
+    await wrapAction(
+      () async => account.client.spreed.room.createRoom(
+        roomType: type.value,
+        roomName: roomName ?? '',
+        invite: invite?.id ?? '',
+        source: invite?.source ?? '',
       ),
     );
   }

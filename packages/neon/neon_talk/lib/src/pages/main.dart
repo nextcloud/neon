@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
+import 'package:neon_talk/src/dialogs/create_room.dart';
+import 'package:neon_talk/src/pages/room.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
@@ -40,15 +43,34 @@ class _TalkMainPageState extends State<TalkMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.rooms,
-        builder: (context, rooms) => NeonListView(
-          scrollKey: 'talk-rooms',
-          isLoading: rooms.isLoading,
-          error: rooms.error,
-          onRefresh: bloc.refresh,
-          itemCount: rooms.data?.length ?? 0,
-          itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
+  Widget build(BuildContext context) => Scaffold(
+        body: ResultBuilder.behaviorSubject(
+          subject: bloc.rooms,
+          builder: (context, rooms) => NeonListView(
+            scrollKey: 'talk-rooms',
+            isLoading: rooms.isLoading,
+            error: rooms.error,
+            onRefresh: bloc.refresh,
+            itemCount: rooms.data?.length ?? 0,
+            itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () async {
+            final result = await showDialog<TalkCreateRoomDetails>(
+              context: context,
+              builder: (context) => const TalkCreateRoomDialog(),
+            );
+            if (result == null) {
+              return;
+            }
+            bloc.createRoom(
+              result.type,
+              result.roomName,
+              result.invite,
+            );
+          },
         ),
       );
 
@@ -78,6 +100,21 @@ class _TalkMainPageState extends State<TalkMainPage> {
       title: Text(room.displayName),
       subtitle: subtitle,
       trailing: trailing,
+      onTap: () async {
+        final roomBloc = TalkRoomBloc(
+          NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+          room,
+        );
+        await Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (context) => TalkRoomPage(
+              bloc: roomBloc,
+            ),
+          ),
+        );
+        await roomBloc.leaveRoom();
+        bloc.dispose();
+      },
     );
   }
 }

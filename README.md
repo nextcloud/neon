@@ -54,6 +54,7 @@ See [here](packages/app/README.md) for screenshots.
 | [News](packages/neon/neon_news)                   | :heavy_check_mark: |
 | [Notes](packages/neon/neon_notes)                 | :heavy_check_mark: |
 | [Notifications](packages/neon/neon_notifications) | :heavy_check_mark: |
+| [Talk](packages/neon/neon_spreed)                 | :heavy_check_mark: |
 | Activity                                          | :rocket:           |
 | Calendar                                          | :rocket:           |
 | Contacts                                          | :rocket:           |
@@ -62,7 +63,6 @@ See [here](packages/app/README.md) for screenshots.
 | Deck                                              | :rocket:           |
 | Photos                                            | :rocket:           |
 | Photos                                            | :rocket:           |
-| Talk                                              | :construction:     |
 | Tasks                                             | :rocket:           |
 
 ## Platform support
