@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
@@ -212,8 +213,12 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     return null;
   }
 
-  BuiltSet<AppImplementation> filteredAppImplementations(Iterable<String> appIds) =>
-      BuiltSet(allAppImplementations.where((a) => appIds.contains(a.id)));
+  BuiltSet<AppImplementation> filteredAppImplementations(Iterable<String> appIds) => BuiltSet(
+        allAppImplementations.where(
+          (a) =>
+              appIds.contains(a.id) || a.additionalMatchingIDs?.firstWhereOrNull((id) => appIds.contains(id)) != null,
+        ),
+      );
 
   final CapabilitiesBloc capabilitiesBloc;
   final AccountsBloc accountsBloc;

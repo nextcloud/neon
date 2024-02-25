@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
@@ -11,7 +12,6 @@ import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/src/storage/keys.dart';
-
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
@@ -33,6 +33,12 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// It is common to specify them in `AppIDs`.
   @override
   String get id;
+
+  /// A set of IDs that will match the server apps in addition to [id].
+  ///
+  /// This should only be used when the implementation ID does not match the app ID on the server
+  /// or the implementation supports multiple apps on the server.
+  BuiltSet<String>? get additionalMatchingIDs => null;
 
   /// {@macro flutter.widgets.widgetsApp.localizationsDelegates}
   LocalizationsDelegate<Object> get localizationsDelegate;
