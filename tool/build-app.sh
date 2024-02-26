@@ -36,7 +36,7 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   --platform "$target" \
   --progress plain \
   --tag "$tag"  \
-  --build-arg="FLUTTER_VERSION=$(jq ".flutterSdkVersion" -r < .fvm/fvm_config.json | cut -d "@" -f 1)" \
+  --build-arg="FLUTTER_VERSION=$(jq ".flutter" -r < .fvmrc)" \
   $(cache_build_args "$tag") \
   -f "tool/build/Dockerfile.$os" \
   ./tool/build
