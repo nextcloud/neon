@@ -8,6 +8,7 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
+import 'package:version/version.dart';
 
 void main() {
   presets(
@@ -173,6 +174,65 @@ void main() {
           });
         });
       });
+
+      group(
+        'Avatar',
+        () {
+          test('Set emoji avatar', () async {
+            final room = await createTestRoom();
+
+            final response = await client1.spreed.avatar.emojiAvatar(
+              emoji: '😀',
+              token: room.token,
+            );
+            expect(response.statusCode, 200);
+            expect(response.body.ocs.data.isCustomAvatar, true);
+          });
+
+          test('Get avatar', () async {
+            final room = await createTestRoom();
+            await client1.spreed.avatar.emojiAvatar(
+              emoji: '😀',
+              token: room.token,
+            );
+
+            final response = await client1.spreed.avatar.getAvatar(
+              token: room.token,
+            );
+            expect(response.statusCode, 200);
+            expect(response.body, isNotEmpty);
+          });
+
+          test('Get avatar dark', () async {
+            final room = await createTestRoom();
+            await client1.spreed.avatar.emojiAvatar(
+              emoji: '😀',
+              token: room.token,
+            );
+
+            final response = await client1.spreed.avatar.getAvatarDark(
+              token: room.token,
+            );
+            expect(response.statusCode, 200);
+            expect(response.body, isNotEmpty);
+          });
+
+          test('Delete avatar', () async {
+            final room = await createTestRoom();
+            await client1.spreed.avatar.emojiAvatar(
+              emoji: '😀',
+              token: room.token,
+            );
+
+            final response = await client1.spreed.avatar.deleteAvatar(
+              token: room.token,
+            );
+            expect(response.statusCode, 200);
+            expect(response.body.ocs.data.isCustomAvatar, false);
+          });
+        },
+        skip: preset.version < Version(17, 0, 0),
+      );
 
       group('Chat', () {
         test('Send message', () async {
