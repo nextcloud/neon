@@ -25,10 +25,12 @@ class TalkMessagePreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String? actorName;
-    if (chatMessage.actorId == actorId) {
-      actorName = TalkLocalizations.of(context).actorSelf;
-    } else if (!roomType.isSingleUser) {
-      actorName = chatMessage.actorDisplayName;
+    if (chatMessage.messageType != spreed.MessageType.system.name) {
+      if (chatMessage.actorId == actorId) {
+        actorName = TalkLocalizations.of(context).actorSelf;
+      } else if (!roomType.isSingleUser) {
+        actorName = chatMessage.actorDisplayName;
+      }
     }
 
     return RichText(
