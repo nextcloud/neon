@@ -90,6 +90,7 @@ jobs:
     permissions:
       packages: write
     strategy:
+      fail-fast: false
       matrix:
         architecture:
           - docker: amd64
