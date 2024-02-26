@@ -1,19 +1,70 @@
+import 'dart:async';
+
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:rxdart/rxdart.dart';
 
 /// Bloc for fetching Talk rooms
 sealed class TalkBloc implements InteractiveBloc {
   /// Creates a new Talk Bloc instance.
   @internal
   factory TalkBloc(Account account) => _TalkBloc(account);
+
+  /// The list of rooms.
+  BehaviorSubject<Result<BuiltList<spreed.Room>>> get rooms;
+
+  /// The total number of unread messages.
+  BehaviorSubject<int> get unreadCounter;
 }
 
 class _TalkBloc extends InteractiveBloc implements TalkBloc {
-  _TalkBloc(this.account);
+  _TalkBloc(this.account) {
+    rooms.listen((result) {
+      if (!result.hasData) {
+        return;
+      }
+
+      var unread = 0;
+      for (final room in result.requireData) {
+        unread += room.unreadMessages;
+      }
+      unreadCounter.add(unread);
+    });
+
+    unawaited(refresh());
+  }
 
   final Account account;
 
   @override
-  Future<void> refresh() async {}
+  final rooms = BehaviorSubject();
+
+  @override
+  final unreadCounter = BehaviorSubject();
+
+  @override
+  void dispose() {
+    unawaited(rooms.close());
+    unawaited(unreadCounter.close());
+    super.dispose();
+  }
+
+  @override
+  Future<void> refresh() async {
+    await RequestManager.instance.wrapNextcloud(
+      account: account,
+      cacheKey: 'talk-rooms',
+      subject: rooms,
+      rawResponse: account.client.spreed.room.getRoomsRaw(),
+      unwrap: (response) => BuiltList(
+        response.body.ocs.data.rebuild(
+          (b) => b.sort((a, b) => b.lastActivity.compareTo(a.lastActivity)),
+        ),
+      ),
+    );
+  }
 }
