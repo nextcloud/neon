@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/models/account.dart';
@@ -16,8 +17,6 @@ class NeonUserAvatar extends StatefulWidget {
     this.username,
     this.showStatus = true,
     this.size,
-    this.backgroundColor,
-    this.foregroundColor,
     super.key,
   }) : account = null;
 
@@ -27,8 +26,6 @@ class NeonUserAvatar extends StatefulWidget {
     this.username,
     this.showStatus = true,
     this.size,
-    this.backgroundColor,
-    this.foregroundColor,
     super.key,
   });
 
@@ -47,13 +44,6 @@ class NeonUserAvatar extends StatefulWidget {
 
   /// The size of the avatar.
   final double? size;
-
-  /// The color with which to fill the circle. Changing the background
-  /// color will cause the avatar to animate to the new color.
-  final Color? backgroundColor;
-
-  /// The color used to render the loading animation.
-  final Color? foregroundColor;
 
   @override
   State<NeonUserAvatar> createState() => _UserAvatarState();
@@ -87,7 +77,6 @@ class _UserAvatarState extends State<NeonUserAvatar> {
 
           final avatar = CircleAvatar(
             radius: size / 2,
-            backgroundColor: widget.backgroundColor,
             child: ClipOval(
               child: NeonApiImage.withAccount(
                 account: account,
@@ -119,14 +108,31 @@ class _UserAvatarState extends State<NeonUserAvatar> {
                 stream: userStatusBloc!.statuses.map(
                   (statuses) => statuses[username] ?? Result<user_status.$PublicInterface>.loading(),
                 ),
-                builder: _userStatusIconBuilder,
+                builder: (context, result) => NeonUserStatusIndicator(
+                  result: result,
+                  size: size,
+                ),
               ),
             ],
           );
         },
       );
+}
 
-  Widget _userStatusIconBuilder(BuildContext context, Result<user_status.$PublicInterface> result) {
+@internal
+class NeonUserStatusIndicator extends StatelessWidget {
+  const NeonUserStatusIndicator({
+    required this.result,
+    required this.size,
+    super.key,
+  });
+
+  final Result<user_status.$PublicInterface> result;
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
     final hasEmoji = result.data?.icon != null;
     final scaledSize = size / (hasEmoji ? 2 : 2.5);
 
@@ -134,7 +140,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     if (result.isLoading) {
       child = CircularProgressIndicator(
         strokeWidth: 1.5,
-        color: widget.foregroundColor ?? Theme.of(context).colorScheme.onPrimary,
+        color: Theme.of(context).colorScheme.onPrimary,
       );
     } else if (result.hasError) {
       child = Icon(
@@ -142,17 +148,17 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         size: scaledSize,
         color: Theme.of(context).colorScheme.error,
       );
-    } else if (hasEmoji) {
-      child = Text(
-        result.data!.icon!,
-        style: const TextStyle(
-          fontSize: 16,
-        ),
-      );
     } else if (result.hasData) {
-      final type = result.data!.status;
-      if (type != user_status.$Type.offline) {
+      final type = result.requireData.status;
+      if (type == user_status.$Type.dnd || (!hasEmoji && type != user_status.$Type.offline)) {
         child = NeonServerIcon(icon: 'user-status-$type');
+      } else if (hasEmoji) {
+        child = Text(
+          result.data!.icon!,
+          style: const TextStyle(
+            fontSize: 16,
+          ),
+        );
       }
     }
 
