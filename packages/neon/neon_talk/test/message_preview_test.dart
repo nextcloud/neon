@@ -19,6 +19,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
 
     await tester.pumpWidget(
       wrapWidget(
@@ -37,6 +38,7 @@ void main() {
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.actorDisplayName).thenReturn('Test');
     when(() => chatMessage.message).thenReturn('message');
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
 
     await tester.pumpWidget(
       wrapWidget(
@@ -54,6 +56,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
 
     await tester.pumpWidget(
       wrapWidget(
@@ -71,12 +74,31 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
 
     await tester.pumpWidget(
       wrapWidget(
         TalkMessagePreview(
           actorId: 'abc',
           roomType: spreed.RoomType.oneToOne,
+          chatMessage: chatMessage,
+        ),
+      ),
+    );
+    expect(find.text('message', findRichText: true), findsOne);
+  });
+
+  testWidgets('System', (tester) async {
+    final chatMessage = MockChatMessage();
+    when(() => chatMessage.actorId).thenReturn('test');
+    when(() => chatMessage.message).thenReturn('message');
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.system.name);
+
+    await tester.pumpWidget(
+      wrapWidget(
+        TalkMessagePreview(
+          actorId: 'abc',
+          roomType: spreed.RoomType.group,
           chatMessage: chatMessage,
         ),
       ),
