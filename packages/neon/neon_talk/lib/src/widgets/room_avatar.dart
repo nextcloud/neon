@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -20,15 +18,12 @@ class TalkRoomAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
-
     if (room.isCustomAvatar ?? false) {
       final brightness = Theme.of(context).brightness;
 
       return CircleAvatar(
         child: ClipOval(
-          child: NeonApiImage.withAccount(
-            account: account,
+          child: NeonApiImage(
             getImage: (client) => switch (brightness) {
               Brightness.dark => client.spreed.avatar.getAvatarDarkRaw(token: room.token),
               Brightness.light => client.spreed.avatar.getAvatarRaw(token: room.token),
@@ -43,7 +38,6 @@ class TalkRoomAvatar extends StatelessWidget {
 
     return switch (spreed.RoomType.fromValue(room.type)) {
       spreed.RoomType.oneToOne => NeonUserAvatar(
-          account: account,
           username: room.name,
         ),
       spreed.RoomType.group => _buildIconAvatar(Icons.group),
