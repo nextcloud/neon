@@ -6,6 +6,7 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/widgets/message_preview.dart';
+import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -71,6 +72,9 @@ class _TalkMainPageState extends State<TalkMainPage> {
     }
 
     return ListTile(
+      leading: TalkRoomAvatar(
+        room: room,
+      ),
       title: Text(room.displayName),
       subtitle: subtitle,
       trailing: trailing,
