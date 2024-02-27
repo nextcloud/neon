@@ -52,8 +52,12 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
     timer = TimerBloc().registerTimer(const Duration(minutes: 5), refresh);
 
     location.listen((locationResult) async {
-      if (!locationResult.isLoading && !locationResult.hasError) {
-        await refreshForecast();
+      if (!locationResult.isLoading && locationResult.hasData) {
+        if (locationResult.data?.address != null) {
+          await refreshForecast();
+        } else {
+          location.add(Result.success(null));
+        }
       }
     });
   }

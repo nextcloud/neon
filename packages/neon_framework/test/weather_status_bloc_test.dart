@@ -211,4 +211,11 @@ void main() {
       ..setLocation('Hamburg')
       ..setLocation('Berlin');
   });
+
+  test('Do not refresh if location has no data', () async {
+    bloc.location.add(Result.loading());
+    bloc.location.add(Result.success(null));
+    await Future<void>.delayed(const Duration(milliseconds: 10));
+    expect(bloc.forecasts.valueOrNull, isNull);
+  });
 }
