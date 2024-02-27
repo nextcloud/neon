@@ -1,4 +1,5 @@
 SERVER_VERSION=27.1.6
+DROP_ACCOUNT_URL=https://packages.framasoft.org/projects/nextcloud-apps/drop-account/drop_account-2.3.2.tar.gz
 NEWS_URL=https://github.com/nextcloud/news/releases/download/24.0.0/news.tar.gz
 NOTES_URL=https://github.com/nextcloud-releases/notes/releases/download/v4.9.2/notes.tar.gz
 SPREED_URL=https://github.com/nextcloud-releases/spreed/releases/download/v17.0.3/spreed-v17.0.3.tar.gz

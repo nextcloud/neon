@@ -10,6 +10,7 @@ Future<void> main() async {
     'notes',
     'spreed',
     'uppush',
+    'drop_account',
   ];
 
   final httpClient = HttpClient();
