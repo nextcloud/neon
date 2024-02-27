@@ -15,6 +15,7 @@ import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// Account settings page.
 ///
@@ -45,32 +46,37 @@ class AccountSettingsPage extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () async {
-            final decision = await showAdaptiveDialog<bool>(
+            final decision = await showAdaptiveDialog<AccountDeletion>(
               context: context,
-              builder: (context) => NeonConfirmationDialog(
-                icon: const Icon(Icons.logout),
-                title: NeonLocalizations.of(context).accountOptionsRemove,
-                content: Text(
-                  NeonLocalizations.of(context).accountOptionsRemoveConfirm(account.humanReadableID),
-                ),
+              builder: (context) => NeonAccountDeletionDialog(
+                account: account,
               ),
             );
 
-            if (decision ?? false) {
-              final isActive = bloc.activeAccount.valueOrNull == account;
+            switch (decision) {
+              case null:
+                break;
+              case AccountDeletion.remote:
+                await launchUrl(
+                  account.serverURL.replace(
+                    path: '${account.serverURL.path}/index.php/settings/user/drop_account',
+                  ),
+                );
+              case AccountDeletion.local:
+                final isActive = bloc.activeAccount.valueOrNull == account;
 
-              options.reset();
-              bloc.removeAccount(account);
+                options.reset();
+                bloc.removeAccount(account);
 
-              if (!context.mounted) {
-                return;
-              }
+                if (!context.mounted) {
+                  return;
+                }
 
-              if (isActive) {
-                const HomeRoute().go(context);
-              } else {
-                Navigator.of(context).pop();
-              }
+                if (isActive) {
+                  const HomeRoute().go(context);
+                } else {
+                  Navigator.of(context).pop();
+                }
             }
           },
           tooltip: NeonLocalizations.of(context).accountOptionsRemove,

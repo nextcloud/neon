@@ -333,11 +333,25 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get globalOptionsNavigationModeDrawerAlwaysVisible => 'Drawer always visible';
 
   @override
+  String get accountOptionsDeleteOnServer => 'Delete account on the server';
+
+  @override
   String get accountOptionsRemove => 'Remove account';
 
   @override
   String accountOptionsRemoveConfirm(String id) {
     return 'Are you sure you want to remove the account $id?';
+  }
+
+  @override
+  String get accountOptionsRemoveLocal => 'Remove the account from the device';
+
+  @override
+  String get accountOptionsRemoveRemote => 'Request deleting the account on the server';
+
+  @override
+  String accountOptionsRemoveRemoteDelay(String time) {
+    return 'The account will be deleted after $time';
   }
 
   @override

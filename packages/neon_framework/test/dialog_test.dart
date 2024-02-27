@@ -7,6 +7,7 @@ import 'package:neon_framework/l10n/localizations_en.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -363,6 +364,182 @@ void main() {
 
       await status.close();
       await predefinedStatuses.close();
+    });
+  });
+
+  group('NeonAccountDeletionDialog', () {
+    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(
+      core.DropAccountCapabilities? capabilities,
+    ) =>
+        core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
+          (b) => b
+            ..version.update(
+              (b) => b
+                ..major = 0
+                ..minor = 0
+                ..micro = 0
+                ..string = ''
+                ..edition = ''
+                ..extendedSupport = false,
+            )
+            ..capabilities = (
+              // We need to provide at least one capability because anyOf expects at least one schema to match
+              commentsCapabilities: core.CommentsCapabilities((b) => b..files.update((b) => b..comments = true)),
+              davCapabilities: null,
+              dropAccountCapabilities: capabilities,
+              filesCapabilities: null,
+              filesSharingCapabilities: null,
+              filesTrashbinCapabilities: null,
+              filesVersionsCapabilities: null,
+              notesCapabilities: null,
+              notificationsCapabilities: null,
+              provisioningApiCapabilities: null,
+              sharebymailCapabilities: null,
+              spreedPublicCapabilities: null,
+              themingPublicCapabilities: null,
+              userStatusCapabilities: null,
+              weatherStatusCapabilities: null,
+            ),
+        );
+
+    testWidgets('Without drop_account', (tester) async {
+      final account = MockAccount();
+      when(() => account.humanReadableID).thenReturn('');
+
+      final capabilitiesBloc = MockCapabilitiesBloc();
+      when(() => capabilitiesBloc.capabilities).thenAnswer(
+        (_) => BehaviorSubject.seeded(Result.success(buildCapabilities(null))),
+      );
+
+      final accountsBloc = MockAccountsBloc();
+      when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
+
+      await tester.pumpWidget(const TestApp(child: Placeholder()));
+      final BuildContext context = tester.element(find.byType(Placeholder));
+
+      final future = showDialog<AccountDeletion>(
+        context: context,
+        builder: (context) => NeonProvider<AccountsBloc>(
+          create: (_) => accountsBloc,
+          child: NeonAccountDeletionDialog(
+            account: account,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.byType(NeonConfirmationDialog), findsOne);
+
+      await tester.tap(find.text(NeonLocalizations.of(context).actionContinue));
+      expect(await future, AccountDeletion.local);
+    });
+
+    group('With drop_account', () {
+      testWidgets('Disabled', (tester) async {
+        final account = MockAccount();
+        when(() => account.humanReadableID).thenReturn('');
+
+        final capabilitiesBloc = MockCapabilitiesBloc();
+        when(() => capabilitiesBloc.capabilities).thenAnswer(
+          (_) => BehaviorSubject.seeded(
+            Result.success(
+              buildCapabilities(
+                core.DropAccountCapabilities(
+                  (b) => b
+                    ..dropAccount.update(
+                      (b) => b
+                        ..apiVersion = ''
+                        ..enabled = false
+                        ..details = 'disabled'
+                        ..delay.update(
+                          (b) => b
+                            ..enabled = false
+                            ..hours = 0,
+                        ),
+                    ),
+                ),
+              ),
+            ),
+          ),
+        );
+
+        final accountsBloc = MockAccountsBloc();
+        when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
+
+        await tester.pumpWidget(const TestApp(child: Placeholder()));
+        final BuildContext context = tester.element(find.byType(Placeholder));
+
+        final future = showDialog<AccountDeletion>(
+          context: context,
+          builder: (context) => NeonProvider<AccountsBloc>(
+            create: (_) => accountsBloc,
+            child: NeonAccountDeletionDialog(
+              account: account,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.byType(NeonConfirmationDialog), findsNothing);
+        expect(find.byType(RadioListTile<AccountDeletion>), findsExactly(2));
+
+        expect(find.text('disabled'), findsOne);
+        await tester.tap(find.text('disabled'));
+
+        await tester.tap(find.text(NeonLocalizations.of(context).actionContinue));
+        expect(await future, AccountDeletion.local);
+      });
+
+      testWidgets('Delay', (tester) async {
+        final account = MockAccount();
+        when(() => account.humanReadableID).thenReturn('');
+
+        final capabilitiesBloc = MockCapabilitiesBloc();
+        when(() => capabilitiesBloc.capabilities).thenAnswer(
+          (_) => BehaviorSubject.seeded(
+            Result.success(
+              buildCapabilities(
+                core.DropAccountCapabilities(
+                  (b) => b
+                    ..dropAccount.update(
+                      (b) => b
+                        ..apiVersion = ''
+                        ..enabled = true
+                        ..delay.update(
+                          (b) => b
+                            ..enabled = true
+                            ..hours = 12,
+                        ),
+                    ),
+                ),
+              ),
+            ),
+          ),
+        );
+
+        final accountsBloc = MockAccountsBloc();
+        when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
+
+        await tester.pumpWidget(const TestApp(child: Placeholder()));
+        final BuildContext context = tester.element(find.byType(Placeholder));
+
+        final future = showDialog<AccountDeletion>(
+          context: context,
+          builder: (context) => NeonProvider<AccountsBloc>(
+            create: (_) => accountsBloc,
+            child: NeonAccountDeletionDialog(
+              account: account,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.byType(NeonConfirmationDialog), findsNothing);
+        expect(find.byType(RadioListTile<AccountDeletion>), findsExactly(2));
+
+        expect(find.text(NeonLocalizations.of(context).accountOptionsRemoveRemoteDelay('12 hours')), findsOne);
+        await tester.tap(find.text(NeonLocalizations.of(context).accountOptionsRemoveRemoteDelay('12 hours')));
+
+        await tester.tap(find.text(NeonLocalizations.of(context).actionContinue));
+        expect(await future, AccountDeletion.remote);
+      });
     });
   });
 }
