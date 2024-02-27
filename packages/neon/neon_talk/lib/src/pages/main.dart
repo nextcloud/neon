@@ -19,7 +19,6 @@ class TalkMainPage extends StatefulWidget {
 }
 
 class _TalkMainPageState extends State<TalkMainPage> {
-  late String actorId;
   late TalkBloc bloc;
   late StreamSubscription<Object> errorsSubscription;
 
@@ -27,7 +26,6 @@ class _TalkMainPageState extends State<TalkMainPage> {
   void initState() {
     super.initState();
 
-    actorId = NeonProvider.of<AccountsBloc>(context).activeAccount.value!.username;
     bloc = NeonProvider.of<TalkBloc>(context);
     errorsSubscription = bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
@@ -60,7 +58,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
     final lastChatMessage = room.lastMessage.chatMessage;
     if (lastChatMessage != null) {
       subtitle = TalkMessagePreview(
-        actorId: actorId,
+        actorId: room.actorId,
         roomType: spreed.RoomType.fromValue(room.type),
         chatMessage: lastChatMessage,
       );
