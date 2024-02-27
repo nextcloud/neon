@@ -5,6 +5,6 @@ environment:
   sdk: '>=3.1.0 <4.0.0'
 dev_dependencies:
   commitlint_cli: ^0.7.1
-  fvm: ^3.0.11
+  fvm: ^3.0.12
   husky: ^0.1.7
   melos: ^4.1.0
