@@ -1,0 +1,73 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "drop_account",
+        "version": "0.0.1",
+        "description": "An app to allow users to delete their accounts.",
+        "license": {
+            "name": "agpl",
+            "identifier": "AGPL-3.0-only"
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "basic_auth": {
+                "type": "http",
+                "scheme": "basic"
+            },
+            "bearer_auth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        },
+        "schemas": {
+            "Capabilities": {
+                "type": "object",
+                "required": [
+                    "drop-account"
+                ],
+                "properties": {
+                    "drop-account": {
+                        "type": "object",
+                        "required": [
+                            "enabled",
+                            "api-version",
+                            "delay",
+                            "details"
+                        ],
+                        "properties": {
+                            "enabled": {
+                                "type": "boolean"
+                            },
+                            "api-version": {
+                                "type": "string"
+                            },
+                            "delay": {
+                                "type": "object",
+                                "required": [
+                                    "enabled",
+                                    "hours"
+                                ],
+                                "properties": {
+                                    "enabled": {
+                                        "type": "boolean"
+                                    },
+                                    "hours": {
+                                        "type": "integer",
+                                        "format": "int64"
+                                    }
+                                }
+                            },
+                            "details": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "paths": {},
+    "tags": []
+}

@@ -57,6 +57,10 @@ done
   cd external/nextcloud-spreed
   generate_spec "." "spreed"
 )
+(
+  cd external/nextcloud-drop_account
+  generate_spec "." "drop_account"
+)
 
 for spec in /tmp/nextcloud-neon/*.openapi.json; do
   name="$(basename "$spec" | cut -d "." -f 1)"

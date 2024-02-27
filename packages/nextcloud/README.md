@@ -47,14 +47,15 @@ These OpenAPI specifications are [generated](https://github.com/nextcloud/openap
 
 ## Compatibility/Support policy
 
-| Component                                                       | Supported versions (1) |
-|-----------------------------------------------------------------|------------------------|
-| [Server](https://github.com/nextcloud/server) (2)               | 26 - 28                |
-| [News app](https://github.com/nextcloud/news)                   | 21 - 25                |
-| [Notes app](https://github.com/nextcloud/notes)                 | 4.7 - 4.9              |
-| [Notifications app](https://github.com/nextcloud/notifications) | 26 - 28                |
-| [Talk app](https://github.com/nextcloud/spreed)                 | 16 - 18                |
-| [NextPush app](https://codeberg.org/NextPush/uppush)            | 1.3 - 1.4              |
+| Component                                                                          | Supported versions (1) |
+|------------------------------------------------------------------------------------|------------------------|
+| [Server](https://github.com/nextcloud/server) (2)                                  | 26 - 28                |
+| [News app](https://github.com/nextcloud/news)                                      | 21 - 25                |
+| [Notes app](https://github.com/nextcloud/notes)                                    | 4.7 - 4.9              |
+| [Notifications app](https://github.com/nextcloud/notifications)                    | 26 - 28                |
+| [Talk app](https://github.com/nextcloud/spreed)                                    | 16 - 18                |
+| [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.3 - 1.4              |
+| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.3 - 2.4              |
 
 1: Other versions might be supported too or at least mostly working, but we do not test against those.  
 2: Server includes the following apps: comments, core, dashboard, dav, files, files_external, files_reminders, files_sharing, files_trashbin, files_versions, provisioning_api, settings, sharebymail, theming, updatenotification, user_status, weather_status and WebDAV.  

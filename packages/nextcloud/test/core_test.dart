@@ -66,6 +66,7 @@ void main() {
 
           expect(response.body.ocs.data.capabilities.commentsCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.davCapabilities, isNotNull);
+          expect(response.body.ocs.data.capabilities.dropAccountCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.filesCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.filesSharingCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.filesTrashbinCapabilities, isNotNull);

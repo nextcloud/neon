@@ -673,6 +673,51 @@
                     }
                 }
             },
+            "DropAccountCapabilities": {
+                "type": "object",
+                "required": [
+                    "drop-account"
+                ],
+                "properties": {
+                    "drop-account": {
+                        "type": "object",
+                        "required": [
+                            "enabled",
+                            "api-version",
+                            "delay",
+                            "details"
+                        ],
+                        "properties": {
+                            "enabled": {
+                                "type": "boolean"
+                            },
+                            "api-version": {
+                                "type": "string"
+                            },
+                            "delay": {
+                                "type": "object",
+                                "required": [
+                                    "enabled",
+                                    "hours"
+                                ],
+                                "properties": {
+                                    "enabled": {
+                                        "type": "boolean"
+                                    },
+                                    "hours": {
+                                        "type": "integer",
+                                        "format": "int64"
+                                    }
+                                }
+                            },
+                            "details": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        }
+                    }
+                }
+            },
             "FilesCapabilities": {
                 "type": "object",
                 "required": [
@@ -2469,6 +2514,9 @@
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/DavCapabilities"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/components/schemas/DropAccountCapabilities"
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/FilesCapabilities"

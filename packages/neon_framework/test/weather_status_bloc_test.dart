@@ -109,6 +109,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({requi
         ..capabilities = (
           commentsCapabilities: null,
           davCapabilities: null,
+          dropAccountCapabilities: null,
           filesCapabilities: null,
           filesSharingCapabilities: null,
           filesTrashbinCapabilities: null,
