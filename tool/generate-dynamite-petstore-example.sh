@@ -7,7 +7,7 @@ cp external/openapi-specification/examples/v3.0/petstore-expanded.json packages/
 (
   cd packages/dynamite/dynamite/example
   rm -rf .dart_tool/build/generated/dynamite
-  fvm dart pub run build_runner build --delete-conflicting-outputs
+  fvm dart run build_runner build --delete-conflicting-outputs
   fvm dart fix --apply lib/
   melos run format
 )
