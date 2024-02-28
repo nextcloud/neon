@@ -8,7 +8,9 @@ import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/options.dart';
 import 'package:neon_talk/src/pages/main.dart';
 import 'package:neon_talk/src/routes.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/spreed.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Implementation of the server `talk` app.
@@ -43,4 +45,11 @@ class TalkApp extends AppImplementation<TalkBloc, TalkOptions> {
 
   @override
   BehaviorSubject<int> getUnreadCounter(TalkBloc bloc) => bloc.unreadCounter;
+
+  @override
+  VersionCheck getVersionCheck(
+    Account account,
+    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+  ) =>
+      account.client.spreed.getVersionCheck(capabilities);
 }
