@@ -1,3 +1,4 @@
+import 'package:built_value/json_object.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
@@ -60,7 +61,7 @@ void main() {
             final app = await client.provisioningApi.apps.getAppInfo(app: id);
             expect(response.statusCode, 200);
             expect(() => response.headers, isA<void>());
-            expect(app.body.ocs.data.id, isNotEmpty);
+            expect((app.body.ocs.data['id']! as StringJsonObject).value, isNotEmpty);
           }
         });
       });

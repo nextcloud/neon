@@ -4390,82 +4390,9 @@ abstract class AppsGetAppsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppInfoInterface {
-  bool? get active;
-  JsonObject? get activity;
-  JsonObject? get author;
-  @BuiltValueField(wireName: 'background-jobs')
-  JsonObject? get backgroundJobs;
-  JsonObject? get bugs;
-  JsonObject? get category;
-  JsonObject? get collaboration;
-  JsonObject? get commands;
-  @BuiltValueField(wireName: 'default_enable')
-  JsonObject? get defaultEnable;
-  JsonObject? get dependencies;
-  String get description;
-  JsonObject? get discussion;
-  JsonObject? get documentation;
-  JsonObject? get groups;
-  String get id;
-  JsonObject? get info;
-  bool? get internal;
-  int? get level;
-  JsonObject? get licence;
-  String get name;
-  JsonObject? get namespace;
-  JsonObject? get navigations;
-  JsonObject? get preview;
-  bool? get previewAsIcon;
-  JsonObject? get public;
-  JsonObject? get remote;
-  bool? get removable;
-  @BuiltValueField(wireName: 'repair-steps')
-  JsonObject? get repairSteps;
-  JsonObject? get repository;
-  JsonObject? get sabre;
-  JsonObject? get screenshot;
-  JsonObject? get settings;
-  String get summary;
-  JsonObject? get trash;
-  @BuiltValueField(wireName: 'two-factor-providers')
-  JsonObject? get twoFactorProviders;
-  JsonObject? get types;
-  String get version;
-  JsonObject? get versions;
-  JsonObject? get website;
-}
-
-abstract class AppInfo implements $AppInfoInterface, Built<AppInfo, AppInfoBuilder> {
-  /// Creates a new AppInfo object using the builder pattern.
-  factory AppInfo([void Function(AppInfoBuilder)? b]) = _$AppInfo;
-
-  // coverage:ignore-start
-  const AppInfo._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AppInfo.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AppInfo.
-  static Serializer<AppInfo> get serializer => _$appInfoSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $AppsGetAppInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  AppInfo get data;
+  BuiltMap<String, JsonObject> get data;
 }
 
 abstract class AppsGetAppInfoResponseApplicationJson_Ocs
@@ -8499,8 +8426,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         AppsGetAppInfoResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppsGetAppInfoResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(AppInfo), AppInfoBuilder.new)
-      ..add(AppInfo.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        MapBuilder<String, JsonObject>.new,
+      )
       ..addBuilderFactory(
         const FullType(AppsEnableResponseApplicationJson),
         AppsEnableResponseApplicationJsonBuilder.new,
