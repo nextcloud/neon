@@ -13,9 +13,6 @@ import 'package:universal_io/io.dart' hide HttpClient;
 /// Base path used on the server
 final webdavBase = PathUri.parse('/remote.php/webdav');
 
-// ignore: do_not_use_environment
-const bool _kIsWeb = bool.fromEnvironment('dart.library.js_util');
-
 @internal
 class WebDavRequest extends http.BaseRequest {
   WebDavRequest(
@@ -87,23 +84,21 @@ class WebDavClient {
     // cookies. On non-web platforms we don't send the cookies so we are fine, but on web the browser always does it
     // and therefore we need this workaround.
     // TODO: Fix this bug in server.
-    if (_kIsWeb) {
-      if (_token == null) {
-        final response = await rootClient.get(Uri.parse('${rootClient.baseURL}/index.php'));
-        if (response.statusCode >= 300) {
-          throw DynamiteStatusCodeException(
-            response.statusCode,
-          );
-        }
-
-        _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
+    if (_token == null) {
+      final response = await rootClient.get(Uri.parse('${rootClient.baseURL}/index.php'));
+      if (response.statusCode >= 300) {
+        throw DynamiteStatusCodeException(
+          response.statusCode,
+        );
       }
 
-      request.headers.addAll({
-        'OCS-APIRequest': 'true',
-        'requesttoken': _token!,
-      });
+      _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
     }
+
+    request.headers.addAll({
+      'OCS-APIRequest': 'true',
+      'requesttoken': _token!,
+    });
 
     final response = await rootClient.send(request);
 

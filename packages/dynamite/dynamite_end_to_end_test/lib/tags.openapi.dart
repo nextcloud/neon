@@ -2,8 +2,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case, unused_element
 
 /// Tags test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
@@ -44,6 +44,31 @@ class $FirstClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$$get_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $$get_Serializer() => _i1.DynamiteSerializer<void, void>(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Returns a `DynamiteRequest` backing the [$get] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default
+  ///
+  /// See:
+  ///  * [$get] for a method executing this request and parsing the response.
+  ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $$get_Request() {
+    const _path = '/';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri);
+    return _request;
+  }
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -51,35 +76,15 @@ class $FirstClient {
   ///   * default
   ///
   /// See:
-  ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$$get_Request] for the request send by this method.
+  ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> $get() async {
-    final rawResponse = $getRaw();
+    final _request = $$get_Request();
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * default
-  ///
-  /// See:
-  ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> $getRaw() {
-    const _path = '/';
-    return _i1.DynamiteRawResponse<void, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $$get_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<void, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -89,6 +94,31 @@ class $SecondClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$$get_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $$get_Serializer() => _i1.DynamiteSerializer<void, void>(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Returns a `DynamiteRequest` backing the [$get] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default
+  ///
+  /// See:
+  ///  * [$get] for a method executing this request and parsing the response.
+  ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $$get_Request() {
+    const _path = '/';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri);
+    return _request;
+  }
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -96,35 +126,15 @@ class $SecondClient {
   ///   * default
   ///
   /// See:
-  ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$$get_Request] for the request send by this method.
+  ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> $get() async {
-    final rawResponse = $getRaw();
+    final _request = $$get_Request();
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * default
-  ///
-  /// See:
-  ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> $getRaw() {
-    const _path = '/';
-    return _i1.DynamiteRawResponse<void, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $$get_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<void, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 

@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// theming Version: 0.0.1.
 ///
@@ -24,9 +25,9 @@ import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i3;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i2;
+import 'package:dynamite_runtime/utils.dart' as _i4;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i3;
 
 part 'theming.openapi.g.dart';
 
@@ -65,6 +66,59 @@ class $IconClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getFavicon_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getFavicon_Serializer() => _i1.DynamiteSerializer<Uint8List, void>(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Return a 32x32 favicon as png.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getFavicon] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app. Defaults to `core`.
+  ///
+  /// Status codes:
+  ///   * 200: Favicon returned
+  ///   * 404: Favicon not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getFavicon] for a method executing this request and parsing the response.
+  ///  * [$getFavicon_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getFavicon_Request({String? app}) {
+    final _parameters = <String, Object?>{};
+    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    $app ??= 'core';
+    _parameters['app'] = $app;
+
+    final _path = _i3.UriTemplate('/index.php/apps/theming/favicon/{app}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'image/x-icon';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
   /// Return a 32x32 favicon as png.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -79,37 +133,54 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getFaviconRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getFavicon_Request] for the request send by this method.
+  ///  * [$getFavicon_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getFavicon({String? app}) async {
-    final rawResponse = getFaviconRaw(
+    final _request = $getFavicon_Request(
       app: app,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $getFavicon_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Return a 32x32 favicon as png.
+  /// Builds a serializer to parse the response of [$getTouchIcon_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getTouchIcon_Serializer() => _i1.DynamiteSerializer<Uint8List, void>(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Return a 512x512 icon for touch devices.
   ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Returns a `DynamiteRequest` backing the [getTouchIcon] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [app] ID of the app. Defaults to `core`.
   ///
   /// Status codes:
-  ///   * 200: Favicon returned
-  ///   * 404: Favicon not found
+  ///   * 200: Touch icon returned
+  ///   * 404: Touch icon not found
   ///   * 500
   ///
   /// See:
-  ///  * [getFavicon] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getFaviconRaw({String? app}) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'image/x-icon'};
+  ///  * [getTouchIcon] for a method executing this request and parsing the response.
+  ///  * [$getTouchIcon_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getTouchIcon_Request({String? app}) {
+    final _parameters = <String, Object?>{};
+    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    $app ??= 'core';
+    _parameters['app'] = $app;
 
+    final _path = _i3.UriTemplate('/index.php/apps/theming/icon/{app}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'image/png';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -119,28 +190,13 @@ class $IconClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     }
 
 // coverage:ignore-end
-    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    $app ??= 'core';
-    _parameters['app'] = $app;
-
-    final _path = _i2.UriTemplate('/index.php/apps/theming/favicon/{app}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    return _request;
   }
 
   /// Return a 512x512 icon for touch devices.
@@ -157,73 +213,30 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getTouchIconRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getTouchIcon_Request] for the request send by this method.
+  ///  * [$getTouchIcon_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getTouchIcon({String? app}) async {
-    final rawResponse = getTouchIconRaw(
+    final _request = $getTouchIcon_Request(
       app: app,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $getTouchIcon_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Return a 512x512 icon for touch devices.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [app] ID of the app. Defaults to `core`.
-  ///
-  /// Status codes:
-  ///   * 200: Touch icon returned
-  ///   * 404: Touch icon not found
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getTouchIcon] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getTouchIconRaw({String? app}) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'image/png'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
+  /// Builds a serializer to parse the response of [$getThemedIcon_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getThemedIcon_Serializer() => _i1.DynamiteSerializer<Uint8List, void>(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
       );
-    }
-
-// coverage:ignore-end
-    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    $app ??= 'core';
-    _parameters['app'] = $app;
-
-    final _path = _i2.UriTemplate('/index.php/apps/theming/icon/{app}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
 
   /// Get a themed icon.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [getThemedIcon] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -236,83 +249,77 @@ class $IconClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getThemedIconRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getThemedIcon({
-    required String app,
-    required String image,
-  }) async {
-    final rawResponse = getThemedIconRaw(
-      app: app,
-      image: image,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get a themed icon.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [app] ID of the app.
-  ///   * [image] image file name (svg required).
-  ///
-  /// Status codes:
-  ///   * 200: Themed icon returned
-  ///   * 404: Themed icon not found
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getThemedIcon] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getThemedIconRaw({
+  ///  * [getThemedIcon] for a method executing this request and parsing the response.
+  ///  * [$getThemedIcon_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getThemedIcon_Request({
     required String app,
     required String image,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'image/svg+xml'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
+    final _parameters = <String, Object?>{};
     final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
     _parameters['app'] = $app;
 
     final $image = _$jsonSerializers.serialize(image, specifiedType: const FullType(String));
-    _i3.checkPattern(
+    _i4.checkPattern(
       $image as String?,
       RegExp(r'^.+$'),
       'image',
     );
     _parameters['image'] = $image;
 
-    final _path = _i2.UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _path = _i3.UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'image/svg+xml';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Get a themed icon.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app.
+  ///   * [image] image file name (svg required).
+  ///
+  /// Status codes:
+  ///   * 200: Themed icon returned
+  ///   * 404: Themed icon not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$getThemedIcon_Request] for the request send by this method.
+  ///  * [$getThemedIcon_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getThemedIcon({
+    required String app,
+    required String image,
+  }) async {
+    final _request = $getThemedIcon_Request(
+      app: app,
+      image: image,
+    );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $getThemedIcon_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -324,9 +331,17 @@ class $ThemingClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getThemeStylesheet_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<String, void> $getThemeStylesheet_Serializer() => _i1.DynamiteSerializer<String, void>(
+        bodyType: const FullType(String),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the CSS stylesheet for a theme.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [getThemeStylesheet] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -339,63 +354,15 @@ class $ThemingClient {
   ///   * 404: Theme not found
   ///
   /// See:
-  ///  * [getThemeStylesheetRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<String, void>> getThemeStylesheet({
-    required String themeId,
-    ThemingGetThemeStylesheetPlain? plain,
-    ThemingGetThemeStylesheetWithCustomCss? withCustomCss,
-  }) async {
-    final rawResponse = getThemeStylesheetRaw(
-      themeId: themeId,
-      plain: plain,
-      withCustomCss: withCustomCss,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get the CSS stylesheet for a theme.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [plain] Let the browser decide the CSS priority. Defaults to `0`.
-  ///   * [withCustomCss] Include custom CSS. Defaults to `0`.
-  ///   * [themeId] ID of the theme.
-  ///
-  /// Status codes:
-  ///   * 200: Stylesheet returned
-  ///   * 404: Theme not found
-  ///
-  /// See:
-  ///  * [getThemeStylesheet] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<String, void> getThemeStylesheetRaw({
+  ///  * [getThemeStylesheet] for a method executing this request and parsing the response.
+  ///  * [$getThemeStylesheet_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getThemeStylesheet_Request({
     required String themeId,
     ThemingGetThemeStylesheetPlain? plain,
     ThemingGetThemeStylesheetWithCustomCss? withCustomCss,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'text/css'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
+    final _parameters = <String, Object?>{};
     final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
     _parameters['themeId'] = $themeId;
 
@@ -411,74 +378,10 @@ class $ThemingClient {
     _parameters['withCustomCss'] = $withCustomCss;
 
     final _path =
-        _i2.UriTemplate('/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<String, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(String),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Get an image.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [useSvg] Return image as SVG. Defaults to `1`.
-  ///   * [key] Key of the image.
-  ///
-  /// Status codes:
-  ///   * 200: Image returned
-  ///   * 404: Image not found
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getImageRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getImage({
-    required String key,
-    ThemingGetImageUseSvg? useSvg,
-  }) async {
-    final rawResponse = getImageRaw(
-      key: key,
-      useSvg: useSvg,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get an image.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [useSvg] Return image as SVG. Defaults to `1`.
-  ///   * [key] Key of the image.
-  ///
-  /// Status codes:
-  ///   * 200: Image returned
-  ///   * 404: Image not found
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getImage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getImageRaw({
-    required String key,
-    ThemingGetImageUseSvg? useSvg,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': '*/*'};
-
+        _i3.UriTemplate('/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'text/css';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -488,12 +391,80 @@ class $ThemingClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     }
 
 // coverage:ignore-end
+    return _request;
+  }
+
+  /// Get the CSS stylesheet for a theme.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [plain] Let the browser decide the CSS priority. Defaults to `0`.
+  ///   * [withCustomCss] Include custom CSS. Defaults to `0`.
+  ///   * [themeId] ID of the theme.
+  ///
+  /// Status codes:
+  ///   * 200: Stylesheet returned
+  ///   * 404: Theme not found
+  ///
+  /// See:
+  ///  * [$getThemeStylesheet_Request] for the request send by this method.
+  ///  * [$getThemeStylesheet_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<String, void>> getThemeStylesheet({
+    required String themeId,
+    ThemingGetThemeStylesheetPlain? plain,
+    ThemingGetThemeStylesheetWithCustomCss? withCustomCss,
+  }) async {
+    final _request = $getThemeStylesheet_Request(
+      themeId: themeId,
+      plain: plain,
+      withCustomCss: withCustomCss,
+    );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $getThemeStylesheet_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<String, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getImage_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getImage_Serializer() => _i1.DynamiteSerializer<Uint8List, void>(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Get an image.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getImage] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [useSvg] Return image as SVG. Defaults to `1`.
+  ///   * [key] Key of the image.
+  ///
+  /// Status codes:
+  ///   * 200: Image returned
+  ///   * 404: Image not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getImage] for a method executing this request and parsing the response.
+  ///  * [$getImage_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getImage_Request({
+    required String key,
+    ThemingGetImageUseSvg? useSvg,
+  }) {
+    final _parameters = <String, Object?>{};
     final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
     _parameters['key'] = $key;
 
@@ -501,18 +472,111 @@ class $ThemingClient {
     $useSvg ??= 1;
     _parameters['useSvg'] = $useSvg;
 
-    final _path = _i2.UriTemplate('/index.php/apps/theming/image/{key}{?useSvg*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _path = _i3.UriTemplate('/index.php/apps/theming/image/{key}{?useSvg*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Get an image.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [useSvg] Return image as SVG. Defaults to `1`.
+  ///   * [key] Key of the image.
+  ///
+  /// Status codes:
+  ///   * 200: Image returned
+  ///   * 404: Image not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$getImage_Request] for the request send by this method.
+  ///  * [$getImage_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getImage({
+    required String key,
+    ThemingGetImageUseSvg? useSvg,
+  }) async {
+    final _request = $getImage_Request(
+      key: key,
+      useSvg: useSvg,
+    );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $getImage_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getManifest_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ThemingGetManifestResponseApplicationJson, void> $getManifest_Serializer() =>
+      _i1.DynamiteSerializer<ThemingGetManifestResponseApplicationJson, void>(
+        bodyType: const FullType(ThemingGetManifestResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Get the manifest for an app.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getManifest] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app. Defaults to `core`.
+  ///
+  /// Status codes:
+  ///   * 200: Manifest returned
+  ///   * 404: App not found
+  ///
+  /// See:
+  ///  * [getManifest] for a method executing this request and parsing the response.
+  ///  * [$getManifest_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getManifest_Request({String? app}) {
+    final _parameters = <String, Object?>{};
+    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    $app ??= 'core';
+    _parameters['app'] = $app;
+
+    final _path = _i3.UriTemplate('/index.php/apps/theming/manifest/{app}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
   }
 
   /// Get the manifest for an app.
@@ -528,67 +592,18 @@ class $ThemingClient {
   ///   * 404: App not found
   ///
   /// See:
-  ///  * [getManifestRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getManifest_Request] for the request send by this method.
+  ///  * [$getManifest_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ThemingGetManifestResponseApplicationJson, void>> getManifest({String? app}) async {
-    final rawResponse = getManifestRaw(
+    final _request = $getManifest_Request(
       app: app,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// Get the manifest for an app.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [app] ID of the app. Defaults to `core`.
-  ///
-  /// Status codes:
-  ///   * 200: Manifest returned
-  ///   * 404: App not found
-  ///
-  /// See:
-  ///  * [getManifest] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({String? app}) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    $app ??= 'core';
-    _parameters['app'] = $app;
-
-    final _path = _i2.UriTemplate('/index.php/apps/theming/manifest/{app}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ThemingGetManifestResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $getManifest_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ThemingGetManifestResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -598,6 +613,52 @@ class $UserThemeClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getBackground_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getBackground_Serializer() => _i1.DynamiteSerializer<Uint8List, void>(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Get the background image.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getBackground] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Background image returned
+  ///   * 404: Background image not found
+  ///
+  /// See:
+  ///  * [getBackground] for a method executing this request and parsing the response.
+  ///  * [$getBackground_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getBackground_Request() {
+    const _path = '/index.php/apps/theming/background';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
   /// Get the background image.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -608,30 +669,56 @@ class $UserThemeClient {
   ///   * 404: Background image not found
   ///
   /// See:
-  ///  * [getBackgroundRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getBackground_Request] for the request send by this method.
+  ///  * [$getBackground_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getBackground() async {
-    final rawResponse = getBackgroundRaw();
+    final _request = $getBackground_Request();
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $getBackground_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get the background image.
+  /// Builds a serializer to parse the response of [$enableTheme_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserThemeEnableThemeResponseApplicationJson, void> $enableTheme_Serializer() =>
+      _i1.DynamiteSerializer<UserThemeEnableThemeResponseApplicationJson, void>(
+        bodyType: const FullType(UserThemeEnableThemeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Enable theme.
   ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Returns a `DynamiteRequest` backing the [enableTheme] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Parameters:
+  ///   * [themeId] the theme ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
   /// Status codes:
-  ///   * 200: Background image returned
-  ///   * 404: Background image not found
+  ///   * 200: Theme enabled successfully
+  ///   * 400: Enabling theme is not possible
+  ///   * 500
   ///
   /// See:
-  ///  * [getBackground] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getBackgroundRaw() {
-    final _headers = <String, String>{'Accept': '*/*'};
+  ///  * [enableTheme] for a method executing this request and parsing the response.
+  ///  * [$enableTheme_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $enableTheme_Request({
+    required String themeId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    _parameters['themeId'] = $themeId;
 
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('put', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -641,7 +728,7 @@ class $UserThemeClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -649,18 +736,11 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    const _path = '/index.php/apps/theming/background';
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
   }
 
   /// Enable theme.
@@ -678,24 +758,36 @@ class $UserThemeClient {
   ///   * 500
   ///
   /// See:
-  ///  * [enableThemeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$enableTheme_Request] for the request send by this method.
+  ///  * [$enableTheme_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UserThemeEnableThemeResponseApplicationJson, void>> enableTheme({
     required String themeId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = enableThemeRaw(
+    final _request = $enableTheme_Request(
       themeId: themeId,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $enableTheme_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<UserThemeEnableThemeResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Enable theme.
+  /// Builds a serializer to parse the response of [$disableTheme_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserThemeDisableThemeResponseApplicationJson, void> $disableTheme_Serializer() =>
+      _i1.DynamiteSerializer<UserThemeDisableThemeResponseApplicationJson, void>(
+        bodyType: const FullType(UserThemeDisableThemeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Disable theme.
   ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Returns a `DynamiteRequest` backing the [disableTheme] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -703,20 +795,26 @@ class $UserThemeClient {
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: Theme enabled successfully
-  ///   * 400: Enabling theme is not possible
+  ///   * 200: Theme disabled successfully
+  ///   * 400: Disabling theme is not possible
   ///   * 500
   ///
   /// See:
-  ///  * [enableTheme] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void> enableThemeRaw({
+  ///  * [disableTheme] for a method executing this request and parsing the response.
+  ///  * [$disableTheme_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $disableTheme_Request({
     required String themeId,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
+    final _parameters = <String, Object?>{};
+    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    _parameters['themeId'] = $themeId;
 
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('delete', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -726,7 +824,7 @@ class $UserThemeClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -734,25 +832,11 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
-    _parameters['themeId'] = $themeId;
-
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i2.UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(_parameters);
-    return _i1.DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(UserThemeEnableThemeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    return _request;
   }
 
   /// Disable theme.
@@ -770,81 +854,22 @@ class $UserThemeClient {
   ///   * 500
   ///
   /// See:
-  ///  * [disableThemeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$disableTheme_Request] for the request send by this method.
+  ///  * [$disableTheme_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UserThemeDisableThemeResponseApplicationJson, void>> disableTheme({
     required String themeId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = disableThemeRaw(
+    final _request = $disableTheme_Request(
       themeId: themeId,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// Disable theme.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [themeId] the theme ID.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Theme disabled successfully
-  ///   * 400: Disabling theme is not possible
-  ///   * 500
-  ///
-  /// See:
-  ///  * [disableTheme] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void> disableThemeRaw({
-    required String themeId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
-    _parameters['themeId'] = $themeId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i2.UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(UserThemeDisableThemeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $disableTheme_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<UserThemeDisableThemeResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -1084,7 +1109,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
-    _i3.checkMinLength(
+    _i4.checkMinLength(
       b.src,
       1,
       'src',
@@ -1424,7 +1449,7 @@ abstract class PublicCapabilities
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ThemingGetThemeStylesheetPlain.serializer)
@@ -1476,7 +1501,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

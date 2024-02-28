@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// settings Version: 0.0.1.
 ///
@@ -55,6 +56,54 @@ class $LogSettingsClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$download_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, LogSettingsLogSettingsDownloadHeaders> $download_Serializer() =>
+      _i1.DynamiteSerializer<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
+        bodyType: const FullType(Uint8List),
+        headersType: const FullType(LogSettingsLogSettingsDownloadHeaders),
+        serializers: _$jsonSerializers,
+      );
+
+  /// download logfile.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [download] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Logfile returned
+  ///
+  /// See:
+  ///  * [download] for a method executing this request and parsing the response.
+  ///  * [$download_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $download_Request() {
+    const _path = '/index.php/settings/admin/log/download';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/octet-stream';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
   /// download logfile.
   ///
   /// This endpoint requires admin access.
@@ -66,60 +115,16 @@ class $LogSettingsClient {
   ///   * 200: Logfile returned
   ///
   /// See:
-  ///  * [downloadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$download_Request] for the request send by this method.
+  ///  * [$download_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
-    final rawResponse = downloadRaw();
+    final _request = $download_Request();
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// download logfile.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * 200: Logfile returned
-  ///
-  /// See:
-  ///  * [download] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  _i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
-    final _headers = <String, String>{'Accept': 'application/octet-stream'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    const _path = '/index.php/settings/admin/log/download';
-    return _i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: const FullType(LogSettingsLogSettingsDownloadHeaders),
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $download_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 

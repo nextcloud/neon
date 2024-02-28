@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// files_external Version: 0.0.1.
 ///
@@ -22,8 +23,8 @@ import 'package:built_value/standard_json_plugin.dart' as _i5;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i4;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
 
 part 'files_external.openapi.g.dart';
 
@@ -56,6 +57,59 @@ class $ApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getUserMounts_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiGetUserMountsResponseApplicationJson, void> $getUserMounts_Serializer() =>
+      _i1.DynamiteSerializer<ApiGetUserMountsResponseApplicationJson, void>(
+        bodyType: const FullType(ApiGetUserMountsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Get the mount points visible for this user.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getUserMounts] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User mounts returned
+  ///
+  /// See:
+  ///  * [getUserMounts] for a method executing this request and parsing the response.
+  ///  * [$getUserMounts_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getUserMounts_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
   /// Get the mount points visible for this user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -68,69 +122,20 @@ class $ApiClient {
   ///   * 200: User mounts returned
   ///
   /// See:
-  ///  * [getUserMountsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getUserMounts_Request] for the request send by this method.
+  ///  * [$getUserMounts_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiGetUserMountsResponseApplicationJson, void>> getUserMounts({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getUserMountsRaw(
+    final _request = $getUserMounts_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// Get the mount points visible for this user.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: User mounts returned
-  ///
-  /// See:
-  ///  * [getUserMounts] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
-  _i1.DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    const _path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
-    return _i1.DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ApiGetUserMountsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $getUserMounts_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ApiGetUserMountsResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -511,7 +516,7 @@ abstract class ApiGetUserMountsResponseApplicationJson
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -545,7 +550,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i4.DynamiteDoubleSerializer())

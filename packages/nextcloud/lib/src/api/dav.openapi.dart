@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// dav Version: 0.0.1.
 ///
@@ -21,8 +22,8 @@ import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
+import 'package:dynamite_runtime/utils.dart' as _i4;
+import 'package:meta/meta.dart' as _i2;
 import 'package:uri/uri.dart' as _i3;
 
 part 'dav.openapi.g.dart';
@@ -58,6 +59,75 @@ class $DirectClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getUrl_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectGetUrlResponseApplicationJson, void> $getUrl_Serializer() =>
+      _i1.DynamiteSerializer<DirectGetUrlResponseApplicationJson, void>(
+        bodyType: const FullType(DirectGetUrlResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Get a direct link to a file.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getUrl] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file.
+  ///   * [expirationTime] Duration until the link expires.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Direct link returned
+  ///   * 404: File not found
+  ///   * 400: Getting direct link is not possible
+  ///   * 403: Missing permissions to get direct link
+  ///
+  /// See:
+  ///  * [getUrl] for a method executing this request and parsing the response.
+  ///  * [$getUrl_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getUrl_Request({
+    required int fileId,
+    required int expirationTime,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = $fileId;
+
+    final $expirationTime = _$jsonSerializers.serialize(expirationTime, specifiedType: const FullType(int));
+    _parameters['expirationTime'] = $expirationTime;
+
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
   /// Get a direct link to a file.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -75,89 +145,24 @@ class $DirectClient {
   ///   * 403: Missing permissions to get direct link
   ///
   /// See:
-  ///  * [getUrlRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getUrl_Request] for the request send by this method.
+  ///  * [$getUrl_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
     required int fileId,
     required int expirationTime,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getUrlRaw(
+    final _request = $getUrl_Request(
       fileId: fileId,
       expirationTime: expirationTime,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// Get a direct link to a file.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [fileId] ID of the file.
-  ///   * [expirationTime] Duration until the link expires.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Direct link returned
-  ///   * 404: File not found
-  ///   * 400: Getting direct link is not possible
-  ///   * 403: Missing permissions to get direct link
-  ///
-  /// See:
-  ///  * [getUrl] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
-    required int fileId,
-    required int expirationTime,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
-
-    final $expirationTime = _$jsonSerializers.serialize(expirationTime, specifiedType: const FullType(int));
-    _parameters['expirationTime'] = $expirationTime;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectGetUrlResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $getUrl_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<DirectGetUrlResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -167,6 +172,69 @@ class $OutOfOfficeClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getCurrentOutOfOfficeData_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>
+      $getCurrentOutOfOfficeData_Serializer() =>
+          _i1.DynamiteSerializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(
+            bodyType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
+  /// Get the currently configured out-of-office data of a user.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getCurrentOutOfOfficeData] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId] The user id to get out-of-office data for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Out-of-office data
+  ///   * 404: No out-of-office data was found
+  ///
+  /// See:
+  ///  * [getCurrentOutOfOfficeData] for a method executing this request and parsing the response.
+  ///  * [$getCurrentOutOfOfficeData_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getCurrentOutOfOfficeData_Request({
+    required String userId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = $userId;
+
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
   /// Get the currently configured out-of-office data of a user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -181,25 +249,38 @@ class $OutOfOfficeClient {
   ///   * 404: No out-of-office data was found
   ///
   /// See:
-  ///  * [getCurrentOutOfOfficeDataRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getCurrentOutOfOfficeData_Request] for the request send by this method.
+  ///  * [$getCurrentOutOfOfficeData_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>>
       getCurrentOutOfOfficeData({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getCurrentOutOfOfficeDataRaw(
+    final _request = $getCurrentOutOfOfficeData_Request(
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $getCurrentOutOfOfficeData_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get the currently configured out-of-office data of a user.
+  /// Builds a serializer to parse the response of [$getOutOfOffice_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void> $getOutOfOffice_Serializer() =>
+      _i1.DynamiteSerializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(
+        bodyType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Get the configured out-of-office data of a user.
   ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Returns a `DynamiteRequest` backing the [getOutOfOffice] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -211,16 +292,21 @@ class $OutOfOfficeClient {
   ///   * 404: No out-of-office data was found
   ///
   /// See:
-  ///  * [getCurrentOutOfOfficeData] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>
-      getCurrentOutOfOfficeDataRaw({
+  ///  * [getOutOfOffice] for a method executing this request and parsing the response.
+  ///  * [$getOutOfOffice_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getOutOfOffice_Request({
     required String userId,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
+    final _parameters = <String, Object?>{};
+    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = $userId;
 
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -230,7 +316,7 @@ class $OutOfOfficeClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -238,25 +324,11 @@ class $OutOfOfficeClient {
     }
 
 // coverage:ignore-end
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
-    return _i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    return _request;
   }
 
   /// Get the configured out-of-office data of a user.
@@ -273,85 +345,36 @@ class $OutOfOfficeClient {
   ///   * 404: No out-of-office data was found
   ///
   /// See:
-  ///  * [getOutOfOfficeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getOutOfOffice_Request] for the request send by this method.
+  ///  * [$getOutOfOffice_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>> getOutOfOffice({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getOutOfOfficeRaw(
+    final _request = $getOutOfOffice_Request(
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $getOutOfOffice_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get the configured out-of-office data of a user.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [userId] The user id to get out-of-office data for.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Out-of-office data
-  ///   * 404: No out-of-office data was found
-  ///
-  /// See:
-  ///  * [getOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void> getOutOfOfficeRaw({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
+  /// Builds a serializer to parse the response of [$setOutOfOffice_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void> $setOutOfOffice_Serializer() =>
+      _i1.DynamiteSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(
+        bodyType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
       );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
 
   /// Set out-of-office absence.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [setOutOfOffice] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -368,51 +391,10 @@ class $OutOfOfficeClient {
   ///   * 401: When the user is not logged in
   ///
   /// See:
-  ///  * [setOutOfOfficeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>> setOutOfOffice({
-    required String firstDay,
-    required String lastDay,
-    required String status,
-    required String message,
-    required String userId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = setOutOfOfficeRaw(
-      firstDay: firstDay,
-      lastDay: lastDay,
-      status: status,
-      message: message,
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Set out-of-office absence.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [firstDay] First day of the absence in format `YYYY-MM-DD`.
-  ///   * [lastDay] Last day of the absence in format `YYYY-MM-DD`.
-  ///   * [status] Short text that is set as user status during the absence.
-  ///   * [message] Longer multiline message that is shown to others during the absence.
-  ///   * [userId]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Absence data
-  ///   * 400: When the first day is not before the last day
-  ///   * 401: When the user is not logged in
-  ///
-  /// See:
-  ///  * [setOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void> setOutOfOfficeRaw({
+  ///  * [setOutOfOffice] for a method executing this request and parsing the response.
+  ///  * [$setOutOfOffice_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $setOutOfOffice_Request({
     required String firstDay,
     required String lastDay,
     required String status,
@@ -420,26 +402,7 @@ class $OutOfOfficeClient {
     required String userId,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+    final _parameters = <String, Object?>{};
     final $firstDay = _$jsonSerializers.serialize(firstDay, specifiedType: const FullType(String));
     _parameters['firstDay'] = $firstDay;
 
@@ -455,24 +418,141 @@ class $OutOfOfficeClient {
     final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = $userId;
 
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
     final _path =
         _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}{?firstDay*,lastDay*,status*,message*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Set out-of-office absence.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [firstDay] First day of the absence in format `YYYY-MM-DD`.
+  ///   * [lastDay] Last day of the absence in format `YYYY-MM-DD`.
+  ///   * [status] Short text that is set as user status during the absence.
+  ///   * [message] Longer multiline message that is shown to others during the absence.
+  ///   * [userId]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Absence data
+  ///   * 400: When the first day is not before the last day
+  ///   * 401: When the user is not logged in
+  ///
+  /// See:
+  ///  * [$setOutOfOffice_Request] for the request send by this method.
+  ///  * [$setOutOfOffice_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>> setOutOfOffice({
+    required String firstDay,
+    required String lastDay,
+    required String status,
+    required String message,
+    required String userId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $setOutOfOffice_Request(
+      firstDay: firstDay,
+      lastDay: lastDay,
+      status: status,
+      message: message,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $setOutOfOffice_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$clearOutOfOffice_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void> $clearOutOfOffice_Serializer() =>
+      _i1.DynamiteSerializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(
+        bodyType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Clear the out-of-office.
+  ///
+  /// Returns a `DynamiteRequest` backing the [clearOutOfOffice] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [userId]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: When the absence was cleared successfully
+  ///   * 401: When the user is not logged in
+  ///
+  /// See:
+  ///  * [clearOutOfOffice] for a method executing this request and parsing the response.
+  ///  * [$clearOutOfOffice_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $clearOutOfOffice_Request({
+    required String userId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = $userId;
+
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('delete', _uri)..validStatuses = const {200, 401};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
   }
 
   /// Clear the out-of-office.
@@ -489,83 +569,23 @@ class $OutOfOfficeClient {
   ///   * 401: When the user is not logged in
   ///
   /// See:
-  ///  * [clearOutOfOfficeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$clearOutOfOffice_Request] for the request send by this method.
+  ///  * [$clearOutOfOffice_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>> clearOutOfOffice({
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = clearOutOfOfficeRaw(
+    final _request = $clearOutOfOffice_Request(
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// Clear the out-of-office.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [userId]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: When the absence was cleared successfully
-  ///   * 401: When the user is not logged in
-  ///
-  /// See:
-  ///  * [clearOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void> clearOutOfOfficeRaw({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          401,
-        },
-      ),
-      bodyType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $clearOutOfOffice_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -1206,7 +1226,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -1282,7 +1302,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

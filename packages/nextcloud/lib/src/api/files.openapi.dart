@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// files Version: 0.0.1.
 ///
@@ -24,9 +25,9 @@ import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'files.openapi.g.dart';
 
@@ -67,6 +68,77 @@ class $ApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getThumbnail_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getThumbnail_Serializer() => _i1.DynamiteSerializer<Uint8List, void>(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Gets a thumbnail of the specified file.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getThumbnail] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [x] Width of the thumbnail.
+  ///   * [y] Height of the thumbnail.
+  ///   * [file] URL-encoded filename.
+  ///
+  /// Status codes:
+  ///   * 200: Thumbnail returned
+  ///   * 400: Getting thumbnail is not possible
+  ///   * 404: File not found
+  ///
+  /// See:
+  ///  * [getThumbnail] for a method executing this request and parsing the response.
+  ///  * [$getThumbnail_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $getThumbnail_Request({
+    required int x,
+    required int y,
+    required String file,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    _parameters['x'] = $x;
+
+    final $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    _parameters['y'] = $y;
+
+    final $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    _i3.checkPattern(
+      $file as String?,
+      RegExp(r'^.+$'),
+      'file',
+    );
+    _parameters['file'] = $file;
+
+    final _path = _i4.UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
   /// Gets a thumbnail of the specified file.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -83,92 +155,23 @@ class $ApiClient {
   ///   * 404: File not found
   ///
   /// See:
-  ///  * [getThumbnailRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getThumbnail_Request] for the request send by this method.
+  ///  * [$getThumbnail_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getThumbnail({
     required int x,
     required int y,
     required String file,
   }) async {
-    final rawResponse = getThumbnailRaw(
+    final _request = $getThumbnail_Request(
       x: x,
       y: y,
       file: file,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// Gets a thumbnail of the specified file.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [x] Width of the thumbnail.
-  ///   * [y] Height of the thumbnail.
-  ///   * [file] URL-encoded filename.
-  ///
-  /// Status codes:
-  ///   * 200: Thumbnail returned
-  ///   * 400: Getting thumbnail is not possible
-  ///   * 404: File not found
-  ///
-  /// See:
-  ///  * [getThumbnail] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getThumbnailRaw({
-    required int x,
-    required int y,
-    required String file,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': '*/*'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    _parameters['x'] = $x;
-
-    final $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    _parameters['y'] = $y;
-
-    final $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
-    _i2.checkPattern(
-      $file as String?,
-      RegExp(r'^.+$'),
-      'file',
-    );
-    _parameters['file'] = $file;
-
-    final _path = _i3.UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $getThumbnail_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -178,9 +181,18 @@ class $DirectEditingClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$info_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectEditingInfoResponseApplicationJson, void> $info_Serializer() =>
+      _i1.DynamiteSerializer<DirectEditingInfoResponseApplicationJson, void>(
+        bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the direct editing capabilities.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [info] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -190,34 +202,14 @@ class $DirectEditingClient {
   ///   * 200: Direct editing capabilities returned
   ///
   /// See:
-  ///  * [infoRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<DirectEditingInfoResponseApplicationJson, void>> info({bool? oCSAPIRequest}) async {
-    final rawResponse = infoRaw(
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get the direct editing capabilities.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Direct editing capabilities returned
-  ///
-  /// See:
-  ///  * [info] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
+  ///  * [info] for a method executing this request and parsing the response.
+  ///  * [$info_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $info_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files/api/v1/directEditing';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -227,7 +219,7 @@ class $DirectEditingClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -237,57 +229,49 @@ class $DirectEditingClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    const _path = '/ocs/v2.php/apps/files/api/v1/directEditing';
-    return _i1.DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    return _request;
   }
 
-  /// Get the templates for direct editing.
+  /// Get the direct editing capabilities.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [editorId] ID of the editor.
-  ///   * [creatorId] ID of the creator.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: Templates returned
-  ///   * 500
+  ///   * 200: Direct editing capabilities returned
   ///
   /// See:
-  ///  * [templatesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<DirectEditingTemplatesResponseApplicationJson, void>> templates({
-    required String editorId,
-    required String creatorId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = templatesRaw(
-      editorId: editorId,
-      creatorId: creatorId,
+  ///  * [$info_Request] for the request send by this method.
+  ///  * [$info_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DirectEditingInfoResponseApplicationJson, void>> info({bool? oCSAPIRequest}) async {
+    final _request = $info_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $info_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<DirectEditingInfoResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
+
+  /// Builds a serializer to parse the response of [$templates_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectEditingTemplatesResponseApplicationJson, void> $templates_Serializer() =>
+      _i1.DynamiteSerializer<DirectEditingTemplatesResponseApplicationJson, void>(
+        bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the templates for direct editing.
   ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Returns a `DynamiteRequest` backing the [templates] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -300,122 +284,26 @@ class $DirectEditingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [templates] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void> templatesRaw({
+  ///  * [templates] for a method executing this request and parsing the response.
+  ///  * [$templates_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $templates_Request({
     required String editorId,
     required String creatorId,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+    final _parameters = <String, Object?>{};
     final $editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
     _parameters['editorId'] = $editorId;
 
     final $creatorId = _$jsonSerializers.serialize(creatorId, specifiedType: const FullType(String));
     _parameters['creatorId'] = $creatorId;
 
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Open a file for direct editing.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [editorId] ID of the editor.
-  ///   * [fileId] ID of the file.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: URL for direct editing returned
-  ///   * 403: Opening file is not allowed
-  ///   * 500
-  ///
-  /// See:
-  ///  * [openRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<DirectEditingOpenResponseApplicationJson, void>> open({
-    required String path,
-    String? editorId,
-    int? fileId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = openRaw(
-      path: path,
-      editorId: editorId,
-      fileId: fileId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Open a file for direct editing.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [editorId] ID of the editor.
-  ///   * [fileId] ID of the file.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: URL for direct editing returned
-  ///   * 403: Opening file is not allowed
-  ///   * 500
-  ///
-  /// See:
-  ///  * [open] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void> openRaw({
-    required String path,
-    String? editorId,
-    int? fileId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -425,7 +313,7 @@ class $DirectEditingClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -433,6 +321,84 @@ class $DirectEditingClient {
     }
 
 // coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the templates for direct editing.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Templates returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$templates_Request] for the request send by this method.
+  ///  * [$templates_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DirectEditingTemplatesResponseApplicationJson, void>> templates({
+    required String editorId,
+    required String creatorId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $templates_Request(
+      editorId: editorId,
+      creatorId: creatorId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $templates_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<DirectEditingTemplatesResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$open_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectEditingOpenResponseApplicationJson, void> $open_Serializer() =>
+      _i1.DynamiteSerializer<DirectEditingOpenResponseApplicationJson, void>(
+        bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Open a file for direct editing.
+  ///
+  /// Returns a `DynamiteRequest` backing the [open] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: URL for direct editing returned
+  ///   * 403: Opening file is not allowed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [open] for a method executing this request and parsing the response.
+  ///  * [$open_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $open_Request({
+    required String path,
+    String? editorId,
+    int? fileId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
     final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     _parameters['path'] = $path;
 
@@ -442,94 +408,11 @@ class $DirectEditingClient {
     final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
     _parameters['fileId'] = $fileId;
 
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Create a file for direct editing.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [editorId] ID of the editor.
-  ///   * [creatorId] ID of the creator.
-  ///   * [templateId] ID of the template.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: URL for direct editing returned
-  ///   * 403: Opening file is not allowed
-  ///   * 500
-  ///
-  /// See:
-  ///  * [createRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<DirectEditingCreateResponseApplicationJson, void>> create({
-    required String path,
-    required String editorId,
-    required String creatorId,
-    String? templateId,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = createRaw(
-      path: path,
-      editorId: editorId,
-      creatorId: creatorId,
-      templateId: templateId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Create a file for direct editing.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [editorId] ID of the editor.
-  ///   * [creatorId] ID of the creator.
-  ///   * [templateId] ID of the template.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: URL for direct editing returned
-  ///   * 403: Opening file is not allowed
-  ///   * 500
-  ///
-  /// See:
-  ///  * [create] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void> createRaw({
-    required String path,
-    required String editorId,
-    required String creatorId,
-    String? templateId,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -539,7 +422,7 @@ class $DirectEditingClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -547,6 +430,90 @@ class $DirectEditingClient {
     }
 
 // coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Open a file for direct editing.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: URL for direct editing returned
+  ///   * 403: Opening file is not allowed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$open_Request] for the request send by this method.
+  ///  * [$open_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DirectEditingOpenResponseApplicationJson, void>> open({
+    required String path,
+    String? editorId,
+    int? fileId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $open_Request(
+      path: path,
+      editorId: editorId,
+      fileId: fileId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $open_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<DirectEditingOpenResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$create_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectEditingCreateResponseApplicationJson, void> $create_Serializer() =>
+      _i1.DynamiteSerializer<DirectEditingCreateResponseApplicationJson, void>(
+        bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Create a file for direct editing.
+  ///
+  /// Returns a `DynamiteRequest` backing the [create] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [templateId] ID of the template.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: URL for direct editing returned
+  ///   * 403: Opening file is not allowed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [create] for a method executing this request and parsing the response.
+  ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $create_Request({
+    required String path,
+    required String editorId,
+    required String creatorId,
+    String? templateId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
     final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     _parameters['path'] = $path;
 
@@ -559,24 +526,76 @@ class $DirectEditingClient {
     final $templateId = _$jsonSerializers.serialize(templateId, specifiedType: const FullType(String));
     _parameters['templateId'] = $templateId;
 
+    final _path =
+        _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
+            .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
-            .expand(_parameters);
-    return _i1.DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    return _request;
+  }
+
+  /// Create a file for direct editing.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file.
+  ///   * [editorId] ID of the editor.
+  ///   * [creatorId] ID of the creator.
+  ///   * [templateId] ID of the template.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: URL for direct editing returned
+  ///   * 403: Opening file is not allowed
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$create_Request] for the request send by this method.
+  ///  * [$create_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DirectEditingCreateResponseApplicationJson, void>> create({
+    required String path,
+    required String editorId,
+    required String creatorId,
+    String? templateId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $create_Request(
+      path: path,
+      editorId: editorId,
+      creatorId: creatorId,
+      templateId: templateId,
+      oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $create_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<DirectEditingCreateResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -586,6 +605,68 @@ class $OpenLocalEditorClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$create_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<OpenLocalEditorCreateResponseApplicationJson, void> $create_Serializer() =>
+      _i1.DynamiteSerializer<OpenLocalEditorCreateResponseApplicationJson, void>(
+        bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Create a local editor.
+  ///
+  /// Returns a `DynamiteRequest` backing the [create] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Local editor returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [create] for a method executing this request and parsing the response.
+  ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $create_Request({
+    required String path,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = $path;
+
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
   /// Create a local editor.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -600,85 +681,36 @@ class $OpenLocalEditorClient {
   ///   * 500
   ///
   /// See:
-  ///  * [createRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$create_Request] for the request send by this method.
+  ///  * [$create_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OpenLocalEditorCreateResponseApplicationJson, void>> create({
     required String path,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = createRaw(
+    final _request = $create_Request(
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $create_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<OpenLocalEditorCreateResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Create a local editor.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Local editor returned
-  ///   * 500
-  ///
-  /// See:
-  ///  * [create] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void> createRaw({
-    required String path,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
+  /// Builds a serializer to parse the response of [$validate_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<OpenLocalEditorValidateResponseApplicationJson, void> $validate_Serializer() =>
+      _i1.DynamiteSerializer<OpenLocalEditorValidateResponseApplicationJson, void>(
+        bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
       );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
 
   /// Validate a local editor.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [validate] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -691,87 +723,82 @@ class $OpenLocalEditorClient {
   ///   * 404: Local editor not found
   ///
   /// See:
-  ///  * [validateRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<OpenLocalEditorValidateResponseApplicationJson, void>> validate({
-    required String path,
-    required String token,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = validateRaw(
-      path: path,
-      token: token,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Validate a local editor.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [token] Token of the local editor.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Local editor validated successfully
-  ///   * 404: Local editor not found
-  ///
-  /// See:
-  ///  * [validate] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void> validateRaw({
+  ///  * [validate] for a method executing this request and parsing the response.
+  ///  * [$validate_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $validate_Request({
     required String path,
     required String token,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+    final _parameters = <String, Object?>{};
     final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     _parameters['path'] = $path;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    return _request;
+  }
+
+  /// Validate a local editor.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the file.
+  ///   * [token] Token of the local editor.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Local editor validated successfully
+  ///   * 404: Local editor not found
+  ///
+  /// See:
+  ///  * [$validate_Request] for the request send by this method.
+  ///  * [$validate_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<OpenLocalEditorValidateResponseApplicationJson, void>> validate({
+    required String path,
+    required String token,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $validate_Request(
+      path: path,
+      token: token,
+      oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $validate_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<OpenLocalEditorValidateResponseApplicationJson, void>(serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -781,9 +808,18 @@ class $TemplateClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$list_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TemplateListResponseApplicationJson, void> $list_Serializer() =>
+      _i1.DynamiteSerializer<TemplateListResponseApplicationJson, void>(
+        bodyType: const FullType(TemplateListResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// List the available templates.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [list] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -793,34 +829,14 @@ class $TemplateClient {
   ///   * 200: Available templates returned
   ///
   /// See:
-  ///  * [listRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<TemplateListResponseApplicationJson, void>> list({bool? oCSAPIRequest}) async {
-    final rawResponse = listRaw(
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// List the available templates.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Available templates returned
-  ///
-  /// See:
-  ///  * [list] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
+  ///  * [list] for a method executing this request and parsing the response.
+  ///  * [$list_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $list_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files/api/v1/templates';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('get', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -830,7 +846,7 @@ class $TemplateClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -840,60 +856,49 @@ class $TemplateClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    const _path = '/ocs/v2.php/apps/files/api/v1/templates';
-    return _i1.DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(TemplateListResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    return _request;
   }
 
-  /// Create a template.
+  /// List the available templates.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filePath] Path of the file.
-  ///   * [templatePath] Name of the template. Defaults to `''`.
-  ///   * [templateType] Type of the template. Defaults to `user`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: Template created successfully
-  ///   * 403: Creating template is not allowed
+  ///   * 200: Available templates returned
   ///
   /// See:
-  ///  * [createRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<TemplateCreateResponseApplicationJson, void>> create({
-    required String filePath,
-    String? templatePath,
-    String? templateType,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = createRaw(
-      filePath: filePath,
-      templatePath: templatePath,
-      templateType: templateType,
+  ///  * [$list_Request] for the request send by this method.
+  ///  * [$list_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TemplateListResponseApplicationJson, void>> list({bool? oCSAPIRequest}) async {
+    final _request = $list_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $list_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<TemplateListResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
+
+  /// Builds a serializer to parse the response of [$create_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TemplateCreateResponseApplicationJson, void> $create_Serializer() =>
+      _i1.DynamiteSerializer<TemplateCreateResponseApplicationJson, void>(
+        bodyType: const FullType(TemplateCreateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a template.
   ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Returns a `DynamiteRequest` backing the [create] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -907,34 +912,16 @@ class $TemplateClient {
   ///   * 403: Creating template is not allowed
   ///
   /// See:
-  ///  * [create] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<TemplateCreateResponseApplicationJson, void> createRaw({
+  ///  * [create] for a method executing this request and parsing the response.
+  ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $create_Request({
     required String filePath,
     String? templatePath,
     String? templateType,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+    final _parameters = <String, Object?>{};
     final $filePath = _$jsonSerializers.serialize(filePath, specifiedType: const FullType(String));
     _parameters['filePath'] = $filePath;
 
@@ -946,83 +933,12 @@ class $TemplateClient {
     $templateType ??= 'user';
     _parameters['templateType'] = $templateType;
 
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<TemplateCreateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(TemplateCreateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
-  }
-
-  /// Initialize the template directory.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [templatePath] Path of the template directory. Defaults to `''`.
-  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Template directory initialized successfully
-  ///   * 403: Initializing the template directory is not allowed
-  ///
-  /// See:
-  ///  * [pathRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<TemplatePathResponseApplicationJson, void>> path({
-    String? templatePath,
-    TemplatePathCopySystemTemplates? copySystemTemplates,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = pathRaw(
-      templatePath: templatePath,
-      copySystemTemplates: copySystemTemplates,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Initialize the template directory.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [templatePath] Path of the template directory. Defaults to `''`.
-  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Template directory initialized successfully
-  ///   * 403: Initializing the template directory is not allowed
-  ///
-  /// See:
-  ///  * [path] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<TemplatePathResponseApplicationJson, void> pathRaw({
-    String? templatePath,
-    TemplatePathCopySystemTemplates? copySystemTemplates,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -1032,7 +948,7 @@ class $TemplateClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1040,6 +956,84 @@ class $TemplateClient {
     }
 
 // coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Create a template.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filePath] Path of the file.
+  ///   * [templatePath] Name of the template. Defaults to `''`.
+  ///   * [templateType] Type of the template. Defaults to `user`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Template created successfully
+  ///   * 403: Creating template is not allowed
+  ///
+  /// See:
+  ///  * [$create_Request] for the request send by this method.
+  ///  * [$create_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TemplateCreateResponseApplicationJson, void>> create({
+    required String filePath,
+    String? templatePath,
+    String? templateType,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $create_Request(
+      filePath: filePath,
+      templatePath: templatePath,
+      templateType: templateType,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $create_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<TemplateCreateResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$path_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TemplatePathResponseApplicationJson, void> $path_Serializer() =>
+      _i1.DynamiteSerializer<TemplatePathResponseApplicationJson, void>(
+        bodyType: const FullType(TemplatePathResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Initialize the template directory.
+  ///
+  /// Returns a `DynamiteRequest` backing the [path] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [templatePath] Path of the template directory. Defaults to `''`.
+  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Template directory initialized successfully
+  ///   * 403: Initializing the template directory is not allowed
+  ///
+  /// See:
+  ///  * [path] for a method executing this request and parsing the response.
+  ///  * [$path_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $path_Request({
+    String? templatePath,
+    TemplatePathCopySystemTemplates? copySystemTemplates,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
     var $templatePath = _$jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
     $templatePath ??= '';
     _parameters['templatePath'] = $templatePath;
@@ -1051,23 +1045,68 @@ class $TemplateClient {
     $copySystemTemplates ??= 0;
     _parameters['copySystemTemplates'] = $copySystemTemplates;
 
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
-        .expand(_parameters);
-    return _i1.DynamiteRawResponse<TemplatePathResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(TemplatePathResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    return _request;
+  }
+
+  /// Initialize the template directory.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [templatePath] Path of the template directory. Defaults to `''`.
+  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Template directory initialized successfully
+  ///   * 403: Initializing the template directory is not allowed
+  ///
+  /// See:
+  ///  * [$path_Request] for the request send by this method.
+  ///  * [$path_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TemplatePathResponseApplicationJson, void>> path({
+    String? templatePath,
+    TemplatePathCopySystemTemplates? copySystemTemplates,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $path_Request(
+      templatePath: templatePath,
+      copySystemTemplates: copySystemTemplates,
+      oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $path_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<TemplatePathResponseApplicationJson, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -1077,9 +1116,18 @@ class $TransferOwnershipClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$transfer_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TransferOwnershipTransferResponseApplicationJson, void> $transfer_Serializer() =>
+      _i1.DynamiteSerializer<TransferOwnershipTransferResponseApplicationJson, void>(
+        bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Transfer the ownership to another user.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [transfer] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1093,93 +1141,147 @@ class $TransferOwnershipClient {
   ///   * 403: Transferring ownership is not allowed
   ///
   /// See:
-  ///  * [transferRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<TransferOwnershipTransferResponseApplicationJson, void>> transfer({
-    required String recipient,
-    required String path,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = transferRaw(
-      recipient: recipient,
-      path: path,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Transfer the ownership to another user.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [recipient] Username of the recipient.
-  ///   * [path] Path of the file.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Ownership transferred successfully
-  ///   * 400: Transferring ownership is not possible
-  ///   * 403: Transferring ownership is not allowed
-  ///
-  /// See:
-  ///  * [transfer] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void> transferRaw({
+  ///  * [transfer] for a method executing this request and parsing the response.
+  ///  * [$transfer_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $transfer_Request({
     required String recipient,
     required String path,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+    final _parameters = <String, Object?>{};
     final $recipient = _$jsonSerializers.serialize(recipient, specifiedType: const FullType(String));
     _parameters['recipient'] = $recipient;
 
     final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     _parameters['path'] = $path;
 
+    final _path =
+        _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200, 400, 403};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          403,
-        },
-      ),
-      bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    return _request;
+  }
+
+  /// Transfer the ownership to another user.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [recipient] Username of the recipient.
+  ///   * [path] Path of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Ownership transferred successfully
+  ///   * 400: Transferring ownership is not possible
+  ///   * 403: Transferring ownership is not allowed
+  ///
+  /// See:
+  ///  * [$transfer_Request] for the request send by this method.
+  ///  * [$transfer_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TransferOwnershipTransferResponseApplicationJson, void>> transfer({
+    required String recipient,
+    required String path,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $transfer_Request(
+      recipient: recipient,
+      path: path,
+      oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
+
+    final serializer = $transfer_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<TransferOwnershipTransferResponseApplicationJson, void>(serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$accept_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TransferOwnershipAcceptResponseApplicationJson, void> $accept_Serializer() =>
+      _i1.DynamiteSerializer<TransferOwnershipAcceptResponseApplicationJson, void>(
+        bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Accept an ownership transfer.
+  ///
+  /// Returns a `DynamiteRequest` backing the [accept] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the ownership transfer.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Ownership transfer accepted successfully
+  ///   * 403: Accepting ownership transfer is not allowed
+  ///   * 404: Ownership transfer not found
+  ///
+  /// See:
+  ///  * [accept] for a method executing this request and parsing the response.
+  ///  * [$accept_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $accept_Request({
+    required int id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
+
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('post', _uri)..validStatuses = const {200, 403, 404};
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
   }
 
   /// Accept an ownership transfer.
@@ -1197,24 +1299,36 @@ class $TransferOwnershipClient {
   ///   * 404: Ownership transfer not found
   ///
   /// See:
-  ///  * [acceptRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$accept_Request] for the request send by this method.
+  ///  * [$accept_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TransferOwnershipAcceptResponseApplicationJson, void>> accept({
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = acceptRaw(
+    final _request = $accept_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
+    final serializer = $accept_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<TransferOwnershipAcceptResponseApplicationJson, void>(serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Accept an ownership transfer.
+  /// Builds a serializer to parse the response of [$reject_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TransferOwnershipRejectResponseApplicationJson, void> $reject_Serializer() =>
+      _i1.DynamiteSerializer<TransferOwnershipRejectResponseApplicationJson, void>(
+        bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Reject an ownership transfer.
   ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Returns a `DynamiteRequest` backing the [reject] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1222,20 +1336,26 @@ class $TransferOwnershipClient {
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: Ownership transfer accepted successfully
-  ///   * 403: Accepting ownership transfer is not allowed
+  ///   * 200: Ownership transfer rejected successfully
+  ///   * 403: Rejecting ownership transfer is not allowed
   ///   * 404: Ownership transfer not found
   ///
   /// See:
-  ///  * [accept] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void> acceptRaw({
+  ///  * [reject] for a method executing this request and parsing the response.
+  ///  * [$reject_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $reject_Request({
     required int id,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
 
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i1.DynamiteRequest('delete', _uri)..validStatuses = const {200, 403, 404};
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -1245,7 +1365,7 @@ class $TransferOwnershipClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1253,29 +1373,11 @@ class $TransferOwnershipClient {
     }
 
 // coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
-
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    return _request;
   }
 
   /// Reject an ownership transfer.
@@ -1293,85 +1395,22 @@ class $TransferOwnershipClient {
   ///   * 404: Ownership transfer not found
   ///
   /// See:
-  ///  * [rejectRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$reject_Request] for the request send by this method.
+  ///  * [$reject_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TransferOwnershipRejectResponseApplicationJson, void>> reject({
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = rejectRaw(
+    final _request = $reject_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// Reject an ownership transfer.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [id] ID of the ownership transfer.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Ownership transfer rejected successfully
-  ///   * 403: Rejecting ownership transfer is not allowed
-  ///   * 404: Ownership transfer not found
-  ///
-  /// See:
-  ///  * [reject] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i1.DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void> rejectRaw({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $reject_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<TransferOwnershipRejectResponseApplicationJson, void>(serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -3002,7 +3041,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -3221,7 +3260,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

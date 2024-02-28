@@ -2,8 +2,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case, unused_element
 
 /// request body test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
@@ -36,6 +36,35 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
+  /// Builds a serializer to parse the response of [$$get_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $$get_Serializer() => _i1.DynamiteSerializer<void, void>(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Returns a `DynamiteRequest` backing the [$get] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default
+  ///
+  /// See:
+  ///  * [$get] for a method executing this request and parsing the response.
+  ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i1.DynamiteRequest $$get_Request({Uint8List? uint8List}) {
+    const _path = '/';
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i1.DynamiteRequest('get', _uri);
+    _request.headers['Content-Type'] = 'application/octet-stream';
+    if (uint8List != null) {
+      _request.bodyBytes = uint8List;
+    }
+    return _request;
+  }
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -43,46 +72,46 @@ class $Client extends _i1.DynamiteClient {
   ///   * default
   ///
   /// See:
-  ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$$get_Request] for the request send by this method.
+  ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> $get({Uint8List? uint8List}) async {
-    final rawResponse = $getRaw(
+    final _request = $$get_Request(
       uint8List: uint8List,
     );
+    final _response = await send(_request);
 
-    return rawResponse.future;
+    final serializer = $$get_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<void, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Builds a serializer to parse the response of [$$post_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $$post_Serializer() => _i1.DynamiteSerializer<void, void>(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Returns a `DynamiteRequest` backing the [$post] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * default
   ///
   /// See:
-  ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [$post] for a method executing this request and parsing the response.
+  ///  * [$$post_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> $getRaw({Uint8List? uint8List}) {
-    final _headers = <String, String>{};
-    Uint8List? _body;
-
-    _headers['Content-Type'] = 'application/octet-stream';
-    if (uint8List != null) {
-      _body = uint8List;
-    }
+  _i1.DynamiteRequest $$post_Request({String? string}) {
     const _path = '/';
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        body: _body,
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i1.DynamiteRequest('post', _uri);
+    _request.headers['Content-Type'] = 'application/octet-stream';
+    if (string != null) {
+      _request.bodyBytes = utf8.encode(string);
+    }
+    return _request;
   }
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -92,46 +121,17 @@ class $Client extends _i1.DynamiteClient {
   ///   * default
   ///
   /// See:
-  ///  * [$postRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$$post_Request] for the request send by this method.
+  ///  * [$$post_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> $post({String? string}) async {
-    final rawResponse = $postRaw(
+    final _request = $$post_Request(
       string: string,
     );
+    final _response = await send(_request);
 
-    return rawResponse.future;
-  }
-
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * default
-  ///
-  /// See:
-  ///  * [$post] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> $postRaw({String? string}) {
-    final _headers = <String, String>{};
-    Uint8List? _body;
-
-    _headers['Content-Type'] = 'application/octet-stream';
-    if (string != null) {
-      _body = utf8.encode(string);
-    }
-    const _path = '/';
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        body: _body,
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
-    );
+    final serializer = $$post_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<void, void>(serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
