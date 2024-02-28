@@ -47,7 +47,7 @@ class NeonAccountTile extends StatelessWidget {
 
     return AdaptiveListTile(
       onTap: onTap,
-      leading: NeonUserAvatar(
+      leading: NeonUserAvatar.withAccount(
         account: account,
         showStatus: showStatus,
       ),
