@@ -8,6 +8,7 @@ cd "$(dirname "$0")/.."
   fvm dart run generate_props.dart
   fvm dart run build_runner build --delete-conflicting-outputs
   fvm dart run generate_exports.dart
+  fvm dart run generate_enums.dart
   fvm dart fix --apply lib/src/api/
   melos run format
 )
