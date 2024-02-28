@@ -3,18 +3,6 @@
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 
-String filterMethodName(String operationId, String tag) {
-  final expandedTag = tag.split('/').toList();
-  final parts = operationId.split('-');
-  final output = <String>[];
-  for (var i = 0; i < parts.length; i++) {
-    if (expandedTag.length <= i || expandedTag[i] != parts[i]) {
-      output.add(parts[i]);
-    }
-  }
-  return output.join('-');
-}
-
 String clientName(String tag) => '\$${toDartName(tag, className: true)}Client';
 
 bool isDartParameterNullable(
