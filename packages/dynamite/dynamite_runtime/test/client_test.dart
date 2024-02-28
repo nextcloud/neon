@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart';

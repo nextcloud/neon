@@ -69,18 +69,21 @@ class DynamiteClient with http.BaseClient {
     Uint8List? body,
     Set<int>? validStatuses,
   }) async {
-    final uri = Uri.parse('$baseURL$path');
+    final request = http.Request(method, Uri.parse('$baseURL$path'));
 
-    return executeRawRequest(
-      method,
-      uri,
-      headers: headers,
-      body: body,
-      validStatuses: validStatuses,
-    );
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
+
+    if (body != null) {
+      request.bodyBytes = body;
+    }
+
+    return send(request);
   }
 
   /// Executes a HTTP request against give full [uri].
+  @Deprecated('This class now implements the Client interface. Send raw requests that way.')
   Future<http.StreamedResponse> executeRawRequest(
     String method,
     Uri uri, {
