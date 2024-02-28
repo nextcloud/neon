@@ -42,7 +42,7 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
 
   Iterable<String> formattedDescription(
     String methodName, {
-    bool isRawRequest = false,
+    bool isRequest = false,
     bool requiresAuth = false,
   }) sync* {
     if (summary != null && summary!.isNotEmpty) {
@@ -55,11 +55,8 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
       yield docsSeparator;
     }
 
-    if (isRawRequest) {
-      yield '''
-$docsSeparator This method and the response it returns is experimental. The API might change without a major version bump.
-$docsSeparator
-$docsSeparator Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.''';
+    if (isRequest) {
+      yield '$docsSeparator Returns a `DynamiteRequest` backing the [$methodName] operation.';
     } else {
       yield '$docsSeparator Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.';
     }
@@ -96,10 +93,12 @@ $docsSeparator Returns a [Future] containing a `DynamiteRawResponse` with the ra
     }
 
     yield '$docsSeparator See:';
-    if (isRawRequest) {
-      yield '$docsSeparator  * [$methodName] for an operation that returns a `DynamiteResponse` with a stable API.';
+    if (isRequest) {
+      yield '$docsSeparator  * [$methodName] for a method executing this request and parsing the response.';
+      yield '$docsSeparator  * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed this request.';
     } else {
-      yield '$docsSeparator  * [${methodName}Raw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.';
+      yield '$docsSeparator  * [\$${methodName}_Request] for the request send by this method.';
+      yield '$docsSeparator  * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed request.';
     }
   }
 }

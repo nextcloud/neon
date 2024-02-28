@@ -1,9 +1,6 @@
-import 'package:built_collection/built_collection.dart';
-import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
-import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -42,87 +39,35 @@ TypeResult? resolveMimeTypeDecode(
   return null;
 }
 
-Iterable<String> resolveMimeTypeEncode(
-  openapi.Operation operation,
-  openapi.OpenAPI spec,
-  State state,
-  String identifier,
-  ListBuilder<Parameter> b,
-) sync* {
-  if (operation.requestBody != null) {
-    if (operation.requestBody!.content!.length > 1) {
-      print('Can not work with multiple mime types right now. Using the first supported.');
-    }
-    for (final content in operation.requestBody!.content!.entries) {
-      final mimeType = content.key;
-      final mediaType = content.value;
+void resolveMimeTypeEncode(
+  String mimeType,
+  TypeResult result,
+  StringSink output,
+) {
+  output.writeln("_request.headers['Content-Type'] = '$mimeType';");
+  final parameterName = toDartName(result.name);
 
-      yield "_headers['Content-Type'] = '$mimeType';";
-
-      final dartParameterNullable = isDartParameterNullable(
-        operation.requestBody!.required,
-        mediaType.schema,
-      );
-
-      final result = resolveType(
-        spec,
-        state,
-        toDartName('$identifier-request-$mimeType', className: true),
-        mediaType.schema!,
-        nullable: dartParameterNullable,
-      );
-      final parameterName = toDartName(result.name);
-      switch (mimeType) {
-        case 'application/json':
-        case 'application/x-www-form-urlencoded':
-          final dartParameterRequired = isRequired(
-            operation.requestBody!.required,
-            mediaType.schema,
-          );
-          b.add(
-            Parameter(
-              (b) => b
-                ..name = parameterName
-                ..type = refer(result.nullableName)
-                ..named = true
-                ..required = dartParameterRequired,
-            ),
-          );
-
-          if (dartParameterNullable) {
-            yield 'if ($parameterName != null) {';
-          }
-          yield '_body = utf8.encode(${result.encode(parameterName, mimeType: mimeType)});';
-          if (dartParameterNullable) {
-            yield '}';
-          }
-          return;
-        case 'application/octet-stream':
-          final dartParameterRequired = isRequired(
-            operation.requestBody!.required,
-            mediaType.schema,
-          );
-          b.add(
-            Parameter(
-              (b) => b
-                ..name = parameterName
-                ..type = refer(result.nullableName)
-                ..named = true
-                ..required = dartParameterRequired,
-            ),
-          );
-
-          if (dartParameterNullable) {
-            yield 'if ($parameterName != null) {';
-          }
-          yield '_body = ${result.encode(parameterName, mimeType: mimeType)};';
-          if (dartParameterNullable) {
-            yield '}';
-          }
-          return;
+  switch (mimeType) {
+    case 'application/json':
+    case 'application/x-www-form-urlencoded':
+      if (result.nullable) {
+        output.writeln('if ($parameterName != null) {');
       }
-    }
-
-    throw Exception('Can not parse any mime type of Operation: "$identifier"');
+      output.writeln('_request.body = ${result.encode(parameterName, mimeType: mimeType)};');
+      if (result.nullable) {
+        output.writeln('}');
+      }
+      return;
+    case 'application/octet-stream':
+      if (result.nullable) {
+        output.writeln('if ($parameterName != null) {');
+      }
+      output.writeln('_request.bodyBytes = ${result.encode(parameterName, mimeType: mimeType)};');
+      if (result.nullable) {
+        output.writeln('}');
+      }
+      return;
+    case _:
+      throw Exception('Can not parse any mime type of the Operation.');
   }
 }
