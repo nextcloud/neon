@@ -6,4 +6,4 @@ export 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 export 'package:neon_framework/src/widgets/list_view.dart';
 export 'package:neon_framework/src/widgets/relative_time.dart';
 export 'package:neon_framework/src/widgets/server_icon.dart';
-export 'package:neon_framework/src/widgets/user_avatar.dart';
+export 'package:neon_framework/src/widgets/user_avatar.dart' hide NeonUserStatusIndicator;
