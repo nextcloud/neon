@@ -149,11 +149,12 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
       account: account,
       cacheKey: 'news-articles-${type.index}-$id-$getRead',
       subject: articles,
-      rawResponse: account.client.news.listArticlesRaw(
+      request: account.client.news.$listArticles_Request(
         type: type.index,
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
       ),
+      serializer: account.client.news.$listArticles_Serializer(),
       unwrap: (response) => response.body.items,
     );
   }

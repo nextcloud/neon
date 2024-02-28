@@ -115,14 +115,16 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
         account: account,
         cacheKey: 'news-folders',
         subject: folders,
-        rawResponse: account.client.news.listFoldersRaw(),
+        request: account.client.news.$listFolders_Request(),
+        serializer: account.client.news.$listFolders_Serializer(),
         unwrap: (response) => response.body.folders,
       ),
       RequestManager.instance.wrapNextcloud(
         account: account,
         cacheKey: 'news-feeds',
         subject: feeds,
-        rawResponse: account.client.news.listFeedsRaw(),
+        request: account.client.news.$listFeeds_Request(),
+        serializer: account.client.news.$listFeeds_Serializer(),
         unwrap: (response) {
           if (response.body.newestItemId != null) {
             newestItemId = response.body.newestItemId!;

@@ -20,7 +20,7 @@ import 'package:rxdart/rxdart.dart';
 typedef ErrorWidgetBuilder = Widget? Function(BuildContext context, Object? error);
 
 /// The signature of a function downloading image data from a the nextcloud api through [client].
-typedef ApiImageDownloader = DynamiteRawResponse<Uint8List, dynamic> Function(NextcloudClient client);
+typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>> Function(NextcloudClient client);
 
 /// A widget painting an Image.
 ///
@@ -231,6 +231,8 @@ class _NeonApiImageState extends State<NeonApiImage> {
   }
 
   Future<void> load() async {
+    final response = await widget.getImage(account.client);
+
     await RequestManager.instance.wrapBinary(
       account: account,
       cacheKey: widget.cacheKey,
@@ -238,7 +240,7 @@ class _NeonApiImageState extends State<NeonApiImage> {
         etag: widget.etag,
         expires: widget.expires,
       ),
-      rawResponse: widget.getImage(account.client),
+      response: response,
       unwrap: (data) {
         try {
           return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));

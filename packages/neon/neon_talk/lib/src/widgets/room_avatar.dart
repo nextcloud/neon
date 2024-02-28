@@ -29,9 +29,9 @@ class TalkRoomAvatar extends StatelessWidget {
         child: ClipOval(
           child: NeonApiImage.withAccount(
             account: account,
-            getImage: (client) => switch (brightness) {
-              Brightness.dark => client.spreed.avatar.getAvatarDarkRaw(token: room.token),
-              Brightness.light => client.spreed.avatar.getAvatarRaw(token: room.token),
+            getImage: (client) async => switch (brightness) {
+              Brightness.dark => client.spreed.avatar.getAvatarDark(token: room.token),
+              Brightness.light => client.spreed.avatar.getAvatar(token: room.token),
             },
             cacheKey: 'talk-room-${room.token}-avatar-$brightness',
             etag: room.avatarVersion,

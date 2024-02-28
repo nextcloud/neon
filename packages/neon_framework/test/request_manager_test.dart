@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/testing.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
 String base64String(String value) => base64.encode(utf8.encode(value));
@@ -701,43 +701,33 @@ void main() {
             ]),
           );
 
-          await RequestManager.instance.wrap<String, DynamiteRawResponse<String, Map<String, String>>>(
+          await RequestManager.instance.wrap<String, DynamiteResponse<String, Map<String, String>>>(
             account: account,
             cacheKey: 'key',
             subject: subject,
-            request: () async {
-              final response = DynamiteRawResponse<String, Map<String, String>>(
-                response: Future.value(
-                  StreamedResponse(
-                    Stream.value(utf8.encode('Test value')),
-                    200,
-                    headers: {
-                      'etag': 'a',
-                      'expires': httpDateFormat.format(newExpires),
-                    },
-                  ),
-                ),
-                bodyType: const FullType(String),
-                headersType: const FullType(Map, [FullType(String), FullType(String)]),
-                serializers: Serializers(),
-              );
-              await response.future;
-              return response;
-            },
-            unwrap: (rawResponse) => rawResponse.response.body,
-            serialize: (rawResponse) => rawResponse.response.body,
+            request: () async => DynamiteResponse<String, Map<String, String>>(
+              200,
+              'Test value',
+              {
+                'etag': 'a',
+                'expires': httpDateFormat.format(newExpires),
+              },
+            ),
+            unwrap: (rawResponse) => rawResponse.body,
+            serialize: (rawResponse) => rawResponse.body,
             deserialize: (data) {
               final json = {
                 'statusCode': 200,
                 'body': data,
                 'headers': <String, String>{},
               };
-              return DynamiteRawResponse<String, Map<String, String>>.fromJson(
-                json,
+
+              final serializer = DynamiteSerializer<String, Map<String, String>>(
                 bodyType: const FullType(String),
                 headersType: const FullType(Map, [FullType(String), FullType(String)]),
                 serializers: Serializers(),
               );
+              return RawResponseDecoder<String, Map<String, String>>(serializer).convert(json);
             },
           );
 

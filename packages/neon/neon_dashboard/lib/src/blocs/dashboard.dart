@@ -53,10 +53,11 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
             account: account,
             cacheKey: 'dashboard-widgets-v1',
             subject: itemsV1,
-            rawResponse: account.client.dashboard.dashboardApi.getWidgetItemsRaw(
+            request: account.client.dashboard.dashboardApi.$getWidgetItems_Request(
               widgets: v1WidgetIDs.build(),
               limit: maxItems,
             ),
+            serializer: account.client.dashboard.dashboardApi.$getWidgetItems_Serializer(),
             unwrap: (response) => response.body.ocs.data,
           ),
         if (v2WidgetIDs.isNotEmpty)
@@ -64,10 +65,11 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
             account: account,
             cacheKey: 'dashboard-widgets-v2',
             subject: itemsV2,
-            rawResponse: account.client.dashboard.dashboardApi.getWidgetItemsV2Raw(
+            request: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
               widgets: v2WidgetIDs.build(),
               limit: maxItems,
             ),
+            serializer: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer(),
             unwrap: (response) => response.body.ocs.data,
           ),
       ]);
@@ -106,7 +108,8 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
       account: account,
       cacheKey: 'dashboard-widgets',
       subject: widgets,
-      rawResponse: account.client.dashboard.dashboardApi.getWidgetsRaw(),
+      request: account.client.dashboard.dashboardApi.$getWidgets_Request(),
+      serializer: account.client.dashboard.dashboardApi.$getWidgets_Serializer(),
       // Filter all widgets that don't support v1 nor v2
       unwrap: (response) => BuiltList(
         response.body.ocs.data.values
