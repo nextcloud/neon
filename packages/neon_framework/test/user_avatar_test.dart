@@ -67,7 +67,7 @@ void main() {
   group('Status indicator', () {
     for (final (status, icon, textMatcher, iconMatcher) in [
       (user_status.$Type.offline, '😀', findsOne, findsNothing),
-      (user_status.$Type.offline, null, findsNothing, findsNothing),
+      (user_status.$Type.offline, null, findsNothing, findsOne),
       (user_status.$Type.online, '😀', findsOne, findsNothing),
       (user_status.$Type.online, null, findsNothing, findsOne),
       (user_status.$Type.dnd, '😀', findsNothing, findsOne),
@@ -95,7 +95,7 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.byType(Text), textMatcher);
-        expect(find.byType(NeonServerIcon), iconMatcher);
+        expect(find.byType(NeonUserStatusIcon), iconMatcher);
       });
     }
   });

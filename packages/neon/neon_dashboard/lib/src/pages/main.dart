@@ -153,8 +153,9 @@ class DashboardMainPage extends StatelessWidget {
 
               return _buildStatus(
                 context: context,
-                icon: NeonServerIcon(
-                  icon: 'user-status-$statusIcon',
+                icon: NeonUserStatusIcon(
+                  type: statusIcon,
+                  size: 20,
                 ),
                 label: Text(label.toString()),
                 onPressed: () async {

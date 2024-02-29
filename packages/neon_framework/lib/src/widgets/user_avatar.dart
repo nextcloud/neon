@@ -6,7 +6,7 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/theme/sizes.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/image.dart';
-import 'package:neon_framework/src/widgets/server_icon.dart';
+import 'package:neon_framework/src/widgets/user_status_icon.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
 
@@ -150,8 +150,11 @@ class NeonUserStatusIndicator extends StatelessWidget {
       );
     } else if (result.hasData) {
       final type = result.requireData.status;
-      if (type == user_status.$Type.dnd || (!hasEmoji && type != user_status.$Type.offline)) {
-        child = NeonServerIcon(icon: 'user-status-$type');
+      if (type == user_status.$Type.dnd || !hasEmoji) {
+        child = NeonUserStatusIcon(
+          type: type,
+          size: 16,
+        );
       } else if (hasEmoji) {
         child = Text(
           result.data!.icon!,
