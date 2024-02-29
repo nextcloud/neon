@@ -189,7 +189,7 @@ void main() {
         Result.success(user_status.$Type.dnd),
         Result.success(user_status.$Type.dnd).asLoading(),
         Result<String>.error(
-          await DynamiteStatusCodeException.fromResponse(StreamedResponse(Stream.value(utf8.encode('')), 201)),
+          DynamiteStatusCodeException.fromResponse(Response('', 201)),
         ),
       ]),
     );
