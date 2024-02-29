@@ -109,12 +109,19 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 // ignore: library_private_types_in_public_api
 extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
+  List<String> get _names => const [r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>

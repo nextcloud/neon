@@ -274,12 +274,19 @@ typedef _$7f1b9936cf688676379074249fff891b = ({BuiltList<Never>? builtListNever,
 // ignore: library_private_types_in_public_api
 extension $7f1b9936cf688676379074249fff891bExtension on _$7f1b9936cf688676379074249fff891b {
   List<dynamic> get _values => [builtListNever, capabilities0];
+  List<String> get _names => const ['builtListNever', 'capabilities0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$7f1b9936cf688676379074249fff891b> get _serializer =>
       const _$7f1b9936cf688676379074249fff891bSerializer();
   static _$7f1b9936cf688676379074249fff891b _fromJson(Object? json) =>

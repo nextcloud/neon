@@ -2007,12 +2007,19 @@ typedef _$20fe3de793aed6fbf929c9b82b472b1a = ({
 // ignore: library_private_types_in_public_api
 extension $20fe3de793aed6fbf929c9b82b472b1aExtension on _$20fe3de793aed6fbf929c9b82b472b1a {
   List<dynamic> get _values => [builtListForecast, weatherStatusGetForecastResponseApplicationJsonOcsData1];
+  List<String> get _names => const ['builtListForecast', 'weatherStatusGetForecastResponseApplicationJsonOcsData1'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$20fe3de793aed6fbf929c9b82b472b1a> get _serializer =>
       const _$20fe3de793aed6fbf929c9b82b472b1aSerializer();
   static _$20fe3de793aed6fbf929c9b82b472b1a _fromJson(Object? json) =>
