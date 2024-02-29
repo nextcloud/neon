@@ -121,7 +121,7 @@
                         "type": "string"
                     },
                     "actorType": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/ActorType"
                     },
                     "displayName": {
                         "type": "string"
@@ -204,7 +204,7 @@
                         "type": "string"
                     },
                     "actorType": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/ActorType"
                     },
                     "deleted": {
                         "type": "boolean",
@@ -239,7 +239,7 @@
                         }
                     },
                     "messageType": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/MessageType"
                     },
                     "reactions": {
                         "type": "object",
@@ -439,7 +439,7 @@
                         "type": "string"
                     },
                     "actorType": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/ActorType"
                     },
                     "attendeeId": {
                         "type": "integer",
@@ -527,7 +527,7 @@
                         "type": "string"
                     },
                     "actorType": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/ActorType"
                     },
                     "details": {
                         "type": "array",
@@ -596,7 +596,7 @@
                         "type": "string"
                     },
                     "actorType": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/ActorType"
                     },
                     "optionId": {
                         "type": "integer",
@@ -797,7 +797,7 @@
                         "type": "string"
                     },
                     "actorType": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/ActorType"
                     },
                     "timestamp": {
                         "type": "integer",
@@ -862,7 +862,7 @@
                         "type": "string"
                     },
                     "actorType": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/ActorType"
                     },
                     "attendeeId": {
                         "type": "integer",
@@ -1210,6 +1210,32 @@
                         "nullable": true
                     }
                 }
+            },
+            "MessageType": {
+                "type": "string",
+                "enum": [
+                    "comment",
+                    "system",
+                    "object_shared",
+                    "command",
+                    "comment_deleted",
+                    "reaction",
+                    "reaction_deleted"
+                ]
+            },
+            "ActorType": {
+                "type": "string",
+                "enum": [
+                    "users",
+                    "groups",
+                    "guests",
+                    "emails",
+                    "circles",
+                    "bridged",
+                    "bots",
+                    "federated_users",
+                    "phones"
+                ]
             }
         }
     },

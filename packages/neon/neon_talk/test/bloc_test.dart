@@ -8,6 +8,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
+import 'package:nextcloud/spreed.dart';
 
 Map<String, dynamic> getRoom({
   required int id,
@@ -15,7 +16,7 @@ Map<String, dynamic> getRoom({
 }) =>
     {
       'actorId': '',
-      'actorType': '',
+      'actorType': ActorType.users.name,
       'attendeeId': 0,
       'attendeePermissions': 0,
       'avatarVersion': '',
