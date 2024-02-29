@@ -414,7 +414,7 @@ class NeonErrorDialog extends StatelessWidget {
 
     return NeonDialog(
       automaticallyShowCancel: false,
-      icon: const Icon(Icons.error),
+      icon: Icon(AdaptiveIcons.error),
       title: Text(title),
       content: Text(content),
       actions: [
@@ -463,7 +463,8 @@ class NeonAccountSelectionDialog extends StatelessWidget {
         .map<Widget>(
           (account) => NeonAccountTile(
             account: account,
-            trailing: highlightActiveAccount && account.id == activeAccount.id ? const Icon(Icons.check_circle) : null,
+            trailing:
+                highlightActiveAccount && account.id == activeAccount.id ? Icon(AdaptiveIcons.check_circle) : null,
             onTap: () {
               Navigator.of(context).pop(account);
             },
@@ -488,7 +489,7 @@ class NeonAccountSelectionDialog extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          icon: const Icon(Icons.edit),
+          icon: Icon(AdaptiveIcons.edit),
           label: Text(NeonLocalizations.of(context).userStatusSetStatus),
         ),
       );

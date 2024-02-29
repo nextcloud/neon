@@ -9,6 +9,7 @@ import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/notifications_interface.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/account_switcher_button.dart';
 import 'package:neon_framework/src/widgets/app_implementation_icon.dart';
@@ -189,8 +190,8 @@ class SearchIconButton extends StatelessWidget {
           NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc.enable();
         },
         tooltip: NeonLocalizations.of(context).search,
-        icon: const Icon(
-          Icons.search,
+        icon: Icon(
+          AdaptiveIcons.search,
         ),
       );
 }

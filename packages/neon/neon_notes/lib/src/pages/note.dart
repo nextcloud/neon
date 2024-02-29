@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/note.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
@@ -124,7 +124,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
                     ? NotesLocalizations.of(context).noteShowPreview
                     : NotesLocalizations.of(context).noteShowEditor,
                 icon: Icon(
-                  _showEditor ? Icons.visibility : Icons.edit,
+                  _showEditor ? AdaptiveIcons.visibility : AdaptiveIcons.edit,
                 ),
               ),
               StreamBuilder(
@@ -147,7 +147,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
                     },
                     tooltip: NotesLocalizations.of(context).noteChangeCategory,
                     icon: Icon(
-                      MdiIcons.tag,
+                      AdaptiveIcons.tag,
                       color: category.isNotEmpty ? NotesCategoryColor.compute(category) : null,
                     ),
                   );

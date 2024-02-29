@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
 import 'package:neon_news/utils/dialog.dart';
@@ -21,6 +22,6 @@ class NewsFolderFloatingActionButton extends StatelessWidget {
           }
         },
         tooltip: NewsLocalizations.of(context).folderCreate,
-        child: const Icon(Icons.add),
+        child: Icon(AdaptiveIcons.add),
       );
 }

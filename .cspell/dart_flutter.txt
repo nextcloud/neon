@@ -1,11 +1,14 @@
 autofocus
+checkmark
 cupertino
 endtemplate
+exclamationmark
 expando
 gapless
 goldens
 lerp
 pubspec
+qrcode
 sublist
 todos
 unawaited

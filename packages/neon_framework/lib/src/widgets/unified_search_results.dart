@@ -6,6 +6,7 @@ import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/theme/sizes.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/utils/provider.dart';
@@ -84,8 +85,8 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
           if (result.isLoading) const NeonLinearProgressIndicator(),
           if (result.hasData && result.requireData.entries.isEmpty)
             AdaptiveListTile(
-              leading: const Icon(
-                Icons.close,
+              leading: Icon(
+                AdaptiveIcons.close,
                 size: largeIconSize,
               ),
               title: Text(NeonLocalizations.of(context).searchNoResults),

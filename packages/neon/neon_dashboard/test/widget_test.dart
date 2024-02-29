@@ -168,7 +168,7 @@ void main() {
         ),
       );
 
-      expect(find.byIcon(Icons.add), findsOneWidget);
+      expect(find.byIcon(AdaptiveIcons.add), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
       await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_new.png'));
@@ -298,7 +298,7 @@ void main() {
       expect(find.byType(NeonUriImage), findsNWidgets(3));
       expect(find.byType(DashboardWidgetItem), findsOneWidget);
       expect(find.bySubtype<FilledButton>(), findsOneWidget);
-      expect(find.byIcon(Icons.add), findsOneWidget);
+      expect(find.byIcon(AdaptiveIcons.add), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget.png'));
@@ -380,7 +380,7 @@ void main() {
       );
 
       expect(find.text('Half empty'), findsOneWidget);
-      expect(find.byIcon(Icons.check), findsOneWidget);
+      expect(find.byIcon(AdaptiveIcons.check), findsOneWidget);
 
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_half_empty.png'));
     });
@@ -403,7 +403,7 @@ void main() {
       );
 
       expect(find.text('Empty'), findsOneWidget);
-      expect(find.byIcon(Icons.check), findsOneWidget);
+      expect(find.byIcon(AdaptiveIcons.check), findsOneWidget);
 
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_empty.png'));
     });
@@ -426,7 +426,7 @@ void main() {
       );
 
       expect(find.text('No entries'), findsOneWidget);
-      expect(find.byIcon(Icons.check), findsOneWidget);
+      expect(find.byIcon(AdaptiveIcons.check), findsOneWidget);
 
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_items.png'));
     });

@@ -120,10 +120,10 @@ class _FileIcon extends StatelessWidget {
       icon = Stack(
         children: [
           icon,
-          const Align(
+          Align(
             alignment: Alignment.bottomRight,
             child: Icon(
-              Icons.star,
+              AdaptiveIcons.star,
               size: smallIconSize,
               color: Colors.yellow,
             ),

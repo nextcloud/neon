@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
@@ -58,7 +57,7 @@ class NotesCategoriesView extends StatelessWidget {
         subtitle: Text(NotesLocalizations.of(context).categoryNotesCount(category.count)),
         leading: category.name.isNotEmpty
             ? Icon(
-                MdiIcons.tag,
+                AdaptiveIcons.tag,
                 size: largeIconSize,
                 color: NotesCategoryColor.compute(category.name),
               )

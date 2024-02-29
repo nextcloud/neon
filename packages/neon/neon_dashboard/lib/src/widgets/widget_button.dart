@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 
 /// Button inside a dashboard widget that is used to trigger an action.
@@ -18,7 +19,7 @@ class DashboardWidgetButton extends StatelessWidget {
     void onPressed() => context.go(button.link);
     final label = Text(button.text);
     final icon = switch (button.type) {
-      'new' => Icons.add,
+      'new' => AdaptiveIcons.add,
       'more' => Icons.more_outlined,
       'setup' => Icons.launch,
       _ => null,

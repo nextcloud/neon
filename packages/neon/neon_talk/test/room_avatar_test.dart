@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/testing.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
@@ -96,6 +97,6 @@ void main() {
         ),
       ),
     );
-    expect(find.byIcon(Icons.group), findsOne);
+    expect(find.byIcon(AdaptiveIcons.group), findsOne);
   });
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 
 /// Validation list tile.
@@ -34,17 +35,17 @@ class NeonValidationTile extends StatelessWidget {
           ),
         ),
       ValidationState.failure => Icon(
-          Icons.error_outline,
+          AdaptiveIcons.error_outline,
           color: Theme.of(context).colorScheme.error,
           size: size,
         ),
       ValidationState.canceled => Icon(
-          Icons.cancel_outlined,
+          AdaptiveIcons.cancel_outlined,
           color: Theme.of(context).disabledColor,
           size: size,
         ),
       ValidationState.success => Icon(
-          Icons.check_circle,
+          AdaptiveIcons.check_circle,
           color: Theme.of(context).colorScheme.primary,
           size: size,
         ),
