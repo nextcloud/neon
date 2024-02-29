@@ -50,6 +50,7 @@ class TalkMessagePreview extends StatelessWidget {
             ),
           buildChatMessage(
             chatMessage: chatMessage,
+            isPreview: true,
           ),
         ],
       ),
