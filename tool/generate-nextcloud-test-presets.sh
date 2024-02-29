@@ -10,4 +10,7 @@ cd "$(dirname "$0")/.."
   rm docker/presets/notes/4.4
   rm docker/presets/notes/4.5
   rm docker/presets/notes/4.6
+
+  # 2.2 does not expose the capability and 2.3 is also compatible with 26 so it can be easily upgraded.
+  rm docker/presets/drop_account/2.2
 )

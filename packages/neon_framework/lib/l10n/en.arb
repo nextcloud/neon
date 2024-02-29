@@ -157,11 +157,22 @@
   "globalOptionsNavigationMode": "Navigation mode",
   "globalOptionsNavigationModeDrawer": "Drawer",
   "globalOptionsNavigationModeDrawerAlwaysVisible": "Drawer always visible",
+  "accountOptionsDeleteOnServer": "Delete account on the server",
   "accountOptionsRemove": "Remove account",
   "accountOptionsRemoveConfirm": "Are you sure you want to remove the account {id}?",
   "@accountOptionsRemoveConfirm": {
     "placeholders": {
       "id": {
+        "type": "String"
+      }
+    }
+  },
+  "accountOptionsRemoveLocal": "Remove the account from the device",
+  "accountOptionsRemoveRemote": "Request deleting the account on the server",
+  "accountOptionsRemoveRemoteDelay": "The account will be deleted after {time}",
+  "@accountOptionsRemoveRemoteDelay": {
+    "placeholders": {
+      "time": {
         "type": "String"
       }
     }

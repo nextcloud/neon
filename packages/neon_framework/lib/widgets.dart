@@ -1,5 +1,6 @@
 export 'package:neon_framework/src/widgets/custom_background.dart';
-export 'package:neon_framework/src/widgets/dialog.dart' hide NeonAccountSelectionDialog, NeonUnifiedPushDialog;
+export 'package:neon_framework/src/widgets/dialog.dart'
+    hide AccountDeletion, NeonAccountDeletionDialog, NeonAccountSelectionDialog, NeonUnifiedPushDialog;
 export 'package:neon_framework/src/widgets/error.dart';
 export 'package:neon_framework/src/widgets/image.dart' hide NeonImage;
 export 'package:neon_framework/src/widgets/linear_progress_indicator.dart';

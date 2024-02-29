@@ -8,6 +8,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
+import 'package:neon_framework/src/utils/relative_time.dart';
 import 'package:neon_framework/src/utils/user_status_clear_at.dart';
 import 'package:neon_framework/src/widgets/account_tile.dart';
 import 'package:neon_framework/src/widgets/error.dart';
@@ -15,6 +16,7 @@ import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 import 'package:neon_framework/src/widgets/user_status_icon.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -513,6 +515,142 @@ class NeonAccountSelectionDialog extends StatelessWidget {
           child: body,
         ),
       ),
+    );
+  }
+}
+
+/// The way the account will be deleted.
+@internal
+enum AccountDeletion {
+  /// The account is removed from the app.
+  local,
+
+  /// The account is deleted on the server.
+  remote,
+}
+
+@internal
+
+/// Displays a confirmation dialog for deleting the [account].
+///
+/// If the `drop_account` app is enabled the user can also choose to delete the account on the server
+/// instead of only logging out the account.
+///
+/// Will pop a value of type [AccountDeletion] or null if the user canceled the dialog.
+class NeonAccountDeletionDialog extends StatefulWidget {
+  const NeonAccountDeletionDialog({
+    required this.account,
+    super.key,
+  });
+
+  final Account account;
+
+  @override
+  State<NeonAccountDeletionDialog> createState() => _NeonAccountDeletionDialogState();
+}
+
+class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
+  core.DropAccountCapabilities_DropAccount? dropAccountCapabilities;
+  AccountDeletion value = AccountDeletion.local;
+
+  void update(AccountDeletion value) {
+    setState(() {
+      this.value = value;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    NeonProvider.of<AccountsBloc>(context).getCapabilitiesBlocFor(widget.account).capabilities.listen((result) {
+      setState(() {
+        dropAccountCapabilities = result.data?.capabilities.dropAccountCapabilities?.dropAccount;
+        if (!(dropAccountCapabilities?.enabled ?? false)) {
+          value = AccountDeletion.local;
+        }
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final localizations = NeonLocalizations.of(context);
+
+    const icon = Icon(Icons.logout);
+    final title = localizations.accountOptionsRemove;
+    final confirmAction = NeonDialogAction(
+      isDestructiveAction: true,
+      onPressed: () {
+        Navigator.of(context).pop(value);
+      },
+      child: Text(
+        localizations.actionContinue,
+        textAlign: TextAlign.end,
+      ),
+    );
+    final declineAction = NeonDialogAction(
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      child: Text(
+        localizations.actionCancel,
+        textAlign: TextAlign.end,
+      ),
+    );
+
+    final capabilities = dropAccountCapabilities;
+    if (capabilities == null) {
+      return NeonConfirmationDialog(
+        icon: icon,
+        title: title,
+        content: Text(localizations.accountOptionsRemoveConfirm(widget.account.humanReadableID)),
+        confirmAction: confirmAction,
+        declineAction: declineAction,
+      );
+    }
+
+    Widget? subtitle;
+    final details = capabilities.details;
+    if (details != null) {
+      subtitle = Text(details);
+    } else if (capabilities.delay.enabled) {
+      subtitle = Text(
+        localizations.accountOptionsRemoveRemoteDelay(
+          Duration(hours: capabilities.delay.hours).formatRelative(
+            localizations,
+            includeSign: false,
+          ),
+        ),
+      );
+    }
+
+    return NeonDialog(
+      icon: icon,
+      title: Text(title),
+      content: SingleChildScrollView(
+        child: Column(
+          children: [
+            RadioListTile(
+              value: AccountDeletion.local,
+              groupValue: value,
+              onChanged: (value) => update(value!),
+              title: Text(localizations.accountOptionsRemoveLocal),
+            ),
+            RadioListTile<AccountDeletion>(
+              value: AccountDeletion.remote,
+              groupValue: value,
+              onChanged: capabilities.enabled ? (value) => update(value!) : null,
+              title: Text(localizations.accountOptionsRemoveRemote),
+              subtitle: subtitle,
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        declineAction,
+        confirmAction,
+      ],
     );
   }
 }

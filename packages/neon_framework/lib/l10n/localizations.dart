@@ -665,6 +665,12 @@ abstract class NeonLocalizations {
   /// **'Drawer always visible'**
   String get globalOptionsNavigationModeDrawerAlwaysVisible;
 
+  /// No description provided for @accountOptionsDeleteOnServer.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account on the server'**
+  String get accountOptionsDeleteOnServer;
+
   /// No description provided for @accountOptionsRemove.
   ///
   /// In en, this message translates to:
@@ -676,6 +682,24 @@ abstract class NeonLocalizations {
   /// In en, this message translates to:
   /// **'Are you sure you want to remove the account {id}?'**
   String accountOptionsRemoveConfirm(String id);
+
+  /// No description provided for @accountOptionsRemoveLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove the account from the device'**
+  String get accountOptionsRemoveLocal;
+
+  /// No description provided for @accountOptionsRemoveRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Request deleting the account on the server'**
+  String get accountOptionsRemoveRemote;
+
+  /// No description provided for @accountOptionsRemoveRemoteDelay.
+  ///
+  /// In en, this message translates to:
+  /// **'The account will be deleted after {time}'**
+  String accountOptionsRemoveRemoteDelay(String time);
 
   /// No description provided for @accountOptionsCategoryStorageInfo.
   ///

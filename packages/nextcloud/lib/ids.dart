@@ -12,6 +12,9 @@ final class AppIDs {
   /// ID for the dav app.
   static const dav = 'dav';
 
+  /// ID for the drop_account app.
+  static const dropAccount = 'drop_account';
+
   /// ID for the files app.
   static const files = 'files';
 

@@ -7339,6 +7339,120 @@ abstract class DavCapabilities implements $DavCapabilitiesInterface, Built<DavCa
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $DropAccountCapabilities_DropAccount_DelayInterface {
+  bool get enabled;
+  int get hours;
+}
+
+abstract class DropAccountCapabilities_DropAccount_Delay
+    implements
+        $DropAccountCapabilities_DropAccount_DelayInterface,
+        Built<DropAccountCapabilities_DropAccount_Delay, DropAccountCapabilities_DropAccount_DelayBuilder> {
+  /// Creates a new DropAccountCapabilities_DropAccount_Delay object using the builder pattern.
+  factory DropAccountCapabilities_DropAccount_Delay([
+    void Function(DropAccountCapabilities_DropAccount_DelayBuilder)? b,
+  ]) = _$DropAccountCapabilities_DropAccount_Delay;
+
+  // coverage:ignore-start
+  const DropAccountCapabilities_DropAccount_Delay._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DropAccountCapabilities_DropAccount_Delay.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DropAccountCapabilities_DropAccount_Delay.
+  static Serializer<DropAccountCapabilities_DropAccount_Delay> get serializer =>
+      _$dropAccountCapabilitiesDropAccountDelaySerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $DropAccountCapabilities_DropAccountInterface {
+  bool get enabled;
+  @BuiltValueField(wireName: 'api-version')
+  String get apiVersion;
+  DropAccountCapabilities_DropAccount_Delay get delay;
+  String? get details;
+}
+
+abstract class DropAccountCapabilities_DropAccount
+    implements
+        $DropAccountCapabilities_DropAccountInterface,
+        Built<DropAccountCapabilities_DropAccount, DropAccountCapabilities_DropAccountBuilder> {
+  /// Creates a new DropAccountCapabilities_DropAccount object using the builder pattern.
+  factory DropAccountCapabilities_DropAccount([void Function(DropAccountCapabilities_DropAccountBuilder)? b]) =
+      _$DropAccountCapabilities_DropAccount;
+
+  // coverage:ignore-start
+  const DropAccountCapabilities_DropAccount._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DropAccountCapabilities_DropAccount.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DropAccountCapabilities_DropAccount.
+  static Serializer<DropAccountCapabilities_DropAccount> get serializer =>
+      _$dropAccountCapabilitiesDropAccountSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $DropAccountCapabilitiesInterface {
+  @BuiltValueField(wireName: 'drop-account')
+  DropAccountCapabilities_DropAccount get dropAccount;
+}
+
+abstract class DropAccountCapabilities
+    implements $DropAccountCapabilitiesInterface, Built<DropAccountCapabilities, DropAccountCapabilitiesBuilder> {
+  /// Creates a new DropAccountCapabilities object using the builder pattern.
+  factory DropAccountCapabilities([void Function(DropAccountCapabilitiesBuilder)? b]) = _$DropAccountCapabilities;
+
+  // coverage:ignore-start
+  const DropAccountCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DropAccountCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DropAccountCapabilities.
+  static Serializer<DropAccountCapabilities> get serializer => _$dropAccountCapabilitiesSerializer;
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $FilesCapabilities_Files_DirectEditingInterface {
   String get url;
   String get etag;
@@ -9285,6 +9399,7 @@ abstract class NotesCapabilities
 typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   CommentsCapabilities? commentsCapabilities,
   DavCapabilities? davCapabilities,
+  DropAccountCapabilities? dropAccountCapabilities,
   FilesCapabilities? filesCapabilities,
   FilesSharingCapabilities? filesSharingCapabilities,
   FilesTrashbinCapabilities? filesTrashbinCapabilities,
@@ -12904,13 +13019,13 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
   /// Serializer for OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      $3dc1754764311166375258bea55197c8Extension._serializer;
+      $d7df54b8bef6b092d401eed2bcfbb6f0Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
-      $3dc1754764311166375258bea55197c8Extension._fromJson(json);
+      $d7df54b8bef6b092d401eed2bcfbb6f0Extension._fromJson(json);
 }
 
 /// Serialization extension for `UnifiedSearchSearchCursor`.
@@ -13230,9 +13345,10 @@ class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerialize
   }
 }
 
-typedef _$3dc1754764311166375258bea55197c8 = ({
+typedef _$d7df54b8bef6b092d401eed2bcfbb6f0 = ({
   CommentsCapabilities? commentsCapabilities,
   DavCapabilities? davCapabilities,
+  DropAccountCapabilities? dropAccountCapabilities,
   FilesCapabilities? filesCapabilities,
   FilesSharingCapabilities? filesSharingCapabilities,
   FilesTrashbinCapabilities? filesTrashbinCapabilities,
@@ -13249,10 +13365,11 @@ typedef _$3dc1754764311166375258bea55197c8 = ({
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $3dc1754764311166375258bea55197c8Extension on _$3dc1754764311166375258bea55197c8 {
+extension $d7df54b8bef6b092d401eed2bcfbb6f0Extension on _$d7df54b8bef6b092d401eed2bcfbb6f0 {
   List<dynamic> get _values => [
         commentsCapabilities,
         davCapabilities,
+        dropAccountCapabilities,
         filesCapabilities,
         filesSharingCapabilities,
         filesTrashbinCapabilities,
@@ -13272,9 +13389,9 @@ extension $3dc1754764311166375258bea55197c8Extension on _$3dc1754764311166375258
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i2.validateAnyOf(_values);
-  static Serializer<_$3dc1754764311166375258bea55197c8> get _serializer =>
-      const _$3dc1754764311166375258bea55197c8Serializer();
-  static _$3dc1754764311166375258bea55197c8 _fromJson(Object? json) =>
+  static Serializer<_$d7df54b8bef6b092d401eed2bcfbb6f0> get _serializer =>
+      const _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer();
+  static _$d7df54b8bef6b092d401eed2bcfbb6f0 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -13283,19 +13400,19 @@ extension $3dc1754764311166375258bea55197c8Extension on _$3dc1754764311166375258
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$3dc1754764311166375258bea55197c8Serializer implements PrimitiveSerializer<_$3dc1754764311166375258bea55197c8> {
-  const _$3dc1754764311166375258bea55197c8Serializer();
+class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerializer<_$d7df54b8bef6b092d401eed2bcfbb6f0> {
+  const _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer();
 
   @override
-  Iterable<Type> get types => const [_$3dc1754764311166375258bea55197c8];
+  Iterable<Type> get types => const [_$d7df54b8bef6b092d401eed2bcfbb6f0];
 
   @override
-  String get wireName => r'_$3dc1754764311166375258bea55197c8';
+  String get wireName => r'_$d7df54b8bef6b092d401eed2bcfbb6f0';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$3dc1754764311166375258bea55197c8 object, {
+    _$d7df54b8bef6b092d401eed2bcfbb6f0 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -13306,6 +13423,10 @@ class _$3dc1754764311166375258bea55197c8Serializer implements PrimitiveSerialize
     value = object.davCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(DavCapabilities))!;
+    }
+    value = object.dropAccountCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(DropAccountCapabilities))!;
     }
     value = object.filesCapabilities;
     if (value != null) {
@@ -13360,7 +13481,7 @@ class _$3dc1754764311166375258bea55197c8Serializer implements PrimitiveSerialize
   }
 
   @override
-  _$3dc1754764311166375258bea55197c8 deserialize(
+  _$d7df54b8bef6b092d401eed2bcfbb6f0 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -13374,6 +13495,11 @@ class _$3dc1754764311166375258bea55197c8Serializer implements PrimitiveSerialize
     try {
       davCapabilities =
           serializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities;
+    } catch (_) {}
+    DropAccountCapabilities? dropAccountCapabilities;
+    try {
+      dropAccountCapabilities = serializers.deserialize(data, specifiedType: const FullType(DropAccountCapabilities))!
+          as DropAccountCapabilities;
     } catch (_) {}
     FilesCapabilities? filesCapabilities;
     try {
@@ -13454,6 +13580,7 @@ class _$3dc1754764311166375258bea55197c8Serializer implements PrimitiveSerialize
     return (
       commentsCapabilities: commentsCapabilities,
       davCapabilities: davCapabilities,
+      dropAccountCapabilities: dropAccountCapabilities,
       filesCapabilities: filesCapabilities,
       filesSharingCapabilities: filesSharingCapabilities,
       filesTrashbinCapabilities: filesTrashbinCapabilities,
@@ -13736,6 +13863,18 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(DavCapabilities.serializer)
       ..addBuilderFactory(const FullType(DavCapabilities_Dav), DavCapabilities_DavBuilder.new)
       ..add(DavCapabilities_Dav.serializer)
+      ..addBuilderFactory(const FullType(DropAccountCapabilities), DropAccountCapabilitiesBuilder.new)
+      ..add(DropAccountCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(DropAccountCapabilities_DropAccount),
+        DropAccountCapabilities_DropAccountBuilder.new,
+      )
+      ..add(DropAccountCapabilities_DropAccount.serializer)
+      ..addBuilderFactory(
+        const FullType(DropAccountCapabilities_DropAccount_Delay),
+        DropAccountCapabilities_DropAccount_DelayBuilder.new,
+      )
+      ..add(DropAccountCapabilities_DropAccount_Delay.serializer)
       ..addBuilderFactory(const FullType(FilesCapabilities), FilesCapabilitiesBuilder.new)
       ..add(FilesCapabilities.serializer)
       ..addBuilderFactory(const FullType(FilesCapabilities_Files), FilesCapabilities_FilesBuilder.new)
@@ -13934,7 +14073,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..add($3dc1754764311166375258bea55197c8Extension._serializer)
+      ..add($d7df54b8bef6b092d401eed2bcfbb6f0Extension._serializer)
       ..add(PreviewGetPreviewByFileIdA.serializer)
       ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
       ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
@@ -14330,7 +14469,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$b2c4857c0136baea42828d89c87c757d,
             _$46564992d3ed3482aa6c1162698aac99,
             _$06c2e47196a84ebc3718dccf9eb4b29d,
-            _$3dc1754764311166375258bea55197c8,
+            _$d7df54b8bef6b092d401eed2bcfbb6f0,
           },
         ),
       )
