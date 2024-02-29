@@ -268,12 +268,19 @@ typedef _$fc0451dbdd462718bd075afd2e3ce0ec = ({BaseOneOf1? baseOneOf1, double? $
 // ignore: library_private_types_in_public_api
 extension $fc0451dbdd462718bd075afd2e3ce0ecExtension on _$fc0451dbdd462718bd075afd2e3ce0ec {
   List<dynamic> get _values => [baseOneOf1, $double];
+  List<String> get _names => const ['baseOneOf1', r'$double'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$fc0451dbdd462718bd075afd2e3ce0ec> get _serializer =>
       const _$fc0451dbdd462718bd075afd2e3ce0ecSerializer();
   static _$fc0451dbdd462718bd075afd2e3ce0ec _fromJson(Object? json) =>
@@ -337,12 +344,19 @@ typedef _$ce3c7b262d1c503446a436c461be5be9 = ({BaseAnyOf1? baseAnyOf1, int? $int
 // ignore: library_private_types_in_public_api
 extension $ce3c7b262d1c503446a436c461be5be9Extension on _$ce3c7b262d1c503446a436c461be5be9 {
   List<dynamic> get _values => [baseAnyOf1, $int];
+  List<String> get _names => const ['baseAnyOf1', r'$int'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$ce3c7b262d1c503446a436c461be5be9> get _serializer =>
       const _$ce3c7b262d1c503446a436c461be5be9Serializer();
   static _$ce3c7b262d1c503446a436c461be5be9 _fromJson(Object? json) =>
@@ -412,12 +426,19 @@ typedef _$8da5087c0b3f2cce06998d453af8ad19 = ({
 // ignore: library_private_types_in_public_api
 extension $8da5087c0b3f2cce06998d453af8ad19Extension on _$8da5087c0b3f2cce06998d453af8ad19 {
   List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf1, $double];
+  List<String> get _names => const ['baseAllOf', 'baseAnyOf', 'baseNestedOneOf3', 'baseOneOf1', r'$double'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$8da5087c0b3f2cce06998d453af8ad19> get _serializer =>
       const _$8da5087c0b3f2cce06998d453af8ad19Serializer();
   static _$8da5087c0b3f2cce06998d453af8ad19 _fromJson(Object? json) =>
@@ -519,12 +540,19 @@ typedef _$523892e2348458a2bdb28f9f942dca37 = ({
 // ignore: library_private_types_in_public_api
 extension $523892e2348458a2bdb28f9f942dca37Extension on _$523892e2348458a2bdb28f9f942dca37 {
   List<dynamic> get _values => [baseAllOf, baseAnyOf1, baseNestedAnyOf3, baseOneOf, $int];
+  List<String> get _names => const ['baseAllOf', 'baseAnyOf1', 'baseNestedAnyOf3', 'baseOneOf', r'$int'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$523892e2348458a2bdb28f9f942dca37> get _serializer =>
       const _$523892e2348458a2bdb28f9f942dca37Serializer();
   static _$523892e2348458a2bdb28f9f942dca37 _fromJson(Object? json) =>
@@ -620,12 +648,19 @@ typedef _$abe6d27882a5771a98ede04cd64de567 = ({BaseOneOf1? baseOneOf1, num? $num
 // ignore: library_private_types_in_public_api
 extension $abe6d27882a5771a98ede04cd64de567Extension on _$abe6d27882a5771a98ede04cd64de567 {
   List<dynamic> get _values => [baseOneOf1, $num];
+  List<String> get _names => const ['baseOneOf1', r'$num'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(_values);
+  void validateOneOf() => _i1.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(_values);
+  void validateAnyOf() => _i1.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$abe6d27882a5771a98ede04cd64de567> get _serializer =>
       const _$abe6d27882a5771a98ede04cd64de567Serializer();
   static _$abe6d27882a5771a98ede04cd64de567 _fromJson(Object? json) =>

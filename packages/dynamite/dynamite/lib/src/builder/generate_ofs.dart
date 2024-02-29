@@ -90,13 +90,25 @@ Iterable<Spec> generateSomeOf(
       ..body = Code('[${fields.values.join(',')}]');
   });
 
+  final names = Method((b) {
+    b
+      ..returns = refer('List<String>')
+      ..type = MethodType.getter
+      ..name = '_names'
+      ..lambda = true
+      ..body = Code('const [${fields.values.map(escapeDartString).join(',')}]');
+  });
+
   final oneOfValidator = Method((b) {
     b
       ..docs.add('/// {@macro Dynamite.validateOneOf}')
       ..name = 'validateOneOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = refer('validateOneOf', 'package:dynamite_runtime/utils.dart').call([refer('_values')]).code;
+      ..body = refer('validateOneOf', 'package:dynamite_runtime/utils.dart').call([
+        refer('_values'),
+        refer('_names'),
+      ]).code;
   });
 
   final anyOfValidator = Method((b) {
@@ -105,7 +117,10 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateAnyOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = refer('validateAnyOf', 'package:dynamite_runtime/utils.dart').call([refer('_values')]).code;
+      ..body = refer('validateAnyOf', 'package:dynamite_runtime/utils.dart').call([
+        refer('_values'),
+        refer('_names'),
+      ]).code;
   });
 
   final serializerMethod = Method(
@@ -157,6 +172,7 @@ Iterable<Spec> generateSomeOf(
       ])
       ..methods.addAll([
         values,
+        names,
         oneOfValidator,
         anyOfValidator,
         serializerMethod,

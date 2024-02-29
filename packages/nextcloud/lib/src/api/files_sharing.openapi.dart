@@ -5683,12 +5683,19 @@ typedef _$07eaa0304017ba8abe7f9f20d6a736f3 = ({BuiltList<int>? builtListInt, int
 // ignore: library_private_types_in_public_api
 extension $07eaa0304017ba8abe7f9f20d6a736f3Extension on _$07eaa0304017ba8abe7f9f20d6a736f3 {
   List<dynamic> get _values => [builtListInt, $int];
+  List<String> get _names => const ['builtListInt', r'$int'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$07eaa0304017ba8abe7f9f20d6a736f3> get _serializer =>
       const _$07eaa0304017ba8abe7f9f20d6a736f3Serializer();
   static _$07eaa0304017ba8abe7f9f20d6a736f3 _fromJson(Object? json) =>

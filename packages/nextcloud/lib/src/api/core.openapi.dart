@@ -13060,12 +13060,19 @@ typedef _$87e48e5649cd72b4d2947aaaea13ccd8 = ({AutocompleteResult_Status0? autoc
 // ignore: library_private_types_in_public_api
 extension $87e48e5649cd72b4d2947aaaea13ccd8Extension on _$87e48e5649cd72b4d2947aaaea13ccd8 {
   List<dynamic> get _values => [autocompleteResultStatus0, string];
+  List<String> get _names => const ['autocompleteResultStatus0', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$87e48e5649cd72b4d2947aaaea13ccd8> get _serializer =>
       const _$87e48e5649cd72b4d2947aaaea13ccd8Serializer();
   static _$87e48e5649cd72b4d2947aaaea13ccd8 _fromJson(Object? json) =>
@@ -13132,12 +13139,19 @@ typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 // ignore: library_private_types_in_public_api
 extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
   List<dynamic> get _values => [$int, string];
+  List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
@@ -13204,12 +13218,19 @@ typedef _$46564992d3ed3482aa6c1162698aac99 = ({
 // ignore: library_private_types_in_public_api
 extension $46564992d3ed3482aa6c1162698aac99Extension on _$46564992d3ed3482aa6c1162698aac99 {
   List<dynamic> get _values => [builtListNever, sharebymailCapabilities0];
+  List<String> get _names => const ['builtListNever', 'sharebymailCapabilities0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$46564992d3ed3482aa6c1162698aac99> get _serializer =>
       const _$46564992d3ed3482aa6c1162698aac99Serializer();
   static _$46564992d3ed3482aa6c1162698aac99 _fromJson(Object? json) =>
@@ -13278,12 +13299,19 @@ typedef _$06c2e47196a84ebc3718dccf9eb4b29d = ({
 // ignore: library_private_types_in_public_api
 extension $06c2e47196a84ebc3718dccf9eb4b29dExtension on _$06c2e47196a84ebc3718dccf9eb4b29d {
   List<dynamic> get _values => [builtListNever, spreedPublicCapabilities0];
+  List<String> get _names => const ['builtListNever', 'spreedPublicCapabilities0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$06c2e47196a84ebc3718dccf9eb4b29d> get _serializer =>
       const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
   static _$06c2e47196a84ebc3718dccf9eb4b29d _fromJson(Object? json) =>
@@ -13383,12 +13411,35 @@ extension $d7df54b8bef6b092d401eed2bcfbb6f0Extension on _$d7df54b8bef6b092d401ee
         userStatusCapabilities,
         weatherStatusCapabilities,
       ];
+  List<String> get _names => const [
+        'commentsCapabilities',
+        'davCapabilities',
+        'dropAccountCapabilities',
+        'filesCapabilities',
+        'filesSharingCapabilities',
+        'filesTrashbinCapabilities',
+        'filesVersionsCapabilities',
+        'notesCapabilities',
+        'notificationsCapabilities',
+        'provisioningApiCapabilities',
+        'sharebymailCapabilities',
+        'spreedPublicCapabilities',
+        'themingPublicCapabilities',
+        'userStatusCapabilities',
+        'weatherStatusCapabilities',
+      ];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(_values);
+  void validateOneOf() => _i2.validateOneOf(
+        _values,
+        _names,
+      );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(_values);
+  void validateAnyOf() => _i2.validateAnyOf(
+        _values,
+        _names,
+      );
   static Serializer<_$d7df54b8bef6b092d401eed2bcfbb6f0> get _serializer =>
       const _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer();
   static _$d7df54b8bef6b092d401eed2bcfbb6f0 _fromJson(Object? json) =>
