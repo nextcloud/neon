@@ -7325,15 +7325,15 @@ class $ReactionClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [deleteRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<ReactionDeleteResponseApplicationJson, void>> delete({
+  ///  * [$deleteRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<ReactionDeleteResponseApplicationJson, void>> $delete({
     required String reaction,
     required String token,
     required int messageId,
     ReactionDeleteApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteRaw(
+    final rawResponse = $deleteRaw(
       reaction: reaction,
       token: token,
       messageId: messageId,
@@ -7364,9 +7364,9 @@ class $ReactionClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [delete] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [$delete] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i4.experimental
-  _i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void> deleteRaw({
+  _i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void> $deleteRaw({
     required String reaction,
     required String token,
     required int messageId,

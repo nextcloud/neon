@@ -124,6 +124,16 @@ extension StringUtils on String {
 const _reservedMethodNames = [
   'executeRequest',
   'executeRawRequest',
+  'send',
+  'head',
+  'get',
+  'post',
+  'put',
+  'patch',
+  'delete',
+  'read',
+  'readBytes',
+  'close',
 ];
 
 /// A list of dart keywords and type names that need to be escaped.

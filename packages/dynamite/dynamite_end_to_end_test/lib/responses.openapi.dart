@@ -82,9 +82,9 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [putRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<String, void>> put() async {
-    final rawResponse = putRaw();
+  ///  * [$putRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<String, void>> $put() async {
+    final rawResponse = $putRaw();
 
     return rawResponse.future;
   }
@@ -99,9 +99,9 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [put] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [$put] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<String, void> putRaw() {
+  _i1.DynamiteRawResponse<String, void> $putRaw() {
     const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/';
@@ -127,9 +127,9 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [postRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<String, void>> post() async {
-    final rawResponse = postRaw();
+  ///  * [$postRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<String, void>> $post() async {
+    final rawResponse = $postRaw();
 
     return rawResponse.future;
   }
@@ -145,9 +145,9 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [post] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [$post] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<String, void> postRaw() {
+  _i1.DynamiteRawResponse<String, void> $postRaw() {
     const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/';
@@ -171,9 +171,9 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [patchRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<String, void>> patch() async {
-    final rawResponse = patchRaw();
+  ///  * [$patchRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<String, void>> $patch() async {
+    final rawResponse = $patchRaw();
 
     return rawResponse.future;
   }
@@ -188,9 +188,9 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [patch] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [$patch] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<String, void> patchRaw() {
+  _i1.DynamiteRawResponse<String, void> $patchRaw() {
     const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/';
