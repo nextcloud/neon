@@ -5,6 +5,7 @@ import 'package:nextcloud/spreed.dart' as spreed;
 TextSpan buildChatMessage({
   required spreed.ChatMessage chatMessage,
   bool isPreview = false,
+  TextStyle? style,
 }) {
   var message = chatMessage.message;
   if (isPreview) {
@@ -13,5 +14,6 @@ TextSpan buildChatMessage({
 
   return TextSpan(
     text: message,
+    style: style,
   );
 }
