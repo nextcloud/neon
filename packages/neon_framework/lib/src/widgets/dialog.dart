@@ -12,7 +12,7 @@ import 'package:neon_framework/src/utils/user_status_clear_at.dart';
 import 'package:neon_framework/src/widgets/account_tile.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
-import 'package:neon_framework/src/widgets/server_icon.dart';
+import 'package:neon_framework/src/widgets/user_status_icon.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
@@ -832,7 +832,10 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
             return buildCard(
               selected: types.contains(status?.status),
               child: ListTile(
-                leading: NeonServerIcon(icon: 'user-status-${onlineStatus.key}'),
+                leading: NeonUserStatusIcon(
+                  type: onlineStatus.key,
+                  size: 24,
+                ),
                 title: Text(
                   title,
                   overflow: TextOverflow.ellipsis,
