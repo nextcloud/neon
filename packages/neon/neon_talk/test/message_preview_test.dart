@@ -19,7 +19,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
-    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
 
     await tester.pumpWidget(
       wrapWidget(
@@ -38,7 +38,7 @@ void main() {
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.actorDisplayName).thenReturn('Test');
     when(() => chatMessage.message).thenReturn('message');
-    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
 
     await tester.pumpWidget(
       wrapWidget(
@@ -56,7 +56,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
-    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
 
     await tester.pumpWidget(
       wrapWidget(
@@ -74,7 +74,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
-    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
 
     await tester.pumpWidget(
       wrapWidget(
@@ -92,7 +92,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
-    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.system.name);
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.system);
 
     await tester.pumpWidget(
       wrapWidget(
@@ -110,7 +110,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.actorId).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message\n123');
-    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment.name);
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
 
     await tester.pumpWidget(
       wrapWidget(

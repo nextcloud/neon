@@ -13371,6 +13371,103 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
+class ActorType extends EnumClass {
+  const ActorType._(super.name);
+
+  /// `users`
+  static const ActorType users = _$actorTypeUsers;
+
+  /// `groups`
+  static const ActorType groups = _$actorTypeGroups;
+
+  /// `guests`
+  static const ActorType guests = _$actorTypeGuests;
+
+  /// `emails`
+  static const ActorType emails = _$actorTypeEmails;
+
+  /// `circles`
+  static const ActorType circles = _$actorTypeCircles;
+
+  /// `bridged`
+  static const ActorType bridged = _$actorTypeBridged;
+
+  /// `bots`
+  static const ActorType bots = _$actorTypeBots;
+
+  /// `federated_users`
+  @BuiltValueEnumConst(wireName: 'federated_users')
+  static const ActorType federatedUsers = _$actorTypeFederatedUsers;
+
+  /// `phones`
+  static const ActorType phones = _$actorTypePhones;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ActorType> get values => _$actorTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ActorType valueOf(String name) => _$valueOfActorType(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for ActorType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ActorType> get serializer => const _$ActorTypeSerializer();
+}
+
+class _$ActorTypeSerializer implements PrimitiveSerializer<ActorType> {
+  const _$ActorTypeSerializer();
+
+  static const Map<ActorType, Object> _toWire = <ActorType, Object>{
+    ActorType.users: 'users',
+    ActorType.groups: 'groups',
+    ActorType.guests: 'guests',
+    ActorType.emails: 'emails',
+    ActorType.circles: 'circles',
+    ActorType.bridged: 'bridged',
+    ActorType.bots: 'bots',
+    ActorType.federatedUsers: 'federated_users',
+    ActorType.phones: 'phones',
+  };
+
+  static const Map<Object, ActorType> _fromWire = <Object, ActorType>{
+    'users': ActorType.users,
+    'groups': ActorType.groups,
+    'guests': ActorType.guests,
+    'emails': ActorType.emails,
+    'circles': ActorType.circles,
+    'bridged': ActorType.bridged,
+    'bots': ActorType.bots,
+    'federated_users': ActorType.federatedUsers,
+    'phones': ActorType.phones,
+  };
+
+  @override
+  Iterable<Type> get types => const [ActorType];
+
+  @override
+  String get wireName => 'ActorType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ActorType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ActorType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class ChatMessage_Deleted extends EnumClass {
   const ChatMessage_Deleted._(super.name);
 
@@ -13428,11 +13525,100 @@ class _$ChatMessage_DeletedSerializer implements PrimitiveSerializer<ChatMessage
       _fromWire[serialized]!;
 }
 
+class MessageType extends EnumClass {
+  const MessageType._(super.name);
+
+  /// `comment`
+  static const MessageType comment = _$messageTypeComment;
+
+  /// `system`
+  static const MessageType system = _$messageTypeSystem;
+
+  /// `object_shared`
+  @BuiltValueEnumConst(wireName: 'object_shared')
+  static const MessageType objectShared = _$messageTypeObjectShared;
+
+  /// `command`
+  static const MessageType command = _$messageTypeCommand;
+
+  /// `comment_deleted`
+  @BuiltValueEnumConst(wireName: 'comment_deleted')
+  static const MessageType commentDeleted = _$messageTypeCommentDeleted;
+
+  /// `reaction`
+  static const MessageType reaction = _$messageTypeReaction;
+
+  /// `reaction_deleted`
+  @BuiltValueEnumConst(wireName: 'reaction_deleted')
+  static const MessageType reactionDeleted = _$messageTypeReactionDeleted;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<MessageType> get values => _$messageTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static MessageType valueOf(String name) => _$valueOfMessageType(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for MessageType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<MessageType> get serializer => const _$MessageTypeSerializer();
+}
+
+class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
+  const _$MessageTypeSerializer();
+
+  static const Map<MessageType, Object> _toWire = <MessageType, Object>{
+    MessageType.comment: 'comment',
+    MessageType.system: 'system',
+    MessageType.objectShared: 'object_shared',
+    MessageType.command: 'command',
+    MessageType.commentDeleted: 'comment_deleted',
+    MessageType.reaction: 'reaction',
+    MessageType.reactionDeleted: 'reaction_deleted',
+  };
+
+  static const Map<Object, MessageType> _fromWire = <Object, MessageType>{
+    'comment': MessageType.comment,
+    'system': MessageType.system,
+    'object_shared': MessageType.objectShared,
+    'command': MessageType.command,
+    'comment_deleted': MessageType.commentDeleted,
+    'reaction': MessageType.reaction,
+    'reaction_deleted': MessageType.reactionDeleted,
+  };
+
+  @override
+  Iterable<Type> get types => const [MessageType];
+
+  @override
+  String get wireName => 'MessageType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MessageType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  MessageType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $ChatMessageInterface {
   String get actorDisplayName;
   String get actorId;
-  String get actorType;
+  ActorType get actorType;
   ChatMessage_Deleted? get deleted;
   int get expirationTimestamp;
   int get id;
@@ -13440,7 +13626,7 @@ abstract interface class $ChatMessageInterface {
   bool? get markdown;
   String get message;
   BuiltMap<String, BuiltMap<String, JsonObject>> get messageParameters;
-  String get messageType;
+  MessageType get messageType;
   BuiltMap<String, int> get reactions;
   String get referenceId;
   String get systemMessage;
@@ -13479,7 +13665,7 @@ typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chat
 @BuiltValue(instantiable: false)
 abstract interface class $RoomInterface {
   String get actorId;
-  String get actorType;
+  ActorType get actorType;
   int get attendeeId;
   int get attendeePermissions;
   String? get attendeePin;
@@ -16429,7 +16615,7 @@ class _$CallGetPeersForCallApiVersionSerializer implements PrimitiveSerializer<C
 @BuiltValue(instantiable: false)
 abstract interface class $CallPeerInterface {
   String get actorId;
-  String get actorType;
+  ActorType get actorType;
   String get displayName;
   int get lastPing;
   String get sessionId;
@@ -24064,7 +24250,7 @@ class _$PollCreatePollApiVersionSerializer implements PrimitiveSerializer<PollCr
 abstract interface class $PollVoteInterface {
   String get actorDisplayName;
   String get actorId;
-  String get actorType;
+  ActorType get actorType;
   int get optionId;
 }
 
@@ -24098,7 +24284,7 @@ abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteB
 abstract interface class $PollInterface {
   String get actorDisplayName;
   String get actorId;
-  String get actorType;
+  ActorType get actorType;
   BuiltList<PollVote>? get details;
   int get id;
   int get maxVotes;
@@ -24847,7 +25033,7 @@ class _$ReactionGetReactionsApiVersionSerializer implements PrimitiveSerializer<
 abstract interface class $ReactionInterface {
   String get actorDisplayName;
   String get actorId;
-  String get actorType;
+  ActorType get actorType;
   int get timestamp;
 }
 
@@ -30240,7 +30426,7 @@ abstract class RoomRoomGetParticipantsHeaders
 @BuiltValue(instantiable: false)
 abstract interface class $ParticipantInterface {
   String get actorId;
-  String get actorType;
+  ActorType get actorType;
   int get attendeeId;
   int get attendeePermissions;
   String get attendeePin;
@@ -39096,6 +39282,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(const FullType(Room), RoomBuilder.new)
       ..add(Room.serializer)
+      ..add(ActorType.serializer)
       ..addBuilderFactory(const FullType(ChatMessage), ChatMessageBuilder.new)
       ..add(ChatMessage.serializer)
       ..add(ChatMessage_Deleted.serializer)
@@ -39110,6 +39297,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltMap<String, JsonObject>>.new,
       )
+      ..add(MessageType.serializer)
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..add($e620970959f428e934829e52f32b7089Extension._serializer)

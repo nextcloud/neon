@@ -1,0 +1,92 @@
+[
+  {
+    "op": "add",
+    "path": "/components/schemas/MessageType",
+    "value": {
+      "type": "string",
+      "enum": [
+        "comment",
+        "system",
+        "object_shared",
+        "command",
+        "comment_deleted",
+        "reaction",
+        "reaction_deleted"
+      ]
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/ChatMessage/properties/messageType",
+    "value": {
+      "$ref": "#/components/schemas/MessageType"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/ActorType",
+    "value": {
+      "type": "string",
+      "enum": [
+        "users",
+        "groups",
+        "guests",
+        "emails",
+        "circles",
+        "bridged",
+        "bots",
+        "federated_users",
+        "phones"
+      ]
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/CallPeer/properties/actorType",
+    "value": {
+      "$ref": "#/components/schemas/ActorType"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/ChatMessage/properties/actorType",
+    "value": {
+      "$ref": "#/components/schemas/ActorType"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/Participant/properties/actorType",
+    "value": {
+      "$ref": "#/components/schemas/ActorType"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/Poll/properties/actorType",
+    "value": {
+      "$ref": "#/components/schemas/ActorType"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/PollVote/properties/actorType",
+    "value": {
+      "$ref": "#/components/schemas/ActorType"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/Reaction/properties/actorType",
+    "value": {
+      "$ref": "#/components/schemas/ActorType"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/Room/properties/actorType",
+    "value": {
+      "$ref": "#/components/schemas/ActorType"
+    }
+  }
+]

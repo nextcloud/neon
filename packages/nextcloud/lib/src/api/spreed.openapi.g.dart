@@ -58,6 +58,53 @@ final BuiltSet<AvatarUploadAvatarApiVersion> _$avatarUploadAvatarApiVersionValue
   _$avatarUploadAvatarApiVersionV1,
 ]);
 
+const ActorType _$actorTypeUsers = ActorType._('users');
+const ActorType _$actorTypeGroups = ActorType._('groups');
+const ActorType _$actorTypeGuests = ActorType._('guests');
+const ActorType _$actorTypeEmails = ActorType._('emails');
+const ActorType _$actorTypeCircles = ActorType._('circles');
+const ActorType _$actorTypeBridged = ActorType._('bridged');
+const ActorType _$actorTypeBots = ActorType._('bots');
+const ActorType _$actorTypeFederatedUsers = ActorType._('federatedUsers');
+const ActorType _$actorTypePhones = ActorType._('phones');
+
+ActorType _$valueOfActorType(String name) {
+  switch (name) {
+    case 'users':
+      return _$actorTypeUsers;
+    case 'groups':
+      return _$actorTypeGroups;
+    case 'guests':
+      return _$actorTypeGuests;
+    case 'emails':
+      return _$actorTypeEmails;
+    case 'circles':
+      return _$actorTypeCircles;
+    case 'bridged':
+      return _$actorTypeBridged;
+    case 'bots':
+      return _$actorTypeBots;
+    case 'federatedUsers':
+      return _$actorTypeFederatedUsers;
+    case 'phones':
+      return _$actorTypePhones;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ActorType> _$actorTypeValues = BuiltSet<ActorType>(const <ActorType>[
+  _$actorTypeUsers,
+  _$actorTypeGroups,
+  _$actorTypeGuests,
+  _$actorTypeEmails,
+  _$actorTypeCircles,
+  _$actorTypeBridged,
+  _$actorTypeBots,
+  _$actorTypeFederatedUsers,
+  _$actorTypePhones,
+]);
+
 const ChatMessage_Deleted _$chatMessageDeleted$true = ChatMessage_Deleted._('\$true');
 
 ChatMessage_Deleted _$valueOfChatMessage_Deleted(String name) {
@@ -72,6 +119,45 @@ ChatMessage_Deleted _$valueOfChatMessage_Deleted(String name) {
 final BuiltSet<ChatMessage_Deleted> _$chatMessageDeletedValues =
     BuiltSet<ChatMessage_Deleted>(const <ChatMessage_Deleted>[
   _$chatMessageDeleted$true,
+]);
+
+const MessageType _$messageTypeComment = MessageType._('comment');
+const MessageType _$messageTypeSystem = MessageType._('system');
+const MessageType _$messageTypeObjectShared = MessageType._('objectShared');
+const MessageType _$messageTypeCommand = MessageType._('command');
+const MessageType _$messageTypeCommentDeleted = MessageType._('commentDeleted');
+const MessageType _$messageTypeReaction = MessageType._('reaction');
+const MessageType _$messageTypeReactionDeleted = MessageType._('reactionDeleted');
+
+MessageType _$valueOfMessageType(String name) {
+  switch (name) {
+    case 'comment':
+      return _$messageTypeComment;
+    case 'system':
+      return _$messageTypeSystem;
+    case 'objectShared':
+      return _$messageTypeObjectShared;
+    case 'command':
+      return _$messageTypeCommand;
+    case 'commentDeleted':
+      return _$messageTypeCommentDeleted;
+    case 'reaction':
+      return _$messageTypeReaction;
+    case 'reactionDeleted':
+      return _$messageTypeReactionDeleted;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<MessageType> _$messageTypeValues = BuiltSet<MessageType>(const <MessageType>[
+  _$messageTypeComment,
+  _$messageTypeSystem,
+  _$messageTypeObjectShared,
+  _$messageTypeCommand,
+  _$messageTypeCommentDeleted,
+  _$messageTypeReaction,
+  _$messageTypeReactionDeleted,
 ]);
 
 const AvatarDeleteAvatarApiVersion _$avatarDeleteAvatarApiVersionV1 = AvatarDeleteAvatarApiVersion._('v1');
@@ -7892,7 +7978,7 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
       'actorId',
       serializers.serialize(object.actorId, specifiedType: const FullType(String)),
       'actorType',
-      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorType)),
       'expirationTimestamp',
       serializers.serialize(object.expirationTimestamp, specifiedType: const FullType(int)),
       'id',
@@ -7908,7 +7994,7 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
             FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
           ])),
       'messageType',
-      serializers.serialize(object.messageType, specifiedType: const FullType(String)),
+      serializers.serialize(object.messageType, specifiedType: const FullType(MessageType)),
       'reactions',
       serializers.serialize(object.reactions,
           specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)])),
@@ -7955,7 +8041,7 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
           result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType))! as ActorType;
           break;
         case 'deleted':
           result.deleted = serializers.deserialize(value, specifiedType: const FullType(ChatMessage_Deleted))
@@ -7984,7 +8070,8 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
               ]))!);
           break;
         case 'messageType':
-          result.messageType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.messageType =
+              serializers.deserialize(value, specifiedType: const FullType(MessageType))! as MessageType;
           break;
         case 'reactions':
           result.reactions.replace(serializers.deserialize(value,
@@ -8021,7 +8108,7 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
       'actorId',
       serializers.serialize(object.actorId, specifiedType: const FullType(String)),
       'actorType',
-      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorType)),
       'attendeeId',
       serializers.serialize(object.attendeeId, specifiedType: const FullType(int)),
       'attendeePermissions',
@@ -8174,7 +8261,7 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
           result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType))! as ActorType;
           break;
         case 'attendeeId':
           result.attendeeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -10249,7 +10336,7 @@ class _$CallPeerSerializer implements StructuredSerializer<CallPeer> {
       'actorId',
       serializers.serialize(object.actorId, specifiedType: const FullType(String)),
       'actorType',
-      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorType)),
       'displayName',
       serializers.serialize(object.displayName, specifiedType: const FullType(String)),
       'lastPing',
@@ -10278,7 +10365,7 @@ class _$CallPeerSerializer implements StructuredSerializer<CallPeer> {
           result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType))! as ActorType;
           break;
         case 'displayName':
           result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -11104,7 +11191,7 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       'actorId',
       serializers.serialize(object.actorId, specifiedType: const FullType(String)),
       'actorType',
-      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorType)),
       'expirationTimestamp',
       serializers.serialize(object.expirationTimestamp, specifiedType: const FullType(int)),
       'id',
@@ -11120,7 +11207,7 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
             FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
           ])),
       'messageType',
-      serializers.serialize(object.messageType, specifiedType: const FullType(String)),
+      serializers.serialize(object.messageType, specifiedType: const FullType(MessageType)),
       'reactions',
       serializers.serialize(object.reactions,
           specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)])),
@@ -11177,7 +11264,7 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
           result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType))! as ActorType;
           break;
         case 'deleted':
           result.deleted = serializers.deserialize(value, specifiedType: const FullType(ChatMessage_Deleted))
@@ -11206,7 +11293,8 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
               ]))!);
           break;
         case 'messageType':
-          result.messageType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.messageType =
+              serializers.deserialize(value, specifiedType: const FullType(MessageType))! as MessageType;
           break;
         case 'reactions':
           result.reactions.replace(serializers.deserialize(value,
@@ -14370,7 +14458,7 @@ class _$PollVoteSerializer implements StructuredSerializer<PollVote> {
       'actorId',
       serializers.serialize(object.actorId, specifiedType: const FullType(String)),
       'actorType',
-      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorType)),
       'optionId',
       serializers.serialize(object.optionId, specifiedType: const FullType(int)),
     ];
@@ -14396,7 +14484,7 @@ class _$PollVoteSerializer implements StructuredSerializer<PollVote> {
           result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType))! as ActorType;
           break;
         case 'optionId':
           result.optionId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -14422,7 +14510,7 @@ class _$PollSerializer implements StructuredSerializer<Poll> {
       'actorId',
       serializers.serialize(object.actorId, specifiedType: const FullType(String)),
       'actorType',
-      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorType)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'maxVotes',
@@ -14482,7 +14570,7 @@ class _$PollSerializer implements StructuredSerializer<Poll> {
           result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType))! as ActorType;
           break;
         case 'details':
           result.details.replace(serializers.deserialize(value,
@@ -15041,7 +15129,7 @@ class _$ReactionSerializer implements StructuredSerializer<Reaction> {
       'actorId',
       serializers.serialize(object.actorId, specifiedType: const FullType(String)),
       'actorType',
-      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorType)),
       'timestamp',
       serializers.serialize(object.timestamp, specifiedType: const FullType(int)),
     ];
@@ -15067,7 +15155,7 @@ class _$ReactionSerializer implements StructuredSerializer<Reaction> {
           result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType))! as ActorType;
           break;
         case 'timestamp':
           result.timestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -17494,7 +17582,7 @@ class _$ParticipantSerializer implements StructuredSerializer<Participant> {
       'actorId',
       serializers.serialize(object.actorId, specifiedType: const FullType(String)),
       'actorType',
-      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorType)),
       'attendeeId',
       serializers.serialize(object.attendeeId, specifiedType: const FullType(int)),
       'attendeePermissions',
@@ -17571,7 +17659,7 @@ class _$ParticipantSerializer implements StructuredSerializer<Participant> {
           result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType))! as ActorType;
           break;
         case 'attendeeId':
           result.attendeeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -21664,8 +21752,8 @@ abstract mixin class $ChatMessageInterfaceBuilder {
   String? get actorId;
   set actorId(String? actorId);
 
-  String? get actorType;
-  set actorType(String? actorType);
+  ActorType? get actorType;
+  set actorType(ActorType? actorType);
 
   ChatMessage_Deleted? get deleted;
   set deleted(ChatMessage_Deleted? deleted);
@@ -21688,8 +21776,8 @@ abstract mixin class $ChatMessageInterfaceBuilder {
   MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters;
   set messageParameters(MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters);
 
-  String? get messageType;
-  set messageType(String? messageType);
+  MessageType? get messageType;
+  set messageType(MessageType? messageType);
 
   MapBuilder<String, int> get reactions;
   set reactions(MapBuilder<String, int>? reactions);
@@ -21713,7 +21801,7 @@ class _$ChatMessage extends ChatMessage {
   @override
   final String actorId;
   @override
-  final String actorType;
+  final ActorType actorType;
   @override
   final ChatMessage_Deleted? deleted;
   @override
@@ -21729,7 +21817,7 @@ class _$ChatMessage extends ChatMessage {
   @override
   final BuiltMap<String, BuiltMap<String, JsonObject>> messageParameters;
   @override
-  final String messageType;
+  final MessageType messageType;
   @override
   final BuiltMap<String, int> reactions;
   @override
@@ -21863,9 +21951,9 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
   String? get actorId => _$this._actorId;
   set actorId(covariant String? actorId) => _$this._actorId = actorId;
 
-  String? _actorType;
-  String? get actorType => _$this._actorType;
-  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+  ActorType? _actorType;
+  ActorType? get actorType => _$this._actorType;
+  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
 
   ChatMessage_Deleted? _deleted;
   ChatMessage_Deleted? get deleted => _$this._deleted;
@@ -21897,9 +21985,9 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
   set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters) =>
       _$this._messageParameters = messageParameters;
 
-  String? _messageType;
-  String? get messageType => _$this._messageType;
-  set messageType(covariant String? messageType) => _$this._messageType = messageType;
+  MessageType? _messageType;
+  MessageType? get messageType => _$this._messageType;
+  set messageType(covariant MessageType? messageType) => _$this._messageType = messageType;
 
   MapBuilder<String, int>? _reactions;
   MapBuilder<String, int> get reactions => _$this._reactions ??= MapBuilder<String, int>();
@@ -22008,8 +22096,8 @@ abstract mixin class $RoomInterfaceBuilder {
   String? get actorId;
   set actorId(String? actorId);
 
-  String? get actorType;
-  set actorType(String? actorType);
+  ActorType? get actorType;
+  set actorType(ActorType? actorType);
 
   int? get attendeeId;
   set attendeeId(int? attendeeId);
@@ -22172,7 +22260,7 @@ class _$Room extends Room {
   @override
   final String actorId;
   @override
-  final String actorType;
+  final ActorType actorType;
   @override
   final int attendeeId;
   @override
@@ -22581,9 +22669,9 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
   String? get actorId => _$this._actorId;
   set actorId(covariant String? actorId) => _$this._actorId = actorId;
 
-  String? _actorType;
-  String? get actorType => _$this._actorType;
-  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+  ActorType? _actorType;
+  ActorType? get actorType => _$this._actorType;
+  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
 
   int? _attendeeId;
   int? get attendeeId => _$this._attendeeId;
@@ -27615,8 +27703,8 @@ abstract mixin class $CallPeerInterfaceBuilder {
   String? get actorId;
   set actorId(String? actorId);
 
-  String? get actorType;
-  set actorType(String? actorType);
+  ActorType? get actorType;
+  set actorType(ActorType? actorType);
 
   String? get displayName;
   set displayName(String? displayName);
@@ -27635,7 +27723,7 @@ class _$CallPeer extends CallPeer {
   @override
   final String actorId;
   @override
-  final String actorType;
+  final ActorType actorType;
   @override
   final String displayName;
   @override
@@ -27714,9 +27802,9 @@ class CallPeerBuilder implements Builder<CallPeer, CallPeerBuilder>, $CallPeerIn
   String? get actorId => _$this._actorId;
   set actorId(covariant String? actorId) => _$this._actorId = actorId;
 
-  String? _actorType;
-  String? get actorType => _$this._actorType;
-  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+  ActorType? _actorType;
+  ActorType? get actorType => _$this._actorType;
+  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
 
   String? _displayName;
   String? get displayName => _$this._displayName;
@@ -29662,8 +29750,8 @@ abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMess
   String? get actorId;
   set actorId(covariant String? actorId);
 
-  String? get actorType;
-  set actorType(covariant String? actorType);
+  ActorType? get actorType;
+  set actorType(covariant ActorType? actorType);
 
   ChatMessage_Deleted? get deleted;
   set deleted(covariant ChatMessage_Deleted? deleted);
@@ -29686,8 +29774,8 @@ abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMess
   MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters;
   set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters);
 
-  String? get messageType;
-  set messageType(covariant String? messageType);
+  MessageType? get messageType;
+  set messageType(covariant MessageType? messageType);
 
   MapBuilder<String, int> get reactions;
   set reactions(covariant MapBuilder<String, int>? reactions);
@@ -29713,7 +29801,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   final String actorId;
   @override
-  final String actorType;
+  final ActorType actorType;
   @override
   final ChatMessage_Deleted? deleted;
   @override
@@ -29729,7 +29817,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   final BuiltMap<String, BuiltMap<String, JsonObject>> messageParameters;
   @override
-  final String messageType;
+  final MessageType messageType;
   @override
   final BuiltMap<String, int> reactions;
   @override
@@ -29873,9 +29961,9 @@ class ChatMessageWithParentBuilder
   String? get actorId => _$this._actorId;
   set actorId(covariant String? actorId) => _$this._actorId = actorId;
 
-  String? _actorType;
-  String? get actorType => _$this._actorType;
-  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+  ActorType? _actorType;
+  ActorType? get actorType => _$this._actorType;
+  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
 
   ChatMessage_Deleted? _deleted;
   ChatMessage_Deleted? get deleted => _$this._deleted;
@@ -29907,9 +29995,9 @@ class ChatMessageWithParentBuilder
   set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters) =>
       _$this._messageParameters = messageParameters;
 
-  String? _messageType;
-  String? get messageType => _$this._messageType;
-  set messageType(covariant String? messageType) => _$this._messageType = messageType;
+  MessageType? _messageType;
+  MessageType? get messageType => _$this._messageType;
+  set messageType(covariant MessageType? messageType) => _$this._messageType = messageType;
 
   MapBuilder<String, int>? _reactions;
   MapBuilder<String, int> get reactions => _$this._reactions ??= MapBuilder<String, int>();
@@ -37497,8 +37585,8 @@ abstract mixin class $PollVoteInterfaceBuilder {
   String? get actorId;
   set actorId(String? actorId);
 
-  String? get actorType;
-  set actorType(String? actorType);
+  ActorType? get actorType;
+  set actorType(ActorType? actorType);
 
   int? get optionId;
   set optionId(int? optionId);
@@ -37510,7 +37598,7 @@ class _$PollVote extends PollVote {
   @override
   final String actorId;
   @override
-  final String actorType;
+  final ActorType actorType;
   @override
   final int optionId;
 
@@ -37573,9 +37661,9 @@ class PollVoteBuilder implements Builder<PollVote, PollVoteBuilder>, $PollVoteIn
   String? get actorId => _$this._actorId;
   set actorId(covariant String? actorId) => _$this._actorId = actorId;
 
-  String? _actorType;
-  String? get actorType => _$this._actorType;
-  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+  ActorType? _actorType;
+  ActorType? get actorType => _$this._actorType;
+  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
 
   int? _optionId;
   int? get optionId => _$this._optionId;
@@ -37630,8 +37718,8 @@ abstract mixin class $PollInterfaceBuilder {
   String? get actorId;
   set actorId(String? actorId);
 
-  String? get actorType;
-  set actorType(String? actorType);
+  ActorType? get actorType;
+  set actorType(ActorType? actorType);
 
   ListBuilder<PollVote> get details;
   set details(ListBuilder<PollVote>? details);
@@ -37670,7 +37758,7 @@ class _$Poll extends Poll {
   @override
   final String actorId;
   @override
-  final String actorType;
+  final ActorType actorType;
   @override
   final BuiltList<PollVote>? details;
   @override
@@ -37796,9 +37884,9 @@ class PollBuilder implements Builder<Poll, PollBuilder>, $PollInterfaceBuilder {
   String? get actorId => _$this._actorId;
   set actorId(covariant String? actorId) => _$this._actorId = actorId;
 
-  String? _actorType;
-  String? get actorType => _$this._actorType;
-  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+  ActorType? _actorType;
+  ActorType? get actorType => _$this._actorType;
+  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
 
   ListBuilder<PollVote>? _details;
   ListBuilder<PollVote> get details => _$this._details ??= ListBuilder<PollVote>();
@@ -39170,8 +39258,8 @@ abstract mixin class $ReactionInterfaceBuilder {
   String? get actorId;
   set actorId(String? actorId);
 
-  String? get actorType;
-  set actorType(String? actorType);
+  ActorType? get actorType;
+  set actorType(ActorType? actorType);
 
   int? get timestamp;
   set timestamp(int? timestamp);
@@ -39183,7 +39271,7 @@ class _$Reaction extends Reaction {
   @override
   final String actorId;
   @override
-  final String actorType;
+  final ActorType actorType;
   @override
   final int timestamp;
 
@@ -39247,9 +39335,9 @@ class ReactionBuilder implements Builder<Reaction, ReactionBuilder>, $ReactionIn
   String? get actorId => _$this._actorId;
   set actorId(covariant String? actorId) => _$this._actorId = actorId;
 
-  String? _actorType;
-  String? get actorType => _$this._actorType;
-  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+  ActorType? _actorType;
+  ActorType? get actorType => _$this._actorType;
+  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
 
   int? _timestamp;
   int? get timestamp => _$this._timestamp;
@@ -45143,8 +45231,8 @@ abstract mixin class $ParticipantInterfaceBuilder {
   String? get actorId;
   set actorId(String? actorId);
 
-  String? get actorType;
-  set actorType(String? actorType);
+  ActorType? get actorType;
+  set actorType(ActorType? actorType);
 
   int? get attendeeId;
   set attendeeId(int? attendeeId);
@@ -45199,7 +45287,7 @@ class _$Participant extends Participant {
   @override
   final String actorId;
   @override
-  final String actorType;
+  final ActorType actorType;
   @override
   final int attendeeId;
   @override
@@ -45357,9 +45445,9 @@ class ParticipantBuilder implements Builder<Participant, ParticipantBuilder>, $P
   String? get actorId => _$this._actorId;
   set actorId(covariant String? actorId) => _$this._actorId = actorId;
 
-  String? _actorType;
-  String? get actorType => _$this._actorType;
-  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+  ActorType? _actorType;
+  ActorType? get actorType => _$this._actorType;
+  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
 
   int? _attendeeId;
   int? get attendeeId => _$this._attendeeId;
