@@ -306,7 +306,54 @@ Iterable<Method> buildTags(
 
         code.writeln(buildParameterSerialization(result, parameter, state, state.emitter.allocator.allocate));
       }
-      resolveMimeTypeEncode(operation, spec, state, operationName, operationParameters).forEach(code.writeln);
+
+      ({String mimeType, TypeResult result})? bodyParameter;
+      final requestBody = operation.requestBody;
+      if (requestBody != null) {
+        for (final content in requestBody.content!.entries) {
+          if (bodyParameter != null) {
+            print('Can not work with multiple mime types right now. Using the first supported.');
+            break;
+          }
+
+          final mimeType = content.key;
+          final mediaType = content.value;
+
+          final dartParameterNullable = isDartParameterNullable(
+            requestBody.required,
+            mediaType.schema,
+          );
+          final dartParameterRequired = isRequired(
+            requestBody.required,
+            mediaType.schema,
+          );
+
+          final result = resolveType(
+            spec,
+            state,
+            toDartName('$operationName-request-$mimeType', className: true),
+            mediaType.schema!,
+            nullable: dartParameterNullable,
+          );
+
+          bodyParameter = (mimeType: mimeType, result: result);
+
+          final parameterName = toDartName(result.name);
+          operationParameters.add(
+            Parameter(
+              (b) => b
+                ..name = parameterName
+                ..type = refer(result.nullableName)
+                ..named = true
+                ..required = dartParameterRequired,
+            ),
+          );
+        }
+      }
+
+      if (bodyParameter != null) {
+        resolveMimeTypeEncode(bodyParameter.mimeType, bodyParameter.result, code);
+      }
 
       final bodyType = buildBodyType(
         state,
