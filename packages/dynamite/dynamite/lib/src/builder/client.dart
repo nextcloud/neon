@@ -10,7 +10,6 @@ import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:source_helper/source_helper.dart';
 import 'package:uri/uri.dart';
 
@@ -265,11 +264,11 @@ Iterable<Method> buildTags(
       if (hasAuthentication) {
         buildAuthCheck(
           state,
-          pathEntry,
           operation,
           spec,
           client,
-        ).forEach(code.writeln);
+          code,
+        );
       }
 
       final operationParameters = ListBuilder<Parameter>();
@@ -556,13 +555,13 @@ bool needsAuthCheck(
   return securityRequirements.isNotEmpty;
 }
 
-Iterable<String> buildAuthCheck(
+void buildAuthCheck(
   State state,
-  MapEntry<String, openapi.PathItem> pathEntry,
   openapi.Operation operation,
   openapi.OpenAPI spec,
   String client,
-) sync* {
+  StringSink output,
+) {
   final security = operation.security ?? spec.security ?? BuiltList();
   final securityRequirements = security.where((requirement) => requirement.isNotEmpty);
   final isOptionalSecurity = securityRequirements.length != security.length;
@@ -571,47 +570,49 @@ Iterable<String> buildAuthCheck(
     return;
   }
 
-  yield '''
+  output
+    ..writeln(
+      '''
 // coverage:ignore-start
 final authentication = $client.authentications?.firstWhereOrNull(
     (auth) => switch (auth) {
-''';
-
-  yield* securityRequirements.map((requirement) {
-    final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
-    final dynamiteAuth = toDartName(
-      'Dynamite-${securityScheme.fullName.join('-')}-Authentication',
-      className: true,
-    );
-    return refer(dynamiteAuth, 'package:dynamite_runtime/http_client.dart')
-        .newInstance(const [])
-        .accept(state.emitter)
-        .toString();
-  }).intersperse(' || ');
-
-  yield '''
+''',
+    )
+    ..writeAll(
+      securityRequirements.map((requirement) {
+        final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
+        final dynamiteAuth = toDartName(
+          'Dynamite-${securityScheme.fullName.join('-')}-Authentication',
+          className: true,
+        );
+        return refer(dynamiteAuth, 'package:dynamite_runtime/http_client.dart')
+            .newInstance(const [])
+            .accept(state.emitter)
+            .toString();
+      }),
+      ' || \n',
+    )
+    ..writeln('''
         => true,
       _ => false,
     },
   );
-''';
 
-  yield '''
 if(authentication != null) {
   _headers.addAll(
     authentication.headers,
   );
-} 
-''';
+}
+''');
 
   if (!isOptionalSecurity) {
-    yield '''
+    output.writeln('''
 else {
   throw Exception('Missing authentication for ${securityRequirements.map((r) => r.keys.single).join(' or ')}');
 }
-''';
+''');
   }
-  yield '// coverage:ignore-end';
+  output.writeln('// coverage:ignore-end');
 }
 
 Map<String, openapi.PathItem> generatePaths(openapi.OpenAPI spec, String? tag) {
