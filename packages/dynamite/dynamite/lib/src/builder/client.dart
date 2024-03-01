@@ -358,48 +358,7 @@ Iterable<Method> buildTags(
           toDartName(identifierBuilder.toString(), className: true),
         );
 
-        if (!hasUriParameters) {
-          code.writeln("const _path = '${pathEntry.key}';");
-        } else {
-          final queryParams = <String>[];
-          for (final parameter in parameters) {
-            if (parameter.$in != openapi.ParameterType.query) {
-              continue;
-            }
-
-            // Default to a plain parameter without exploding.
-            queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
-          }
-
-          final pathBuilder = StringBuffer()..write(pathEntry.key);
-
-          if (queryParams.isNotEmpty) {
-            pathBuilder
-              ..write('{?')
-              ..writeAll(queryParams, ',')
-              ..write('}');
-          }
-
-          final path = pathBuilder.toString();
-          // Sanity check the uri at build time.
-          try {
-            UriTemplate(path);
-          } on ParseException catch (e) {
-            throw Exception('The resulting uri $path is not a valid uri template according to RFC 6570. $e');
-          }
-
-          final pathDeclaration = declareFinal('_path')
-              .assign(
-                refer('UriTemplate', 'package:uri/uri.dart')
-                    .newInstance([literalString(path)])
-                    .property('expand')
-                    .call([refer('_parameters')]),
-              )
-              .statement
-              .accept(state.emitter);
-
-          code.writeln(pathDeclaration);
-        }
+        buildUrlPath(pathEntry.key, parameters, code, state.emitter.allocator.allocate);
 
         if (dataType != null) {
           returnDataType = dataType.name;
@@ -480,6 +439,53 @@ return rawResponse.future;
         },
       );
     }
+  }
+}
+
+void buildUrlPath(
+  String path,
+  List<openapi.Parameter> parameters,
+  StringSink code,
+  String Function(Reference) allocate,
+) {
+  final hasUriParameters = parameters.firstWhereOrNull(
+        (parameter) => parameter.$in == openapi.ParameterType.path || parameter.$in == openapi.ParameterType.query,
+      ) !=
+      null;
+
+  if (!hasUriParameters) {
+    code.writeln("const _path = '$path';");
+  } else {
+    final queryParams = <String>[];
+    for (final parameter in parameters) {
+      if (parameter.$in != openapi.ParameterType.query) {
+        continue;
+      }
+
+      // Default to a plain parameter without exploding.
+      queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
+    }
+
+    final pathBuilder = StringBuffer()..write(path);
+
+    if (queryParams.isNotEmpty) {
+      pathBuilder
+        ..write('{?')
+        ..writeAll(queryParams, ',')
+        ..write('}');
+    }
+
+    final pattern = pathBuilder.toString();
+    // Sanity check the uri at build time.
+    try {
+      UriTemplate(pattern);
+    } on ParseException catch (e) {
+      throw Exception('The resulting uri $pattern is not a valid uri template according to RFC 6570. $e');
+    }
+
+    code.writeln(
+      "final _path = ${allocate(refer('UriTemplate', 'package:uri/uri.dart'))}('$pattern').expand(_parameters);",
+    );
   }
 }
 
