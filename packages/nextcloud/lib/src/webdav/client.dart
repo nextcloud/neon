@@ -75,10 +75,12 @@ class WebDavClient {
       headers: headers,
     );
 
-    request.headers.addAll({
-      ...?rootClient.baseHeaders,
-      ...?rootClient.authentications?.firstOrNull?.headers,
-    });
+    final authentication = rootClient.authentications?.firstOrNull;
+    if (authentication != null) {
+      request.headers.addAll(
+        authentication.headers,
+      );
+    }
 
     // On web we need to send a CSRF token because we also send the cookies.  In theory this should not be required as
     // long as we send the OCS-APIRequest header, but the server has a bug that only triggers when you also send the
@@ -87,7 +89,7 @@ class WebDavClient {
     // TODO: Fix this bug in server.
     if (_kIsWeb) {
       if (_token == null) {
-        final response = await rootClient.httpClient.get(Uri.parse('${rootClient.baseURL}/index.php'));
+        final response = await rootClient.get(Uri.parse('${rootClient.baseURL}/index.php'));
         if (response.statusCode >= 300) {
           throw DynamiteStatusCodeException(
             response.statusCode,
@@ -103,7 +105,7 @@ class WebDavClient {
       });
     }
 
-    final response = await rootClient.httpClient.send(request);
+    final response = await rootClient.send(request);
 
     if (response.statusCode >= 300) {
       throw DynamiteStatusCodeException(
