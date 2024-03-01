@@ -16,15 +16,15 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:dynamite_runtime/built_value.dart' as _i5;
-import 'package:dynamite_runtime/http_client.dart' as _i3;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as _i1;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i2;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'parameters.openapi.g.dart';
 
-class $Client extends _i3.DynamiteClient {
+class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
@@ -34,7 +34,7 @@ class $Client extends _i3.DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(_i3.DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -67,7 +67,7 @@ class $Client extends _i3.DynamiteClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i3.DynamiteResponse<JsonObject, void>> $get({
+  Future<_i1.DynamiteResponse<JsonObject, void>> $get({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -129,8 +129,8 @@ class $Client extends _i3.DynamiteClient {
   ///
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i3.DynamiteRawResponse<JsonObject, void> $getRaw({
+  @_i2.experimental
+  _i1.DynamiteRawResponse<JsonObject, void> $getRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -200,17 +200,17 @@ class $Client extends _i3.DynamiteClient {
     _parameters['anyOf'] = $anyOf;
 
     final $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
-    _i1.checkPattern(
+    _i3.checkPattern(
       $enumPattern as String?,
       RegExp('[a-z]'),
       'enumPattern',
     );
     _parameters['enum_pattern'] = $enumPattern;
 
-    final _path = _i2.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/{?content_string*,content_parameter*,array*,array_string*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
     ).expand(_parameters);
-    return _i3.DynamiteRawResponse<JsonObject, void>(
+    return _i1.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -247,7 +247,7 @@ class $Client extends _i3.DynamiteClient {
   ///
   /// See:
   ///  * [getHeadersRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i3.DynamiteResponse<JsonObject, void>> getHeaders({
+  Future<_i1.DynamiteResponse<JsonObject, void>> getHeaders({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -309,8 +309,8 @@ class $Client extends _i3.DynamiteClient {
   ///
   /// See:
   ///  * [getHeaders] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i3.DynamiteRawResponse<JsonObject, void> getHeadersRaw({
+  @_i2.experimental
+  _i1.DynamiteRawResponse<JsonObject, void> getHeadersRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -335,7 +335,7 @@ class $Client extends _i3.DynamiteClient {
       ]),
     );
     if ($contentString != null) {
-      _headers['content_string'] = const _i1.HeaderEncoder().convert($contentString);
+      _headers['content_string'] = const _i3.HeaderEncoder().convert($contentString);
     }
 
     final $contentParameter = _$jsonSerializers.serialize(
@@ -345,77 +345,77 @@ class $Client extends _i3.DynamiteClient {
       ]),
     );
     if ($contentParameter != null) {
-      _headers['content_parameter'] = const _i1.HeaderEncoder().convert($contentParameter);
+      _headers['content_parameter'] = const _i3.HeaderEncoder().convert($contentParameter);
     }
 
     final $array = _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
     if ($array != null) {
-      _headers['array'] = const _i1.HeaderEncoder().convert($array);
+      _headers['array'] = const _i3.HeaderEncoder().convert($array);
     }
 
     final $arrayString =
         _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
     if ($arrayString != null) {
-      _headers['array_string'] = const _i1.HeaderEncoder().convert($arrayString);
+      _headers['array_string'] = const _i3.HeaderEncoder().convert($arrayString);
     }
 
     final $$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
     if ($$bool != null) {
-      _headers['bool'] = const _i1.HeaderEncoder().convert($$bool);
+      _headers['bool'] = const _i3.HeaderEncoder().convert($$bool);
     }
 
     final $string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
     if ($string != null) {
-      _headers['string'] = const _i1.HeaderEncoder().convert($string);
+      _headers['string'] = const _i3.HeaderEncoder().convert($string);
     }
 
     final $stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
     if ($stringBinary != null) {
-      _headers['string_binary'] = const _i1.HeaderEncoder().convert($stringBinary);
+      _headers['string_binary'] = const _i3.HeaderEncoder().convert($stringBinary);
     }
 
     final $$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
     if ($$int != null) {
-      _headers['int'] = const _i1.HeaderEncoder().convert($$int);
+      _headers['int'] = const _i3.HeaderEncoder().convert($$int);
     }
 
     final $$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
     if ($$double != null) {
-      _headers['double'] = const _i1.HeaderEncoder().convert($$double);
+      _headers['double'] = const _i3.HeaderEncoder().convert($$double);
     }
 
     final $$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
     if ($$num != null) {
-      _headers['num'] = const _i1.HeaderEncoder().convert($$num);
+      _headers['num'] = const _i3.HeaderEncoder().convert($$num);
     }
 
     final $object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
     if ($object != null) {
-      _headers['object'] = const _i1.HeaderEncoder().convert($object);
+      _headers['object'] = const _i3.HeaderEncoder().convert($object);
     }
 
     final $oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetHeadersOneOf));
     if ($oneOf != null) {
-      _headers['oneOf'] = const _i1.HeaderEncoder().convert($oneOf);
+      _headers['oneOf'] = const _i3.HeaderEncoder().convert($oneOf);
     }
 
     final $anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetHeadersAnyOf));
     if ($anyOf != null) {
-      _headers['anyOf'] = const _i1.HeaderEncoder().convert($anyOf);
+      _headers['anyOf'] = const _i3.HeaderEncoder().convert($anyOf);
     }
 
     final $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetHeadersEnumPattern));
-    _i1.checkPattern(
+    _i3.checkPattern(
       $enumPattern as String?,
       RegExp('[a-z]'),
       'enumPattern',
     );
     if ($enumPattern != null) {
-      _headers['enum_pattern'] = const _i1.HeaderEncoder().convert($enumPattern);
+      _headers['enum_pattern'] = const _i3.HeaderEncoder().convert($enumPattern);
     }
 
     const _path = '/headers';
-    return _i3.DynamiteRawResponse<JsonObject, void>(
+    return _i1.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -436,7 +436,7 @@ class $Client extends _i3.DynamiteClient {
   ///
   /// See:
   ///  * [getPathParameterRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i3.DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
+  Future<_i1.DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
     final rawResponse = getPathParameterRaw(
       pathParameter: pathParameter,
     );
@@ -454,16 +454,16 @@ class $Client extends _i3.DynamiteClient {
   ///
   /// See:
   ///  * [getPathParameter] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i3.DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
+  @_i2.experimental
+  _i1.DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{'Accept': 'application/json'};
 
     final $pathParameter = _$jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
     _parameters['path_parameter'] = $pathParameter;
 
-    final _path = _i2.UriTemplate('/{path_parameter}').expand(_parameters);
-    return _i3.DynamiteRawResponse<JsonObject, void>(
+    final _path = _i4.UriTemplate('/{path_parameter}').expand(_parameters);
+    return _i1.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -484,7 +484,7 @@ class $Client extends _i3.DynamiteClient {
   ///
   /// See:
   ///  * [getNamingCollisionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i3.DynamiteResponse<JsonObject, void>> getNamingCollisions({
+  Future<_i1.DynamiteResponse<JsonObject, void>> getNamingCollisions({
     required String jsonSerializers,
     required String serializers,
     required String body,
@@ -512,8 +512,8 @@ class $Client extends _i3.DynamiteClient {
   ///
   /// See:
   ///  * [getNamingCollisions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
-  _i3.DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
+  @_i2.experimental
+  _i1.DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
     required String jsonSerializers,
     required String serializers,
     required String body,
@@ -528,26 +528,26 @@ class $Client extends _i3.DynamiteClient {
 
     final $serializers = _$jsonSerializers.serialize(serializers, specifiedType: const FullType(String));
     if ($serializers != null) {
-      _headers['%24serializers'] = const _i1.HeaderEncoder().convert($serializers);
+      _headers['%24serializers'] = const _i3.HeaderEncoder().convert($serializers);
     }
 
     final $body = _$jsonSerializers.serialize(body, specifiedType: const FullType(String));
     if ($body != null) {
-      _headers['_body'] = const _i1.HeaderEncoder().convert($body);
+      _headers['_body'] = const _i3.HeaderEncoder().convert($body);
     }
 
     final $parameters = _$jsonSerializers.serialize(parameters, specifiedType: const FullType(String));
     if ($parameters != null) {
-      _headers['_parameters'] = const _i1.HeaderEncoder().convert($parameters);
+      _headers['_parameters'] = const _i3.HeaderEncoder().convert($parameters);
     }
 
     final $headers = _$jsonSerializers.serialize(headers, specifiedType: const FullType(String));
     if ($headers != null) {
-      _headers['_headers'] = const _i1.HeaderEncoder().convert($headers);
+      _headers['_headers'] = const _i3.HeaderEncoder().convert($headers);
     }
 
-    final _path = _i2.UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
-    return _i3.DynamiteRawResponse<JsonObject, void>(
+    final _path = _i4.UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -744,13 +744,13 @@ extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c
   List<String> get _names => const [r'$bool', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -816,7 +816,7 @@ class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -841,7 +841,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

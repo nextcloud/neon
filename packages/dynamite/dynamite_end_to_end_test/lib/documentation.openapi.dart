@@ -26,15 +26,15 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:dynamite_runtime/built_value.dart' as _i5;
-import 'package:dynamite_runtime/http_client.dart' as _i2;
+import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/utils.dart' as _i4;
-import 'package:meta/meta.dart' as _i3;
-import 'package:uri/uri.dart' as _i1;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i3;
 
 part 'documentation.openapi.g.dart';
 
 /// the root client used for root requests.
-class $Client extends _i2.DynamiteClient {
+class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
@@ -44,7 +44,7 @@ class $Client extends _i2.DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(_i2.DynamiteClient client)
+  $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -76,7 +76,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [findValuesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i2.DynamiteResponse<Object1, void>> findValues({
+  Future<_i1.DynamiteResponse<Object1, void>> findValues({
     BuiltList<String>? tags,
     int? limit,
   }) async {
@@ -110,8 +110,8 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [findValues] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
-  _i2.DynamiteRawResponse<Object1, void> findValuesRaw({
+  @_i2.experimental
+  _i1.DynamiteRawResponse<Object1, void> findValuesRaw({
     BuiltList<String>? tags,
     int? limit,
   }) {
@@ -124,8 +124,8 @@ class $Client extends _i2.DynamiteClient {
     final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = $limit;
 
-    final _path = _i1.UriTemplate('/{?tags*,limit*}').expand(_parameters);
-    return _i2.DynamiteRawResponse<Object1, void>(
+    final _path = _i3.UriTemplate('/{?tags*,limit*}').expand(_parameters);
+    return _i1.DynamiteRawResponse<Object1, void>(
       response: executeRequest(
         'get',
         _path,
@@ -155,7 +155,7 @@ class $NonRootClientClient {
   ///
   /// See:
   ///  * [setModeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i2.DynamiteResponse<Object1, void>> setMode() async {
+  Future<_i1.DynamiteResponse<Object1, void>> setMode() async {
     final rawResponse = setModeRaw();
 
     return rawResponse.future;
@@ -173,12 +173,12 @@ class $NonRootClientClient {
   ///
   /// See:
   ///  * [setMode] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
-  _i2.DynamiteRawResponse<Object1, void> setModeRaw() {
+  @_i2.experimental
+  _i1.DynamiteRawResponse<Object1, void> setModeRaw() {
     const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/other-endpoint';
-    return _i2.DynamiteRawResponse<Object1, void>(
+    return _i1.DynamiteRawResponse<Object1, void>(
       response: _rootClient.executeRequest(
         'post',
         _path,
@@ -419,7 +419,7 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
@@ -435,7 +435,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

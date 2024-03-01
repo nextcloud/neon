@@ -208,8 +208,6 @@ Serializer<ApiGenerateNotificationResponseApplicationJson_Ocs>
     _$ApiGenerateNotificationResponseApplicationJson_OcsSerializer();
 Serializer<ApiGenerateNotificationResponseApplicationJson> _$apiGenerateNotificationResponseApplicationJsonSerializer =
     _$ApiGenerateNotificationResponseApplicationJsonSerializer();
-Serializer<EndpointEndpointListNotificationsHeaders> _$endpointEndpointListNotificationsHeadersSerializer =
-    _$EndpointEndpointListNotificationsHeadersSerializer();
 Serializer<NotificationAction> _$notificationActionSerializer = _$NotificationActionSerializer();
 Serializer<Notification> _$notificationSerializer = _$NotificationSerializer();
 Serializer<EndpointListNotificationsResponseApplicationJson_Ocs>
@@ -218,6 +216,8 @@ Serializer<EndpointListNotificationsResponseApplicationJson_Ocs>
 Serializer<EndpointListNotificationsResponseApplicationJson>
     _$endpointListNotificationsResponseApplicationJsonSerializer =
     _$EndpointListNotificationsResponseApplicationJsonSerializer();
+Serializer<EndpointEndpointListNotificationsHeaders> _$endpointEndpointListNotificationsHeadersSerializer =
+    _$EndpointEndpointListNotificationsHeadersSerializer();
 Serializer<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs>
     _$endpointDeleteAllNotificationsResponseApplicationJsonOcsSerializer =
     _$EndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer();
@@ -415,52 +415,6 @@ class _$ApiGenerateNotificationResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ApiGenerateNotificationResponseApplicationJson_Ocs))!
               as ApiGenerateNotificationResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$EndpointEndpointListNotificationsHeadersSerializer
-    implements StructuredSerializer<EndpointEndpointListNotificationsHeaders> {
-  @override
-  final Iterable<Type> types = const [
-    EndpointEndpointListNotificationsHeaders,
-    _$EndpointEndpointListNotificationsHeaders
-  ];
-  @override
-  final String wireName = 'EndpointEndpointListNotificationsHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, EndpointEndpointListNotificationsHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xNextcloudUserStatus;
-    if (value != null) {
-      result
-        ..add('x-nextcloud-user-status')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  EndpointEndpointListNotificationsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointEndpointListNotificationsHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-nextcloud-user-status':
-          result.xNextcloudUserStatus =
-              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -750,6 +704,52 @@ class _$EndpointListNotificationsResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(EndpointListNotificationsResponseApplicationJson_Ocs))!
               as EndpointListNotificationsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$EndpointEndpointListNotificationsHeadersSerializer
+    implements StructuredSerializer<EndpointEndpointListNotificationsHeaders> {
+  @override
+  final Iterable<Type> types = const [
+    EndpointEndpointListNotificationsHeaders,
+    _$EndpointEndpointListNotificationsHeaders
+  ];
+  @override
+  final String wireName = 'EndpointEndpointListNotificationsHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, EndpointEndpointListNotificationsHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudUserStatus;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-user-status')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  EndpointEndpointListNotificationsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = EndpointEndpointListNotificationsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-user-status':
+          result.xNextcloudUserStatus =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -2003,97 +2003,6 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $EndpointEndpointListNotificationsHeadersInterfaceBuilder {
-  void replace($EndpointEndpointListNotificationsHeadersInterface other);
-  void update(void Function($EndpointEndpointListNotificationsHeadersInterfaceBuilder) updates);
-  String? get xNextcloudUserStatus;
-  set xNextcloudUserStatus(String? xNextcloudUserStatus);
-}
-
-class _$EndpointEndpointListNotificationsHeaders extends EndpointEndpointListNotificationsHeaders {
-  @override
-  final String? xNextcloudUserStatus;
-
-  factory _$EndpointEndpointListNotificationsHeaders(
-          [void Function(EndpointEndpointListNotificationsHeadersBuilder)? updates]) =>
-      (EndpointEndpointListNotificationsHeadersBuilder()..update(updates))._build();
-
-  _$EndpointEndpointListNotificationsHeaders._({this.xNextcloudUserStatus}) : super._();
-
-  @override
-  EndpointEndpointListNotificationsHeaders rebuild(
-          void Function(EndpointEndpointListNotificationsHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  EndpointEndpointListNotificationsHeadersBuilder toBuilder() =>
-      EndpointEndpointListNotificationsHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is EndpointEndpointListNotificationsHeaders && xNextcloudUserStatus == other.xNextcloudUserStatus;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xNextcloudUserStatus.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'EndpointEndpointListNotificationsHeaders')
-          ..add('xNextcloudUserStatus', xNextcloudUserStatus))
-        .toString();
-  }
-}
-
-class EndpointEndpointListNotificationsHeadersBuilder
-    implements
-        Builder<EndpointEndpointListNotificationsHeaders, EndpointEndpointListNotificationsHeadersBuilder>,
-        $EndpointEndpointListNotificationsHeadersInterfaceBuilder {
-  _$EndpointEndpointListNotificationsHeaders? _$v;
-
-  String? _xNextcloudUserStatus;
-  String? get xNextcloudUserStatus => _$this._xNextcloudUserStatus;
-  set xNextcloudUserStatus(covariant String? xNextcloudUserStatus) =>
-      _$this._xNextcloudUserStatus = xNextcloudUserStatus;
-
-  EndpointEndpointListNotificationsHeadersBuilder();
-
-  EndpointEndpointListNotificationsHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xNextcloudUserStatus = $v.xNextcloudUserStatus;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant EndpointEndpointListNotificationsHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$EndpointEndpointListNotificationsHeaders;
-  }
-
-  @override
-  void update(void Function(EndpointEndpointListNotificationsHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  EndpointEndpointListNotificationsHeaders build() => _build();
-
-  _$EndpointEndpointListNotificationsHeaders _build() {
-    final _$result = _$v ?? _$EndpointEndpointListNotificationsHeaders._(xNextcloudUserStatus: xNextcloudUserStatus);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $NotificationActionInterfaceBuilder {
   void replace($NotificationActionInterface other);
   void update(void Function($NotificationActionInterfaceBuilder) updates);
@@ -2800,6 +2709,97 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $EndpointEndpointListNotificationsHeadersInterfaceBuilder {
+  void replace($EndpointEndpointListNotificationsHeadersInterface other);
+  void update(void Function($EndpointEndpointListNotificationsHeadersInterfaceBuilder) updates);
+  String? get xNextcloudUserStatus;
+  set xNextcloudUserStatus(String? xNextcloudUserStatus);
+}
+
+class _$EndpointEndpointListNotificationsHeaders extends EndpointEndpointListNotificationsHeaders {
+  @override
+  final String? xNextcloudUserStatus;
+
+  factory _$EndpointEndpointListNotificationsHeaders(
+          [void Function(EndpointEndpointListNotificationsHeadersBuilder)? updates]) =>
+      (EndpointEndpointListNotificationsHeadersBuilder()..update(updates))._build();
+
+  _$EndpointEndpointListNotificationsHeaders._({this.xNextcloudUserStatus}) : super._();
+
+  @override
+  EndpointEndpointListNotificationsHeaders rebuild(
+          void Function(EndpointEndpointListNotificationsHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  EndpointEndpointListNotificationsHeadersBuilder toBuilder() =>
+      EndpointEndpointListNotificationsHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is EndpointEndpointListNotificationsHeaders && xNextcloudUserStatus == other.xNextcloudUserStatus;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNextcloudUserStatus.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'EndpointEndpointListNotificationsHeaders')
+          ..add('xNextcloudUserStatus', xNextcloudUserStatus))
+        .toString();
+  }
+}
+
+class EndpointEndpointListNotificationsHeadersBuilder
+    implements
+        Builder<EndpointEndpointListNotificationsHeaders, EndpointEndpointListNotificationsHeadersBuilder>,
+        $EndpointEndpointListNotificationsHeadersInterfaceBuilder {
+  _$EndpointEndpointListNotificationsHeaders? _$v;
+
+  String? _xNextcloudUserStatus;
+  String? get xNextcloudUserStatus => _$this._xNextcloudUserStatus;
+  set xNextcloudUserStatus(covariant String? xNextcloudUserStatus) =>
+      _$this._xNextcloudUserStatus = xNextcloudUserStatus;
+
+  EndpointEndpointListNotificationsHeadersBuilder();
+
+  EndpointEndpointListNotificationsHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNextcloudUserStatus = $v.xNextcloudUserStatus;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant EndpointEndpointListNotificationsHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$EndpointEndpointListNotificationsHeaders;
+  }
+
+  @override
+  void update(void Function(EndpointEndpointListNotificationsHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  EndpointEndpointListNotificationsHeaders build() => _build();
+
+  _$EndpointEndpointListNotificationsHeaders _build() {
+    final _$result = _$v ?? _$EndpointEndpointListNotificationsHeaders._(xNextcloudUserStatus: xNextcloudUserStatus);
     replace(_$result);
     return _$result;
   }

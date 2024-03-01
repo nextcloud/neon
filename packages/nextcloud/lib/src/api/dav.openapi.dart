@@ -21,9 +21,9 @@ import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'dav.openapi.g.dart';
 
@@ -110,7 +110,7 @@ class $DirectClient {
   ///
   /// See:
   ///  * [getUrl] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
     required int fileId,
     required int expirationTime,
@@ -144,9 +144,9 @@ class $DirectClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
     return _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -212,7 +212,7 @@ class $OutOfOfficeClient {
   ///
   /// See:
   ///  * [getCurrentOutOfOfficeData] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>
       getCurrentOutOfOfficeDataRaw({
     required String userId,
@@ -243,9 +243,9 @@ class $OutOfOfficeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
     return _i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -303,7 +303,7 @@ class $OutOfOfficeClient {
   ///
   /// See:
   ///  * [getOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void> getOutOfOfficeRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -333,9 +333,9 @@ class $OutOfOfficeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
     return _i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -411,7 +411,7 @@ class $OutOfOfficeClient {
   ///
   /// See:
   ///  * [setOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void> setOutOfOfficeRaw({
     required String firstDay,
     required String lastDay,
@@ -457,10 +457,10 @@ class $OutOfOfficeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}{?firstDay*,lastDay*,status*,message*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}{?firstDay*,lastDay*,status*,message*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -519,7 +519,7 @@ class $OutOfOfficeClient {
   ///
   /// See:
   ///  * [clearOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void> clearOutOfOfficeRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -549,9 +549,9 @@ class $OutOfOfficeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
     return _i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1206,7 +1206,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -1282,7 +1282,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

@@ -185,26 +185,6 @@ Iterable<Method> buildTags(
       ]..sort(sortRequiredParameters);
       final name = toMethodName(operationName, tag);
 
-      final hasContentEncoding = operation.requestBody?.content?.entries.isNotEmpty ?? false;
-      final hasAuthentication = needsAuthCheck(pathEntry, operation, spec, client);
-      var hasUriParameters = false;
-      var hasHeaderParameters = false;
-      for (final parameter in parameters) {
-        switch (parameter.$in) {
-          case openapi.ParameterType.path:
-          case openapi.ParameterType.query:
-            hasUriParameters = true;
-          case openapi.ParameterType.header:
-            hasHeaderParameters = true;
-          default:
-        }
-
-        // No need to continue searching.
-        if (hasHeaderParameters && hasUriParameters) {
-          break;
-        }
-      }
-
       var responses = <openapi.Response, Set<dynamic>>{};
       if (operation.responses != null) {
         for (final responseEntry in operation.responses!.entries) {
@@ -221,60 +201,10 @@ Iterable<Method> buildTags(
         }
       }
       final responseEntry = responses.entries.single;
+      final operationParameters = <Parameter>[];
 
-      final code = StringBuffer();
-      final acceptHeader = responses.keys
-          .map((response) => response.content?.keys)
-          .whereNotNull()
-          .expand((element) => element)
-          .toSet()
-          .join(',');
-
-      if (hasUriParameters) {
-        code.writeln('final _parameters = <String, dynamic>{};');
-      }
-
-      Expression? headersExpression;
-      if (hasHeaderParameters || hasAuthentication || hasContentEncoding) {
-        headersExpression = declareFinal('_headers');
-      } else if (acceptHeader.isNotEmpty) {
-        headersExpression = declareConst('_headers');
-      }
-
-      if (headersExpression != null) {
-        final headersCode = headersExpression
-            .assign(
-              literalMap(
-                {if (acceptHeader.isNotEmpty) 'Accept': acceptHeader},
-                refer('String'),
-                refer('String'),
-              ),
-            )
-            .statement
-            .accept(state.emitter);
-
-        code.writeln(headersCode);
-      }
-
-      if (operation.requestBody != null) {
-        code.writeln('Uint8List? _body;');
-      }
-      // Separate the declarations from the assignments
-      code.writeln();
-
-      if (hasAuthentication) {
-        buildAuthCheck(
-          state,
-          operation,
-          spec,
-          client,
-          code,
-        );
-      }
-
-      final operationParameters = ListBuilder<Parameter>();
-      final annotations = operation.deprecated ? refer('Deprecated').call([refer("''")]) : null;
-
+      final pathParameters = <openapi.Parameter, TypeResult>{};
+      final headerParameters = <openapi.Parameter, TypeResult>{};
       for (final parameter in parameters) {
         final parameterRequired = isRequired(
           parameter.required,
@@ -292,6 +222,12 @@ Iterable<Method> buildTags(
           nullable: !parameterRequired,
         );
 
+        if (parameter.$in == openapi.ParameterType.header) {
+          headerParameters[parameter] = result;
+        } else {
+          pathParameters[parameter] = result;
+        }
+
         operationParameters.add(
           Parameter(
             (b) {
@@ -303,8 +239,6 @@ Iterable<Method> buildTags(
             },
           ),
         );
-
-        code.writeln(buildParameterSerialization(result, parameter, state, state.emitter.allocator.allocate));
       }
 
       ({String mimeType, TypeResult result})? bodyParameter;
@@ -351,10 +285,6 @@ Iterable<Method> buildTags(
         }
       }
 
-      if (bodyParameter != null) {
-        resolveMimeTypeEncode(bodyParameter.mimeType, bodyParameter.result, code);
-      }
-
       final bodyType = buildBodyType(
         state,
         responseEntry.key,
@@ -370,49 +300,24 @@ Iterable<Method> buildTags(
         tag,
       );
 
-      buildUrlPath(pathEntry.key, parameters, code, state.emitter.allocator.allocate);
-
-      final statusCodes = responseEntry.value;
-      final returnValue = refer(
-        'DynamiteRawResponse<${bodyType.name}, ${headersType.name}>',
-        'package:dynamite_runtime/http_client.dart',
-      ).newInstance(const [], {
-        'response': refer(client).property('executeRequest').call([
-          literalString(httpMethod),
-          refer('_path'),
-        ], {
-          if (acceptHeader.isNotEmpty || hasHeaderParameters || hasAuthentication || hasContentEncoding)
-            'headers': refer('_headers'),
-          if (operation.requestBody != null) 'body': refer('_body'),
-          if (responses.values.isNotEmpty && !statusCodes.contains('default'))
-            'validStatuses': literalConstSet(statusCodes),
-        }),
-        'bodyType': refer(bodyType.fullType ?? 'null'),
-        'headersType': refer(headersType.fullType ?? 'null'),
-        'serializers': refer(r'_$jsonSerializers'),
-      });
-
-      code.writeln(returnValue.returned.statement.accept(state.emitter));
-
       yield Method((b) {
         b
           ..name = name
           ..modifier = MethodModifier.async
           ..docs.addAll(operation.formattedDescription(name));
 
-        if (annotations != null) {
-          b.annotations.add(annotations);
+        if (operation.deprecated) {
+          b.annotations.add(refer('Deprecated').call([refer("''")]));
         }
 
-        final parameters = operationParameters.build();
-        final rawParameters = parameters.map((p) => '${p.name}: ${p.name},').join('\n');
+        final rawParameters = operationParameters.map((p) => '${p.name}: ${p.name},').join('\n');
         final responseType = refer(
           'DynamiteResponse<${bodyType.name}, ${headersType.name}>',
           'package:dynamite_runtime/http_client.dart',
         ).accept(state.emitter);
 
         b
-          ..optionalParameters.addAll(parameters)
+          ..optionalParameters.addAll(operationParameters)
           ..returns = refer('Future<$responseType>')
           ..body = Code('''
 final rawResponse = ${name}Raw(
@@ -430,17 +335,108 @@ return rawResponse.future;
             ..docs.addAll(operation.formattedDescription(name, isRawRequest: true))
             ..annotations.add(refer('experimental', 'package:meta/meta.dart'));
 
-          if (annotations != null) {
-            b.annotations.add(annotations);
+          if (operation.deprecated) {
+            b.annotations.add(refer('Deprecated').call([refer("''")]));
           }
 
           b
-            ..optionalParameters.addAll(operationParameters.build())
+            ..optionalParameters.addAll(operationParameters)
             ..returns = refer(
               'DynamiteRawResponse<${bodyType.name}, ${headersType.name}>',
               'package:dynamite_runtime/http_client.dart',
             )
-            ..body = Code(code.toString());
+            ..body = Code.scope((allocate) {
+              final hasUriParameters = pathParameters.isNotEmpty;
+              final hasHeaderParameters = headerParameters.isNotEmpty;
+              final hasAuthentication = needsAuthCheck(pathEntry, operation, spec, client);
+              final hasContentEncoding = bodyParameter != null;
+
+              final code = StringBuffer();
+              final acceptHeader = responses.keys
+                  .map((response) => response.content?.keys)
+                  .whereNotNull()
+                  .expand((element) => element)
+                  .toSet()
+                  .join(',');
+
+              if (hasUriParameters) {
+                code.writeln('final _parameters = <String, dynamic>{};');
+              }
+
+              Expression? headersExpression;
+              if (hasHeaderParameters || hasAuthentication || hasContentEncoding) {
+                headersExpression = declareFinal('_headers');
+              } else if (acceptHeader.isNotEmpty) {
+                headersExpression = declareConst('_headers');
+              }
+
+              if (headersExpression != null) {
+                final headersCode = headersExpression
+                    .assign(
+                      literalMap(
+                        {if (acceptHeader.isNotEmpty) 'Accept': acceptHeader},
+                        refer('String'),
+                        refer('String'),
+                      ),
+                    )
+                    .statement
+                    .accept(state.emitter);
+
+                code.writeln(headersCode);
+              }
+
+              if (hasContentEncoding) {
+                code.writeln('Uint8List? _body;');
+              }
+              // Separate the declarations from the assignments
+              code.writeln();
+
+              if (hasAuthentication) {
+                buildAuthCheck(
+                  state,
+                  operation,
+                  spec,
+                  client,
+                  code,
+                );
+              }
+
+              for (final parameter in pathParameters.entries) {
+                code.writeln(buildParameterSerialization(parameter.value, parameter.key, state, allocate));
+              }
+              for (final parameter in headerParameters.entries) {
+                code.writeln(buildParameterSerialization(parameter.value, parameter.key, state, allocate));
+              }
+
+              if (bodyParameter != null) {
+                resolveMimeTypeEncode(bodyParameter.mimeType, bodyParameter.result, code);
+              }
+
+              buildUrlPath(pathEntry.key, parameters, code, state.emitter.allocator.allocate);
+
+              final statusCodes = responseEntry.value;
+              final returnValue = refer(
+                'DynamiteRawResponse<${bodyType.name}, ${headersType.name}>',
+                'package:dynamite_runtime/http_client.dart',
+              ).newInstance(const [], {
+                'response': refer(client).property('executeRequest').call([
+                  literalString(httpMethod),
+                  refer('_path'),
+                ], {
+                  if (acceptHeader.isNotEmpty || hasHeaderParameters || hasAuthentication || hasContentEncoding)
+                    'headers': refer('_headers'),
+                  if (operation.requestBody != null) 'body': refer('_body'),
+                  if (responses.values.isNotEmpty && !statusCodes.contains('default'))
+                    'validStatuses': literalConstSet(statusCodes),
+                }),
+                'bodyType': refer(bodyType.fullType ?? 'null'),
+                'headersType': refer(headersType.fullType ?? 'null'),
+                'serializers': refer(r'_$jsonSerializers'),
+              });
+
+              code.writeln(returnValue.returned.statement.accept(state.emitter));
+              return code.toString();
+            });
         },
       );
     }

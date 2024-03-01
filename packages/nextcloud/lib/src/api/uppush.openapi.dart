@@ -11,7 +11,7 @@
 /// Use Nextcloud as a push provider for mobile phones' notifications.
 ///
 /// Use of this source code is governed by a agpl license.
-@_i3.experimental
+@_i2.experimental
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_collection/built_collection.dart';
@@ -21,8 +21,8 @@ import 'package:built_value/standard_json_plugin.dart' as _i5;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i4;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:meta/meta.dart' as _i3;
-import 'package:uri/uri.dart' as _i2;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i3;
 
 part 'uppush.openapi.g.dart';
 
@@ -74,7 +74,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [check] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CheckResponseApplicationJson, void> checkRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -149,7 +149,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [setKeepalive] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required int keepalive}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -174,7 +174,7 @@ class $Client extends _i1.DynamiteClient {
     final $keepalive = _$jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
     _parameters['keepalive'] = $keepalive;
 
-    final _path = _i2.UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
     return _i1.DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void>(
       response: executeRequest(
         'put',
@@ -226,7 +226,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [createDevice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CreateDeviceResponseApplicationJson, void> createDeviceRaw({required String deviceName}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -251,7 +251,7 @@ class $Client extends _i1.DynamiteClient {
     final $deviceName = _$jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
     _parameters['deviceName'] = $deviceName;
 
-    final _path = _i2.UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
     return _i1.DynamiteRawResponse<CreateDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'put',
@@ -299,7 +299,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [syncDevice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SyncDeviceResponseApplicationJson, void> syncDeviceRaw({required String deviceId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -324,7 +324,7 @@ class $Client extends _i1.DynamiteClient {
     final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
     return _i1.DynamiteRawResponse<SyncDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'get',
@@ -370,7 +370,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [deleteDevice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({required String deviceId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -395,7 +395,7 @@ class $Client extends _i1.DynamiteClient {
     final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
     return _i1.DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
@@ -451,7 +451,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [createApp] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CreateAppResponseApplicationJson, void> createAppRaw({
     required String deviceId,
     required String appName,
@@ -482,7 +482,7 @@ class $Client extends _i1.DynamiteClient {
     final $appName = _$jsonSerializers.serialize(appName, specifiedType: const FullType(String));
     _parameters['appName'] = $appName;
 
-    final _path = _i2.UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
     return _i1.DynamiteRawResponse<CreateAppResponseApplicationJson, void>(
       response: executeRequest(
         'put',
@@ -526,7 +526,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [deleteApp] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<DeleteAppResponseApplicationJson, void> deleteAppRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -551,7 +551,7 @@ class $Client extends _i1.DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i2.UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<DeleteAppResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
@@ -597,7 +597,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [unifiedpushDiscovery] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
     required String token,
   }) {
@@ -624,7 +624,7 @@ class $Client extends _i1.DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i2.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
@@ -668,7 +668,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [push] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<PushResponseApplicationJson, void> pushRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -693,7 +693,7 @@ class $Client extends _i1.DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i2.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<PushResponseApplicationJson, void>(
       response: executeRequest(
         'post',
@@ -735,7 +735,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [gatewayMatrixDiscovery] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -798,7 +798,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [gatewayMatrix] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1323,7 +1323,7 @@ abstract class GatewayMatrixResponseApplicationJson
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(CheckResponseApplicationJson), CheckResponseApplicationJsonBuilder.new)
@@ -1386,7 +1386,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i4.DynamiteDoubleSerializer())

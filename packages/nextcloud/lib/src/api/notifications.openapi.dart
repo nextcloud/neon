@@ -22,9 +22,9 @@ import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'notifications.openapi.g.dart';
 
@@ -127,7 +127,7 @@ class $ApiClient {
   ///
   /// See:
   ///  * [generateNotification] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void> generateNotificationRaw({
     required String shortMessage,
     required String userId,
@@ -172,9 +172,9 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}{?shortMessage*,longMessage*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void>(
@@ -244,7 +244,7 @@ class $EndpointClient {
   ///
   /// See:
   ///  * [listNotifications] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>
       listNotificationsRaw({
     EndpointListNotificationsApiVersion? apiVersion,
@@ -277,9 +277,9 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
     return _i1.DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson,
         EndpointEndpointListNotificationsHeaders>(
       response: _rootClient.executeRequest(
@@ -338,7 +338,7 @@ class $EndpointClient {
   ///
   /// See:
   ///  * [deleteAllNotifications] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void> deleteAllNotificationsRaw({
     EndpointDeleteAllNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -372,9 +372,9 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
     return _i1.DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -436,7 +436,7 @@ class $EndpointClient {
   ///
   /// See:
   ///  * [getNotification] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void> getNotificationRaw({
     required int id,
     EndpointGetNotificationApiVersion? apiVersion,
@@ -472,10 +472,10 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -539,7 +539,7 @@ class $EndpointClient {
   ///
   /// See:
   ///  * [deleteNotification] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void> deleteNotificationRaw({
     required int id,
     EndpointDeleteNotificationApiVersion? apiVersion,
@@ -575,10 +575,10 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -640,7 +640,7 @@ class $EndpointClient {
   ///
   /// See:
   ///  * [confirmIdsForUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void> confirmIdsForUserRaw({
     required BuiltList<int> ids,
     EndpointConfirmIdsForUserApiVersion? apiVersion,
@@ -676,9 +676,9 @@ class $EndpointClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -763,7 +763,7 @@ class $PushClient {
   ///
   /// See:
   ///  * [registerDevice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void> registerDeviceRaw({
     required String pushTokenHash,
     required String devicePublicKey,
@@ -807,9 +807,9 @@ class $PushClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/push{?pushTokenHash*,devicePublicKey*,proxyServer*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void>(
@@ -876,7 +876,7 @@ class $PushClient {
   ///
   /// See:
   ///  * [removeDevice] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void> removeDeviceRaw({
     PushRemoveDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -908,9 +908,9 @@ class $PushClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(_parameters);
     return _i1.DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -989,7 +989,7 @@ class $SettingsClient {
   ///
   /// See:
   ///  * [personal] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void> personalRaw({
     required int batchSetting,
     required String soundNotification,
@@ -1033,9 +1033,9 @@ class $SettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings{?batchSetting*,soundNotification*,soundTalk*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void>(
@@ -1109,7 +1109,7 @@ class $SettingsClient {
   ///
   /// See:
   ///  * [admin] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SettingsAdminResponseApplicationJson, void> adminRaw({
     required int batchSetting,
     required String soundNotification,
@@ -1152,9 +1152,9 @@ class $SettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin{?batchSetting*,soundNotification*,soundTalk*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<SettingsAdminResponseApplicationJson, void>(
@@ -1411,45 +1411,6 @@ class _$EndpointListNotificationsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointEndpointListNotificationsHeadersInterface {
-  @BuiltValueField(wireName: 'x-nextcloud-user-status')
-  String? get xNextcloudUserStatus;
-}
-
-abstract class EndpointEndpointListNotificationsHeaders
-    implements
-        $EndpointEndpointListNotificationsHeadersInterface,
-        Built<EndpointEndpointListNotificationsHeaders, EndpointEndpointListNotificationsHeadersBuilder> {
-  /// Creates a new EndpointEndpointListNotificationsHeaders object using the builder pattern.
-  factory EndpointEndpointListNotificationsHeaders([
-    void Function(EndpointEndpointListNotificationsHeadersBuilder)? b,
-  ]) = _$EndpointEndpointListNotificationsHeaders;
-
-  // coverage:ignore-start
-  const EndpointEndpointListNotificationsHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory EndpointEndpointListNotificationsHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for EndpointEndpointListNotificationsHeaders.
-  static Serializer<EndpointEndpointListNotificationsHeaders> get serializer =>
-      _$endpointEndpointListNotificationsHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $NotificationActionInterface {
   String get label;
   String get link;
@@ -1611,6 +1572,45 @@ abstract class EndpointListNotificationsResponseApplicationJson
   /// Serializer for EndpointListNotificationsResponseApplicationJson.
   static Serializer<EndpointListNotificationsResponseApplicationJson> get serializer =>
       _$endpointListNotificationsResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $EndpointEndpointListNotificationsHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-user-status')
+  String? get xNextcloudUserStatus;
+}
+
+abstract class EndpointEndpointListNotificationsHeaders
+    implements
+        $EndpointEndpointListNotificationsHeadersInterface,
+        Built<EndpointEndpointListNotificationsHeaders, EndpointEndpointListNotificationsHeadersBuilder> {
+  /// Creates a new EndpointEndpointListNotificationsHeaders object using the builder pattern.
+  factory EndpointEndpointListNotificationsHeaders([
+    void Function(EndpointEndpointListNotificationsHeadersBuilder)? b,
+  ]) = _$EndpointEndpointListNotificationsHeaders;
+
+  // coverage:ignore-start
+  const EndpointEndpointListNotificationsHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory EndpointEndpointListNotificationsHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for EndpointEndpointListNotificationsHeaders.
+  static Serializer<EndpointEndpointListNotificationsHeaders> get serializer =>
+      _$endpointEndpointListNotificationsHeadersSerializer;
 }
 
 class EndpointDeleteAllNotificationsApiVersion extends EnumClass {
@@ -2825,7 +2825,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ApiGenerateNotificationApiVersion.serializer)
@@ -2842,11 +2842,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..add(EndpointListNotificationsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(EndpointEndpointListNotificationsHeaders),
-        EndpointEndpointListNotificationsHeadersBuilder.new,
-      )
-      ..add(EndpointEndpointListNotificationsHeaders.serializer)
       ..addBuilderFactory(
         const FullType(EndpointListNotificationsResponseApplicationJson),
         EndpointListNotificationsResponseApplicationJsonBuilder.new,
@@ -2870,6 +2865,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, JsonObject>.new,
       )
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Notification)]), ListBuilder<Notification>.new)
+      ..addBuilderFactory(
+        const FullType(EndpointEndpointListNotificationsHeaders),
+        EndpointEndpointListNotificationsHeadersBuilder.new,
+      )
+      ..add(EndpointEndpointListNotificationsHeaders.serializer)
       ..add(EndpointDeleteAllNotificationsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(EndpointDeleteAllNotificationsResponseApplicationJson),
@@ -2972,7 +2972,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())
