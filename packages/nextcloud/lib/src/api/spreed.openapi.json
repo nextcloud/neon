@@ -1220,7 +1220,10 @@
                     "command",
                     "comment_deleted",
                     "reaction",
-                    "reaction_deleted"
+                    "reaction_deleted",
+                    "voice-message",
+                    "record-audio",
+                    "record-video"
                 ]
             },
             "ActorType": {

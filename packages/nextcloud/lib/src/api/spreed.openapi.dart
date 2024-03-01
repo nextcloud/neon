@@ -13552,6 +13552,18 @@ class MessageType extends EnumClass {
   @BuiltValueEnumConst(wireName: 'reaction_deleted')
   static const MessageType reactionDeleted = _$messageTypeReactionDeleted;
 
+  /// `voice-message`
+  @BuiltValueEnumConst(wireName: 'voice-message')
+  static const MessageType voiceMessage = _$messageTypeVoiceMessage;
+
+  /// `record-audio`
+  @BuiltValueEnumConst(wireName: 'record-audio')
+  static const MessageType recordAudio = _$messageTypeRecordAudio;
+
+  /// `record-video`
+  @BuiltValueEnumConst(wireName: 'record-video')
+  static const MessageType recordVideo = _$messageTypeRecordVideo;
+
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MessageType> get values => _$messageTypeValues;
@@ -13579,6 +13591,9 @@ class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
     MessageType.commentDeleted: 'comment_deleted',
     MessageType.reaction: 'reaction',
     MessageType.reactionDeleted: 'reaction_deleted',
+    MessageType.voiceMessage: 'voice-message',
+    MessageType.recordAudio: 'record-audio',
+    MessageType.recordVideo: 'record-video',
   };
 
   static const Map<Object, MessageType> _fromWire = <Object, MessageType>{
@@ -13589,6 +13604,9 @@ class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
     'comment_deleted': MessageType.commentDeleted,
     'reaction': MessageType.reaction,
     'reaction_deleted': MessageType.reactionDeleted,
+    'voice-message': MessageType.voiceMessage,
+    'record-audio': MessageType.recordAudio,
+    'record-video': MessageType.recordVideo,
   };
 
   @override

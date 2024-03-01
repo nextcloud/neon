@@ -128,6 +128,9 @@ const MessageType _$messageTypeCommand = MessageType._('command');
 const MessageType _$messageTypeCommentDeleted = MessageType._('commentDeleted');
 const MessageType _$messageTypeReaction = MessageType._('reaction');
 const MessageType _$messageTypeReactionDeleted = MessageType._('reactionDeleted');
+const MessageType _$messageTypeVoiceMessage = MessageType._('voiceMessage');
+const MessageType _$messageTypeRecordAudio = MessageType._('recordAudio');
+const MessageType _$messageTypeRecordVideo = MessageType._('recordVideo');
 
 MessageType _$valueOfMessageType(String name) {
   switch (name) {
@@ -145,6 +148,12 @@ MessageType _$valueOfMessageType(String name) {
       return _$messageTypeReaction;
     case 'reactionDeleted':
       return _$messageTypeReactionDeleted;
+    case 'voiceMessage':
+      return _$messageTypeVoiceMessage;
+    case 'recordAudio':
+      return _$messageTypeRecordAudio;
+    case 'recordVideo':
+      return _$messageTypeRecordVideo;
     default:
       throw ArgumentError(name);
   }
@@ -158,6 +167,9 @@ final BuiltSet<MessageType> _$messageTypeValues = BuiltSet<MessageType>(const <M
   _$messageTypeCommentDeleted,
   _$messageTypeReaction,
   _$messageTypeReactionDeleted,
+  _$messageTypeVoiceMessage,
+  _$messageTypeRecordAudio,
+  _$messageTypeRecordVideo,
 ]);
 
 const AvatarDeleteAvatarApiVersion _$avatarDeleteAvatarApiVersionV1 = AvatarDeleteAvatarApiVersion._('v1');
