@@ -311,14 +311,23 @@ Iterable<Method> buildTags(
         }
 
         final rawParameters = operationParameters.map((p) => '${p.name}: ${p.name},').join('\n');
-        final responseType = refer(
-          'DynamiteResponse<${bodyType.name}, ${headersType.name}>',
-          'package:dynamite_runtime/http_client.dart',
-        ).accept(state.emitter);
+        final responseType = TypeReference(
+          (b) => b
+            ..symbol = 'DynamiteResponse'
+            ..types.addAll([
+              refer(bodyType.name),
+              refer(headersType.name),
+            ])
+            ..url = 'package:dynamite_runtime/http_client.dart',
+        );
 
         b
           ..optionalParameters.addAll(operationParameters)
-          ..returns = refer('Future<$responseType>')
+          ..returns = TypeReference(
+            (b) => b
+              ..symbol = 'Future'
+              ..types.add(responseType),
+          )
           ..body = Code('''
 final rawResponse = ${name}Raw(
   $rawParameters
