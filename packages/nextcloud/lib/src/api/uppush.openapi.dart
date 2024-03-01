@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// uppush Version: 1.4.0.
 ///
@@ -45,6 +46,14 @@ class $Client extends _i1.DynamiteClient {
           cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
+
+  /// Builds a serializer to parse the response of `$check_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CheckResponseApplicationJson, void> $check_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(CheckResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Check if the UnifiedPush provider is present.
   ///
@@ -108,6 +117,15 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setKeepalive_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SetKeepaliveResponseApplicationJson, void> $setKeepalive_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SetKeepaliveResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set keepalive interval.
   ///
@@ -188,6 +206,15 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$createDevice_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CreateDeviceResponseApplicationJson, void> $createDevice_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CreateDeviceResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Request to create a new deviceId.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -265,6 +292,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$syncDevice_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SyncDeviceResponseApplicationJson, void> $syncDevice_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(SyncDeviceResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Request to get push messages.
   ///
   /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app).
@@ -338,6 +373,15 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteDevice_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DeleteDeviceResponseApplicationJson, void> $deleteDevice_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DeleteDeviceResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete a device.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -408,6 +452,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$createApp_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CreateAppResponseApplicationJson, void> $createApp_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(CreateAppResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create an authorization token for a new 3rd party service.
   ///
@@ -496,6 +548,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteApp_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DeleteAppResponseApplicationJson, void> $deleteApp_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(DeleteAppResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete an authorization token.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -564,6 +624,15 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$unifiedpushDiscovery_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UnifiedpushDiscoveryResponseApplicationJson, void> $unifiedpushDiscovery_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UnifiedpushDiscoveryResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Unifiedpush discovery Following specifications.
   ///
@@ -638,6 +707,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$push_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PushResponseApplicationJson, void> $push_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(PushResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Receive notifications from 3rd parties.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -707,6 +784,15 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$gatewayMatrixDiscovery_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GatewayMatrixDiscoveryResponseApplicationJson, void> $gatewayMatrixDiscovery_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Matrix Gateway discovery.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -769,6 +855,15 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$gatewayMatrix_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GatewayMatrixResponseApplicationJson, void> $gatewayMatrix_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GatewayMatrixResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Matrix Gateway.
   ///

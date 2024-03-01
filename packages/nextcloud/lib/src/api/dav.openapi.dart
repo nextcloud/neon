@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// dav Version: 0.0.1.
 ///
@@ -57,6 +58,14 @@ class $DirectClient {
   $DirectClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getUrl_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectGetUrlResponseApplicationJson, void> $getUrl_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(DirectGetUrlResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a direct link to a file.
   ///
@@ -167,6 +176,15 @@ class $OutOfOfficeClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getCurrentOutOfOfficeData_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>
+      $getCurrentOutOfOfficeData_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Get the currently configured out-of-office data of a user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -259,6 +277,15 @@ class $OutOfOfficeClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getOutOfOffice_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void> $getOutOfOffice_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the configured out-of-office data of a user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -348,6 +375,15 @@ class $OutOfOfficeClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setOutOfOffice_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void> $setOutOfOffice_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set out-of-office absence.
   ///
@@ -474,6 +510,15 @@ class $OutOfOfficeClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$clearOutOfOffice_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void> $clearOutOfOffice_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Clear the out-of-office.
   ///

@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// weather_status Version: 0.0.1.
 ///
@@ -55,6 +56,15 @@ class $WeatherStatusClient {
   $WeatherStatusClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$setMode_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WeatherStatusSetModeResponseApplicationJson, void> $setMode_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(WeatherStatusSetModeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address.
   ///
@@ -144,6 +154,15 @@ class $WeatherStatusClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$usePersonalAddress_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WeatherStatusUsePersonalAddressResponseApplicationJson, void>
+      $usePersonalAddress_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Try to use the address set in user personal settings as weather location.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -223,6 +242,15 @@ class $WeatherStatusClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getLocation_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WeatherStatusGetLocationResponseApplicationJson, void> $getLocation_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(WeatherStatusGetLocationResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get stored user location.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -299,6 +327,15 @@ class $WeatherStatusClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setLocation_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WeatherStatusSetLocationResponseApplicationJson, void> $setLocation_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(WeatherStatusSetLocationResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding.
   ///
@@ -405,6 +442,15 @@ class $WeatherStatusClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getForecast_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WeatherStatusGetForecastResponseApplicationJson, void> $getForecast_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(WeatherStatusGetForecastResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get forecast for current location.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -484,6 +530,15 @@ class $WeatherStatusClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getFavorites_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WeatherStatusGetFavoritesResponseApplicationJson, void> $getFavorites_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get favorites list.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -562,6 +617,15 @@ class $WeatherStatusClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setFavorites_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WeatherStatusSetFavoritesResponseApplicationJson, void> $setFavorites_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set favorites list.
   ///

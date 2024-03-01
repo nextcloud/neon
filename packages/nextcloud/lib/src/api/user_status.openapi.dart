@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// user_status Version: 0.0.1.
 ///
@@ -62,6 +63,15 @@ class $HeartbeatClient {
   $HeartbeatClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$heartbeat_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<HeartbeatHeartbeatResponseApplicationJson, void> $heartbeat_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(HeartbeatHeartbeatResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Keep the status alive.
   ///
@@ -164,6 +174,15 @@ class $PredefinedStatusClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$findAll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PredefinedStatusFindAllResponseApplicationJson, void> $findAll_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PredefinedStatusFindAllResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get all predefined messages.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -247,6 +266,14 @@ class $StatusesClient {
   $StatusesClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$findAll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<StatusesFindAllResponseApplicationJson, void> $findAll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(StatusesFindAllResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Find statuses of users.
   ///
@@ -343,6 +370,14 @@ class $StatusesClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$find_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<StatusesFindResponseApplicationJson, void> $find_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(StatusesFindResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Find the status of a user.
   ///
@@ -441,6 +476,15 @@ class $UserStatusClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getStatus_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusGetStatusResponseApplicationJson, void> $getStatus_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusGetStatusResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the status of the current user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -519,6 +563,15 @@ class $UserStatusClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setStatus_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusSetStatusResponseApplicationJson, void> $setStatus_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusSetStatusResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the status type of the current user.
   ///
@@ -610,6 +663,15 @@ class $UserStatusClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setPredefinedMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusSetPredefinedMessageResponseApplicationJson, void>
+      $setPredefinedMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Set the message to a predefined message for the current user.
   ///
@@ -710,6 +772,15 @@ class $UserStatusClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setCustomMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusSetCustomMessageResponseApplicationJson, void> $setCustomMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusSetCustomMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set the message to a custom message for the current user.
   ///
@@ -819,6 +890,15 @@ class $UserStatusClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$clearMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusClearMessageResponseApplicationJson, void> $clearMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusClearMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Clear the message of the current user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -895,6 +975,15 @@ class $UserStatusClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$revertStatus_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusRevertStatusResponseApplicationJson, void> $revertStatus_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusRevertStatusResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Revert the status to the previous status.
   ///

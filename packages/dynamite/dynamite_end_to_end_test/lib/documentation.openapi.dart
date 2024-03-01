@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: unreachable_switch_case, unused_element
+// ignore_for_file: non_constant_identifier_names, unreachable_switch_case
+// ignore_for_file: unused_element
 
 /// Documentation test. Version: 1.0.0.
 /// Values are inspired by the petstore example.
@@ -55,6 +56,14 @@ class $Client extends _i1.DynamiteClient {
 
   /// the non root client used for other requests.
   late final $NonRootClientClient nonRootClient = $NonRootClientClient(this);
+
+  /// Builds a serializer to parse the response of `$findValues_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Object1, void> $findValues_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Object1),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// An optional, string summary, intended to apply to all operations in this path.
   ///
@@ -144,6 +153,14 @@ class $NonRootClientClient {
   $NonRootClientClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$setMode_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Object1, void> $setMode_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Object1),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Do something really cool.
   ///

@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// spreed Version: 0.0.1.
 ///
@@ -95,6 +96,14 @@ class $AvatarClient {
   $AvatarClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getAvatar_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the avatar of a room.
   ///
@@ -206,6 +215,15 @@ class $AvatarClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$uploadAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AvatarUploadAvatarResponseApplicationJson, void> $uploadAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AvatarUploadAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Upload an avatar for a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -309,6 +327,15 @@ class $AvatarClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AvatarDeleteAvatarResponseApplicationJson, void> $deleteAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AvatarDeleteAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete the avatar of a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -409,6 +436,15 @@ class $AvatarClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$emojiAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AvatarEmojiAvatarResponseApplicationJson, void> $emojiAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AvatarEmojiAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set an emoji as avatar.
   ///
@@ -530,6 +566,14 @@ class $AvatarClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getAvatarDark_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getAvatarDark_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the dark mode avatar of a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -638,6 +682,15 @@ class $BotClient {
   $BotClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$sendMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotSendMessageResponseApplicationJson, void> $sendMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BotSendMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Sends a new chat message to the given room.
   ///
@@ -791,6 +844,14 @@ class $BotClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$react_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotReactResponseApplicationJson, void> $react_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotReactResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Adds a reaction to a chat message.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -923,6 +984,15 @@ class $BotClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteReaction_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotDeleteReactionResponseApplicationJson, void> $deleteReaction_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BotDeleteReactionResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Deletes a reaction from a chat message.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1053,6 +1123,14 @@ class $BotClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$listBots_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotListBotsResponseApplicationJson, void> $listBots_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotListBotsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// List bots.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1154,6 +1232,14 @@ class $BotClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$enableBot_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotEnableBotResponseApplicationJson, void> $enableBot_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotEnableBotResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Enables a bot.
   ///
@@ -1272,6 +1358,14 @@ class $BotClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$disableBot_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotDisableBotResponseApplicationJson, void> $disableBot_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotDisableBotResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Disables a bot.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1384,6 +1478,15 @@ class $BotClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$adminListBots_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotAdminListBotsResponseApplicationJson, void> $adminListBots_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// List admin bots.
   ///
   /// This endpoint requires admin access.
@@ -1484,6 +1587,15 @@ class $BreakoutRoomClient {
   $BreakoutRoomClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$configureBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>
+      $configureBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Configure the breakout rooms.
   ///
@@ -1620,6 +1732,15 @@ class $BreakoutRoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$removeBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>
+      $removeBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Remove the breakout rooms.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1725,6 +1846,15 @@ class $BreakoutRoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$broadcastChatMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>
+      $broadcastChatMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Broadcast a chat message to all breakout rooms.
   ///
@@ -1845,6 +1975,15 @@ class $BreakoutRoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$applyAttendeeMap_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void> $applyAttendeeMap_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Apply an attendee map to the breakout rooms.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1960,6 +2099,15 @@ class $BreakoutRoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$requestAssistance_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomRequestAssistanceResponseApplicationJson, void> $requestAssistance_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Request assistance.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2065,6 +2213,15 @@ class $BreakoutRoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$resetRequestForAssistance_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>
+      $resetRequestForAssistance_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Reset the request for assistance.
   ///
@@ -2176,6 +2333,15 @@ class $BreakoutRoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$startBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>
+      $startBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Start the breakout rooms.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2284,6 +2450,15 @@ class $BreakoutRoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$stopBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void> $stopBreakoutRooms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Stop the breakout rooms.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2389,6 +2564,15 @@ class $BreakoutRoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$switchBreakoutRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>
+      $switchBreakoutRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Switch to another breakout room.
   ///
@@ -2513,6 +2697,15 @@ class $CallClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getPeersForCall_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallGetPeersForCallResponseApplicationJson, void> $getPeersForCall_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallGetPeersForCallResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the peers for a call.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2613,6 +2806,15 @@ class $CallClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$updateCallFlags_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallUpdateCallFlagsResponseApplicationJson, void> $updateCallFlags_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallUpdateCallFlagsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the in-call flags.
   ///
@@ -2730,6 +2932,14 @@ class $CallClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$joinCall_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallJoinCallResponseApplicationJson, void> $joinCall_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(CallJoinCallResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Join a call.
   ///
@@ -2876,6 +3086,14 @@ class $CallClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$leaveCall_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallLeaveCallResponseApplicationJson, void> $leaveCall_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(CallLeaveCallResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Leave a call.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2989,6 +3207,15 @@ class $CallClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$ringAttendee_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallRingAttendeeResponseApplicationJson, void> $ringAttendee_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallRingAttendeeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Ring an attendee.
   ///
@@ -3107,6 +3334,15 @@ class $CallClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$sipDialOut_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallSipDialOutResponseApplicationJson, void> $sipDialOut_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallSipDialOutResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Call a SIP dial-out attendee.
   ///
@@ -3235,6 +3471,15 @@ class $CertificateClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getCertificateExpiration_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CertificateGetCertificateExpirationResponseApplicationJson, void>
+      $getCertificateExpiration_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Get the certificate expiration for a host.
   ///
   /// This endpoint requires admin access.
@@ -3350,6 +3595,15 @@ class $ChatClient {
   $ChatClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$receiveMessages_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>
+      $receiveMessages_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
+            headersType: const FullType(ChatChatReceiveMessagesHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Receives chat messages from the given room.
   ///
@@ -3558,6 +3812,15 @@ class $ChatClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$sendMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>
+      $sendMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatSendMessageResponseApplicationJson),
+            headersType: const FullType(ChatChatSendMessageHeaders),
+            serializers: _$jsonSerializers,
+          );
+
   /// Sends a new chat message to the given room.
   ///
   /// The author and timestamp are automatically set to the current user/guest and time.
@@ -3714,6 +3977,15 @@ class $ChatClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$clearHistory_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>
+      $clearHistory_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
+            headersType: const FullType(ChatChatClearHistoryHeaders),
+            serializers: _$jsonSerializers,
+          );
+
   /// Clear the chat history.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3823,6 +4095,15 @@ class $ChatClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$deleteMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>
+      $deleteMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
+            headersType: const FullType(ChatChatDeleteMessageHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Delete a chat message.
   ///
@@ -3948,6 +4229,15 @@ class $ChatClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getMessageContext_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>
+      $getMessageContext_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
+            headersType: const FullType(ChatChatGetMessageContextHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get the context of a message.
   ///
@@ -4075,6 +4365,15 @@ class $ChatClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getReminder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatGetReminderResponseApplicationJson, void> $getReminder_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatGetReminderResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the reminder for a chat message.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4187,6 +4486,15 @@ class $ChatClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setReminder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatSetReminderResponseApplicationJson, void> $setReminder_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatSetReminderResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set a reminder for a chat message.
   ///
@@ -4310,6 +4618,15 @@ class $ChatClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteReminder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatDeleteReminderResponseApplicationJson, void> $deleteReminder_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatDeleteReminderResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete a chat reminder.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4427,6 +4744,15 @@ class $ChatClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$setReadMarker_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>
+      $setReadMarker_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
+            headersType: const FullType(ChatChatSetReadMarkerHeaders),
+            serializers: _$jsonSerializers,
+          );
+
   /// Set the read marker to a specific message.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4539,6 +4865,15 @@ class $ChatClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$markUnread_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders> $markUnread_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatMarkUnreadResponseApplicationJson),
+        headersType: const FullType(ChatChatMarkUnreadHeaders),
+        serializers: _$jsonSerializers,
+      );
+
   /// Mark a chat as unread.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4640,6 +4975,14 @@ class $ChatClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$mentions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatMentionsResponseApplicationJson, void> $mentions_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatMentionsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Search for mentions.
   ///
@@ -4769,6 +5112,15 @@ class $ChatClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getObjectsSharedInRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>
+      $getObjectsSharedInRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
+            headersType: const FullType(ChatChatGetObjectsSharedInRoomHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get objects that are shared in the room.
   ///
@@ -4901,6 +5253,15 @@ class $ChatClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$shareObjectToChat_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>
+      $shareObjectToChat_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
+            headersType: const FullType(ChatChatShareObjectToChatHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Sends a rich-object to the given room.
   ///
@@ -5060,6 +5421,15 @@ class $ChatClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getObjectsSharedInRoomOverview_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
+      $getObjectsSharedInRoomOverview_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Get objects that are shared in the room overview.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -5182,6 +5552,15 @@ class $FilesIntegrationClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getRoomByFileId_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void> $getRoomByFileId_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the token of the room associated to the given file id.
   ///
   /// This is the counterpart of self::getRoomByShareToken() for file ids instead of share tokens, although both return the same room token if the given file id and share token refer to the same file.
@@ -5298,6 +5677,15 @@ class $FilesIntegrationClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getRoomByShareToken_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>
+      $getRoomByShareToken_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Returns the token of the room associated to the file of the given share token.
   ///
@@ -5424,6 +5812,15 @@ class $GuestClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$setDisplayName_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GuestSetDisplayNameResponseApplicationJson, void> $setDisplayName_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GuestSetDisplayNameResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Set the display name as a guest.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -5548,6 +5945,15 @@ class $HostedSignalingServerClient {
   $HostedSignalingServerClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$requestTrial_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<HostedSignalingServerRequestTrialResponseApplicationJson, void> $requestTrial_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Request a trial account.
   ///
@@ -5691,6 +6097,15 @@ class $HostedSignalingServerClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteAccount_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<HostedSignalingServerDeleteAccountResponseApplicationJson, void> $deleteAccount_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete the account.
   ///
   /// This endpoint requires admin access.
@@ -5799,6 +6214,15 @@ class $MatterbridgeClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getBridgeOfRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void> $getBridgeOfRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get bridge information of one room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -5901,6 +6325,15 @@ class $MatterbridgeClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$editBridgeOfRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void> $editBridgeOfRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Edit bridge information of one room.
   ///
@@ -6032,6 +6465,15 @@ class $MatterbridgeClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteBridgeOfRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>
+      $deleteBridgeOfRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Delete bridge of one room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -6138,6 +6580,15 @@ class $MatterbridgeClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getBridgeProcessState_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>
+      $getBridgeProcessState_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Get bridge process information.
   ///
@@ -6252,6 +6703,15 @@ class $MatterbridgeSettingsClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$stopAllBridges_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>
+      $stopAllBridges_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Stop all bridges.
   ///
   /// This endpoint requires admin access.
@@ -6349,6 +6809,15 @@ class $MatterbridgeSettingsClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getMatterbridgeVersion_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
+      $getMatterbridgeVersion_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Get Matterbridge version.
   ///
@@ -6456,6 +6925,15 @@ class $PollClient {
   $PollClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$createPoll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollCreatePollResponseApplicationJson, void> $createPoll_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PollCreatePollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a poll.
   ///
@@ -6594,6 +7072,14 @@ class $PollClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$showPoll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollShowPollResponseApplicationJson, void> $showPoll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(PollShowPollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a poll.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -6703,6 +7189,14 @@ class $PollClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$votePoll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollVotePollResponseApplicationJson, void> $votePoll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(PollVotePollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Vote on a poll.
   ///
@@ -6825,6 +7319,14 @@ class $PollClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$closePoll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollClosePollResponseApplicationJson, void> $closePoll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(PollClosePollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Close a poll.
   ///
@@ -6949,6 +7451,15 @@ class $PublicShareAuthClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$createRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PublicShareAuthCreateRoomResponseApplicationJson, void> $createRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Creates a new room for video verification (requesting the password of a share).
   ///
   /// The new room is a public room associated with a "share:password" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.
@@ -7060,6 +7571,15 @@ class $ReactionClient {
   $ReactionClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getReactions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReactionGetReactionsResponseApplicationJson, void> $getReactions_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReactionGetReactionsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of reactions for a message.
   ///
@@ -7180,6 +7700,14 @@ class $ReactionClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$react_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReactionReactResponseApplicationJson, void> $react_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ReactionReactResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Add a reaction to a message.
   ///
@@ -7306,6 +7834,14 @@ class $ReactionClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$$delete_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReactionDeleteResponseApplicationJson, void> $$delete_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ReactionDeleteResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete a reaction from a message.
   ///
@@ -7435,6 +7971,14 @@ class $RecordingClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$start_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingStartResponseApplicationJson, void> $start_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingStartResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Start the recording.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -7548,6 +8092,14 @@ class $RecordingClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$stop_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingStopResponseApplicationJson, void> $stop_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingStopResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Stop the recording.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -7651,6 +8203,14 @@ class $RecordingClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$store_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingStoreResponseApplicationJson, void> $store_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingStoreResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Store the recording.
   ///
@@ -7764,6 +8324,15 @@ class $RecordingClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$notificationDismiss_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingNotificationDismissResponseApplicationJson, void> $notificationDismiss_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingNotificationDismissResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Dismiss the store call recording notification.
   ///
@@ -7879,6 +8448,15 @@ class $RecordingClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$shareToChat_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingShareToChatResponseApplicationJson, void> $shareToChat_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingShareToChatResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Share the recorded file to the chat.
   ///
@@ -8003,6 +8581,15 @@ class $RecordingClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getWelcomeMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingGetWelcomeMessageResponseApplicationJson, void> $getWelcomeMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the welcome message of a recording server.
   ///
   /// This endpoint requires admin access.
@@ -8116,6 +8703,15 @@ class $RoomClient {
   $RoomClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> $getRooms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomGetRoomsResponseApplicationJson),
+        headersType: const FullType(RoomRoomGetRoomsHeaders),
+        serializers: _$jsonSerializers,
+      );
 
   /// Get all currently existent rooms which the user has joined.
   ///
@@ -8236,6 +8832,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$createRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomCreateRoomResponseApplicationJson, void> $createRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomCreateRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a room with a user, a group or a circle.
   ///
@@ -8392,6 +8997,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getListedRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetListedRoomsResponseApplicationJson, void> $getListedRooms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomGetListedRoomsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get listed rooms with optional search term.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -8492,6 +9106,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getNoteToSelfConversation_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetNoteToSelfConversationResponseApplicationJson, RoomRoomGetNoteToSelfConversationHeaders>
+      $getNoteToSelfConversation_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetNoteToSelfConversationHeaders),
+            serializers: _$jsonSerializers,
+          );
+
   /// Get the "Note to self" conversation for the user.
   ///
   /// It will be automatically created when it is currently missing.
@@ -8589,6 +9212,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getSingleRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>
+      $getSingleRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetSingleRoomHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get a room.
   ///
@@ -8694,6 +9326,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$renameRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRenameRoomResponseApplicationJson, void> $renameRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Rename a room.
   ///
@@ -8809,6 +9450,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomDeleteRoomResponseApplicationJson, void> $deleteRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -8913,6 +9563,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetBreakoutRoomsResponseApplicationJson, void> $getBreakoutRooms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get breakout rooms.
   ///
@@ -9024,6 +9683,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$makePublic_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomMakePublicResponseApplicationJson, void> $makePublic_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomMakePublicResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Allowed guests to join conversation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -9131,6 +9799,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$makePrivate_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomMakePrivateResponseApplicationJson, void> $makePrivate_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomMakePrivateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Disallowed guests to join conversation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -9237,6 +9914,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setDescription_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetDescriptionResponseApplicationJson, void> $setDescription_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetDescriptionResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the description of a room.
   ///
@@ -9352,6 +10038,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setReadOnly_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetReadOnlyResponseApplicationJson, void> $setReadOnly_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetReadOnlyResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set read-only state of a room.
   ///
@@ -9469,6 +10164,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$setListable_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetListableResponseApplicationJson, void> $setListable_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetListableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Make a room listable.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -9585,6 +10289,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$setPassword_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetPasswordResponseApplicationJson, void> $setPassword_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetPasswordResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Set a password for a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -9700,6 +10413,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setPermissions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetPermissionsResponseApplicationJson, void> $setPermissions_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetPermissionsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the permissions of a room.
   ///
@@ -9828,6 +10550,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getParticipants_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>
+      $getParticipants_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetParticipantsHeaders),
+            serializers: _$jsonSerializers,
+          );
+
   /// Get a list of participants for a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -9943,6 +10674,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$addParticipantToRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomAddParticipantToRoomResponseApplicationJson, void> $addParticipantToRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomAddParticipantToRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Add a participant to a room.
   ///
@@ -10072,6 +10812,16 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getBreakoutRoomParticipants_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<
+          RoomGetBreakoutRoomParticipantsResponseApplicationJson, RoomRoomGetBreakoutRoomParticipantsHeaders>
+      $getBreakoutRoomParticipants_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
+            serializers: _$jsonSerializers,
+          );
+
   /// Get the breakout room participants for a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -10197,6 +10947,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$removeSelfFromRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRemoveSelfFromRoomResponseApplicationJson, void> $removeSelfFromRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Remove the current user from a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -10308,6 +11067,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$removeAttendeeFromRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>
+      $removeAttendeeFromRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Remove an attendee from a room.
   ///
@@ -10429,6 +11197,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setAttendeePermissions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetAttendeePermissionsResponseApplicationJson, void>
+      $setAttendeePermissions_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Update the permissions of an attendee.
   ///
@@ -10570,6 +11347,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$setAllAttendeesPermissions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>
+      $setAllAttendeesPermissions_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Update the permissions of all attendees.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -10697,6 +11483,14 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$joinRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomJoinRoomResponseApplicationJson, void> $joinRoom_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomJoinRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Join a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -10823,6 +11617,14 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$leaveRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomLeaveRoomResponseApplicationJson, void> $leaveRoom_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Leave a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -10923,6 +11725,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$resendInvitations_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomResendInvitationsResponseApplicationJson, void> $resendInvitations_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomResendInvitationsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Resend invitations.
   ///
@@ -11042,6 +11853,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$setSessionState_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetSessionStateResponseApplicationJson, void> $setSessionState_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetSessionStateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Set active state for a session.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -11155,6 +11975,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$promoteModerator_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomPromoteModeratorResponseApplicationJson, void> $promoteModerator_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomPromoteModeratorResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Promote an attendee to moderator.
   ///
@@ -11277,6 +12106,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$demoteModerator_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomDemoteModeratorResponseApplicationJson, void> $demoteModerator_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomDemoteModeratorResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Demote an attendee from moderator.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -11398,6 +12236,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$addToFavorites_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomAddToFavoritesResponseApplicationJson, void> $addToFavorites_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomAddToFavoritesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Add a room to the favorites.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -11501,6 +12348,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$removeFromFavorites_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRemoveFromFavoritesResponseApplicationJson, void> $removeFromFavorites_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Remove a room from the favorites.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -11603,6 +12459,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setNotificationLevel_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetNotificationLevelResponseApplicationJson, void> $setNotificationLevel_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetNotificationLevelResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the notification level for a room.
   ///
@@ -11721,6 +12586,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$setNotificationCalls_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetNotificationCallsResponseApplicationJson, void> $setNotificationCalls_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetNotificationCallsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Update call notifications.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -11837,6 +12711,14 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setLobby_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetLobbyResponseApplicationJson, void> $setLobby_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the lobby state for a room.
   ///
@@ -11959,6 +12841,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$setsipEnabled_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetsipEnabledResponseApplicationJson, void> $setsipEnabled_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetsipEnabledResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Update SIP enabled state.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -12079,6 +12970,15 @@ class $RoomClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$setRecordingConsent_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetRecordingConsentResponseApplicationJson, void> $setRecordingConsent_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetRecordingConsentResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Set recording consent requirement for this conversation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -12195,6 +13095,15 @@ class $RoomClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setMessageExpiration_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetMessageExpirationResponseApplicationJson, void> $setMessageExpiration_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetMessageExpirationResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update message expiration time.
   ///
@@ -12315,6 +13224,15 @@ class $SettingsClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$setUserSetting_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SettingsSetUserSettingResponseApplicationJson, void> $setUserSetting_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Update user setting.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -12426,6 +13344,15 @@ class $SettingsClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setsipSettings_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SettingsSetsipSettingsResponseApplicationJson, void> $setsipSettings_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SettingsSetsipSettingsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update SIP bridge settings.
   ///
@@ -12558,6 +13485,15 @@ class $SignalingClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getSettings_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingGetSettingsResponseApplicationJson, void> $getSettings_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the signaling settings.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -12659,6 +13595,15 @@ class $SignalingClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$pullMessages_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingPullMessagesResponseApplicationJson, void> $pullMessages_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get signaling messages.
   ///
@@ -12771,6 +13716,15 @@ class $SignalingClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$sendMessages_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingSendMessagesResponseApplicationJson, void> $sendMessages_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Send signaling messages.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -12882,6 +13836,15 @@ class $SignalingClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getWelcomeMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingGetWelcomeMessageResponseApplicationJson, void> $getWelcomeMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the welcome message from a signaling server.
   ///
@@ -12999,6 +13962,15 @@ class $TempAvatarClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$postAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TempAvatarPostAvatarResponseApplicationJson, void> $postAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TempAvatarPostAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Upload your avatar as a user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -13077,6 +14049,15 @@ class $TempAvatarClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$deleteAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TempAvatarDeleteAvatarResponseApplicationJson, void> $deleteAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete your avatar as a user.
   ///

@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// provisioning_api Version: 0.0.1.
 ///
@@ -65,6 +66,14 @@ class $AppConfigClient {
   $AppConfigClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getApps_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppConfigGetAppsResponseApplicationJson, void> $getApps_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(AppConfigGetAppsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of apps.
   ///
@@ -144,6 +153,14 @@ class $AppConfigClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getKeys_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppConfigGetKeysResponseApplicationJson, void> $getKeys_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(AppConfigGetKeysResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the config keys of an app.
   ///
@@ -238,6 +255,15 @@ class $AppConfigClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setValue_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppConfigSetValueResponseApplicationJson, void> $setValue_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AppConfigSetValueResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the config value of an app.
   ///
@@ -353,6 +379,14 @@ class $AppsClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getApps_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppsGetAppsResponseApplicationJson, void> $getApps_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(AppsGetAppsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a list of installed apps.
   ///
   /// This endpoint requires admin access.
@@ -444,6 +478,15 @@ class $AppsClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getAppInfo_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppsGetAppInfoResponseApplicationJson, void> $getAppInfo_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AppsGetAppInfoResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the app info for an app.
   ///
@@ -537,6 +580,14 @@ class $AppsClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$enable_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppsEnableResponseApplicationJson, void> $enable_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(AppsEnableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Enable an app.
   ///
   /// This endpoint requires admin access.
@@ -628,6 +679,14 @@ class $AppsClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$disable_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppsDisableResponseApplicationJson, void> $disable_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(AppsDisableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Disable an app.
   ///
@@ -728,6 +787,15 @@ class $GroupsClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getSubAdminsOfGroup_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GroupsGetSubAdminsOfGroupResponseApplicationJson, void> $getSubAdminsOfGroup_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the list of user IDs that are a subadmin of the group.
   ///
   /// This endpoint requires admin access.
@@ -824,6 +892,15 @@ class $GroupsClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getGroups_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GroupsGetGroupsResponseApplicationJson, void> $getGroups_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GroupsGetGroupsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of groups.
   ///
@@ -931,6 +1008,15 @@ class $GroupsClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getGroup_Request`.
+  @_i2.experimental
+  @Deprecated('')
+  _i1.DynamiteSerializer<GroupsGetGroupResponseApplicationJson, void> $getGroup_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(GroupsGetGroupResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a list of users in the specified group.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1025,6 +1111,15 @@ class $GroupsClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getGroupsDetails_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GroupsGetGroupsDetailsResponseApplicationJson, void> $getGroupsDetails_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GroupsGetGroupsDetailsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of groups details.
   ///
@@ -1132,6 +1227,15 @@ class $GroupsClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getGroupUsers_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GroupsGetGroupUsersResponseApplicationJson, void> $getGroupUsers_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GroupsGetGroupUsersResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a list of users in the specified group.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1228,6 +1332,15 @@ class $GroupsClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getGroupUsersDetails_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GroupsGetGroupUsersDetailsResponseApplicationJson, void> $getGroupUsersDetails_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of users details in the specified group.
   ///
@@ -1356,6 +1469,15 @@ class $PreferencesClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$setPreference_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PreferencesSetPreferenceResponseApplicationJson, void> $setPreference_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PreferencesSetPreferenceResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Update a preference value of an app.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1467,6 +1589,15 @@ class $PreferencesClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deletePreference_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PreferencesDeletePreferenceResponseApplicationJson, void> $deletePreference_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PreferencesDeletePreferenceResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete a preference for an app.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1568,6 +1699,15 @@ class $PreferencesClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$setMultiplePreferences_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PreferencesSetMultiplePreferencesResponseApplicationJson, void>
+      $setMultiplePreferences_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(PreferencesSetMultiplePreferencesResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Update multiple preference values of an app.
   ///
@@ -1675,6 +1815,15 @@ class $PreferencesClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$deleteMultiplePreference_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>
+      $deleteMultiplePreference_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(PreferencesDeleteMultiplePreferenceResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Delete multiple preferences for an app.
   ///
@@ -1788,6 +1937,15 @@ class $UsersClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getUserSubAdminGroups_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetUserSubAdminGroupsResponseApplicationJson, void> $getUserSubAdminGroups_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the groups a user is a subadmin of.
   ///
   /// This endpoint requires admin access.
@@ -1879,6 +2037,15 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$addSubAdmin_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersAddSubAdminResponseApplicationJson, void> $addSubAdmin_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersAddSubAdminResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Make a user a subadmin of a group.
   ///
@@ -1980,6 +2147,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$removeSubAdmin_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersRemoveSubAdminResponseApplicationJson, void> $removeSubAdmin_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersRemoveSubAdminResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Remove a user from the subadmins of a group.
   ///
   /// This endpoint requires admin access.
@@ -2079,6 +2255,14 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getUsers_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetUsersResponseApplicationJson, void> $getUsers_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetUsersResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of users.
   ///
@@ -2185,6 +2369,14 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$addUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersAddUserResponseApplicationJson, void> $addUser_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersAddUserResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a new user.
   ///
@@ -2349,6 +2541,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getUsersDetails_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetUsersDetailsResponseApplicationJson, void> $getUsersDetails_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetUsersDetailsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a list of users and their details.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2455,6 +2656,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getDisabledUsersDetails_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetDisabledUsersDetailsResponseApplicationJson, void>
+      $getDisabledUsersDetails_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Get the list of disabled users and their details.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2551,6 +2761,15 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$searchByPhoneNumbers_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersSearchByPhoneNumbersResponseApplicationJson, void> $searchByPhoneNumbers_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersSearchByPhoneNumbersResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Search users by their phone numbers.
   ///
@@ -2658,6 +2877,14 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetUserResponseApplicationJson, void> $getUser_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetUserResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the details of a user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2745,6 +2972,14 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$editUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersEditUserResponseApplicationJson, void> $editUser_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersEditUserResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update a value of the user's details.
   ///
@@ -2850,6 +3085,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersDeleteUserResponseApplicationJson, void> $deleteUser_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersDeleteUserResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete a user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2938,6 +3182,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getCurrentUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetCurrentUserResponseApplicationJson, void> $getCurrentUser_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetCurrentUserResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the details of the current user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3014,6 +3267,15 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getEditableFields_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetEditableFieldsResponseApplicationJson, void> $getEditableFields_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetEditableFieldsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of fields that are editable for the current user.
   ///
@@ -3093,6 +3355,15 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getEditableFieldsForUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetEditableFieldsForUserResponseApplicationJson, void>
+      $getEditableFieldsForUser_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(UsersGetEditableFieldsForUserResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Get a list of fields that are editable for a user.
   ///
@@ -3181,6 +3452,15 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$editUserMultiValue_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersEditUserMultiValueResponseApplicationJson, void> $editUserMultiValue_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersEditUserMultiValueResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update multiple values of the user's details.
   ///
@@ -3300,6 +3580,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$wipeUserDevices_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersWipeUserDevicesResponseApplicationJson, void> $wipeUserDevices_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersWipeUserDevicesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Wipe all devices of a user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3387,6 +3676,15 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$enableUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersEnableUserResponseApplicationJson, void> $enableUser_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersEnableUserResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Enable a user.
   ///
@@ -3476,6 +3774,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$disableUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersDisableUserResponseApplicationJson, void> $disableUser_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersDisableUserResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Disable a user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3564,6 +3871,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getUsersGroups_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetUsersGroupsResponseApplicationJson, void> $getUsersGroups_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetUsersGroupsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a list of groups the user belongs to.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3651,6 +3967,15 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$addToGroup_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersAddToGroupResponseApplicationJson, void> $addToGroup_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersAddToGroupResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Add a user to a group.
   ///
@@ -3749,6 +4074,15 @@ class $UsersClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$removeFromGroup_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersRemoveFromGroupResponseApplicationJson, void> $removeFromGroup_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersRemoveFromGroupResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Remove a user from a group.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3844,6 +4178,15 @@ class $UsersClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$resendWelcomeMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersResendWelcomeMessageResponseApplicationJson, void> $resendWelcomeMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersResendWelcomeMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Resend the welcome message.
   ///

@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// files_sharing Version: 0.0.1.
 ///
@@ -68,6 +69,15 @@ class $DeletedShareapiClient {
   $DeletedShareapiClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$index_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DeletedShareapiIndexResponseApplicationJson, void> $index_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DeletedShareapiIndexResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of all deleted shares.
   ///
@@ -143,6 +153,15 @@ class $DeletedShareapiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$undelete_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DeletedShareapiUndeleteResponseApplicationJson, void> $undelete_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DeletedShareapiUndeleteResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Undelete a deleted share.
   ///
@@ -241,6 +260,14 @@ class $PublicPreviewClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$directLink_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $directLink_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a direct link preview for a shared file.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -319,6 +346,14 @@ class $PublicPreviewClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getPreview_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a preview for a shared file.
   ///
@@ -447,6 +482,15 @@ class $RemoteClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getShares_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RemoteGetSharesResponseApplicationJson, void> $getShares_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RemoteGetSharesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a list of accepted remote shares.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -521,6 +565,15 @@ class $RemoteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getOpenShares_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RemoteGetOpenSharesResponseApplicationJson, void> $getOpenShares_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RemoteGetOpenSharesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get list of pending remote shares.
   ///
@@ -598,6 +651,15 @@ class $RemoteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$acceptShare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RemoteAcceptShareResponseApplicationJson, void> $acceptShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RemoteAcceptShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Accept a remote share.
   ///
@@ -690,6 +752,15 @@ class $RemoteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$declineShare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RemoteDeclineShareResponseApplicationJson, void> $declineShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RemoteDeclineShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Decline a remote share.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -781,6 +852,14 @@ class $RemoteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getShare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RemoteGetShareResponseApplicationJson, void> $getShare_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RemoteGetShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get info of a remote share.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -870,6 +949,14 @@ class $RemoteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$unshare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RemoteUnshareResponseApplicationJson, void> $unshare_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RemoteUnshareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Unshare a remote share.
   ///
@@ -969,6 +1056,14 @@ class $ShareInfoClient {
   $ShareInfoClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$info_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareInfo, void> $info_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareInfo),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the info about a share.
   ///
@@ -1083,6 +1178,15 @@ class $ShareapiClient {
   $ShareapiClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getShares_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiGetSharesResponseApplicationJson, void> $getShares_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiGetSharesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get shares of the current user.
   ///
@@ -1212,6 +1316,15 @@ class $ShareapiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$createShare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiCreateShareResponseApplicationJson, void> $createShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiCreateShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a share.
   ///
@@ -1395,6 +1508,15 @@ class $ShareapiClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getInheritedShares_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiGetInheritedSharesResponseApplicationJson, void> $getInheritedShares_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get all shares relative to a file, including parent folders shares rights.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1487,6 +1609,15 @@ class $ShareapiClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$pendingShares_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiPendingSharesResponseApplicationJson, void> $pendingShares_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiPendingSharesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get all shares that are still pending.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1563,6 +1694,15 @@ class $ShareapiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getShare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiGetShareResponseApplicationJson, void> $getShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiGetShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a specific share by id.
   ///
@@ -1664,6 +1804,15 @@ class $ShareapiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$updateShare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiUpdateShareResponseApplicationJson, void> $updateShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiUpdateShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update a share.
   ///
@@ -1833,6 +1982,15 @@ class $ShareapiClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteShare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiDeleteShareResponseApplicationJson, void> $deleteShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiDeleteShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Delete a share.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1924,6 +2082,15 @@ class $ShareapiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$acceptShare_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiAcceptShareResponseApplicationJson, void> $acceptShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiAcceptShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Accept a share.
   ///
@@ -2023,6 +2190,15 @@ class $ShareesapiClient {
   $ShareesapiClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$search_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>
+      $search_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ShareesapiSearchResponseApplicationJson),
+            headersType: const FullType(ShareesapiShareesapiSearchHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Search for sharees.
   ///
@@ -2159,6 +2335,15 @@ class $ShareesapiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$findRecommended_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareesapiFindRecommendedResponseApplicationJson, void> $findRecommended_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareesapiFindRecommendedResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Find recommended sharees.
   ///

@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// files Version: 0.0.1.
 ///
@@ -66,6 +67,14 @@ class $ApiClient {
   $ApiClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getThumbnail_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getThumbnail_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Gets a thumbnail of the specified file.
   ///
@@ -178,6 +187,14 @@ class $DirectEditingClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$info_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectEditingInfoResponseApplicationJson, void> $info_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the direct editing capabilities.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -252,6 +269,15 @@ class $DirectEditingClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$templates_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectEditingTemplatesResponseApplicationJson, void> $templates_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the templates for direct editing.
   ///
@@ -351,6 +377,14 @@ class $DirectEditingClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$open_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectEditingOpenResponseApplicationJson, void> $open_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Open a file for direct editing.
   ///
@@ -460,6 +494,15 @@ class $DirectEditingClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$create_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<DirectEditingCreateResponseApplicationJson, void> $create_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a file for direct editing.
   ///
@@ -586,6 +629,15 @@ class $OpenLocalEditorClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$create_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<OpenLocalEditorCreateResponseApplicationJson, void> $create_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Create a local editor.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -675,6 +727,15 @@ class $OpenLocalEditorClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$validate_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<OpenLocalEditorValidateResponseApplicationJson, void> $validate_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Validate a local editor.
   ///
@@ -781,6 +842,14 @@ class $TemplateClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$list_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TemplateListResponseApplicationJson, void> $list_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(TemplateListResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// List the available templates.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -855,6 +924,14 @@ class $TemplateClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$create_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TemplateCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(TemplateCreateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a template.
   ///
@@ -965,6 +1042,14 @@ class $TemplateClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$path_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TemplatePathResponseApplicationJson, void> $path_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(TemplatePathResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Initialize the template directory.
   ///
@@ -1077,6 +1162,15 @@ class $TransferOwnershipClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$transfer_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TransferOwnershipTransferResponseApplicationJson, void> $transfer_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Transfer the ownership to another user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1182,6 +1276,15 @@ class $TransferOwnershipClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$accept_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TransferOwnershipAcceptResponseApplicationJson, void> $accept_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Accept an ownership transfer.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1277,6 +1380,15 @@ class $TransferOwnershipClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$reject_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TransferOwnershipRejectResponseApplicationJson, void> $reject_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Reject an ownership transfer.
   ///

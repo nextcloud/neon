@@ -2,8 +2,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case, unused_element
 
 /// parameters test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
@@ -42,6 +42,14 @@ class $Client extends _i1.DynamiteClient {
           cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
+
+  /// Builds a serializer to parse the response of `$$get_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $$get_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -222,6 +230,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getHeaders_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $getHeaders_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -428,6 +444,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getPathParameter_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $getPathParameter_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -475,6 +499,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getNamingCollisions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $getNamingCollisions_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.

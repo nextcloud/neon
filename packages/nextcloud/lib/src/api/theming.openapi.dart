@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// theming Version: 0.0.1.
 ///
@@ -64,6 +65,14 @@ class $IconClient {
   $IconClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getFavicon_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getFavicon_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Return a 32x32 favicon as png.
   ///
@@ -143,6 +152,14 @@ class $IconClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getTouchIcon_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getTouchIcon_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Return a 512x512 icon for touch devices.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -220,6 +237,14 @@ class $IconClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getThemedIcon_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getThemedIcon_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a themed icon.
   ///
@@ -324,6 +349,14 @@ class $ThemingClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getThemeStylesheet_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<String, void> $getThemeStylesheet_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(String),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the CSS stylesheet for a theme.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -425,6 +458,14 @@ class $ThemingClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getImage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getImage_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get an image.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -515,6 +556,15 @@ class $ThemingClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getManifest_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ThemingGetManifestResponseApplicationJson, void> $getManifest_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ThemingGetManifestResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the manifest for an app.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -598,6 +648,14 @@ class $UserThemeClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getBackground_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getBackground_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the background image.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -662,6 +720,15 @@ class $UserThemeClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$enableTheme_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserThemeEnableThemeResponseApplicationJson, void> $enableTheme_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserThemeEnableThemeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Enable theme.
   ///
@@ -754,6 +821,15 @@ class $UserThemeClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$disableTheme_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserThemeDisableThemeResponseApplicationJson, void> $disableTheme_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserThemeDisableThemeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Disable theme.
   ///

@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/src/http_extensions.dart';
+import 'package:dynamite_runtime/src/utils/byte_stream_extension.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 
@@ -59,14 +60,14 @@ class DynamiteRawResponse<B, H> {
     response.then(
       (response) async {
         _rawHeaders = response.headers;
-        final headers = deserializeHeaders<H>(_rawHeaders, serializers, headersType);
+        final headers = _deserialize<H>(_rawHeaders, serializers, headersType);
 
         _rawBody = switch (bodyType) {
           const FullType(Uint8List) => await response.stream.bytes,
           const FullType(String) => await response.stream.string,
           _ => await response.stream.json,
         };
-        final body = deserializeBody<B>(_rawBody, serializers, bodyType);
+        final body = _deserialize<B>(_rawBody, serializers, bodyType);
 
         _response = DynamiteResponse<B, H>(
           response.statusCode,
@@ -91,8 +92,8 @@ class DynamiteRawResponse<B, H> {
     FullType? headersType,
   }) {
     final statusCode = json['statusCode']! as int;
-    final body = deserializeBody<B>(json['body'], serializers, bodyType);
-    final headers = deserializeHeaders<H>(json['headers'], serializers, headersType);
+    final body = _deserialize<B>(json['body'], serializers, bodyType);
+    final headers = _deserialize<H>(json['headers'], serializers, headersType);
 
     final response = DynamiteResponse<B, H>(
       statusCode,
@@ -164,48 +165,10 @@ class DynamiteRawResponse<B, H> {
     return response;
   }
 
-  /// Deserializes the body.
-  ///
-  /// Most efficient if the [serialized] value is already the correct type.
-  /// The [bodyType] should represent the return type [B].
-  static B? deserializeBody<B>(Object? serialized, Serializers serializers, FullType? bodyType) {
-    // If we use the more efficient helpers from BytesStreamExtension the serialized value can already be correct.
-    if (serialized is B) {
-      return serialized;
-    }
-
-    if (bodyType != null) {
-      return serializers.deserialize(serialized, specifiedType: bodyType) as B?;
-    }
-
-    return null;
-  }
-
   /// Serializes the body.
   Object? serializeBody(B? object) {
     if (bodyType != null && object != null) {
       return serializers.serialize(object, specifiedType: bodyType!);
-    }
-
-    return null;
-  }
-
-  /// Deserializes the headers.
-  ///
-  /// Most efficient if the [serialized] value is already the correct type.
-  /// The [headersType] should represent the return type [H].
-  static H? deserializeHeaders<H>(
-    Object? serialized,
-    Serializers serializers,
-    FullType? headersType,
-  ) {
-    // If we use the more efficient helpers from BytesStreamExtension the serialized value can already be correct.
-    if (serialized is H) {
-      return serialized;
-    }
-
-    if (headersType != null) {
-      return serializers.deserialize(serialized, specifiedType: headersType) as H?;
     }
 
     return null;
@@ -232,4 +195,48 @@ class DynamiteRawResponse<B, H> {
 
   @override
   String toString() => 'DynamiteResponse(${toJson()})';
+}
+
+/// The serializer to convert the raw headers and body from a [http.BaseResponse].
+///
+/// The generics [B] and [H] must match the type returned after deserializing to
+/// [bodyType] and [headersType] respectively.
+@immutable
+final class DynamiteSerializer<B, H> {
+  /// Creates a new dynamite serializer.
+  const DynamiteSerializer({
+    required this.bodyType,
+    required this.headersType,
+    required this.serializers,
+  });
+
+  /// The serializers for the header and body.
+  final Serializers serializers;
+
+  /// The full type of the body.
+  ///
+  /// This is `null` if the body type is void.
+  final FullType? bodyType;
+
+  /// The full type of the headers.
+  ///
+  /// This is `null` if the headers type is void.
+  final FullType? headersType;
+}
+
+/// Deserializes the given [serialized] data.
+///
+/// Serialization is skipped if the data already represents the desired type.
+/// The [fullType] should represent the return type [T].
+T? _deserialize<T>(Object? serialized, Serializers serializers, FullType? fullType) {
+  // If we use the more efficient helpers from BytesStreamExtension the serialized value can already be correct.
+  if (serialized is T) {
+    return serialized;
+  }
+
+  if (fullType != null) {
+    return serializers.deserialize(serialized, specifiedType: fullType) as T?;
+  }
+
+  return null;
 }

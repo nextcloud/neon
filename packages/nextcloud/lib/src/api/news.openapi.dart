@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// news Version: 21.2.0.
 ///
@@ -47,6 +48,14 @@ class $Client extends _i1.DynamiteClient {
           cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
+
+  /// Builds a serializer to parse the response of `$getSupportedApiVersions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SupportedAPIVersions, void> $getSupportedApiVersions_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(SupportedAPIVersions),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -107,6 +116,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$listFolders_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ListFolders, void> $listFolders_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ListFolders),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -165,6 +182,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$createFolder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ListFolders, void> $createFolder_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ListFolders),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -236,6 +261,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$renameFolder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $renameFolder_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -318,6 +351,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteFolder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $deleteFolder_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -382,6 +423,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$markFolderAsRead_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $markFolderAsRead_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -465,6 +514,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$listFeeds_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ListFeeds, void> $listFeeds_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ListFeeds),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -523,6 +580,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$addFeed_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ListFeeds, void> $addFeed_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ListFeeds),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -607,6 +672,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteFeed_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $deleteFeed_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -671,6 +744,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$moveFeed_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $moveFeed_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -752,6 +833,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$renameFeed_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $renameFeed_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -835,6 +924,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$markFeedAsRead_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $markFeedAsRead_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -916,6 +1013,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$listArticles_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ListArticles, void> $listArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ListArticles),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1040,6 +1145,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$listUpdatedArticles_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ListArticles, void> $listUpdatedArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ListArticles),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1135,6 +1248,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$markArticleAsRead_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $markArticleAsRead_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1199,6 +1320,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$markArticleAsUnread_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $markArticleAsUnread_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1265,6 +1394,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$starArticle_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $starArticle_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1329,6 +1466,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$unstarArticle_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $unstarArticle_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.

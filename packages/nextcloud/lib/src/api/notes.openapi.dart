@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// notes Version: 4.8.0.
 ///
@@ -51,6 +52,14 @@ class $Client extends _i1.DynamiteClient {
           cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
+
+  /// Builds a serializer to parse the response of `$getNotes_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BuiltList<Note>, void> $getNotes_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BuiltList, [FullType(Note)]),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -174,6 +183,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$createNote_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Note, void> $createNote_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Note),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -287,6 +304,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getNote_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Note, void> $getNote_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Note),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -378,6 +403,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$updateNote_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Note, void> $updateNote_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Note),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -504,6 +537,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$deleteNote_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<String, void> $deleteNote_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(String),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -569,6 +610,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getSettings_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Settings, void> $getSettings_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Settings),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -627,6 +676,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$updateSettings_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Settings, void> $updateSettings_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Settings),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.

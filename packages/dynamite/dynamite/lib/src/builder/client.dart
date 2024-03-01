@@ -302,6 +302,40 @@ Iterable<Method> buildTags(
 
       yield Method((b) {
         b
+          ..name = '\$${name}_Serializer'
+          ..docs.add('/// Builds a serializer to parse the response of `\$${name}_Request`.')
+          ..annotations.add(refer('experimental', 'package:meta/meta.dart'));
+
+        if (operation.deprecated) {
+          b.annotations.add(refer('Deprecated').call([refer("''")]));
+        }
+
+        final returnType = TypeReference(
+          (b) => b
+            ..symbol = 'DynamiteSerializer'
+            ..url = 'package:dynamite_runtime/http_client.dart'
+            ..types.addAll([
+              refer(bodyType.name),
+              refer(headersType.name),
+            ]),
+        );
+
+        b
+          ..returns = returnType
+          ..lambda = true
+          ..body = Code.scope(
+            (allocate) => '''
+${allocate(returnType)}(
+  bodyType: ${bodyType.fullType ?? 'null'},
+  headersType: ${headersType.fullType ?? 'null'},
+  serializers: _\$jsonSerializers,
+)
+''',
+          );
+      });
+
+      yield Method((b) {
+        b
           ..name = name
           ..modifier = MethodModifier.async
           ..docs.addAll(operation.formattedDescription(name));

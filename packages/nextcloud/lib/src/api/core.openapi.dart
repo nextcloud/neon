@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// core Version: 0.0.1.
 ///
@@ -94,6 +95,14 @@ class $Client extends _i1.DynamiteClient {
 
   late final $WipeClient wipe = $WipeClient(this);
 
+  /// Builds a serializer to parse the response of `$getStatus_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Status, void> $getStatus_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Status),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -142,6 +151,15 @@ class $AppPasswordClient {
   $AppPasswordClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getAppPassword_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppPasswordGetAppPasswordResponseApplicationJson, void> $getAppPassword_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AppPasswordGetAppPasswordResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create app password.
   ///
@@ -224,6 +242,15 @@ class $AppPasswordClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$rotateAppPassword_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppPasswordRotateAppPasswordResponseApplicationJson, void> $rotateAppPassword_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AppPasswordRotateAppPasswordResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Rotate app password.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -304,6 +331,15 @@ class $AppPasswordClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$deleteAppPassword_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppPasswordDeleteAppPasswordResponseApplicationJson, void> $deleteAppPassword_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete app password.
   ///
@@ -392,6 +428,14 @@ class $AutoCompleteClient {
   $AutoCompleteClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$$get_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AutoCompleteGetResponseApplicationJson, void> $$get_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(AutoCompleteGetResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Autocomplete a query.
   ///
@@ -534,6 +578,15 @@ class $AvatarClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getAvatarDark_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, AvatarAvatarGetAvatarDarkHeaders> $getAvatarDark_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: const FullType(AvatarAvatarGetAvatarDarkHeaders),
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the dark avatar.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -620,6 +673,14 @@ class $AvatarClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, AvatarAvatarGetAvatarHeaders> $getAvatar_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: const FullType(AvatarAvatarGetAvatarHeaders),
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the avatar.
   ///
@@ -715,6 +776,14 @@ class $ClientFlowLoginV2Client {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$poll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<LoginFlowV2Credentials, void> $poll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(LoginFlowV2Credentials),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Poll the login flow credentials.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -790,6 +859,14 @@ class $ClientFlowLoginV2Client {
     );
   }
 
+  /// Builds a serializer to parse the response of `$init_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<LoginFlowV2, void> $init_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(LoginFlowV2),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Init a login flow.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -857,6 +934,15 @@ class $CollaborationResourcesClient {
   $CollaborationResourcesClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$searchCollections_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>
+      $searchCollections_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Search for collections.
   ///
@@ -949,6 +1035,15 @@ class $CollaborationResourcesClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$listCollection_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CollaborationResourcesListCollectionResponseApplicationJson, void>
+      $listCollection_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Get a collection.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1040,6 +1135,15 @@ class $CollaborationResourcesClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$renameCollection_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CollaborationResourcesRenameCollectionResponseApplicationJson, void>
+      $renameCollection_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Rename a collection.
   ///
@@ -1141,6 +1245,15 @@ class $CollaborationResourcesClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$addResource_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CollaborationResourcesAddResourceResponseApplicationJson, void> $addResource_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CollaborationResourcesAddResourceResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Add a resource to a collection.
   ///
@@ -1252,6 +1365,15 @@ class $CollaborationResourcesClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$removeResource_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CollaborationResourcesRemoveResourceResponseApplicationJson, void>
+      $removeResource_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Remove a resource from a collection.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1362,6 +1484,15 @@ class $CollaborationResourcesClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getCollectionsByResource_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
+      $getCollectionsByResource_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
+
   /// Get collections by resource.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1462,6 +1593,15 @@ class $CollaborationResourcesClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$createCollectionOnResource_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
+      $createCollectionOnResource_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Create a collection for a resource.
   ///
@@ -1584,6 +1724,14 @@ class $GuestAvatarClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getAvatarDark_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getAvatarDark_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a dark guest avatar image response.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1675,6 +1823,14 @@ class $GuestAvatarClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getAvatar_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a guest avatar image response.
   ///
@@ -1785,6 +1941,14 @@ class $HoverCardClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getUser_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<HoverCardGetUserResponseApplicationJson, void> $getUser_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(HoverCardGetUserResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the user details for a hovercard.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1882,6 +2046,15 @@ class $NavigationClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getAppsNavigation_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<NavigationGetAppsNavigationResponseApplicationJson, void> $getAppsNavigation_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(NavigationGetAppsNavigationResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the apps navigation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1973,6 +2146,15 @@ class $NavigationClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getSettingsNavigation_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<NavigationGetSettingsNavigationResponseApplicationJson, void>
+      $getSettingsNavigation_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Get the settings navigation.
   ///
@@ -2074,6 +2256,15 @@ class $OcmClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$discovery_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders> $discovery_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(OcmDiscoveryResponseApplicationJson),
+        headersType: const FullType(OcmOcmDiscoveryHeaders),
+        serializers: _$jsonSerializers,
+      );
+
   /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2143,6 +2334,15 @@ class $OcsClient {
   $OcsClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getCapabilities_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<OcsGetCapabilitiesResponseApplicationJson, void> $getCapabilities_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(OcsGetCapabilitiesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the capabilities.
   ///
@@ -2225,6 +2425,14 @@ class $PreviewClient {
   $PreviewClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getPreviewByFileId_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getPreviewByFileId_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a preview by file ID.
   ///
@@ -2370,6 +2578,14 @@ class $PreviewClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getPreview_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a preview by file path.
   ///
@@ -2522,6 +2738,15 @@ class $ProfileApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$setVisibility_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ProfileApiSetVisibilityResponseApplicationJson, void> $setVisibility_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ProfileApiSetVisibilityResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Update the visibility of a parameter.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2639,6 +2864,14 @@ class $ReferenceClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$preview_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $preview_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get a preview for a reference.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -2720,6 +2953,15 @@ class $ReferenceApiClient {
   $ReferenceApiClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$resolveOne_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiResolveOneResponseApplicationJson, void> $resolveOne_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiResolveOneResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Resolve a reference.
   ///
@@ -2808,6 +3050,15 @@ class $ReferenceApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$resolve_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiResolveResponseApplicationJson, void> $resolve_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiResolveResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Resolve multiple references.
   ///
@@ -2906,6 +3157,15 @@ class $ReferenceApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$extract_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiExtractResponseApplicationJson, void> $extract_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiExtractResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Extract references from a text.
   ///
@@ -3013,6 +3273,15 @@ class $ReferenceApiClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getProvidersInfo_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiGetProvidersInfoResponseApplicationJson, void> $getProvidersInfo_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the providers.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3091,6 +3360,15 @@ class $ReferenceApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$touchProvider_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiTouchProviderResponseApplicationJson, void> $touchProvider_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiTouchProviderResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Touch a provider.
   ///
@@ -3195,6 +3473,15 @@ class $TextProcessingApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$taskTypes_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextProcessingApiTaskTypesResponseApplicationJson, void> $taskTypes_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextProcessingApiTaskTypesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// This endpoint returns all available LanguageModel task types.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3269,6 +3556,15 @@ class $TextProcessingApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$schedule_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextProcessingApiScheduleResponseApplicationJson, void> $schedule_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextProcessingApiScheduleResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// This endpoint allows scheduling a language model task.
   ///
@@ -3388,6 +3684,15 @@ class $TextProcessingApiClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getTask_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextProcessingApiGetTaskResponseApplicationJson, void> $getTask_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextProcessingApiGetTaskResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3477,6 +3782,15 @@ class $TextProcessingApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$deleteTask_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextProcessingApiDeleteTaskResponseApplicationJson, void> $deleteTask_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextProcessingApiDeleteTaskResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// This endpoint allows to delete a scheduled task for a user.
   ///
@@ -3569,6 +3883,15 @@ class $TextProcessingApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$listTasksByApp_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextProcessingApiListTasksByAppResponseApplicationJson, void> $listTasksByApp_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextProcessingApiListTasksByAppResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
   ///
@@ -3675,6 +3998,15 @@ class $TextToImageApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$isAvailable_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextToImageApiIsAvailableResponseApplicationJson, void> $isAvailable_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextToImageApiIsAvailableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Check whether this feature is available.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3751,6 +4083,15 @@ class $TextToImageApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$schedule_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextToImageApiScheduleResponseApplicationJson, void> $schedule_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextToImageApiScheduleResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// This endpoint allows scheduling a text to image task.
   ///
@@ -3869,6 +4210,15 @@ class $TextToImageApiClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$getTask_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextToImageApiGetTaskResponseApplicationJson, void> $getTask_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextToImageApiGetTaskResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -3958,6 +4308,15 @@ class $TextToImageApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$deleteTask_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextToImageApiDeleteTaskResponseApplicationJson, void> $deleteTask_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextToImageApiDeleteTaskResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// This endpoint allows to delete a scheduled task for a user.
   ///
@@ -4050,6 +4409,14 @@ class $TextToImageApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$getImage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getImage_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// This endpoint allows downloading the resulting image of a task.
   ///
@@ -4148,6 +4515,15 @@ class $TextToImageApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$listTasksByApp_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TextToImageApiListTasksByAppResponseApplicationJson, void> $listTasksByApp_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TextToImageApiListTasksByAppResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
   ///
@@ -4254,6 +4630,15 @@ class $TranslationApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$languages_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TranslationApiLanguagesResponseApplicationJson, void> $languages_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TranslationApiLanguagesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the list of supported languages.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4328,6 +4713,15 @@ class $TranslationApiClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$translate_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TranslationApiTranslateResponseApplicationJson, void> $translate_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TranslationApiTranslateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Translate a text.
   ///
@@ -4445,6 +4839,15 @@ class $UnifiedSearchClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getProviders_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UnifiedSearchGetProvidersResponseApplicationJson, void> $getProviders_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the providers for unified search.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4533,6 +4936,15 @@ class $UnifiedSearchClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$search_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UnifiedSearchSearchResponseApplicationJson, void> $search_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UnifiedSearchSearchResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Launch a search for a specific search provider.
   ///
@@ -4679,6 +5091,14 @@ class $WhatsNewClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$$get_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WhatsNewGetResponseApplicationJson, void> $$get_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(WhatsNewGetResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the changes.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4755,6 +5175,14 @@ class $WhatsNewClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$dismiss_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WhatsNewDismissResponseApplicationJson, void> $dismiss_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(WhatsNewDismissResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Dismiss the changes.
   ///
@@ -4853,6 +5281,14 @@ class $WipeClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$checkWipe_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<WipeCheckWipeResponseApplicationJson, void> $checkWipe_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(WipeCheckWipeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Check if the device should be wiped.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -4927,6 +5363,14 @@ class $WipeClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$wipeDone_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $wipeDone_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Finish the wipe.
   ///

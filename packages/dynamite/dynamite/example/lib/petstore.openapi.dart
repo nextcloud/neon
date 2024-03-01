@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// Swagger Petstore Version: 1.0.0.
 ///
@@ -52,6 +53,14 @@ class $Client extends _i1.DynamiteClient {
           cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
+
+  /// Builds a serializer to parse the response of `$findPets_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BuiltList<Pet>, void> $findPets_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BuiltList, [FullType(Pet)]),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns all pets from the system that the user has access to.
   /// Nam sed condimentum est. Maecenas tempor sagittis sapien, nec rhoncus sem sagittis sit amet. Aenean at gravida augue, ac iaculis sem. Curabitur odio lorem, ornare eget elementum nec, cursus id lectus. Duis mi turpis, pulvinar ac eros ac, tincidunt varius justo. In hac habitasse platea dictumst. Integer at adipiscing ante, a sagittis ligula. Aenean pharetra tempor ante molestie imperdiet. Vivamus id aliquam diam. Cras quis velit non tortor eleifend sagittis. Praesent at enim pharetra urna volutpat venenatis eget eget mauris. In eleifend fermentum facilisis. Praesent enim enim, gravida ac sodales sed, placerat id erat. Suspendisse lacus dolor, consectetur non augue vel, vehicula interdum libero. Morbi euismod sagittis libero sed lacinia.
@@ -133,6 +142,14 @@ class $Client extends _i1.DynamiteClient {
     );
   }
 
+  /// Builds a serializer to parse the response of `$addPet_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Pet, void> $addPet_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Pet),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Creates a new pet in the store. Duplicates are allowed.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -186,6 +203,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$findPetById_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Pet, void> $findPetById_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Pet),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a user based on a single ID, if the user does not have access to the pet.
   ///
@@ -246,6 +271,14 @@ class $Client extends _i1.DynamiteClient {
       serializers: _$jsonSerializers,
     );
   }
+
+  /// Builds a serializer to parse the response of `$deletePet_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $deletePet_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// deletes a single pet based on the ID supplied.
   ///

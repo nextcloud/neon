@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// updatenotification Version: 0.0.1.
 ///
@@ -55,6 +56,14 @@ class $ApiClient {
   $ApiClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getAppList_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiGetAppListResponseApplicationJson, void> $getAppList_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ApiGetAppListResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// List available updates for apps.
   ///
