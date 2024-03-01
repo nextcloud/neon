@@ -17,6 +17,7 @@ class NeonListView extends StatelessWidget {
     int? itemCount,
     this.topFixedChildren,
     this.topScrollingChildren,
+    this.reverse = false,
     super.key,
   }) : sliver = SliverList.builder(
           itemCount: itemCount,
@@ -32,6 +33,7 @@ class NeonListView extends StatelessWidget {
     required this.scrollKey,
     this.topFixedChildren,
     this.topScrollingChildren,
+    this.reverse = false,
     super.key,
   });
 
@@ -54,6 +56,11 @@ class NeonListView extends StatelessWidget {
   /// A list of widgets that are displayed at the top of the list and scroll with it.
   final List<Widget>? topScrollingChildren;
 
+  /// Whether the scroll view scrolls in the reading direction.
+  ///
+  /// Defaults to `false`.
+  final bool reverse;
+
   /// The sliver controlling the main scrollable area.
   final Widget sliver;
 
@@ -66,6 +73,7 @@ class NeonListView extends StatelessWidget {
       key: refreshIndicatorKey,
       onRefresh: onRefresh,
       child: CustomScrollView(
+        reverse: reverse,
         key: PageStorageKey<String>(scrollKey),
         primary: true,
         slivers: [
