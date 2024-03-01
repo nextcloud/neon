@@ -92,9 +92,9 @@ class $Client extends _i1.DynamiteClient {
   ///   * default
   ///
   /// See:
-  ///  * [postRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<void, void>> post({String? string}) async {
-    final rawResponse = postRaw(
+  ///  * [$postRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  Future<_i1.DynamiteResponse<void, void>> $post({String? string}) async {
+    final rawResponse = $postRaw(
       string: string,
     );
 
@@ -110,9 +110,9 @@ class $Client extends _i1.DynamiteClient {
   ///   * default
   ///
   /// See:
-  ///  * [post] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [$post] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> postRaw({String? string}) {
+  _i1.DynamiteRawResponse<void, void> $postRaw({String? string}) {
     final _headers = <String, String>{};
     Uint8List? _body;
 
