@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - uses: kuhnroyal/flutter-fvm-config-action@34c3905bc939a4ff9d9cb07d5a977493fa73b2aa # v2
         id: fvm_config
-      - uses: subosito/flutter-action@2783a3f08e1baf891508463f8c6653c258246225 # v2
+      - uses: subosito/flutter-action@62f096cacda5168a3bd7b95793373be14fa4fbaf # v2
         with:
           flutter-version: ${{ steps.fvm_config.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm_config.outputs.FLUTTER_CHANNEL }}
