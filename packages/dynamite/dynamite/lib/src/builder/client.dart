@@ -220,6 +220,7 @@ Iterable<Method> buildTags(
           responses = Map.fromEntries([responses.entries.first]);
         }
       }
+      final responseEntry = responses.entries.single;
 
       final code = StringBuffer();
       final acceptHeader = responses.keys
@@ -273,8 +274,6 @@ Iterable<Method> buildTags(
 
       final operationParameters = ListBuilder<Parameter>();
       final annotations = operation.deprecated ? refer('Deprecated').call([refer("''")]) : null;
-      var returnDataType = 'void';
-      var returnHeadersType = 'void';
 
       for (final parameter in parameters) {
         final parameterRequired = isRequired(
@@ -309,85 +308,44 @@ Iterable<Method> buildTags(
       }
       resolveMimeTypeEncode(operation, spec, state, operationName, operationParameters).forEach(code.writeln);
 
-      for (final responseEntry in responses.entries) {
-        final response = responseEntry.key;
-        final statusCodes = responseEntry.value;
+      final bodyType = buildBodyType(
+        state,
+        responseEntry.key,
+        spec,
+        operationName,
+        tag,
+      );
+      final headersType = buildHeaderType(
+        state,
+        responseEntry.key,
+        spec,
+        operationName,
+        tag,
+      );
 
-        TypeResult? headersType;
+      buildUrlPath(pathEntry.key, parameters, code, state.emitter.allocator.allocate);
 
-        if (response.headers != null) {
-          final identifierBuilder = StringBuffer();
-          if (tag != null) {
-            identifierBuilder.write(toDartName(tag, className: true));
-          }
-          identifierBuilder
-            ..write(toDartName(operationName, className: true))
-            ..write('Headers');
-          headersType = resolveObject(
-            spec,
-            state,
-            identifierBuilder.toString(),
-            openapi.Schema(
-              (b) => b
-                ..properties.replace(
-                  response.headers!.map(
-                    (headerName, value) => MapEntry(
-                      headerName.toLowerCase(),
-                      value.schema!,
-                    ),
-                  ),
-                ),
-            ),
-            isHeader: true,
-          );
-        }
+      final statusCodes = responseEntry.value;
+      final returnValue = refer(
+        'DynamiteRawResponse<${bodyType.name}, ${headersType.name}>',
+        'package:dynamite_runtime/http_client.dart',
+      ).newInstance(const [], {
+        'response': refer(client).property('executeRequest').call([
+          literalString(httpMethod),
+          refer('_path'),
+        ], {
+          if (acceptHeader.isNotEmpty || hasHeaderParameters || hasAuthentication || hasContentEncoding)
+            'headers': refer('_headers'),
+          if (operation.requestBody != null) 'body': refer('_body'),
+          if (responses.values.isNotEmpty && !statusCodes.contains('default'))
+            'validStatuses': literalConstSet(statusCodes),
+        }),
+        'bodyType': refer(bodyType.fullType ?? 'null'),
+        'headersType': refer(headersType.fullType ?? 'null'),
+        'serializers': refer(r'_$jsonSerializers'),
+      });
 
-        final identifierBuilder = StringBuffer()
-          ..write(operationName)
-          ..write('-response');
-        if (responses.entries.length > 1) {
-          identifierBuilder
-            ..write('-')
-            ..write(responses.entries.toList().indexOf(responseEntry));
-        }
-
-        final dataType = resolveMimeTypeDecode(
-          response,
-          spec,
-          state,
-          toDartName(identifierBuilder.toString(), className: true),
-        );
-
-        buildUrlPath(pathEntry.key, parameters, code, state.emitter.allocator.allocate);
-
-        if (dataType != null) {
-          returnDataType = dataType.name;
-        }
-        if (headersType != null) {
-          returnHeadersType = headersType.name;
-        }
-
-        final returnValue = refer(
-          'DynamiteRawResponse<$returnDataType, $returnHeadersType>',
-          'package:dynamite_runtime/http_client.dart',
-        ).newInstance(const [], {
-          'response': refer(client).property('executeRequest').call([
-            literalString(httpMethod),
-            refer('_path'),
-          ], {
-            if (acceptHeader.isNotEmpty || hasHeaderParameters || hasAuthentication || hasContentEncoding)
-              'headers': refer('_headers'),
-            if (operation.requestBody != null) 'body': refer('_body'),
-            if (responses.values.isNotEmpty && !statusCodes.contains('default'))
-              'validStatuses': literalConstSet(statusCodes),
-          }),
-          'bodyType': refer(dataType?.fullType ?? 'null'),
-          'headersType': refer(headersType?.fullType ?? 'null'),
-          'serializers': refer(r'_$jsonSerializers'),
-        });
-
-        code.writeln(returnValue.returned.statement.accept(state.emitter));
-      }
+      code.writeln(returnValue.returned.statement.accept(state.emitter));
 
       yield Method((b) {
         b
@@ -402,7 +360,7 @@ Iterable<Method> buildTags(
         final parameters = operationParameters.build();
         final rawParameters = parameters.map((p) => '${p.name}: ${p.name},').join('\n');
         final responseType = refer(
-          'DynamiteResponse<$returnDataType, $returnHeadersType>',
+          'DynamiteResponse<${bodyType.name}, ${headersType.name}>',
           'package:dynamite_runtime/http_client.dart',
         ).accept(state.emitter);
 
@@ -432,7 +390,7 @@ return rawResponse.future;
           b
             ..optionalParameters.addAll(operationParameters.build())
             ..returns = refer(
-              'DynamiteRawResponse<$returnDataType, $returnHeadersType>',
+              'DynamiteRawResponse<${bodyType.name}, ${headersType.name}>',
               'package:dynamite_runtime/http_client.dart',
             )
             ..body = Code(code.toString());
@@ -440,6 +398,73 @@ return rawResponse.future;
       );
     }
   }
+}
+
+({String name, String? fullType}) buildBodyType(
+  State state,
+  openapi.Response response,
+  openapi.OpenAPI spec,
+  String operationName,
+  String? tag,
+) {
+  final identifierBuilder = StringBuffer()
+    ..write(operationName)
+    ..write('-response');
+
+  final dataType = resolveMimeTypeDecode(
+    response,
+    spec,
+    state,
+    toDartName(identifierBuilder.toString(), className: true),
+  );
+
+  if (dataType != null) {
+    return (name: dataType.name, fullType: dataType.fullType);
+  }
+
+  return (name: 'void', fullType: null);
+}
+
+({String name, String? fullType}) buildHeaderType(
+  State state,
+  openapi.Response response,
+  openapi.OpenAPI spec,
+  String operationName,
+  String? tag,
+) {
+  TypeResult? headersType;
+  if (response.headers != null) {
+    final identifierBuilder = StringBuffer();
+    if (tag != null) {
+      identifierBuilder.write(toDartName(tag, className: true));
+    }
+    identifierBuilder
+      ..write(toDartName(operationName, className: true))
+      ..write('Headers');
+    headersType = resolveObject(
+      spec,
+      state,
+      identifierBuilder.toString(),
+      openapi.Schema(
+        (b) => b
+          ..properties.replace(
+            response.headers!.map(
+              (headerName, value) => MapEntry(
+                headerName.toLowerCase(),
+                value.schema!,
+              ),
+            ),
+          ),
+      ),
+      isHeader: true,
+    );
+  }
+
+  if (headersType != null) {
+    return (name: headersType.name, fullType: headersType.fullType);
+  }
+
+  return (name: 'void', fullType: null);
 }
 
 void buildUrlPath(
