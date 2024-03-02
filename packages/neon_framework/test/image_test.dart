@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/widgets/error.dart';
@@ -39,10 +38,8 @@ void main() {
     final callback = MockCallbackFunction<void>();
 
     await tester.pumpWidget(
-      MaterialApp(
-        localizationsDelegates: NeonLocalizations.localizationsDelegates,
-        supportedLocales: NeonLocalizations.supportedLocales,
-        home: NeonImage(
+      TestApp(
+        child: NeonImage(
           image: image,
           onRetry: callback.call,
         ),
@@ -109,10 +106,8 @@ void main() {
     });
 
     await tester.pumpWidget(
-      MaterialApp(
-        localizationsDelegates: NeonLocalizations.localizationsDelegates,
-        supportedLocales: NeonLocalizations.supportedLocales,
-        home: NeonApiImage.withAccount(
+      TestApp(
+        child: NeonApiImage.withAccount(
           getImage: getImage.call,
           cacheKey: 'key',
           etag: null,
@@ -155,10 +150,8 @@ void main() {
 
     final uri = Uri.parse('https://example.com');
     await tester.pumpWidget(
-      MaterialApp(
-        localizationsDelegates: NeonLocalizations.localizationsDelegates,
-        supportedLocales: NeonLocalizations.supportedLocales,
-        home: NeonUriImage.withAccount(
+      TestApp(
+        child: NeonUriImage.withAccount(
           uri: uri,
           account: mockAccount,
         ),

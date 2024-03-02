@@ -4,7 +4,6 @@ import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
@@ -53,15 +52,10 @@ void main() {
     when(() => accountsBloc.activeCapabilitiesBloc).thenReturn(capabilitiesBloc);
 
     await tester.pumpWidget(
-      MaterialApp(
-        localizationsDelegates: NeonLocalizations.localizationsDelegates,
-        supportedLocales: NeonLocalizations.supportedLocales,
-        home: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: const NeonDrawer(),
-          ),
+      TestApp(
+        child: NeonProvider<AccountsBloc>.value(
+          value: accountsBloc,
+          child: const NeonDrawer(),
         ),
       ),
     );

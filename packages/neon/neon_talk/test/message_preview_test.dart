@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/widgets/message_preview.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
 class MockChatMessage extends Mock implements spreed.ChatMessage {}
 
-Widget wrapWidget(Widget child) => MaterialApp(
+Widget wrapWidget(Widget child) => TestApp(
       localizationsDelegates: TalkLocalizations.localizationsDelegates,
-      home: Material(
+      supportedLocales: TalkLocalizations.supportedLocales,
+      child: Material(
         child: child,
       ),
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_dashboard/l10n/localizations.dart' show DashboardLocalizations;
 import 'package:neon_dashboard/l10n/localizations.dart';
 import 'package:neon_dashboard/src/pages/main.dart';
 import 'package:neon_dashboard/src/widgets/widget.dart';
@@ -16,15 +15,12 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:rxdart/rxdart.dart';
 
-Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
+Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => TestApp(
       localizationsDelegates: DashboardLocalizations.localizationsDelegates,
       supportedLocales: DashboardLocalizations.supportedLocales,
-      home: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: child,
-        ),
+      child: NeonProvider<AccountsBloc>.value(
+        value: accountsBloc,
+        child: child,
       ),
     );
 
