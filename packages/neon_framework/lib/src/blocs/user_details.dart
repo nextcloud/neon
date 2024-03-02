@@ -46,6 +46,7 @@ class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
       cacheKey: 'user-details',
       subject: userDetails,
       rawResponse: account.client.provisioningApi.users.getCurrentUserRaw(),
+      serializer: account.client.provisioningApi.users.$getCurrentUser_Serializer(),
       unwrap: (response) => response.body.ocs.data,
     );
   }

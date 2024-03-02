@@ -71,6 +71,7 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
       cacheKey: 'notifications-notifications',
       subject: notifications,
       rawResponse: account.client.notifications.endpoint.listNotificationsRaw(),
+      serializer: account.client.notifications.endpoint.$listNotifications_Serializer(),
       unwrap: (response) => response.body.ocs.data,
     );
   }

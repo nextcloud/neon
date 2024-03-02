@@ -92,6 +92,7 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
         cacheKey: 'weather_status-location',
         subject: location,
         rawResponse: account.client.weatherStatus.weatherStatus.getLocationRaw(),
+        serializer: account.client.weatherStatus.weatherStatus.$getLocation_Serializer(),
         unwrap: (response) => response.body.ocs.data,
       ),
       refreshForecast(),
@@ -104,6 +105,7 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
       cacheKey: 'weather_status-forecast',
       subject: forecasts,
       rawResponse: account.client.weatherStatus.weatherStatus.getForecastRaw(),
+      serializer: account.client.weatherStatus.weatherStatus.$getForecast_Serializer(),
       unwrap: (response) => response.body.ocs.data.builtListForecast ?? BuiltList(),
     );
   }

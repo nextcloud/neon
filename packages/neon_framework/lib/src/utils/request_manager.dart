@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:built_value/serializer.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -77,6 +78,7 @@ class RequestManager {
     required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
     required DynamiteRawResponse<B, H> rawResponse,
+    required DynamiteSerializer<B, H> serializer,
     required UnwrapCallback<T, DynamiteResponse<B, H>> unwrap,
     bool disableTimeout = false,
   }) async =>

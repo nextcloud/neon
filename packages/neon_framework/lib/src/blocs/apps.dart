@@ -261,6 +261,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       cacheKey: 'apps-apps',
       subject: apps,
       rawResponse: account.client.core.navigation.getAppsNavigationRaw(),
+      serializer: account.client.core.navigation.$getAppsNavigation_Serializer(),
       unwrap: (response) => response.body.ocs.data,
     );
   }
