@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -8,22 +7,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/image.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-class MockCallbackFunction<T> extends Mock {
-  FutureOr<T> call();
-}
-
 class MockRequestManager extends Mock implements RequestManager {}
-
-// ignore: avoid_implementing_value_types
-class MockAccount extends Mock implements Account {}
 
 class MockNextcloudClient extends Mock implements NextcloudClient {}
 
