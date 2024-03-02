@@ -21,9 +21,9 @@ import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'files_reminders.openapi.g.dart';
 
@@ -104,7 +104,7 @@ class $ApiClient {
   ///
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ApiGetResponseApplicationJson, void> $getRaw({
     required String version,
     required int fileId,
@@ -131,7 +131,7 @@ class $ApiClient {
 
 // coverage:ignore-end
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $version as String?,
       RegExp(r'^1$'),
       'version',
@@ -143,9 +143,9 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     return _i1.DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -217,7 +217,7 @@ class $ApiClient {
   ///
   /// See:
   ///  * [$set] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ApiSetResponseApplicationJson, void> $setRaw({
     required String dueDate,
     required String version,
@@ -248,7 +248,7 @@ class $ApiClient {
     _parameters['dueDate'] = $dueDate;
 
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $version as String?,
       RegExp(r'^1$'),
       'version',
@@ -260,10 +260,10 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ApiSetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -333,7 +333,7 @@ class $ApiClient {
   ///
   /// See:
   ///  * [remove] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ApiRemoveResponseApplicationJson, void> removeRaw({
     required String version,
     required int fileId,
@@ -360,7 +360,7 @@ class $ApiClient {
 
 // coverage:ignore-end
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $version as String?,
       RegExp(r'^1$'),
       'version',
@@ -372,9 +372,9 @@ class $ApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     return _i1.DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -690,7 +690,7 @@ abstract class ApiRemoveResponseApplicationJson
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson), ApiGetResponseApplicationJsonBuilder.new)
@@ -727,7 +727,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

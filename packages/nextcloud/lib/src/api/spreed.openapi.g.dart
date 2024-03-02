@@ -7423,38 +7423,38 @@ Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs>
 Serializer<CertificateGetCertificateExpirationResponseApplicationJson>
     _$certificateGetCertificateExpirationResponseApplicationJsonSerializer =
     _$CertificateGetCertificateExpirationResponseApplicationJsonSerializer();
-Serializer<ChatChatReceiveMessagesHeaders> _$chatChatReceiveMessagesHeadersSerializer =
-    _$ChatChatReceiveMessagesHeadersSerializer();
 Serializer<ChatMessageWithParent> _$chatMessageWithParentSerializer = _$ChatMessageWithParentSerializer();
 Serializer<ChatReceiveMessagesResponseApplicationJson_Ocs> _$chatReceiveMessagesResponseApplicationJsonOcsSerializer =
     _$ChatReceiveMessagesResponseApplicationJson_OcsSerializer();
 Serializer<ChatReceiveMessagesResponseApplicationJson> _$chatReceiveMessagesResponseApplicationJsonSerializer =
     _$ChatReceiveMessagesResponseApplicationJsonSerializer();
-Serializer<ChatChatSendMessageHeaders> _$chatChatSendMessageHeadersSerializer =
-    _$ChatChatSendMessageHeadersSerializer();
+Serializer<ChatChatReceiveMessagesHeaders> _$chatChatReceiveMessagesHeadersSerializer =
+    _$ChatChatReceiveMessagesHeadersSerializer();
 Serializer<ChatSendMessageResponseApplicationJson_Ocs> _$chatSendMessageResponseApplicationJsonOcsSerializer =
     _$ChatSendMessageResponseApplicationJson_OcsSerializer();
 Serializer<ChatSendMessageResponseApplicationJson> _$chatSendMessageResponseApplicationJsonSerializer =
     _$ChatSendMessageResponseApplicationJsonSerializer();
-Serializer<ChatChatClearHistoryHeaders> _$chatChatClearHistoryHeadersSerializer =
-    _$ChatChatClearHistoryHeadersSerializer();
+Serializer<ChatChatSendMessageHeaders> _$chatChatSendMessageHeadersSerializer =
+    _$ChatChatSendMessageHeadersSerializer();
 Serializer<ChatClearHistoryResponseApplicationJson_Ocs> _$chatClearHistoryResponseApplicationJsonOcsSerializer =
     _$ChatClearHistoryResponseApplicationJson_OcsSerializer();
 Serializer<ChatClearHistoryResponseApplicationJson> _$chatClearHistoryResponseApplicationJsonSerializer =
     _$ChatClearHistoryResponseApplicationJsonSerializer();
-Serializer<ChatChatDeleteMessageHeaders> _$chatChatDeleteMessageHeadersSerializer =
-    _$ChatChatDeleteMessageHeadersSerializer();
+Serializer<ChatChatClearHistoryHeaders> _$chatChatClearHistoryHeadersSerializer =
+    _$ChatChatClearHistoryHeadersSerializer();
 Serializer<ChatDeleteMessageResponseApplicationJson_Ocs> _$chatDeleteMessageResponseApplicationJsonOcsSerializer =
     _$ChatDeleteMessageResponseApplicationJson_OcsSerializer();
 Serializer<ChatDeleteMessageResponseApplicationJson> _$chatDeleteMessageResponseApplicationJsonSerializer =
     _$ChatDeleteMessageResponseApplicationJsonSerializer();
-Serializer<ChatChatGetMessageContextHeaders> _$chatChatGetMessageContextHeadersSerializer =
-    _$ChatChatGetMessageContextHeadersSerializer();
+Serializer<ChatChatDeleteMessageHeaders> _$chatChatDeleteMessageHeadersSerializer =
+    _$ChatChatDeleteMessageHeadersSerializer();
 Serializer<ChatGetMessageContextResponseApplicationJson_Ocs>
     _$chatGetMessageContextResponseApplicationJsonOcsSerializer =
     _$ChatGetMessageContextResponseApplicationJson_OcsSerializer();
 Serializer<ChatGetMessageContextResponseApplicationJson> _$chatGetMessageContextResponseApplicationJsonSerializer =
     _$ChatGetMessageContextResponseApplicationJsonSerializer();
+Serializer<ChatChatGetMessageContextHeaders> _$chatChatGetMessageContextHeadersSerializer =
+    _$ChatChatGetMessageContextHeadersSerializer();
 Serializer<ChatReminder> _$chatReminderSerializer = _$ChatReminderSerializer();
 Serializer<ChatGetReminderResponseApplicationJson_Ocs> _$chatGetReminderResponseApplicationJsonOcsSerializer =
     _$ChatGetReminderResponseApplicationJson_OcsSerializer();
@@ -7468,37 +7468,37 @@ Serializer<ChatDeleteReminderResponseApplicationJson_Ocs> _$chatDeleteReminderRe
     _$ChatDeleteReminderResponseApplicationJson_OcsSerializer();
 Serializer<ChatDeleteReminderResponseApplicationJson> _$chatDeleteReminderResponseApplicationJsonSerializer =
     _$ChatDeleteReminderResponseApplicationJsonSerializer();
-Serializer<ChatChatSetReadMarkerHeaders> _$chatChatSetReadMarkerHeadersSerializer =
-    _$ChatChatSetReadMarkerHeadersSerializer();
 Serializer<ChatSetReadMarkerResponseApplicationJson_Ocs> _$chatSetReadMarkerResponseApplicationJsonOcsSerializer =
     _$ChatSetReadMarkerResponseApplicationJson_OcsSerializer();
 Serializer<ChatSetReadMarkerResponseApplicationJson> _$chatSetReadMarkerResponseApplicationJsonSerializer =
     _$ChatSetReadMarkerResponseApplicationJsonSerializer();
-Serializer<ChatChatMarkUnreadHeaders> _$chatChatMarkUnreadHeadersSerializer = _$ChatChatMarkUnreadHeadersSerializer();
+Serializer<ChatChatSetReadMarkerHeaders> _$chatChatSetReadMarkerHeadersSerializer =
+    _$ChatChatSetReadMarkerHeadersSerializer();
 Serializer<ChatMarkUnreadResponseApplicationJson_Ocs> _$chatMarkUnreadResponseApplicationJsonOcsSerializer =
     _$ChatMarkUnreadResponseApplicationJson_OcsSerializer();
 Serializer<ChatMarkUnreadResponseApplicationJson> _$chatMarkUnreadResponseApplicationJsonSerializer =
     _$ChatMarkUnreadResponseApplicationJsonSerializer();
+Serializer<ChatChatMarkUnreadHeaders> _$chatChatMarkUnreadHeadersSerializer = _$ChatChatMarkUnreadHeadersSerializer();
 Serializer<ChatMentionSuggestion> _$chatMentionSuggestionSerializer = _$ChatMentionSuggestionSerializer();
 Serializer<ChatMentionsResponseApplicationJson_Ocs> _$chatMentionsResponseApplicationJsonOcsSerializer =
     _$ChatMentionsResponseApplicationJson_OcsSerializer();
 Serializer<ChatMentionsResponseApplicationJson> _$chatMentionsResponseApplicationJsonSerializer =
     _$ChatMentionsResponseApplicationJsonSerializer();
-Serializer<ChatChatGetObjectsSharedInRoomHeaders> _$chatChatGetObjectsSharedInRoomHeadersSerializer =
-    _$ChatChatGetObjectsSharedInRoomHeadersSerializer();
 Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs>
     _$chatGetObjectsSharedInRoomResponseApplicationJsonOcsSerializer =
     _$ChatGetObjectsSharedInRoomResponseApplicationJson_OcsSerializer();
 Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson>
     _$chatGetObjectsSharedInRoomResponseApplicationJsonSerializer =
     _$ChatGetObjectsSharedInRoomResponseApplicationJsonSerializer();
-Serializer<ChatChatShareObjectToChatHeaders> _$chatChatShareObjectToChatHeadersSerializer =
-    _$ChatChatShareObjectToChatHeadersSerializer();
+Serializer<ChatChatGetObjectsSharedInRoomHeaders> _$chatChatGetObjectsSharedInRoomHeadersSerializer =
+    _$ChatChatGetObjectsSharedInRoomHeadersSerializer();
 Serializer<ChatShareObjectToChatResponseApplicationJson_Ocs>
     _$chatShareObjectToChatResponseApplicationJsonOcsSerializer =
     _$ChatShareObjectToChatResponseApplicationJson_OcsSerializer();
 Serializer<ChatShareObjectToChatResponseApplicationJson> _$chatShareObjectToChatResponseApplicationJsonSerializer =
     _$ChatShareObjectToChatResponseApplicationJsonSerializer();
+Serializer<ChatChatShareObjectToChatHeaders> _$chatChatShareObjectToChatHeadersSerializer =
+    _$ChatChatShareObjectToChatHeadersSerializer();
 Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs>
     _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonOcsSerializer =
     _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsSerializer();
@@ -7653,11 +7653,11 @@ Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs>
 Serializer<RecordingGetWelcomeMessageResponseApplicationJson>
     _$recordingGetWelcomeMessageResponseApplicationJsonSerializer =
     _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer();
-Serializer<RoomRoomGetRoomsHeaders> _$roomRoomGetRoomsHeadersSerializer = _$RoomRoomGetRoomsHeadersSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson_Ocs> _$roomGetRoomsResponseApplicationJsonOcsSerializer =
     _$RoomGetRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson> _$roomGetRoomsResponseApplicationJsonSerializer =
     _$RoomGetRoomsResponseApplicationJsonSerializer();
+Serializer<RoomRoomGetRoomsHeaders> _$roomRoomGetRoomsHeadersSerializer = _$RoomRoomGetRoomsHeadersSerializer();
 Serializer<RoomCreateRoomResponseApplicationJson_Ocs> _$roomCreateRoomResponseApplicationJsonOcsSerializer =
     _$RoomCreateRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomCreateRoomResponseApplicationJson> _$roomCreateRoomResponseApplicationJsonSerializer =
@@ -7666,20 +7666,20 @@ Serializer<RoomGetListedRoomsResponseApplicationJson_Ocs> _$roomGetListedRoomsRe
     _$RoomGetListedRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetListedRoomsResponseApplicationJson> _$roomGetListedRoomsResponseApplicationJsonSerializer =
     _$RoomGetListedRoomsResponseApplicationJsonSerializer();
-Serializer<RoomRoomGetNoteToSelfConversationHeaders> _$roomRoomGetNoteToSelfConversationHeadersSerializer =
-    _$RoomRoomGetNoteToSelfConversationHeadersSerializer();
 Serializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs>
     _$roomGetNoteToSelfConversationResponseApplicationJsonOcsSerializer =
     _$RoomGetNoteToSelfConversationResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetNoteToSelfConversationResponseApplicationJson>
     _$roomGetNoteToSelfConversationResponseApplicationJsonSerializer =
     _$RoomGetNoteToSelfConversationResponseApplicationJsonSerializer();
-Serializer<RoomRoomGetSingleRoomHeaders> _$roomRoomGetSingleRoomHeadersSerializer =
-    _$RoomRoomGetSingleRoomHeadersSerializer();
+Serializer<RoomRoomGetNoteToSelfConversationHeaders> _$roomRoomGetNoteToSelfConversationHeadersSerializer =
+    _$RoomRoomGetNoteToSelfConversationHeadersSerializer();
 Serializer<RoomGetSingleRoomResponseApplicationJson_Ocs> _$roomGetSingleRoomResponseApplicationJsonOcsSerializer =
     _$RoomGetSingleRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetSingleRoomResponseApplicationJson> _$roomGetSingleRoomResponseApplicationJsonSerializer =
     _$RoomGetSingleRoomResponseApplicationJsonSerializer();
+Serializer<RoomRoomGetSingleRoomHeaders> _$roomRoomGetSingleRoomHeadersSerializer =
+    _$RoomRoomGetSingleRoomHeadersSerializer();
 Serializer<RoomRenameRoomResponseApplicationJson_Ocs> _$roomRenameRoomResponseApplicationJsonOcsSerializer =
     _$RoomRenameRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomRenameRoomResponseApplicationJson> _$roomRenameRoomResponseApplicationJsonSerializer =
@@ -7720,13 +7720,13 @@ Serializer<RoomSetPermissionsResponseApplicationJson_Ocs> _$roomSetPermissionsRe
     _$RoomSetPermissionsResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetPermissionsResponseApplicationJson> _$roomSetPermissionsResponseApplicationJsonSerializer =
     _$RoomSetPermissionsResponseApplicationJsonSerializer();
-Serializer<RoomRoomGetParticipantsHeaders> _$roomRoomGetParticipantsHeadersSerializer =
-    _$RoomRoomGetParticipantsHeadersSerializer();
 Serializer<Participant> _$participantSerializer = _$ParticipantSerializer();
 Serializer<RoomGetParticipantsResponseApplicationJson_Ocs> _$roomGetParticipantsResponseApplicationJsonOcsSerializer =
     _$RoomGetParticipantsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetParticipantsResponseApplicationJson> _$roomGetParticipantsResponseApplicationJsonSerializer =
     _$RoomGetParticipantsResponseApplicationJsonSerializer();
+Serializer<RoomRoomGetParticipantsHeaders> _$roomRoomGetParticipantsHeadersSerializer =
+    _$RoomRoomGetParticipantsHeadersSerializer();
 Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0>
     _$roomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer =
     _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Serializer();
@@ -7736,14 +7736,14 @@ Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs>
 Serializer<RoomAddParticipantToRoomResponseApplicationJson>
     _$roomAddParticipantToRoomResponseApplicationJsonSerializer =
     _$RoomAddParticipantToRoomResponseApplicationJsonSerializer();
-Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> _$roomRoomGetBreakoutRoomParticipantsHeadersSerializer =
-    _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer();
 Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs>
     _$roomGetBreakoutRoomParticipantsResponseApplicationJsonOcsSerializer =
     _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson>
     _$roomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer =
     _$RoomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer();
+Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> _$roomRoomGetBreakoutRoomParticipantsHeadersSerializer =
+    _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer();
 Serializer<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs>
     _$roomRemoveSelfFromRoomResponseApplicationJsonOcsSerializer =
     _$RoomRemoveSelfFromRoomResponseApplicationJson_OcsSerializer();
@@ -11138,56 +11138,6 @@ class _$CertificateGetCertificateExpirationResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatReceiveMessagesHeadersSerializer implements StructuredSerializer<ChatChatReceiveMessagesHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatReceiveMessagesHeaders, _$ChatChatReceiveMessagesHeaders];
-  @override
-  final String wireName = 'ChatChatReceiveMessagesHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatReceiveMessagesHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xChatLastCommonRead;
-    if (value != null) {
-      result
-        ..add('x-chat-last-common-read')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.xChatLastGiven;
-    if (value != null) {
-      result
-        ..add('x-chat-last-given')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  ChatChatReceiveMessagesHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatReceiveMessagesHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'x-chat-last-given':
-          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMessageWithParent> {
   @override
   final Iterable<Type> types = const [ChatMessageWithParent, _$ChatMessageWithParent];
@@ -11423,14 +11373,14 @@ class _$ChatReceiveMessagesResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatSendMessageHeadersSerializer implements StructuredSerializer<ChatChatSendMessageHeaders> {
+class _$ChatChatReceiveMessagesHeadersSerializer implements StructuredSerializer<ChatChatReceiveMessagesHeaders> {
   @override
-  final Iterable<Type> types = const [ChatChatSendMessageHeaders, _$ChatChatSendMessageHeaders];
+  final Iterable<Type> types = const [ChatChatReceiveMessagesHeaders, _$ChatChatReceiveMessagesHeaders];
   @override
-  final String wireName = 'ChatChatSendMessageHeaders';
+  final String wireName = 'ChatChatReceiveMessagesHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatSendMessageHeaders object,
+  Iterable<Object?> serialize(Serializers serializers, ChatChatReceiveMessagesHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -11440,13 +11390,19 @@ class _$ChatChatSendMessageHeadersSerializer implements StructuredSerializer<Cha
         ..add('x-chat-last-common-read')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.xChatLastGiven;
+    if (value != null) {
+      result
+        ..add('x-chat-last-given')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
   @override
-  ChatChatSendMessageHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ChatChatReceiveMessagesHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatSendMessageHeadersBuilder();
+    final result = ChatChatReceiveMessagesHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -11456,6 +11412,9 @@ class _$ChatChatSendMessageHeadersSerializer implements StructuredSerializer<Cha
       switch (key) {
         case 'x-chat-last-common-read':
           result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'x-chat-last-given':
+          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -11557,14 +11516,14 @@ class _$ChatSendMessageResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatClearHistoryHeadersSerializer implements StructuredSerializer<ChatChatClearHistoryHeaders> {
+class _$ChatChatSendMessageHeadersSerializer implements StructuredSerializer<ChatChatSendMessageHeaders> {
   @override
-  final Iterable<Type> types = const [ChatChatClearHistoryHeaders, _$ChatChatClearHistoryHeaders];
+  final Iterable<Type> types = const [ChatChatSendMessageHeaders, _$ChatChatSendMessageHeaders];
   @override
-  final String wireName = 'ChatChatClearHistoryHeaders';
+  final String wireName = 'ChatChatSendMessageHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatClearHistoryHeaders object,
+  Iterable<Object?> serialize(Serializers serializers, ChatChatSendMessageHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -11578,9 +11537,9 @@ class _$ChatChatClearHistoryHeadersSerializer implements StructuredSerializer<Ch
   }
 
   @override
-  ChatChatClearHistoryHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ChatChatSendMessageHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatClearHistoryHeadersBuilder();
+    final result = ChatChatSendMessageHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -11690,14 +11649,14 @@ class _$ChatClearHistoryResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatDeleteMessageHeadersSerializer implements StructuredSerializer<ChatChatDeleteMessageHeaders> {
+class _$ChatChatClearHistoryHeadersSerializer implements StructuredSerializer<ChatChatClearHistoryHeaders> {
   @override
-  final Iterable<Type> types = const [ChatChatDeleteMessageHeaders, _$ChatChatDeleteMessageHeaders];
+  final Iterable<Type> types = const [ChatChatClearHistoryHeaders, _$ChatChatClearHistoryHeaders];
   @override
-  final String wireName = 'ChatChatDeleteMessageHeaders';
+  final String wireName = 'ChatChatClearHistoryHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatDeleteMessageHeaders object,
+  Iterable<Object?> serialize(Serializers serializers, ChatChatClearHistoryHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -11711,9 +11670,9 @@ class _$ChatChatDeleteMessageHeadersSerializer implements StructuredSerializer<C
   }
 
   @override
-  ChatChatDeleteMessageHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ChatChatClearHistoryHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatDeleteMessageHeadersBuilder();
+    final result = ChatChatClearHistoryHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -11823,14 +11782,14 @@ class _$ChatDeleteMessageResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatGetMessageContextHeadersSerializer implements StructuredSerializer<ChatChatGetMessageContextHeaders> {
+class _$ChatChatDeleteMessageHeadersSerializer implements StructuredSerializer<ChatChatDeleteMessageHeaders> {
   @override
-  final Iterable<Type> types = const [ChatChatGetMessageContextHeaders, _$ChatChatGetMessageContextHeaders];
+  final Iterable<Type> types = const [ChatChatDeleteMessageHeaders, _$ChatChatDeleteMessageHeaders];
   @override
-  final String wireName = 'ChatChatGetMessageContextHeaders';
+  final String wireName = 'ChatChatDeleteMessageHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatGetMessageContextHeaders object,
+  Iterable<Object?> serialize(Serializers serializers, ChatChatDeleteMessageHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -11840,19 +11799,13 @@ class _$ChatChatGetMessageContextHeadersSerializer implements StructuredSerializ
         ..add('x-chat-last-common-read')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
-    value = object.xChatLastGiven;
-    if (value != null) {
-      result
-        ..add('x-chat-last-given')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     return result;
   }
 
   @override
-  ChatChatGetMessageContextHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ChatChatDeleteMessageHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatGetMessageContextHeadersBuilder();
+    final result = ChatChatDeleteMessageHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -11862,9 +11815,6 @@ class _$ChatChatGetMessageContextHeadersSerializer implements StructuredSerializ
       switch (key) {
         case 'x-chat-last-common-read':
           result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'x-chat-last-given':
-          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -11958,6 +11908,56 @@ class _$ChatGetMessageContextResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ChatGetMessageContextResponseApplicationJson_Ocs))!
               as ChatGetMessageContextResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ChatChatGetMessageContextHeadersSerializer implements StructuredSerializer<ChatChatGetMessageContextHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatGetMessageContextHeaders, _$ChatChatGetMessageContextHeaders];
+  @override
+  final String wireName = 'ChatChatGetMessageContextHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatGetMessageContextHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.xChatLastGiven;
+    if (value != null) {
+      result
+        ..add('x-chat-last-given')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatGetMessageContextHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatGetMessageContextHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'x-chat-last-given':
+          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -12288,47 +12288,6 @@ class _$ChatDeleteReminderResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatSetReadMarkerHeadersSerializer implements StructuredSerializer<ChatChatSetReadMarkerHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatSetReadMarkerHeaders, _$ChatChatSetReadMarkerHeaders];
-  @override
-  final String wireName = 'ChatChatSetReadMarkerHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatSetReadMarkerHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xChatLastCommonRead;
-    if (value != null) {
-      result
-        ..add('x-chat-last-common-read')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  ChatChatSetReadMarkerHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatSetReadMarkerHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ChatSetReadMarkerResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatSetReadMarkerResponseApplicationJson_Ocs> {
   @override
@@ -12420,14 +12379,14 @@ class _$ChatSetReadMarkerResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatMarkUnreadHeadersSerializer implements StructuredSerializer<ChatChatMarkUnreadHeaders> {
+class _$ChatChatSetReadMarkerHeadersSerializer implements StructuredSerializer<ChatChatSetReadMarkerHeaders> {
   @override
-  final Iterable<Type> types = const [ChatChatMarkUnreadHeaders, _$ChatChatMarkUnreadHeaders];
+  final Iterable<Type> types = const [ChatChatSetReadMarkerHeaders, _$ChatChatSetReadMarkerHeaders];
   @override
-  final String wireName = 'ChatChatMarkUnreadHeaders';
+  final String wireName = 'ChatChatSetReadMarkerHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatMarkUnreadHeaders object,
+  Iterable<Object?> serialize(Serializers serializers, ChatChatSetReadMarkerHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -12441,9 +12400,9 @@ class _$ChatChatMarkUnreadHeadersSerializer implements StructuredSerializer<Chat
   }
 
   @override
-  ChatChatMarkUnreadHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ChatChatSetReadMarkerHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatMarkUnreadHeadersBuilder();
+    final result = ChatChatSetReadMarkerHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -12541,6 +12500,47 @@ class _$ChatMarkUnreadResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(ChatMarkUnreadResponseApplicationJson_Ocs))!
                   as ChatMarkUnreadResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ChatChatMarkUnreadHeadersSerializer implements StructuredSerializer<ChatChatMarkUnreadHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatMarkUnreadHeaders, _$ChatChatMarkUnreadHeaders];
+  @override
+  final String wireName = 'ChatChatMarkUnreadHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatMarkUnreadHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatMarkUnreadHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatMarkUnreadHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -12722,48 +12722,6 @@ class _$ChatMentionsResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatGetObjectsSharedInRoomHeadersSerializer
-    implements StructuredSerializer<ChatChatGetObjectsSharedInRoomHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatGetObjectsSharedInRoomHeaders, _$ChatChatGetObjectsSharedInRoomHeaders];
-  @override
-  final String wireName = 'ChatChatGetObjectsSharedInRoomHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatGetObjectsSharedInRoomHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xChatLastGiven;
-    if (value != null) {
-      result
-        ..add('x-chat-last-given')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  ChatChatGetObjectsSharedInRoomHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatGetObjectsSharedInRoomHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-chat-last-given':
-          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ChatGetObjectsSharedInRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs> {
   @override
@@ -12858,30 +12816,31 @@ class _$ChatGetObjectsSharedInRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatChatShareObjectToChatHeadersSerializer implements StructuredSerializer<ChatChatShareObjectToChatHeaders> {
+class _$ChatChatGetObjectsSharedInRoomHeadersSerializer
+    implements StructuredSerializer<ChatChatGetObjectsSharedInRoomHeaders> {
   @override
-  final Iterable<Type> types = const [ChatChatShareObjectToChatHeaders, _$ChatChatShareObjectToChatHeaders];
+  final Iterable<Type> types = const [ChatChatGetObjectsSharedInRoomHeaders, _$ChatChatGetObjectsSharedInRoomHeaders];
   @override
-  final String wireName = 'ChatChatShareObjectToChatHeaders';
+  final String wireName = 'ChatChatGetObjectsSharedInRoomHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ChatChatShareObjectToChatHeaders object,
+  Iterable<Object?> serialize(Serializers serializers, ChatChatGetObjectsSharedInRoomHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.xChatLastCommonRead;
+    value = object.xChatLastGiven;
     if (value != null) {
       result
-        ..add('x-chat-last-common-read')
+        ..add('x-chat-last-given')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  ChatChatShareObjectToChatHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ChatChatGetObjectsSharedInRoomHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatChatShareObjectToChatHeadersBuilder();
+    final result = ChatChatGetObjectsSharedInRoomHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -12889,8 +12848,8 @@ class _$ChatChatShareObjectToChatHeadersSerializer implements StructuredSerializ
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+        case 'x-chat-last-given':
+          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -12988,6 +12947,47 @@ class _$ChatShareObjectToChatResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ChatShareObjectToChatResponseApplicationJson_Ocs))!
               as ChatShareObjectToChatResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ChatChatShareObjectToChatHeadersSerializer implements StructuredSerializer<ChatChatShareObjectToChatHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatShareObjectToChatHeaders, _$ChatChatShareObjectToChatHeaders];
+  @override
+  final String wireName = 'ChatChatShareObjectToChatHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatShareObjectToChatHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatShareObjectToChatHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatShareObjectToChatHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -16058,57 +16058,6 @@ class _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomRoomGetRoomsHeadersSerializer implements StructuredSerializer<RoomRoomGetRoomsHeaders> {
-  @override
-  final Iterable<Type> types = const [RoomRoomGetRoomsHeaders, _$RoomRoomGetRoomsHeaders];
-  @override
-  final String wireName = 'RoomRoomGetRoomsHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetRoomsHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xNextcloudTalkHash;
-    if (value != null) {
-      result
-        ..add('x-nextcloud-talk-hash')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.xNextcloudTalkModifiedBefore;
-    if (value != null) {
-      result
-        ..add('x-nextcloud-talk-modified-before')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  RoomRoomGetRoomsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomRoomGetRoomsHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-nextcloud-talk-hash':
-          result.xNextcloudTalkHash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'x-nextcloud-talk-modified-before':
-          result.xNextcloudTalkModifiedBefore =
-              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$RoomGetRoomsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomGetRoomsResponseApplicationJson_Ocs> {
   @override
@@ -16190,6 +16139,57 @@ class _$RoomGetRoomsResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(RoomGetRoomsResponseApplicationJson_Ocs))!
                   as RoomGetRoomsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomRoomGetRoomsHeadersSerializer implements StructuredSerializer<RoomRoomGetRoomsHeaders> {
+  @override
+  final Iterable<Type> types = const [RoomRoomGetRoomsHeaders, _$RoomRoomGetRoomsHeaders];
+  @override
+  final String wireName = 'RoomRoomGetRoomsHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetRoomsHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudTalkHash;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-talk-hash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.xNextcloudTalkModifiedBefore;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-talk-modified-before')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetRoomsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetRoomsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-talk-hash':
+          result.xNextcloudTalkHash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'x-nextcloud-talk-modified-before':
+          result.xNextcloudTalkModifiedBefore =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -16378,51 +16378,6 @@ class _$RoomGetListedRoomsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomRoomGetNoteToSelfConversationHeadersSerializer
-    implements StructuredSerializer<RoomRoomGetNoteToSelfConversationHeaders> {
-  @override
-  final Iterable<Type> types = const [
-    RoomRoomGetNoteToSelfConversationHeaders,
-    _$RoomRoomGetNoteToSelfConversationHeaders
-  ];
-  @override
-  final String wireName = 'RoomRoomGetNoteToSelfConversationHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetNoteToSelfConversationHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xNextcloudTalkHash;
-    if (value != null) {
-      result
-        ..add('x-nextcloud-talk-hash')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  RoomRoomGetNoteToSelfConversationHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomRoomGetNoteToSelfConversationHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-nextcloud-talk-hash':
-          result.xNextcloudTalkHash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$RoomGetNoteToSelfConversationResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs> {
   @override
@@ -16517,14 +16472,18 @@ class _$RoomGetNoteToSelfConversationResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomRoomGetSingleRoomHeadersSerializer implements StructuredSerializer<RoomRoomGetSingleRoomHeaders> {
+class _$RoomRoomGetNoteToSelfConversationHeadersSerializer
+    implements StructuredSerializer<RoomRoomGetNoteToSelfConversationHeaders> {
   @override
-  final Iterable<Type> types = const [RoomRoomGetSingleRoomHeaders, _$RoomRoomGetSingleRoomHeaders];
+  final Iterable<Type> types = const [
+    RoomRoomGetNoteToSelfConversationHeaders,
+    _$RoomRoomGetNoteToSelfConversationHeaders
+  ];
   @override
-  final String wireName = 'RoomRoomGetSingleRoomHeaders';
+  final String wireName = 'RoomRoomGetNoteToSelfConversationHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetSingleRoomHeaders object,
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetNoteToSelfConversationHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -16538,9 +16497,9 @@ class _$RoomRoomGetSingleRoomHeadersSerializer implements StructuredSerializer<R
   }
 
   @override
-  RoomRoomGetSingleRoomHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  RoomRoomGetNoteToSelfConversationHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomRoomGetSingleRoomHeadersBuilder();
+    final result = RoomRoomGetNoteToSelfConversationHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -16641,6 +16600,47 @@ class _$RoomGetSingleRoomResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(RoomGetSingleRoomResponseApplicationJson_Ocs))!
               as RoomGetSingleRoomResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomRoomGetSingleRoomHeadersSerializer implements StructuredSerializer<RoomRoomGetSingleRoomHeaders> {
+  @override
+  final Iterable<Type> types = const [RoomRoomGetSingleRoomHeaders, _$RoomRoomGetSingleRoomHeaders];
+  @override
+  final String wireName = 'RoomRoomGetSingleRoomHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetSingleRoomHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudTalkHash;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-talk-hash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetSingleRoomHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetSingleRoomHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-talk-hash':
+          result.xNextcloudTalkHash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -17539,48 +17539,6 @@ class _$RoomSetPermissionsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomRoomGetParticipantsHeadersSerializer implements StructuredSerializer<RoomRoomGetParticipantsHeaders> {
-  @override
-  final Iterable<Type> types = const [RoomRoomGetParticipantsHeaders, _$RoomRoomGetParticipantsHeaders];
-  @override
-  final String wireName = 'RoomRoomGetParticipantsHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetParticipantsHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xNextcloudHasUserStatuses;
-    if (value != null) {
-      result
-        ..add('x-nextcloud-has-user-statuses')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(bool)])));
-    }
-    return result;
-  }
-
-  @override
-  RoomRoomGetParticipantsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomRoomGetParticipantsHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-nextcloud-has-user-statuses':
-          result.xNextcloudHasUserStatuses.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(bool)]))! as Header<bool>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ParticipantSerializer implements StructuredSerializer<Participant> {
   @override
   final Iterable<Type> types = const [Participant, _$Participant];
@@ -17821,6 +17779,48 @@ class _$RoomGetParticipantsResponseApplicationJsonSerializer
   }
 }
 
+class _$RoomRoomGetParticipantsHeadersSerializer implements StructuredSerializer<RoomRoomGetParticipantsHeaders> {
+  @override
+  final Iterable<Type> types = const [RoomRoomGetParticipantsHeaders, _$RoomRoomGetParticipantsHeaders];
+  @override
+  final String wireName = 'RoomRoomGetParticipantsHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetParticipantsHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudHasUserStatuses;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-has-user-statuses')
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(bool)])));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetParticipantsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetParticipantsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-has-user-statuses':
+          result.xNextcloudHasUserStatuses.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(bool)]))! as Header<bool>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Serializer
     implements StructuredSerializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0> {
   @override
@@ -17959,52 +17959,6 @@ class _$RoomAddParticipantToRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer
-    implements StructuredSerializer<RoomRoomGetBreakoutRoomParticipantsHeaders> {
-  @override
-  final Iterable<Type> types = const [
-    RoomRoomGetBreakoutRoomParticipantsHeaders,
-    _$RoomRoomGetBreakoutRoomParticipantsHeaders
-  ];
-  @override
-  final String wireName = 'RoomRoomGetBreakoutRoomParticipantsHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetBreakoutRoomParticipantsHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xNextcloudHasUserStatuses;
-    if (value != null) {
-      result
-        ..add('x-nextcloud-has-user-statuses')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(bool)])));
-    }
-    return result;
-  }
-
-  @override
-  RoomRoomGetBreakoutRoomParticipantsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomRoomGetBreakoutRoomParticipantsHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-nextcloud-has-user-statuses':
-          result.xNextcloudHasUserStatuses.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(bool)]))! as Header<bool>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs> {
   @override
@@ -18093,6 +18047,52 @@ class _$RoomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs))!
               as RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer
+    implements StructuredSerializer<RoomRoomGetBreakoutRoomParticipantsHeaders> {
+  @override
+  final Iterable<Type> types = const [
+    RoomRoomGetBreakoutRoomParticipantsHeaders,
+    _$RoomRoomGetBreakoutRoomParticipantsHeaders
+  ];
+  @override
+  final String wireName = 'RoomRoomGetBreakoutRoomParticipantsHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetBreakoutRoomParticipantsHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudHasUserStatuses;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-has-user-statuses')
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(bool)])));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetBreakoutRoomParticipantsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetBreakoutRoomParticipantsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-has-user-statuses':
+          result.xNextcloudHasUserStatuses.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(bool)]))! as Header<bool>);
           break;
       }
     }
@@ -29648,108 +29648,6 @@ class CertificateGetCertificateExpirationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatReceiveMessagesHeadersInterfaceBuilder {
-  void replace($ChatChatReceiveMessagesHeadersInterface other);
-  void update(void Function($ChatChatReceiveMessagesHeadersInterfaceBuilder) updates);
-  String? get xChatLastCommonRead;
-  set xChatLastCommonRead(String? xChatLastCommonRead);
-
-  String? get xChatLastGiven;
-  set xChatLastGiven(String? xChatLastGiven);
-}
-
-class _$ChatChatReceiveMessagesHeaders extends ChatChatReceiveMessagesHeaders {
-  @override
-  final String? xChatLastCommonRead;
-  @override
-  final String? xChatLastGiven;
-
-  factory _$ChatChatReceiveMessagesHeaders([void Function(ChatChatReceiveMessagesHeadersBuilder)? updates]) =>
-      (ChatChatReceiveMessagesHeadersBuilder()..update(updates))._build();
-
-  _$ChatChatReceiveMessagesHeaders._({this.xChatLastCommonRead, this.xChatLastGiven}) : super._();
-
-  @override
-  ChatChatReceiveMessagesHeaders rebuild(void Function(ChatChatReceiveMessagesHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ChatChatReceiveMessagesHeadersBuilder toBuilder() => ChatChatReceiveMessagesHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ChatChatReceiveMessagesHeaders &&
-        xChatLastCommonRead == other.xChatLastCommonRead &&
-        xChatLastGiven == other.xChatLastGiven;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xChatLastCommonRead.hashCode);
-    _$hash = $jc(_$hash, xChatLastGiven.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatReceiveMessagesHeaders')
-          ..add('xChatLastCommonRead', xChatLastCommonRead)
-          ..add('xChatLastGiven', xChatLastGiven))
-        .toString();
-  }
-}
-
-class ChatChatReceiveMessagesHeadersBuilder
-    implements
-        Builder<ChatChatReceiveMessagesHeaders, ChatChatReceiveMessagesHeadersBuilder>,
-        $ChatChatReceiveMessagesHeadersInterfaceBuilder {
-  _$ChatChatReceiveMessagesHeaders? _$v;
-
-  String? _xChatLastCommonRead;
-  String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
-  set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
-
-  String? _xChatLastGiven;
-  String? get xChatLastGiven => _$this._xChatLastGiven;
-  set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
-
-  ChatChatReceiveMessagesHeadersBuilder();
-
-  ChatChatReceiveMessagesHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xChatLastCommonRead = $v.xChatLastCommonRead;
-      _xChatLastGiven = $v.xChatLastGiven;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ChatChatReceiveMessagesHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatReceiveMessagesHeaders;
-  }
-
-  @override
-  void update(void Function(ChatChatReceiveMessagesHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ChatChatReceiveMessagesHeaders build() => _build();
-
-  _$ChatChatReceiveMessagesHeaders _build() {
-    final _$result = _$v ??
-        _$ChatChatReceiveMessagesHeaders._(xChatLastCommonRead: xChatLastCommonRead, xChatLastGiven: xChatLastGiven);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMessageInterfaceBuilder {
   void replace(covariant $ChatMessageWithParentInterface other);
   void update(void Function($ChatMessageWithParentInterfaceBuilder) updates);
@@ -30341,87 +30239,103 @@ class ChatReceiveMessagesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatSendMessageHeadersInterfaceBuilder {
-  void replace($ChatChatSendMessageHeadersInterface other);
-  void update(void Function($ChatChatSendMessageHeadersInterfaceBuilder) updates);
+abstract mixin class $ChatChatReceiveMessagesHeadersInterfaceBuilder {
+  void replace($ChatChatReceiveMessagesHeadersInterface other);
+  void update(void Function($ChatChatReceiveMessagesHeadersInterfaceBuilder) updates);
   String? get xChatLastCommonRead;
   set xChatLastCommonRead(String? xChatLastCommonRead);
+
+  String? get xChatLastGiven;
+  set xChatLastGiven(String? xChatLastGiven);
 }
 
-class _$ChatChatSendMessageHeaders extends ChatChatSendMessageHeaders {
+class _$ChatChatReceiveMessagesHeaders extends ChatChatReceiveMessagesHeaders {
   @override
   final String? xChatLastCommonRead;
+  @override
+  final String? xChatLastGiven;
 
-  factory _$ChatChatSendMessageHeaders([void Function(ChatChatSendMessageHeadersBuilder)? updates]) =>
-      (ChatChatSendMessageHeadersBuilder()..update(updates))._build();
+  factory _$ChatChatReceiveMessagesHeaders([void Function(ChatChatReceiveMessagesHeadersBuilder)? updates]) =>
+      (ChatChatReceiveMessagesHeadersBuilder()..update(updates))._build();
 
-  _$ChatChatSendMessageHeaders._({this.xChatLastCommonRead}) : super._();
+  _$ChatChatReceiveMessagesHeaders._({this.xChatLastCommonRead, this.xChatLastGiven}) : super._();
 
   @override
-  ChatChatSendMessageHeaders rebuild(void Function(ChatChatSendMessageHeadersBuilder) updates) =>
+  ChatChatReceiveMessagesHeaders rebuild(void Function(ChatChatReceiveMessagesHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChatChatSendMessageHeadersBuilder toBuilder() => ChatChatSendMessageHeadersBuilder()..replace(this);
+  ChatChatReceiveMessagesHeadersBuilder toBuilder() => ChatChatReceiveMessagesHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ChatChatSendMessageHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
+    return other is ChatChatReceiveMessagesHeaders &&
+        xChatLastCommonRead == other.xChatLastCommonRead &&
+        xChatLastGiven == other.xChatLastGiven;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, xChatLastCommonRead.hashCode);
+    _$hash = $jc(_$hash, xChatLastGiven.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatSendMessageHeaders')..add('xChatLastCommonRead', xChatLastCommonRead))
+    return (newBuiltValueToStringHelper(r'ChatChatReceiveMessagesHeaders')
+          ..add('xChatLastCommonRead', xChatLastCommonRead)
+          ..add('xChatLastGiven', xChatLastGiven))
         .toString();
   }
 }
 
-class ChatChatSendMessageHeadersBuilder
+class ChatChatReceiveMessagesHeadersBuilder
     implements
-        Builder<ChatChatSendMessageHeaders, ChatChatSendMessageHeadersBuilder>,
-        $ChatChatSendMessageHeadersInterfaceBuilder {
-  _$ChatChatSendMessageHeaders? _$v;
+        Builder<ChatChatReceiveMessagesHeaders, ChatChatReceiveMessagesHeadersBuilder>,
+        $ChatChatReceiveMessagesHeadersInterfaceBuilder {
+  _$ChatChatReceiveMessagesHeaders? _$v;
 
   String? _xChatLastCommonRead;
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatSendMessageHeadersBuilder();
+  String? _xChatLastGiven;
+  String? get xChatLastGiven => _$this._xChatLastGiven;
+  set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
 
-  ChatChatSendMessageHeadersBuilder get _$this {
+  ChatChatReceiveMessagesHeadersBuilder();
+
+  ChatChatReceiveMessagesHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _xChatLastCommonRead = $v.xChatLastCommonRead;
+      _xChatLastGiven = $v.xChatLastGiven;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant ChatChatSendMessageHeaders other) {
+  void replace(covariant ChatChatReceiveMessagesHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatSendMessageHeaders;
+    _$v = other as _$ChatChatReceiveMessagesHeaders;
   }
 
   @override
-  void update(void Function(ChatChatSendMessageHeadersBuilder)? updates) {
+  void update(void Function(ChatChatReceiveMessagesHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ChatChatSendMessageHeaders build() => _build();
+  ChatChatReceiveMessagesHeaders build() => _build();
 
-  _$ChatChatSendMessageHeaders _build() {
-    final _$result = _$v ?? _$ChatChatSendMessageHeaders._(xChatLastCommonRead: xChatLastCommonRead);
+  _$ChatChatReceiveMessagesHeaders _build() {
+    final _$result = _$v ??
+        _$ChatChatReceiveMessagesHeaders._(xChatLastCommonRead: xChatLastCommonRead, xChatLastGiven: xChatLastGiven);
     replace(_$result);
     return _$result;
   }
@@ -30648,33 +30562,33 @@ class ChatSendMessageResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatClearHistoryHeadersInterfaceBuilder {
-  void replace($ChatChatClearHistoryHeadersInterface other);
-  void update(void Function($ChatChatClearHistoryHeadersInterfaceBuilder) updates);
+abstract mixin class $ChatChatSendMessageHeadersInterfaceBuilder {
+  void replace($ChatChatSendMessageHeadersInterface other);
+  void update(void Function($ChatChatSendMessageHeadersInterfaceBuilder) updates);
   String? get xChatLastCommonRead;
   set xChatLastCommonRead(String? xChatLastCommonRead);
 }
 
-class _$ChatChatClearHistoryHeaders extends ChatChatClearHistoryHeaders {
+class _$ChatChatSendMessageHeaders extends ChatChatSendMessageHeaders {
   @override
   final String? xChatLastCommonRead;
 
-  factory _$ChatChatClearHistoryHeaders([void Function(ChatChatClearHistoryHeadersBuilder)? updates]) =>
-      (ChatChatClearHistoryHeadersBuilder()..update(updates))._build();
+  factory _$ChatChatSendMessageHeaders([void Function(ChatChatSendMessageHeadersBuilder)? updates]) =>
+      (ChatChatSendMessageHeadersBuilder()..update(updates))._build();
 
-  _$ChatChatClearHistoryHeaders._({this.xChatLastCommonRead}) : super._();
+  _$ChatChatSendMessageHeaders._({this.xChatLastCommonRead}) : super._();
 
   @override
-  ChatChatClearHistoryHeaders rebuild(void Function(ChatChatClearHistoryHeadersBuilder) updates) =>
+  ChatChatSendMessageHeaders rebuild(void Function(ChatChatSendMessageHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChatChatClearHistoryHeadersBuilder toBuilder() => ChatChatClearHistoryHeadersBuilder()..replace(this);
+  ChatChatSendMessageHeadersBuilder toBuilder() => ChatChatSendMessageHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ChatChatClearHistoryHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
+    return other is ChatChatSendMessageHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
   }
 
   @override
@@ -30687,25 +30601,24 @@ class _$ChatChatClearHistoryHeaders extends ChatChatClearHistoryHeaders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatClearHistoryHeaders')
-          ..add('xChatLastCommonRead', xChatLastCommonRead))
+    return (newBuiltValueToStringHelper(r'ChatChatSendMessageHeaders')..add('xChatLastCommonRead', xChatLastCommonRead))
         .toString();
   }
 }
 
-class ChatChatClearHistoryHeadersBuilder
+class ChatChatSendMessageHeadersBuilder
     implements
-        Builder<ChatChatClearHistoryHeaders, ChatChatClearHistoryHeadersBuilder>,
-        $ChatChatClearHistoryHeadersInterfaceBuilder {
-  _$ChatChatClearHistoryHeaders? _$v;
+        Builder<ChatChatSendMessageHeaders, ChatChatSendMessageHeadersBuilder>,
+        $ChatChatSendMessageHeadersInterfaceBuilder {
+  _$ChatChatSendMessageHeaders? _$v;
 
   String? _xChatLastCommonRead;
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatClearHistoryHeadersBuilder();
+  ChatChatSendMessageHeadersBuilder();
 
-  ChatChatClearHistoryHeadersBuilder get _$this {
+  ChatChatSendMessageHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _xChatLastCommonRead = $v.xChatLastCommonRead;
@@ -30715,21 +30628,21 @@ class ChatChatClearHistoryHeadersBuilder
   }
 
   @override
-  void replace(covariant ChatChatClearHistoryHeaders other) {
+  void replace(covariant ChatChatSendMessageHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatClearHistoryHeaders;
+    _$v = other as _$ChatChatSendMessageHeaders;
   }
 
   @override
-  void update(void Function(ChatChatClearHistoryHeadersBuilder)? updates) {
+  void update(void Function(ChatChatSendMessageHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ChatChatClearHistoryHeaders build() => _build();
+  ChatChatSendMessageHeaders build() => _build();
 
-  _$ChatChatClearHistoryHeaders _build() {
-    final _$result = _$v ?? _$ChatChatClearHistoryHeaders._(xChatLastCommonRead: xChatLastCommonRead);
+  _$ChatChatSendMessageHeaders _build() {
+    final _$result = _$v ?? _$ChatChatSendMessageHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
   }
@@ -30957,33 +30870,33 @@ class ChatClearHistoryResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatDeleteMessageHeadersInterfaceBuilder {
-  void replace($ChatChatDeleteMessageHeadersInterface other);
-  void update(void Function($ChatChatDeleteMessageHeadersInterfaceBuilder) updates);
+abstract mixin class $ChatChatClearHistoryHeadersInterfaceBuilder {
+  void replace($ChatChatClearHistoryHeadersInterface other);
+  void update(void Function($ChatChatClearHistoryHeadersInterfaceBuilder) updates);
   String? get xChatLastCommonRead;
   set xChatLastCommonRead(String? xChatLastCommonRead);
 }
 
-class _$ChatChatDeleteMessageHeaders extends ChatChatDeleteMessageHeaders {
+class _$ChatChatClearHistoryHeaders extends ChatChatClearHistoryHeaders {
   @override
   final String? xChatLastCommonRead;
 
-  factory _$ChatChatDeleteMessageHeaders([void Function(ChatChatDeleteMessageHeadersBuilder)? updates]) =>
-      (ChatChatDeleteMessageHeadersBuilder()..update(updates))._build();
+  factory _$ChatChatClearHistoryHeaders([void Function(ChatChatClearHistoryHeadersBuilder)? updates]) =>
+      (ChatChatClearHistoryHeadersBuilder()..update(updates))._build();
 
-  _$ChatChatDeleteMessageHeaders._({this.xChatLastCommonRead}) : super._();
+  _$ChatChatClearHistoryHeaders._({this.xChatLastCommonRead}) : super._();
 
   @override
-  ChatChatDeleteMessageHeaders rebuild(void Function(ChatChatDeleteMessageHeadersBuilder) updates) =>
+  ChatChatClearHistoryHeaders rebuild(void Function(ChatChatClearHistoryHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChatChatDeleteMessageHeadersBuilder toBuilder() => ChatChatDeleteMessageHeadersBuilder()..replace(this);
+  ChatChatClearHistoryHeadersBuilder toBuilder() => ChatChatClearHistoryHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ChatChatDeleteMessageHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
+    return other is ChatChatClearHistoryHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
   }
 
   @override
@@ -30996,25 +30909,25 @@ class _$ChatChatDeleteMessageHeaders extends ChatChatDeleteMessageHeaders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatDeleteMessageHeaders')
+    return (newBuiltValueToStringHelper(r'ChatChatClearHistoryHeaders')
           ..add('xChatLastCommonRead', xChatLastCommonRead))
         .toString();
   }
 }
 
-class ChatChatDeleteMessageHeadersBuilder
+class ChatChatClearHistoryHeadersBuilder
     implements
-        Builder<ChatChatDeleteMessageHeaders, ChatChatDeleteMessageHeadersBuilder>,
-        $ChatChatDeleteMessageHeadersInterfaceBuilder {
-  _$ChatChatDeleteMessageHeaders? _$v;
+        Builder<ChatChatClearHistoryHeaders, ChatChatClearHistoryHeadersBuilder>,
+        $ChatChatClearHistoryHeadersInterfaceBuilder {
+  _$ChatChatClearHistoryHeaders? _$v;
 
   String? _xChatLastCommonRead;
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatDeleteMessageHeadersBuilder();
+  ChatChatClearHistoryHeadersBuilder();
 
-  ChatChatDeleteMessageHeadersBuilder get _$this {
+  ChatChatClearHistoryHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _xChatLastCommonRead = $v.xChatLastCommonRead;
@@ -31024,21 +30937,21 @@ class ChatChatDeleteMessageHeadersBuilder
   }
 
   @override
-  void replace(covariant ChatChatDeleteMessageHeaders other) {
+  void replace(covariant ChatChatClearHistoryHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatDeleteMessageHeaders;
+    _$v = other as _$ChatChatClearHistoryHeaders;
   }
 
   @override
-  void update(void Function(ChatChatDeleteMessageHeadersBuilder)? updates) {
+  void update(void Function(ChatChatClearHistoryHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ChatChatDeleteMessageHeaders build() => _build();
+  ChatChatClearHistoryHeaders build() => _build();
 
-  _$ChatChatDeleteMessageHeaders _build() {
-    final _$result = _$v ?? _$ChatChatDeleteMessageHeaders._(xChatLastCommonRead: xChatLastCommonRead);
+  _$ChatChatClearHistoryHeaders _build() {
+    final _$result = _$v ?? _$ChatChatClearHistoryHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
   }
@@ -31266,103 +31179,88 @@ class ChatDeleteMessageResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatGetMessageContextHeadersInterfaceBuilder {
-  void replace($ChatChatGetMessageContextHeadersInterface other);
-  void update(void Function($ChatChatGetMessageContextHeadersInterfaceBuilder) updates);
+abstract mixin class $ChatChatDeleteMessageHeadersInterfaceBuilder {
+  void replace($ChatChatDeleteMessageHeadersInterface other);
+  void update(void Function($ChatChatDeleteMessageHeadersInterfaceBuilder) updates);
   String? get xChatLastCommonRead;
   set xChatLastCommonRead(String? xChatLastCommonRead);
-
-  String? get xChatLastGiven;
-  set xChatLastGiven(String? xChatLastGiven);
 }
 
-class _$ChatChatGetMessageContextHeaders extends ChatChatGetMessageContextHeaders {
+class _$ChatChatDeleteMessageHeaders extends ChatChatDeleteMessageHeaders {
   @override
   final String? xChatLastCommonRead;
-  @override
-  final String? xChatLastGiven;
 
-  factory _$ChatChatGetMessageContextHeaders([void Function(ChatChatGetMessageContextHeadersBuilder)? updates]) =>
-      (ChatChatGetMessageContextHeadersBuilder()..update(updates))._build();
+  factory _$ChatChatDeleteMessageHeaders([void Function(ChatChatDeleteMessageHeadersBuilder)? updates]) =>
+      (ChatChatDeleteMessageHeadersBuilder()..update(updates))._build();
 
-  _$ChatChatGetMessageContextHeaders._({this.xChatLastCommonRead, this.xChatLastGiven}) : super._();
+  _$ChatChatDeleteMessageHeaders._({this.xChatLastCommonRead}) : super._();
 
   @override
-  ChatChatGetMessageContextHeaders rebuild(void Function(ChatChatGetMessageContextHeadersBuilder) updates) =>
+  ChatChatDeleteMessageHeaders rebuild(void Function(ChatChatDeleteMessageHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChatChatGetMessageContextHeadersBuilder toBuilder() => ChatChatGetMessageContextHeadersBuilder()..replace(this);
+  ChatChatDeleteMessageHeadersBuilder toBuilder() => ChatChatDeleteMessageHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ChatChatGetMessageContextHeaders &&
-        xChatLastCommonRead == other.xChatLastCommonRead &&
-        xChatLastGiven == other.xChatLastGiven;
+    return other is ChatChatDeleteMessageHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, xChatLastCommonRead.hashCode);
-    _$hash = $jc(_$hash, xChatLastGiven.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatGetMessageContextHeaders')
-          ..add('xChatLastCommonRead', xChatLastCommonRead)
-          ..add('xChatLastGiven', xChatLastGiven))
+    return (newBuiltValueToStringHelper(r'ChatChatDeleteMessageHeaders')
+          ..add('xChatLastCommonRead', xChatLastCommonRead))
         .toString();
   }
 }
 
-class ChatChatGetMessageContextHeadersBuilder
+class ChatChatDeleteMessageHeadersBuilder
     implements
-        Builder<ChatChatGetMessageContextHeaders, ChatChatGetMessageContextHeadersBuilder>,
-        $ChatChatGetMessageContextHeadersInterfaceBuilder {
-  _$ChatChatGetMessageContextHeaders? _$v;
+        Builder<ChatChatDeleteMessageHeaders, ChatChatDeleteMessageHeadersBuilder>,
+        $ChatChatDeleteMessageHeadersInterfaceBuilder {
+  _$ChatChatDeleteMessageHeaders? _$v;
 
   String? _xChatLastCommonRead;
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  String? _xChatLastGiven;
-  String? get xChatLastGiven => _$this._xChatLastGiven;
-  set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
+  ChatChatDeleteMessageHeadersBuilder();
 
-  ChatChatGetMessageContextHeadersBuilder();
-
-  ChatChatGetMessageContextHeadersBuilder get _$this {
+  ChatChatDeleteMessageHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _xChatLastCommonRead = $v.xChatLastCommonRead;
-      _xChatLastGiven = $v.xChatLastGiven;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant ChatChatGetMessageContextHeaders other) {
+  void replace(covariant ChatChatDeleteMessageHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatGetMessageContextHeaders;
+    _$v = other as _$ChatChatDeleteMessageHeaders;
   }
 
   @override
-  void update(void Function(ChatChatGetMessageContextHeadersBuilder)? updates) {
+  void update(void Function(ChatChatDeleteMessageHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ChatChatGetMessageContextHeaders build() => _build();
+  ChatChatDeleteMessageHeaders build() => _build();
 
-  _$ChatChatGetMessageContextHeaders _build() {
-    final _$result = _$v ??
-        _$ChatChatGetMessageContextHeaders._(xChatLastCommonRead: xChatLastCommonRead, xChatLastGiven: xChatLastGiven);
+  _$ChatChatDeleteMessageHeaders _build() {
+    final _$result = _$v ?? _$ChatChatDeleteMessageHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
   }
@@ -31587,6 +31485,108 @@ class ChatGetMessageContextResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ChatChatGetMessageContextHeadersInterfaceBuilder {
+  void replace($ChatChatGetMessageContextHeadersInterface other);
+  void update(void Function($ChatChatGetMessageContextHeadersInterfaceBuilder) updates);
+  String? get xChatLastCommonRead;
+  set xChatLastCommonRead(String? xChatLastCommonRead);
+
+  String? get xChatLastGiven;
+  set xChatLastGiven(String? xChatLastGiven);
+}
+
+class _$ChatChatGetMessageContextHeaders extends ChatChatGetMessageContextHeaders {
+  @override
+  final String? xChatLastCommonRead;
+  @override
+  final String? xChatLastGiven;
+
+  factory _$ChatChatGetMessageContextHeaders([void Function(ChatChatGetMessageContextHeadersBuilder)? updates]) =>
+      (ChatChatGetMessageContextHeadersBuilder()..update(updates))._build();
+
+  _$ChatChatGetMessageContextHeaders._({this.xChatLastCommonRead, this.xChatLastGiven}) : super._();
+
+  @override
+  ChatChatGetMessageContextHeaders rebuild(void Function(ChatChatGetMessageContextHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ChatChatGetMessageContextHeadersBuilder toBuilder() => ChatChatGetMessageContextHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ChatChatGetMessageContextHeaders &&
+        xChatLastCommonRead == other.xChatLastCommonRead &&
+        xChatLastGiven == other.xChatLastGiven;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xChatLastCommonRead.hashCode);
+    _$hash = $jc(_$hash, xChatLastGiven.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ChatChatGetMessageContextHeaders')
+          ..add('xChatLastCommonRead', xChatLastCommonRead)
+          ..add('xChatLastGiven', xChatLastGiven))
+        .toString();
+  }
+}
+
+class ChatChatGetMessageContextHeadersBuilder
+    implements
+        Builder<ChatChatGetMessageContextHeaders, ChatChatGetMessageContextHeadersBuilder>,
+        $ChatChatGetMessageContextHeadersInterfaceBuilder {
+  _$ChatChatGetMessageContextHeaders? _$v;
+
+  String? _xChatLastCommonRead;
+  String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
+  set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
+
+  String? _xChatLastGiven;
+  String? get xChatLastGiven => _$this._xChatLastGiven;
+  set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
+
+  ChatChatGetMessageContextHeadersBuilder();
+
+  ChatChatGetMessageContextHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xChatLastCommonRead = $v.xChatLastCommonRead;
+      _xChatLastGiven = $v.xChatLastGiven;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ChatChatGetMessageContextHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ChatChatGetMessageContextHeaders;
+  }
+
+  @override
+  void update(void Function(ChatChatGetMessageContextHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ChatChatGetMessageContextHeaders build() => _build();
+
+  _$ChatChatGetMessageContextHeaders _build() {
+    final _$result = _$v ??
+        _$ChatChatGetMessageContextHeaders._(xChatLastCommonRead: xChatLastCommonRead, xChatLastGiven: xChatLastGiven);
     replace(_$result);
     return _$result;
   }
@@ -32394,93 +32394,6 @@ class ChatDeleteReminderResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatSetReadMarkerHeadersInterfaceBuilder {
-  void replace($ChatChatSetReadMarkerHeadersInterface other);
-  void update(void Function($ChatChatSetReadMarkerHeadersInterfaceBuilder) updates);
-  String? get xChatLastCommonRead;
-  set xChatLastCommonRead(String? xChatLastCommonRead);
-}
-
-class _$ChatChatSetReadMarkerHeaders extends ChatChatSetReadMarkerHeaders {
-  @override
-  final String? xChatLastCommonRead;
-
-  factory _$ChatChatSetReadMarkerHeaders([void Function(ChatChatSetReadMarkerHeadersBuilder)? updates]) =>
-      (ChatChatSetReadMarkerHeadersBuilder()..update(updates))._build();
-
-  _$ChatChatSetReadMarkerHeaders._({this.xChatLastCommonRead}) : super._();
-
-  @override
-  ChatChatSetReadMarkerHeaders rebuild(void Function(ChatChatSetReadMarkerHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ChatChatSetReadMarkerHeadersBuilder toBuilder() => ChatChatSetReadMarkerHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ChatChatSetReadMarkerHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xChatLastCommonRead.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatSetReadMarkerHeaders')
-          ..add('xChatLastCommonRead', xChatLastCommonRead))
-        .toString();
-  }
-}
-
-class ChatChatSetReadMarkerHeadersBuilder
-    implements
-        Builder<ChatChatSetReadMarkerHeaders, ChatChatSetReadMarkerHeadersBuilder>,
-        $ChatChatSetReadMarkerHeadersInterfaceBuilder {
-  _$ChatChatSetReadMarkerHeaders? _$v;
-
-  String? _xChatLastCommonRead;
-  String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
-  set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
-
-  ChatChatSetReadMarkerHeadersBuilder();
-
-  ChatChatSetReadMarkerHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xChatLastCommonRead = $v.xChatLastCommonRead;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ChatChatSetReadMarkerHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatSetReadMarkerHeaders;
-  }
-
-  @override
-  void update(void Function(ChatChatSetReadMarkerHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ChatChatSetReadMarkerHeaders build() => _build();
-
-  _$ChatChatSetReadMarkerHeaders _build() {
-    final _$result = _$v ?? _$ChatChatSetReadMarkerHeaders._(xChatLastCommonRead: xChatLastCommonRead);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ChatSetReadMarkerResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ChatSetReadMarkerResponseApplicationJson_OcsInterface other);
   void update(void Function($ChatSetReadMarkerResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -32705,33 +32618,33 @@ class ChatSetReadMarkerResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatMarkUnreadHeadersInterfaceBuilder {
-  void replace($ChatChatMarkUnreadHeadersInterface other);
-  void update(void Function($ChatChatMarkUnreadHeadersInterfaceBuilder) updates);
+abstract mixin class $ChatChatSetReadMarkerHeadersInterfaceBuilder {
+  void replace($ChatChatSetReadMarkerHeadersInterface other);
+  void update(void Function($ChatChatSetReadMarkerHeadersInterfaceBuilder) updates);
   String? get xChatLastCommonRead;
   set xChatLastCommonRead(String? xChatLastCommonRead);
 }
 
-class _$ChatChatMarkUnreadHeaders extends ChatChatMarkUnreadHeaders {
+class _$ChatChatSetReadMarkerHeaders extends ChatChatSetReadMarkerHeaders {
   @override
   final String? xChatLastCommonRead;
 
-  factory _$ChatChatMarkUnreadHeaders([void Function(ChatChatMarkUnreadHeadersBuilder)? updates]) =>
-      (ChatChatMarkUnreadHeadersBuilder()..update(updates))._build();
+  factory _$ChatChatSetReadMarkerHeaders([void Function(ChatChatSetReadMarkerHeadersBuilder)? updates]) =>
+      (ChatChatSetReadMarkerHeadersBuilder()..update(updates))._build();
 
-  _$ChatChatMarkUnreadHeaders._({this.xChatLastCommonRead}) : super._();
+  _$ChatChatSetReadMarkerHeaders._({this.xChatLastCommonRead}) : super._();
 
   @override
-  ChatChatMarkUnreadHeaders rebuild(void Function(ChatChatMarkUnreadHeadersBuilder) updates) =>
+  ChatChatSetReadMarkerHeaders rebuild(void Function(ChatChatSetReadMarkerHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChatChatMarkUnreadHeadersBuilder toBuilder() => ChatChatMarkUnreadHeadersBuilder()..replace(this);
+  ChatChatSetReadMarkerHeadersBuilder toBuilder() => ChatChatSetReadMarkerHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ChatChatMarkUnreadHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
+    return other is ChatChatSetReadMarkerHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
   }
 
   @override
@@ -32744,24 +32657,25 @@ class _$ChatChatMarkUnreadHeaders extends ChatChatMarkUnreadHeaders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatMarkUnreadHeaders')..add('xChatLastCommonRead', xChatLastCommonRead))
+    return (newBuiltValueToStringHelper(r'ChatChatSetReadMarkerHeaders')
+          ..add('xChatLastCommonRead', xChatLastCommonRead))
         .toString();
   }
 }
 
-class ChatChatMarkUnreadHeadersBuilder
+class ChatChatSetReadMarkerHeadersBuilder
     implements
-        Builder<ChatChatMarkUnreadHeaders, ChatChatMarkUnreadHeadersBuilder>,
-        $ChatChatMarkUnreadHeadersInterfaceBuilder {
-  _$ChatChatMarkUnreadHeaders? _$v;
+        Builder<ChatChatSetReadMarkerHeaders, ChatChatSetReadMarkerHeadersBuilder>,
+        $ChatChatSetReadMarkerHeadersInterfaceBuilder {
+  _$ChatChatSetReadMarkerHeaders? _$v;
 
   String? _xChatLastCommonRead;
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatMarkUnreadHeadersBuilder();
+  ChatChatSetReadMarkerHeadersBuilder();
 
-  ChatChatMarkUnreadHeadersBuilder get _$this {
+  ChatChatSetReadMarkerHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _xChatLastCommonRead = $v.xChatLastCommonRead;
@@ -32771,21 +32685,21 @@ class ChatChatMarkUnreadHeadersBuilder
   }
 
   @override
-  void replace(covariant ChatChatMarkUnreadHeaders other) {
+  void replace(covariant ChatChatSetReadMarkerHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatMarkUnreadHeaders;
+    _$v = other as _$ChatChatSetReadMarkerHeaders;
   }
 
   @override
-  void update(void Function(ChatChatMarkUnreadHeadersBuilder)? updates) {
+  void update(void Function(ChatChatSetReadMarkerHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ChatChatMarkUnreadHeaders build() => _build();
+  ChatChatSetReadMarkerHeaders build() => _build();
 
-  _$ChatChatMarkUnreadHeaders _build() {
-    final _$result = _$v ?? _$ChatChatMarkUnreadHeaders._(xChatLastCommonRead: xChatLastCommonRead);
+  _$ChatChatSetReadMarkerHeaders _build() {
+    final _$result = _$v ?? _$ChatChatSetReadMarkerHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
   }
@@ -33008,6 +32922,92 @@ class ChatMarkUnreadResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ChatChatMarkUnreadHeadersInterfaceBuilder {
+  void replace($ChatChatMarkUnreadHeadersInterface other);
+  void update(void Function($ChatChatMarkUnreadHeadersInterfaceBuilder) updates);
+  String? get xChatLastCommonRead;
+  set xChatLastCommonRead(String? xChatLastCommonRead);
+}
+
+class _$ChatChatMarkUnreadHeaders extends ChatChatMarkUnreadHeaders {
+  @override
+  final String? xChatLastCommonRead;
+
+  factory _$ChatChatMarkUnreadHeaders([void Function(ChatChatMarkUnreadHeadersBuilder)? updates]) =>
+      (ChatChatMarkUnreadHeadersBuilder()..update(updates))._build();
+
+  _$ChatChatMarkUnreadHeaders._({this.xChatLastCommonRead}) : super._();
+
+  @override
+  ChatChatMarkUnreadHeaders rebuild(void Function(ChatChatMarkUnreadHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ChatChatMarkUnreadHeadersBuilder toBuilder() => ChatChatMarkUnreadHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ChatChatMarkUnreadHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xChatLastCommonRead.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ChatChatMarkUnreadHeaders')..add('xChatLastCommonRead', xChatLastCommonRead))
+        .toString();
+  }
+}
+
+class ChatChatMarkUnreadHeadersBuilder
+    implements
+        Builder<ChatChatMarkUnreadHeaders, ChatChatMarkUnreadHeadersBuilder>,
+        $ChatChatMarkUnreadHeadersInterfaceBuilder {
+  _$ChatChatMarkUnreadHeaders? _$v;
+
+  String? _xChatLastCommonRead;
+  String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
+  set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
+
+  ChatChatMarkUnreadHeadersBuilder();
+
+  ChatChatMarkUnreadHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xChatLastCommonRead = $v.xChatLastCommonRead;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ChatChatMarkUnreadHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ChatChatMarkUnreadHeaders;
+  }
+
+  @override
+  void update(void Function(ChatChatMarkUnreadHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ChatChatMarkUnreadHeaders build() => _build();
+
+  _$ChatChatMarkUnreadHeaders _build() {
+    final _$result = _$v ?? _$ChatChatMarkUnreadHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
   }
@@ -33416,95 +33416,6 @@ class ChatMentionsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatGetObjectsSharedInRoomHeadersInterfaceBuilder {
-  void replace($ChatChatGetObjectsSharedInRoomHeadersInterface other);
-  void update(void Function($ChatChatGetObjectsSharedInRoomHeadersInterfaceBuilder) updates);
-  String? get xChatLastGiven;
-  set xChatLastGiven(String? xChatLastGiven);
-}
-
-class _$ChatChatGetObjectsSharedInRoomHeaders extends ChatChatGetObjectsSharedInRoomHeaders {
-  @override
-  final String? xChatLastGiven;
-
-  factory _$ChatChatGetObjectsSharedInRoomHeaders(
-          [void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? updates]) =>
-      (ChatChatGetObjectsSharedInRoomHeadersBuilder()..update(updates))._build();
-
-  _$ChatChatGetObjectsSharedInRoomHeaders._({this.xChatLastGiven}) : super._();
-
-  @override
-  ChatChatGetObjectsSharedInRoomHeaders rebuild(void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ChatChatGetObjectsSharedInRoomHeadersBuilder toBuilder() =>
-      ChatChatGetObjectsSharedInRoomHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ChatChatGetObjectsSharedInRoomHeaders && xChatLastGiven == other.xChatLastGiven;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xChatLastGiven.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatGetObjectsSharedInRoomHeaders')
-          ..add('xChatLastGiven', xChatLastGiven))
-        .toString();
-  }
-}
-
-class ChatChatGetObjectsSharedInRoomHeadersBuilder
-    implements
-        Builder<ChatChatGetObjectsSharedInRoomHeaders, ChatChatGetObjectsSharedInRoomHeadersBuilder>,
-        $ChatChatGetObjectsSharedInRoomHeadersInterfaceBuilder {
-  _$ChatChatGetObjectsSharedInRoomHeaders? _$v;
-
-  String? _xChatLastGiven;
-  String? get xChatLastGiven => _$this._xChatLastGiven;
-  set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
-
-  ChatChatGetObjectsSharedInRoomHeadersBuilder();
-
-  ChatChatGetObjectsSharedInRoomHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xChatLastGiven = $v.xChatLastGiven;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ChatChatGetObjectsSharedInRoomHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatGetObjectsSharedInRoomHeaders;
-  }
-
-  @override
-  void update(void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ChatChatGetObjectsSharedInRoomHeaders build() => _build();
-
-  _$ChatChatGetObjectsSharedInRoomHeaders _build() {
-    final _$result = _$v ?? _$ChatChatGetObjectsSharedInRoomHeaders._(xChatLastGiven: xChatLastGiven);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface other);
   void update(void Function($ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -33734,88 +33645,90 @@ class ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ChatChatShareObjectToChatHeadersInterfaceBuilder {
-  void replace($ChatChatShareObjectToChatHeadersInterface other);
-  void update(void Function($ChatChatShareObjectToChatHeadersInterfaceBuilder) updates);
-  String? get xChatLastCommonRead;
-  set xChatLastCommonRead(String? xChatLastCommonRead);
+abstract mixin class $ChatChatGetObjectsSharedInRoomHeadersInterfaceBuilder {
+  void replace($ChatChatGetObjectsSharedInRoomHeadersInterface other);
+  void update(void Function($ChatChatGetObjectsSharedInRoomHeadersInterfaceBuilder) updates);
+  String? get xChatLastGiven;
+  set xChatLastGiven(String? xChatLastGiven);
 }
 
-class _$ChatChatShareObjectToChatHeaders extends ChatChatShareObjectToChatHeaders {
+class _$ChatChatGetObjectsSharedInRoomHeaders extends ChatChatGetObjectsSharedInRoomHeaders {
   @override
-  final String? xChatLastCommonRead;
+  final String? xChatLastGiven;
 
-  factory _$ChatChatShareObjectToChatHeaders([void Function(ChatChatShareObjectToChatHeadersBuilder)? updates]) =>
-      (ChatChatShareObjectToChatHeadersBuilder()..update(updates))._build();
+  factory _$ChatChatGetObjectsSharedInRoomHeaders(
+          [void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? updates]) =>
+      (ChatChatGetObjectsSharedInRoomHeadersBuilder()..update(updates))._build();
 
-  _$ChatChatShareObjectToChatHeaders._({this.xChatLastCommonRead}) : super._();
+  _$ChatChatGetObjectsSharedInRoomHeaders._({this.xChatLastGiven}) : super._();
 
   @override
-  ChatChatShareObjectToChatHeaders rebuild(void Function(ChatChatShareObjectToChatHeadersBuilder) updates) =>
+  ChatChatGetObjectsSharedInRoomHeaders rebuild(void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChatChatShareObjectToChatHeadersBuilder toBuilder() => ChatChatShareObjectToChatHeadersBuilder()..replace(this);
+  ChatChatGetObjectsSharedInRoomHeadersBuilder toBuilder() =>
+      ChatChatGetObjectsSharedInRoomHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ChatChatShareObjectToChatHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
+    return other is ChatChatGetObjectsSharedInRoomHeaders && xChatLastGiven == other.xChatLastGiven;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, xChatLastCommonRead.hashCode);
+    _$hash = $jc(_$hash, xChatLastGiven.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChatChatShareObjectToChatHeaders')
-          ..add('xChatLastCommonRead', xChatLastCommonRead))
+    return (newBuiltValueToStringHelper(r'ChatChatGetObjectsSharedInRoomHeaders')
+          ..add('xChatLastGiven', xChatLastGiven))
         .toString();
   }
 }
 
-class ChatChatShareObjectToChatHeadersBuilder
+class ChatChatGetObjectsSharedInRoomHeadersBuilder
     implements
-        Builder<ChatChatShareObjectToChatHeaders, ChatChatShareObjectToChatHeadersBuilder>,
-        $ChatChatShareObjectToChatHeadersInterfaceBuilder {
-  _$ChatChatShareObjectToChatHeaders? _$v;
+        Builder<ChatChatGetObjectsSharedInRoomHeaders, ChatChatGetObjectsSharedInRoomHeadersBuilder>,
+        $ChatChatGetObjectsSharedInRoomHeadersInterfaceBuilder {
+  _$ChatChatGetObjectsSharedInRoomHeaders? _$v;
 
-  String? _xChatLastCommonRead;
-  String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
-  set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
+  String? _xChatLastGiven;
+  String? get xChatLastGiven => _$this._xChatLastGiven;
+  set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
 
-  ChatChatShareObjectToChatHeadersBuilder();
+  ChatChatGetObjectsSharedInRoomHeadersBuilder();
 
-  ChatChatShareObjectToChatHeadersBuilder get _$this {
+  ChatChatGetObjectsSharedInRoomHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _xChatLastCommonRead = $v.xChatLastCommonRead;
+      _xChatLastGiven = $v.xChatLastGiven;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant ChatChatShareObjectToChatHeaders other) {
+  void replace(covariant ChatChatGetObjectsSharedInRoomHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatChatShareObjectToChatHeaders;
+    _$v = other as _$ChatChatGetObjectsSharedInRoomHeaders;
   }
 
   @override
-  void update(void Function(ChatChatShareObjectToChatHeadersBuilder)? updates) {
+  void update(void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ChatChatShareObjectToChatHeaders build() => _build();
+  ChatChatGetObjectsSharedInRoomHeaders build() => _build();
 
-  _$ChatChatShareObjectToChatHeaders _build() {
-    final _$result = _$v ?? _$ChatChatShareObjectToChatHeaders._(xChatLastCommonRead: xChatLastCommonRead);
+  _$ChatChatGetObjectsSharedInRoomHeaders _build() {
+    final _$result = _$v ?? _$ChatChatGetObjectsSharedInRoomHeaders._(xChatLastGiven: xChatLastGiven);
     replace(_$result);
     return _$result;
   }
@@ -34039,6 +33952,93 @@ class ChatShareObjectToChatResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ChatChatShareObjectToChatHeadersInterfaceBuilder {
+  void replace($ChatChatShareObjectToChatHeadersInterface other);
+  void update(void Function($ChatChatShareObjectToChatHeadersInterfaceBuilder) updates);
+  String? get xChatLastCommonRead;
+  set xChatLastCommonRead(String? xChatLastCommonRead);
+}
+
+class _$ChatChatShareObjectToChatHeaders extends ChatChatShareObjectToChatHeaders {
+  @override
+  final String? xChatLastCommonRead;
+
+  factory _$ChatChatShareObjectToChatHeaders([void Function(ChatChatShareObjectToChatHeadersBuilder)? updates]) =>
+      (ChatChatShareObjectToChatHeadersBuilder()..update(updates))._build();
+
+  _$ChatChatShareObjectToChatHeaders._({this.xChatLastCommonRead}) : super._();
+
+  @override
+  ChatChatShareObjectToChatHeaders rebuild(void Function(ChatChatShareObjectToChatHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ChatChatShareObjectToChatHeadersBuilder toBuilder() => ChatChatShareObjectToChatHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ChatChatShareObjectToChatHeaders && xChatLastCommonRead == other.xChatLastCommonRead;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xChatLastCommonRead.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ChatChatShareObjectToChatHeaders')
+          ..add('xChatLastCommonRead', xChatLastCommonRead))
+        .toString();
+  }
+}
+
+class ChatChatShareObjectToChatHeadersBuilder
+    implements
+        Builder<ChatChatShareObjectToChatHeaders, ChatChatShareObjectToChatHeadersBuilder>,
+        $ChatChatShareObjectToChatHeadersInterfaceBuilder {
+  _$ChatChatShareObjectToChatHeaders? _$v;
+
+  String? _xChatLastCommonRead;
+  String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
+  set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
+
+  ChatChatShareObjectToChatHeadersBuilder();
+
+  ChatChatShareObjectToChatHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xChatLastCommonRead = $v.xChatLastCommonRead;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ChatChatShareObjectToChatHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ChatChatShareObjectToChatHeaders;
+  }
+
+  @override
+  void update(void Function(ChatChatShareObjectToChatHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ChatChatShareObjectToChatHeaders build() => _build();
+
+  _$ChatChatShareObjectToChatHeaders _build() {
+    final _$result = _$v ?? _$ChatChatShareObjectToChatHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
   }
@@ -41512,110 +41512,6 @@ class RecordingGetWelcomeMessageResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomRoomGetRoomsHeadersInterfaceBuilder {
-  void replace($RoomRoomGetRoomsHeadersInterface other);
-  void update(void Function($RoomRoomGetRoomsHeadersInterfaceBuilder) updates);
-  String? get xNextcloudTalkHash;
-  set xNextcloudTalkHash(String? xNextcloudTalkHash);
-
-  String? get xNextcloudTalkModifiedBefore;
-  set xNextcloudTalkModifiedBefore(String? xNextcloudTalkModifiedBefore);
-}
-
-class _$RoomRoomGetRoomsHeaders extends RoomRoomGetRoomsHeaders {
-  @override
-  final String? xNextcloudTalkHash;
-  @override
-  final String? xNextcloudTalkModifiedBefore;
-
-  factory _$RoomRoomGetRoomsHeaders([void Function(RoomRoomGetRoomsHeadersBuilder)? updates]) =>
-      (RoomRoomGetRoomsHeadersBuilder()..update(updates))._build();
-
-  _$RoomRoomGetRoomsHeaders._({this.xNextcloudTalkHash, this.xNextcloudTalkModifiedBefore}) : super._();
-
-  @override
-  RoomRoomGetRoomsHeaders rebuild(void Function(RoomRoomGetRoomsHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomRoomGetRoomsHeadersBuilder toBuilder() => RoomRoomGetRoomsHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomRoomGetRoomsHeaders &&
-        xNextcloudTalkHash == other.xNextcloudTalkHash &&
-        xNextcloudTalkModifiedBefore == other.xNextcloudTalkModifiedBefore;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xNextcloudTalkHash.hashCode);
-    _$hash = $jc(_$hash, xNextcloudTalkModifiedBefore.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomRoomGetRoomsHeaders')
-          ..add('xNextcloudTalkHash', xNextcloudTalkHash)
-          ..add('xNextcloudTalkModifiedBefore', xNextcloudTalkModifiedBefore))
-        .toString();
-  }
-}
-
-class RoomRoomGetRoomsHeadersBuilder
-    implements
-        Builder<RoomRoomGetRoomsHeaders, RoomRoomGetRoomsHeadersBuilder>,
-        $RoomRoomGetRoomsHeadersInterfaceBuilder {
-  _$RoomRoomGetRoomsHeaders? _$v;
-
-  String? _xNextcloudTalkHash;
-  String? get xNextcloudTalkHash => _$this._xNextcloudTalkHash;
-  set xNextcloudTalkHash(covariant String? xNextcloudTalkHash) => _$this._xNextcloudTalkHash = xNextcloudTalkHash;
-
-  String? _xNextcloudTalkModifiedBefore;
-  String? get xNextcloudTalkModifiedBefore => _$this._xNextcloudTalkModifiedBefore;
-  set xNextcloudTalkModifiedBefore(covariant String? xNextcloudTalkModifiedBefore) =>
-      _$this._xNextcloudTalkModifiedBefore = xNextcloudTalkModifiedBefore;
-
-  RoomRoomGetRoomsHeadersBuilder();
-
-  RoomRoomGetRoomsHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xNextcloudTalkHash = $v.xNextcloudTalkHash;
-      _xNextcloudTalkModifiedBefore = $v.xNextcloudTalkModifiedBefore;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomRoomGetRoomsHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomRoomGetRoomsHeaders;
-  }
-
-  @override
-  void update(void Function(RoomRoomGetRoomsHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomRoomGetRoomsHeaders build() => _build();
-
-  _$RoomRoomGetRoomsHeaders _build() {
-    final _$result = _$v ??
-        _$RoomRoomGetRoomsHeaders._(
-            xNextcloudTalkHash: xNextcloudTalkHash, xNextcloudTalkModifiedBefore: xNextcloudTalkModifiedBefore);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RoomGetRoomsResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RoomGetRoomsResponseApplicationJson_OcsInterface other);
   void update(void Function($RoomGetRoomsResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -41830,6 +41726,110 @@ class RoomGetRoomsResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomRoomGetRoomsHeadersInterfaceBuilder {
+  void replace($RoomRoomGetRoomsHeadersInterface other);
+  void update(void Function($RoomRoomGetRoomsHeadersInterfaceBuilder) updates);
+  String? get xNextcloudTalkHash;
+  set xNextcloudTalkHash(String? xNextcloudTalkHash);
+
+  String? get xNextcloudTalkModifiedBefore;
+  set xNextcloudTalkModifiedBefore(String? xNextcloudTalkModifiedBefore);
+}
+
+class _$RoomRoomGetRoomsHeaders extends RoomRoomGetRoomsHeaders {
+  @override
+  final String? xNextcloudTalkHash;
+  @override
+  final String? xNextcloudTalkModifiedBefore;
+
+  factory _$RoomRoomGetRoomsHeaders([void Function(RoomRoomGetRoomsHeadersBuilder)? updates]) =>
+      (RoomRoomGetRoomsHeadersBuilder()..update(updates))._build();
+
+  _$RoomRoomGetRoomsHeaders._({this.xNextcloudTalkHash, this.xNextcloudTalkModifiedBefore}) : super._();
+
+  @override
+  RoomRoomGetRoomsHeaders rebuild(void Function(RoomRoomGetRoomsHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomRoomGetRoomsHeadersBuilder toBuilder() => RoomRoomGetRoomsHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomRoomGetRoomsHeaders &&
+        xNextcloudTalkHash == other.xNextcloudTalkHash &&
+        xNextcloudTalkModifiedBefore == other.xNextcloudTalkModifiedBefore;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNextcloudTalkHash.hashCode);
+    _$hash = $jc(_$hash, xNextcloudTalkModifiedBefore.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomRoomGetRoomsHeaders')
+          ..add('xNextcloudTalkHash', xNextcloudTalkHash)
+          ..add('xNextcloudTalkModifiedBefore', xNextcloudTalkModifiedBefore))
+        .toString();
+  }
+}
+
+class RoomRoomGetRoomsHeadersBuilder
+    implements
+        Builder<RoomRoomGetRoomsHeaders, RoomRoomGetRoomsHeadersBuilder>,
+        $RoomRoomGetRoomsHeadersInterfaceBuilder {
+  _$RoomRoomGetRoomsHeaders? _$v;
+
+  String? _xNextcloudTalkHash;
+  String? get xNextcloudTalkHash => _$this._xNextcloudTalkHash;
+  set xNextcloudTalkHash(covariant String? xNextcloudTalkHash) => _$this._xNextcloudTalkHash = xNextcloudTalkHash;
+
+  String? _xNextcloudTalkModifiedBefore;
+  String? get xNextcloudTalkModifiedBefore => _$this._xNextcloudTalkModifiedBefore;
+  set xNextcloudTalkModifiedBefore(covariant String? xNextcloudTalkModifiedBefore) =>
+      _$this._xNextcloudTalkModifiedBefore = xNextcloudTalkModifiedBefore;
+
+  RoomRoomGetRoomsHeadersBuilder();
+
+  RoomRoomGetRoomsHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNextcloudTalkHash = $v.xNextcloudTalkHash;
+      _xNextcloudTalkModifiedBefore = $v.xNextcloudTalkModifiedBefore;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomRoomGetRoomsHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomRoomGetRoomsHeaders;
+  }
+
+  @override
+  void update(void Function(RoomRoomGetRoomsHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomRoomGetRoomsHeaders build() => _build();
+
+  _$RoomRoomGetRoomsHeaders _build() {
+    final _$result = _$v ??
+        _$RoomRoomGetRoomsHeaders._(
+            xNextcloudTalkHash: xNextcloudTalkHash, xNextcloudTalkModifiedBefore: xNextcloudTalkModifiedBefore);
     replace(_$result);
     return _$result;
   }
@@ -42278,96 +42278,6 @@ class RoomGetListedRoomsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomRoomGetNoteToSelfConversationHeadersInterfaceBuilder {
-  void replace($RoomRoomGetNoteToSelfConversationHeadersInterface other);
-  void update(void Function($RoomRoomGetNoteToSelfConversationHeadersInterfaceBuilder) updates);
-  String? get xNextcloudTalkHash;
-  set xNextcloudTalkHash(String? xNextcloudTalkHash);
-}
-
-class _$RoomRoomGetNoteToSelfConversationHeaders extends RoomRoomGetNoteToSelfConversationHeaders {
-  @override
-  final String? xNextcloudTalkHash;
-
-  factory _$RoomRoomGetNoteToSelfConversationHeaders(
-          [void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? updates]) =>
-      (RoomRoomGetNoteToSelfConversationHeadersBuilder()..update(updates))._build();
-
-  _$RoomRoomGetNoteToSelfConversationHeaders._({this.xNextcloudTalkHash}) : super._();
-
-  @override
-  RoomRoomGetNoteToSelfConversationHeaders rebuild(
-          void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomRoomGetNoteToSelfConversationHeadersBuilder toBuilder() =>
-      RoomRoomGetNoteToSelfConversationHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomRoomGetNoteToSelfConversationHeaders && xNextcloudTalkHash == other.xNextcloudTalkHash;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xNextcloudTalkHash.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomRoomGetNoteToSelfConversationHeaders')
-          ..add('xNextcloudTalkHash', xNextcloudTalkHash))
-        .toString();
-  }
-}
-
-class RoomRoomGetNoteToSelfConversationHeadersBuilder
-    implements
-        Builder<RoomRoomGetNoteToSelfConversationHeaders, RoomRoomGetNoteToSelfConversationHeadersBuilder>,
-        $RoomRoomGetNoteToSelfConversationHeadersInterfaceBuilder {
-  _$RoomRoomGetNoteToSelfConversationHeaders? _$v;
-
-  String? _xNextcloudTalkHash;
-  String? get xNextcloudTalkHash => _$this._xNextcloudTalkHash;
-  set xNextcloudTalkHash(covariant String? xNextcloudTalkHash) => _$this._xNextcloudTalkHash = xNextcloudTalkHash;
-
-  RoomRoomGetNoteToSelfConversationHeadersBuilder();
-
-  RoomRoomGetNoteToSelfConversationHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xNextcloudTalkHash = $v.xNextcloudTalkHash;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomRoomGetNoteToSelfConversationHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomRoomGetNoteToSelfConversationHeaders;
-  }
-
-  @override
-  void update(void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomRoomGetNoteToSelfConversationHeaders build() => _build();
-
-  _$RoomRoomGetNoteToSelfConversationHeaders _build() {
-    final _$result = _$v ?? _$RoomRoomGetNoteToSelfConversationHeaders._(xNextcloudTalkHash: xNextcloudTalkHash);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface other);
   void update(void Function($RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -42600,33 +42510,36 @@ class RoomGetNoteToSelfConversationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomRoomGetSingleRoomHeadersInterfaceBuilder {
-  void replace($RoomRoomGetSingleRoomHeadersInterface other);
-  void update(void Function($RoomRoomGetSingleRoomHeadersInterfaceBuilder) updates);
+abstract mixin class $RoomRoomGetNoteToSelfConversationHeadersInterfaceBuilder {
+  void replace($RoomRoomGetNoteToSelfConversationHeadersInterface other);
+  void update(void Function($RoomRoomGetNoteToSelfConversationHeadersInterfaceBuilder) updates);
   String? get xNextcloudTalkHash;
   set xNextcloudTalkHash(String? xNextcloudTalkHash);
 }
 
-class _$RoomRoomGetSingleRoomHeaders extends RoomRoomGetSingleRoomHeaders {
+class _$RoomRoomGetNoteToSelfConversationHeaders extends RoomRoomGetNoteToSelfConversationHeaders {
   @override
   final String? xNextcloudTalkHash;
 
-  factory _$RoomRoomGetSingleRoomHeaders([void Function(RoomRoomGetSingleRoomHeadersBuilder)? updates]) =>
-      (RoomRoomGetSingleRoomHeadersBuilder()..update(updates))._build();
+  factory _$RoomRoomGetNoteToSelfConversationHeaders(
+          [void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? updates]) =>
+      (RoomRoomGetNoteToSelfConversationHeadersBuilder()..update(updates))._build();
 
-  _$RoomRoomGetSingleRoomHeaders._({this.xNextcloudTalkHash}) : super._();
+  _$RoomRoomGetNoteToSelfConversationHeaders._({this.xNextcloudTalkHash}) : super._();
 
   @override
-  RoomRoomGetSingleRoomHeaders rebuild(void Function(RoomRoomGetSingleRoomHeadersBuilder) updates) =>
+  RoomRoomGetNoteToSelfConversationHeaders rebuild(
+          void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RoomRoomGetSingleRoomHeadersBuilder toBuilder() => RoomRoomGetSingleRoomHeadersBuilder()..replace(this);
+  RoomRoomGetNoteToSelfConversationHeadersBuilder toBuilder() =>
+      RoomRoomGetNoteToSelfConversationHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is RoomRoomGetSingleRoomHeaders && xNextcloudTalkHash == other.xNextcloudTalkHash;
+    return other is RoomRoomGetNoteToSelfConversationHeaders && xNextcloudTalkHash == other.xNextcloudTalkHash;
   }
 
   @override
@@ -42639,24 +42552,25 @@ class _$RoomRoomGetSingleRoomHeaders extends RoomRoomGetSingleRoomHeaders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'RoomRoomGetSingleRoomHeaders')..add('xNextcloudTalkHash', xNextcloudTalkHash))
+    return (newBuiltValueToStringHelper(r'RoomRoomGetNoteToSelfConversationHeaders')
+          ..add('xNextcloudTalkHash', xNextcloudTalkHash))
         .toString();
   }
 }
 
-class RoomRoomGetSingleRoomHeadersBuilder
+class RoomRoomGetNoteToSelfConversationHeadersBuilder
     implements
-        Builder<RoomRoomGetSingleRoomHeaders, RoomRoomGetSingleRoomHeadersBuilder>,
-        $RoomRoomGetSingleRoomHeadersInterfaceBuilder {
-  _$RoomRoomGetSingleRoomHeaders? _$v;
+        Builder<RoomRoomGetNoteToSelfConversationHeaders, RoomRoomGetNoteToSelfConversationHeadersBuilder>,
+        $RoomRoomGetNoteToSelfConversationHeadersInterfaceBuilder {
+  _$RoomRoomGetNoteToSelfConversationHeaders? _$v;
 
   String? _xNextcloudTalkHash;
   String? get xNextcloudTalkHash => _$this._xNextcloudTalkHash;
   set xNextcloudTalkHash(covariant String? xNextcloudTalkHash) => _$this._xNextcloudTalkHash = xNextcloudTalkHash;
 
-  RoomRoomGetSingleRoomHeadersBuilder();
+  RoomRoomGetNoteToSelfConversationHeadersBuilder();
 
-  RoomRoomGetSingleRoomHeadersBuilder get _$this {
+  RoomRoomGetNoteToSelfConversationHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _xNextcloudTalkHash = $v.xNextcloudTalkHash;
@@ -42666,21 +42580,21 @@ class RoomRoomGetSingleRoomHeadersBuilder
   }
 
   @override
-  void replace(covariant RoomRoomGetSingleRoomHeaders other) {
+  void replace(covariant RoomRoomGetNoteToSelfConversationHeaders other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomRoomGetSingleRoomHeaders;
+    _$v = other as _$RoomRoomGetNoteToSelfConversationHeaders;
   }
 
   @override
-  void update(void Function(RoomRoomGetSingleRoomHeadersBuilder)? updates) {
+  void update(void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  RoomRoomGetSingleRoomHeaders build() => _build();
+  RoomRoomGetNoteToSelfConversationHeaders build() => _build();
 
-  _$RoomRoomGetSingleRoomHeaders _build() {
-    final _$result = _$v ?? _$RoomRoomGetSingleRoomHeaders._(xNextcloudTalkHash: xNextcloudTalkHash);
+  _$RoomRoomGetNoteToSelfConversationHeaders _build() {
+    final _$result = _$v ?? _$RoomRoomGetNoteToSelfConversationHeaders._(xNextcloudTalkHash: xNextcloudTalkHash);
     replace(_$result);
     return _$result;
   }
@@ -42903,6 +42817,92 @@ class RoomGetSingleRoomResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomRoomGetSingleRoomHeadersInterfaceBuilder {
+  void replace($RoomRoomGetSingleRoomHeadersInterface other);
+  void update(void Function($RoomRoomGetSingleRoomHeadersInterfaceBuilder) updates);
+  String? get xNextcloudTalkHash;
+  set xNextcloudTalkHash(String? xNextcloudTalkHash);
+}
+
+class _$RoomRoomGetSingleRoomHeaders extends RoomRoomGetSingleRoomHeaders {
+  @override
+  final String? xNextcloudTalkHash;
+
+  factory _$RoomRoomGetSingleRoomHeaders([void Function(RoomRoomGetSingleRoomHeadersBuilder)? updates]) =>
+      (RoomRoomGetSingleRoomHeadersBuilder()..update(updates))._build();
+
+  _$RoomRoomGetSingleRoomHeaders._({this.xNextcloudTalkHash}) : super._();
+
+  @override
+  RoomRoomGetSingleRoomHeaders rebuild(void Function(RoomRoomGetSingleRoomHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomRoomGetSingleRoomHeadersBuilder toBuilder() => RoomRoomGetSingleRoomHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomRoomGetSingleRoomHeaders && xNextcloudTalkHash == other.xNextcloudTalkHash;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNextcloudTalkHash.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomRoomGetSingleRoomHeaders')..add('xNextcloudTalkHash', xNextcloudTalkHash))
+        .toString();
+  }
+}
+
+class RoomRoomGetSingleRoomHeadersBuilder
+    implements
+        Builder<RoomRoomGetSingleRoomHeaders, RoomRoomGetSingleRoomHeadersBuilder>,
+        $RoomRoomGetSingleRoomHeadersInterfaceBuilder {
+  _$RoomRoomGetSingleRoomHeaders? _$v;
+
+  String? _xNextcloudTalkHash;
+  String? get xNextcloudTalkHash => _$this._xNextcloudTalkHash;
+  set xNextcloudTalkHash(covariant String? xNextcloudTalkHash) => _$this._xNextcloudTalkHash = xNextcloudTalkHash;
+
+  RoomRoomGetSingleRoomHeadersBuilder();
+
+  RoomRoomGetSingleRoomHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNextcloudTalkHash = $v.xNextcloudTalkHash;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomRoomGetSingleRoomHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomRoomGetSingleRoomHeaders;
+  }
+
+  @override
+  void update(void Function(RoomRoomGetSingleRoomHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomRoomGetSingleRoomHeaders build() => _build();
+
+  _$RoomRoomGetSingleRoomHeaders _build() {
+    final _$result = _$v ?? _$RoomRoomGetSingleRoomHeaders._(xNextcloudTalkHash: xNextcloudTalkHash);
     replace(_$result);
     return _$result;
   }
@@ -45136,107 +45136,6 @@ class RoomSetPermissionsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomRoomGetParticipantsHeadersInterfaceBuilder {
-  void replace($RoomRoomGetParticipantsHeadersInterface other);
-  void update(void Function($RoomRoomGetParticipantsHeadersInterfaceBuilder) updates);
-  HeaderBuilder<bool> get xNextcloudHasUserStatuses;
-  set xNextcloudHasUserStatuses(HeaderBuilder<bool>? xNextcloudHasUserStatuses);
-}
-
-class _$RoomRoomGetParticipantsHeaders extends RoomRoomGetParticipantsHeaders {
-  @override
-  final Header<bool>? xNextcloudHasUserStatuses;
-
-  factory _$RoomRoomGetParticipantsHeaders([void Function(RoomRoomGetParticipantsHeadersBuilder)? updates]) =>
-      (RoomRoomGetParticipantsHeadersBuilder()..update(updates))._build();
-
-  _$RoomRoomGetParticipantsHeaders._({this.xNextcloudHasUserStatuses}) : super._();
-
-  @override
-  RoomRoomGetParticipantsHeaders rebuild(void Function(RoomRoomGetParticipantsHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomRoomGetParticipantsHeadersBuilder toBuilder() => RoomRoomGetParticipantsHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomRoomGetParticipantsHeaders && xNextcloudHasUserStatuses == other.xNextcloudHasUserStatuses;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xNextcloudHasUserStatuses.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomRoomGetParticipantsHeaders')
-          ..add('xNextcloudHasUserStatuses', xNextcloudHasUserStatuses))
-        .toString();
-  }
-}
-
-class RoomRoomGetParticipantsHeadersBuilder
-    implements
-        Builder<RoomRoomGetParticipantsHeaders, RoomRoomGetParticipantsHeadersBuilder>,
-        $RoomRoomGetParticipantsHeadersInterfaceBuilder {
-  _$RoomRoomGetParticipantsHeaders? _$v;
-
-  HeaderBuilder<bool>? _xNextcloudHasUserStatuses;
-  HeaderBuilder<bool> get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses ??= HeaderBuilder<bool>();
-  set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool>? xNextcloudHasUserStatuses) =>
-      _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
-
-  RoomRoomGetParticipantsHeadersBuilder();
-
-  RoomRoomGetParticipantsHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xNextcloudHasUserStatuses = $v.xNextcloudHasUserStatuses?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomRoomGetParticipantsHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomRoomGetParticipantsHeaders;
-  }
-
-  @override
-  void update(void Function(RoomRoomGetParticipantsHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomRoomGetParticipantsHeaders build() => _build();
-
-  _$RoomRoomGetParticipantsHeaders _build() {
-    _$RoomRoomGetParticipantsHeaders _$result;
-    try {
-      _$result =
-          _$v ?? _$RoomRoomGetParticipantsHeaders._(xNextcloudHasUserStatuses: _xNextcloudHasUserStatuses?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'xNextcloudHasUserStatuses';
-        _xNextcloudHasUserStatuses?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'RoomRoomGetParticipantsHeaders', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ParticipantInterfaceBuilder {
   void replace($ParticipantInterface other);
   void update(void Function($ParticipantInterfaceBuilder) updates);
@@ -45830,6 +45729,107 @@ class RoomGetParticipantsResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $RoomRoomGetParticipantsHeadersInterfaceBuilder {
+  void replace($RoomRoomGetParticipantsHeadersInterface other);
+  void update(void Function($RoomRoomGetParticipantsHeadersInterfaceBuilder) updates);
+  HeaderBuilder<bool> get xNextcloudHasUserStatuses;
+  set xNextcloudHasUserStatuses(HeaderBuilder<bool>? xNextcloudHasUserStatuses);
+}
+
+class _$RoomRoomGetParticipantsHeaders extends RoomRoomGetParticipantsHeaders {
+  @override
+  final Header<bool>? xNextcloudHasUserStatuses;
+
+  factory _$RoomRoomGetParticipantsHeaders([void Function(RoomRoomGetParticipantsHeadersBuilder)? updates]) =>
+      (RoomRoomGetParticipantsHeadersBuilder()..update(updates))._build();
+
+  _$RoomRoomGetParticipantsHeaders._({this.xNextcloudHasUserStatuses}) : super._();
+
+  @override
+  RoomRoomGetParticipantsHeaders rebuild(void Function(RoomRoomGetParticipantsHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomRoomGetParticipantsHeadersBuilder toBuilder() => RoomRoomGetParticipantsHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomRoomGetParticipantsHeaders && xNextcloudHasUserStatuses == other.xNextcloudHasUserStatuses;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNextcloudHasUserStatuses.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomRoomGetParticipantsHeaders')
+          ..add('xNextcloudHasUserStatuses', xNextcloudHasUserStatuses))
+        .toString();
+  }
+}
+
+class RoomRoomGetParticipantsHeadersBuilder
+    implements
+        Builder<RoomRoomGetParticipantsHeaders, RoomRoomGetParticipantsHeadersBuilder>,
+        $RoomRoomGetParticipantsHeadersInterfaceBuilder {
+  _$RoomRoomGetParticipantsHeaders? _$v;
+
+  HeaderBuilder<bool>? _xNextcloudHasUserStatuses;
+  HeaderBuilder<bool> get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses ??= HeaderBuilder<bool>();
+  set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool>? xNextcloudHasUserStatuses) =>
+      _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
+
+  RoomRoomGetParticipantsHeadersBuilder();
+
+  RoomRoomGetParticipantsHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNextcloudHasUserStatuses = $v.xNextcloudHasUserStatuses?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomRoomGetParticipantsHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomRoomGetParticipantsHeaders;
+  }
+
+  @override
+  void update(void Function(RoomRoomGetParticipantsHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomRoomGetParticipantsHeaders build() => _build();
+
+  _$RoomRoomGetParticipantsHeaders _build() {
+    _$RoomRoomGetParticipantsHeaders _$result;
+    try {
+      _$result =
+          _$v ?? _$RoomRoomGetParticipantsHeaders._(xNextcloudHasUserStatuses: _xNextcloudHasUserStatuses?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNextcloudHasUserStatuses';
+        _xNextcloudHasUserStatuses?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RoomRoomGetParticipantsHeaders', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder {
   void replace($RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface other);
   void update(void Function($RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder) updates);
@@ -46161,112 +46161,6 @@ class RoomAddParticipantToRoomResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder {
-  void replace($RoomRoomGetBreakoutRoomParticipantsHeadersInterface other);
-  void update(void Function($RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder) updates);
-  HeaderBuilder<bool> get xNextcloudHasUserStatuses;
-  set xNextcloudHasUserStatuses(HeaderBuilder<bool>? xNextcloudHasUserStatuses);
-}
-
-class _$RoomRoomGetBreakoutRoomParticipantsHeaders extends RoomRoomGetBreakoutRoomParticipantsHeaders {
-  @override
-  final Header<bool>? xNextcloudHasUserStatuses;
-
-  factory _$RoomRoomGetBreakoutRoomParticipantsHeaders(
-          [void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? updates]) =>
-      (RoomRoomGetBreakoutRoomParticipantsHeadersBuilder()..update(updates))._build();
-
-  _$RoomRoomGetBreakoutRoomParticipantsHeaders._({this.xNextcloudHasUserStatuses}) : super._();
-
-  @override
-  RoomRoomGetBreakoutRoomParticipantsHeaders rebuild(
-          void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomRoomGetBreakoutRoomParticipantsHeadersBuilder toBuilder() =>
-      RoomRoomGetBreakoutRoomParticipantsHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomRoomGetBreakoutRoomParticipantsHeaders &&
-        xNextcloudHasUserStatuses == other.xNextcloudHasUserStatuses;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xNextcloudHasUserStatuses.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomRoomGetBreakoutRoomParticipantsHeaders')
-          ..add('xNextcloudHasUserStatuses', xNextcloudHasUserStatuses))
-        .toString();
-  }
-}
-
-class RoomRoomGetBreakoutRoomParticipantsHeadersBuilder
-    implements
-        Builder<RoomRoomGetBreakoutRoomParticipantsHeaders, RoomRoomGetBreakoutRoomParticipantsHeadersBuilder>,
-        $RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder {
-  _$RoomRoomGetBreakoutRoomParticipantsHeaders? _$v;
-
-  HeaderBuilder<bool>? _xNextcloudHasUserStatuses;
-  HeaderBuilder<bool> get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses ??= HeaderBuilder<bool>();
-  set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool>? xNextcloudHasUserStatuses) =>
-      _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
-
-  RoomRoomGetBreakoutRoomParticipantsHeadersBuilder();
-
-  RoomRoomGetBreakoutRoomParticipantsHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xNextcloudHasUserStatuses = $v.xNextcloudHasUserStatuses?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomRoomGetBreakoutRoomParticipantsHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomRoomGetBreakoutRoomParticipantsHeaders;
-  }
-
-  @override
-  void update(void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomRoomGetBreakoutRoomParticipantsHeaders build() => _build();
-
-  _$RoomRoomGetBreakoutRoomParticipantsHeaders _build() {
-    _$RoomRoomGetBreakoutRoomParticipantsHeaders _$result;
-    try {
-      _$result = _$v ??
-          _$RoomRoomGetBreakoutRoomParticipantsHeaders._(
-              xNextcloudHasUserStatuses: _xNextcloudHasUserStatuses?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'xNextcloudHasUserStatuses';
-        _xNextcloudHasUserStatuses?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'RoomRoomGetBreakoutRoomParticipantsHeaders', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface other);
   void update(void Function($RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -46491,6 +46385,112 @@ class RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'RoomGetBreakoutRoomParticipantsResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder {
+  void replace($RoomRoomGetBreakoutRoomParticipantsHeadersInterface other);
+  void update(void Function($RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder) updates);
+  HeaderBuilder<bool> get xNextcloudHasUserStatuses;
+  set xNextcloudHasUserStatuses(HeaderBuilder<bool>? xNextcloudHasUserStatuses);
+}
+
+class _$RoomRoomGetBreakoutRoomParticipantsHeaders extends RoomRoomGetBreakoutRoomParticipantsHeaders {
+  @override
+  final Header<bool>? xNextcloudHasUserStatuses;
+
+  factory _$RoomRoomGetBreakoutRoomParticipantsHeaders(
+          [void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? updates]) =>
+      (RoomRoomGetBreakoutRoomParticipantsHeadersBuilder()..update(updates))._build();
+
+  _$RoomRoomGetBreakoutRoomParticipantsHeaders._({this.xNextcloudHasUserStatuses}) : super._();
+
+  @override
+  RoomRoomGetBreakoutRoomParticipantsHeaders rebuild(
+          void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomRoomGetBreakoutRoomParticipantsHeadersBuilder toBuilder() =>
+      RoomRoomGetBreakoutRoomParticipantsHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomRoomGetBreakoutRoomParticipantsHeaders &&
+        xNextcloudHasUserStatuses == other.xNextcloudHasUserStatuses;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNextcloudHasUserStatuses.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomRoomGetBreakoutRoomParticipantsHeaders')
+          ..add('xNextcloudHasUserStatuses', xNextcloudHasUserStatuses))
+        .toString();
+  }
+}
+
+class RoomRoomGetBreakoutRoomParticipantsHeadersBuilder
+    implements
+        Builder<RoomRoomGetBreakoutRoomParticipantsHeaders, RoomRoomGetBreakoutRoomParticipantsHeadersBuilder>,
+        $RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder {
+  _$RoomRoomGetBreakoutRoomParticipantsHeaders? _$v;
+
+  HeaderBuilder<bool>? _xNextcloudHasUserStatuses;
+  HeaderBuilder<bool> get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses ??= HeaderBuilder<bool>();
+  set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool>? xNextcloudHasUserStatuses) =>
+      _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
+
+  RoomRoomGetBreakoutRoomParticipantsHeadersBuilder();
+
+  RoomRoomGetBreakoutRoomParticipantsHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNextcloudHasUserStatuses = $v.xNextcloudHasUserStatuses?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomRoomGetBreakoutRoomParticipantsHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomRoomGetBreakoutRoomParticipantsHeaders;
+  }
+
+  @override
+  void update(void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomRoomGetBreakoutRoomParticipantsHeaders build() => _build();
+
+  _$RoomRoomGetBreakoutRoomParticipantsHeaders _build() {
+    _$RoomRoomGetBreakoutRoomParticipantsHeaders _$result;
+    try {
+      _$result = _$v ??
+          _$RoomRoomGetBreakoutRoomParticipantsHeaders._(
+              xNextcloudHasUserStatuses: _xNextcloudHasUserStatuses?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNextcloudHasUserStatuses';
+        _xNextcloudHasUserStatuses?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RoomRoomGetBreakoutRoomParticipantsHeaders', _$failedField, e.toString());
       }
       rethrow;
     }

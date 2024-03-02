@@ -12,7 +12,7 @@
 ///
 /// Use of this source code is governed by a agpl license.
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0.html`.
-@_i4.experimental
+@_i2.experimental
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'dart:convert';
@@ -26,9 +26,9 @@ import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'notes.openapi.g.dart';
 
@@ -106,7 +106,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getNotes] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BuiltList<Note>, void> getNotesRaw({
     String? category,
     String? exclude,
@@ -155,11 +155,11 @@ class $Client extends _i1.DynamiteClient {
 
     final $ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
     if ($ifNoneMatch != null) {
-      _headers['If-None-Match'] = const _i2.HeaderEncoder().convert($ifNoneMatch);
+      _headers['If-None-Match'] = const _i3.HeaderEncoder().convert($ifNoneMatch);
     }
 
     final _path =
-        _i3.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
+        _i4.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<BuiltList<Note>, void>(
       response: executeRequest(
@@ -224,7 +224,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [createNote] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Note, void> createNoteRaw({
     String? category,
     String? title,
@@ -272,7 +272,7 @@ class $Client extends _i1.DynamiteClient {
     $favorite ??= 0;
     _parameters['favorite'] = $favorite;
 
-    final _path = _i3.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
+    final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<Note, void>(
       response: executeRequest(
@@ -327,7 +327,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getNote] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Note, void> getNoteRaw({
     required int id,
     String? exclude,
@@ -362,10 +362,10 @@ class $Client extends _i1.DynamiteClient {
 
     final $ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
     if ($ifNoneMatch != null) {
-      _headers['If-None-Match'] = const _i2.HeaderEncoder().convert($ifNoneMatch);
+      _headers['If-None-Match'] = const _i3.HeaderEncoder().convert($ifNoneMatch);
     }
 
-    final _path = _i3.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(_parameters);
     return _i1.DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'get',
@@ -435,7 +435,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [updateNote] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Note, void> updateNoteRaw({
     required int id,
     String? content,
@@ -485,11 +485,11 @@ class $Client extends _i1.DynamiteClient {
 
     final $ifMatch = _$jsonSerializers.serialize(ifMatch, specifiedType: const FullType(String));
     if ($ifMatch != null) {
-      _headers['If-Match'] = const _i2.HeaderEncoder().convert($ifMatch);
+      _headers['If-Match'] = const _i3.HeaderEncoder().convert($ifMatch);
     }
 
     final _path =
-        _i3.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
+        _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<Note, void>(
       response: executeRequest(
@@ -530,7 +530,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [deleteNote] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<String, void> deleteNoteRaw({required int id}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -555,7 +555,7 @@ class $Client extends _i1.DynamiteClient {
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    final _path = _i3.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<String, void>(
       response: executeRequest(
         'delete',
@@ -593,7 +593,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getSettings] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Settings, void> getSettingsRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -654,7 +654,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [updateSettings] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Settings, void> updateSettingsRaw({required Settings settings}) {
     final _headers = <String, String>{'Accept': 'application/json'};
     Uint8List? _body;
@@ -1002,7 +1002,7 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Note), NoteBuilder.new)
@@ -1029,7 +1029,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

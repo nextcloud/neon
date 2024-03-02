@@ -399,7 +399,6 @@ Serializer<NavigationGetSettingsNavigationResponseApplicationJson_Ocs>
 Serializer<NavigationGetSettingsNavigationResponseApplicationJson>
     _$navigationGetSettingsNavigationResponseApplicationJsonSerializer =
     _$NavigationGetSettingsNavigationResponseApplicationJsonSerializer();
-Serializer<OcmOcmDiscoveryHeaders> _$ocmOcmDiscoveryHeadersSerializer = _$OcmOcmDiscoveryHeadersSerializer();
 Serializer<OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols>
     _$ocmDiscoveryResponseApplicationJsonResourceTypesProtocolsSerializer =
     _$OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsSerializer();
@@ -408,6 +407,7 @@ Serializer<OcmDiscoveryResponseApplicationJson_ResourceTypes>
     _$OcmDiscoveryResponseApplicationJson_ResourceTypesSerializer();
 Serializer<OcmDiscoveryResponseApplicationJson> _$ocmDiscoveryResponseApplicationJsonSerializer =
     _$OcmDiscoveryResponseApplicationJsonSerializer();
+Serializer<OcmOcmDiscoveryHeaders> _$ocmOcmDiscoveryHeadersSerializer = _$OcmOcmDiscoveryHeadersSerializer();
 Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version>
     _$ocsGetCapabilitiesResponseApplicationJsonOcsDataVersionSerializer =
     _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionSerializer();
@@ -2985,50 +2985,6 @@ class _$NavigationGetSettingsNavigationResponseApplicationJsonSerializer
   }
 }
 
-class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmDiscoveryHeaders> {
-  @override
-  final Iterable<Type> types = const [OcmOcmDiscoveryHeaders, _$OcmOcmDiscoveryHeaders];
-  @override
-  final String wireName = 'OcmOcmDiscoveryHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, OcmOcmDiscoveryHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.xNextcloudOcmProviders;
-    if (value != null) {
-      result
-        ..add('x-nextcloud-ocm-providers')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)])));
-    }
-    return result;
-  }
-
-  @override
-  OcmOcmDiscoveryHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = OcmOcmDiscoveryHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'x-nextcloud-ocm-providers':
-          result.xNextcloudOcmProviders.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]))!
-              as Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsSerializer
     implements StructuredSerializer<OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols> {
   @override
@@ -3179,6 +3135,50 @@ class _$OcmDiscoveryResponseApplicationJsonSerializer
                   specifiedType:
                       const FullType(BuiltList, [FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes)]))!
               as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmDiscoveryHeaders> {
+  @override
+  final Iterable<Type> types = const [OcmOcmDiscoveryHeaders, _$OcmOcmDiscoveryHeaders];
+  @override
+  final String wireName = 'OcmOcmDiscoveryHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OcmOcmDiscoveryHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudOcmProviders;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-ocm-providers')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)])));
+    }
+    return result;
+  }
+
+  @override
+  OcmOcmDiscoveryHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OcmOcmDiscoveryHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-ocm-providers':
+          result.xNextcloudOcmProviders.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]))!
+              as Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>);
           break;
       }
     }
@@ -15550,106 +15550,6 @@ class NavigationGetSettingsNavigationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $OcmOcmDiscoveryHeadersInterfaceBuilder {
-  void replace($OcmOcmDiscoveryHeadersInterface other);
-  void update(void Function($OcmOcmDiscoveryHeadersInterfaceBuilder) updates);
-  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get xNextcloudOcmProviders;
-  set xNextcloudOcmProviders(HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders);
-}
-
-class _$OcmOcmDiscoveryHeaders extends OcmOcmDiscoveryHeaders {
-  @override
-  final Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders;
-
-  factory _$OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? updates]) =>
-      (OcmOcmDiscoveryHeadersBuilder()..update(updates))._build();
-
-  _$OcmOcmDiscoveryHeaders._({this.xNextcloudOcmProviders}) : super._();
-
-  @override
-  OcmOcmDiscoveryHeaders rebuild(void Function(OcmOcmDiscoveryHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  OcmOcmDiscoveryHeadersBuilder toBuilder() => OcmOcmDiscoveryHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is OcmOcmDiscoveryHeaders && xNextcloudOcmProviders == other.xNextcloudOcmProviders;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, xNextcloudOcmProviders.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'OcmOcmDiscoveryHeaders')
-          ..add('xNextcloudOcmProviders', xNextcloudOcmProviders))
-        .toString();
-  }
-}
-
-class OcmOcmDiscoveryHeadersBuilder
-    implements Builder<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder>, $OcmOcmDiscoveryHeadersInterfaceBuilder {
-  _$OcmOcmDiscoveryHeaders? _$v;
-
-  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? _xNextcloudOcmProviders;
-  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get xNextcloudOcmProviders =>
-      _$this._xNextcloudOcmProviders ??= HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>();
-  set xNextcloudOcmProviders(
-          covariant HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders) =>
-      _$this._xNextcloudOcmProviders = xNextcloudOcmProviders;
-
-  OcmOcmDiscoveryHeadersBuilder();
-
-  OcmOcmDiscoveryHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _xNextcloudOcmProviders = $v.xNextcloudOcmProviders?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant OcmOcmDiscoveryHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$OcmOcmDiscoveryHeaders;
-  }
-
-  @override
-  void update(void Function(OcmOcmDiscoveryHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  OcmOcmDiscoveryHeaders build() => _build();
-
-  _$OcmOcmDiscoveryHeaders _build() {
-    _$OcmOcmDiscoveryHeaders _$result;
-    try {
-      _$result = _$v ?? _$OcmOcmDiscoveryHeaders._(xNextcloudOcmProviders: _xNextcloudOcmProviders?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'xNextcloudOcmProviders';
-        _xNextcloudOcmProviders?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'OcmOcmDiscoveryHeaders', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder {
   void replace($OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface other);
   void update(void Function($OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder) updates);
@@ -16043,6 +15943,106 @@ class OcmDiscoveryResponseApplicationJsonBuilder
         resourceTypes.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'OcmDiscoveryResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OcmOcmDiscoveryHeadersInterfaceBuilder {
+  void replace($OcmOcmDiscoveryHeadersInterface other);
+  void update(void Function($OcmOcmDiscoveryHeadersInterfaceBuilder) updates);
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get xNextcloudOcmProviders;
+  set xNextcloudOcmProviders(HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders);
+}
+
+class _$OcmOcmDiscoveryHeaders extends OcmOcmDiscoveryHeaders {
+  @override
+  final Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders;
+
+  factory _$OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? updates]) =>
+      (OcmOcmDiscoveryHeadersBuilder()..update(updates))._build();
+
+  _$OcmOcmDiscoveryHeaders._({this.xNextcloudOcmProviders}) : super._();
+
+  @override
+  OcmOcmDiscoveryHeaders rebuild(void Function(OcmOcmDiscoveryHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OcmOcmDiscoveryHeadersBuilder toBuilder() => OcmOcmDiscoveryHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OcmOcmDiscoveryHeaders && xNextcloudOcmProviders == other.xNextcloudOcmProviders;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNextcloudOcmProviders.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OcmOcmDiscoveryHeaders')
+          ..add('xNextcloudOcmProviders', xNextcloudOcmProviders))
+        .toString();
+  }
+}
+
+class OcmOcmDiscoveryHeadersBuilder
+    implements Builder<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder>, $OcmOcmDiscoveryHeadersInterfaceBuilder {
+  _$OcmOcmDiscoveryHeaders? _$v;
+
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? _xNextcloudOcmProviders;
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get xNextcloudOcmProviders =>
+      _$this._xNextcloudOcmProviders ??= HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>();
+  set xNextcloudOcmProviders(
+          covariant HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders) =>
+      _$this._xNextcloudOcmProviders = xNextcloudOcmProviders;
+
+  OcmOcmDiscoveryHeadersBuilder();
+
+  OcmOcmDiscoveryHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNextcloudOcmProviders = $v.xNextcloudOcmProviders?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OcmOcmDiscoveryHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OcmOcmDiscoveryHeaders;
+  }
+
+  @override
+  void update(void Function(OcmOcmDiscoveryHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OcmOcmDiscoveryHeaders build() => _build();
+
+  _$OcmOcmDiscoveryHeaders _build() {
+    _$OcmOcmDiscoveryHeaders _$result;
+    try {
+      _$result = _$v ?? _$OcmOcmDiscoveryHeaders._(xNextcloudOcmProviders: _xNextcloudOcmProviders?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNextcloudOcmProviders';
+        _xNextcloudOcmProviders?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'OcmOcmDiscoveryHeaders', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -12,7 +12,7 @@
 ///
 /// Use of this source code is governed by a agpl license.
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0.html`.
-@_i3.experimental
+@_i2.experimental
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_collection/built_collection.dart';
@@ -23,8 +23,8 @@ import 'package:built_value/standard_json_plugin.dart' as _i5;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i4;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:meta/meta.dart' as _i3;
-import 'package:uri/uri.dart' as _i2;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i3;
 
 part 'news.openapi.g.dart';
 
@@ -72,7 +72,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getSupportedApiVersions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -131,7 +131,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [listFolders] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -198,7 +198,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [createFolder] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ListFolders, void> createFolderRaw({required String name}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -223,7 +223,7 @@ class $Client extends _i1.DynamiteClient {
     final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
     _parameters['name'] = $name;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
         'post',
@@ -273,7 +273,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [renameFolder] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> renameFolderRaw({
     required int folderId,
     required String name,
@@ -304,7 +304,7 @@ class $Client extends _i1.DynamiteClient {
     final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
     _parameters['name'] = $name;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'put',
@@ -344,7 +344,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [deleteFolder] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> deleteFolderRaw({required int folderId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
@@ -369,7 +369,7 @@ class $Client extends _i1.DynamiteClient {
     final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
@@ -419,7 +419,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [markFolderAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> markFolderAsReadRaw({
     required int folderId,
     required int newestItemId,
@@ -451,7 +451,7 @@ class $Client extends _i1.DynamiteClient {
     _parameters['newestItemId'] = $newestItemId;
 
     final _path =
-        _i2.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
+        _i3.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
@@ -489,7 +489,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [listFeeds] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -562,7 +562,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [addFeed] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ListFeeds, void> addFeedRaw({
     required String url,
     int? folderId,
@@ -593,7 +593,7 @@ class $Client extends _i1.DynamiteClient {
     final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
         'post',
@@ -633,7 +633,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [deleteFeed] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> deleteFeedRaw({required int feedId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
@@ -658,7 +658,7 @@ class $Client extends _i1.DynamiteClient {
     final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = $feedId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
@@ -708,7 +708,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [moveFeed] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> moveFeedRaw({
     required int feedId,
     int? folderId,
@@ -739,7 +739,7 @@ class $Client extends _i1.DynamiteClient {
     final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
@@ -789,7 +789,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [renameFeed] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> renameFeedRaw({
     required int feedId,
     required String feedTitle,
@@ -821,7 +821,7 @@ class $Client extends _i1.DynamiteClient {
     _parameters['feedTitle'] = $feedTitle;
 
     final _path =
-        _i2.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
+        _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
@@ -871,7 +871,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [markFeedAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> markFeedAsReadRaw({
     required int feedId,
     required int newestItemId,
@@ -903,7 +903,7 @@ class $Client extends _i1.DynamiteClient {
     _parameters['newestItemId'] = $newestItemId;
 
     final _path =
-        _i2.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
+        _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
@@ -971,7 +971,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [listArticles] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ListArticles, void> listArticlesRaw({
     int? type,
     int? id,
@@ -1025,7 +1025,7 @@ class $Client extends _i1.DynamiteClient {
     _parameters['oldestFirst'] = $oldestFirst;
 
     final _path =
-        _i2.UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
+        _i3.UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
@@ -1082,7 +1082,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [listUpdatedArticles] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ListArticles, void> listUpdatedArticlesRaw({
     int? type,
     int? id,
@@ -1121,7 +1121,7 @@ class $Client extends _i1.DynamiteClient {
     _parameters['lastModified'] = $lastModified;
 
     final _path =
-        _i2.UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
+        _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
         'get',
@@ -1161,7 +1161,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [markArticleAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> markArticleAsReadRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
@@ -1186,7 +1186,7 @@ class $Client extends _i1.DynamiteClient {
     final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
@@ -1226,7 +1226,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [markArticleAsUnread] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
@@ -1251,7 +1251,7 @@ class $Client extends _i1.DynamiteClient {
     final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
@@ -1291,7 +1291,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [starArticle] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> starArticleRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
@@ -1316,7 +1316,7 @@ class $Client extends _i1.DynamiteClient {
     final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
@@ -1356,7 +1356,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [unstarArticle] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<void, void> unstarArticleRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
@@ -1381,7 +1381,7 @@ class $Client extends _i1.DynamiteClient {
     final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
-    final _path = _i2.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
     return _i1.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
@@ -1756,7 +1756,7 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(SupportedAPIVersions), SupportedAPIVersionsBuilder.new)
@@ -1790,7 +1790,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i4.DynamiteDoubleSerializer())

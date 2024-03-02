@@ -25,9 +25,9 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'core.openapi.g.dart';
 
@@ -118,7 +118,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getStatus] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Status, void> getStatusRaw() {
     const _headers = <String, String>{'Accept': 'application/json'};
 
@@ -183,7 +183,7 @@ class $AppPasswordClient {
   ///
   /// See:
   ///  * [getAppPassword] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
     bool? oCSAPIRequest,
   }) {
@@ -208,7 +208,7 @@ class $AppPasswordClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/core/getapppassword';
     return _i1.DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>(
@@ -264,7 +264,7 @@ class $AppPasswordClient {
   ///
   /// See:
   ///  * [rotateAppPassword] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
     bool? oCSAPIRequest,
   }) {
@@ -289,7 +289,7 @@ class $AppPasswordClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/core/apppassword/rotate';
     return _i1.DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>(
@@ -345,7 +345,7 @@ class $AppPasswordClient {
   ///
   /// See:
   ///  * [deleteAppPassword] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
     bool? oCSAPIRequest,
   }) {
@@ -370,7 +370,7 @@ class $AppPasswordClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/core/apppassword';
     return _i1.DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(
@@ -455,7 +455,7 @@ class $AutoCompleteClient {
   ///
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<AutoCompleteGetResponseApplicationJson, void> $getRaw({
     required String search,
     String? itemType,
@@ -508,9 +508,9 @@ class $AutoCompleteClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/core/autocomplete/get{?search*,itemType*,itemId*,sorter*,shareTypes%5B%5D*,limit*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<AutoCompleteGetResponseApplicationJson, void>(
@@ -578,7 +578,7 @@ class $AvatarClient {
   ///
   /// See:
   ///  * [getAvatarDark] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders> getAvatarDarkRaw({
     required String userId,
     required int size,
@@ -607,7 +607,7 @@ class $AvatarClient {
     final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(int));
     _parameters['size'] = $size;
 
-    final _path = _i3.UriTemplate('/index.php/avatar/{userId}/{size}/dark').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/avatar/{userId}/{size}/dark').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -665,7 +665,7 @@ class $AvatarClient {
   ///
   /// See:
   ///  * [getAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarHeaders> getAvatarRaw({
     required String userId,
     required int size,
@@ -694,7 +694,7 @@ class $AvatarClient {
     final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(int));
     _parameters['size'] = $size;
 
-    final _path = _i3.UriTemplate('/index.php/avatar/{userId}/{size}').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/avatar/{userId}/{size}').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -753,7 +753,7 @@ class $ClientFlowLoginV2Client {
   ///
   /// See:
   ///  * [poll] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<LoginFlowV2Credentials, void> pollRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -776,7 +776,7 @@ class $ClientFlowLoginV2Client {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i3.UriTemplate('/index.php/login/v2/poll{?token*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/login/v2/poll{?token*}').expand(_parameters);
     return _i1.DynamiteRawResponse<LoginFlowV2Credentials, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -818,7 +818,7 @@ class $ClientFlowLoginV2Client {
   ///
   /// See:
   ///  * [init] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<LoginFlowV2, void> initRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -902,7 +902,7 @@ class $CollaborationResourcesClient {
   ///
   /// See:
   ///  * [searchCollections] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
     required String filter,
     bool? oCSAPIRequest,
@@ -932,10 +932,10 @@ class $CollaborationResourcesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(_parameters);
     return _i1.DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -995,7 +995,7 @@ class $CollaborationResourcesClient {
   ///
   /// See:
   ///  * [listCollection] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
     required int collectionId,
     bool? oCSAPIRequest,
@@ -1025,9 +1025,9 @@ class $CollaborationResourcesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(_parameters);
     return _i1.DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1091,7 +1091,7 @@ class $CollaborationResourcesClient {
   ///
   /// See:
   ///  * [renameCollection] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
     required String collectionName,
     required int collectionId,
@@ -1125,9 +1125,9 @@ class $CollaborationResourcesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?collectionName*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?collectionName*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -1196,7 +1196,7 @@ class $CollaborationResourcesClient {
   ///
   /// See:
   ///  * [addResource] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CollaborationResourcesAddResourceResponseApplicationJson, void> addResourceRaw({
     required String resourceType,
     required String resourceId,
@@ -1234,10 +1234,10 @@ class $CollaborationResourcesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
+        _i4.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<CollaborationResourcesAddResourceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -1306,7 +1306,7 @@ class $CollaborationResourcesClient {
   ///
   /// See:
   ///  * [removeResource] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void> removeResourceRaw({
     required String resourceType,
     required String resourceId,
@@ -1344,10 +1344,10 @@ class $CollaborationResourcesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
+        _i4.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -1411,7 +1411,7 @@ class $CollaborationResourcesClient {
   ///
   /// See:
   ///  * [getCollectionsByResource] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
       getCollectionsByResourceRaw({
     required String resourceType,
@@ -1446,10 +1446,10 @@ class $CollaborationResourcesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}').expand(_parameters);
     return _i1.DynamiteRawResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1520,7 +1520,7 @@ class $CollaborationResourcesClient {
   ///
   /// See:
   ///  * [createCollectionOnResource] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
       createCollectionOnResourceRaw({
     required String name,
@@ -1559,9 +1559,9 @@ class $CollaborationResourcesClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}{?name*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}{?name*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -1630,7 +1630,7 @@ class $GuestAvatarClient {
   ///
   /// See:
   ///  * [getAvatarDark] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
     required String guestName,
     required String size,
@@ -1659,7 +1659,7 @@ class $GuestAvatarClient {
     final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(String));
     _parameters['size'] = $size;
 
-    final _path = _i3.UriTemplate('/index.php/avatar/guest/{guestName}/{size}/dark').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/avatar/guest/{guestName}/{size}/dark').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1726,7 +1726,7 @@ class $GuestAvatarClient {
   ///
   /// See:
   ///  * [getAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required String guestName,
     required String size,
@@ -1761,7 +1761,7 @@ class $GuestAvatarClient {
     $darkTheme ??= 0;
     _parameters['darkTheme'] = $darkTheme;
 
-    final _path = _i3.UriTemplate('/index.php/avatar/guest/{guestName}/{size}{?darkTheme*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/avatar/guest/{guestName}/{size}{?darkTheme*}').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1829,7 +1829,7 @@ class $HoverCardClient {
   ///
   /// See:
   ///  * [getUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void> getUserRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -1859,9 +1859,9 @@ class $HoverCardClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/hovercard/v1/{userId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/hovercard/v1/{userId}').expand(_parameters);
     return _i1.DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1926,7 +1926,7 @@ class $NavigationClient {
   ///
   /// See:
   ///  * [getAppsNavigation] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
     NavigationGetAppsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
@@ -1958,9 +1958,9 @@ class $NavigationClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/core/navigation/apps{?absolute*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/core/navigation/apps{?absolute*}').expand(_parameters);
     return _i1.DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2018,7 +2018,7 @@ class $NavigationClient {
   ///
   /// See:
   ///  * [getSettingsNavigation] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
     NavigationGetSettingsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
@@ -2050,9 +2050,9 @@ class $NavigationClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/core/navigation/settings{?absolute*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/core/navigation/settings{?absolute*}').expand(_parameters);
     return _i1.DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2104,7 +2104,7 @@ class $OcmClient {
   ///
   /// See:
   ///  * [discovery] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders> discoveryRaw() {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2182,7 +2182,7 @@ class $OcsClient {
   ///
   /// See:
   ///  * [getCapabilities] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2203,7 +2203,7 @@ class $OcsClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/cloud/capabilities';
     return _i1.DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void>(
@@ -2296,7 +2296,7 @@ class $PreviewClient {
   ///
   /// See:
   ///  * [getPreviewByFileId] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getPreviewByFileIdRaw({
     int? fileId,
     int? x,
@@ -2356,7 +2356,7 @@ class $PreviewClient {
     $mimeFallback ??= 0;
     _parameters['mimeFallback'] = $mimeFallback;
 
-    final _path = _i3.UriTemplate('/index.php/core/preview{?fileId*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
+    final _path = _i4.UriTemplate('/index.php/core/preview{?fileId*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
@@ -2441,7 +2441,7 @@ class $PreviewClient {
   ///
   /// See:
   ///  * [getPreview] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getPreviewRaw({
     String? file,
     int? x,
@@ -2500,7 +2500,7 @@ class $PreviewClient {
     $mimeFallback ??= 0;
     _parameters['mimeFallback'] = $mimeFallback;
 
-    final _path = _i3.UriTemplate('/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
+    final _path = _i4.UriTemplate('/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
@@ -2578,7 +2578,7 @@ class $ProfileApiClient {
   ///
   /// See:
   ///  * [setVisibility] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ProfileApiSetVisibilityResponseApplicationJson, void> setVisibilityRaw({
     required String paramId,
     required String visibility,
@@ -2616,9 +2616,9 @@ class $ProfileApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/profile/{targetUserId}{?paramId*,visibility*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/profile/{targetUserId}{?paramId*,visibility*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ProfileApiSetVisibilityResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -2677,7 +2677,7 @@ class $ReferenceClient {
   ///
   /// See:
   ///  * [preview] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> previewRaw({required String referenceId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': '*/*'};
@@ -2700,7 +2700,7 @@ class $ReferenceClient {
     final $referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
     _parameters['referenceId'] = $referenceId;
 
-    final _path = _i3.UriTemplate('/index.php/core/references/preview/{referenceId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/core/references/preview/{referenceId}').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2763,7 +2763,7 @@ class $ReferenceApiClient {
   ///
   /// See:
   ///  * [resolveOne] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
     required String reference,
     bool? oCSAPIRequest,
@@ -2793,9 +2793,9 @@ class $ReferenceApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/references/resolve{?reference*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/references/resolve{?reference*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2855,7 +2855,7 @@ class $ReferenceApiClient {
   ///
   /// See:
   ///  * [resolve] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void> resolveRaw({
     required BuiltList<String> references,
     int? limit,
@@ -2891,9 +2891,9 @@ class $ReferenceApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/references/resolve{?references%5B%5D*,limit*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/references/resolve{?references%5B%5D*,limit*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2957,7 +2957,7 @@ class $ReferenceApiClient {
   ///
   /// See:
   ///  * [extract] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void> extractRaw({
     required String text,
     ReferenceApiExtractResolve? resolve,
@@ -2997,9 +2997,9 @@ class $ReferenceApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/references/extract{?text*,resolve*,limit*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/references/extract{?text*,resolve*,limit*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -3051,7 +3051,7 @@ class $ReferenceApiClient {
   ///
   /// See:
   ///  * [getProvidersInfo] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
     bool? oCSAPIRequest,
   }) {
@@ -3076,7 +3076,7 @@ class $ReferenceApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/references/providers';
     return _i1.DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(
@@ -3138,7 +3138,7 @@ class $ReferenceApiClient {
   ///
   /// See:
   ///  * [touchProvider] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
     required String providerId,
     int? timestamp,
@@ -3172,9 +3172,9 @@ class $ReferenceApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/references/provider/{providerId}{?timestamp*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/references/provider/{providerId}{?timestamp*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -3233,7 +3233,7 @@ class $TextProcessingApiClient {
   ///
   /// See:
   ///  * [taskTypes] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -3254,7 +3254,7 @@ class $TextProcessingApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/textprocessing/tasktypes';
     return _i1.DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>(
@@ -3330,7 +3330,7 @@ class $TextProcessingApiClient {
   ///
   /// See:
   ///  * [schedule] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextProcessingApiScheduleResponseApplicationJson, void> scheduleRaw({
     required String input,
     required String type,
@@ -3371,10 +3371,10 @@ class $TextProcessingApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/textprocessing/schedule{?input*,type*,appId*,identifier*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/textprocessing/schedule{?input*,type*,appId*,identifier*}').expand(_parameters);
     return _i1.DynamiteRawResponse<TextProcessingApiScheduleResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -3434,7 +3434,7 @@ class $TextProcessingApiClient {
   ///
   /// See:
   ///  * [getTask] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
     required int id,
     bool? oCSAPIRequest,
@@ -3462,9 +3462,9 @@ class $TextProcessingApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3524,7 +3524,7 @@ class $TextProcessingApiClient {
   ///
   /// See:
   ///  * [deleteTask] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
     required int id,
     bool? oCSAPIRequest,
@@ -3554,9 +3554,9 @@ class $TextProcessingApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -3618,7 +3618,7 @@ class $TextProcessingApiClient {
   ///
   /// See:
   ///  * [listTasksByApp] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
     required String appId,
     String? identifier,
@@ -3652,9 +3652,9 @@ class $TextProcessingApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/textprocessing/tasks/app/{appId}{?identifier*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/textprocessing/tasks/app/{appId}{?identifier*}').expand(_parameters);
     return _i1.DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3713,7 +3713,7 @@ class $TextToImageApiClient {
   ///
   /// See:
   ///  * [isAvailable] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void> isAvailableRaw({
     bool? oCSAPIRequest,
   }) {
@@ -3736,7 +3736,7 @@ class $TextToImageApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/text2image/is_available';
     return _i1.DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void>(
@@ -3810,7 +3810,7 @@ class $TextToImageApiClient {
   ///
   /// See:
   ///  * [schedule] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextToImageApiScheduleResponseApplicationJson, void> scheduleRaw({
     required String input,
     required String appId,
@@ -3852,9 +3852,9 @@ class $TextToImageApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/text2image/schedule{?input*,appId*,identifier*,numberOfImages*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/text2image/schedule{?input*,appId*,identifier*,numberOfImages*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<TextToImageApiScheduleResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -3915,7 +3915,7 @@ class $TextToImageApiClient {
   ///
   /// See:
   ///  * [getTask] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextToImageApiGetTaskResponseApplicationJson, void> getTaskRaw({
     required int id,
     bool? oCSAPIRequest,
@@ -3943,9 +3943,9 @@ class $TextToImageApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<TextToImageApiGetTaskResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4005,7 +4005,7 @@ class $TextToImageApiClient {
   ///
   /// See:
   ///  * [deleteTask] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextToImageApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
     required int id,
     bool? oCSAPIRequest,
@@ -4035,9 +4035,9 @@ class $TextToImageApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<TextToImageApiDeleteTaskResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -4101,7 +4101,7 @@ class $TextToImageApiClient {
   ///
   /// See:
   ///  * [getImage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getImageRaw({
     required int id,
     required int index,
@@ -4133,9 +4133,9 @@ class $TextToImageApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/text2image/task/{id}/image/{index}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/text2image/task/{id}/image/{index}').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4197,7 +4197,7 @@ class $TextToImageApiClient {
   ///
   /// See:
   ///  * [listTasksByApp] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TextToImageApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
     required String appId,
     String? identifier,
@@ -4231,9 +4231,9 @@ class $TextToImageApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/text2image/tasks/app/{appId}{?identifier*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/text2image/tasks/app/{appId}{?identifier*}').expand(_parameters);
     return _i1.DynamiteRawResponse<TextToImageApiListTasksByAppResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4292,7 +4292,7 @@ class $TranslationApiClient {
   ///
   /// See:
   ///  * [languages] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4313,7 +4313,7 @@ class $TranslationApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/translation/languages';
     return _i1.DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void>(
@@ -4385,7 +4385,7 @@ class $TranslationApiClient {
   ///
   /// See:
   ///  * [translate] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TranslationApiTranslateResponseApplicationJson, void> translateRaw({
     required String text,
     required String toLanguage,
@@ -4421,10 +4421,10 @@ class $TranslationApiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/translation/translate{?text*,toLanguage*,fromLanguage*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/translation/translate{?text*,toLanguage*,fromLanguage*}').expand(_parameters);
     return _i1.DynamiteRawResponse<TranslationApiTranslateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -4487,7 +4487,7 @@ class $UnifiedSearchClient {
   ///
   /// See:
   ///  * [getProviders] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
     String? from,
     bool? oCSAPIRequest,
@@ -4518,9 +4518,9 @@ class $UnifiedSearchClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/search/providers{?from*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/search/providers{?from*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4602,7 +4602,7 @@ class $UnifiedSearchClient {
   ///
   /// See:
   ///  * [search] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void> searchRaw({
     required String providerId,
     String? term,
@@ -4654,10 +4654,10 @@ class $UnifiedSearchClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/search/providers/{providerId}/search{?term*,sortOrder*,limit*,cursor*,from*}')
+        _i4.UriTemplate('/ocs/v2.php/search/providers/{providerId}/search{?term*,sortOrder*,limit*,cursor*,from*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -4717,7 +4717,7 @@ class $WhatsNewClient {
   ///
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4740,7 +4740,7 @@ class $WhatsNewClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/core/whatsnew';
     return _i1.DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void>(
@@ -4800,7 +4800,7 @@ class $WhatsNewClient {
   ///
   /// See:
   ///  * [dismiss] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void> dismissRaw({
     required String version,
     bool? oCSAPIRequest,
@@ -4830,9 +4830,9 @@ class $WhatsNewClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/core/whatsnew{?version*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/core/whatsnew{?version*}').expand(_parameters);
     return _i1.DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -4891,7 +4891,7 @@ class $WipeClient {
   ///
   /// See:
   ///  * [checkWipe] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<WipeCheckWipeResponseApplicationJson, void> checkWipeRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -4914,7 +4914,7 @@ class $WipeClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i3.UriTemplate('/index.php/core/wipe/check{?token*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/core/wipe/check{?token*}').expand(_parameters);
     return _i1.DynamiteRawResponse<WipeCheckWipeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -4966,7 +4966,7 @@ class $WipeClient {
   ///
   /// See:
   ///  * [wipeDone] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<JsonObject, void> wipeDoneRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
@@ -4989,7 +4989,7 @@ class $WipeClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i3.UriTemplate('/index.php/core/wipe/success{?token*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/core/wipe/success{?token*}').expand(_parameters);
     return _i1.DynamiteRawResponse<JsonObject, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -6942,104 +6942,6 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson
       _$navigationGetSettingsNavigationResponseApplicationJsonSerializer;
 }
 
-class OcmOcmDiscoveryHeaders_XNextcloudOcmProviders extends EnumClass {
-  const OcmOcmDiscoveryHeaders_XNextcloudOcmProviders._(super.name);
-
-  /// `true`
-  @BuiltValueEnumConst(wireName: 'true')
-  static const OcmOcmDiscoveryHeaders_XNextcloudOcmProviders $true =
-      _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get values =>
-      _$ocmOcmDiscoveryHeadersXNextcloudOcmProvidersValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static OcmOcmDiscoveryHeaders_XNextcloudOcmProviders valueOf(String name) =>
-      _$valueOfOcmOcmDiscoveryHeaders_XNextcloudOcmProviders(name);
-
-  /// Returns the serialized value of this enum value.
-  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
-
-  /// Serializer for OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get serializer =>
-      const _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer();
-}
-
-class _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer
-    implements PrimitiveSerializer<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> {
-  const _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer();
-
-  static const Map<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders, Object> _toWire =
-      <OcmOcmDiscoveryHeaders_XNextcloudOcmProviders, Object>{
-    OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true: true,
-  };
-
-  static const Map<Object, OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> _fromWire =
-      <Object, OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>{
-    true: OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true,
-  };
-
-  @override
-  Iterable<Type> get types => const [OcmOcmDiscoveryHeaders_XNextcloudOcmProviders];
-
-  @override
-  String get wireName => 'OcmOcmDiscoveryHeaders_XNextcloudOcmProviders';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    OcmOcmDiscoveryHeaders_XNextcloudOcmProviders object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  OcmOcmDiscoveryHeaders_XNextcloudOcmProviders deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $OcmOcmDiscoveryHeadersInterface {
-  @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
-  Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? get xNextcloudOcmProviders;
-}
-
-abstract class OcmOcmDiscoveryHeaders
-    implements $OcmOcmDiscoveryHeadersInterface, Built<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder> {
-  /// Creates a new OcmOcmDiscoveryHeaders object using the builder pattern.
-  factory OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? b]) = _$OcmOcmDiscoveryHeaders;
-
-  // coverage:ignore-start
-  const OcmOcmDiscoveryHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory OcmOcmDiscoveryHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for OcmOcmDiscoveryHeaders.
-  static Serializer<OcmOcmDiscoveryHeaders> get serializer => _$ocmOcmDiscoveryHeadersSerializer;
-}
-
 @BuiltValue(instantiable: false)
 abstract interface class $OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface {
   String get webdav;
@@ -7158,6 +7060,104 @@ abstract class OcmDiscoveryResponseApplicationJson
   /// Serializer for OcmDiscoveryResponseApplicationJson.
   static Serializer<OcmDiscoveryResponseApplicationJson> get serializer =>
       _$ocmDiscoveryResponseApplicationJsonSerializer;
+}
+
+class OcmOcmDiscoveryHeaders_XNextcloudOcmProviders extends EnumClass {
+  const OcmOcmDiscoveryHeaders_XNextcloudOcmProviders._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const OcmOcmDiscoveryHeaders_XNextcloudOcmProviders $true =
+      _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get values =>
+      _$ocmOcmDiscoveryHeadersXNextcloudOcmProvidersValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static OcmOcmDiscoveryHeaders_XNextcloudOcmProviders valueOf(String name) =>
+      _$valueOfOcmOcmDiscoveryHeaders_XNextcloudOcmProviders(name);
+
+  /// Returns the serialized value of this enum value.
+  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
+
+  /// Serializer for OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get serializer =>
+      const _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer();
+}
+
+class _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer
+    implements PrimitiveSerializer<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> {
+  const _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer();
+
+  static const Map<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders, Object> _toWire =
+      <OcmOcmDiscoveryHeaders_XNextcloudOcmProviders, Object>{
+    OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true: true,
+  };
+
+  static const Map<Object, OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> _fromWire =
+      <Object, OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>{
+    true: OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [OcmOcmDiscoveryHeaders_XNextcloudOcmProviders];
+
+  @override
+  String get wireName => 'OcmOcmDiscoveryHeaders_XNextcloudOcmProviders';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    OcmOcmDiscoveryHeaders_XNextcloudOcmProviders object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  OcmOcmDiscoveryHeaders_XNextcloudOcmProviders deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $OcmOcmDiscoveryHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
+  Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? get xNextcloudOcmProviders;
+}
+
+abstract class OcmOcmDiscoveryHeaders
+    implements $OcmOcmDiscoveryHeadersInterface, Built<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder> {
+  /// Creates a new OcmOcmDiscoveryHeaders object using the builder pattern.
+  factory OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? b]) = _$OcmOcmDiscoveryHeaders;
+
+  // coverage:ignore-start
+  const OcmOcmDiscoveryHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory OcmOcmDiscoveryHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for OcmOcmDiscoveryHeaders.
+  static Serializer<OcmOcmDiscoveryHeaders> get serializer => _$ocmOcmDiscoveryHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -13063,13 +13063,13 @@ extension $87e48e5649cd72b4d2947aaaea13ccd8Extension on _$87e48e5649cd72b4d2947a
   List<String> get _names => const ['autocompleteResultStatus0', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -13142,13 +13142,13 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
   List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -13221,13 +13221,13 @@ extension $46564992d3ed3482aa6c1162698aac99Extension on _$46564992d3ed3482aa6c11
   List<String> get _names => const ['builtListNever', 'sharebymailCapabilities0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -13302,13 +13302,13 @@ extension $06c2e47196a84ebc3718dccf9eb4b29dExtension on _$06c2e47196a84ebc3718dc
   List<String> get _names => const ['builtListNever', 'spreedPublicCapabilities0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -13430,13 +13430,13 @@ extension $d7df54b8bef6b092d401eed2bcfbb6f0Extension on _$d7df54b8bef6b092d401ee
       ];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -13653,7 +13653,7 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Status), StatusBuilder.new)
@@ -13859,13 +13859,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(NavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeadersBuilder.new)
-      ..add(OcmOcmDiscoveryHeaders.serializer)
-      ..add(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.serializer)
-      ..addBuilderFactory(
-        const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]),
-        HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>.new,
-      )
       ..addBuilderFactory(
         const FullType(OcmDiscoveryResponseApplicationJson),
         OcmDiscoveryResponseApplicationJsonBuilder.new,
@@ -13885,6 +13878,13 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes)]),
         ListBuilder<OcmDiscoveryResponseApplicationJson_ResourceTypes>.new,
+      )
+      ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeadersBuilder.new)
+      ..add(OcmOcmDiscoveryHeaders.serializer)
+      ..add(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.serializer)
+      ..addBuilderFactory(
+        const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]),
+        HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>.new,
       )
       ..addBuilderFactory(
         const FullType(OcsGetCapabilitiesResponseApplicationJson),
@@ -14509,7 +14509,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

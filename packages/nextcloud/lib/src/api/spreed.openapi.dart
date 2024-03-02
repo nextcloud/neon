@@ -25,9 +25,9 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'spreed.openapi.g.dart';
 
@@ -146,7 +146,7 @@ class $AvatarClient {
   ///
   /// See:
   ///  * [getAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required String token,
     AvatarGetAvatarDarkTheme? darkTheme,
@@ -172,7 +172,7 @@ class $AvatarClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -189,9 +189,9 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
@@ -254,7 +254,7 @@ class $AvatarClient {
   ///
   /// See:
   ///  * [uploadAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void> uploadAvatarRaw({
     required String token,
     AvatarUploadAvatarApiVersion? apiVersion,
@@ -279,7 +279,7 @@ class $AvatarClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -293,9 +293,9 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
     return _i1.DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -355,7 +355,7 @@ class $AvatarClient {
   ///
   /// See:
   ///  * [deleteAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({
     required String token,
     AvatarDeleteAvatarApiVersion? apiVersion,
@@ -380,7 +380,7 @@ class $AvatarClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -394,9 +394,9 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
     return _i1.DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -466,7 +466,7 @@ class $AvatarClient {
   ///
   /// See:
   ///  * [emojiAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void> emojiAvatarRaw({
     required String emoji,
     required String token,
@@ -496,7 +496,7 @@ class $AvatarClient {
     _parameters['emoji'] = $emoji;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -513,9 +513,9 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -576,7 +576,7 @@ class $AvatarClient {
   ///
   /// See:
   ///  * [getAvatarDark] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
     required String token,
     AvatarGetAvatarDarkApiVersion? apiVersion,
@@ -601,7 +601,7 @@ class $AvatarClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -615,10 +615,10 @@ class $AvatarClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -711,7 +711,7 @@ class $BotClient {
   ///
   /// See:
   ///  * [sendMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BotSendMessageResponseApplicationJson, void> sendMessageRaw({
     required String message,
     required String token,
@@ -743,7 +743,7 @@ class $BotClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -768,9 +768,9 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/message{?message*,referenceId*,replyTo*,silent*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<BotSendMessageResponseApplicationJson, void>(
@@ -853,7 +853,7 @@ class $BotClient {
   ///
   /// See:
   ///  * [react] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BotReactResponseApplicationJson, void> reactRaw({
     required String reaction,
     required String token,
@@ -883,7 +883,7 @@ class $BotClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -899,10 +899,10 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<BotReactResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -983,7 +983,7 @@ class $BotClient {
   ///
   /// See:
   ///  * [deleteReaction] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void> deleteReactionRaw({
     required String reaction,
     required String token,
@@ -1013,7 +1013,7 @@ class $BotClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -1030,10 +1030,10 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -1099,7 +1099,7 @@ class $BotClient {
   ///
   /// See:
   ///  * [listBots] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BotListBotsResponseApplicationJson, void> listBotsRaw({
     required String token,
     BotListBotsApiVersion? apiVersion,
@@ -1126,7 +1126,7 @@ class $BotClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -1139,9 +1139,9 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<BotListBotsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1209,7 +1209,7 @@ class $BotClient {
   ///
   /// See:
   ///  * [enableBot] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BotEnableBotResponseApplicationJson, void> enableBotRaw({
     required String token,
     required int botId,
@@ -1237,7 +1237,7 @@ class $BotClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -1253,9 +1253,9 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
     return _i1.DynamiteRawResponse<BotEnableBotResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -1324,7 +1324,7 @@ class $BotClient {
   ///
   /// See:
   ///  * [disableBot] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BotDisableBotResponseApplicationJson, void> disableBotRaw({
     required String token,
     required int botId,
@@ -1352,7 +1352,7 @@ class $BotClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -1368,9 +1368,9 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
     return _i1.DynamiteRawResponse<BotDisableBotResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1430,7 +1430,7 @@ class $BotClient {
   ///
   /// See:
   ///  * [adminListBots] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void> adminListBotsRaw({
     BotAdminListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -1462,9 +1462,9 @@ class $BotClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
     return _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1545,7 +1545,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [configureBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void> configureBreakoutRoomsRaw({
     required BreakoutRoomConfigureBreakoutRoomsMode mode,
     required int amount,
@@ -1582,7 +1582,7 @@ class $BreakoutRoomClient {
     _parameters['amount'] = $amount;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -1602,10 +1602,10 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -1666,7 +1666,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [removeBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void> removeBreakoutRoomsRaw({
     required String token,
     BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
@@ -1693,7 +1693,7 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -1709,10 +1709,10 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1780,7 +1780,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [broadcastChatMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void> broadcastChatMessageRaw({
     required String message,
     required String token,
@@ -1811,7 +1811,7 @@ class $BreakoutRoomClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -1827,10 +1827,10 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -1897,7 +1897,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [applyAttendeeMap] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void> applyAttendeeMapRaw({
     required String attendeeMap,
     required String token,
@@ -1928,7 +1928,7 @@ class $BreakoutRoomClient {
     _parameters['attendeeMap'] = $attendeeMap;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -1942,10 +1942,10 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -2008,7 +2008,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [requestAssistance] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void> requestAssistanceRaw({
     required String token,
     BreakoutRoomRequestAssistanceApiVersion? apiVersion,
@@ -2035,7 +2035,7 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2049,9 +2049,9 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -2115,7 +2115,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [resetRequestForAssistance] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>
       resetRequestForAssistanceRaw({
     required String token,
@@ -2143,7 +2143,7 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2159,9 +2159,9 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -2224,7 +2224,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [startBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void> startBreakoutRoomsRaw({
     required String token,
     BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
@@ -2251,7 +2251,7 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2267,10 +2267,10 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2332,7 +2332,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [stopBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void> stopBreakoutRoomsRaw({
     required String token,
     BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
@@ -2359,7 +2359,7 @@ class $BreakoutRoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2373,10 +2373,10 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -2442,7 +2442,7 @@ class $BreakoutRoomClient {
   ///
   /// See:
   ///  * [switchBreakoutRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void> switchBreakoutRoomRaw({
     required String target,
     required String token,
@@ -2473,7 +2473,7 @@ class $BreakoutRoomClient {
     _parameters['target'] = $target;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2489,9 +2489,9 @@ class $BreakoutRoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -2559,7 +2559,7 @@ class $CallClient {
   ///
   /// See:
   ///  * [getPeersForCall] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void> getPeersForCallRaw({
     required String token,
     CallGetPeersForCallApiVersion? apiVersion,
@@ -2584,7 +2584,7 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2598,9 +2598,9 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2668,7 +2668,7 @@ class $CallClient {
   ///
   /// See:
   ///  * [updateCallFlags] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void> updateCallFlagsRaw({
     required int flags,
     required String token,
@@ -2697,7 +2697,7 @@ class $CallClient {
     _parameters['flags'] = $flags;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2711,9 +2711,9 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(_parameters);
     return _i1.DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -2797,7 +2797,7 @@ class $CallClient {
   ///
   /// See:
   ///  * [joinCall] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CallJoinCallResponseApplicationJson, void> joinCallRaw({
     required String token,
     CallJoinCallFlags? flags,
@@ -2826,7 +2826,7 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2855,9 +2855,9 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*,forcePermissions*,silent*,recordingConsent*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<CallJoinCallResponseApplicationJson, void>(
@@ -2928,7 +2928,7 @@ class $CallClient {
   ///
   /// See:
   ///  * [leaveCall] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void> leaveCallRaw({
     required String token,
     CallLeaveCallAll? all,
@@ -2954,7 +2954,7 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -2971,9 +2971,9 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(_parameters);
     return _i1.DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -3044,7 +3044,7 @@ class $CallClient {
   ///
   /// See:
   ///  * [ringAttendee] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void> ringAttendeeRaw({
     required String token,
     required int attendeeId,
@@ -3070,7 +3070,7 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -3087,10 +3087,10 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(_parameters);
     return _i1.DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -3164,7 +3164,7 @@ class $CallClient {
   ///
   /// See:
   ///  * [sipDialOut] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void> sipDialOutRaw({
     required String token,
     required int attendeeId,
@@ -3190,7 +3190,7 @@ class $CallClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -3206,9 +3206,9 @@ class $CallClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -3288,7 +3288,7 @@ class $CertificateClient {
   ///
   /// See:
   ///  * [getCertificateExpiration] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>
       getCertificateExpirationRaw({
     required String host,
@@ -3327,10 +3327,10 @@ class $CertificateClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
     return _i1.DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3444,7 +3444,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [receiveMessages] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>
       receiveMessagesRaw({
     required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
@@ -3483,7 +3483,7 @@ class $ChatClient {
     _parameters['lookIntoFuture'] = $lookIntoFuture;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -3537,9 +3537,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?lookIntoFuture*,limit*,lastKnownMessageId*,lastCommonReadId*,timeout*,setReadMarker*,includeLastKnown*,noStatusUpdate*,markNotificationsAsRead*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>(
@@ -3634,7 +3634,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [sendMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders> sendMessageRaw({
     required String message,
     required String token,
@@ -3667,7 +3667,7 @@ class $ChatClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -3696,9 +3696,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?message*,actorDisplayName*,referenceId*,replyTo*,silent*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(
@@ -3764,7 +3764,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [clearHistory] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders> clearHistoryRaw({
     required String token,
     ChatClearHistoryApiVersion? apiVersion,
@@ -3791,7 +3791,7 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -3805,9 +3805,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(
       response: _rootClient.executeRequest(
         'delete',
@@ -3884,7 +3884,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [deleteMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders> deleteMessageRaw({
     required String token,
     required int messageId,
@@ -3912,7 +3912,7 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -3929,10 +3929,10 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(_parameters);
     return _i1.DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(
       response: _rootClient.executeRequest(
         'delete',
@@ -4006,7 +4006,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [getMessageContext] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>
       getMessageContextRaw({
     required String token,
@@ -4034,7 +4034,7 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -4055,9 +4055,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>(
       response: _rootClient.executeRequest(
@@ -4127,7 +4127,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [getReminder] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void> getReminderRaw({
     required String token,
     required int messageId,
@@ -4155,7 +4155,7 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -4171,9 +4171,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -4244,7 +4244,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [setReminder] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void> setReminderRaw({
     required int timestamp,
     required String token,
@@ -4276,7 +4276,7 @@ class $ChatClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -4292,10 +4292,10 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -4362,7 +4362,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [deleteReminder] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void> deleteReminderRaw({
     required String token,
     required int messageId,
@@ -4390,7 +4390,7 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -4407,9 +4407,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -4477,7 +4477,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [setReadMarker] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders> setReadMarkerRaw({
     required int lastReadMessage,
     required String token,
@@ -4508,7 +4508,7 @@ class $ChatClient {
     _parameters['lastReadMessage'] = $lastReadMessage;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -4522,9 +4522,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(
       response: _rootClient.executeRequest(
@@ -4585,7 +4585,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [markUnread] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders> markUnreadRaw({
     required String token,
     ChatMarkUnreadApiVersion? apiVersion,
@@ -4612,7 +4612,7 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -4625,9 +4625,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(_parameters);
     return _i1.DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(
       response: _rootClient.executeRequest(
         'delete',
@@ -4699,7 +4699,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [mentions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatMentionsResponseApplicationJson, void> mentionsRaw({
     required String search,
     required String token,
@@ -4730,7 +4730,7 @@ class $ChatClient {
     _parameters['search'] = $search;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -4752,9 +4752,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ChatMentionsResponseApplicationJson, void>(
@@ -4829,7 +4829,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [getObjectsSharedInRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>
       getObjectsSharedInRoomRaw({
     required String objectType,
@@ -4861,7 +4861,7 @@ class $ChatClient {
     _parameters['objectType'] = $objectType;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -4883,9 +4883,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,lastKnownMessageId*,limit*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson,
@@ -4979,7 +4979,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [shareObjectToChat] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>
       shareObjectToChatRaw({
     required String objectType,
@@ -5016,7 +5016,7 @@ class $ChatClient {
     _parameters['objectId'] = $objectId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -5042,9 +5042,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,objectId*,metaData*,actorDisplayName*,referenceId*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>(
@@ -5111,7 +5111,7 @@ class $ChatClient {
   ///
   /// See:
   ///  * [getObjectsSharedInRoomOverview] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
       getObjectsSharedInRoomOverviewRaw({
     required String token,
@@ -5138,7 +5138,7 @@ class $ChatClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -5158,9 +5158,9 @@ class $ChatClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -5240,7 +5240,7 @@ class $FilesIntegrationClient {
   ///
   /// See:
   ///  * [getRoomByFileId] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void> getRoomByFileIdRaw({
     required String fileId,
     FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
@@ -5267,7 +5267,7 @@ class $FilesIntegrationClient {
 
 // coverage:ignore-end
     final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $fileId as String?,
       RegExp(r'^.+$'),
       'fileId',
@@ -5283,9 +5283,9 @@ class $FilesIntegrationClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(_parameters);
     return _i1.DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -5359,7 +5359,7 @@ class $FilesIntegrationClient {
   ///
   /// See:
   ///  * [getRoomByShareToken] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void> getRoomByShareTokenRaw({
     required String shareToken,
     FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
@@ -5384,7 +5384,7 @@ class $FilesIntegrationClient {
 
 // coverage:ignore-end
     final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $shareToken as String?,
       RegExp(r'^.+$'),
       'shareToken',
@@ -5400,10 +5400,10 @@ class $FilesIntegrationClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(_parameters);
     return _i1.DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -5478,7 +5478,7 @@ class $GuestClient {
   ///
   /// See:
   ///  * [setDisplayName] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void> setDisplayNameRaw({
     required String displayName,
     required String token,
@@ -5507,7 +5507,7 @@ class $GuestClient {
     _parameters['displayName'] = $displayName;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -5521,9 +5521,9 @@ class $GuestClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -5619,7 +5619,7 @@ class $HostedSignalingServerClient {
   ///
   /// See:
   ///  * [requestTrial] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void> requestTrialRaw({
     required String url,
     required String name,
@@ -5673,9 +5673,9 @@ class $HostedSignalingServerClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial{?url*,name*,email*,language*,country*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>(
@@ -5741,7 +5741,7 @@ class $HostedSignalingServerClient {
   ///
   /// See:
   ///  * [deleteAccount] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void> deleteAccountRaw({
     HostedSignalingServerDeleteAccountApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -5775,10 +5775,10 @@ class $HostedSignalingServerClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(_parameters);
     return _i1.DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -5845,7 +5845,7 @@ class $MatterbridgeClient {
   ///
   /// See:
   ///  * [getBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void> getBridgeOfRoomRaw({
     required String token,
     MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
@@ -5872,7 +5872,7 @@ class $MatterbridgeClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -5886,9 +5886,9 @@ class $MatterbridgeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -5958,7 +5958,7 @@ class $MatterbridgeClient {
   ///
   /// See:
   ///  * [editBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void> editBridgeOfRoomRaw({
     required MatterbridgeEditBridgeOfRoomEnabled enabled,
     required String token,
@@ -5991,7 +5991,7 @@ class $MatterbridgeClient {
     _parameters['enabled'] = $enabled;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -6015,9 +6015,9 @@ class $MatterbridgeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -6080,7 +6080,7 @@ class $MatterbridgeClient {
   ///
   /// See:
   ///  * [deleteBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void> deleteBridgeOfRoomRaw({
     required String token,
     MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
@@ -6107,7 +6107,7 @@ class $MatterbridgeClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -6123,9 +6123,9 @@ class $MatterbridgeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -6185,7 +6185,7 @@ class $MatterbridgeClient {
   ///
   /// See:
   ///  * [getBridgeProcessState] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void> getBridgeProcessStateRaw({
     required String token,
     MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
@@ -6212,7 +6212,7 @@ class $MatterbridgeClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -6228,10 +6228,10 @@ class $MatterbridgeClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(_parameters);
     return _i1.DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -6300,7 +6300,7 @@ class $MatterbridgeSettingsClient {
   ///
   /// See:
   ///  * [stopAllBridges] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void> stopAllBridgesRaw({
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -6334,9 +6334,9 @@ class $MatterbridgeSettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(_parameters);
     return _i1.DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -6399,7 +6399,7 @@ class $MatterbridgeSettingsClient {
   ///
   /// See:
   ///  * [getMatterbridgeVersion] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
       getMatterbridgeVersionRaw({
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
@@ -6434,9 +6434,9 @@ class $MatterbridgeSettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(_parameters);
     return _i1.DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -6521,7 +6521,7 @@ class $PollClient {
   ///
   /// See:
   ///  * [createPoll] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<PollCreatePollResponseApplicationJson, void> createPollRaw({
     required String question,
     required BuiltList<String> options,
@@ -6563,7 +6563,7 @@ class $PollClient {
     _parameters['maxVotes'] = $maxVotes;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -6576,9 +6576,9 @@ class $PollClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}{?question*,options%5B%5D*,resultMode*,maxVotes*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<PollCreatePollResponseApplicationJson, void>(
@@ -6646,7 +6646,7 @@ class $PollClient {
   ///
   /// See:
   ///  * [showPoll] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<PollShowPollResponseApplicationJson, void> showPollRaw({
     required String token,
     required int pollId,
@@ -6672,7 +6672,7 @@ class $PollClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -6688,9 +6688,9 @@ class $PollClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
     return _i1.DynamiteRawResponse<PollShowPollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -6762,7 +6762,7 @@ class $PollClient {
   ///
   /// See:
   ///  * [votePoll] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<PollVotePollResponseApplicationJson, void> votePollRaw({
     required String token,
     required int pollId,
@@ -6789,7 +6789,7 @@ class $PollClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -6809,9 +6809,9 @@ class $PollClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<PollVotePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -6884,7 +6884,7 @@ class $PollClient {
   ///
   /// See:
   ///  * [closePoll] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<PollClosePollResponseApplicationJson, void> closePollRaw({
     required String token,
     required int pollId,
@@ -6910,7 +6910,7 @@ class $PollClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -6926,9 +6926,9 @@ class $PollClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
     return _i1.DynamiteRawResponse<PollClosePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -7003,7 +7003,7 @@ class $PublicShareAuthClient {
   ///
   /// See:
   ///  * [createRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void> createRoomRaw({
     required String shareToken,
     PublicShareAuthCreateRoomApiVersion? apiVersion,
@@ -7037,10 +7037,10 @@ class $PublicShareAuthClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(_parameters);
     return _i1.DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -7117,7 +7117,7 @@ class $ReactionClient {
   ///
   /// See:
   ///  * [getReactions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void> getReactionsRaw({
     required String token,
     required int messageId,
@@ -7144,7 +7144,7 @@ class $ReactionClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -7164,9 +7164,9 @@ class $ReactionClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -7241,7 +7241,7 @@ class $ReactionClient {
   ///
   /// See:
   ///  * [react] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ReactionReactResponseApplicationJson, void> reactRaw({
     required String reaction,
     required String token,
@@ -7271,7 +7271,7 @@ class $ReactionClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -7287,9 +7287,9 @@ class $ReactionClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ReactionReactResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -7365,7 +7365,7 @@ class $ReactionClient {
   ///
   /// See:
   ///  * [$delete] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void> $deleteRaw({
     required String reaction,
     required String token,
@@ -7395,7 +7395,7 @@ class $ReactionClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -7411,9 +7411,9 @@ class $ReactionClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -7487,7 +7487,7 @@ class $RecordingClient {
   ///
   /// See:
   ///  * [start] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RecordingStartResponseApplicationJson, void> startRaw({
     required int status,
     required String token,
@@ -7518,7 +7518,7 @@ class $RecordingClient {
     _parameters['status'] = $status;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -7531,10 +7531,10 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(_parameters);
     return _i1.DynamiteRawResponse<RecordingStartResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -7596,7 +7596,7 @@ class $RecordingClient {
   ///
   /// See:
   ///  * [stop] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RecordingStopResponseApplicationJson, void> stopRaw({
     required String token,
     RecordingStopApiVersion? apiVersion,
@@ -7623,7 +7623,7 @@ class $RecordingClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -7636,9 +7636,9 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<RecordingStopResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -7706,7 +7706,7 @@ class $RecordingClient {
   ///
   /// See:
   ///  * [store] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RecordingStoreResponseApplicationJson, void> storeRaw({
     required String owner,
     required String token,
@@ -7735,7 +7735,7 @@ class $RecordingClient {
     _parameters['owner'] = $owner;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -7748,9 +7748,9 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RecordingStoreResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -7817,7 +7817,7 @@ class $RecordingClient {
   ///
   /// See:
   ///  * [notificationDismiss] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void> notificationDismissRaw({
     required int timestamp,
     required String token,
@@ -7848,7 +7848,7 @@ class $RecordingClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -7862,10 +7862,10 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -7936,7 +7936,7 @@ class $RecordingClient {
   ///
   /// See:
   ///  * [shareToChat] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void> shareToChatRaw({
     required int fileId,
     required int timestamp,
@@ -7971,7 +7971,7 @@ class $RecordingClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -7985,10 +7985,10 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -8057,7 +8057,7 @@ class $RecordingClient {
   ///
   /// See:
   ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
     required int serverId,
     RecordingGetWelcomeMessageApiVersion? apiVersion,
@@ -8093,10 +8093,10 @@ class $RecordingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
     return _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -8171,7 +8171,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [getRooms] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> getRoomsRaw({
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     RoomGetRoomsIncludeStatus? includeStatus,
@@ -8219,10 +8219,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(
       response: _rootClient.executeRequest(
@@ -8311,7 +8311,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [createRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void> createRoomRaw({
     required int roomType,
     String? invite,
@@ -8371,9 +8371,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?roomType*,invite*,roomName*,source*,objectType*,objectId*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void>(
@@ -8438,7 +8438,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [getListedRooms] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void> getListedRoomsRaw({
     String? searchTerm,
     RoomGetListedRoomsApiVersion? apiVersion,
@@ -8475,10 +8475,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -8540,7 +8540,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [getNoteToSelfConversation] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
       RoomRoomGetNoteToSelfConversationHeaders> getNoteToSelfConversationRaw({
     RoomGetNoteToSelfConversationApiVersion? apiVersion,
@@ -8573,9 +8573,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
         RoomRoomGetNoteToSelfConversationHeaders>(
       response: _rootClient.executeRequest(
@@ -8640,7 +8640,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [getSingleRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders> getSingleRoomRaw({
     required String token,
     RoomGetSingleRoomApiVersion? apiVersion,
@@ -8665,7 +8665,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -8679,9 +8679,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -8747,7 +8747,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [renameRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void> renameRoomRaw({
     required String roomName,
     required String token,
@@ -8776,7 +8776,7 @@ class $RoomClient {
     _parameters['roomName'] = $roomName;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -8789,10 +8789,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -8857,7 +8857,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [deleteRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void> deleteRoomRaw({
     required String token,
     RoomDeleteRoomApiVersion? apiVersion,
@@ -8882,7 +8882,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -8895,9 +8895,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -8966,7 +8966,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [getBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void> getBreakoutRoomsRaw({
     required String token,
     RoomGetBreakoutRoomsApiVersion? apiVersion,
@@ -8993,7 +8993,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9007,10 +9007,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -9072,7 +9072,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [makePublic] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void> makePublicRaw({
     required String token,
     RoomMakePublicApiVersion? apiVersion,
@@ -9099,7 +9099,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9112,9 +9112,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -9179,7 +9179,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [makePrivate] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void> makePrivateRaw({
     required String token,
     RoomMakePrivateApiVersion? apiVersion,
@@ -9206,7 +9206,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9219,9 +9219,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -9290,7 +9290,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setDescription] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void> setDescriptionRaw({
     required String description,
     required String token,
@@ -9319,7 +9319,7 @@ class $RoomClient {
     _parameters['description'] = $description;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9333,9 +9333,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -9405,7 +9405,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setReadOnly] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void> setReadOnlyRaw({
     required RoomSetReadOnlyState state,
     required String token,
@@ -9436,7 +9436,7 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9449,10 +9449,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -9521,7 +9521,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setListable] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetListableResponseApplicationJson, void> setListableRaw({
     required RoomSetListableScope scope,
     required String token,
@@ -9552,7 +9552,7 @@ class $RoomClient {
     _parameters['scope'] = $scope;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9565,10 +9565,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetListableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -9639,7 +9639,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setPassword] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void> setPasswordRaw({
     required String password,
     required String token,
@@ -9668,7 +9668,7 @@ class $RoomClient {
     _parameters['password'] = $password;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9681,9 +9681,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -9757,7 +9757,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setPermissions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void> setPermissionsRaw({
     required RoomSetPermissionsPermissions permissions,
     required String token,
@@ -9788,7 +9788,7 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9796,7 +9796,7 @@ class $RoomClient {
     _parameters['token'] = $token;
 
     final $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $mode as String?,
       RegExp(r'^(call|default)$'),
       'mode',
@@ -9810,10 +9810,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -9881,7 +9881,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [getParticipants] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>
       getParticipantsRaw({
     required String token,
@@ -9908,7 +9908,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -9927,9 +9927,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>(
       response: _rootClient.executeRequest(
@@ -10004,7 +10004,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [addParticipantToRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void> addParticipantToRoomRaw({
     required String newParticipant,
     required String token,
@@ -10036,7 +10036,7 @@ class $RoomClient {
     _parameters['newParticipant'] = $newParticipant;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -10054,10 +10054,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -10128,7 +10128,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [getBreakoutRoomParticipants] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
       RoomRoomGetBreakoutRoomParticipantsHeaders> getBreakoutRoomParticipantsRaw({
     required String token,
@@ -10155,7 +10155,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -10178,9 +10178,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants{?includeStatus*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
@@ -10247,7 +10247,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [removeSelfFromRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void> removeSelfFromRoomRaw({
     required String token,
     RoomRemoveSelfFromRoomApiVersion? apiVersion,
@@ -10274,7 +10274,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -10288,10 +10288,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -10365,7 +10365,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [removeAttendeeFromRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void> removeAttendeeFromRoomRaw({
     required int attendeeId,
     required String token,
@@ -10394,7 +10394,7 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -10408,9 +10408,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -10494,7 +10494,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setAttendeePermissions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void> setAttendeePermissionsRaw({
     required int attendeeId,
     required RoomSetAttendeePermissionsMethod method,
@@ -10533,7 +10533,7 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -10547,9 +10547,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions{?attendeeId*,method*,permissions*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>(
@@ -10626,7 +10626,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setAllAttendeesPermissions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void> setAllAttendeesPermissionsRaw({
     required RoomSetAllAttendeesPermissionsMethod method,
     required RoomSetAllAttendeesPermissionsPermissions permissions,
@@ -10663,7 +10663,7 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -10679,9 +10679,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all{?method*,permissions*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(
@@ -10757,7 +10757,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [joinRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void> joinRoomRaw({
     required String token,
     String? password,
@@ -10784,7 +10784,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -10805,10 +10805,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -10869,7 +10869,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [leaveRoom] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void> leaveRoomRaw({
     required String token,
     RoomLeaveRoomApiVersion? apiVersion,
@@ -10894,7 +10894,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -10907,9 +10907,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -10976,7 +10976,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [resendInvitations] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void> resendInvitationsRaw({
     required String token,
     int? attendeeId,
@@ -11004,7 +11004,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11021,9 +11021,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations{?attendeeId*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void>(
@@ -11096,7 +11096,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setSessionState] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void> setSessionStateRaw({
     required RoomSetSessionStateState state,
     required String token,
@@ -11125,7 +11125,7 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11139,9 +11139,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -11212,7 +11212,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [promoteModerator] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void> promoteModeratorRaw({
     required int attendeeId,
     required String token,
@@ -11241,7 +11241,7 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11255,9 +11255,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -11333,7 +11333,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [demoteModerator] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void> demoteModeratorRaw({
     required int attendeeId,
     required String token,
@@ -11362,7 +11362,7 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11376,9 +11376,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -11444,7 +11444,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [addToFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void> addToFavoritesRaw({
     required String token,
     RoomAddToFavoritesApiVersion? apiVersion,
@@ -11471,7 +11471,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11485,9 +11485,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -11547,7 +11547,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [removeFromFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void> removeFromFavoritesRaw({
     required String token,
     RoomRemoveFromFavoritesApiVersion? apiVersion,
@@ -11574,7 +11574,7 @@ class $RoomClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11588,9 +11588,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -11656,7 +11656,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setNotificationLevel] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void> setNotificationLevelRaw({
     required int level,
     required String token,
@@ -11687,7 +11687,7 @@ class $RoomClient {
     _parameters['level'] = $level;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11701,10 +11701,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -11773,7 +11773,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setNotificationCalls] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void> setNotificationCallsRaw({
     required int level,
     required String token,
@@ -11804,7 +11804,7 @@ class $RoomClient {
     _parameters['level'] = $level;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11818,9 +11818,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -11894,7 +11894,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setLobby] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void> setLobbyRaw({
     required int state,
     required String token,
@@ -11926,7 +11926,7 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -11942,9 +11942,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -12017,7 +12017,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setsipEnabled] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void> setsipEnabledRaw({
     required RoomSetsipEnabledState state,
     required String token,
@@ -12048,7 +12048,7 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -12062,9 +12062,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -12133,7 +12133,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setRecordingConsent] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void> setRecordingConsentRaw({
     required int recordingConsent,
     required String token,
@@ -12164,7 +12164,7 @@ class $RoomClient {
     _parameters['recordingConsent'] = $recordingConsent;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -12178,10 +12178,10 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -12248,7 +12248,7 @@ class $RoomClient {
   ///
   /// See:
   ///  * [setMessageExpiration] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void> setMessageExpirationRaw({
     required int seconds,
     required String token,
@@ -12277,7 +12277,7 @@ class $RoomClient {
     _parameters['seconds'] = $seconds;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -12291,9 +12291,9 @@ class $RoomClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -12367,7 +12367,7 @@ class $SettingsClient {
   ///
   /// See:
   ///  * [setUserSetting] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
     required SettingsSetUserSettingKey key,
     SettingsSetUserSettingValue? value,
@@ -12407,10 +12407,10 @@ class $SettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(_parameters);
     return _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -12485,7 +12485,7 @@ class $SettingsClient {
   ///
   /// See:
   ///  * [setsipSettings] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void> setsipSettingsRaw({
     BuiltList<String>? sipGroups,
     String? dialInInfo,
@@ -12533,9 +12533,9 @@ class $SettingsClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip{?sipGroups%5B%5D*,dialInInfo*,sharedSecret*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void>(
@@ -12608,7 +12608,7 @@ class $SignalingClient {
   ///
   /// See:
   ///  * [getSettings] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void> getSettingsRaw({
     String? token,
     SignalingGetSettingsApiVersion? apiVersion,
@@ -12643,10 +12643,10 @@ class $SignalingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
     return _i1.DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -12712,7 +12712,7 @@ class $SignalingClient {
   ///
   /// See:
   ///  * [pullMessages] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void> pullMessagesRaw({
     required String token,
     SignalingPullMessagesApiVersion? apiVersion,
@@ -12737,7 +12737,7 @@ class $SignalingClient {
 
 // coverage:ignore-end
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -12751,9 +12751,9 @@ class $SignalingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(_parameters);
     return _i1.DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -12823,7 +12823,7 @@ class $SignalingClient {
   ///
   /// See:
   ///  * [sendMessages] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void> sendMessagesRaw({
     required String messages,
     required String token,
@@ -12852,7 +12852,7 @@ class $SignalingClient {
     _parameters['messages'] = $messages;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i2.checkPattern(
+    _i3.checkPattern(
       $token as String?,
       RegExp(r'^[a-z0-9]{4,30}$'),
       'token',
@@ -12866,10 +12866,10 @@ class $SignalingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(_parameters);
     return _i1.DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -12939,7 +12939,7 @@ class $SignalingClient {
   ///
   /// See:
   ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
     required int serverId,
     SignalingGetWelcomeMessageApiVersion? apiVersion,
@@ -12975,10 +12975,10 @@ class $SignalingClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
     return _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -13039,7 +13039,7 @@ class $TempAvatarClient {
   ///
   /// See:
   ///  * [postAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -13062,7 +13062,7 @@ class $TempAvatarClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
     return _i1.DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void>(
@@ -13118,7 +13118,7 @@ class $TempAvatarClient {
   ///
   /// See:
   ///  * [deleteAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -13141,7 +13141,7 @@ class $TempAvatarClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
     return _i1.DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>(
@@ -19930,45 +19930,6 @@ class _$ChatReceiveMessagesApiVersionSerializer implements PrimitiveSerializer<C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatReceiveMessagesHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-common-read')
-  String? get xChatLastCommonRead;
-  @BuiltValueField(wireName: 'x-chat-last-given')
-  String? get xChatLastGiven;
-}
-
-abstract class ChatChatReceiveMessagesHeaders
-    implements
-        $ChatChatReceiveMessagesHeadersInterface,
-        Built<ChatChatReceiveMessagesHeaders, ChatChatReceiveMessagesHeadersBuilder> {
-  /// Creates a new ChatChatReceiveMessagesHeaders object using the builder pattern.
-  factory ChatChatReceiveMessagesHeaders([void Function(ChatChatReceiveMessagesHeadersBuilder)? b]) =
-      _$ChatChatReceiveMessagesHeaders;
-
-  // coverage:ignore-start
-  const ChatChatReceiveMessagesHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatReceiveMessagesHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatReceiveMessagesHeaders.
-  static Serializer<ChatChatReceiveMessagesHeaders> get serializer => _$chatChatReceiveMessagesHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ChatMessageWithParentInterface implements $ChatMessageInterface {
   ChatMessage? get parent;
 }
@@ -20076,6 +20037,45 @@ abstract class ChatReceiveMessagesResponseApplicationJson
   /// Serializer for ChatReceiveMessagesResponseApplicationJson.
   static Serializer<ChatReceiveMessagesResponseApplicationJson> get serializer =>
       _$chatReceiveMessagesResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatReceiveMessagesHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+  @BuiltValueField(wireName: 'x-chat-last-given')
+  String? get xChatLastGiven;
+}
+
+abstract class ChatChatReceiveMessagesHeaders
+    implements
+        $ChatChatReceiveMessagesHeadersInterface,
+        Built<ChatChatReceiveMessagesHeaders, ChatChatReceiveMessagesHeadersBuilder> {
+  /// Creates a new ChatChatReceiveMessagesHeaders object using the builder pattern.
+  factory ChatChatReceiveMessagesHeaders([void Function(ChatChatReceiveMessagesHeadersBuilder)? b]) =
+      _$ChatChatReceiveMessagesHeaders;
+
+  // coverage:ignore-start
+  const ChatChatReceiveMessagesHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatReceiveMessagesHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatReceiveMessagesHeaders.
+  static Serializer<ChatChatReceiveMessagesHeaders> get serializer => _$chatChatReceiveMessagesHeadersSerializer;
 }
 
 class ChatSendMessageSilent extends EnumClass {
@@ -20198,43 +20198,6 @@ class _$ChatSendMessageApiVersionSerializer implements PrimitiveSerializer<ChatS
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatSendMessageHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-common-read')
-  String? get xChatLastCommonRead;
-}
-
-abstract class ChatChatSendMessageHeaders
-    implements
-        $ChatChatSendMessageHeadersInterface,
-        Built<ChatChatSendMessageHeaders, ChatChatSendMessageHeadersBuilder> {
-  /// Creates a new ChatChatSendMessageHeaders object using the builder pattern.
-  factory ChatChatSendMessageHeaders([void Function(ChatChatSendMessageHeadersBuilder)? b]) =
-      _$ChatChatSendMessageHeaders;
-
-  // coverage:ignore-start
-  const ChatChatSendMessageHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatSendMessageHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatSendMessageHeaders.
-  static Serializer<ChatChatSendMessageHeaders> get serializer => _$chatChatSendMessageHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ChatSendMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessageWithParent? get data;
@@ -20310,6 +20273,43 @@ abstract class ChatSendMessageResponseApplicationJson
       _$chatSendMessageResponseApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatSendMessageHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+}
+
+abstract class ChatChatSendMessageHeaders
+    implements
+        $ChatChatSendMessageHeadersInterface,
+        Built<ChatChatSendMessageHeaders, ChatChatSendMessageHeadersBuilder> {
+  /// Creates a new ChatChatSendMessageHeaders object using the builder pattern.
+  factory ChatChatSendMessageHeaders([void Function(ChatChatSendMessageHeadersBuilder)? b]) =
+      _$ChatChatSendMessageHeaders;
+
+  // coverage:ignore-start
+  const ChatChatSendMessageHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatSendMessageHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatSendMessageHeaders.
+  static Serializer<ChatChatSendMessageHeaders> get serializer => _$chatChatSendMessageHeadersSerializer;
+}
+
 class ChatClearHistoryApiVersion extends EnumClass {
   const ChatClearHistoryApiVersion._(super.name);
 
@@ -20364,43 +20364,6 @@ class _$ChatClearHistoryApiVersionSerializer implements PrimitiveSerializer<Chat
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ChatChatClearHistoryHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-common-read')
-  String? get xChatLastCommonRead;
-}
-
-abstract class ChatChatClearHistoryHeaders
-    implements
-        $ChatChatClearHistoryHeadersInterface,
-        Built<ChatChatClearHistoryHeaders, ChatChatClearHistoryHeadersBuilder> {
-  /// Creates a new ChatChatClearHistoryHeaders object using the builder pattern.
-  factory ChatChatClearHistoryHeaders([void Function(ChatChatClearHistoryHeadersBuilder)? b]) =
-      _$ChatChatClearHistoryHeaders;
-
-  // coverage:ignore-start
-  const ChatChatClearHistoryHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatClearHistoryHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatClearHistoryHeaders.
-  static Serializer<ChatChatClearHistoryHeaders> get serializer => _$chatChatClearHistoryHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -20479,6 +20442,43 @@ abstract class ChatClearHistoryResponseApplicationJson
       _$chatClearHistoryResponseApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatClearHistoryHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+}
+
+abstract class ChatChatClearHistoryHeaders
+    implements
+        $ChatChatClearHistoryHeadersInterface,
+        Built<ChatChatClearHistoryHeaders, ChatChatClearHistoryHeadersBuilder> {
+  /// Creates a new ChatChatClearHistoryHeaders object using the builder pattern.
+  factory ChatChatClearHistoryHeaders([void Function(ChatChatClearHistoryHeadersBuilder)? b]) =
+      _$ChatChatClearHistoryHeaders;
+
+  // coverage:ignore-start
+  const ChatChatClearHistoryHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatClearHistoryHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatClearHistoryHeaders.
+  static Serializer<ChatChatClearHistoryHeaders> get serializer => _$chatChatClearHistoryHeadersSerializer;
+}
+
 class ChatDeleteMessageApiVersion extends EnumClass {
   const ChatDeleteMessageApiVersion._(super.name);
 
@@ -20533,43 +20533,6 @@ class _$ChatDeleteMessageApiVersionSerializer implements PrimitiveSerializer<Cha
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ChatChatDeleteMessageHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-common-read')
-  String? get xChatLastCommonRead;
-}
-
-abstract class ChatChatDeleteMessageHeaders
-    implements
-        $ChatChatDeleteMessageHeadersInterface,
-        Built<ChatChatDeleteMessageHeaders, ChatChatDeleteMessageHeadersBuilder> {
-  /// Creates a new ChatChatDeleteMessageHeaders object using the builder pattern.
-  factory ChatChatDeleteMessageHeaders([void Function(ChatChatDeleteMessageHeadersBuilder)? b]) =
-      _$ChatChatDeleteMessageHeaders;
-
-  // coverage:ignore-start
-  const ChatChatDeleteMessageHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatDeleteMessageHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatDeleteMessageHeaders.
-  static Serializer<ChatChatDeleteMessageHeaders> get serializer => _$chatChatDeleteMessageHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -20649,6 +20612,43 @@ abstract class ChatDeleteMessageResponseApplicationJson
       _$chatDeleteMessageResponseApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatDeleteMessageHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+}
+
+abstract class ChatChatDeleteMessageHeaders
+    implements
+        $ChatChatDeleteMessageHeadersInterface,
+        Built<ChatChatDeleteMessageHeaders, ChatChatDeleteMessageHeadersBuilder> {
+  /// Creates a new ChatChatDeleteMessageHeaders object using the builder pattern.
+  factory ChatChatDeleteMessageHeaders([void Function(ChatChatDeleteMessageHeadersBuilder)? b]) =
+      _$ChatChatDeleteMessageHeaders;
+
+  // coverage:ignore-start
+  const ChatChatDeleteMessageHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatDeleteMessageHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatDeleteMessageHeaders.
+  static Serializer<ChatChatDeleteMessageHeaders> get serializer => _$chatChatDeleteMessageHeadersSerializer;
+}
+
 class ChatGetMessageContextApiVersion extends EnumClass {
   const ChatGetMessageContextApiVersion._(super.name);
 
@@ -20704,45 +20704,6 @@ class _$ChatGetMessageContextApiVersionSerializer implements PrimitiveSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ChatChatGetMessageContextHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-common-read')
-  String? get xChatLastCommonRead;
-  @BuiltValueField(wireName: 'x-chat-last-given')
-  String? get xChatLastGiven;
-}
-
-abstract class ChatChatGetMessageContextHeaders
-    implements
-        $ChatChatGetMessageContextHeadersInterface,
-        Built<ChatChatGetMessageContextHeaders, ChatChatGetMessageContextHeadersBuilder> {
-  /// Creates a new ChatChatGetMessageContextHeaders object using the builder pattern.
-  factory ChatChatGetMessageContextHeaders([void Function(ChatChatGetMessageContextHeadersBuilder)? b]) =
-      _$ChatChatGetMessageContextHeaders;
-
-  // coverage:ignore-start
-  const ChatChatGetMessageContextHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatGetMessageContextHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatGetMessageContextHeaders.
-  static Serializer<ChatChatGetMessageContextHeaders> get serializer => _$chatChatGetMessageContextHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -20821,6 +20782,45 @@ abstract class ChatGetMessageContextResponseApplicationJson
   /// Serializer for ChatGetMessageContextResponseApplicationJson.
   static Serializer<ChatGetMessageContextResponseApplicationJson> get serializer =>
       _$chatGetMessageContextResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatGetMessageContextHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+  @BuiltValueField(wireName: 'x-chat-last-given')
+  String? get xChatLastGiven;
+}
+
+abstract class ChatChatGetMessageContextHeaders
+    implements
+        $ChatChatGetMessageContextHeadersInterface,
+        Built<ChatChatGetMessageContextHeaders, ChatChatGetMessageContextHeadersBuilder> {
+  /// Creates a new ChatChatGetMessageContextHeaders object using the builder pattern.
+  factory ChatChatGetMessageContextHeaders([void Function(ChatChatGetMessageContextHeadersBuilder)? b]) =
+      _$ChatChatGetMessageContextHeaders;
+
+  // coverage:ignore-start
+  const ChatChatGetMessageContextHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatGetMessageContextHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatGetMessageContextHeaders.
+  static Serializer<ChatChatGetMessageContextHeaders> get serializer => _$chatChatGetMessageContextHeadersSerializer;
 }
 
 class ChatGetReminderApiVersion extends EnumClass {
@@ -21311,43 +21311,6 @@ class _$ChatSetReadMarkerApiVersionSerializer implements PrimitiveSerializer<Cha
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatSetReadMarkerHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-common-read')
-  String? get xChatLastCommonRead;
-}
-
-abstract class ChatChatSetReadMarkerHeaders
-    implements
-        $ChatChatSetReadMarkerHeadersInterface,
-        Built<ChatChatSetReadMarkerHeaders, ChatChatSetReadMarkerHeadersBuilder> {
-  /// Creates a new ChatChatSetReadMarkerHeaders object using the builder pattern.
-  factory ChatChatSetReadMarkerHeaders([void Function(ChatChatSetReadMarkerHeadersBuilder)? b]) =
-      _$ChatChatSetReadMarkerHeaders;
-
-  // coverage:ignore-start
-  const ChatChatSetReadMarkerHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatSetReadMarkerHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatSetReadMarkerHeaders.
-  static Serializer<ChatChatSetReadMarkerHeaders> get serializer => _$chatChatSetReadMarkerHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ChatSetReadMarkerResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -21424,6 +21387,43 @@ abstract class ChatSetReadMarkerResponseApplicationJson
       _$chatSetReadMarkerResponseApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatSetReadMarkerHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+}
+
+abstract class ChatChatSetReadMarkerHeaders
+    implements
+        $ChatChatSetReadMarkerHeadersInterface,
+        Built<ChatChatSetReadMarkerHeaders, ChatChatSetReadMarkerHeadersBuilder> {
+  /// Creates a new ChatChatSetReadMarkerHeaders object using the builder pattern.
+  factory ChatChatSetReadMarkerHeaders([void Function(ChatChatSetReadMarkerHeadersBuilder)? b]) =
+      _$ChatChatSetReadMarkerHeaders;
+
+  // coverage:ignore-start
+  const ChatChatSetReadMarkerHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatSetReadMarkerHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatSetReadMarkerHeaders.
+  static Serializer<ChatChatSetReadMarkerHeaders> get serializer => _$chatChatSetReadMarkerHeadersSerializer;
+}
+
 class ChatMarkUnreadApiVersion extends EnumClass {
   const ChatMarkUnreadApiVersion._(super.name);
 
@@ -21478,40 +21478,6 @@ class _$ChatMarkUnreadApiVersionSerializer implements PrimitiveSerializer<ChatMa
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ChatChatMarkUnreadHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-common-read')
-  String? get xChatLastCommonRead;
-}
-
-abstract class ChatChatMarkUnreadHeaders
-    implements $ChatChatMarkUnreadHeadersInterface, Built<ChatChatMarkUnreadHeaders, ChatChatMarkUnreadHeadersBuilder> {
-  /// Creates a new ChatChatMarkUnreadHeaders object using the builder pattern.
-  factory ChatChatMarkUnreadHeaders([void Function(ChatChatMarkUnreadHeadersBuilder)? b]) = _$ChatChatMarkUnreadHeaders;
-
-  // coverage:ignore-start
-  const ChatChatMarkUnreadHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatMarkUnreadHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatMarkUnreadHeaders.
-  static Serializer<ChatChatMarkUnreadHeaders> get serializer => _$chatChatMarkUnreadHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -21588,6 +21554,40 @@ abstract class ChatMarkUnreadResponseApplicationJson
   /// Serializer for ChatMarkUnreadResponseApplicationJson.
   static Serializer<ChatMarkUnreadResponseApplicationJson> get serializer =>
       _$chatMarkUnreadResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatMarkUnreadHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+}
+
+abstract class ChatChatMarkUnreadHeaders
+    implements $ChatChatMarkUnreadHeadersInterface, Built<ChatChatMarkUnreadHeaders, ChatChatMarkUnreadHeadersBuilder> {
+  /// Creates a new ChatChatMarkUnreadHeaders object using the builder pattern.
+  factory ChatChatMarkUnreadHeaders([void Function(ChatChatMarkUnreadHeadersBuilder)? b]) = _$ChatChatMarkUnreadHeaders;
+
+  // coverage:ignore-start
+  const ChatChatMarkUnreadHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatMarkUnreadHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatMarkUnreadHeaders.
+  static Serializer<ChatChatMarkUnreadHeaders> get serializer => _$chatChatMarkUnreadHeadersSerializer;
 }
 
 class ChatMentionsIncludeStatus extends EnumClass {
@@ -21885,44 +21885,6 @@ class _$ChatGetObjectsSharedInRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatGetObjectsSharedInRoomHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-given')
-  String? get xChatLastGiven;
-}
-
-abstract class ChatChatGetObjectsSharedInRoomHeaders
-    implements
-        $ChatChatGetObjectsSharedInRoomHeadersInterface,
-        Built<ChatChatGetObjectsSharedInRoomHeaders, ChatChatGetObjectsSharedInRoomHeadersBuilder> {
-  /// Creates a new ChatChatGetObjectsSharedInRoomHeaders object using the builder pattern.
-  factory ChatChatGetObjectsSharedInRoomHeaders([void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? b]) =
-      _$ChatChatGetObjectsSharedInRoomHeaders;
-
-  // coverage:ignore-start
-  const ChatChatGetObjectsSharedInRoomHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatGetObjectsSharedInRoomHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatGetObjectsSharedInRoomHeaders.
-  static Serializer<ChatChatGetObjectsSharedInRoomHeaders> get serializer =>
-      _$chatChatGetObjectsSharedInRoomHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMessage> get data;
@@ -22001,6 +21963,44 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
       _$chatGetObjectsSharedInRoomResponseApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatGetObjectsSharedInRoomHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-given')
+  String? get xChatLastGiven;
+}
+
+abstract class ChatChatGetObjectsSharedInRoomHeaders
+    implements
+        $ChatChatGetObjectsSharedInRoomHeadersInterface,
+        Built<ChatChatGetObjectsSharedInRoomHeaders, ChatChatGetObjectsSharedInRoomHeadersBuilder> {
+  /// Creates a new ChatChatGetObjectsSharedInRoomHeaders object using the builder pattern.
+  factory ChatChatGetObjectsSharedInRoomHeaders([void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? b]) =
+      _$ChatChatGetObjectsSharedInRoomHeaders;
+
+  // coverage:ignore-start
+  const ChatChatGetObjectsSharedInRoomHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatGetObjectsSharedInRoomHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatGetObjectsSharedInRoomHeaders.
+  static Serializer<ChatChatGetObjectsSharedInRoomHeaders> get serializer =>
+      _$chatChatGetObjectsSharedInRoomHeadersSerializer;
+}
+
 class ChatShareObjectToChatApiVersion extends EnumClass {
   const ChatShareObjectToChatApiVersion._(super.name);
 
@@ -22056,43 +22056,6 @@ class _$ChatShareObjectToChatApiVersionSerializer implements PrimitiveSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ChatChatShareObjectToChatHeadersInterface {
-  @BuiltValueField(wireName: 'x-chat-last-common-read')
-  String? get xChatLastCommonRead;
-}
-
-abstract class ChatChatShareObjectToChatHeaders
-    implements
-        $ChatChatShareObjectToChatHeadersInterface,
-        Built<ChatChatShareObjectToChatHeaders, ChatChatShareObjectToChatHeadersBuilder> {
-  /// Creates a new ChatChatShareObjectToChatHeaders object using the builder pattern.
-  factory ChatChatShareObjectToChatHeaders([void Function(ChatChatShareObjectToChatHeadersBuilder)? b]) =
-      _$ChatChatShareObjectToChatHeaders;
-
-  // coverage:ignore-start
-  const ChatChatShareObjectToChatHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatChatShareObjectToChatHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatChatShareObjectToChatHeaders.
-  static Serializer<ChatChatShareObjectToChatHeaders> get serializer => _$chatChatShareObjectToChatHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -22171,6 +22134,43 @@ abstract class ChatShareObjectToChatResponseApplicationJson
   /// Serializer for ChatShareObjectToChatResponseApplicationJson.
   static Serializer<ChatShareObjectToChatResponseApplicationJson> get serializer =>
       _$chatShareObjectToChatResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatShareObjectToChatHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+}
+
+abstract class ChatChatShareObjectToChatHeaders
+    implements
+        $ChatChatShareObjectToChatHeadersInterface,
+        Built<ChatChatShareObjectToChatHeaders, ChatChatShareObjectToChatHeadersBuilder> {
+  /// Creates a new ChatChatShareObjectToChatHeaders object using the builder pattern.
+  factory ChatChatShareObjectToChatHeaders([void Function(ChatChatShareObjectToChatHeadersBuilder)? b]) =
+      _$ChatChatShareObjectToChatHeaders;
+
+  // coverage:ignore-start
+  const ChatChatShareObjectToChatHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatShareObjectToChatHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatShareObjectToChatHeaders.
+  static Serializer<ChatChatShareObjectToChatHeaders> get serializer => _$chatChatShareObjectToChatHeadersSerializer;
 }
 
 class ChatGetObjectsSharedInRoomOverviewApiVersion extends EnumClass {
@@ -26454,42 +26454,6 @@ class _$RoomGetRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetR
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetRoomsHeadersInterface {
-  @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
-  String? get xNextcloudTalkHash;
-  @BuiltValueField(wireName: 'x-nextcloud-talk-modified-before')
-  String? get xNextcloudTalkModifiedBefore;
-}
-
-abstract class RoomRoomGetRoomsHeaders
-    implements $RoomRoomGetRoomsHeadersInterface, Built<RoomRoomGetRoomsHeaders, RoomRoomGetRoomsHeadersBuilder> {
-  /// Creates a new RoomRoomGetRoomsHeaders object using the builder pattern.
-  factory RoomRoomGetRoomsHeaders([void Function(RoomRoomGetRoomsHeadersBuilder)? b]) = _$RoomRoomGetRoomsHeaders;
-
-  // coverage:ignore-start
-  const RoomRoomGetRoomsHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRoomGetRoomsHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRoomGetRoomsHeaders.
-  static Serializer<RoomRoomGetRoomsHeaders> get serializer => _$roomRoomGetRoomsHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $RoomGetRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
@@ -26562,6 +26526,42 @@ abstract class RoomGetRoomsResponseApplicationJson
   /// Serializer for RoomGetRoomsResponseApplicationJson.
   static Serializer<RoomGetRoomsResponseApplicationJson> get serializer =>
       _$roomGetRoomsResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRoomGetRoomsHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
+  String? get xNextcloudTalkHash;
+  @BuiltValueField(wireName: 'x-nextcloud-talk-modified-before')
+  String? get xNextcloudTalkModifiedBefore;
+}
+
+abstract class RoomRoomGetRoomsHeaders
+    implements $RoomRoomGetRoomsHeadersInterface, Built<RoomRoomGetRoomsHeaders, RoomRoomGetRoomsHeadersBuilder> {
+  /// Creates a new RoomRoomGetRoomsHeaders object using the builder pattern.
+  factory RoomRoomGetRoomsHeaders([void Function(RoomRoomGetRoomsHeadersBuilder)? b]) = _$RoomRoomGetRoomsHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomGetRoomsHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomGetRoomsHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomGetRoomsHeaders.
+  static Serializer<RoomRoomGetRoomsHeaders> get serializer => _$roomRoomGetRoomsHeadersSerializer;
 }
 
 class RoomCreateRoomApiVersion extends EnumClass {
@@ -26892,45 +26892,6 @@ class _$RoomGetNoteToSelfConversationApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetNoteToSelfConversationHeadersInterface {
-  @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
-  String? get xNextcloudTalkHash;
-}
-
-abstract class RoomRoomGetNoteToSelfConversationHeaders
-    implements
-        $RoomRoomGetNoteToSelfConversationHeadersInterface,
-        Built<RoomRoomGetNoteToSelfConversationHeaders, RoomRoomGetNoteToSelfConversationHeadersBuilder> {
-  /// Creates a new RoomRoomGetNoteToSelfConversationHeaders object using the builder pattern.
-  factory RoomRoomGetNoteToSelfConversationHeaders([
-    void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? b,
-  ]) = _$RoomRoomGetNoteToSelfConversationHeaders;
-
-  // coverage:ignore-start
-  const RoomRoomGetNoteToSelfConversationHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRoomGetNoteToSelfConversationHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRoomGetNoteToSelfConversationHeaders.
-  static Serializer<RoomRoomGetNoteToSelfConversationHeaders> get serializer =>
-      _$roomRoomGetNoteToSelfConversationHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
@@ -27009,6 +26970,45 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
       _$roomGetNoteToSelfConversationResponseApplicationJsonSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRoomGetNoteToSelfConversationHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
+  String? get xNextcloudTalkHash;
+}
+
+abstract class RoomRoomGetNoteToSelfConversationHeaders
+    implements
+        $RoomRoomGetNoteToSelfConversationHeadersInterface,
+        Built<RoomRoomGetNoteToSelfConversationHeaders, RoomRoomGetNoteToSelfConversationHeadersBuilder> {
+  /// Creates a new RoomRoomGetNoteToSelfConversationHeaders object using the builder pattern.
+  factory RoomRoomGetNoteToSelfConversationHeaders([
+    void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? b,
+  ]) = _$RoomRoomGetNoteToSelfConversationHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomGetNoteToSelfConversationHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomGetNoteToSelfConversationHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomGetNoteToSelfConversationHeaders.
+  static Serializer<RoomRoomGetNoteToSelfConversationHeaders> get serializer =>
+      _$roomRoomGetNoteToSelfConversationHeadersSerializer;
+}
+
 class RoomGetSingleRoomApiVersion extends EnumClass {
   const RoomGetSingleRoomApiVersion._(super.name);
 
@@ -27063,43 +27063,6 @@ class _$RoomGetSingleRoomApiVersionSerializer implements PrimitiveSerializer<Roo
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetSingleRoomHeadersInterface {
-  @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
-  String? get xNextcloudTalkHash;
-}
-
-abstract class RoomRoomGetSingleRoomHeaders
-    implements
-        $RoomRoomGetSingleRoomHeadersInterface,
-        Built<RoomRoomGetSingleRoomHeaders, RoomRoomGetSingleRoomHeadersBuilder> {
-  /// Creates a new RoomRoomGetSingleRoomHeaders object using the builder pattern.
-  factory RoomRoomGetSingleRoomHeaders([void Function(RoomRoomGetSingleRoomHeadersBuilder)? b]) =
-      _$RoomRoomGetSingleRoomHeaders;
-
-  // coverage:ignore-start
-  const RoomRoomGetSingleRoomHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRoomGetSingleRoomHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRoomGetSingleRoomHeaders.
-  static Serializer<RoomRoomGetSingleRoomHeaders> get serializer => _$roomRoomGetSingleRoomHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -27177,6 +27140,43 @@ abstract class RoomGetSingleRoomResponseApplicationJson
   /// Serializer for RoomGetSingleRoomResponseApplicationJson.
   static Serializer<RoomGetSingleRoomResponseApplicationJson> get serializer =>
       _$roomGetSingleRoomResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRoomGetSingleRoomHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
+  String? get xNextcloudTalkHash;
+}
+
+abstract class RoomRoomGetSingleRoomHeaders
+    implements
+        $RoomRoomGetSingleRoomHeadersInterface,
+        Built<RoomRoomGetSingleRoomHeaders, RoomRoomGetSingleRoomHeadersBuilder> {
+  /// Creates a new RoomRoomGetSingleRoomHeaders object using the builder pattern.
+  factory RoomRoomGetSingleRoomHeaders([void Function(RoomRoomGetSingleRoomHeadersBuilder)? b]) =
+      _$RoomRoomGetSingleRoomHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomGetSingleRoomHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomGetSingleRoomHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomGetSingleRoomHeaders.
+  static Serializer<RoomRoomGetSingleRoomHeaders> get serializer => _$roomRoomGetSingleRoomHeadersSerializer;
 }
 
 class RoomRenameRoomApiVersion extends EnumClass {
@@ -30405,43 +30405,6 @@ class _$RoomGetParticipantsApiVersionSerializer implements PrimitiveSerializer<R
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetParticipantsHeadersInterface {
-  @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
-  Header<bool>? get xNextcloudHasUserStatuses;
-}
-
-abstract class RoomRoomGetParticipantsHeaders
-    implements
-        $RoomRoomGetParticipantsHeadersInterface,
-        Built<RoomRoomGetParticipantsHeaders, RoomRoomGetParticipantsHeadersBuilder> {
-  /// Creates a new RoomRoomGetParticipantsHeaders object using the builder pattern.
-  factory RoomRoomGetParticipantsHeaders([void Function(RoomRoomGetParticipantsHeadersBuilder)? b]) =
-      _$RoomRoomGetParticipantsHeaders;
-
-  // coverage:ignore-start
-  const RoomRoomGetParticipantsHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRoomGetParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRoomGetParticipantsHeaders.
-  static Serializer<RoomRoomGetParticipantsHeaders> get serializer => _$roomRoomGetParticipantsHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ParticipantInterface {
   String get actorId;
   ActorType get actorType;
@@ -30564,6 +30527,43 @@ abstract class RoomGetParticipantsResponseApplicationJson
   /// Serializer for RoomGetParticipantsResponseApplicationJson.
   static Serializer<RoomGetParticipantsResponseApplicationJson> get serializer =>
       _$roomGetParticipantsResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRoomGetParticipantsHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
+  Header<bool>? get xNextcloudHasUserStatuses;
+}
+
+abstract class RoomRoomGetParticipantsHeaders
+    implements
+        $RoomRoomGetParticipantsHeadersInterface,
+        Built<RoomRoomGetParticipantsHeaders, RoomRoomGetParticipantsHeadersBuilder> {
+  /// Creates a new RoomRoomGetParticipantsHeaders object using the builder pattern.
+  factory RoomRoomGetParticipantsHeaders([void Function(RoomRoomGetParticipantsHeadersBuilder)? b]) =
+      _$RoomRoomGetParticipantsHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomGetParticipantsHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomGetParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomGetParticipantsHeaders.
+  static Serializer<RoomRoomGetParticipantsHeaders> get serializer => _$roomRoomGetParticipantsHeadersSerializer;
 }
 
 class RoomAddParticipantToRoomSource extends EnumClass {
@@ -30965,45 +30965,6 @@ class _$RoomGetBreakoutRoomParticipantsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
-  @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
-  Header<bool>? get xNextcloudHasUserStatuses;
-}
-
-abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
-    implements
-        $RoomRoomGetBreakoutRoomParticipantsHeadersInterface,
-        Built<RoomRoomGetBreakoutRoomParticipantsHeaders, RoomRoomGetBreakoutRoomParticipantsHeadersBuilder> {
-  /// Creates a new RoomRoomGetBreakoutRoomParticipantsHeaders object using the builder pattern.
-  factory RoomRoomGetBreakoutRoomParticipantsHeaders([
-    void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? b,
-  ]) = _$RoomRoomGetBreakoutRoomParticipantsHeaders;
-
-  // coverage:ignore-start
-  const RoomRoomGetBreakoutRoomParticipantsHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRoomGetBreakoutRoomParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRoomGetBreakoutRoomParticipantsHeaders.
-  static Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> get serializer =>
-      _$roomRoomGetBreakoutRoomParticipantsHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Participant> get data;
@@ -31080,6 +31041,45 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
   /// Serializer for RoomGetBreakoutRoomParticipantsResponseApplicationJson.
   static Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson> get serializer =>
       _$roomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
+  Header<bool>? get xNextcloudHasUserStatuses;
+}
+
+abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
+    implements
+        $RoomRoomGetBreakoutRoomParticipantsHeadersInterface,
+        Built<RoomRoomGetBreakoutRoomParticipantsHeaders, RoomRoomGetBreakoutRoomParticipantsHeadersBuilder> {
+  /// Creates a new RoomRoomGetBreakoutRoomParticipantsHeaders object using the builder pattern.
+  factory RoomRoomGetBreakoutRoomParticipantsHeaders([
+    void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? b,
+  ]) = _$RoomRoomGetBreakoutRoomParticipantsHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomGetBreakoutRoomParticipantsHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomGetBreakoutRoomParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomGetBreakoutRoomParticipantsHeaders.
+  static Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> get serializer =>
+      _$roomRoomGetBreakoutRoomParticipantsHeadersSerializer;
 }
 
 class RoomRemoveSelfFromRoomApiVersion extends EnumClass {
@@ -38917,13 +38917,13 @@ extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e
   List<String> get _names => const ['builtListNever', 'chatMessage'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -38997,13 +38997,13 @@ extension $bd993fb3f40af33e8594d0d698208560Extension on _$bd993fb3f40af33e8594d0
   List<String> get _names => const ['builtListNever', 'roomAddParticipantToRoomResponseApplicationJsonOcsData0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -39083,13 +39083,13 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
   List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -39159,13 +39159,13 @@ extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543a
   List<String> get _names => const ['builtListSignalingSession', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -39241,13 +39241,13 @@ extension $bc4aac45771b11649d372f39a92b1cf3Extension on _$bc4aac45771b11649d372f
   List<String> get _names => const ['builtListNever', 'publicCapabilities0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -39315,7 +39315,7 @@ class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..add(AvatarGetAvatarDarkTheme.serializer)
@@ -39660,8 +39660,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ChatReceiveMessagesNoStatusUpdate.serializer)
       ..add(ChatReceiveMessagesMarkNotificationsAsRead.serializer)
       ..add(ChatReceiveMessagesApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatReceiveMessagesHeaders), ChatChatReceiveMessagesHeadersBuilder.new)
-      ..add(ChatChatReceiveMessagesHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatReceiveMessagesResponseApplicationJson),
         ChatReceiveMessagesResponseApplicationJsonBuilder.new,
@@ -39678,10 +39676,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(ChatMessageWithParent)]),
         ListBuilder<ChatMessageWithParent>.new,
       )
+      ..addBuilderFactory(const FullType(ChatChatReceiveMessagesHeaders), ChatChatReceiveMessagesHeadersBuilder.new)
+      ..add(ChatChatReceiveMessagesHeaders.serializer)
       ..add(ChatSendMessageSilent.serializer)
       ..add(ChatSendMessageApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatSendMessageHeaders), ChatChatSendMessageHeadersBuilder.new)
-      ..add(ChatChatSendMessageHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatSendMessageResponseApplicationJson),
         ChatSendMessageResponseApplicationJsonBuilder.new,
@@ -39692,9 +39690,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatSendMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatSendMessageResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ChatChatSendMessageHeaders), ChatChatSendMessageHeadersBuilder.new)
+      ..add(ChatChatSendMessageHeaders.serializer)
       ..add(ChatClearHistoryApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatClearHistoryHeaders), ChatChatClearHistoryHeadersBuilder.new)
-      ..add(ChatChatClearHistoryHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatClearHistoryResponseApplicationJson),
         ChatClearHistoryResponseApplicationJsonBuilder.new,
@@ -39705,9 +39703,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatClearHistoryResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatClearHistoryResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ChatChatClearHistoryHeaders), ChatChatClearHistoryHeadersBuilder.new)
+      ..add(ChatChatClearHistoryHeaders.serializer)
       ..add(ChatDeleteMessageApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatDeleteMessageHeaders), ChatChatDeleteMessageHeadersBuilder.new)
-      ..add(ChatChatDeleteMessageHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatDeleteMessageResponseApplicationJson),
         ChatDeleteMessageResponseApplicationJsonBuilder.new,
@@ -39718,9 +39716,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatDeleteMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatDeleteMessageResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ChatChatDeleteMessageHeaders), ChatChatDeleteMessageHeadersBuilder.new)
+      ..add(ChatChatDeleteMessageHeaders.serializer)
       ..add(ChatGetMessageContextApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatGetMessageContextHeaders), ChatChatGetMessageContextHeadersBuilder.new)
-      ..add(ChatChatGetMessageContextHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetMessageContextResponseApplicationJson),
         ChatGetMessageContextResponseApplicationJsonBuilder.new,
@@ -39731,6 +39729,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatGetMessageContextResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatGetMessageContextResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ChatChatGetMessageContextHeaders), ChatChatGetMessageContextHeadersBuilder.new)
+      ..add(ChatChatGetMessageContextHeaders.serializer)
       ..add(ChatGetReminderApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetReminderResponseApplicationJson),
@@ -39767,8 +39767,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(ChatDeleteReminderResponseApplicationJson_Ocs.serializer)
       ..add(ChatSetReadMarkerApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatSetReadMarkerHeaders), ChatChatSetReadMarkerHeadersBuilder.new)
-      ..add(ChatChatSetReadMarkerHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatSetReadMarkerResponseApplicationJson),
         ChatSetReadMarkerResponseApplicationJsonBuilder.new,
@@ -39779,9 +39777,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatSetReadMarkerResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatSetReadMarkerResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ChatChatSetReadMarkerHeaders), ChatChatSetReadMarkerHeadersBuilder.new)
+      ..add(ChatChatSetReadMarkerHeaders.serializer)
       ..add(ChatMarkUnreadApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatMarkUnreadHeaders), ChatChatMarkUnreadHeadersBuilder.new)
-      ..add(ChatChatMarkUnreadHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatMarkUnreadResponseApplicationJson),
         ChatMarkUnreadResponseApplicationJsonBuilder.new,
@@ -39792,6 +39790,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatMarkUnreadResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatMarkUnreadResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ChatChatMarkUnreadHeaders), ChatChatMarkUnreadHeadersBuilder.new)
+      ..add(ChatChatMarkUnreadHeaders.serializer)
       ..add(ChatMentionsIncludeStatus.serializer)
       ..add(ChatMentionsApiVersion.serializer)
       ..addBuilderFactory(
@@ -39812,11 +39812,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(ChatGetObjectsSharedInRoomApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(ChatChatGetObjectsSharedInRoomHeaders),
-        ChatChatGetObjectsSharedInRoomHeadersBuilder.new,
-      )
-      ..add(ChatChatGetObjectsSharedInRoomHeaders.serializer)
-      ..addBuilderFactory(
         const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
         ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder.new,
       )
@@ -39827,9 +39822,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ChatMessage)]), ListBuilder<ChatMessage>.new)
+      ..addBuilderFactory(
+        const FullType(ChatChatGetObjectsSharedInRoomHeaders),
+        ChatChatGetObjectsSharedInRoomHeadersBuilder.new,
+      )
+      ..add(ChatChatGetObjectsSharedInRoomHeaders.serializer)
       ..add(ChatShareObjectToChatApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatShareObjectToChatHeaders), ChatChatShareObjectToChatHeadersBuilder.new)
-      ..add(ChatChatShareObjectToChatHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatShareObjectToChatResponseApplicationJson),
         ChatShareObjectToChatResponseApplicationJsonBuilder.new,
@@ -39840,6 +39838,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatShareObjectToChatResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatShareObjectToChatResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ChatChatShareObjectToChatHeaders), ChatChatShareObjectToChatHeadersBuilder.new)
+      ..add(ChatChatShareObjectToChatHeaders.serializer)
       ..add(ChatGetObjectsSharedInRoomOverviewApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
@@ -40201,8 +40201,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomGetRoomsNoStatusUpdate.serializer)
       ..add(RoomGetRoomsIncludeStatus.serializer)
       ..add(RoomGetRoomsApiVersion.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetRoomsHeaders), RoomRoomGetRoomsHeadersBuilder.new)
-      ..add(RoomRoomGetRoomsHeaders.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetRoomsResponseApplicationJson),
         RoomGetRoomsResponseApplicationJsonBuilder.new,
@@ -40213,6 +40211,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomGetRoomsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetRoomsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(RoomRoomGetRoomsHeaders), RoomRoomGetRoomsHeadersBuilder.new)
+      ..add(RoomRoomGetRoomsHeaders.serializer)
       ..add(RoomCreateRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomCreateRoomResponseApplicationJson),
@@ -40237,11 +40237,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomGetListedRoomsResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetNoteToSelfConversationApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(RoomRoomGetNoteToSelfConversationHeaders),
-        RoomRoomGetNoteToSelfConversationHeadersBuilder.new,
-      )
-      ..add(RoomRoomGetNoteToSelfConversationHeaders.serializer)
-      ..addBuilderFactory(
         const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
         RoomGetNoteToSelfConversationResponseApplicationJsonBuilder.new,
       )
@@ -40251,9 +40246,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRoomGetNoteToSelfConversationHeaders),
+        RoomRoomGetNoteToSelfConversationHeadersBuilder.new,
+      )
+      ..add(RoomRoomGetNoteToSelfConversationHeaders.serializer)
       ..add(RoomGetSingleRoomApiVersion.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeadersBuilder.new)
-      ..add(RoomRoomGetSingleRoomHeaders.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetSingleRoomResponseApplicationJson),
         RoomGetSingleRoomResponseApplicationJsonBuilder.new,
@@ -40264,6 +40262,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomGetSingleRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetSingleRoomResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeadersBuilder.new)
+      ..add(RoomRoomGetSingleRoomHeaders.serializer)
       ..add(RoomRenameRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRenameRoomResponseApplicationJson),
@@ -40380,10 +40380,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomSetPermissionsResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetParticipantsIncludeStatus.serializer)
       ..add(RoomGetParticipantsApiVersion.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
-      ..add(RoomRoomGetParticipantsHeaders.serializer)
-      ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new)
-      ..add(Header.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetParticipantsResponseApplicationJson),
         RoomGetParticipantsResponseApplicationJsonBuilder.new,
@@ -40397,6 +40393,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Participant), ParticipantBuilder.new)
       ..add(Participant.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Participant)]), ListBuilder<Participant>.new)
+      ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
+      ..add(RoomRoomGetParticipantsHeaders.serializer)
+      ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new)
+      ..add(Header.serializer)
       ..add(RoomAddParticipantToRoomSource.serializer)
       ..add(RoomAddParticipantToRoomApiVersion.serializer)
       ..addBuilderFactory(
@@ -40418,11 +40418,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomGetBreakoutRoomParticipantsIncludeStatus.serializer)
       ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
-        RoomRoomGetBreakoutRoomParticipantsHeadersBuilder.new,
-      )
-      ..add(RoomRoomGetBreakoutRoomParticipantsHeaders.serializer)
-      ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
         RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder.new,
       )
@@ -40432,6 +40427,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
+        RoomRoomGetBreakoutRoomParticipantsHeadersBuilder.new,
+      )
+      ..add(RoomRoomGetBreakoutRoomParticipantsHeaders.serializer)
       ..add(RoomRemoveSelfFromRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
@@ -40817,7 +40817,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())

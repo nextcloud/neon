@@ -197,8 +197,6 @@ Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> _$shareapiAcceptShare
     _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiAcceptShareResponseApplicationJson> _$shareapiAcceptShareResponseApplicationJsonSerializer =
     _$ShareapiAcceptShareResponseApplicationJsonSerializer();
-Serializer<ShareesapiShareesapiSearchHeaders> _$shareesapiShareesapiSearchHeadersSerializer =
-    _$ShareesapiShareesapiSearchHeadersSerializer();
 Serializer<Sharee> _$shareeSerializer = _$ShareeSerializer();
 Serializer<ShareeValue> _$shareeValueSerializer = _$ShareeValueSerializer();
 Serializer<ShareeCircle_Value> _$shareeCircleValueSerializer = _$ShareeCircle_ValueSerializer();
@@ -220,6 +218,8 @@ Serializer<ShareesapiSearchResponseApplicationJson_Ocs> _$shareesapiSearchRespon
     _$ShareesapiSearchResponseApplicationJson_OcsSerializer();
 Serializer<ShareesapiSearchResponseApplicationJson> _$shareesapiSearchResponseApplicationJsonSerializer =
     _$ShareesapiSearchResponseApplicationJsonSerializer();
+Serializer<ShareesapiShareesapiSearchHeaders> _$shareesapiShareesapiSearchHeadersSerializer =
+    _$ShareesapiShareesapiSearchHeadersSerializer();
 Serializer<ShareesRecommendedResult_Exact> _$shareesRecommendedResultExactSerializer =
     _$ShareesRecommendedResult_ExactSerializer();
 Serializer<ShareesRecommendedResult> _$shareesRecommendedResultSerializer = _$ShareesRecommendedResultSerializer();
@@ -2547,47 +2547,6 @@ class _$ShareapiAcceptShareResponseApplicationJsonSerializer
   }
 }
 
-class _$ShareesapiShareesapiSearchHeadersSerializer implements StructuredSerializer<ShareesapiShareesapiSearchHeaders> {
-  @override
-  final Iterable<Type> types = const [ShareesapiShareesapiSearchHeaders, _$ShareesapiShareesapiSearchHeaders];
-  @override
-  final String wireName = 'ShareesapiShareesapiSearchHeaders';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesapiShareesapiSearchHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.link;
-    if (value != null) {
-      result
-        ..add('link')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  ShareesapiShareesapiSearchHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareesapiShareesapiSearchHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'link':
-          result.link = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ShareeSerializer implements StructuredSerializer<Sharee> {
   @override
   final Iterable<Type> types = const [Sharee, _$Sharee];
@@ -3740,6 +3699,47 @@ class _$ShareesapiSearchResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ShareesapiSearchResponseApplicationJson_Ocs))!
               as ShareesapiSearchResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareesapiShareesapiSearchHeadersSerializer implements StructuredSerializer<ShareesapiShareesapiSearchHeaders> {
+  @override
+  final Iterable<Type> types = const [ShareesapiShareesapiSearchHeaders, _$ShareesapiShareesapiSearchHeaders];
+  @override
+  final String wireName = 'ShareesapiShareesapiSearchHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareesapiShareesapiSearchHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.link;
+    if (value != null) {
+      result
+        ..add('link')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ShareesapiShareesapiSearchHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ShareesapiShareesapiSearchHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'link':
+          result.link = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -10369,91 +10369,6 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ShareesapiShareesapiSearchHeadersInterfaceBuilder {
-  void replace($ShareesapiShareesapiSearchHeadersInterface other);
-  void update(void Function($ShareesapiShareesapiSearchHeadersInterfaceBuilder) updates);
-  String? get link;
-  set link(String? link);
-}
-
-class _$ShareesapiShareesapiSearchHeaders extends ShareesapiShareesapiSearchHeaders {
-  @override
-  final String? link;
-
-  factory _$ShareesapiShareesapiSearchHeaders([void Function(ShareesapiShareesapiSearchHeadersBuilder)? updates]) =>
-      (ShareesapiShareesapiSearchHeadersBuilder()..update(updates))._build();
-
-  _$ShareesapiShareesapiSearchHeaders._({this.link}) : super._();
-
-  @override
-  ShareesapiShareesapiSearchHeaders rebuild(void Function(ShareesapiShareesapiSearchHeadersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ShareesapiShareesapiSearchHeadersBuilder toBuilder() => ShareesapiShareesapiSearchHeadersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ShareesapiShareesapiSearchHeaders && link == other.link;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, link.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareesapiShareesapiSearchHeaders')..add('link', link)).toString();
-  }
-}
-
-class ShareesapiShareesapiSearchHeadersBuilder
-    implements
-        Builder<ShareesapiShareesapiSearchHeaders, ShareesapiShareesapiSearchHeadersBuilder>,
-        $ShareesapiShareesapiSearchHeadersInterfaceBuilder {
-  _$ShareesapiShareesapiSearchHeaders? _$v;
-
-  String? _link;
-  String? get link => _$this._link;
-  set link(covariant String? link) => _$this._link = link;
-
-  ShareesapiShareesapiSearchHeadersBuilder();
-
-  ShareesapiShareesapiSearchHeadersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _link = $v.link;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareesapiShareesapiSearchHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareesapiShareesapiSearchHeaders;
-  }
-
-  @override
-  void update(void Function(ShareesapiShareesapiSearchHeadersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareesapiShareesapiSearchHeaders build() => _build();
-
-  _$ShareesapiShareesapiSearchHeaders _build() {
-    final _$result = _$v ?? _$ShareesapiShareesapiSearchHeaders._(link: link);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ShareeInterfaceBuilder {
   void replace($ShareeInterface other);
   void update(void Function($ShareeInterfaceBuilder) updates);
@@ -13352,6 +13267,91 @@ class ShareesapiSearchResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ShareesapiShareesapiSearchHeadersInterfaceBuilder {
+  void replace($ShareesapiShareesapiSearchHeadersInterface other);
+  void update(void Function($ShareesapiShareesapiSearchHeadersInterfaceBuilder) updates);
+  String? get link;
+  set link(String? link);
+}
+
+class _$ShareesapiShareesapiSearchHeaders extends ShareesapiShareesapiSearchHeaders {
+  @override
+  final String? link;
+
+  factory _$ShareesapiShareesapiSearchHeaders([void Function(ShareesapiShareesapiSearchHeadersBuilder)? updates]) =>
+      (ShareesapiShareesapiSearchHeadersBuilder()..update(updates))._build();
+
+  _$ShareesapiShareesapiSearchHeaders._({this.link}) : super._();
+
+  @override
+  ShareesapiShareesapiSearchHeaders rebuild(void Function(ShareesapiShareesapiSearchHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareesapiShareesapiSearchHeadersBuilder toBuilder() => ShareesapiShareesapiSearchHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareesapiShareesapiSearchHeaders && link == other.link;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, link.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareesapiShareesapiSearchHeaders')..add('link', link)).toString();
+  }
+}
+
+class ShareesapiShareesapiSearchHeadersBuilder
+    implements
+        Builder<ShareesapiShareesapiSearchHeaders, ShareesapiShareesapiSearchHeadersBuilder>,
+        $ShareesapiShareesapiSearchHeadersInterfaceBuilder {
+  _$ShareesapiShareesapiSearchHeaders? _$v;
+
+  String? _link;
+  String? get link => _$this._link;
+  set link(covariant String? link) => _$this._link = link;
+
+  ShareesapiShareesapiSearchHeadersBuilder();
+
+  ShareesapiShareesapiSearchHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _link = $v.link;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareesapiShareesapiSearchHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareesapiShareesapiSearchHeaders;
+  }
+
+  @override
+  void update(void Function(ShareesapiShareesapiSearchHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareesapiShareesapiSearchHeaders build() => _build();
+
+  _$ShareesapiShareesapiSearchHeaders _build() {
+    final _$result = _$v ?? _$ShareesapiShareesapiSearchHeaders._(link: link);
     replace(_$result);
     return _$result;
   }

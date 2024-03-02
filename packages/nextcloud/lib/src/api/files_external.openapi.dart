@@ -22,8 +22,8 @@ import 'package:built_value/standard_json_plugin.dart' as _i5;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i4;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
 
 part 'files_external.openapi.g.dart';
 
@@ -94,7 +94,7 @@ class $ApiClient {
   ///
   /// See:
   ///  * [getUserMounts] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -117,7 +117,7 @@ class $ApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
     return _i1.DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>(
@@ -511,7 +511,7 @@ abstract class ApiGetUserMountsResponseApplicationJson
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -545,7 +545,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i3.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i4.DynamiteDoubleSerializer())

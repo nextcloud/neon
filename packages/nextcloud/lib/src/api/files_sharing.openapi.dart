@@ -24,9 +24,9 @@ import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart' as _i4;
-import 'package:uri/uri.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'files_sharing.openapi.g.dart';
 
@@ -105,7 +105,7 @@ class $DeletedShareapiClient {
   ///
   /// See:
   ///  * [index] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<DeletedShareapiIndexResponseApplicationJson, void> indexRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -128,7 +128,7 @@ class $DeletedShareapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
     return _i1.DynamiteRawResponse<DeletedShareapiIndexResponseApplicationJson, void>(
@@ -188,7 +188,7 @@ class $DeletedShareapiClient {
   ///
   /// See:
   ///  * [undelete] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void> undeleteRaw({
     required String id,
     bool? oCSAPIRequest,
@@ -218,9 +218,9 @@ class $DeletedShareapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -283,7 +283,7 @@ class $PublicPreviewClient {
   ///
   /// See:
   ///  * [directLink] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> directLinkRaw({required String token}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': '*/*'};
@@ -306,7 +306,7 @@ class $PublicPreviewClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i3.UriTemplate('/index.php/s/{token}/preview').expand(_parameters);
+    final _path = _i4.UriTemplate('/index.php/s/{token}/preview').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -380,7 +380,7 @@ class $PublicPreviewClient {
   ///
   /// See:
   ///  * [getPreview] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<Uint8List, void> getPreviewRaw({
     required String token,
     String? file,
@@ -426,7 +426,7 @@ class $PublicPreviewClient {
     _parameters['a'] = $a;
 
     final _path =
-        _i3.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
+        _i4.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
     return _i1.DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -483,7 +483,7 @@ class $RemoteClient {
   ///
   /// See:
   ///  * [getShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void> getSharesRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -506,7 +506,7 @@ class $RemoteClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
     return _i1.DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void>(
@@ -560,7 +560,7 @@ class $RemoteClient {
   ///
   /// See:
   ///  * [getOpenShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -583,7 +583,7 @@ class $RemoteClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
     return _i1.DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void>(
@@ -643,7 +643,7 @@ class $RemoteClient {
   ///
   /// See:
   ///  * [acceptShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void> acceptShareRaw({
     required int id,
     bool? oCSAPIRequest,
@@ -673,10 +673,10 @@ class $RemoteClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -734,7 +734,7 @@ class $RemoteClient {
   ///
   /// See:
   ///  * [declineShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void> declineShareRaw({
     required int id,
     bool? oCSAPIRequest,
@@ -764,10 +764,10 @@ class $RemoteClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -825,7 +825,7 @@ class $RemoteClient {
   ///
   /// See:
   ///  * [getShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void> getShareRaw({
     required int id,
     bool? oCSAPIRequest,
@@ -855,9 +855,9 @@ class $RemoteClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -917,7 +917,7 @@ class $RemoteClient {
   ///
   /// See:
   ///  * [unshare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void> unshareRaw({
     required int id,
     bool? oCSAPIRequest,
@@ -947,9 +947,9 @@ class $RemoteClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1024,7 +1024,7 @@ class $ShareInfoClient {
   ///
   /// See:
   ///  * [info] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareInfo, void> infoRaw({
     required String t,
     String? password,
@@ -1063,7 +1063,7 @@ class $ShareInfoClient {
     _parameters['depth'] = $depth;
 
     final _path =
-        _i3.UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(_parameters);
+        _i4.UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ShareInfo, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -1144,7 +1144,7 @@ class $ShareapiClient {
   ///
   /// See:
   ///  * [getShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareapiGetSharesResponseApplicationJson, void> getSharesRaw({
     String? sharedWithMe,
     String? reshares,
@@ -1195,9 +1195,9 @@ class $ShareapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?shared_with_me*,reshares*,subfiles*,path*,include_tags*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ShareapiGetSharesResponseApplicationJson, void>(
@@ -1301,7 +1301,7 @@ class $ShareapiClient {
   ///
   /// See:
   ///  * [createShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareapiCreateShareResponseApplicationJson, void> createShareRaw({
     String? path,
     int? permissions,
@@ -1377,9 +1377,9 @@ class $ShareapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?path*,permissions*,shareType*,shareWith*,publicUpload*,password*,sendPasswordByTalk*,expireDate*,note*,label*,attributes*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ShareapiCreateShareResponseApplicationJson, void>(
@@ -1441,7 +1441,7 @@ class $ShareapiClient {
   ///
   /// See:
   ///  * [getInheritedShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void> getInheritedSharesRaw({
     required String path,
     bool? oCSAPIRequest,
@@ -1471,9 +1471,9 @@ class $ShareapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1525,7 +1525,7 @@ class $ShareapiClient {
   ///
   /// See:
   ///  * [pendingShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1548,7 +1548,7 @@ class $ShareapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
     return _i1.DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void>(
@@ -1612,7 +1612,7 @@ class $ShareapiClient {
   ///
   /// See:
   ///  * [getShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void> getShareRaw({
     required String id,
     ShareapiGetShareIncludeTags? includeTags,
@@ -1648,10 +1648,10 @@ class $ShareapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
+        _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
     return _i1.DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1749,7 +1749,7 @@ class $ShareapiClient {
   ///
   /// See:
   ///  * [updateShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareapiUpdateShareResponseApplicationJson, void> updateShareRaw({
     required String id,
     int? permissions,
@@ -1815,9 +1815,9 @@ class $ShareapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?permissions*,password*,sendPasswordByTalk*,publicUpload*,expireDate*,note*,label*,hideDownload*,attributes*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ShareapiUpdateShareResponseApplicationJson, void>(
@@ -1879,7 +1879,7 @@ class $ShareapiClient {
   ///
   /// See:
   ///  * [deleteShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void> deleteShareRaw({
     required String id,
     bool? oCSAPIRequest,
@@ -1909,9 +1909,9 @@ class $ShareapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1971,7 +1971,7 @@ class $ShareapiClient {
   ///
   /// See:
   ///  * [acceptShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void> acceptShareRaw({
     required String id,
     bool? oCSAPIRequest,
@@ -2001,9 +2001,9 @@ class $ShareapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2088,7 +2088,7 @@ class $ShareesapiClient {
   ///
   /// See:
   ///  * [search] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders> searchRaw({
     String? search,
     String? itemType,
@@ -2142,9 +2142,9 @@ class $ShareesapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate(
+    final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/sharees{?search*,itemType*,page*,perPage*,shareType*,lookup*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
@@ -2206,7 +2206,7 @@ class $ShareesapiClient {
   ///
   /// See:
   ///  * [findRecommended] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i4.experimental
+  @_i2.experimental
   _i1.DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void> findRecommendedRaw({
     required String itemType,
     ShareesapiFindRecommendedShareType? shareType,
@@ -2241,9 +2241,9 @@ class $ShareesapiClient {
 
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
+    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = _i3.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -4189,42 +4189,6 @@ class _$ShareesapiSearchLookupSerializer implements PrimitiveSerializer<Shareesa
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareesapiShareesapiSearchHeadersInterface {
-  String? get link;
-}
-
-abstract class ShareesapiShareesapiSearchHeaders
-    implements
-        $ShareesapiShareesapiSearchHeadersInterface,
-        Built<ShareesapiShareesapiSearchHeaders, ShareesapiShareesapiSearchHeadersBuilder> {
-  /// Creates a new ShareesapiShareesapiSearchHeaders object using the builder pattern.
-  factory ShareesapiShareesapiSearchHeaders([void Function(ShareesapiShareesapiSearchHeadersBuilder)? b]) =
-      _$ShareesapiShareesapiSearchHeaders;
-
-  // coverage:ignore-start
-  const ShareesapiShareesapiSearchHeaders._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ShareesapiShareesapiSearchHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ShareesapiShareesapiSearchHeaders.
-  static Serializer<ShareesapiShareesapiSearchHeaders> get serializer => _$shareesapiShareesapiSearchHeadersSerializer;
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ShareeInterface {
   int? get count;
   String get label;
@@ -4890,6 +4854,42 @@ abstract class ShareesapiSearchResponseApplicationJson
   /// Serializer for ShareesapiSearchResponseApplicationJson.
   static Serializer<ShareesapiSearchResponseApplicationJson> get serializer =>
       _$shareesapiSearchResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ShareesapiShareesapiSearchHeadersInterface {
+  String? get link;
+}
+
+abstract class ShareesapiShareesapiSearchHeaders
+    implements
+        $ShareesapiShareesapiSearchHeadersInterface,
+        Built<ShareesapiShareesapiSearchHeaders, ShareesapiShareesapiSearchHeadersBuilder> {
+  /// Creates a new ShareesapiShareesapiSearchHeaders object using the builder pattern.
+  factory ShareesapiShareesapiSearchHeaders([void Function(ShareesapiShareesapiSearchHeadersBuilder)? b]) =
+      _$ShareesapiShareesapiSearchHeaders;
+
+  // coverage:ignore-start
+  const ShareesapiShareesapiSearchHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareesapiShareesapiSearchHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareesapiShareesapiSearchHeaders.
+  static Serializer<ShareesapiShareesapiSearchHeaders> get serializer => _$shareesapiShareesapiSearchHeadersSerializer;
 }
 
 typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
@@ -5686,13 +5686,13 @@ extension $07eaa0304017ba8abe7f9f20d6a736f3Extension on _$07eaa0304017ba8abe7f9f
   List<String> get _names => const ['builtListInt', r'$int'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i2.validateOneOf(
+  void validateOneOf() => _i3.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i2.validateAnyOf(
+  void validateAnyOf() => _i3.validateAnyOf(
         _values,
         _names,
       );
@@ -5759,7 +5759,7 @@ class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -5956,11 +5956,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add($07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer)
       ..add(ShareesapiSearchLookup.serializer)
       ..addBuilderFactory(
-        const FullType(ShareesapiShareesapiSearchHeaders),
-        ShareesapiShareesapiSearchHeadersBuilder.new,
-      )
-      ..add(ShareesapiShareesapiSearchHeaders.serializer)
-      ..addBuilderFactory(
         const FullType(ShareesapiSearchResponseApplicationJson),
         ShareesapiSearchResponseApplicationJsonBuilder.new,
       )
@@ -6011,6 +6006,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ShareeLookup_Value), ShareeLookup_ValueBuilder.new)
       ..add(ShareeLookup_Value.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeLookup)]), ListBuilder<ShareeLookup>.new)
+      ..addBuilderFactory(
+        const FullType(ShareesapiShareesapiSearchHeaders),
+        ShareesapiShareesapiSearchHeadersBuilder.new,
+      )
+      ..add(ShareesapiShareesapiSearchHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ShareesapiFindRecommendedResponseApplicationJson),
         ShareesapiFindRecommendedResponseApplicationJsonBuilder.new,
@@ -6088,7 +6088,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i4.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i5.DynamiteDoubleSerializer())
