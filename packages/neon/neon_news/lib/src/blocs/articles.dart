@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -82,6 +83,9 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
       unawaited(refresh());
     }
   }
+
+  @override
+  final log = Logger('NewsArticlesBloc');
 
   final NewsBloc _newsBloc;
   @override

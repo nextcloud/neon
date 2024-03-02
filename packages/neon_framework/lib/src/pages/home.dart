@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -19,6 +21,8 @@ import 'package:neon_framework/src/widgets/unified_search_results.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
+
+final _log = Logger('HomePage');
 
 /// The home page of Neon.
 @internal
@@ -87,11 +91,15 @@ class _HomePageState extends State<HomePage> {
         final message = NeonLocalizations.of(context).errorServerInMaintenanceMode;
         await showErrorDialog(context: context, message: message);
       }
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
+    } on http.ClientException catch (error, stackTrace) {
+      _log.warning(
+        'Error getting the server status.',
+        error,
+        stackTrace,
+      );
+
       if (mounted) {
-        NeonError.showSnackbar(context, e);
+        NeonError.showSnackbar(context, error);
       }
     }
   }

@@ -1,18 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:crypto/crypto.dart';
 import 'package:crypton/crypton.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/flutter_svg.dart' show SvgBytesLoader, vg;
+import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 
@@ -24,6 +26,8 @@ import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
+
+final _log = Logger('PushUtils');
 
 @internal
 @immutable
@@ -47,7 +51,7 @@ class PushUtils {
     final RSAKeypair keypair;
     final privateKey = storage.getString(keyDevicePrivateKey);
     if (privateKey == null || privateKey.isEmpty) {
-      debugPrint('Generating RSA keys for push notifications');
+      _log.fine('Generating RSA keys for push notifications');
       // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
       // ignore: avoid_redundant_argument_values
       keypair = RSAKeypair.fromRandom(keySize: 2048);
@@ -107,7 +111,7 @@ class PushUtils {
         await localNotificationsPlugin.cancelAll();
         await onPushNotificationReceived?.call(instance);
       } else if (pushNotification.type == 'background') {
-        debugPrint('Got unknown background notification ${json.encode(pushNotification.toJson())}');
+        _log.fine('Got unknown background notification ${json.encode(pushNotification.toJson())}');
       } else {
         final localizations = await appLocalizationsFromSystem();
 
@@ -121,9 +125,12 @@ class PushUtils {
             final response =
                 await account.client.notifications.endpoint.getNotification(id: pushNotification.subject.nid!);
             notification = response.body.ocs.data;
-          } catch (e, s) {
-            debugPrint(e.toString());
-            debugPrint(s.toString());
+          } on http.ClientException catch (error, stackTrace) {
+            _log.warning(
+              'Error loading notification ${pushNotification.subject.nid}.',
+              error,
+              stackTrace,
+            );
           }
 
           final icon = notification?.icon;
@@ -141,7 +148,7 @@ class PushUtils {
           final appID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
           String? appName = localizations.appImplementationName(appID);
           if (appName.isEmpty) {
-            debugPrint('Missing app name for $appID');
+            _log.warning('Missing app name for $appID');
             appName = null;
           }
           final title = (notification?.subject ?? pushNotification.subject.subject)!;

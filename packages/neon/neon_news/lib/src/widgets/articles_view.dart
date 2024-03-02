@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
+import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/sort_box.dart';
@@ -17,6 +18,8 @@ import 'package:neon_news/src/sort/articles.dart';
 import 'package:neon_news/src/widgets/feed_icon.dart';
 import 'package:nextcloud/news.dart' as news;
 import 'package:url_launcher/url_launcher_string.dart';
+
+final _log = Logger('NewsArticlesView');
 
 class NewsArticlesView extends StatefulWidget {
   const NewsArticlesView({
@@ -203,9 +206,12 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           String? bodyData;
           try {
             bodyData = _fixArticleBody(article.body);
-          } catch (e, s) {
-            debugPrint(e.toString());
-            debugPrint(s.toString());
+          } on Exception catch (error, stackTrace) {
+            _log.warning(
+              'Could not parse the body of ${article.title}',
+              error,
+              stackTrace,
+            );
           }
 
           final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;

@@ -3,7 +3,8 @@ import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
@@ -203,6 +204,9 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     });
   }
 
+  @override
+  final log = Logger('AccountsBloc');
+
   final GlobalOptions globalOptions;
   final BuiltSet<AppImplementation> allAppImplementations;
 
@@ -258,9 +262,12 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     unawaited(() async {
       try {
         await account.client.core.appPassword.deleteAppPassword();
-      } catch (e, s) {
-        debugPrint(e.toString());
-        debugPrint(s.toString());
+      } on http.ClientException catch (error, stackTrace) {
+        log.info(
+          'Error deleting the app password.',
+          error,
+          stackTrace,
+        );
       }
     }());
   }

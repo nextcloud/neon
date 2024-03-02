@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 
@@ -43,6 +44,9 @@ sealed class TimerBloc extends Bloc {
 /// Sub-second timers are not supported.
 class _TimerBloc implements TimerBloc {
   _TimerBloc._();
+
+  @override
+  final log = Logger('TimerBloc');
 
   @override
   final Map<int, Timer> timers = {};

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -77,6 +78,9 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
 
     timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
   }
+
+  @override
+  final log = Logger('DashboardBloc');
 
   final Account account;
   late final NeonTimer timer;

@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -51,6 +52,9 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
     initialTitle = note.title;
   }
 
+  @override
+  final log = Logger('NotesNoteBloc');
+
   void emitNote(notes.Note note) {
     category.add(note.category);
     etag = note.etag;
@@ -63,10 +67,14 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
         final response = await call(etag);
         emitNote(response.body);
         await notesBloc.refresh();
-      } catch (e, s) {
-        debugPrint(e.toString());
-        debugPrint(s.toString());
-        addError(e);
+      } on http.ClientException catch (error, stackTrace) {
+        log.warning(
+          'Error executing note action.',
+          error,
+          stackTrace,
+        );
+
+        addError(error);
       }
     });
   }

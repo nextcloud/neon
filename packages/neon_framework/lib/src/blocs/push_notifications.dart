@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
@@ -43,6 +43,9 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     }
   }
 
+  @override
+  final log = Logger('PushNotificationsBloc');
+
   final AccountsBloc accountsBloc;
   late final storage = NeonStorage().settingsStore(StorageKeys.lastEndpoint);
   final GlobalOptions globalOptions;
@@ -75,16 +78,16 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
       onNewEndpoint: (endpoint, instance) async {
         final account = accountsBloc.accounts.value.tryFind(instance);
         if (account == null) {
-          debugPrint('Account for $instance not found, can not process endpoint');
+          log.fine('Account for $instance not found, can not process endpoint');
           return;
         }
 
         if (storage.getString(account.id) == endpoint) {
-          debugPrint('Endpoint not changed');
+          log.fine('Endpoint not changed');
           return;
         }
 
-        debugPrint('Registering account $instance for push notifications on $endpoint');
+        log.fine('Registering account $instance for push notifications on $endpoint');
 
         final subscription = await account.client.notifications.push.registerDevice(
           pushTokenHash: notifications.generatePushTokenHash(endpoint),
@@ -94,7 +97,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
 
         await storage.setString(account.id, endpoint);
 
-        debugPrint(
+        log.fine(
           'Account $instance registered for push notifications ${json.encode(subscription.body.ocs.data.toJson())}',
         );
       },
@@ -111,7 +114,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
       await unregisterUnifiedPushInstances(accounts);
     }
     if (!disabled && !sameDistributor) {
-      debugPrint('UnifiedPush distributor changed to $distributor');
+      log.fine('UnifiedPush distributor changed to $distributor');
       await UnifiedPush.saveDistributor(distributor);
     }
     if (!disabled) {
@@ -125,8 +128,11 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
         await account.client.notifications.push.removeDevice();
         await UnifiedPush.unregister(account.id);
         await storage.remove(account.id);
-      } catch (e) {
-        debugPrint('Failed to unregister device: $e');
+      } on Exception catch (error) {
+        log.warning(
+          'Failed to unregister device.',
+          error,
+        );
       }
     }
   }

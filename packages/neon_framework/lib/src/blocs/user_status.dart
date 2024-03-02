@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
@@ -68,6 +69,9 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
     unawaited(refresh());
     timer = TimerBloc().registerTimer(const Duration(minutes: 5), refresh);
   }
+
+  @override
+  final log = Logger('UserStatusBloc');
 
   final Account account;
   late final NeonTimer timer;
@@ -149,10 +153,14 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
       }
 
       updateStatus(username, Result.success(correctStatus(data)));
-    } on DynamiteStatusCodeException catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-      updateStatus(username, Result.error(e));
+    } on http.ClientException catch (error, stackTrace) {
+      log.warning(
+        'Error loading the user status.',
+        error,
+        stackTrace,
+      );
+
+      updateStatus(username, Result.error(error));
     }
   }
 

@@ -17,6 +17,7 @@ dependencies:
   go_router: ^13.0.0
   html: ^0.15.0
   intl: ^0.18.0
+  logging: ^1.0.0
   meta: ^1.0.0
   neon_framework:
     git:
@@ -31,6 +32,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.8
+  custom_lint: ^0.6.2
   go_router_builder: ^2.4.1
   neon_lints:
     git:

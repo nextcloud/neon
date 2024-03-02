@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
@@ -27,6 +28,8 @@ import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+
+final _log = Logger('SettingsPage');
 
 /// Categories of the [SettingsPage].
 ///
@@ -249,11 +252,15 @@ class _SettingsPageState extends State<SettingsPage> {
 
                   final data = settingsExportHelper.exportToFile();
                   await NeonPlatform.instance.saveFileWithPickDialog(fileName, 'application/json', data);
-                } catch (e, s) {
-                  debugPrint(e.toString());
-                  debugPrint(s.toString());
+                } on Exception catch (error, stackTrace) {
+                  _log.info(
+                    'Error selecting an export destination.',
+                    error,
+                    stackTrace,
+                  );
+
                   if (context.mounted) {
-                    NeonError.showSnackbar(context, e);
+                    NeonError.showSnackbar(context, error);
                   }
                 }
               },
@@ -287,11 +294,15 @@ class _SettingsPageState extends State<SettingsPage> {
                   }
 
                   await settingsExportHelper.applyFromFile(result.files.single.readStream);
-                } catch (e, s) {
-                  debugPrint(e.toString());
-                  debugPrint(s.toString());
+                } on Exception catch (error, stackTrace) {
+                  _log.info(
+                    'Error importing settings.',
+                    error,
+                    stackTrace,
+                  );
+
                   if (context.mounted) {
-                    NeonError.showSnackbar(context, e);
+                    NeonError.showSnackbar(context, error);
                   }
                 }
               },

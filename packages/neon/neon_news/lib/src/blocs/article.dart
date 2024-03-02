@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -43,6 +44,9 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
     unread.add(article.unread);
     starred.add(article.starred);
   }
+
+  @override
+  final log = Logger('NewsArticleBloc');
 
   final NewsArticlesBloc newsArticlesBloc;
   final Account account;

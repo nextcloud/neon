@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/browser.dart';
@@ -68,6 +69,9 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     options.uploadQueueParallelism.addListener(uploadParallelismListener);
     options.downloadQueueParallelism.addListener(downloadParallelismListener);
   }
+
+  @override
+  final log = Logger('FilesBloc');
 
   @override
   final FilesOptions options;
@@ -216,7 +220,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name));
 
     if (!file.existsSync()) {
-      debugPrint('Downloading $uri since it does not exist');
+      log.fine('Downloading $uri since it does not exist');
       if (!file.parent.existsSync()) {
         await file.parent.create(recursive: true);
       }

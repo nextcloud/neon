@@ -6,5 +6,10 @@ publish_to: none
 environment:
   sdk: '>=3.1.0 <4.0.0'
 
+dependencies:
+  analyzer: ^6.4.1
+  analyzer_plugin: ^0.11.3
+  custom_lint_builder: ^0.6.2
+
 dev_dependencies:
   lint_maker: ^0.2.1

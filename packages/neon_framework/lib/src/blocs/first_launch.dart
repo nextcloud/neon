@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/models/disposable.dart';
@@ -31,6 +32,9 @@ class _FirstLaunchBloc extends Bloc implements FirstLaunchBloc {
       unawaited(storage.setBool(false));
     }
   }
+
+  @override
+  final log = Logger('FirstLaunchBloc');
 
   @override
   void dispose() {

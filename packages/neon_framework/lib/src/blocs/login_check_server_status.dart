@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -22,6 +23,9 @@ class _LoginCheckServerStatusBloc extends InteractiveBloc implements LoginCheckS
   _LoginCheckServerStatusBloc(this.serverURL) {
     unawaited(refresh());
   }
+
+  @override
+  final log = Logger('LoginCheckServerStatusBloc');
 
   final Uri serverURL;
 
@@ -47,10 +51,14 @@ class _LoginCheckServerStatusBloc extends InteractiveBloc implements LoginCheckS
 
       final status = await client.core.getStatus();
       state.add(Result.success(status.body));
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-      state.add(Result.error(e));
+    } on http.ClientException catch (error, stackTrace) {
+      log.warning(
+        'Error getting the server status.',
+        error,
+        stackTrace,
+      );
+
+      state.add(Result.error(error));
     }
   }
 }

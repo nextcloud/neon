@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -27,6 +28,9 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
   _LoginFlowBloc(this.serverURL) {
     unawaited(refresh());
   }
+
+  @override
+  final log = Logger('LoginFlowBloc');
 
   final Uri serverURL;
   late final client = NextcloudClient(
@@ -66,15 +70,22 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
           final resultResponse = await client.core.clientFlowLoginV2.poll(token: initResponse.body.poll.token);
           cancelPollTimer();
           resultController.add(resultResponse.body);
-        } catch (e, s) {
-          debugPrint(e.toString());
-          debugPrint(s.toString());
+        } on DynamiteStatusCodeException catch (error) {
+          if (error.statusCode != 404) {
+            rethrow;
+          }
+
+          log.fine('Login flow not found or completed. Polling again in one second.');
         }
       });
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-      init.add(Result.error(e));
+    } on http.ClientException catch (error, stackTrace) {
+      log.severe(
+        'Error while polling the login flow.',
+        error,
+        stackTrace,
+      );
+
+      init.add(Result.error(error));
     }
   }
 

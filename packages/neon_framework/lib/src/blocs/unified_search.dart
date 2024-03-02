@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
@@ -67,6 +68,9 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
       await searchProviders(result.requireData.map((provider) => provider.id).toList());
     });
   }
+
+  @override
+  final log = Logger('UnifiedSearchBloc');
 
   final AppsBloc appsBloc;
   final Account account;
@@ -137,10 +141,14 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
             term: term,
           );
           updateResults(providerID, Result.success(response.body.ocs.data));
-        } catch (e, s) {
-          debugPrint(e.toString());
-          debugPrint(s.toString());
-          updateResults(providerID, Result.error(e));
+        } on http.ClientException catch (error, stackTrace) {
+          log.warning(
+            'Error searching in $providerID.',
+            error,
+            stackTrace,
+          );
+
+          updateResults(providerID, Result.error(error));
         }
       }),
     );
