@@ -232,10 +232,25 @@ class RequestManager {
       }
 
       if (cachedParameters.etag != null) {
-        final cacheParameters = await timeout(
-          () async => getCacheParameters?.call(),
-          timeLimit: timeLimit,
-        );
+        CacheParameters? cacheParameters;
+        try {
+          cacheParameters = await timeout(
+            () async => getCacheParameters?.call(),
+            timeLimit: timeLimit,
+          );
+        } on TimeoutException catch (error) {
+          _log.info(
+            'Fetching cache parameters timed out. Assuming expired.',
+            error,
+          );
+        } on http.ClientException catch (error, stackTrace) {
+          _log.warning(
+            'Error fetching cache parameters. Assuming expired.',
+            error,
+            stackTrace,
+          );
+        }
+
         if (cacheParameters != null && cacheParameters.etag == cachedParameters.etag) {
           final cachedValue = await _cache?.get(key);
           if (cachedValue != null) {
