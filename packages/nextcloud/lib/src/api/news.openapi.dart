@@ -66,9 +66,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getSupportedApiVersionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<SupportedAPIVersions, void>> getSupportedApiVersions() async {
-    final rawResponse = getSupportedApiVersionsRaw();
+    final _rawResponse = await getSupportedApiVersionsRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -82,7 +82,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getSupportedApiVersions] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
+  Future<_i1.DynamiteRawResponse<SupportedAPIVersions, void>> getSupportedApiVersionsRaw() async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -103,17 +103,15 @@ class $Client extends _i1.DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/news/api';
-    return _i1.DynamiteRawResponse<SupportedAPIVersions, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(SupportedAPIVersions),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getSupportedApiVersions_Serializer();
+    return _i1.ResponseConverter<SupportedAPIVersions, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$listFolders_Request`.
@@ -133,9 +131,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [listFoldersRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<ListFolders, void>> listFolders() async {
-    final rawResponse = listFoldersRaw();
+    final _rawResponse = await listFoldersRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -149,7 +147,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [listFolders] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
+  Future<_i1.DynamiteRawResponse<ListFolders, void>> listFoldersRaw() async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -170,17 +168,15 @@ class $Client extends _i1.DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/news/api/v1-3/folders';
-    return _i1.DynamiteRawResponse<ListFolders, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ListFolders),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $listFolders_Serializer();
+    return _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$createFolder_Request`.
@@ -203,11 +199,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [createFolderRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<ListFolders, void>> createFolder({required String name}) async {
-    final rawResponse = createFolderRaw(
+    final _rawResponse = await createFolderRaw(
       name: name,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -224,7 +220,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [createFolder] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ListFolders, void> createFolderRaw({required String name}) {
+  Future<_i1.DynamiteRawResponse<ListFolders, void>> createFolderRaw({required String name}) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -249,17 +245,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['name'] = $name;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ListFolders, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ListFolders),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $createFolder_Serializer();
+    return _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$renameFolder_Request`.
@@ -285,12 +279,12 @@ class $Client extends _i1.DynamiteClient {
     required int folderId,
     required String name,
   }) async {
-    final rawResponse = renameFolderRaw(
+    final _rawResponse = await renameFolderRaw(
       folderId: folderId,
       name: name,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -307,10 +301,10 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [renameFolder] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> renameFolderRaw({
+  Future<_i1.DynamiteRawResponse<void, void>> renameFolderRaw({
     required int folderId,
     required String name,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -338,17 +332,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['name'] = $name;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $renameFolder_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$deleteFolder_Request`.
@@ -368,11 +360,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [deleteFolderRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> deleteFolder({required int folderId}) async {
-    final rawResponse = deleteFolderRaw(
+    final _rawResponse = await deleteFolderRaw(
       folderId: folderId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -386,7 +378,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [deleteFolder] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> deleteFolderRaw({required int folderId}) {
+  Future<_i1.DynamiteRawResponse<void, void>> deleteFolderRaw({required int folderId}) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -411,17 +403,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['folderId'] = $folderId;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $deleteFolder_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$markFolderAsRead_Request`.
@@ -447,12 +437,12 @@ class $Client extends _i1.DynamiteClient {
     required int folderId,
     required int newestItemId,
   }) async {
-    final rawResponse = markFolderAsReadRaw(
+    final _rawResponse = await markFolderAsReadRaw(
       folderId: folderId,
       newestItemId: newestItemId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -469,10 +459,10 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [markFolderAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> markFolderAsReadRaw({
+  Future<_i1.DynamiteRawResponse<void, void>> markFolderAsReadRaw({
     required int folderId,
     required int newestItemId,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -501,17 +491,15 @@ class $Client extends _i1.DynamiteClient {
 
     final _path =
         _i3.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $markFolderAsRead_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$listFeeds_Request`.
@@ -531,9 +519,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [listFeedsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<ListFeeds, void>> listFeeds() async {
-    final rawResponse = listFeedsRaw();
+    final _rawResponse = await listFeedsRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -547,7 +535,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [listFeeds] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
+  Future<_i1.DynamiteRawResponse<ListFeeds, void>> listFeedsRaw() async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -568,17 +556,15 @@ class $Client extends _i1.DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/news/api/v1-3/feeds';
-    return _i1.DynamiteRawResponse<ListFeeds, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ListFeeds),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $listFeeds_Serializer();
+    return _i1.ResponseConverter<ListFeeds, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$addFeed_Request`.
@@ -605,12 +591,12 @@ class $Client extends _i1.DynamiteClient {
     required String url,
     int? folderId,
   }) async {
-    final rawResponse = addFeedRaw(
+    final _rawResponse = await addFeedRaw(
       url: url,
       folderId: folderId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -628,10 +614,10 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [addFeed] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ListFeeds, void> addFeedRaw({
+  Future<_i1.DynamiteRawResponse<ListFeeds, void>> addFeedRaw({
     required String url,
     int? folderId,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -659,17 +645,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['folderId'] = $folderId;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ListFeeds, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ListFeeds),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $addFeed_Serializer();
+    return _i1.ResponseConverter<ListFeeds, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$deleteFeed_Request`.
@@ -689,11 +673,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [deleteFeedRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> deleteFeed({required int feedId}) async {
-    final rawResponse = deleteFeedRaw(
+    final _rawResponse = await deleteFeedRaw(
       feedId: feedId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -707,7 +691,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [deleteFeed] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> deleteFeedRaw({required int feedId}) {
+  Future<_i1.DynamiteRawResponse<void, void>> deleteFeedRaw({required int feedId}) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -732,17 +716,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['feedId'] = $feedId;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $deleteFeed_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$moveFeed_Request`.
@@ -768,12 +750,12 @@ class $Client extends _i1.DynamiteClient {
     required int feedId,
     int? folderId,
   }) async {
-    final rawResponse = moveFeedRaw(
+    final _rawResponse = await moveFeedRaw(
       feedId: feedId,
       folderId: folderId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -790,10 +772,10 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [moveFeed] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> moveFeedRaw({
+  Future<_i1.DynamiteRawResponse<void, void>> moveFeedRaw({
     required int feedId,
     int? folderId,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -821,17 +803,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['folderId'] = $folderId;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $moveFeed_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$renameFeed_Request`.
@@ -857,12 +837,12 @@ class $Client extends _i1.DynamiteClient {
     required int feedId,
     required String feedTitle,
   }) async {
-    final rawResponse = renameFeedRaw(
+    final _rawResponse = await renameFeedRaw(
       feedId: feedId,
       feedTitle: feedTitle,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -879,10 +859,10 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [renameFeed] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> renameFeedRaw({
+  Future<_i1.DynamiteRawResponse<void, void>> renameFeedRaw({
     required int feedId,
     required String feedTitle,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -911,17 +891,15 @@ class $Client extends _i1.DynamiteClient {
 
     final _path =
         _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $renameFeed_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$markFeedAsRead_Request`.
@@ -947,12 +925,12 @@ class $Client extends _i1.DynamiteClient {
     required int feedId,
     required int newestItemId,
   }) async {
-    final rawResponse = markFeedAsReadRaw(
+    final _rawResponse = await markFeedAsReadRaw(
       feedId: feedId,
       newestItemId: newestItemId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -969,10 +947,10 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [markFeedAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> markFeedAsReadRaw({
+  Future<_i1.DynamiteRawResponse<void, void>> markFeedAsReadRaw({
     required int feedId,
     required int newestItemId,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -1001,17 +979,15 @@ class $Client extends _i1.DynamiteClient {
 
     final _path =
         _i3.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $markFeedAsRead_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$listArticles_Request`.
@@ -1046,7 +1022,7 @@ class $Client extends _i1.DynamiteClient {
     int? offset,
     int? oldestFirst,
   }) async {
-    final rawResponse = listArticlesRaw(
+    final _rawResponse = await listArticlesRaw(
       type: type,
       id: id,
       getRead: getRead,
@@ -1055,7 +1031,7 @@ class $Client extends _i1.DynamiteClient {
       oldestFirst: oldestFirst,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -1077,14 +1053,14 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [listArticles] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ListArticles, void> listArticlesRaw({
+  Future<_i1.DynamiteRawResponse<ListArticles, void>> listArticlesRaw({
     int? type,
     int? id,
     int? getRead,
     int? batchSize,
     int? offset,
     int? oldestFirst,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1132,17 +1108,15 @@ class $Client extends _i1.DynamiteClient {
     final _path =
         _i3.UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<ListArticles, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ListArticles),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $listArticles_Serializer();
+    return _i1.ResponseConverter<ListArticles, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$listUpdatedArticles_Request`.
@@ -1171,13 +1145,13 @@ class $Client extends _i1.DynamiteClient {
     int? id,
     int? lastModified,
   }) async {
-    final rawResponse = listUpdatedArticlesRaw(
+    final _rawResponse = await listUpdatedArticlesRaw(
       type: type,
       id: id,
       lastModified: lastModified,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -1196,11 +1170,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [listUpdatedArticles] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ListArticles, void> listUpdatedArticlesRaw({
+  Future<_i1.DynamiteRawResponse<ListArticles, void>> listUpdatedArticlesRaw({
     int? type,
     int? id,
     int? lastModified,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1235,17 +1209,15 @@ class $Client extends _i1.DynamiteClient {
 
     final _path =
         _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ListArticles, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ListArticles),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $listUpdatedArticles_Serializer();
+    return _i1.ResponseConverter<ListArticles, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$markArticleAsRead_Request`.
@@ -1265,11 +1237,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [markArticleAsReadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> markArticleAsRead({required int itemId}) async {
-    final rawResponse = markArticleAsReadRaw(
+    final _rawResponse = await markArticleAsReadRaw(
       itemId: itemId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -1283,7 +1255,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [markArticleAsRead] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> markArticleAsReadRaw({required int itemId}) {
+  Future<_i1.DynamiteRawResponse<void, void>> markArticleAsReadRaw({required int itemId}) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -1308,17 +1280,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['itemId'] = $itemId;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $markArticleAsRead_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$markArticleAsUnread_Request`.
@@ -1338,11 +1308,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [markArticleAsUnreadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> markArticleAsUnread({required int itemId}) async {
-    final rawResponse = markArticleAsUnreadRaw(
+    final _rawResponse = await markArticleAsUnreadRaw(
       itemId: itemId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -1356,7 +1326,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [markArticleAsUnread] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required int itemId}) {
+  Future<_i1.DynamiteRawResponse<void, void>> markArticleAsUnreadRaw({required int itemId}) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -1381,17 +1351,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['itemId'] = $itemId;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $markArticleAsUnread_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$starArticle_Request`.
@@ -1411,11 +1379,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [starArticleRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> starArticle({required int itemId}) async {
-    final rawResponse = starArticleRaw(
+    final _rawResponse = await starArticleRaw(
       itemId: itemId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -1429,7 +1397,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [starArticle] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> starArticleRaw({required int itemId}) {
+  Future<_i1.DynamiteRawResponse<void, void>> starArticleRaw({required int itemId}) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -1454,17 +1422,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['itemId'] = $itemId;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $starArticle_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$unstarArticle_Request`.
@@ -1484,11 +1450,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [unstarArticleRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> unstarArticle({required int itemId}) async {
-    final rawResponse = unstarArticleRaw(
+    final _rawResponse = await unstarArticleRaw(
       itemId: itemId,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -1502,7 +1468,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [unstarArticle] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> unstarArticleRaw({required int itemId}) {
+  Future<_i1.DynamiteRawResponse<void, void>> unstarArticleRaw({required int itemId}) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
@@ -1527,17 +1493,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['itemId'] = $itemId;
 
     final _path = _i3.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $unstarArticle_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 

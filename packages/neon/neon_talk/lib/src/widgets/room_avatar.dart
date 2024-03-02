@@ -25,7 +25,7 @@ class TalkRoomAvatar extends StatelessWidget {
       return CircleAvatar(
         child: ClipOval(
           child: NeonApiImage(
-            getImage: (client) => switch (brightness) {
+            getImage: (client) async => switch (brightness) {
               Brightness.dark => client.spreed.avatar.getAvatarDarkRaw(token: room.token),
               Brightness.light => client.spreed.avatar.getAvatarRaw(token: room.token),
             },

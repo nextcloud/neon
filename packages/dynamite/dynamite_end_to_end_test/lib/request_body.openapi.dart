@@ -53,11 +53,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> $get({Uint8List? uint8List}) async {
-    final rawResponse = $getRaw(
+    final _rawResponse = await $getRaw(
       uint8List: uint8List,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -71,7 +71,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> $getRaw({Uint8List? uint8List}) {
+  Future<_i1.DynamiteRawResponse<void, void>> $getRaw({Uint8List? uint8List}) async {
     final _headers = <String, String>{};
     Uint8List? _body;
 
@@ -80,17 +80,15 @@ class $Client extends _i1.DynamiteClient {
       _body = uint8List;
     }
     const _path = '/';
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        body: _body,
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      body: _body,
     );
+
+    final _serializer = $$get_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$$post_Request`.
@@ -110,11 +108,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$postRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> $post({String? string}) async {
-    final rawResponse = $postRaw(
+    final _rawResponse = await $postRaw(
       string: string,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -128,7 +126,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$post] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> $postRaw({String? string}) {
+  Future<_i1.DynamiteRawResponse<void, void>> $postRaw({String? string}) async {
     final _headers = <String, String>{};
     Uint8List? _body;
 
@@ -137,17 +135,15 @@ class $Client extends _i1.DynamiteClient {
       _body = utf8.encode(string);
     }
     const _path = '/';
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        body: _body,
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      body: _body,
     );
+
+    final _serializer = $$post_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 

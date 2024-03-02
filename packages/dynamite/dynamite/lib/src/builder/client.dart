@@ -362,19 +362,22 @@ ${allocate(returnType)}(
               ..symbol = 'Future'
               ..types.add(responseType),
           )
-          ..body = Code('''
-final rawResponse = ${name}Raw(
+          ..body = Code.scope(
+            (allocate) => '''
+final _rawResponse = await ${name}Raw(
   $rawParameters
 );
 
-return rawResponse.future;
-''');
+return ${allocate(responseType)}.fromRawResponse(_rawResponse);
+''',
+          );
       });
 
       yield Method(
         (b) {
           b
             ..name = '${name}Raw'
+            ..modifier = MethodModifier.async
             ..docs.addAll(operation.formattedDescription(name, isRawRequest: true))
             ..annotations.add(refer('experimental', 'package:meta/meta.dart'));
 
@@ -384,9 +387,15 @@ return rawResponse.future;
 
           b
             ..optionalParameters.addAll(operationParameters)
-            ..returns = refer(
-              'DynamiteRawResponse<${bodyType.name}, ${headersType.name}>',
-              'package:dynamite_runtime/http_client.dart',
+            ..returns = TypeReference(
+              (b) => b
+                ..symbol = 'Future'
+                ..types.add(
+                  refer(
+                    'DynamiteRawResponse<${bodyType.name}, ${headersType.name}>',
+                    'package:dynamite_runtime/http_client.dart',
+                  ),
+                ),
             )
             ..body = Code.scope((allocate) {
               final hasUriParameters = pathParameters.isNotEmpty;
@@ -458,26 +467,29 @@ return rawResponse.future;
               buildUrlPath(pathEntry.key, parameters, code, state.emitter.allocator.allocate);
 
               final statusCodes = responseEntry.value;
-              final returnValue = refer(
-                'DynamiteRawResponse<${bodyType.name}, ${headersType.name}>',
-                'package:dynamite_runtime/http_client.dart',
-              ).newInstance(const [], {
-                'response': refer(client).property('executeRequest').call([
-                  literalString(httpMethod),
-                  refer('_path'),
-                ], {
-                  if (acceptHeader.isNotEmpty || hasHeaderParameters || hasAuthentication || hasContentEncoding)
-                    'headers': refer('_headers'),
-                  if (operation.requestBody != null) 'body': refer('_body'),
-                  if (responses.values.isNotEmpty && !statusCodes.contains('default'))
-                    'validStatuses': literalConstSet(statusCodes),
-                }),
-                'bodyType': refer(bodyType.fullType ?? 'null'),
-                'headersType': refer(headersType.fullType ?? 'null'),
-                'serializers': refer(r'_$jsonSerializers'),
+              final requestExpression = refer(client).property('executeRequest').call([
+                literalString(httpMethod),
+                refer('_path'),
+              ], {
+                if (acceptHeader.isNotEmpty || hasHeaderParameters || hasAuthentication || hasContentEncoding)
+                  'headers': refer('_headers'),
+                if (operation.requestBody != null) 'body': refer('_body'),
+                if (responses.values.isNotEmpty && !statusCodes.contains('default'))
+                  'validStatuses': literalConstSet(statusCodes),
               });
 
-              code.writeln(returnValue.returned.statement.accept(state.emitter));
+              final responseConverterType = refer(
+                'ResponseConverter<${bodyType.name}, ${headersType.name}>',
+                'package:dynamite_runtime/http_client.dart',
+              );
+
+              code.write('''
+final _response = ${requestExpression.awaited.accept(state.emitter)};
+
+final _serializer = \$${name}_Serializer();
+return ${allocate(responseConverterType)}(_serializer).convert(_response);
+''');
+
               return code.toString();
             });
         },

@@ -102,7 +102,7 @@ class $ApiClient {
     ApiGenerateNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = generateNotificationRaw(
+    final _rawResponse = await generateNotificationRaw(
       shortMessage: shortMessage,
       userId: userId,
       longMessage: longMessage,
@@ -110,7 +110,7 @@ class $ApiClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Generate a notification for a user.
@@ -138,13 +138,13 @@ class $ApiClient {
   /// See:
   ///  * [generateNotification] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void> generateNotificationRaw({
+  Future<_i1.DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void>> generateNotificationRaw({
     required String shortMessage,
     required String userId,
     String? longMessage,
     ApiGenerateNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -187,17 +187,15 @@ class $ApiClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}{?shortMessage*,longMessage*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ApiGenerateNotificationResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $generateNotification_Serializer();
+    return _i1.ResponseConverter<ApiGenerateNotificationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -238,12 +236,12 @@ class $EndpointClient {
     EndpointListNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = listNotificationsRaw(
+    final _rawResponse = await listNotificationsRaw(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get all notifications.
@@ -264,11 +262,12 @@ class $EndpointClient {
   /// See:
   ///  * [listNotifications] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>
-      listNotificationsRaw({
+  Future<
+      _i1.DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson,
+          EndpointEndpointListNotificationsHeaders>> listNotificationsRaw({
     EndpointListNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -299,18 +298,17 @@ class $EndpointClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
-    return _i1.DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson,
-        EndpointEndpointListNotificationsHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(EndpointListNotificationsResponseApplicationJson),
-      headersType: const FullType(EndpointEndpointListNotificationsHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $listNotifications_Serializer();
+    return _i1.ResponseConverter<EndpointListNotificationsResponseApplicationJson,
+            EndpointEndpointListNotificationsHeaders>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$deleteAllNotifications_Request`.
@@ -341,12 +339,12 @@ class $EndpointClient {
     EndpointDeleteAllNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteAllNotificationsRaw(
+    final _rawResponse = await deleteAllNotificationsRaw(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete all notifications.
@@ -367,10 +365,11 @@ class $EndpointClient {
   /// See:
   ///  * [deleteAllNotifications] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void> deleteAllNotificationsRaw({
+  Future<_i1.DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>>
+      deleteAllNotificationsRaw({
     EndpointDeleteAllNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -403,17 +402,16 @@ class $EndpointClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
-    return _i1.DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(EndpointDeleteAllNotificationsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $deleteAllNotifications_Serializer();
+    return _i1.ResponseConverter<EndpointDeleteAllNotificationsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getNotification_Request`.
@@ -446,13 +444,13 @@ class $EndpointClient {
     EndpointGetNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getNotificationRaw(
+    final _rawResponse = await getNotificationRaw(
       id: id,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get a notification.
@@ -474,11 +472,11 @@ class $EndpointClient {
   /// See:
   ///  * [getNotification] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void> getNotificationRaw({
+  Future<_i1.DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void>> getNotificationRaw({
     required int id,
     EndpointGetNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -513,17 +511,15 @@ class $EndpointClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(EndpointGetNotificationResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getNotification_Serializer();
+    return _i1.ResponseConverter<EndpointGetNotificationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$deleteNotification_Request`.
@@ -557,13 +553,13 @@ class $EndpointClient {
     EndpointDeleteNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteNotificationRaw(
+    final _rawResponse = await deleteNotificationRaw(
       id: id,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete a notification.
@@ -586,11 +582,11 @@ class $EndpointClient {
   /// See:
   ///  * [deleteNotification] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void> deleteNotificationRaw({
+  Future<_i1.DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void>> deleteNotificationRaw({
     required int id,
     EndpointDeleteNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -625,17 +621,16 @@ class $EndpointClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(EndpointDeleteNotificationResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $deleteNotification_Serializer();
+    return _i1.ResponseConverter<EndpointDeleteNotificationResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$confirmIdsForUser_Request`.
@@ -668,13 +663,13 @@ class $EndpointClient {
     EndpointConfirmIdsForUserApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = confirmIdsForUserRaw(
+    final _rawResponse = await confirmIdsForUserRaw(
       ids: ids,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Check if notification IDs exist.
@@ -696,11 +691,11 @@ class $EndpointClient {
   /// See:
   ///  * [confirmIdsForUser] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void> confirmIdsForUserRaw({
+  Future<_i1.DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>> confirmIdsForUserRaw({
     required BuiltList<int> ids,
     EndpointConfirmIdsForUserApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -735,20 +730,19 @@ class $EndpointClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(EndpointConfirmIdsForUserResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $confirmIdsForUser_Serializer();
+    return _i1.ResponseConverter<EndpointConfirmIdsForUserResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -794,7 +788,7 @@ class $PushClient {
     PushRegisterDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = registerDeviceRaw(
+    final _rawResponse = await registerDeviceRaw(
       pushTokenHash: pushTokenHash,
       devicePublicKey: devicePublicKey,
       proxyServer: proxyServer,
@@ -802,7 +796,7 @@ class $PushClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Register device for push notifications.
@@ -828,13 +822,13 @@ class $PushClient {
   /// See:
   ///  * [registerDevice] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void> registerDeviceRaw({
+  Future<_i1.DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void>> registerDeviceRaw({
     required String pushTokenHash,
     required String devicePublicKey,
     required String proxyServer,
     PushRegisterDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -876,20 +870,18 @@ class $PushClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/push{?pushTokenHash*,devicePublicKey*,proxyServer*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          201,
-        },
-      ),
-      bodyType: const FullType(PushRegisterDeviceResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        201,
+      },
     );
+
+    final _serializer = $registerDevice_Serializer();
+    return _i1.ResponseConverter<PushRegisterDeviceResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$removeDevice_Request`.
@@ -922,12 +914,12 @@ class $PushClient {
     PushRemoveDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = removeDeviceRaw(
+    final _rawResponse = await removeDeviceRaw(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Remove a device from push notifications.
@@ -950,10 +942,10 @@ class $PushClient {
   /// See:
   ///  * [removeDevice] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void> removeDeviceRaw({
+  Future<_i1.DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void>> removeDeviceRaw({
     PushRemoveDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -984,21 +976,19 @@ class $PushClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(_parameters);
-    return _i1.DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          202,
-          401,
-        },
-      ),
-      bodyType: const FullType(PushRemoveDeviceResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        202,
+        401,
+      },
     );
+
+    final _serializer = $removeDevice_Serializer();
+    return _i1.ResponseConverter<PushRemoveDeviceResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -1041,7 +1031,7 @@ class $SettingsClient {
     SettingsPersonalApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = personalRaw(
+    final _rawResponse = await personalRaw(
       batchSetting: batchSetting,
       soundNotification: soundNotification,
       soundTalk: soundTalk,
@@ -1049,7 +1039,7 @@ class $SettingsClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update personal notification settings.
@@ -1072,13 +1062,13 @@ class $SettingsClient {
   /// See:
   ///  * [personal] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void> personalRaw({
+  Future<_i1.DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void>> personalRaw({
     required int batchSetting,
     required String soundNotification,
     required String soundTalk,
     SettingsPersonalApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1120,17 +1110,15 @@ class $SettingsClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings{?batchSetting*,soundNotification*,soundTalk*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(SettingsPersonalResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $personal_Serializer();
+    return _i1.ResponseConverter<SettingsPersonalResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$admin_Request`.
@@ -1167,7 +1155,7 @@ class $SettingsClient {
     SettingsAdminApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = adminRaw(
+    final _rawResponse = await adminRaw(
       batchSetting: batchSetting,
       soundNotification: soundNotification,
       soundTalk: soundTalk,
@@ -1175,7 +1163,7 @@ class $SettingsClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update default notification settings for new users.
@@ -1200,13 +1188,13 @@ class $SettingsClient {
   /// See:
   ///  * [admin] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SettingsAdminResponseApplicationJson, void> adminRaw({
+  Future<_i1.DynamiteRawResponse<SettingsAdminResponseApplicationJson, void>> adminRaw({
     required int batchSetting,
     required String soundNotification,
     required String soundTalk,
     SettingsAdminApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1247,17 +1235,15 @@ class $SettingsClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin{?batchSetting*,soundNotification*,soundTalk*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<SettingsAdminResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(SettingsAdminResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $admin_Serializer();
+    return _i1.ResponseConverter<SettingsAdminResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

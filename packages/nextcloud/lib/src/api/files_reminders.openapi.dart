@@ -86,13 +86,13 @@ class $ApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = $getRaw(
+    final _rawResponse = await $getRaw(
       version: version,
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get a reminder.
@@ -114,11 +114,11 @@ class $ApiClient {
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ApiGetResponseApplicationJson, void> $getRaw({
+  Future<_i1.DynamiteRawResponse<ApiGetResponseApplicationJson, void>> $getRaw({
     required String version,
     required int fileId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -155,17 +155,15 @@ class $ApiClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ApiGetResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $$get_Serializer();
+    return _i1.ResponseConverter<ApiGetResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$$set_Request`.
@@ -202,14 +200,14 @@ class $ApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = $setRaw(
+    final _rawResponse = await $setRaw(
       dueDate: dueDate,
       version: version,
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set a reminder.
@@ -235,12 +233,12 @@ class $ApiClient {
   /// See:
   ///  * [$set] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ApiSetResponseApplicationJson, void> $setRaw({
+  Future<_i1.DynamiteRawResponse<ApiSetResponseApplicationJson, void>> $setRaw({
     required String dueDate,
     required String version,
     required int fileId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -281,23 +279,21 @@ class $ApiClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ApiSetResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          201,
-          400,
-          401,
-          404,
-        },
-      ),
-      bodyType: const FullType(ApiSetResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        201,
+        400,
+        401,
+        404,
+      },
     );
+
+    final _serializer = $$set_Serializer();
+    return _i1.ResponseConverter<ApiSetResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$remove_Request`.
@@ -330,13 +326,13 @@ class $ApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = removeRaw(
+    final _rawResponse = await removeRaw(
       version: version,
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Remove a reminder.
@@ -359,11 +355,11 @@ class $ApiClient {
   /// See:
   ///  * [remove] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ApiRemoveResponseApplicationJson, void> removeRaw({
+  Future<_i1.DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>> removeRaw({
     required String version,
     required int fileId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -400,21 +396,19 @@ class $ApiClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          401,
-          404,
-        },
-      ),
-      bodyType: const FullType(ApiRemoveResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        401,
+        404,
+      },
     );
+
+    final _serializer = $remove_Serializer();
+    return _i1.ResponseConverter<ApiRemoveResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

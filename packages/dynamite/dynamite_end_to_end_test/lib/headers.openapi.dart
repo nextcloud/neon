@@ -55,9 +55,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, GetHeaders>> $get() async {
-    final rawResponse = $getRaw();
+    final _rawResponse = await $getRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -71,18 +71,16 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, GetHeaders> $getRaw() {
+  Future<_i1.DynamiteRawResponse<void, GetHeaders>> $getRaw() async {
     const _path = '/';
-    return _i1.DynamiteRawResponse<void, GetHeaders>(
-      response: executeRequest(
-        'get',
-        _path,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: const FullType(GetHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      validStatuses: const {200},
     );
+
+    final _serializer = $$get_Serializer();
+    return _i1.ResponseConverter<void, GetHeaders>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$withContentOperationId_Request`.
@@ -103,9 +101,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [withContentOperationIdRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, WithContentOperationIdHeaders>> withContentOperationId() async {
-    final rawResponse = withContentOperationIdRaw();
+    final _rawResponse = await withContentOperationIdRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -119,18 +117,16 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [withContentOperationId] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
+  Future<_i1.DynamiteRawResponse<void, WithContentOperationIdHeaders>> withContentOperationIdRaw() async {
     const _path = '/with_content/operation_id';
-    return _i1.DynamiteRawResponse<void, WithContentOperationIdHeaders>(
-      response: executeRequest(
-        'get',
-        _path,
-        validStatuses: const {200},
-      ),
-      bodyType: null,
-      headersType: const FullType(WithContentOperationIdHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      validStatuses: const {200},
     );
+
+    final _serializer = $withContentOperationId_Serializer();
+    return _i1.ResponseConverter<void, WithContentOperationIdHeaders>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getWithContent_Request`.
@@ -150,9 +146,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getWithContentRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Uint8List, GetWithContentHeaders>> getWithContent() async {
-    final rawResponse = getWithContentRaw();
+    final _rawResponse = await getWithContentRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -166,21 +162,19 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getWithContent] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
+  Future<_i1.DynamiteRawResponse<Uint8List, GetWithContentHeaders>> getWithContentRaw() async {
     const _headers = <String, String>{'Accept': 'application/octet-stream'};
 
     const _path = '/with_content';
-    return _i1.DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: const FullType(GetWithContentHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getWithContent_Serializer();
+    return _i1.ResponseConverter<Uint8List, GetWithContentHeaders>(_serializer).convert(_response);
   }
 }
 

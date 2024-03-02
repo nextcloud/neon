@@ -83,11 +83,11 @@ class $DashboardApiClient {
   Future<_i1.DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getWidgetsRaw(
+    final _rawResponse = await getWidgetsRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the widgets.
@@ -106,7 +106,9 @@ class $DashboardApiClient {
   /// See:
   ///  * [getWidgets] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgetsRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -131,17 +133,15 @@ class $DashboardApiClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
-    return _i1.DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DashboardApiGetWidgetsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getWidgets_Serializer();
+    return _i1.ResponseConverter<DashboardApiGetWidgetsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getWidgetItems_Request`.
@@ -175,14 +175,14 @@ class $DashboardApiClient {
     BuiltList<String>? widgets,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getWidgetItemsRaw(
+    final _rawResponse = await getWidgetItemsRaw(
       sinceIds: sinceIds,
       limit: limit,
       widgets: widgets,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the items for the widgets.
@@ -204,12 +204,12 @@ class $DashboardApiClient {
   /// See:
   ///  * [getWidgetItems] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
+  Future<_i1.DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItemsRaw({
     ContentString<BuiltMap<String, String>>? sinceIds,
     int? limit,
     BuiltList<String>? widgets,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -252,17 +252,16 @@ class $DashboardApiClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getWidgetItems_Serializer();
+    return _i1.ResponseConverter<DashboardApiGetWidgetItemsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getWidgetItemsV2_Request`.
@@ -298,14 +297,14 @@ class $DashboardApiClient {
     BuiltList<String>? widgets,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getWidgetItemsV2Raw(
+    final _rawResponse = await getWidgetItemsV2Raw(
       sinceIds: sinceIds,
       limit: limit,
       widgets: widgets,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the items for the widgets.
@@ -329,12 +328,12 @@ class $DashboardApiClient {
   /// See:
   ///  * [getWidgetItemsV2] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
+  Future<_i1.DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2Raw({
     ContentString<BuiltMap<String, String>>? sinceIds,
     int? limit,
     BuiltList<String>? widgets,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -377,17 +376,16 @@ class $DashboardApiClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getWidgetItemsV2_Serializer();
+    return _i1.ResponseConverter<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 

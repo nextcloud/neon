@@ -78,9 +78,9 @@ class $LogSettingsClient {
   /// See:
   ///  * [downloadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
-    final rawResponse = downloadRaw();
+    final _rawResponse = await downloadRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// download logfile.
@@ -98,7 +98,7 @@ class $LogSettingsClient {
   /// See:
   ///  * [download] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
+  Future<_i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> downloadRaw() async {
     final _headers = <String, String>{'Accept': 'application/octet-stream'};
 
 // coverage:ignore-start
@@ -119,17 +119,15 @@ class $LogSettingsClient {
 
 // coverage:ignore-end
     const _path = '/index.php/settings/admin/log/download';
-    return _i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: const FullType(LogSettingsLogSettingsDownloadHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $download_Serializer();
+    return _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(_serializer).convert(_response);
   }
 }
 

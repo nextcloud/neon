@@ -85,7 +85,7 @@ class $Client extends _i1.DynamiteClient {
     String? chunkCursor,
     String? ifNoneMatch,
   }) async {
-    final rawResponse = getNotesRaw(
+    final _rawResponse = await getNotesRaw(
       category: category,
       exclude: exclude,
       pruneBefore: pruneBefore,
@@ -94,7 +94,7 @@ class $Client extends _i1.DynamiteClient {
       ifNoneMatch: ifNoneMatch,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -116,14 +116,14 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getNotes] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BuiltList<Note>, void> getNotesRaw({
+  Future<_i1.DynamiteRawResponse<BuiltList<Note>, void>> getNotesRaw({
     String? category,
     String? exclude,
     int? pruneBefore,
     int? chunkSize,
     String? chunkCursor,
     String? ifNoneMatch,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -170,17 +170,15 @@ class $Client extends _i1.DynamiteClient {
     final _path =
         _i4.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<BuiltList<Note>, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BuiltList, [FullType(Note)]),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getNotes_Serializer();
+    return _i1.ResponseConverter<BuiltList<Note>, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$createNote_Request`.
@@ -213,7 +211,7 @@ class $Client extends _i1.DynamiteClient {
     int? modified,
     int? favorite,
   }) async {
-    final rawResponse = createNoteRaw(
+    final _rawResponse = await createNoteRaw(
       category: category,
       title: title,
       content: content,
@@ -221,7 +219,7 @@ class $Client extends _i1.DynamiteClient {
       favorite: favorite,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -242,13 +240,13 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [createNote] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Note, void> createNoteRaw({
+  Future<_i1.DynamiteRawResponse<Note, void>> createNoteRaw({
     String? category,
     String? title,
     String? content,
     int? modified,
     int? favorite,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -291,17 +289,15 @@ class $Client extends _i1.DynamiteClient {
 
     final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<Note, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Note),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $createNote_Serializer();
+    return _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getNote_Request`.
@@ -329,13 +325,13 @@ class $Client extends _i1.DynamiteClient {
     String? exclude,
     String? ifNoneMatch,
   }) async {
-    final rawResponse = getNoteRaw(
+    final _rawResponse = await getNoteRaw(
       id: id,
       exclude: exclude,
       ifNoneMatch: ifNoneMatch,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -353,11 +349,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getNote] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Note, void> getNoteRaw({
+  Future<_i1.DynamiteRawResponse<Note, void>> getNoteRaw({
     required int id,
     String? exclude,
     String? ifNoneMatch,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -391,17 +387,15 @@ class $Client extends _i1.DynamiteClient {
     }
 
     final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Note, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Note),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getNote_Serializer();
+    return _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$updateNote_Request`.
@@ -437,7 +431,7 @@ class $Client extends _i1.DynamiteClient {
     int? favorite,
     String? ifMatch,
   }) async {
-    final rawResponse = updateNoteRaw(
+    final _rawResponse = await updateNoteRaw(
       id: id,
       content: content,
       modified: modified,
@@ -447,7 +441,7 @@ class $Client extends _i1.DynamiteClient {
       ifMatch: ifMatch,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -469,7 +463,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [updateNote] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Note, void> updateNoteRaw({
+  Future<_i1.DynamiteRawResponse<Note, void>> updateNoteRaw({
     required int id,
     String? content,
     int? modified,
@@ -477,7 +471,7 @@ class $Client extends _i1.DynamiteClient {
     String? category,
     int? favorite,
     String? ifMatch,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -524,17 +518,15 @@ class $Client extends _i1.DynamiteClient {
     final _path =
         _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<Note, void>(
-      response: executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Note),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $updateNote_Serializer();
+    return _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$deleteNote_Request`.
@@ -554,11 +546,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [deleteNoteRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<String, void>> deleteNote({required int id}) async {
-    final rawResponse = deleteNoteRaw(
+    final _rawResponse = await deleteNoteRaw(
       id: id,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -572,7 +564,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [deleteNote] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<String, void> deleteNoteRaw({required int id}) {
+  Future<_i1.DynamiteRawResponse<String, void>> deleteNoteRaw({required int id}) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -597,17 +589,15 @@ class $Client extends _i1.DynamiteClient {
     _parameters['id'] = $id;
 
     final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<String, void>(
-      response: executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(String),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $deleteNote_Serializer();
+    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getSettings_Request`.
@@ -627,9 +617,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getSettingsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Settings, void>> getSettings() async {
-    final rawResponse = getSettingsRaw();
+    final _rawResponse = await getSettingsRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -643,7 +633,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getSettings] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Settings, void> getSettingsRaw() {
+  Future<_i1.DynamiteRawResponse<Settings, void>> getSettingsRaw() async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -664,17 +654,15 @@ class $Client extends _i1.DynamiteClient {
 
 // coverage:ignore-end
     const _path = '/index.php/apps/notes/api/v1/settings';
-    return _i1.DynamiteRawResponse<Settings, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Settings),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getSettings_Serializer();
+    return _i1.ResponseConverter<Settings, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$updateSettings_Request`.
@@ -694,11 +682,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [updateSettingsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Settings, void>> updateSettings({required Settings settings}) async {
-    final rawResponse = updateSettingsRaw(
+    final _rawResponse = await updateSettingsRaw(
       settings: settings,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -712,7 +700,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [updateSettings] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Settings, void> updateSettingsRaw({required Settings settings}) {
+  Future<_i1.DynamiteRawResponse<Settings, void>> updateSettingsRaw({required Settings settings}) async {
     final _headers = <String, String>{'Accept': 'application/json'};
     Uint8List? _body;
 
@@ -736,18 +724,16 @@ class $Client extends _i1.DynamiteClient {
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(_$jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))));
     const _path = '/index.php/apps/notes/api/v1/settings';
-    return _i1.DynamiteRawResponse<Settings, void>(
-      response: executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        body: _body,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Settings),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      body: _body,
+      validStatuses: const {200},
     );
+
+    final _serializer = $updateSettings_Serializer();
+    return _i1.ResponseConverter<Settings, void>(_serializer).convert(_response);
   }
 }
 

@@ -77,28 +77,26 @@ class RequestManager {
     required Account account,
     required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
-    required DynamiteRawResponse<B, H> rawResponse,
+    required FutureOr<DynamiteRawResponse<B, H>> rawResponse,
     required DynamiteSerializer<B, H> serializer,
     required UnwrapCallback<T, DynamiteResponse<B, H>> unwrap,
     bool disableTimeout = false,
   }) async =>
-      wrap<T, DynamiteRawResponse<B, H>>(
+      wrap<T, DynamiteResponse<B, H>>(
         account: account,
         cacheKey: cacheKey,
         subject: subject,
-        request: () async {
-          await rawResponse.future;
+        request: () async => rawResponse,
+        unwrap: (rawResponse) => unwrap(rawResponse),
+        serialize: (data) {
+          const encoder = RawResponseEncoder();
 
-          return rawResponse;
+          return json.encode(encoder.convert(data as DynamiteRawResponse));
         },
-        unwrap: (rawResponse) => unwrap(rawResponse.response),
-        serialize: (data) => json.encode(data),
-        deserialize: (data) => DynamiteRawResponse<B, H>.fromJson(
-          json.decode(data) as Map<String, Object?>,
-          serializers: rawResponse.serializers,
-          bodyType: rawResponse.bodyType,
-          headersType: rawResponse.headersType,
-        ),
+        deserialize: (data) {
+          final decoder = RawResponseDecoder<B, H>(serializer);
+          return decoder.convert(json.decode(data) as Map<String, dynamic>);
+        },
         disableTimeout: disableTimeout,
       );
 
@@ -127,37 +125,29 @@ class RequestManager {
     required Account account,
     required String cacheKey,
     required AsyncValueGetter<CacheParameters> getCacheParameters,
-    required DynamiteRawResponse<Uint8List, dynamic> rawResponse,
+    required AsyncValueGetter<DynamiteResponse<Uint8List, dynamic>> rawResponse,
     required UnwrapCallback<Uint8List, Uint8List>? unwrap,
     required BehaviorSubject<Result<Uint8List>> subject,
     bool disableTimeout = false,
   }) async =>
-      wrap<Uint8List, DynamiteRawResponse<Uint8List, dynamic>>(
+      wrap<Uint8List, DynamiteResponse<Uint8List, dynamic>>(
         account: account,
         cacheKey: cacheKey,
         subject: subject,
-        request: () async {
-          await rawResponse.future;
-          return rawResponse;
-        },
+        request: rawResponse,
         unwrap: (rawResponse) {
-          var data = rawResponse.response.body;
+          var data = rawResponse.body;
           if (unwrap != null) {
             data = unwrap(data);
           }
 
           return data;
         },
-        serialize: (rawResponse) => base64.encode(rawResponse.response.body),
-        deserialize: (data) => DynamiteRawResponse<Uint8List, Map<String, String>>.fromJson(
-          {
-            'statusCode': 200,
-            'body': base64.decode(data),
-            'headers': <String, String>{},
-          },
-          bodyType: const FullType(Uint8List),
-          headersType: const FullType(Map, [FullType(String), FullType(String)]),
-          serializers: Serializers(),
+        serialize: (response) => base64.encode(response.body),
+        deserialize: (data) => DynamiteResponse(
+          200,
+          base64.decode(data),
+          null,
         ),
         getCacheParameters: getCacheParameters,
         disableTimeout: disableTimeout,
@@ -172,6 +162,12 @@ class RequestManager {
   }) {
     final headers = account.getAuthorizationHeaders(uri);
 
+    final serializer = DynamiteSerializer<Uint8List, Map<String, String>>(
+      bodyType: const FullType(Uint8List),
+      headersType: const FullType(Map, [FullType(String), FullType(String)]),
+      serializers: Serializers(),
+    );
+
     return wrapBinary(
       account: account,
       cacheKey: uri.toString(),
@@ -184,17 +180,16 @@ class RequestManager {
 
         return CacheParameters.parseHeaders(response.headers);
       },
-      rawResponse: DynamiteRawResponse<Uint8List, Map<String, String>>(
-        response: account.client.executeRawRequest(
+      rawResponse: () async {
+        final response = await account.client.executeRawRequest(
           'GET',
           uri,
           headers: headers,
           validStatuses: const {200, 201},
-        ),
-        bodyType: const FullType(Uint8List),
-        headersType: const FullType(Map, [FullType(String), FullType(String)]),
-        serializers: Serializers(),
-      ),
+        );
+
+        return ResponseConverter<Uint8List, Map<String, String>>(serializer).convert(response);
+      },
       unwrap: unwrap,
       subject: subject,
     );
@@ -294,8 +289,8 @@ class RequestManager {
         final serialized = serialize(response);
 
         CacheParameters? cacheParameters;
-        if (response is DynamiteRawResponse && response.rawHeaders != null) {
-          cacheParameters = CacheParameters.parseHeaders(response.rawHeaders!);
+        if (response case DynamiteRawResponse(:final rawHeaders) when rawHeaders != null) {
+          cacheParameters = CacheParameters.parseHeaders(rawHeaders);
         }
 
         await _cache?.set(key, serialized, cacheParameters);

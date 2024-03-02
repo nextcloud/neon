@@ -84,12 +84,12 @@ class $WeatherStatusClient {
     required int mode,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setModeRaw(
+    final _rawResponse = await setModeRaw(
       mode: mode,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address.
@@ -109,10 +109,10 @@ class $WeatherStatusClient {
   /// See:
   ///  * [setMode] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void> setModeRaw({
+  Future<_i1.DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void>> setModeRaw({
     required int mode,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -141,17 +141,15 @@ class $WeatherStatusClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/mode{?mode*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(WeatherStatusSetModeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setMode_Serializer();
+    return _i1.ResponseConverter<WeatherStatusSetModeResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$usePersonalAddress_Request`.
@@ -179,11 +177,11 @@ class $WeatherStatusClient {
   Future<_i1.DynamiteResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>> usePersonalAddress({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = usePersonalAddressRaw(
+    final _rawResponse = await usePersonalAddressRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Try to use the address set in user personal settings as weather location.
@@ -202,9 +200,9 @@ class $WeatherStatusClient {
   /// See:
   ///  * [usePersonalAddress] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
+  Future<_i1.DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>> usePersonalAddressRaw({
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -229,17 +227,16 @@ class $WeatherStatusClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/use-personal';
-    return _i1.DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $usePersonalAddress_Serializer();
+    return _i1.ResponseConverter<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getLocation_Request`.
@@ -267,11 +264,11 @@ class $WeatherStatusClient {
   Future<_i1.DynamiteResponse<WeatherStatusGetLocationResponseApplicationJson, void>> getLocation({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getLocationRaw(
+    final _rawResponse = await getLocationRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get stored user location.
@@ -290,7 +287,9 @@ class $WeatherStatusClient {
   /// See:
   ///  * [getLocation] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>> getLocationRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -315,17 +314,15 @@ class $WeatherStatusClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/location';
-    return _i1.DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(WeatherStatusGetLocationResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getLocation_Serializer();
+    return _i1.ResponseConverter<WeatherStatusGetLocationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$setLocation_Request`.
@@ -359,14 +356,14 @@ class $WeatherStatusClient {
     double? lon,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setLocationRaw(
+    final _rawResponse = await setLocationRaw(
       address: address,
       lat: lat,
       lon: lon,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding.
@@ -388,12 +385,12 @@ class $WeatherStatusClient {
   /// See:
   ///  * [setLocation] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void> setLocationRaw({
+  Future<_i1.DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void>> setLocationRaw({
     String? address,
     double? lat,
     double? lon,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -429,17 +426,15 @@ class $WeatherStatusClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location{?address*,lat*,lon*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(WeatherStatusSetLocationResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setLocation_Serializer();
+    return _i1.ResponseConverter<WeatherStatusSetLocationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getForecast_Request`.
@@ -468,11 +463,11 @@ class $WeatherStatusClient {
   Future<_i1.DynamiteResponse<WeatherStatusGetForecastResponseApplicationJson, void>> getForecast({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getForecastRaw(
+    final _rawResponse = await getForecastRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get forecast for current location.
@@ -492,7 +487,9 @@ class $WeatherStatusClient {
   /// See:
   ///  * [getForecast] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>> getForecastRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -517,17 +514,15 @@ class $WeatherStatusClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/forecast';
-    return _i1.DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(WeatherStatusGetForecastResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getForecast_Serializer();
+    return _i1.ResponseConverter<WeatherStatusGetForecastResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getFavorites_Request`.
@@ -555,11 +550,11 @@ class $WeatherStatusClient {
   Future<_i1.DynamiteResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>> getFavorites({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getFavoritesRaw(
+    final _rawResponse = await getFavoritesRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get favorites list.
@@ -578,9 +573,9 @@ class $WeatherStatusClient {
   /// See:
   ///  * [getFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({
+  Future<_i1.DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>> getFavoritesRaw({
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -605,17 +600,16 @@ class $WeatherStatusClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
-    return _i1.DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getFavorites_Serializer();
+    return _i1.ResponseConverter<WeatherStatusGetFavoritesResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$setFavorites_Request`.
@@ -645,12 +639,12 @@ class $WeatherStatusClient {
     required BuiltList<String> favorites,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setFavoritesRaw(
+    final _rawResponse = await setFavoritesRaw(
       favorites: favorites,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set favorites list.
@@ -670,10 +664,10 @@ class $WeatherStatusClient {
   /// See:
   ///  * [setFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void> setFavoritesRaw({
+  Future<_i1.DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>> setFavoritesRaw({
     required BuiltList<String> favorites,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -704,17 +698,16 @@ class $WeatherStatusClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites{?favorites%5B%5D*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setFavorites_Serializer();
+    return _i1.ResponseConverter<WeatherStatusSetFavoritesResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 

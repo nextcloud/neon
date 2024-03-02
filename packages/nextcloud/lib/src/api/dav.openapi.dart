@@ -90,13 +90,13 @@ class $DirectClient {
     required int expirationTime,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getUrlRaw(
+    final _rawResponse = await getUrlRaw(
       fileId: fileId,
       expirationTime: expirationTime,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get a direct link to a file.
@@ -120,11 +120,11 @@ class $DirectClient {
   /// See:
   ///  * [getUrl] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
+  Future<_i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>> getUrlRaw({
     required int fileId,
     required int expirationTime,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -156,17 +156,15 @@ class $DirectClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectGetUrlResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getUrl_Serializer();
+    return _i1.ResponseConverter<DirectGetUrlResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -205,12 +203,12 @@ class $OutOfOfficeClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getCurrentOutOfOfficeDataRaw(
+    final _rawResponse = await getCurrentOutOfOfficeDataRaw(
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the currently configured out-of-office data of a user.
@@ -231,11 +229,11 @@ class $OutOfOfficeClient {
   /// See:
   ///  * [getCurrentOutOfOfficeData] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>
+  Future<_i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>>
       getCurrentOutOfOfficeDataRaw({
     required String userId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -264,17 +262,16 @@ class $OutOfOfficeClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
-    return _i1.DynamiteRawResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getCurrentOutOfOfficeData_Serializer();
+    return _i1.ResponseConverter<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$getOutOfOffice_Request`.
@@ -305,12 +302,12 @@ class $OutOfOfficeClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getOutOfOfficeRaw(
+    final _rawResponse = await getOutOfOfficeRaw(
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the configured out-of-office data of a user.
@@ -331,10 +328,10 @@ class $OutOfOfficeClient {
   /// See:
   ///  * [getOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void> getOutOfOfficeRaw({
+  Future<_i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>> getOutOfOfficeRaw({
     required String userId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -363,17 +360,16 @@ class $OutOfOfficeClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getOutOfOffice_Serializer();
+    return _i1.ResponseConverter<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$setOutOfOffice_Request`.
@@ -413,7 +409,7 @@ class $OutOfOfficeClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setOutOfOfficeRaw(
+    final _rawResponse = await setOutOfOfficeRaw(
       firstDay: firstDay,
       lastDay: lastDay,
       status: status,
@@ -422,7 +418,7 @@ class $OutOfOfficeClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set out-of-office absence.
@@ -448,14 +444,14 @@ class $OutOfOfficeClient {
   /// See:
   ///  * [setOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void> setOutOfOfficeRaw({
+  Future<_i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>> setOutOfOfficeRaw({
     required String firstDay,
     required String lastDay,
     required String status,
     required String message,
     required String userId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -498,17 +494,16 @@ class $OutOfOfficeClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}{?firstDay*,lastDay*,status*,message*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setOutOfOffice_Serializer();
+    return _i1.ResponseConverter<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$clearOutOfOffice_Request`.
@@ -539,12 +534,12 @@ class $OutOfOfficeClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = clearOutOfOfficeRaw(
+    final _rawResponse = await clearOutOfOfficeRaw(
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Clear the out-of-office.
@@ -565,10 +560,10 @@ class $OutOfOfficeClient {
   /// See:
   ///  * [clearOutOfOffice] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void> clearOutOfOfficeRaw({
+  Future<_i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>> clearOutOfOfficeRaw({
     required String userId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -597,20 +592,19 @@ class $OutOfOfficeClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          401,
-        },
-      ),
-      bodyType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        401,
+      },
     );
+
+    final _serializer = $clearOutOfOffice_Serializer();
+    return _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 

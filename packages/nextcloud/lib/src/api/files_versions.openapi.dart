@@ -89,14 +89,14 @@ class $PreviewClient {
     int? y,
     String? version,
   }) async {
-    final rawResponse = getPreviewRaw(
+    final _rawResponse = await getPreviewRaw(
       file: file,
       x: x,
       y: y,
       version: version,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the preview for a file version.
@@ -120,12 +120,12 @@ class $PreviewClient {
   /// See:
   ///  * [getPreview] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getPreviewRaw({
+  Future<_i1.DynamiteRawResponse<Uint8List, void>> getPreviewRaw({
     String? file,
     int? x,
     int? y,
     String? version,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': '*/*'};
 
@@ -163,17 +163,15 @@ class $PreviewClient {
     _parameters['version'] = $version;
 
     final _path = _i3.UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getPreview_Serializer();
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 }
 

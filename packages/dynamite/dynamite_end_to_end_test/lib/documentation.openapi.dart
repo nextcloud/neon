@@ -89,12 +89,12 @@ class $Client extends _i1.DynamiteClient {
     BuiltList<String>? tags,
     int? limit,
   }) async {
-    final rawResponse = findValuesRaw(
+    final _rawResponse = await findValuesRaw(
       tags: tags,
       limit: limit,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// An optional, string summary, intended to apply to all operations in this path.
@@ -120,10 +120,10 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [findValues] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Object1, void> findValuesRaw({
+  Future<_i1.DynamiteRawResponse<Object1, void>> findValuesRaw({
     BuiltList<String>? tags,
     int? limit,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{'Accept': 'application/json'};
 
@@ -134,16 +134,14 @@ class $Client extends _i1.DynamiteClient {
     _parameters['limit'] = $limit;
 
     final _path = _i3.UriTemplate('/{?tags*,limit*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Object1, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-      ),
-      bodyType: const FullType(Object1),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
     );
+
+    final _serializer = $findValues_Serializer();
+    return _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
   }
 }
 
@@ -173,9 +171,9 @@ class $NonRootClientClient {
   /// See:
   ///  * [setModeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Object1, void>> setMode() async {
-    final rawResponse = setModeRaw();
+    final _rawResponse = await setModeRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Do something really cool.
@@ -191,20 +189,18 @@ class $NonRootClientClient {
   /// See:
   ///  * [setMode] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Object1, void> setModeRaw() {
+  Future<_i1.DynamiteRawResponse<Object1, void>> setModeRaw() async {
     const _headers = <String, String>{'Accept': 'application/json'};
 
     const _path = '/other-endpoint';
-    return _i1.DynamiteRawResponse<Object1, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-      ),
-      bodyType: const FullType(Object1),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
     );
+
+    final _serializer = $setMode_Serializer();
+    return _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
   }
 }
 

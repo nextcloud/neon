@@ -98,13 +98,13 @@ class $ApiClient {
     required int y,
     required String file,
   }) async {
-    final rawResponse = getThumbnailRaw(
+    final _rawResponse = await getThumbnailRaw(
       x: x,
       y: y,
       file: file,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Gets a thumbnail of the specified file.
@@ -127,11 +127,11 @@ class $ApiClient {
   /// See:
   ///  * [getThumbnail] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getThumbnailRaw({
+  Future<_i1.DynamiteRawResponse<Uint8List, void>> getThumbnailRaw({
     required int x,
     required int y,
     required String file,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': '*/*'};
 
@@ -167,17 +167,15 @@ class $ApiClient {
     _parameters['file'] = $file;
 
     final _path = _i4.UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getThumbnail_Serializer();
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 }
 
@@ -209,11 +207,11 @@ class $DirectEditingClient {
   /// See:
   ///  * [infoRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<DirectEditingInfoResponseApplicationJson, void>> info({bool? oCSAPIRequest}) async {
-    final rawResponse = infoRaw(
+    final _rawResponse = await infoRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the direct editing capabilities.
@@ -232,7 +230,7 @@ class $DirectEditingClient {
   /// See:
   ///  * [info] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>> infoRaw({bool? oCSAPIRequest}) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -257,17 +255,15 @@ class $DirectEditingClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files/api/v1/directEditing';
-    return _i1.DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $info_Serializer();
+    return _i1.ResponseConverter<DirectEditingInfoResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$templates_Request`.
@@ -300,13 +296,13 @@ class $DirectEditingClient {
     required String creatorId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = templatesRaw(
+    final _rawResponse = await templatesRaw(
       editorId: editorId,
       creatorId: creatorId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the templates for direct editing.
@@ -328,11 +324,11 @@ class $DirectEditingClient {
   /// See:
   ///  * [templates] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void> templatesRaw({
+  Future<_i1.DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void>> templatesRaw({
     required String editorId,
     required String creatorId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -365,17 +361,15 @@ class $DirectEditingClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $templates_Serializer();
+    return _i1.ResponseConverter<DirectEditingTemplatesResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$open_Request`.
@@ -410,14 +404,14 @@ class $DirectEditingClient {
     int? fileId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = openRaw(
+    final _rawResponse = await openRaw(
       path: path,
       editorId: editorId,
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Open a file for direct editing.
@@ -441,12 +435,12 @@ class $DirectEditingClient {
   /// See:
   ///  * [open] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void> openRaw({
+  Future<_i1.DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void>> openRaw({
     required String path,
     String? editorId,
     int? fileId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -482,17 +476,15 @@ class $DirectEditingClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $open_Serializer();
+    return _i1.ResponseConverter<DirectEditingOpenResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$create_Request`.
@@ -530,7 +522,7 @@ class $DirectEditingClient {
     String? templateId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = createRaw(
+    final _rawResponse = await createRaw(
       path: path,
       editorId: editorId,
       creatorId: creatorId,
@@ -538,7 +530,7 @@ class $DirectEditingClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Create a file for direct editing.
@@ -563,13 +555,13 @@ class $DirectEditingClient {
   /// See:
   ///  * [create] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void> createRaw({
+  Future<_i1.DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void>> createRaw({
     required String path,
     required String editorId,
     required String creatorId,
     String? templateId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -609,17 +601,15 @@ class $DirectEditingClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $create_Serializer();
+    return _i1.ResponseConverter<DirectEditingCreateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -657,12 +647,12 @@ class $OpenLocalEditorClient {
     required String path,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = createRaw(
+    final _rawResponse = await createRaw(
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Create a local editor.
@@ -683,10 +673,10 @@ class $OpenLocalEditorClient {
   /// See:
   ///  * [create] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void> createRaw({
+  Future<_i1.DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void>> createRaw({
     required String path,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -715,17 +705,15 @@ class $OpenLocalEditorClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $create_Serializer();
+    return _i1.ResponseConverter<OpenLocalEditorCreateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$validate_Request`.
@@ -758,13 +746,13 @@ class $OpenLocalEditorClient {
     required String token,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = validateRaw(
+    final _rawResponse = await validateRaw(
       path: path,
       token: token,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Validate a local editor.
@@ -786,11 +774,11 @@ class $OpenLocalEditorClient {
   /// See:
   ///  * [validate] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void> validateRaw({
+  Future<_i1.DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void>> validateRaw({
     required String path,
     required String token,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -822,17 +810,15 @@ class $OpenLocalEditorClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $validate_Serializer();
+    return _i1.ResponseConverter<OpenLocalEditorValidateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -864,11 +850,11 @@ class $TemplateClient {
   /// See:
   ///  * [listRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<TemplateListResponseApplicationJson, void>> list({bool? oCSAPIRequest}) async {
-    final rawResponse = listRaw(
+    final _rawResponse = await listRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// List the available templates.
@@ -887,7 +873,7 @@ class $TemplateClient {
   /// See:
   ///  * [list] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<TemplateListResponseApplicationJson, void>> listRaw({bool? oCSAPIRequest}) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -912,17 +898,15 @@ class $TemplateClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files/api/v1/templates';
-    return _i1.DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(TemplateListResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $list_Serializer();
+    return _i1.ResponseConverter<TemplateListResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$create_Request`.
@@ -956,14 +940,14 @@ class $TemplateClient {
     String? templateType,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = createRaw(
+    final _rawResponse = await createRaw(
       filePath: filePath,
       templatePath: templatePath,
       templateType: templateType,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Create a template.
@@ -986,12 +970,12 @@ class $TemplateClient {
   /// See:
   ///  * [create] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<TemplateCreateResponseApplicationJson, void> createRaw({
+  Future<_i1.DynamiteRawResponse<TemplateCreateResponseApplicationJson, void>> createRaw({
     required String filePath,
     String? templatePath,
     String? templateType,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1030,17 +1014,15 @@ class $TemplateClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<TemplateCreateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(TemplateCreateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $create_Serializer();
+    return _i1.ResponseConverter<TemplateCreateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$path_Request`.
@@ -1072,13 +1054,13 @@ class $TemplateClient {
     TemplatePathCopySystemTemplates? copySystemTemplates,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = pathRaw(
+    final _rawResponse = await pathRaw(
       templatePath: templatePath,
       copySystemTemplates: copySystemTemplates,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Initialize the template directory.
@@ -1100,11 +1082,11 @@ class $TemplateClient {
   /// See:
   ///  * [path] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<TemplatePathResponseApplicationJson, void> pathRaw({
+  Future<_i1.DynamiteRawResponse<TemplatePathResponseApplicationJson, void>> pathRaw({
     String? templatePath,
     TemplatePathCopySystemTemplates? copySystemTemplates,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1142,17 +1124,15 @@ class $TemplateClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<TemplatePathResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(TemplatePathResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $path_Serializer();
+    return _i1.ResponseConverter<TemplatePathResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -1193,13 +1173,13 @@ class $TransferOwnershipClient {
     required String path,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = transferRaw(
+    final _rawResponse = await transferRaw(
       recipient: recipient,
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Transfer the ownership to another user.
@@ -1222,11 +1202,11 @@ class $TransferOwnershipClient {
   /// See:
   ///  * [transfer] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void> transferRaw({
+  Future<_i1.DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void>> transferRaw({
     required String recipient,
     required String path,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1259,21 +1239,20 @@ class $TransferOwnershipClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          403,
-        },
-      ),
-      bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        403,
+      },
     );
+
+    final _serializer = $transfer_Serializer();
+    return _i1.ResponseConverter<TransferOwnershipTransferResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$accept_Request`.
@@ -1305,12 +1284,12 @@ class $TransferOwnershipClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = acceptRaw(
+    final _rawResponse = await acceptRaw(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Accept an ownership transfer.
@@ -1332,10 +1311,10 @@ class $TransferOwnershipClient {
   /// See:
   ///  * [accept] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void> acceptRaw({
+  Future<_i1.DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void>> acceptRaw({
     required int id,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1364,21 +1343,19 @@ class $TransferOwnershipClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        403,
+        404,
+      },
     );
+
+    final _serializer = $accept_Serializer();
+    return _i1.ResponseConverter<TransferOwnershipAcceptResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of `$reject_Request`.
@@ -1410,12 +1387,12 @@ class $TransferOwnershipClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = rejectRaw(
+    final _rawResponse = await rejectRaw(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Reject an ownership transfer.
@@ -1437,10 +1414,10 @@ class $TransferOwnershipClient {
   /// See:
   ///  * [reject] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void> rejectRaw({
+  Future<_i1.DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void>> rejectRaw({
     required int id,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1469,21 +1446,19 @@ class $TransferOwnershipClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        403,
+        404,
+      },
     );
+
+    final _serializer = $reject_Serializer();
+    return _i1.ResponseConverter<TransferOwnershipRejectResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
