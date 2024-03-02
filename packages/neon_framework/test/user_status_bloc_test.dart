@@ -229,6 +229,8 @@ void main() {
   });
 
   test('Set predefined message', () async {
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
     final clearAt = DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000;
     bloc.setPredefinedMessage(
       id: 'predefined',

@@ -10,10 +10,11 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:built_value/standard_json_plugin.dart' as _i5;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/built_value.dart' as _i4;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
 
 class $Client extends _i1.DynamiteClient {
@@ -36,7 +37,7 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
-  /// Builds a serializer to parse the response of `$noAuthentication_Request`.
+  /// Builds a serializer to parse the response of [$noAuthentication_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $noAuthentication_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(JsonObject),
@@ -45,6 +46,24 @@ class $Client extends _i1.DynamiteClient {
         validStatuses: const {200},
       );
 
+  /// Returns a `DynamiteRequest` backing the [noAuthentication] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [noAuthentication] for a method executing this request and parsing the response.
+  ///  * [$noAuthentication_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $noAuthentication_Request() {
+    const _path = '/';
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    return _request;
+  }
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -52,39 +71,18 @@ class $Client extends _i1.DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [noAuthenticationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$noAuthentication_Request] for the request send by this method.
+  ///  * [$noAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> noAuthentication() async {
-    final _rawResponse = await noAuthenticationRaw();
+    final _request = $noAuthentication_Request();
+    final _response = await sendWithCookies(_request);
 
+    final _serializer = $noAuthentication_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [noAuthentication] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<JsonObject, void>> noAuthenticationRaw() async {
-    const _headers = <String, String>{'Accept': 'application/json'};
-
-    const _path = '/';
-    final _response = await executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $noAuthentication_Serializer();
-    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$basicAuthentication_Request`.
+  /// Builds a serializer to parse the response of [$basicAuthentication_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $basicAuthentication_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(JsonObject),
@@ -93,34 +91,21 @@ class $Client extends _i1.DynamiteClient {
         validStatuses: const {200},
       );
 
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [basicAuthentication] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [basicAuthenticationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<JsonObject, void>> basicAuthentication() async {
-    final _rawResponse = await basicAuthenticationRaw();
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [basicAuthentication] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [basicAuthentication] for a method executing this request and parsing the response.
+  ///  * [$basicAuthentication_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<JsonObject, void>> basicAuthenticationRaw() async {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
+  _i3.Request $basicAuthentication_Request() {
+    const _path = '/basic';
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -130,7 +115,7 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -138,25 +123,8 @@ class $Client extends _i1.DynamiteClient {
     }
 
 // coverage:ignore-end
-    const _path = '/basic';
-    final _response = await executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $basicAuthentication_Serializer();
-    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    return _request;
   }
-
-  /// Builds a serializer to parse the response of `$bearerAuthentication_Request`.
-  @_i2.experimental
-  _i1.DynamiteSerializer<JsonObject, void> $bearerAuthentication_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -165,27 +133,41 @@ class $Client extends _i1.DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [bearerAuthenticationRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<JsonObject, void>> bearerAuthentication() async {
-    final _rawResponse = await bearerAuthenticationRaw();
+  ///  * [$basicAuthentication_Request] for the request send by this method.
+  ///  * [$basicAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<JsonObject, void>> basicAuthentication() async {
+    final _request = $basicAuthentication_Request();
+    final _response = await sendWithCookies(_request);
 
+    final _serializer = $basicAuthentication_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Builds a serializer to parse the response of [$bearerAuthentication_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $bearerAuthentication_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [bearerAuthentication] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [bearerAuthentication] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [bearerAuthentication] for a method executing this request and parsing the response.
+  ///  * [$bearerAuthentication_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<JsonObject, void>> bearerAuthenticationRaw() async {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
+  _i3.Request $bearerAuthentication_Request() {
+    const _path = '/bearer';
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -195,7 +177,7 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -203,25 +185,8 @@ class $Client extends _i1.DynamiteClient {
     }
 
 // coverage:ignore-end
-    const _path = '/bearer';
-    final _response = await executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $bearerAuthentication_Serializer();
-    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    return _request;
   }
-
-  /// Builds a serializer to parse the response of `$multipleAuthentications_Request`.
-  @_i2.experimental
-  _i1.DynamiteSerializer<JsonObject, void> $multipleAuthentications_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -230,27 +195,41 @@ class $Client extends _i1.DynamiteClient {
   ///   * 200
   ///
   /// See:
-  ///  * [multipleAuthenticationsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<JsonObject, void>> multipleAuthentications() async {
-    final _rawResponse = await multipleAuthenticationsRaw();
+  ///  * [$bearerAuthentication_Request] for the request send by this method.
+  ///  * [$bearerAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<JsonObject, void>> bearerAuthentication() async {
+    final _request = $bearerAuthentication_Request();
+    final _response = await sendWithCookies(_request);
 
+    final _serializer = $bearerAuthentication_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Builds a serializer to parse the response of [$multipleAuthentications_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $multipleAuthentications_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [multipleAuthentications] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200
   ///
   /// See:
-  ///  * [multipleAuthentications] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [multipleAuthentications] for a method executing this request and parsing the response.
+  ///  * [$multipleAuthentications_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<JsonObject, void>> multipleAuthenticationsRaw() async {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
+  _i3.Request $multipleAuthentications_Request() {
+    const _path = '/multiple';
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -260,7 +239,7 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -268,15 +247,25 @@ class $Client extends _i1.DynamiteClient {
     }
 
 // coverage:ignore-end
-    const _path = '/multiple';
-    final _response = await executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$multipleAuthentications_Request] for the request send by this method.
+  ///  * [$multipleAuthentications_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<JsonObject, void>> multipleAuthentications() async {
+    final _request = $multipleAuthentications_Request();
+    final _response = await sendWithCookies(_request);
 
     final _serializer = $multipleAuthentications_Serializer();
-    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -296,9 +285,9 @@ final Serializers _$serializers = Serializers();
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
+      ..add(_i4.DynamiteDoubleSerializer())
+      ..addPlugin(_i5.StandardJsonPlugin())
+      ..addPlugin(const _i4.HeaderPlugin())
+      ..addPlugin(const _i4.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

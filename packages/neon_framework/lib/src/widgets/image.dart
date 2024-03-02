@@ -20,7 +20,7 @@ import 'package:rxdart/rxdart.dart';
 typedef ErrorWidgetBuilder = Widget? Function(BuildContext context, Object? error);
 
 /// The signature of a function downloading image data from a the nextcloud api through [client].
-typedef ApiImageDownloader = FutureOr<DynamiteRawResponse<Uint8List, dynamic>> Function(NextcloudClient client);
+typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>> Function(NextcloudClient client);
 
 /// A widget painting an Image.
 ///

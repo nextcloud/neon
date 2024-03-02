@@ -77,7 +77,7 @@ class RequestManager {
     required Account account,
     required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
-    required FutureOr<DynamiteRawResponse<B, H>> rawResponse,
+    required http.BaseRequest request,
     required DynamiteSerializer<B, H> serializer,
     required UnwrapCallback<T, DynamiteResponse<B, H>> unwrap,
     bool disableTimeout = false,
@@ -86,7 +86,10 @@ class RequestManager {
         account: account,
         cacheKey: cacheKey,
         subject: subject,
-        request: () async => rawResponse,
+        request: () async {
+          final response = await account.client.sendWithCookies(request);
+          return ResponseConverter<B, H>(serializer).convert(response);
+        },
         unwrap: (rawResponse) => unwrap(rawResponse),
         serialize: (data) {
           const encoder = RawResponseEncoder();

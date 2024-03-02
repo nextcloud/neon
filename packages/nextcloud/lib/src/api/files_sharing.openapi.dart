@@ -21,13 +21,14 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i6;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i4;
+import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
+import 'package:uri/uri.dart' as _i5;
 
 part 'files_sharing.openapi.g.dart';
 
@@ -70,7 +71,7 @@ class $DeletedShareapiClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$index_Request`.
+  /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<DeletedShareapiIndexResponseApplicationJson, void> $index_Serializer() =>
       _i1.DynamiteSerializer(
@@ -82,6 +83,50 @@ class $DeletedShareapiClient {
 
   /// Get a list of all deleted shares.
   ///
+  /// Returns a `DynamiteRequest` backing the [index] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Deleted shares returned
+  ///
+  /// See:
+  ///  * [index] for a method executing this request and parsing the response.
+  ///  * [$index_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $index_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get a list of all deleted shares.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -92,69 +137,21 @@ class $DeletedShareapiClient {
   ///   * 200: Deleted shares returned
   ///
   /// See:
-  ///  * [indexRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$index_Request] for the request send by this method.
+  ///  * [$index_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DeletedShareapiIndexResponseApplicationJson, void>> index({bool? oCSAPIRequest}) async {
-    final _rawResponse = await indexRaw(
+    final _request = $index_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $index_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<DeletedShareapiIndexResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get a list of all deleted shares.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Deleted shares returned
-  ///
-  /// See:
-  ///  * [index] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<DeletedShareapiIndexResponseApplicationJson, void>> indexRaw({
-    bool? oCSAPIRequest,
-  }) async {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $index_Serializer();
-    return _i1.ResponseConverter<DeletedShareapiIndexResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$undelete_Request`.
+  /// Builds a serializer to parse the response of [$undelete_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<DeletedShareapiUndeleteResponseApplicationJson, void> $undelete_Serializer() =>
       _i1.DynamiteSerializer(
@@ -166,6 +163,59 @@ class $DeletedShareapiClient {
 
   /// Undelete a deleted share.
   ///
+  /// Returns a `DynamiteRequest` backing the [undelete] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share undeleted successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [undelete] for a method executing this request and parsing the response.
+  ///  * [$undelete_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $undelete_Request({
+    required String id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = $id;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Undelete a deleted share.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -178,77 +228,22 @@ class $DeletedShareapiClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [undeleteRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$undelete_Request] for the request send by this method.
+  ///  * [$undelete_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DeletedShareapiUndeleteResponseApplicationJson, void>> undelete({
     required String id,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await undeleteRaw(
+    final _request = $undelete_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Undelete a deleted share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share undeleted successfully
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [undelete] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void>> undeleteRaw({
-    required String id,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'post',
-      _path,
-      headers: _headers,
-    );
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $undelete_Serializer();
-    return _i1.ResponseConverter<DeletedShareapiUndeleteResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = await _i1.ResponseConverter<DeletedShareapiUndeleteResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -258,7 +253,7 @@ class $PublicPreviewClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$directLink_Request`.
+  /// Builds a serializer to parse the response of [$directLink_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $directLink_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(Uint8List),
@@ -269,6 +264,51 @@ class $PublicPreviewClient {
 
   /// Get a direct link preview for a shared file.
   ///
+  /// Returns a `DynamiteRequest` backing the [directLink] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the share.
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Share or preview not found
+  ///
+  /// See:
+  ///  * [directLink] for a method executing this request and parsing the response.
+  ///  * [$directLink_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $directLink_Request({required String token}) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _parameters['token'] = $token;
+
+    final _path = _i5.UriTemplate('/index.php/s/{token}/preview').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Get a direct link preview for a shared file.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -282,68 +322,20 @@ class $PublicPreviewClient {
   ///   * 404: Share or preview not found
   ///
   /// See:
-  ///  * [directLinkRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$directLink_Request] for the request send by this method.
+  ///  * [$directLink_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> directLink({required String token}) async {
-    final _rawResponse = await directLinkRaw(
+    final _request = $directLink_Request(
       token: token,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $directLink_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get a direct link preview for a shared file.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [token] Token of the share.
-  ///
-  /// Status codes:
-  ///   * 200: Preview returned
-  ///   * 400: Getting preview is not possible
-  ///   * 403: Getting preview is not allowed
-  ///   * 404: Share or preview not found
-  ///
-  /// See:
-  ///  * [directLink] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<Uint8List, void>> directLinkRaw({required String token}) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': '*/*'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _parameters['token'] = $token;
-
-    final _path = _i4.UriTemplate('/index.php/s/{token}/preview').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $directLink_Serializer();
-    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$getPreview_Request`.
+  /// Builds a serializer to parse the response of [$getPreview_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(Uint8List),
@@ -354,7 +346,7 @@ class $PublicPreviewClient {
 
   /// Get a preview for a shared file.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [getPreview] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -371,73 +363,17 @@ class $PublicPreviewClient {
   ///   * 404: Share or preview not found
   ///
   /// See:
-  ///  * [getPreviewRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
-    required String token,
-    String? file,
-    int? x,
-    int? y,
-    PublicPreviewGetPreviewA? a,
-  }) async {
-    final _rawResponse = await getPreviewRaw(
-      token: token,
-      file: file,
-      x: x,
-      y: y,
-      a: a,
-    );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Get a preview for a shared file.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [file] File in the share. Defaults to `''`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
-  ///   * [token] Token of the share.
-  ///
-  /// Status codes:
-  ///   * 200: Preview returned
-  ///   * 400: Getting preview is not possible
-  ///   * 403: Getting preview is not allowed
-  ///   * 404: Share or preview not found
-  ///
-  /// See:
-  ///  * [getPreview] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [getPreview] for a method executing this request and parsing the response.
+  ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<Uint8List, void>> getPreviewRaw({
+  _i3.Request $getPreview_Request({
     required String token,
     String? file,
     int? x,
     int? y,
     PublicPreviewGetPreviewA? a,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': '*/*'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
+  }) {
+    final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
@@ -458,15 +394,68 @@ class $PublicPreviewClient {
     _parameters['a'] = $a;
 
     final _path =
-        _i4.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
+        _i5.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
 
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Get a preview for a shared file.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] File in the share. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [token] Token of the share.
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Share or preview not found
+  ///
+  /// See:
+  ///  * [$getPreview_Request] for the request send by this method.
+  ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
+    required String token,
+    String? file,
+    int? x,
+    int? y,
+    PublicPreviewGetPreviewA? a,
+  }) async {
+    final _request = $getPreview_Request(
+      token: token,
+      file: file,
+      x: x,
+      y: y,
+      a: a,
+    );
+    final _response = await _rootClient.sendWithCookies(_request);
+
     final _serializer = $getPreview_Serializer();
-    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -476,7 +465,7 @@ class $RemoteClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$getShares_Request`.
+  /// Builds a serializer to parse the response of [$getShares_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RemoteGetSharesResponseApplicationJson, void> $getShares_Serializer() =>
       _i1.DynamiteSerializer(
@@ -488,6 +477,50 @@ class $RemoteClient {
 
   /// Get a list of accepted remote shares.
   ///
+  /// Returns a `DynamiteRequest` backing the [getShares] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Accepted remote shares returned
+  ///
+  /// See:
+  ///  * [getShares] for a method executing this request and parsing the response.
+  ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getShares_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get a list of accepted remote shares.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -498,69 +531,21 @@ class $RemoteClient {
   ///   * 200: Accepted remote shares returned
   ///
   /// See:
-  ///  * [getSharesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getShares_Request] for the request send by this method.
+  ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RemoteGetSharesResponseApplicationJson, void>> getShares({bool? oCSAPIRequest}) async {
-    final _rawResponse = await getSharesRaw(
+    final _request = $getShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $getShares_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RemoteGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get a list of accepted remote shares.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Accepted remote shares returned
-  ///
-  /// See:
-  ///  * [getShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void>> getSharesRaw({
-    bool? oCSAPIRequest,
-  }) async {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $getShares_Serializer();
-    return _i1.ResponseConverter<RemoteGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$getOpenShares_Request`.
+  /// Builds a serializer to parse the response of [$getOpenShares_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RemoteGetOpenSharesResponseApplicationJson, void> $getOpenShares_Serializer() =>
       _i1.DynamiteSerializer(
@@ -572,6 +557,50 @@ class $RemoteClient {
 
   /// Get list of pending remote shares.
   ///
+  /// Returns a `DynamiteRequest` backing the [getOpenShares] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Pending remote shares returned
+  ///
+  /// See:
+  ///  * [getOpenShares] for a method executing this request and parsing the response.
+  ///  * [$getOpenShares_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getOpenShares_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get list of pending remote shares.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -582,71 +611,23 @@ class $RemoteClient {
   ///   * 200: Pending remote shares returned
   ///
   /// See:
-  ///  * [getOpenSharesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getOpenShares_Request] for the request send by this method.
+  ///  * [$getOpenShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RemoteGetOpenSharesResponseApplicationJson, void>> getOpenShares({
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await getOpenSharesRaw(
+    final _request = $getOpenShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $getOpenShares_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RemoteGetOpenSharesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get list of pending remote shares.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Pending remote shares returned
-  ///
-  /// See:
-  ///  * [getOpenShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void>> getOpenSharesRaw({
-    bool? oCSAPIRequest,
-  }) async {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $getOpenShares_Serializer();
-    return _i1.ResponseConverter<RemoteGetOpenSharesResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$acceptShare_Request`.
+  /// Builds a serializer to parse the response of [$acceptShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RemoteAcceptShareResponseApplicationJson, void> $acceptShare_Serializer() =>
       _i1.DynamiteSerializer(
@@ -658,6 +639,60 @@ class $RemoteClient {
 
   /// Accept a remote share.
   ///
+  /// Returns a `DynamiteRequest` backing the [acceptShare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share accepted successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [acceptShare] for a method executing this request and parsing the response.
+  ///  * [$acceptShare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $acceptShare_Request({
+    required int id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Accept a remote share.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -670,81 +705,25 @@ class $RemoteClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [acceptShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$acceptShare_Request] for the request send by this method.
+  ///  * [$acceptShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RemoteAcceptShareResponseApplicationJson, void>> acceptShare({
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await acceptShareRaw(
+    final _request = $acceptShare_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $acceptShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RemoteAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Accept a remote share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share accepted successfully
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [acceptShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void>> acceptShareRaw({
-    required int id,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'post',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $acceptShare_Serializer();
-    return _i1.ResponseConverter<RemoteAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$declineShare_Request`.
+  /// Builds a serializer to parse the response of [$declineShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RemoteDeclineShareResponseApplicationJson, void> $declineShare_Serializer() =>
       _i1.DynamiteSerializer(
@@ -756,6 +735,60 @@ class $RemoteClient {
 
   /// Decline a remote share.
   ///
+  /// Returns a `DynamiteRequest` backing the [declineShare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share declined successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [declineShare] for a method executing this request and parsing the response.
+  ///  * [$declineShare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $declineShare_Request({
+    required int id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Decline a remote share.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -768,81 +801,25 @@ class $RemoteClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [declineShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$declineShare_Request] for the request send by this method.
+  ///  * [$declineShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RemoteDeclineShareResponseApplicationJson, void>> declineShare({
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await declineShareRaw(
+    final _request = $declineShare_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $declineShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RemoteDeclineShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Decline a remote share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share declined successfully
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [declineShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void>> declineShareRaw({
-    required int id,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'delete',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $declineShare_Serializer();
-    return _i1.ResponseConverter<RemoteDeclineShareResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$getShare_Request`.
+  /// Builds a serializer to parse the response of [$getShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RemoteGetShareResponseApplicationJson, void> $getShare_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(RemoteGetShareResponseApplicationJson),
@@ -853,6 +830,59 @@ class $RemoteClient {
 
   /// Get info of a remote share.
   ///
+  /// Returns a `DynamiteRequest` backing the [getShare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share returned
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [getShare] for a method executing this request and parsing the response.
+  ///  * [$getShare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getShare_Request({
+    required int id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get info of a remote share.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -865,80 +895,25 @@ class $RemoteClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [getShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getShare_Request] for the request send by this method.
+  ///  * [$getShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RemoteGetShareResponseApplicationJson, void>> getShare({
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await getShareRaw(
+    final _request = $getShare_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $getShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RemoteGetShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get info of a remote share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share returned
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [getShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void>> getShareRaw({
-    required int id,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $getShare_Serializer();
-    return _i1.ResponseConverter<RemoteGetShareResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$unshare_Request`.
+  /// Builds a serializer to parse the response of [$unshare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RemoteUnshareResponseApplicationJson, void> $unshare_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(RemoteUnshareResponseApplicationJson),
@@ -949,6 +924,60 @@ class $RemoteClient {
 
   /// Unshare a remote share.
   ///
+  /// Returns a `DynamiteRequest` backing the [unshare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share unshared successfully
+  ///   * 404: Share not found
+  ///   * 403: Unsharing is not possible
+  ///
+  /// See:
+  ///  * [unshare] for a method executing this request and parsing the response.
+  ///  * [$unshare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $unshare_Request({
+    required int id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Unshare a remote share.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -962,78 +991,22 @@ class $RemoteClient {
   ///   * 403: Unsharing is not possible
   ///
   /// See:
-  ///  * [unshareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$unshare_Request] for the request send by this method.
+  ///  * [$unshare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RemoteUnshareResponseApplicationJson, void>> unshare({
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await unshareRaw(
+    final _request = $unshare_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Unshare a remote share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share unshared successfully
-  ///   * 404: Share not found
-  ///   * 403: Unsharing is not possible
-  ///
-  /// See:
-  ///  * [unshare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void>> unshareRaw({
-    required int id,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'delete',
-      _path,
-      headers: _headers,
-    );
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $unshare_Serializer();
-    return _i1.ResponseConverter<RemoteUnshareResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse =
+        await _i1.ResponseConverter<RemoteUnshareResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -1043,7 +1016,7 @@ class $ShareInfoClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$info_Request`.
+  /// Builds a serializer to parse the response of [$info_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareInfo, void> $info_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(ShareInfo),
@@ -1054,7 +1027,7 @@ class $ShareInfoClient {
 
   /// Get the info about a share.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [info] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1069,68 +1042,16 @@ class $ShareInfoClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [infoRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<ShareInfo, void>> info({
-    required String t,
-    String? password,
-    String? dir,
-    int? depth,
-  }) async {
-    final _rawResponse = await infoRaw(
-      t: t,
-      password: password,
-      dir: dir,
-      depth: depth,
-    );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Get the info about a share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [t] Token of the share.
-  ///   * [password] Password of the share.
-  ///   * [dir] Subdirectory to get info about.
-  ///   * [depth] Maximum depth to get info about. Defaults to `-1`.
-  ///
-  /// Status codes:
-  ///   * 200: Share info returned
-  ///   * 403: Getting share info is not allowed
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [info] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [info] for a method executing this request and parsing the response.
+  ///  * [$info_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareInfo, void>> infoRaw({
+  _i3.Request $info_Request({
     required String t,
     String? password,
     String? dir,
     int? depth,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
+  }) {
+    final _parameters = <String, Object?>{};
     final $t = _$jsonSerializers.serialize(t, specifiedType: const FullType(String));
     _parameters['t'] = $t;
 
@@ -1145,15 +1066,64 @@ class $ShareInfoClient {
     _parameters['depth'] = $depth;
 
     final _path =
-        _i4.UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'post',
-      _path,
-      headers: _headers,
+        _i5.UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
 
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Get the info about a share.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [t] Token of the share.
+  ///   * [password] Password of the share.
+  ///   * [dir] Subdirectory to get info about.
+  ///   * [depth] Maximum depth to get info about. Defaults to `-1`.
+  ///
+  /// Status codes:
+  ///   * 200: Share info returned
+  ///   * 403: Getting share info is not allowed
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [$info_Request] for the request send by this method.
+  ///  * [$info_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ShareInfo, void>> info({
+    required String t,
+    String? password,
+    String? dir,
+    int? depth,
+  }) async {
+    final _request = $info_Request(
+      t: t,
+      password: password,
+      dir: dir,
+      depth: depth,
+    );
+    final _response = await _rootClient.sendWithCookies(_request);
+
     final _serializer = $info_Serializer();
-    return _i1.ResponseConverter<ShareInfo, void>(_serializer).convert(_response);
+    final _rawResponse = await _i1.ResponseConverter<ShareInfo, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -1163,7 +1133,7 @@ class $ShareapiClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$getShares_Request`.
+  /// Builds a serializer to parse the response of [$getShares_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiGetSharesResponseApplicationJson, void> $getShares_Serializer() =>
       _i1.DynamiteSerializer(
@@ -1175,7 +1145,7 @@ class $ShareapiClient {
 
   /// Get shares of the current user.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [getShares] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1191,77 +1161,18 @@ class $ShareapiClient {
   ///   * 404: The folder was not found or is inaccessible
   ///
   /// See:
-  ///  * [getSharesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<ShareapiGetSharesResponseApplicationJson, void>> getShares({
-    String? sharedWithMe,
-    String? reshares,
-    String? subfiles,
-    String? path,
-    String? includeTags,
-    bool? oCSAPIRequest,
-  }) async {
-    final _rawResponse = await getSharesRaw(
-      sharedWithMe: sharedWithMe,
-      reshares: reshares,
-      subfiles: subfiles,
-      path: path,
-      includeTags: includeTags,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Get shares of the current user.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `false`.
-  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `false`.
-  ///   * [subfiles] Only get all shares in a folder. Defaults to `false`.
-  ///   * [path] Get shares for a specific path. Defaults to `''`.
-  ///   * [includeTags] Include tags in the share. Defaults to `false`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Shares returned
-  ///   * 404: The folder was not found or is inaccessible
-  ///
-  /// See:
-  ///  * [getShares] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [getShares] for a method executing this request and parsing the response.
+  ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareapiGetSharesResponseApplicationJson, void>> getSharesRaw({
+  _i3.Request $getShares_Request({
     String? sharedWithMe,
     String? reshares,
     String? subfiles,
     String? path,
     String? includeTags,
     bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+  }) {
+    final _parameters = <String, Object?>{};
     var $sharedWithMe = _$jsonSerializers.serialize(sharedWithMe, specifiedType: const FullType(String));
     $sharedWithMe ??= 'false';
     _parameters['shared_with_me'] = $sharedWithMe;
@@ -1282,24 +1193,81 @@ class $ShareapiClient {
     $includeTags ??= 'false';
     _parameters['include_tags'] = $includeTags;
 
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate(
+    final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?shared_with_me*,reshares*,subfiles*,path*,include_tags*}',
     ).expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
 
-    final _serializer = $getShares_Serializer();
-    return _i1.ResponseConverter<ShareapiGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
   }
 
-  /// Builds a serializer to parse the response of `$createShare_Request`.
+  /// Get shares of the current user.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `false`.
+  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `false`.
+  ///   * [subfiles] Only get all shares in a folder. Defaults to `false`.
+  ///   * [path] Get shares for a specific path. Defaults to `''`.
+  ///   * [includeTags] Include tags in the share. Defaults to `false`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Shares returned
+  ///   * 404: The folder was not found or is inaccessible
+  ///
+  /// See:
+  ///  * [$getShares_Request] for the request send by this method.
+  ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ShareapiGetSharesResponseApplicationJson, void>> getShares({
+    String? sharedWithMe,
+    String? reshares,
+    String? subfiles,
+    String? path,
+    String? includeTags,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getShares_Request(
+      sharedWithMe: sharedWithMe,
+      reshares: reshares,
+      subfiles: subfiles,
+      path: path,
+      includeTags: includeTags,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.sendWithCookies(_request);
+
+    final _serializer = $getShares_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareapiGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$createShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiCreateShareResponseApplicationJson, void> $createShare_Serializer() =>
       _i1.DynamiteSerializer(
@@ -1311,7 +1279,7 @@ class $ShareapiClient {
 
   /// Create a share.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [createShare] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1335,70 +1303,10 @@ class $ShareapiClient {
   ///   * 404: Creating the share failed
   ///
   /// See:
-  ///  * [createShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<ShareapiCreateShareResponseApplicationJson, void>> createShare({
-    String? path,
-    int? permissions,
-    int? shareType,
-    String? shareWith,
-    String? publicUpload,
-    String? password,
-    String? sendPasswordByTalk,
-    String? expireDate,
-    String? note,
-    String? label,
-    String? attributes,
-    bool? oCSAPIRequest,
-  }) async {
-    final _rawResponse = await createShareRaw(
-      path: path,
-      permissions: permissions,
-      shareType: shareType,
-      shareWith: shareWith,
-      publicUpload: publicUpload,
-      password: password,
-      sendPasswordByTalk: sendPasswordByTalk,
-      expireDate: expireDate,
-      note: note,
-      label: label,
-      attributes: attributes,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Create a share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [path] Path of the share.
-  ///   * [permissions] Permissions for the share.
-  ///   * [shareType] Type of the share. Defaults to `-1`.
-  ///   * [shareWith] The entity this should be shared with.
-  ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
-  ///   * [password] Password for the share. Defaults to `''`.
-  ///   * [sendPasswordByTalk] Send the password for the share over Talk.
-  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `''`.
-  ///   * [note] Note for the share. Defaults to `''`.
-  ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
-  ///   * [attributes] Additional attributes for the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share created
-  ///   * 400: Unknown share type
-  ///   * 403: Creating the share is not allowed
-  ///   * 404: Creating the share failed
-  ///
-  /// See:
-  ///  * [createShare] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [createShare] for a method executing this request and parsing the response.
+  ///  * [$createShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareapiCreateShareResponseApplicationJson, void>> createShareRaw({
+  _i3.Request $createShare_Request({
     String? path,
     int? permissions,
     int? shareType,
@@ -1411,27 +1319,8 @@ class $ShareapiClient {
     String? label,
     String? attributes,
     bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+  }) {
+    final _parameters = <String, Object?>{};
     final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
     _parameters['path'] = $path;
 
@@ -1471,24 +1360,101 @@ class $ShareapiClient {
     final $attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
     _parameters['attributes'] = $attributes;
 
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate(
+    final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?path*,permissions*,shareType*,shareWith*,publicUpload*,password*,sendPasswordByTalk*,expireDate*,note*,label*,attributes*}',
     ).expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'post',
-      _path,
-      headers: _headers,
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
 
-    final _serializer = $createShare_Serializer();
-    return _i1.ResponseConverter<ShareapiCreateShareResponseApplicationJson, void>(_serializer).convert(_response);
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
   }
 
-  /// Builds a serializer to parse the response of `$getInheritedShares_Request`.
+  /// Create a share.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path of the share.
+  ///   * [permissions] Permissions for the share.
+  ///   * [shareType] Type of the share. Defaults to `-1`.
+  ///   * [shareWith] The entity this should be shared with.
+  ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
+  ///   * [password] Password for the share. Defaults to `''`.
+  ///   * [sendPasswordByTalk] Send the password for the share over Talk.
+  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `''`.
+  ///   * [note] Note for the share. Defaults to `''`.
+  ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
+  ///   * [attributes] Additional attributes for the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share created
+  ///   * 400: Unknown share type
+  ///   * 403: Creating the share is not allowed
+  ///   * 404: Creating the share failed
+  ///
+  /// See:
+  ///  * [$createShare_Request] for the request send by this method.
+  ///  * [$createShare_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ShareapiCreateShareResponseApplicationJson, void>> createShare({
+    String? path,
+    int? permissions,
+    int? shareType,
+    String? shareWith,
+    String? publicUpload,
+    String? password,
+    String? sendPasswordByTalk,
+    String? expireDate,
+    String? note,
+    String? label,
+    String? attributes,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $createShare_Request(
+      path: path,
+      permissions: permissions,
+      shareType: shareType,
+      shareWith: shareWith,
+      publicUpload: publicUpload,
+      password: password,
+      sendPasswordByTalk: sendPasswordByTalk,
+      expireDate: expireDate,
+      note: note,
+      label: label,
+      attributes: attributes,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.sendWithCookies(_request);
+
+    final _serializer = $createShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareapiCreateShareResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getInheritedShares_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiGetInheritedSharesResponseApplicationJson, void> $getInheritedShares_Serializer() =>
       _i1.DynamiteSerializer(
@@ -1500,6 +1466,60 @@ class $ShareapiClient {
 
   /// Get all shares relative to a file, including parent folders shares rights.
   ///
+  /// Returns a `DynamiteRequest` backing the [getInheritedShares] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] Path all shares will be relative to.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Shares returned
+  ///   * 500
+  ///   * 404: The given path is invalid
+  ///
+  /// See:
+  ///  * [getInheritedShares] for a method executing this request and parsing the response.
+  ///  * [$getInheritedShares_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getInheritedShares_Request({
+    required String path,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = $path;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get all shares relative to a file, including parent folders shares rights.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1513,82 +1533,26 @@ class $ShareapiClient {
   ///   * 404: The given path is invalid
   ///
   /// See:
-  ///  * [getInheritedSharesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getInheritedShares_Request] for the request send by this method.
+  ///  * [$getInheritedShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>> getInheritedShares({
     required String path,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await getInheritedSharesRaw(
+    final _request = $getInheritedShares_Request(
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $getInheritedShares_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareapiGetInheritedSharesResponseApplicationJson, void>(_serializer)
+            .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get all shares relative to a file, including parent folders shares rights.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [path] Path all shares will be relative to.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Shares returned
-  ///   * 500
-  ///   * 404: The given path is invalid
-  ///
-  /// See:
-  ///  * [getInheritedShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>> getInheritedSharesRaw({
-    required String path,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $getInheritedShares_Serializer();
-    return _i1.ResponseConverter<ShareapiGetInheritedSharesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$pendingShares_Request`.
+  /// Builds a serializer to parse the response of [$pendingShares_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiPendingSharesResponseApplicationJson, void> $pendingShares_Serializer() =>
       _i1.DynamiteSerializer(
@@ -1600,6 +1564,50 @@ class $ShareapiClient {
 
   /// Get all shares that are still pending.
   ///
+  /// Returns a `DynamiteRequest` backing the [pendingShares] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Pending shares returned
+  ///
+  /// See:
+  ///  * [pendingShares] for a method executing this request and parsing the response.
+  ///  * [$pendingShares_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $pendingShares_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get all shares that are still pending.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1610,71 +1618,23 @@ class $ShareapiClient {
   ///   * 200: Pending shares returned
   ///
   /// See:
-  ///  * [pendingSharesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$pendingShares_Request] for the request send by this method.
+  ///  * [$pendingShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiPendingSharesResponseApplicationJson, void>> pendingShares({
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await pendingSharesRaw(
+    final _request = $pendingShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $pendingShares_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareapiPendingSharesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get all shares that are still pending.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Pending shares returned
-  ///
-  /// See:
-  ///  * [pendingShares] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void>> pendingSharesRaw({
-    bool? oCSAPIRequest,
-  }) async {
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $pendingShares_Serializer();
-    return _i1.ResponseConverter<ShareapiPendingSharesResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$getShare_Request`.
+  /// Builds a serializer to parse the response of [$getShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiGetShareResponseApplicationJson, void> $getShare_Serializer() =>
       _i1.DynamiteSerializer(
@@ -1686,6 +1646,67 @@ class $ShareapiClient {
 
   /// Get a specific share by id.
   ///
+  /// Returns a `DynamiteRequest` backing the [getShare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [includeTags] Include tags in the share. Defaults to `0`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share returned
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [getShare] for a method executing this request and parsing the response.
+  ///  * [$getShare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getShare_Request({
+    required String id,
+    ShareapiGetShareIncludeTags? includeTags,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = $id;
+
+    var $includeTags =
+        _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(ShareapiGetShareIncludeTags));
+    $includeTags ??= 0;
+    _parameters['include_tags'] = $includeTags;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get a specific share by id.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1699,90 +1720,27 @@ class $ShareapiClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [getShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getShare_Request] for the request send by this method.
+  ///  * [$getShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiGetShareResponseApplicationJson, void>> getShare({
     required String id,
     ShareapiGetShareIncludeTags? includeTags,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await getShareRaw(
+    final _request = $getShare_Request(
       id: id,
       includeTags: includeTags,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $getShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareapiGetShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get a specific share by id.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [includeTags] Include tags in the share. Defaults to `0`.
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share returned
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [getShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void>> getShareRaw({
-    required String id,
-    ShareapiGetShareIncludeTags? includeTags,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
-
-    var $includeTags =
-        _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(ShareapiGetShareIncludeTags));
-    $includeTags ??= 0;
-    _parameters['include_tags'] = $includeTags;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $getShare_Serializer();
-    return _i1.ResponseConverter<ShareapiGetShareResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$updateShare_Request`.
+  /// Builds a serializer to parse the response of [$updateShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiUpdateShareResponseApplicationJson, void> $updateShare_Serializer() =>
       _i1.DynamiteSerializer(
@@ -1794,7 +1752,7 @@ class $ShareapiClient {
 
   /// Update a share.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [updateShare] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -1817,67 +1775,10 @@ class $ShareapiClient {
   ///   * 404: Share not found
   ///
   /// See:
-  ///  * [updateShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<ShareapiUpdateShareResponseApplicationJson, void>> updateShare({
-    required String id,
-    int? permissions,
-    String? password,
-    String? sendPasswordByTalk,
-    String? publicUpload,
-    String? expireDate,
-    String? note,
-    String? label,
-    String? hideDownload,
-    String? attributes,
-    bool? oCSAPIRequest,
-  }) async {
-    final _rawResponse = await updateShareRaw(
-      id: id,
-      permissions: permissions,
-      password: password,
-      sendPasswordByTalk: sendPasswordByTalk,
-      publicUpload: publicUpload,
-      expireDate: expireDate,
-      note: note,
-      label: label,
-      hideDownload: hideDownload,
-      attributes: attributes,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Update a share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [permissions] New permissions.
-  ///   * [password] New password.
-  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk.
-  ///   * [publicUpload] New condition if public uploading is allowed.
-  ///   * [expireDate] New expiry date.
-  ///   * [note] New note.
-  ///   * [label] New label.
-  ///   * [hideDownload] New condition if the download should be hidden.
-  ///   * [attributes] New additional attributes.
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share updated successfully
-  ///   * 400: Share could not be updated because the requested changes are invalid
-  ///   * 403: Missing permissions to update the share
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [updateShare] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [updateShare] for a method executing this request and parsing the response.
+  ///  * [$updateShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareapiUpdateShareResponseApplicationJson, void>> updateShareRaw({
+  _i3.Request $updateShare_Request({
     required String id,
     int? permissions,
     String? password,
@@ -1889,27 +1790,8 @@ class $ShareapiClient {
     String? hideDownload,
     String? attributes,
     bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+  }) {
+    final _parameters = <String, Object?>{};
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = $id;
 
@@ -1940,24 +1822,98 @@ class $ShareapiClient {
     final $attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
     _parameters['attributes'] = $attributes;
 
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate(
+    final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?permissions*,password*,sendPasswordByTalk*,publicUpload*,expireDate*,note*,label*,hideDownload*,attributes*}',
     ).expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'put',
-      _path,
-      headers: _headers,
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('put', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
 
-    final _serializer = $updateShare_Serializer();
-    return _i1.ResponseConverter<ShareapiUpdateShareResponseApplicationJson, void>(_serializer).convert(_response);
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
   }
 
-  /// Builds a serializer to parse the response of `$deleteShare_Request`.
+  /// Update a share.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [permissions] New permissions.
+  ///   * [password] New password.
+  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk.
+  ///   * [publicUpload] New condition if public uploading is allowed.
+  ///   * [expireDate] New expiry date.
+  ///   * [note] New note.
+  ///   * [label] New label.
+  ///   * [hideDownload] New condition if the download should be hidden.
+  ///   * [attributes] New additional attributes.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share updated successfully
+  ///   * 400: Share could not be updated because the requested changes are invalid
+  ///   * 403: Missing permissions to update the share
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [$updateShare_Request] for the request send by this method.
+  ///  * [$updateShare_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ShareapiUpdateShareResponseApplicationJson, void>> updateShare({
+    required String id,
+    int? permissions,
+    String? password,
+    String? sendPasswordByTalk,
+    String? publicUpload,
+    String? expireDate,
+    String? note,
+    String? label,
+    String? hideDownload,
+    String? attributes,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $updateShare_Request(
+      id: id,
+      permissions: permissions,
+      password: password,
+      sendPasswordByTalk: sendPasswordByTalk,
+      publicUpload: publicUpload,
+      expireDate: expireDate,
+      note: note,
+      label: label,
+      hideDownload: hideDownload,
+      attributes: attributes,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.sendWithCookies(_request);
+
+    final _serializer = $updateShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareapiUpdateShareResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$deleteShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiDeleteShareResponseApplicationJson, void> $deleteShare_Serializer() =>
       _i1.DynamiteSerializer(
@@ -1969,6 +1925,60 @@ class $ShareapiClient {
 
   /// Delete a share.
   ///
+  /// Returns a `DynamiteRequest` backing the [deleteShare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share deleted successfully
+  ///   * 404: Share not found
+  ///   * 403: Missing permissions to delete the share
+  ///
+  /// See:
+  ///  * [deleteShare] for a method executing this request and parsing the response.
+  ///  * [$deleteShare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $deleteShare_Request({
+    required String id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = $id;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Delete a share.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1982,81 +1992,25 @@ class $ShareapiClient {
   ///   * 403: Missing permissions to delete the share
   ///
   /// See:
-  ///  * [deleteShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$deleteShare_Request] for the request send by this method.
+  ///  * [$deleteShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiDeleteShareResponseApplicationJson, void>> deleteShare({
     required String id,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await deleteShareRaw(
+    final _request = $deleteShare_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $deleteShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareapiDeleteShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Delete a share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share deleted successfully
-  ///   * 404: Share not found
-  ///   * 403: Missing permissions to delete the share
-  ///
-  /// See:
-  ///  * [deleteShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void>> deleteShareRaw({
-    required String id,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'delete',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $deleteShare_Serializer();
-    return _i1.ResponseConverter<ShareapiDeleteShareResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$acceptShare_Request`.
+  /// Builds a serializer to parse the response of [$acceptShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiAcceptShareResponseApplicationJson, void> $acceptShare_Serializer() =>
       _i1.DynamiteSerializer(
@@ -2068,6 +2022,60 @@ class $ShareapiClient {
 
   /// Accept a share.
   ///
+  /// Returns a `DynamiteRequest` backing the [acceptShare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Share accepted successfully
+  ///   * 404: Share not found
+  ///   * 400: Share could not be accepted
+  ///
+  /// See:
+  ///  * [acceptShare] for a method executing this request and parsing the response.
+  ///  * [$acceptShare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $acceptShare_Request({
+    required String id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = $id;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Accept a share.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2081,78 +2089,22 @@ class $ShareapiClient {
   ///   * 400: Share could not be accepted
   ///
   /// See:
-  ///  * [acceptShareRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$acceptShare_Request] for the request send by this method.
+  ///  * [$acceptShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiAcceptShareResponseApplicationJson, void>> acceptShare({
     required String id,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await acceptShareRaw(
+    final _request = $acceptShare_Request(
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Accept a share.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Share accepted successfully
-  ///   * 404: Share not found
-  ///   * 400: Share could not be accepted
-  ///
-  /// See:
-  ///  * [acceptShare] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void>> acceptShareRaw({
-    required String id,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'post',
-      _path,
-      headers: _headers,
-    );
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $acceptShare_Serializer();
-    return _i1.ResponseConverter<ShareapiAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareapiAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -2162,7 +2114,7 @@ class $ShareesapiClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$search_Request`.
+  /// Builds a serializer to parse the response of [$search_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>
       $search_Serializer() => _i1.DynamiteSerializer(
@@ -2174,7 +2126,7 @@ class $ShareesapiClient {
 
   /// Search for sharees.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [search] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -2191,54 +2143,10 @@ class $ShareesapiClient {
   ///   * 400: Invalid search parameters
   ///
   /// See:
-  ///  * [searchRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>> search({
-    String? search,
-    String? itemType,
-    int? page,
-    int? perPage,
-    ShareesapiSearchShareType? shareType,
-    ShareesapiSearchLookup? lookup,
-    bool? oCSAPIRequest,
-  }) async {
-    final _rawResponse = await searchRaw(
-      search: search,
-      itemType: itemType,
-      page: page,
-      perPage: perPage,
-      shareType: shareType,
-      lookup: lookup,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Search for sharees.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
-  ///   * [itemType] Limit to specific item types.
-  ///   * [page] Page offset for searching. Defaults to `1`.
-  ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
-  ///   * [shareType] Limit to specific share types.
-  ///   * [lookup] If a global lookup should be performed too. Defaults to `0`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Sharees search result returned
-  ///   * 400: Invalid search parameters
-  ///
-  /// See:
-  ///  * [search] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [search] for a method executing this request and parsing the response.
+  ///  * [$search_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>>
-      searchRaw({
+  _i3.Request $search_Request({
     String? search,
     String? itemType,
     int? page,
@@ -2246,27 +2154,8 @@ class $ShareesapiClient {
     ShareesapiSearchShareType? shareType,
     ShareesapiSearchLookup? lookup,
     bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
+  }) {
+    final _parameters = <String, Object?>{};
     var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
     $search ??= '';
     _parameters['search'] = $search;
@@ -2289,26 +2178,86 @@ class $ShareesapiClient {
     $lookup ??= 0;
     _parameters['lookup'] = $lookup;
 
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate(
+    final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/sharees{?search*,itemType*,page*,perPage*,shareType*,lookup*}',
     ).expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
     );
 
-    final _serializer = $search_Serializer();
-    return _i1.ResponseConverter<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
-      _serializer,
-    ).convert(_response);
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
   }
 
-  /// Builds a serializer to parse the response of `$findRecommended_Request`.
+  /// Search for sharees.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [itemType] Limit to specific item types.
+  ///   * [page] Page offset for searching. Defaults to `1`.
+  ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [lookup] If a global lookup should be performed too. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Sharees search result returned
+  ///   * 400: Invalid search parameters
+  ///
+  /// See:
+  ///  * [$search_Request] for the request send by this method.
+  ///  * [$search_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>> search({
+    String? search,
+    String? itemType,
+    int? page,
+    int? perPage,
+    ShareesapiSearchShareType? shareType,
+    ShareesapiSearchLookup? lookup,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $search_Request(
+      search: search,
+      itemType: itemType,
+      page: page,
+      perPage: perPage,
+      shareType: shareType,
+      lookup: lookup,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.sendWithCookies(_request);
+
+    final _serializer = $search_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
+      _serializer,
+    ).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$findRecommended_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareesapiFindRecommendedResponseApplicationJson, void> $findRecommended_Serializer() =>
       _i1.DynamiteSerializer(
@@ -2317,6 +2266,65 @@ class $ShareesapiClient {
         serializers: _$jsonSerializers,
         validStatuses: const {200},
       );
+
+  /// Find recommended sharees.
+  ///
+  /// Returns a `DynamiteRequest` backing the [findRecommended] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [itemType] Limit to specific item types.
+  ///   * [shareType] Limit to specific share types.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Recommended sharees returned
+  ///
+  /// See:
+  ///  * [findRecommended] for a method executing this request and parsing the response.
+  ///  * [$findRecommended_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $findRecommended_Request({
+    required String itemType,
+    ShareesapiFindRecommendedShareType? shareType,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
+    _parameters['itemType'] = $itemType;
+
+    final $shareType =
+        _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiFindRecommendedShareType));
+    _parameters['shareType'] = $shareType;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
 
   /// Find recommended sharees.
   ///
@@ -2332,86 +2340,25 @@ class $ShareesapiClient {
   ///   * 200: Recommended sharees returned
   ///
   /// See:
-  ///  * [findRecommendedRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$findRecommended_Request] for the request send by this method.
+  ///  * [$findRecommended_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareesapiFindRecommendedResponseApplicationJson, void>> findRecommended({
     required String itemType,
     ShareesapiFindRecommendedShareType? shareType,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await findRecommendedRaw(
+    final _request = $findRecommended_Request(
       itemType: itemType,
       shareType: shareType,
       oCSAPIRequest: oCSAPIRequest,
     );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Find recommended sharees.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [itemType] Limit to specific item types.
-  ///   * [shareType] Limit to specific share types.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Recommended sharees returned
-  ///
-  /// See:
-  ///  * [findRecommended] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void>> findRecommendedRaw({
-    required String itemType,
-    ShareesapiFindRecommendedShareType? shareType,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
-    _parameters['itemType'] = $itemType;
-
-    final $shareType =
-        _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiFindRecommendedShareType));
-    _parameters['shareType'] = $shareType;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
-        .expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $findRecommended_Serializer();
-    return _i1.ResponseConverter<ShareesapiFindRecommendedResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        await _i1.ResponseConverter<ShareesapiFindRecommendedResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -5842,13 +5789,13 @@ extension $07eaa0304017ba8abe7f9f20d6a736f3Extension on _$07eaa0304017ba8abe7f9f
   List<String> get _names => const ['builtListInt', r'$int'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i3.validateOneOf(
+  void validateOneOf() => _i4.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i3.validateAnyOf(
+  void validateAnyOf() => _i4.validateAnyOf(
         _values,
         _names,
       );
@@ -6247,9 +6194,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin(typesToLeaveAsList: const {_$07eaa0304017ba8abe7f9f20d6a736f3}))
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$07eaa0304017ba8abe7f9f20d6a736f3}))
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

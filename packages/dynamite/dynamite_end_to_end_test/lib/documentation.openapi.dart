@@ -25,12 +25,13 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i6;
-import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i4;
+import 'package:dynamite_runtime/utils.dart' as _i5;
+import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i3;
+import 'package:uri/uri.dart' as _i4;
 
 part 'documentation.openapi.g.dart';
 
@@ -57,7 +58,7 @@ class $Client extends _i1.DynamiteClient {
   /// the non root client used for other requests.
   late final $NonRootClientClient nonRootClient = $NonRootClientClient(this);
 
-  /// Builds a serializer to parse the response of `$findValues_Request`.
+  /// Builds a serializer to parse the response of [$findValues_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Object1, void> $findValues_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(Object1),
@@ -73,7 +74,7 @@ class $Client extends _i1.DynamiteClient {
   /// Sed tempus felis lobortis leo pulvinar rutrum. Nam mattis velit nisl, eu condimentum ligula luctus nec. Phasellus semper velit eget aliquet faucibus. In a mattis elit. Phasellus vel urna viverra, condimentum lorem id, rhoncus nibh. Ut pellentesque posuere elementum. Sed a varius odio. Morbi rhoncus ligula libero, vel eleifend nunc tristique vitae. Fusce et sem dui. Aenean nec scelerisque tortor. Fusce malesuada accumsan magna vel tempus. Quisque mollis felis eu dolor tristique, sit amet auctor felis gravida. Sed libero lorem, molestie sed nisl in, accumsan tempor nisi. Fusce sollicitudin massa ut lacinia mattis. Sed vel eleifend lorem. Pellentesque vitae felis pretium, pulvinar elit eu, euismod sapien.
   ///
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [findValues] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -84,17 +85,25 @@ class $Client extends _i1.DynamiteClient {
   ///   * default: finds an object
   ///
   /// See:
-  ///  * [findValuesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Object1, void>> findValues({
+  ///  * [findValues] for a method executing this request and parsing the response.
+  ///  * [$findValues_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $findValues_Request({
     BuiltList<String>? tags,
     int? limit,
-  }) async {
-    final _rawResponse = await findValuesRaw(
-      tags: tags,
-      limit: limit,
-    );
+  }) {
+    final _parameters = <String, Object?>{};
+    final $tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    _parameters['tags'] = $tags;
 
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = $limit;
+
+    final _path = _i4.UriTemplate('/{?tags*,limit*}').expand(_parameters);
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    return _request;
   }
 
   /// An optional, string summary, intended to apply to all operations in this path.
@@ -105,9 +114,7 @@ class $Client extends _i1.DynamiteClient {
   /// Sed tempus felis lobortis leo pulvinar rutrum. Nam mattis velit nisl, eu condimentum ligula luctus nec. Phasellus semper velit eget aliquet faucibus. In a mattis elit. Phasellus vel urna viverra, condimentum lorem id, rhoncus nibh. Ut pellentesque posuere elementum. Sed a varius odio. Morbi rhoncus ligula libero, vel eleifend nunc tristique vitae. Fusce et sem dui. Aenean nec scelerisque tortor. Fusce malesuada accumsan magna vel tempus. Quisque mollis felis eu dolor tristique, sit amet auctor felis gravida. Sed libero lorem, molestie sed nisl in, accumsan tempor nisi. Fusce sollicitudin massa ut lacinia mattis. Sed vel eleifend lorem. Pellentesque vitae felis pretium, pulvinar elit eu, euismod sapien.
   ///
   ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -118,30 +125,21 @@ class $Client extends _i1.DynamiteClient {
   ///   * default: finds an object
   ///
   /// See:
-  ///  * [findValues] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<Object1, void>> findValuesRaw({
+  ///  * [$findValues_Request] for the request send by this method.
+  ///  * [$findValues_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Object1, void>> findValues({
     BuiltList<String>? tags,
     int? limit,
   }) async {
-    final _parameters = <String, dynamic>{};
-    const _headers = <String, String>{'Accept': 'application/json'};
-
-    final $tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['tags'] = $tags;
-
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
-
-    final _path = _i3.UriTemplate('/{?tags*,limit*}').expand(_parameters);
-    final _response = await executeRequest(
-      'get',
-      _path,
-      headers: _headers,
+    final _request = $findValues_Request(
+      tags: tags,
+      limit: limit,
     );
+    final _response = await sendWithCookies(_request);
 
     final _serializer = $findValues_Serializer();
-    return _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
+    final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -152,13 +150,33 @@ class $NonRootClientClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$setMode_Request`.
+  /// Builds a serializer to parse the response of [$setMode_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Object1, void> $setMode_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(Object1),
         headersType: null,
         serializers: _$jsonSerializers,
       );
+
+  /// Do something really cool.
+  ///
+  /// Returns a `DynamiteRequest` backing the [setMode] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default: finds an object
+  ///
+  /// See:
+  ///  * [setMode] for a method executing this request and parsing the response.
+  ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $setMode_Request() {
+    const _path = '/other-endpoint';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    return _request;
+  }
 
   /// Do something really cool.
   ///
@@ -169,38 +187,15 @@ class $NonRootClientClient {
   ///   * default: finds an object
   ///
   /// See:
-  ///  * [setModeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$setMode_Request] for the request send by this method.
+  ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Object1, void>> setMode() async {
-    final _rawResponse = await setModeRaw();
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Do something really cool.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * default: finds an object
-  ///
-  /// See:
-  ///  * [setMode] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<Object1, void>> setModeRaw() async {
-    const _headers = <String, String>{'Accept': 'application/json'};
-
-    const _path = '/other-endpoint';
-    final _response = await _rootClient.executeRequest(
-      'post',
-      _path,
-      headers: _headers,
-    );
+    final _request = $setMode_Request();
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $setMode_Serializer();
-    return _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
+    final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -360,13 +355,13 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
   List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
+  void validateOneOf() => _i5.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
+  void validateAnyOf() => _i5.validateAnyOf(
         _values,
         _names,
       );
@@ -451,9 +446,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin(typesToLeaveAsList: const {_$b2c4857c0136baea42828d89c87c757d}))
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$b2c4857c0136baea42828d89c87c757d}))
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

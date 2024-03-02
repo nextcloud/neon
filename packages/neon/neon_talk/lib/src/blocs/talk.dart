@@ -63,7 +63,7 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
       account: account,
       cacheKey: 'talk-rooms',
       subject: rooms,
-      rawResponse: account.client.spreed.room.getRoomsRaw(),
+      request: account.client.spreed.room.$getRooms_Request(),
       serializer: account.client.spreed.room.$getRooms_Serializer(),
       unwrap: (response) => BuiltList(
         response.body.ocs.data.rebuild(

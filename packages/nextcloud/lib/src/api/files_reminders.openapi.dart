@@ -18,13 +18,14 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i6;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i4;
+import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
+import 'package:uri/uri.dart' as _i5;
 
 part 'files_reminders.openapi.g.dart';
 
@@ -57,7 +58,7 @@ class $ApiClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$$get_Request`.
+  /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiGetResponseApplicationJson, void> $$get_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(ApiGetResponseApplicationJson),
@@ -68,6 +69,69 @@ class $ApiClient {
 
   /// Get a reminder.
   ///
+  /// Returns a `DynamiteRequest` backing the [$get] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version]
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Reminder returned
+  ///   * 401: User not found
+  ///
+  /// See:
+  ///  * [$get] for a method executing this request and parsing the response.
+  ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $$get_Request({
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $version as String?,
+      RegExp(r'^1$'),
+      'version',
+    );
+    _parameters['version'] = $version;
+
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = $fileId;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get a reminder.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -81,92 +145,27 @@ class $ApiClient {
   ///   * 401: User not found
   ///
   /// See:
-  ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$$get_Request] for the request send by this method.
+  ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiGetResponseApplicationJson, void>> $get({
     required String version,
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await $getRaw(
+    final _request = $$get_Request(
       version: version,
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $$get_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ApiGetResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Get a reminder.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [version]
-  ///   * [fileId] ID of the file.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Reminder returned
-  ///   * 401: User not found
-  ///
-  /// See:
-  ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ApiGetResponseApplicationJson, void>> $getRaw({
-    required String version,
-    required int fileId,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i3.checkPattern(
-      $version as String?,
-      RegExp(r'^1$'),
-      'version',
-    );
-    _parameters['version'] = $version;
-
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $$get_Serializer();
-    return _i1.ResponseConverter<ApiGetResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$$set_Request`.
+  /// Builds a serializer to parse the response of [$$set_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiSetResponseApplicationJson, void> $$set_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(ApiSetResponseApplicationJson),
@@ -177,6 +176,78 @@ class $ApiClient {
 
   /// Set a reminder.
   ///
+  /// Returns a `DynamiteRequest` backing the [$set] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [dueDate] ISO 8601 formatted date time string.
+  ///   * [version]
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Reminder updated
+  ///   * 201: Reminder created successfully
+  ///   * 400: Creating reminder is not possible
+  ///   * 401: User not found
+  ///   * 404: File not found
+  ///
+  /// See:
+  ///  * [$set] for a method executing this request and parsing the response.
+  ///  * [$$set_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $$set_Request({
+    required String dueDate,
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $dueDate = _$jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
+    _parameters['dueDate'] = $dueDate;
+
+    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $version as String?,
+      RegExp(r'^1$'),
+      'version',
+    );
+    _parameters['version'] = $version;
+
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = $fileId;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('put', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Set a reminder.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -194,103 +265,29 @@ class $ApiClient {
   ///   * 404: File not found
   ///
   /// See:
-  ///  * [$setRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$$set_Request] for the request send by this method.
+  ///  * [$$set_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiSetResponseApplicationJson, void>> $set({
     required String dueDate,
     required String version,
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await $setRaw(
+    final _request = $$set_Request(
       dueDate: dueDate,
       version: version,
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
+    final _response = await _rootClient.sendWithCookies(_request);
 
+    final _serializer = $$set_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ApiSetResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Set a reminder.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [dueDate] ISO 8601 formatted date time string.
-  ///   * [version]
-  ///   * [fileId] ID of the file.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Reminder updated
-  ///   * 201: Reminder created successfully
-  ///   * 400: Creating reminder is not possible
-  ///   * 401: User not found
-  ///   * 404: File not found
-  ///
-  /// See:
-  ///  * [$set] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ApiSetResponseApplicationJson, void>> $setRaw({
-    required String dueDate,
-    required String version,
-    required int fileId,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $dueDate = _$jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
-    _parameters['dueDate'] = $dueDate;
-
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i3.checkPattern(
-      $version as String?,
-      RegExp(r'^1$'),
-      'version',
-    );
-    _parameters['version'] = $version;
-
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'put',
-      _path,
-      headers: _headers,
-    );
-
-    final _serializer = $$set_Serializer();
-    return _i1.ResponseConverter<ApiSetResponseApplicationJson, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of `$remove_Request`.
+  /// Builds a serializer to parse the response of [$remove_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiRemoveResponseApplicationJson, void> $remove_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(ApiRemoveResponseApplicationJson),
@@ -301,6 +298,70 @@ class $ApiClient {
 
   /// Remove a reminder.
   ///
+  /// Returns a `DynamiteRequest` backing the [remove] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version]
+  ///   * [fileId] ID of the file.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Reminder deleted successfully
+  ///   * 401: User not found
+  ///   * 404: Reminder not found
+  ///
+  /// See:
+  ///  * [remove] for a method executing this request and parsing the response.
+  ///  * [$remove_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $remove_Request({
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $version as String?,
+      RegExp(r'^1$'),
+      'version',
+    );
+    _parameters['version'] = $version;
+
+    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = $fileId;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Remove a reminder.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -315,90 +376,24 @@ class $ApiClient {
   ///   * 404: Reminder not found
   ///
   /// See:
-  ///  * [removeRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$remove_Request] for the request send by this method.
+  ///  * [$remove_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiRemoveResponseApplicationJson, void>> remove({
     required String version,
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await removeRaw(
+    final _request = $remove_Request(
       version: version,
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Remove a reminder.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [version]
-  ///   * [fileId] ID of the file.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Reminder deleted successfully
-  ///   * 401: User not found
-  ///   * 404: Reminder not found
-  ///
-  /// See:
-  ///  * [remove] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>> removeRaw({
-    required String version,
-    required int fileId,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i3.checkPattern(
-      $version as String?,
-      RegExp(r'^1$'),
-      'version',
-    );
-    _parameters['version'] = $version;
-
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'delete',
-      _path,
-      headers: _headers,
-    );
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $remove_Serializer();
-    return _i1.ResponseConverter<ApiRemoveResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse =
+        await _i1.ResponseConverter<ApiRemoveResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -739,9 +734,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(_i7.StandardJsonPlugin())
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end
