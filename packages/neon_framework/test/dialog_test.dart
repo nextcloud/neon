@@ -271,8 +271,8 @@ void main() {
       await tester.pumpWidget(
         TestApp(
           wrapMaterial: false,
-          child: NeonProvider<AccountsBloc>(
-            create: (_) => accountsBloc,
+          child: NeonProvider<AccountsBloc>.value(
+            value: accountsBloc,
             child: NeonUserStatusDialog(
               account: account,
               now: now,
@@ -419,8 +419,8 @@ void main() {
 
       final future = showDialog<AccountDeletion>(
         context: context,
-        builder: (context) => NeonProvider<AccountsBloc>(
-          create: (_) => accountsBloc,
+        builder: (context) => NeonProvider<AccountsBloc>.value(
+          value: accountsBloc,
           child: NeonAccountDeletionDialog(
             account: account,
           ),
@@ -470,8 +470,8 @@ void main() {
 
         final future = showDialog<AccountDeletion>(
           context: context,
-          builder: (context) => NeonProvider<AccountsBloc>(
-            create: (_) => accountsBloc,
+          builder: (context) => NeonProvider<AccountsBloc>.value(
+            value: accountsBloc,
             child: NeonAccountDeletionDialog(
               account: account,
             ),
@@ -523,8 +523,8 @@ void main() {
 
         final future = showDialog<AccountDeletion>(
           context: context,
-          builder: (context) => NeonProvider<AccountsBloc>(
-            create: (_) => accountsBloc,
+          builder: (context) => NeonProvider<AccountsBloc>.value(
+            value: accountsBloc,
             child: NeonAccountDeletionDialog(
               account: account,
             ),

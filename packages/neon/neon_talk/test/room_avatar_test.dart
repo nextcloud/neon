@@ -15,8 +15,8 @@ import 'package:rxdart/subjects.dart';
 class MockRoom extends Mock implements spreed.Room {}
 
 Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => MaterialApp(
-      home: NeonProvider<AccountsBloc>(
-        create: (_) => accountsBloc,
+      home: NeonProvider<AccountsBloc>.value(
+        value: accountsBloc,
         child: child,
       ),
     );

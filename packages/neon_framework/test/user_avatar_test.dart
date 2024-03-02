@@ -50,8 +50,8 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           localizationsDelegates: NeonLocalizations.localizationsDelegates,
-          home: NeonProvider<AccountsBloc>(
-            create: (_) => accountsBloc,
+          home: NeonProvider<AccountsBloc>.value(
+            value: accountsBloc,
             child: NeonUserAvatar(
               showStatus: withStatus,
             ),
