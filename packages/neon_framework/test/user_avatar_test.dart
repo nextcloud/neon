@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/l10n/localizations.dart';
-import 'package:neon_framework/src/testing/mocks.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/user_avatar.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
@@ -48,9 +47,8 @@ void main() {
       when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
 
       await tester.pumpWidget(
-        MaterialApp(
-          localizationsDelegates: NeonLocalizations.localizationsDelegates,
-          home: NeonProvider<AccountsBloc>.value(
+        TestApp(
+          child: NeonProvider<AccountsBloc>.value(
             value: accountsBloc,
             child: NeonUserAvatar(
               showStatus: withStatus,
@@ -75,8 +73,8 @@ void main() {
     ]) {
       testWidgets('${status.value} ${icon != null ? 'with' : 'without'} emoji', (tester) async {
         await tester.pumpWidget(
-          MaterialApp(
-            home: NeonUserStatusIndicator(
+          TestApp(
+            child: NeonUserStatusIndicator(
               result: Result<user_status.$PublicInterface>(
                 user_status.Public(
                   (b) => b

@@ -1,16 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
 class MockRoom extends Mock implements spreed.Room {}
-
-Widget wrapWidget(Widget child) => MaterialApp(
-      home: Material(
-        child: child,
-      ),
-    );
 
 void main() {
   testWidgets('Unread messages', (tester) async {
@@ -21,8 +15,8 @@ void main() {
     when(() => room.type).thenReturn(spreed.RoomType.group.value);
 
     await tester.pumpWidget(
-      wrapWidget(
-        TalkUnreadIndicator(
+      TestApp(
+        child: TalkUnreadIndicator(
           room: room,
         ),
       ),
@@ -41,8 +35,8 @@ void main() {
     when(() => room.type).thenReturn(spreed.RoomType.oneToOne.value);
 
     await tester.pumpWidget(
-      wrapWidget(
-        TalkUnreadIndicator(
+      TestApp(
+        child: TalkUnreadIndicator(
           room: room,
         ),
       ),
@@ -61,8 +55,8 @@ void main() {
     when(() => room.type).thenReturn(spreed.RoomType.group.value);
 
     await tester.pumpWidget(
-      wrapWidget(
-        TalkUnreadIndicator(
+      TestApp(
+        child: TalkUnreadIndicator(
           room: room,
         ),
       ),
@@ -80,8 +74,8 @@ void main() {
     when(() => room.unreadMentionDirect).thenReturn(true);
 
     await tester.pumpWidget(
-      wrapWidget(
-        TalkUnreadIndicator(
+      TestApp(
+        child: TalkUnreadIndicator(
           room: room,
         ),
       ),
