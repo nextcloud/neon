@@ -15,7 +15,7 @@ abstract final class AdaptiveIcons {
 
   /// Platform-adaptive icon for
   /// <i class="material-icons md-36">search</i> &#x2014; material icon named "search"
-  /// and <i class='cupertino-icons md-36'>search</i> &#x2014; cupertino icon named "settings".
+  /// and <i class='cupertino-icons md-36'>search</i> &#x2014; cupertino icon named "search".
   static IconData get search => !isCupertinoPlatform() ? Icons.search : CupertinoIcons.search;
 
   /// Platform-adaptive icon for
@@ -105,7 +105,7 @@ abstract final class AdaptiveIcons {
   /// Platform-adaptive icon for
   /// <i class="material-icons md-36">star_outline</i> &#x2014; material icon named "star_outline"
   /// and <i class='cupertino-icons md-36'>star</i> &#x2014; cupertino icon named "star".
-  static IconData get star_outline => !isCupertinoPlatform() ? Icons.add : CupertinoIcons.star;
+  static IconData get star_outline => !isCupertinoPlatform() ? Icons.star_outline : CupertinoIcons.star;
 
   /// Platform-adaptive icon for
   /// <i class="material-icons md-36">question_mark</i> &#x2014; material icon named "question_mark"
@@ -153,7 +153,7 @@ abstract final class AdaptiveIcons {
   /// <i class="material-icons md-36">text_snippet_outlined</i> &#x2014; material icon named "text_snippet_outlined"
   /// and <i class='cupertino-icons md-36'>news_solid</i> &#x2014; cupertino icon named "news_solid".
   static IconData get text_snippet_outlined =>
-      !isCupertinoPlatform() ? Icons.text_snippet_outlined : Icons.text_snippet_outlined;
+      !isCupertinoPlatform() ? Icons.text_snippet_outlined : CupertinoIcons.news_solid;
 
   /// Platform-adaptive icon for
   /// <i class="material-icons md-36">lock</i> &#x2014; material icon named "lock"
@@ -162,6 +162,6 @@ abstract final class AdaptiveIcons {
 
   /// Platform-adaptive icon for
   /// <i class="material-icons md-36">edit_note</i> &#x2014; material icon named "edit_note"
-  /// and <i class='cupertino-icons md-36'>news_solid</i> &#x2014; cupertino icon named "news_solid".
-  static IconData get edit_note => !isCupertinoPlatform() ? Icons.edit_note : CupertinoIcons.news_solid;
+  /// and <i class='cupertino-icons md-36'>create</i> &#x2014; cupertino icon named "create".
+  static IconData get edit_note => !isCupertinoPlatform() ? Icons.edit_note : CupertinoIcons.create;
 }
