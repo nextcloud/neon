@@ -6,4 +6,7 @@ class TalkLocalizationsEn extends TalkLocalizations {
 
   @override
   String get actorSelf => 'You';
+
+  @override
+  String get actorGuest => 'Guest';
 }

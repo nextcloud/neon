@@ -1,4 +1,5 @@
 {
   "@@locale": "en",
-  "actorSelf": "You"
+  "actorSelf": "You",
+  "actorGuest": "Guest"
 }
