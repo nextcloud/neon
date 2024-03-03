@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_talk/l10n/localizations.dart';
-import 'package:neon_talk/src/utils/message.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+
+/// Renders the [chatMessage] as a rich [TextSpan].
+@internal
+TextSpan buildChatMessage({
+  required spreed.$ChatMessageInterface chatMessage,
+  bool isPreview = false,
+  TextStyle? style,
+}) {
+  var message = chatMessage.message;
+  if (isPreview) {
+    message = message.replaceAll('\n', ' ');
+  }
+
+  return TextSpan(
+    text: message,
+    style: style,
+  );
+}
 
 /// Displays a preview of the [chatMessage] including the display name of the sender.
 class TalkMessagePreview extends StatelessWidget {
