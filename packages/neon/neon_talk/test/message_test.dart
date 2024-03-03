@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/l10n/localizations.dart';
+import 'package:neon_talk/l10n/localizations_en.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -17,6 +18,25 @@ Widget wrapWidget(Widget child) => TestApp(
     );
 
 void main() {
+  group('getActorDisplayName', () {
+    final localizations = TalkLocalizationsEn();
+
+    test('Guest without name', () {
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.actorDisplayName).thenReturn('');
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.guests);
+
+      expect(getActorDisplayName(localizations, chatMessage), localizations.actorGuest);
+    });
+
+    test('Guest with name', () {
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.actorDisplayName).thenReturn('test');
+
+      expect(getActorDisplayName(localizations, chatMessage), 'test');
+    });
+  });
+
   group('TalkMessagePreview', () {
     testWidgets('Group self', (tester) async {
       final chatMessage = MockChatMessage();

@@ -3,6 +3,20 @@ import 'package:meta/meta.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
+/// Returns the display name of the actor of the [chatMessage].
+///
+/// In case the actor is a guest and has no display name set a default display name will be returned.
+@internal
+String getActorDisplayName(TalkLocalizations localizations, spreed.$ChatMessageInterface chatMessage) {
+  final actorDisplayName = chatMessage.actorDisplayName;
+
+  if (actorDisplayName.isEmpty && chatMessage.actorType == spreed.ActorType.guests) {
+    return localizations.actorGuest;
+  }
+
+  return actorDisplayName;
+}
+
 /// Renders the [chatMessage] as a rich [TextSpan].
 @internal
 TextSpan buildChatMessage({
@@ -47,7 +61,7 @@ class TalkMessagePreview extends StatelessWidget {
       if (chatMessage.actorId == actorId) {
         actorName = TalkLocalizations.of(context).actorSelf;
       } else if (!roomType.isSingleUser) {
-        actorName = chatMessage.actorDisplayName;
+        actorName = getActorDisplayName(TalkLocalizations.of(context), chatMessage);
       }
     }
 

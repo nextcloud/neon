@@ -94,6 +94,12 @@ abstract class TalkLocalizations {
   /// In en, this message translates to:
   /// **'You'**
   String get actorSelf;
+
+  /// No description provided for @actorGuest.
+  ///
+  /// In en, this message translates to:
+  /// **'Guest'**
+  String get actorGuest;
 }
 
 class _TalkLocalizationsDelegate extends LocalizationsDelegate<TalkLocalizations> {
