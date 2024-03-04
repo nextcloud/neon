@@ -100,6 +100,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
       cacheKey: 'unified-search-providers',
       subject: providers,
       rawResponse: account.client.core.unifiedSearch.getProvidersRaw(),
+      serializer: account.client.core.unifiedSearch.$getProviders_Serializer(),
       unwrap: (response) => response.body.ocs.data,
     );
   }

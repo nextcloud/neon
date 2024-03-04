@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// spreed Version: 0.0.1.
 ///
@@ -96,6 +97,14 @@ class $AvatarClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getAvatar_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the avatar of a room.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -118,14 +127,14 @@ class $AvatarClient {
     AvatarGetAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getAvatarRaw(
+    final _rawResponse = await getAvatarRaw(
       token: token,
       darkTheme: darkTheme,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the avatar of a room.
@@ -147,12 +156,12 @@ class $AvatarClient {
   /// See:
   ///  * [getAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getAvatarRaw({
+  Future<_i1.DynamiteRawResponse<Uint8List, void>> getAvatarRaw({
     required String token,
     AvatarGetAvatarDarkTheme? darkTheme,
     AvatarGetAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': '*/*'};
 
@@ -193,18 +202,25 @@ class $AvatarClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getAvatar_Serializer();
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$uploadAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AvatarUploadAvatarResponseApplicationJson, void> $uploadAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AvatarUploadAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Upload an avatar for a room.
   ///
@@ -227,13 +243,13 @@ class $AvatarClient {
     AvatarUploadAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = uploadAvatarRaw(
+    final _rawResponse = await uploadAvatarRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Upload an avatar for a room.
@@ -255,11 +271,11 @@ class $AvatarClient {
   /// See:
   ///  * [uploadAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void> uploadAvatarRaw({
+  Future<_i1.DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void>> uploadAvatarRaw({
     required String token,
     AvatarUploadAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -296,18 +312,25 @@ class $AvatarClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
-    return _i1.DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(AvatarUploadAvatarResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $uploadAvatar_Serializer();
+    return _i1.ResponseConverter<AvatarUploadAvatarResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deleteAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AvatarDeleteAvatarResponseApplicationJson, void> $deleteAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AvatarDeleteAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete the avatar of a room.
   ///
@@ -329,13 +352,13 @@ class $AvatarClient {
     AvatarDeleteAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteAvatarRaw(
+    final _rawResponse = await deleteAvatarRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete the avatar of a room.
@@ -356,11 +379,11 @@ class $AvatarClient {
   /// See:
   ///  * [deleteAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({
+  Future<_i1.DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatarRaw({
     required String token,
     AvatarDeleteAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -397,18 +420,25 @@ class $AvatarClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
-    return _i1.DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(AvatarDeleteAvatarResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $deleteAvatar_Serializer();
+    return _i1.ResponseConverter<AvatarDeleteAvatarResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$emojiAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<AvatarEmojiAvatarResponseApplicationJson, void> $emojiAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AvatarEmojiAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set an emoji as avatar.
   ///
@@ -435,7 +465,7 @@ class $AvatarClient {
     AvatarEmojiAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = emojiAvatarRaw(
+    final _rawResponse = await emojiAvatarRaw(
       emoji: emoji,
       token: token,
       color: color,
@@ -443,7 +473,7 @@ class $AvatarClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set an emoji as avatar.
@@ -467,13 +497,13 @@ class $AvatarClient {
   /// See:
   ///  * [emojiAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void> emojiAvatarRaw({
+  Future<_i1.DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void>> emojiAvatarRaw({
     required String emoji,
     required String token,
     String? color,
     AvatarEmojiAvatarApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -517,18 +547,24 @@ class $AvatarClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(AvatarEmojiAvatarResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $emojiAvatar_Serializer();
+    return _i1.ResponseConverter<AvatarEmojiAvatarResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getAvatarDark_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getAvatarDark_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the dark mode avatar of a room.
   ///
@@ -550,13 +586,13 @@ class $AvatarClient {
     AvatarGetAvatarDarkApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getAvatarDarkRaw(
+    final _rawResponse = await getAvatarDarkRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the dark mode avatar of a room.
@@ -577,11 +613,11 @@ class $AvatarClient {
   /// See:
   ///  * [getAvatarDark] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
+  Future<_i1.DynamiteRawResponse<Uint8List, void>> getAvatarDarkRaw({
     required String token,
     AvatarGetAvatarDarkApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': '*/*'};
 
@@ -619,17 +655,15 @@ class $AvatarClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getAvatarDark_Serializer();
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 }
 
@@ -638,6 +672,15 @@ class $BotClient {
   $BotClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$sendMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotSendMessageResponseApplicationJson, void> $sendMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BotSendMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Sends a new chat message to the given room.
   ///
@@ -672,7 +715,7 @@ class $BotClient {
     BotSendMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = sendMessageRaw(
+    final _rawResponse = await sendMessageRaw(
       message: message,
       token: token,
       referenceId: referenceId,
@@ -682,7 +725,7 @@ class $BotClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Sends a new chat message to the given room.
@@ -712,7 +755,7 @@ class $BotClient {
   /// See:
   ///  * [sendMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BotSendMessageResponseApplicationJson, void> sendMessageRaw({
+  Future<_i1.DynamiteRawResponse<BotSendMessageResponseApplicationJson, void>> sendMessageRaw({
     required String message,
     required String token,
     String? referenceId,
@@ -720,7 +763,7 @@ class $BotClient {
     BotSendMessageSilent? silent,
     BotSendMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -773,23 +816,29 @@ class $BotClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/message{?message*,referenceId*,replyTo*,silent*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<BotSendMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          201,
-          400,
-          401,
-          413,
-        },
-      ),
-      bodyType: const FullType(BotSendMessageResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        201,
+        400,
+        401,
+        413,
+      },
     );
+
+    final _serializer = $sendMessage_Serializer();
+    return _i1.ResponseConverter<BotSendMessageResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$react_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotReactResponseApplicationJson, void> $react_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotReactResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Adds a reaction to a chat message.
   ///
@@ -819,7 +868,7 @@ class $BotClient {
     BotReactApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = reactRaw(
+    final _rawResponse = await reactRaw(
       reaction: reaction,
       token: token,
       messageId: messageId,
@@ -827,7 +876,7 @@ class $BotClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Adds a reaction to a chat message.
@@ -854,13 +903,13 @@ class $BotClient {
   /// See:
   ///  * [react] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BotReactResponseApplicationJson, void> reactRaw({
+  Future<_i1.DynamiteRawResponse<BotReactResponseApplicationJson, void>> reactRaw({
     required String reaction,
     required String token,
     required int messageId,
     BotReactApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -904,24 +953,31 @@ class $BotClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<BotReactResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          201,
-          400,
-          401,
-          404,
-        },
-      ),
-      bodyType: const FullType(BotReactResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        201,
+        400,
+        401,
+        404,
+      },
     );
+
+    final _serializer = $react_Serializer();
+    return _i1.ResponseConverter<BotReactResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deleteReaction_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotDeleteReactionResponseApplicationJson, void> $deleteReaction_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BotDeleteReactionResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Deletes a reaction from a chat message.
   ///
@@ -950,7 +1006,7 @@ class $BotClient {
     BotDeleteReactionApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteReactionRaw(
+    final _rawResponse = await deleteReactionRaw(
       reaction: reaction,
       token: token,
       messageId: messageId,
@@ -958,7 +1014,7 @@ class $BotClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Deletes a reaction from a chat message.
@@ -984,13 +1040,13 @@ class $BotClient {
   /// See:
   ///  * [deleteReaction] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void> deleteReactionRaw({
+  Future<_i1.DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void>> deleteReactionRaw({
     required String reaction,
     required String token,
     required int messageId,
     BotDeleteReactionApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1035,23 +1091,29 @@ class $BotClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          404,
-          401,
-        },
-      ),
-      bodyType: const FullType(BotDeleteReactionResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        404,
+        401,
+      },
     );
+
+    final _serializer = $deleteReaction_Serializer();
+    return _i1.ResponseConverter<BotDeleteReactionResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$listBots_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotListBotsResponseApplicationJson, void> $listBots_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotListBotsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// List bots.
   ///
@@ -1073,13 +1135,13 @@ class $BotClient {
     BotListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = listBotsRaw(
+    final _rawResponse = await listBotsRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// List bots.
@@ -1100,11 +1162,11 @@ class $BotClient {
   /// See:
   ///  * [listBots] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BotListBotsResponseApplicationJson, void> listBotsRaw({
+  Future<_i1.DynamiteRawResponse<BotListBotsResponseApplicationJson, void>> listBotsRaw({
     required String token,
     BotListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1142,18 +1204,24 @@ class $BotClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<BotListBotsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BotListBotsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $listBots_Serializer();
+    return _i1.ResponseConverter<BotListBotsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$enableBot_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotEnableBotResponseApplicationJson, void> $enableBot_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotEnableBotResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Enables a bot.
   ///
@@ -1179,14 +1247,14 @@ class $BotClient {
     BotEnableBotApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = enableBotRaw(
+    final _rawResponse = await enableBotRaw(
       token: token,
       botId: botId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Enables a bot.
@@ -1210,12 +1278,12 @@ class $BotClient {
   /// See:
   ///  * [enableBot] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BotEnableBotResponseApplicationJson, void> enableBotRaw({
+  Future<_i1.DynamiteRawResponse<BotEnableBotResponseApplicationJson, void>> enableBotRaw({
     required String token,
     required int botId,
     BotEnableBotApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1256,21 +1324,27 @@ class $BotClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<BotEnableBotResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          201,
-        },
-      ),
-      bodyType: const FullType(BotEnableBotResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        201,
+      },
     );
+
+    final _serializer = $enableBot_Serializer();
+    return _i1.ResponseConverter<BotEnableBotResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$disableBot_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotDisableBotResponseApplicationJson, void> $disableBot_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotDisableBotResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Disables a bot.
   ///
@@ -1295,14 +1369,14 @@ class $BotClient {
     BotDisableBotApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = disableBotRaw(
+    final _rawResponse = await disableBotRaw(
       token: token,
       botId: botId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Disables a bot.
@@ -1325,12 +1399,12 @@ class $BotClient {
   /// See:
   ///  * [disableBot] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BotDisableBotResponseApplicationJson, void> disableBotRaw({
+  Future<_i1.DynamiteRawResponse<BotDisableBotResponseApplicationJson, void>> disableBotRaw({
     required String token,
     required int botId,
     BotDisableBotApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1371,18 +1445,25 @@ class $BotClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<BotDisableBotResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BotDisableBotResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $disableBot_Serializer();
+    return _i1.ResponseConverter<BotDisableBotResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$adminListBots_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotAdminListBotsResponseApplicationJson, void> $adminListBots_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// List admin bots.
   ///
@@ -1404,12 +1485,12 @@ class $BotClient {
     BotAdminListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = adminListBotsRaw(
+    final _rawResponse = await adminListBotsRaw(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// List admin bots.
@@ -1431,10 +1512,10 @@ class $BotClient {
   /// See:
   ///  * [adminListBots] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void> adminListBotsRaw({
+  Future<_i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>> adminListBotsRaw({
     BotAdminListBotsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1465,17 +1546,15 @@ class $BotClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
-    return _i1.DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $adminListBots_Serializer();
+    return _i1.ResponseConverter<BotAdminListBotsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -1484,6 +1563,15 @@ class $BreakoutRoomClient {
   $BreakoutRoomClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$configureBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>
+      $configureBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Configure the breakout rooms.
   ///
@@ -1512,7 +1600,7 @@ class $BreakoutRoomClient {
     BreakoutRoomConfigureBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = configureBreakoutRoomsRaw(
+    final _rawResponse = await configureBreakoutRoomsRaw(
       mode: mode,
       amount: amount,
       token: token,
@@ -1521,7 +1609,7 @@ class $BreakoutRoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Configure the breakout rooms.
@@ -1546,14 +1634,15 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [configureBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void> configureBreakoutRoomsRaw({
+  Future<_i1.DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>>
+      configureBreakoutRoomsRaw({
     required BreakoutRoomConfigureBreakoutRoomsMode mode,
     required int amount,
     required String token,
     String? attendeeMap,
     BreakoutRoomConfigureBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1607,18 +1696,26 @@ class $BreakoutRoomClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $configureBreakoutRooms_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$removeBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>
+      $removeBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Remove the breakout rooms.
   ///
@@ -1640,13 +1737,13 @@ class $BreakoutRoomClient {
     BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = removeBreakoutRoomsRaw(
+    final _rawResponse = await removeBreakoutRoomsRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Remove the breakout rooms.
@@ -1667,11 +1764,11 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [removeBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void> removeBreakoutRoomsRaw({
+  Future<_i1.DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>> removeBreakoutRoomsRaw({
     required String token,
     BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1713,18 +1810,26 @@ class $BreakoutRoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $removeBreakoutRooms_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$broadcastChatMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>
+      $broadcastChatMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Broadcast a chat message to all breakout rooms.
   ///
@@ -1750,14 +1855,14 @@ class $BreakoutRoomClient {
     BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = broadcastChatMessageRaw(
+    final _rawResponse = await broadcastChatMessageRaw(
       message: message,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Broadcast a chat message to all breakout rooms.
@@ -1781,12 +1886,13 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [broadcastChatMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void> broadcastChatMessageRaw({
+  Future<_i1.DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>>
+      broadcastChatMessageRaw({
     required String message,
     required String token,
     BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1832,18 +1938,26 @@ class $BreakoutRoomClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {201},
-      ),
-      bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {201},
     );
+
+    final _serializer = $broadcastChatMessage_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$applyAttendeeMap_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void> $applyAttendeeMap_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Apply an attendee map to the breakout rooms.
   ///
@@ -1868,14 +1982,14 @@ class $BreakoutRoomClient {
     BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = applyAttendeeMapRaw(
+    final _rawResponse = await applyAttendeeMapRaw(
       attendeeMap: attendeeMap,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Apply an attendee map to the breakout rooms.
@@ -1898,12 +2012,12 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [applyAttendeeMap] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void> applyAttendeeMapRaw({
+  Future<_i1.DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>> applyAttendeeMapRaw({
     required String attendeeMap,
     required String token,
     BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -1947,18 +2061,26 @@ class $BreakoutRoomClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $applyAttendeeMap_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$requestAssistance_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomRequestAssistanceResponseApplicationJson, void> $requestAssistance_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Request assistance.
   ///
@@ -1981,13 +2103,13 @@ class $BreakoutRoomClient {
     BreakoutRoomRequestAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = requestAssistanceRaw(
+    final _rawResponse = await requestAssistanceRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Request assistance.
@@ -2009,11 +2131,11 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [requestAssistance] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void> requestAssistanceRaw({
+  Future<_i1.DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>> requestAssistanceRaw({
     required String token,
     BreakoutRoomRequestAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2053,18 +2175,26 @@ class $BreakoutRoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $requestAssistance_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$resetRequestForAssistance_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>
+      $resetRequestForAssistance_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Reset the request for assistance.
   ///
@@ -2088,13 +2218,13 @@ class $BreakoutRoomClient {
     BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = resetRequestForAssistanceRaw(
+    final _rawResponse = await resetRequestForAssistanceRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Reset the request for assistance.
@@ -2116,12 +2246,12 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [resetRequestForAssistance] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>
+  Future<_i1.DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>>
       resetRequestForAssistanceRaw({
     required String token,
     BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2163,18 +2293,26 @@ class $BreakoutRoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $resetRequestForAssistance_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$startBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>
+      $startBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Start the breakout rooms.
   ///
@@ -2197,13 +2335,13 @@ class $BreakoutRoomClient {
     BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = startBreakoutRoomsRaw(
+    final _rawResponse = await startBreakoutRoomsRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Start the breakout rooms.
@@ -2225,11 +2363,11 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [startBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void> startBreakoutRoomsRaw({
+  Future<_i1.DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>> startBreakoutRoomsRaw({
     required String token,
     BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2271,18 +2409,26 @@ class $BreakoutRoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $startBreakoutRooms_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$stopBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void> $stopBreakoutRooms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Stop the breakout rooms.
   ///
@@ -2305,13 +2451,13 @@ class $BreakoutRoomClient {
     BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = stopBreakoutRoomsRaw(
+    final _rawResponse = await stopBreakoutRoomsRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Stop the breakout rooms.
@@ -2333,11 +2479,11 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [stopBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void> stopBreakoutRoomsRaw({
+  Future<_i1.DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>> stopBreakoutRoomsRaw({
     required String token,
     BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2377,18 +2523,26 @@ class $BreakoutRoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $stopBreakoutRooms_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$switchBreakoutRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>
+      $switchBreakoutRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Switch to another breakout room.
   ///
@@ -2413,14 +2567,14 @@ class $BreakoutRoomClient {
     BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = switchBreakoutRoomRaw(
+    final _rawResponse = await switchBreakoutRoomRaw(
       target: target,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Switch to another breakout room.
@@ -2443,12 +2597,12 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [switchBreakoutRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void> switchBreakoutRoomRaw({
+  Future<_i1.DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>> switchBreakoutRoomRaw({
     required String target,
     required String token,
     BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2493,17 +2647,16 @@ class $BreakoutRoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $switchBreakoutRoom_Serializer();
+    return _i1.ResponseConverter<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -2512,6 +2665,15 @@ class $CallClient {
   $CallClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getPeersForCall_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallGetPeersForCallResponseApplicationJson, void> $getPeersForCall_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallGetPeersForCallResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the peers for a call.
   ///
@@ -2533,13 +2695,13 @@ class $CallClient {
     CallGetPeersForCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getPeersForCallRaw(
+    final _rawResponse = await getPeersForCallRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the peers for a call.
@@ -2560,11 +2722,11 @@ class $CallClient {
   /// See:
   ///  * [getPeersForCall] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void> getPeersForCallRaw({
+  Future<_i1.DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void>> getPeersForCallRaw({
     required String token,
     CallGetPeersForCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2601,18 +2763,25 @@ class $CallClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(CallGetPeersForCallResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getPeersForCall_Serializer();
+    return _i1.ResponseConverter<CallGetPeersForCallResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$updateCallFlags_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallUpdateCallFlagsResponseApplicationJson, void> $updateCallFlags_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallUpdateCallFlagsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the in-call flags.
   ///
@@ -2638,14 +2807,14 @@ class $CallClient {
     CallUpdateCallFlagsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = updateCallFlagsRaw(
+    final _rawResponse = await updateCallFlagsRaw(
       flags: flags,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update the in-call flags.
@@ -2669,12 +2838,12 @@ class $CallClient {
   /// See:
   ///  * [updateCallFlags] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void> updateCallFlagsRaw({
+  Future<_i1.DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void>> updateCallFlagsRaw({
     required int flags,
     required String token,
     CallUpdateCallFlagsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2714,22 +2883,28 @@ class $CallClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          404,
-        },
-      ),
-      bodyType: const FullType(CallUpdateCallFlagsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        404,
+      },
     );
+
+    final _serializer = $updateCallFlags_Serializer();
+    return _i1.ResponseConverter<CallUpdateCallFlagsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$joinCall_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallJoinCallResponseApplicationJson, void> $joinCall_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(CallJoinCallResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Join a call.
   ///
@@ -2761,7 +2936,7 @@ class $CallClient {
     CallJoinCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = joinCallRaw(
+    final _rawResponse = await joinCallRaw(
       token: token,
       flags: flags,
       forcePermissions: forcePermissions,
@@ -2771,7 +2946,7 @@ class $CallClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Join a call.
@@ -2798,7 +2973,7 @@ class $CallClient {
   /// See:
   ///  * [joinCall] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<CallJoinCallResponseApplicationJson, void> joinCallRaw({
+  Future<_i1.DynamiteRawResponse<CallJoinCallResponseApplicationJson, void>> joinCallRaw({
     required String token,
     CallJoinCallFlags? flags,
     CallJoinCallForcePermissions? forcePermissions,
@@ -2806,7 +2981,7 @@ class $CallClient {
     CallJoinCallRecordingConsent? recordingConsent,
     CallJoinCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2860,21 +3035,27 @@ class $CallClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*,forcePermissions*,silent*,recordingConsent*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<CallJoinCallResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          404,
-        },
-      ),
-      bodyType: const FullType(CallJoinCallResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        404,
+      },
     );
+
+    final _serializer = $joinCall_Serializer();
+    return _i1.ResponseConverter<CallJoinCallResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$leaveCall_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallLeaveCallResponseApplicationJson, void> $leaveCall_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(CallLeaveCallResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Leave a call.
   ///
@@ -2899,14 +3080,14 @@ class $CallClient {
     CallLeaveCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = leaveCallRaw(
+    final _rawResponse = await leaveCallRaw(
       token: token,
       all: all,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Leave a call.
@@ -2929,12 +3110,12 @@ class $CallClient {
   /// See:
   ///  * [leaveCall] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void> leaveCallRaw({
+  Future<_i1.DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void>> leaveCallRaw({
     required String token,
     CallLeaveCallAll? all,
     CallLeaveCallApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -2974,21 +3155,28 @@ class $CallClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          404,
-        },
-      ),
-      bodyType: const FullType(CallLeaveCallResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        404,
+      },
     );
+
+    final _serializer = $leaveCall_Serializer();
+    return _i1.ResponseConverter<CallLeaveCallResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$ringAttendee_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallRingAttendeeResponseApplicationJson, void> $ringAttendee_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallRingAttendeeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Ring an attendee.
   ///
@@ -3014,14 +3202,14 @@ class $CallClient {
     CallRingAttendeeApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = ringAttendeeRaw(
+    final _rawResponse = await ringAttendeeRaw(
       token: token,
       attendeeId: attendeeId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Ring an attendee.
@@ -3045,12 +3233,12 @@ class $CallClient {
   /// See:
   ///  * [ringAttendee] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void> ringAttendeeRaw({
+  Future<_i1.DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void>> ringAttendeeRaw({
     required String token,
     required int attendeeId,
     CallRingAttendeeApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -3091,22 +3279,29 @@ class $CallClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          404,
-        },
-      ),
-      bodyType: const FullType(CallRingAttendeeResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        404,
+      },
     );
+
+    final _serializer = $ringAttendee_Serializer();
+    return _i1.ResponseConverter<CallRingAttendeeResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$sipDialOut_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CallSipDialOutResponseApplicationJson, void> $sipDialOut_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(CallSipDialOutResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Call a SIP dial-out attendee.
   ///
@@ -3133,14 +3328,14 @@ class $CallClient {
     CallSipDialOutApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = sipDialOutRaw(
+    final _rawResponse = await sipDialOutRaw(
       token: token,
       attendeeId: attendeeId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Call a SIP dial-out attendee.
@@ -3165,12 +3360,12 @@ class $CallClient {
   /// See:
   ///  * [sipDialOut] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void> sipDialOutRaw({
+  Future<_i1.DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void>> sipDialOutRaw({
     required String token,
     required int attendeeId,
     CallSipDialOutApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -3210,22 +3405,20 @@ class $CallClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          201,
-          400,
-          404,
-          501,
-        },
-      ),
-      bodyType: const FullType(CallSipDialOutResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        201,
+        400,
+        404,
+        501,
+      },
     );
+
+    final _serializer = $sipDialOut_Serializer();
+    return _i1.ResponseConverter<CallSipDialOutResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -3234,6 +3427,15 @@ class $CertificateClient {
   $CertificateClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getCertificateExpiration_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<CertificateGetCertificateExpirationResponseApplicationJson, void>
+      $getCertificateExpiration_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Get the certificate expiration for a host.
   ///
@@ -3259,13 +3461,13 @@ class $CertificateClient {
     CertificateGetCertificateExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getCertificateExpirationRaw(
+    final _rawResponse = await getCertificateExpirationRaw(
       host: host,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the certificate expiration for a host.
@@ -3289,12 +3491,12 @@ class $CertificateClient {
   /// See:
   ///  * [getCertificateExpiration] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>
+  Future<_i1.DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>>
       getCertificateExpirationRaw({
     required String host,
     CertificateGetCertificateExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -3331,17 +3533,16 @@ class $CertificateClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getCertificateExpiration_Serializer();
+    return _i1.ResponseConverter<CertificateGetCertificateExpirationResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -3350,6 +3551,15 @@ class $ChatClient {
   $ChatClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$receiveMessages_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>
+      $receiveMessages_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
+            headersType: const FullType(ChatChatReceiveMessagesHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Receives chat messages from the given room.
   ///
@@ -3395,7 +3605,7 @@ class $ChatClient {
     ChatReceiveMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = receiveMessagesRaw(
+    final _rawResponse = await receiveMessagesRaw(
       lookIntoFuture: lookIntoFuture,
       token: token,
       limit: limit,
@@ -3410,7 +3620,7 @@ class $ChatClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Receives chat messages from the given room.
@@ -3445,7 +3655,7 @@ class $ChatClient {
   /// See:
   ///  * [receiveMessages] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>
+  Future<_i1.DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>>
       receiveMessagesRaw({
     required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
     required String token,
@@ -3459,7 +3669,7 @@ class $ChatClient {
     ChatReceiveMessagesMarkNotificationsAsRead? markNotificationsAsRead,
     ChatReceiveMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -3542,21 +3752,30 @@ class $ChatClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?lookIntoFuture*,limit*,lastKnownMessageId*,lastCommonReadId*,timeout*,setReadMarker*,includeLastKnown*,noStatusUpdate*,markNotificationsAsRead*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          304,
-        },
-      ),
-      bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
-      headersType: const FullType(ChatChatReceiveMessagesHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        304,
+      },
     );
+
+    final _serializer = $receiveMessages_Serializer();
+    return _i1.ResponseConverter<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>(
+      _serializer,
+    ).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$sendMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>
+      $sendMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatSendMessageResponseApplicationJson),
+            headersType: const FullType(ChatChatSendMessageHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Sends a new chat message to the given room.
   ///
@@ -3593,7 +3812,7 @@ class $ChatClient {
     ChatSendMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = sendMessageRaw(
+    final _rawResponse = await sendMessageRaw(
       message: message,
       token: token,
       actorDisplayName: actorDisplayName,
@@ -3604,7 +3823,7 @@ class $ChatClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Sends a new chat message to the given room.
@@ -3635,7 +3854,7 @@ class $ChatClient {
   /// See:
   ///  * [sendMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders> sendMessageRaw({
+  Future<_i1.DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>> sendMessageRaw({
     required String message,
     required String token,
     String? actorDisplayName,
@@ -3644,7 +3863,7 @@ class $ChatClient {
     ChatSendMessageSilent? silent,
     ChatSendMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -3701,18 +3920,26 @@ class $ChatClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?message*,actorDisplayName*,referenceId*,replyTo*,silent*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {201},
-      ),
-      bodyType: const FullType(ChatSendMessageResponseApplicationJson),
-      headersType: const FullType(ChatChatSendMessageHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {201},
     );
+
+    final _serializer = $sendMessage_Serializer();
+    return _i1.ResponseConverter<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$clearHistory_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>
+      $clearHistory_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
+            headersType: const FullType(ChatChatClearHistoryHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Clear the chat history.
   ///
@@ -3736,13 +3963,13 @@ class $ChatClient {
     ChatClearHistoryApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = clearHistoryRaw(
+    final _rawResponse = await clearHistoryRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Clear the chat history.
@@ -3765,11 +3992,12 @@ class $ChatClient {
   /// See:
   ///  * [clearHistory] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders> clearHistoryRaw({
+  Future<_i1.DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>>
+      clearHistoryRaw({
     required String token,
     ChatClearHistoryApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -3808,21 +4036,29 @@ class $ChatClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          202,
-        },
-      ),
-      bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
-      headersType: const FullType(ChatChatClearHistoryHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        202,
+      },
     );
+
+    final _serializer = $clearHistory_Serializer();
+    return _i1.ResponseConverter<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deleteMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>
+      $deleteMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
+            headersType: const FullType(ChatChatDeleteMessageHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Delete a chat message.
   ///
@@ -3851,14 +4087,14 @@ class $ChatClient {
     ChatDeleteMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteMessageRaw(
+    final _rawResponse = await deleteMessageRaw(
       token: token,
       messageId: messageId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete a chat message.
@@ -3885,12 +4121,13 @@ class $ChatClient {
   /// See:
   ///  * [deleteMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders> deleteMessageRaw({
+  Future<_i1.DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>>
+      deleteMessageRaw({
     required String token,
     required int messageId,
     ChatDeleteMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -3933,21 +4170,29 @@ class $ChatClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          202,
-        },
-      ),
-      bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
-      headersType: const FullType(ChatChatDeleteMessageHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        202,
+      },
     );
+
+    final _serializer = $deleteMessage_Serializer();
+    return _i1.ResponseConverter<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getMessageContext_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>
+      $getMessageContext_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
+            headersType: const FullType(ChatChatGetMessageContextHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get the context of a message.
   ///
@@ -3975,7 +4220,7 @@ class $ChatClient {
     ChatGetMessageContextApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getMessageContextRaw(
+    final _rawResponse = await getMessageContextRaw(
       token: token,
       messageId: messageId,
       limit: limit,
@@ -3983,7 +4228,7 @@ class $ChatClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the context of a message.
@@ -4007,14 +4252,14 @@ class $ChatClient {
   /// See:
   ///  * [getMessageContext] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>
+  Future<_i1.DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>>
       getMessageContextRaw({
     required String token,
     required int messageId,
     int? limit,
     ChatGetMessageContextApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4059,21 +4304,30 @@ class $ChatClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          304,
-        },
-      ),
-      bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
-      headersType: const FullType(ChatChatGetMessageContextHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        304,
+      },
     );
+
+    final _serializer = $getMessageContext_Serializer();
+    return _i1.ResponseConverter<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>(
+      _serializer,
+    ).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getReminder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatGetReminderResponseApplicationJson, void> $getReminder_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatGetReminderResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the reminder for a chat message.
   ///
@@ -4098,14 +4352,14 @@ class $ChatClient {
     ChatGetReminderApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getReminderRaw(
+    final _rawResponse = await getReminderRaw(
       token: token,
       messageId: messageId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the reminder for a chat message.
@@ -4128,12 +4382,12 @@ class $ChatClient {
   /// See:
   ///  * [getReminder] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void> getReminderRaw({
+  Future<_i1.DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void>> getReminderRaw({
     required String token,
     required int messageId,
     ChatGetReminderApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4175,18 +4429,25 @@ class $ChatClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ChatGetReminderResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getReminder_Serializer();
+    return _i1.ResponseConverter<ChatGetReminderResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setReminder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatSetReminderResponseApplicationJson, void> $setReminder_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatSetReminderResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set a reminder for a chat message.
   ///
@@ -4213,7 +4474,7 @@ class $ChatClient {
     ChatSetReminderApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setReminderRaw(
+    final _rawResponse = await setReminderRaw(
       timestamp: timestamp,
       token: token,
       messageId: messageId,
@@ -4221,7 +4482,7 @@ class $ChatClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set a reminder for a chat message.
@@ -4245,13 +4506,13 @@ class $ChatClient {
   /// See:
   ///  * [setReminder] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void> setReminderRaw({
+  Future<_i1.DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void>> setReminderRaw({
     required int timestamp,
     required String token,
     required int messageId,
     ChatSetReminderApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4297,18 +4558,25 @@ class $ChatClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {201},
-      ),
-      bodyType: const FullType(ChatSetReminderResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {201},
     );
+
+    final _serializer = $setReminder_Serializer();
+    return _i1.ResponseConverter<ChatSetReminderResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deleteReminder_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatDeleteReminderResponseApplicationJson, void> $deleteReminder_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatDeleteReminderResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete a chat reminder.
   ///
@@ -4333,14 +4601,14 @@ class $ChatClient {
     ChatDeleteReminderApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteReminderRaw(
+    final _rawResponse = await deleteReminderRaw(
       token: token,
       messageId: messageId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete a chat reminder.
@@ -4363,12 +4631,12 @@ class $ChatClient {
   /// See:
   ///  * [deleteReminder] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void> deleteReminderRaw({
+  Future<_i1.DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void>> deleteReminderRaw({
     required String token,
     required int messageId,
     ChatDeleteReminderApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4411,21 +4679,28 @@ class $ChatClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          404,
-        },
-      ),
-      bodyType: const FullType(ChatDeleteReminderResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        404,
+      },
     );
+
+    final _serializer = $deleteReminder_Serializer();
+    return _i1.ResponseConverter<ChatDeleteReminderResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setReadMarker_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>
+      $setReadMarker_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
+            headersType: const FullType(ChatChatSetReadMarkerHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Set the read marker to a specific message.
   ///
@@ -4449,14 +4724,14 @@ class $ChatClient {
     ChatSetReadMarkerApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setReadMarkerRaw(
+    final _rawResponse = await setReadMarkerRaw(
       lastReadMessage: lastReadMessage,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set the read marker to a specific message.
@@ -4478,12 +4753,13 @@ class $ChatClient {
   /// See:
   ///  * [setReadMarker] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders> setReadMarkerRaw({
+  Future<_i1.DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>>
+      setReadMarkerRaw({
     required int lastReadMessage,
     required String token,
     ChatSetReadMarkerApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4526,18 +4802,26 @@ class $ChatClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
-      headersType: const FullType(ChatChatSetReadMarkerHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setReadMarker_Serializer();
+    return _i1.ResponseConverter<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$markUnread_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders> $markUnread_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatMarkUnreadResponseApplicationJson),
+        headersType: const FullType(ChatChatMarkUnreadHeaders),
+        serializers: _$jsonSerializers,
+      );
 
   /// Mark a chat as unread.
   ///
@@ -4559,13 +4843,13 @@ class $ChatClient {
     ChatMarkUnreadApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = markUnreadRaw(
+    final _rawResponse = await markUnreadRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Mark a chat as unread.
@@ -4586,11 +4870,11 @@ class $ChatClient {
   /// See:
   ///  * [markUnread] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders> markUnreadRaw({
+  Future<_i1.DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>> markUnreadRaw({
     required String token,
     ChatMarkUnreadApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4628,18 +4912,25 @@ class $ChatClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ChatMarkUnreadResponseApplicationJson),
-      headersType: const FullType(ChatChatMarkUnreadHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $markUnread_Serializer();
+    return _i1.ResponseConverter<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$mentions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatMentionsResponseApplicationJson, void> $mentions_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ChatMentionsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Search for mentions.
   ///
@@ -4667,7 +4958,7 @@ class $ChatClient {
     ChatMentionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = mentionsRaw(
+    final _rawResponse = await mentionsRaw(
       search: search,
       token: token,
       limit: limit,
@@ -4676,7 +4967,7 @@ class $ChatClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Search for mentions.
@@ -4700,14 +4991,14 @@ class $ChatClient {
   /// See:
   ///  * [mentions] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatMentionsResponseApplicationJson, void> mentionsRaw({
+  Future<_i1.DynamiteRawResponse<ChatMentionsResponseApplicationJson, void>> mentionsRaw({
     required String search,
     required String token,
     int? limit,
     ChatMentionsIncludeStatus? includeStatus,
     ChatMentionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4757,18 +5048,25 @@ class $ChatClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatMentionsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ChatMentionsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $mentions_Serializer();
+    return _i1.ResponseConverter<ChatMentionsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getObjectsSharedInRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>
+      $getObjectsSharedInRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
+            headersType: const FullType(ChatChatGetObjectsSharedInRoomHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get objects that are shared in the room.
   ///
@@ -4797,7 +5095,7 @@ class $ChatClient {
     ChatGetObjectsSharedInRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getObjectsSharedInRoomRaw(
+    final _rawResponse = await getObjectsSharedInRoomRaw(
       objectType: objectType,
       token: token,
       lastKnownMessageId: lastKnownMessageId,
@@ -4806,7 +5104,7 @@ class $ChatClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get objects that are shared in the room.
@@ -4830,15 +5128,16 @@ class $ChatClient {
   /// See:
   ///  * [getObjectsSharedInRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>
-      getObjectsSharedInRoomRaw({
+  Future<
+      _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson,
+          ChatChatGetObjectsSharedInRoomHeaders>> getObjectsSharedInRoomRaw({
     required String objectType,
     required String token,
     int? lastKnownMessageId,
     int? limit,
     ChatGetObjectsSharedInRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -4888,19 +5187,27 @@ class $ChatClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,lastKnownMessageId*,limit*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson,
-        ChatChatGetObjectsSharedInRoomHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
-      headersType: const FullType(ChatChatGetObjectsSharedInRoomHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getObjectsSharedInRoom_Serializer();
+    return _i1.ResponseConverter<ChatGetObjectsSharedInRoomResponseApplicationJson,
+            ChatChatGetObjectsSharedInRoomHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$shareObjectToChat_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>
+      $shareObjectToChat_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
+            headersType: const FullType(ChatChatShareObjectToChatHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Sends a rich-object to the given room.
   ///
@@ -4938,7 +5245,7 @@ class $ChatClient {
     ChatShareObjectToChatApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = shareObjectToChatRaw(
+    final _rawResponse = await shareObjectToChatRaw(
       objectType: objectType,
       objectId: objectId,
       token: token,
@@ -4949,7 +5256,7 @@ class $ChatClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Sends a rich-object to the given room.
@@ -4980,7 +5287,7 @@ class $ChatClient {
   /// See:
   ///  * [shareObjectToChat] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>
+  Future<_i1.DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>>
       shareObjectToChatRaw({
     required String objectType,
     required String objectId,
@@ -4990,7 +5297,7 @@ class $ChatClient {
     String? referenceId,
     ChatShareObjectToChatApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -5047,18 +5354,27 @@ class $ChatClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,objectId*,metaData*,actorDisplayName*,referenceId*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {201},
-      ),
-      bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
-      headersType: const FullType(ChatChatShareObjectToChatHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {201},
     );
+
+    final _serializer = $shareObjectToChat_Serializer();
+    return _i1.ResponseConverter<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>(
+      _serializer,
+    ).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getObjectsSharedInRoomOverview_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
+      $getObjectsSharedInRoomOverview_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Get objects that are shared in the room overview.
   ///
@@ -5083,14 +5399,14 @@ class $ChatClient {
     ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getObjectsSharedInRoomOverviewRaw(
+    final _rawResponse = await getObjectsSharedInRoomOverviewRaw(
       token: token,
       limit: limit,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get objects that are shared in the room overview.
@@ -5112,13 +5428,13 @@ class $ChatClient {
   /// See:
   ///  * [getObjectsSharedInRoomOverview] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
+  Future<_i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>>
       getObjectsSharedInRoomOverviewRaw({
     required String token,
     int? limit,
     ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -5162,17 +5478,16 @@ class $ChatClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getObjectsSharedInRoomOverview_Serializer();
+    return _i1.ResponseConverter<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -5181,6 +5496,15 @@ class $FilesIntegrationClient {
   $FilesIntegrationClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getRoomByFileId_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void> $getRoomByFileId_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the token of the room associated to the given file id.
   ///
@@ -5208,13 +5532,13 @@ class $FilesIntegrationClient {
     FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getRoomByFileIdRaw(
+    final _rawResponse = await getRoomByFileIdRaw(
       fileId: fileId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the token of the room associated to the given file id.
@@ -5241,11 +5565,11 @@ class $FilesIntegrationClient {
   /// See:
   ///  * [getRoomByFileId] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void> getRoomByFileIdRaw({
+  Future<_i1.DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>> getRoomByFileIdRaw({
     required String fileId,
     FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -5286,18 +5610,26 @@ class $FilesIntegrationClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getRoomByFileId_Serializer();
+    return _i1.ResponseConverter<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getRoomByShareToken_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>
+      $getRoomByShareToken_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Returns the token of the room associated to the file of the given share token.
   ///
@@ -5326,13 +5658,13 @@ class $FilesIntegrationClient {
     FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getRoomByShareTokenRaw(
+    final _rawResponse = await getRoomByShareTokenRaw(
       shareToken: shareToken,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Returns the token of the room associated to the file of the given share token.
@@ -5360,11 +5692,12 @@ class $FilesIntegrationClient {
   /// See:
   ///  * [getRoomByShareToken] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void> getRoomByShareTokenRaw({
+  Future<_i1.DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>>
+      getRoomByShareTokenRaw({
     required String shareToken,
     FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -5404,17 +5737,16 @@ class $FilesIntegrationClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(_parameters);
-    return _i1.DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getRoomByShareToken_Serializer();
+    return _i1.ResponseConverter<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -5423,6 +5755,15 @@ class $GuestClient {
   $GuestClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$setDisplayName_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<GuestSetDisplayNameResponseApplicationJson, void> $setDisplayName_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(GuestSetDisplayNameResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set the display name as a guest.
   ///
@@ -5448,14 +5789,14 @@ class $GuestClient {
     GuestSetDisplayNameApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setDisplayNameRaw(
+    final _rawResponse = await setDisplayNameRaw(
       displayName: displayName,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set the display name as a guest.
@@ -5479,12 +5820,12 @@ class $GuestClient {
   /// See:
   ///  * [setDisplayName] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void> setDisplayNameRaw({
+  Future<_i1.DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void>> setDisplayNameRaw({
     required String displayName,
     required String token,
     GuestSetDisplayNameApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -5525,21 +5866,19 @@ class $GuestClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(GuestSetDisplayNameResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        403,
+        404,
+      },
     );
+
+    final _serializer = $setDisplayName_Serializer();
+    return _i1.ResponseConverter<GuestSetDisplayNameResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -5548,6 +5887,15 @@ class $HostedSignalingServerClient {
   $HostedSignalingServerClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$requestTrial_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<HostedSignalingServerRequestTrialResponseApplicationJson, void> $requestTrial_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Request a trial account.
   ///
@@ -5581,7 +5929,7 @@ class $HostedSignalingServerClient {
     HostedSignalingServerRequestTrialApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = requestTrialRaw(
+    final _rawResponse = await requestTrialRaw(
       url: url,
       name: name,
       email: email,
@@ -5591,7 +5939,7 @@ class $HostedSignalingServerClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Request a trial account.
@@ -5620,7 +5968,7 @@ class $HostedSignalingServerClient {
   /// See:
   ///  * [requestTrial] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void> requestTrialRaw({
+  Future<_i1.DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>> requestTrialRaw({
     required String url,
     required String name,
     required String email,
@@ -5628,7 +5976,7 @@ class $HostedSignalingServerClient {
     required String country,
     HostedSignalingServerRequestTrialApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -5678,18 +6026,26 @@ class $HostedSignalingServerClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial{?url*,name*,email*,language*,country*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $requestTrial_Serializer();
+    return _i1.ResponseConverter<HostedSignalingServerRequestTrialResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deleteAccount_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<HostedSignalingServerDeleteAccountResponseApplicationJson, void> $deleteAccount_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete the account.
   ///
@@ -5713,12 +6069,12 @@ class $HostedSignalingServerClient {
     HostedSignalingServerDeleteAccountApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteAccountRaw(
+    final _rawResponse = await deleteAccountRaw(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete the account.
@@ -5742,10 +6098,10 @@ class $HostedSignalingServerClient {
   /// See:
   ///  * [deleteAccount] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void> deleteAccountRaw({
+  Future<_i1.DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>> deleteAccountRaw({
     HostedSignalingServerDeleteAccountApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -5779,17 +6135,16 @@ class $HostedSignalingServerClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(_parameters);
-    return _i1.DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {204},
-      ),
-      bodyType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {204},
     );
+
+    final _serializer = $deleteAccount_Serializer();
+    return _i1.ResponseConverter<HostedSignalingServerDeleteAccountResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -5798,6 +6153,15 @@ class $MatterbridgeClient {
   $MatterbridgeClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getBridgeOfRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void> $getBridgeOfRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get bridge information of one room.
   ///
@@ -5819,13 +6183,13 @@ class $MatterbridgeClient {
     MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getBridgeOfRoomRaw(
+    final _rawResponse = await getBridgeOfRoomRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get bridge information of one room.
@@ -5846,11 +6210,11 @@ class $MatterbridgeClient {
   /// See:
   ///  * [getBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void> getBridgeOfRoomRaw({
+  Future<_i1.DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>> getBridgeOfRoomRaw({
     required String token,
     MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -5889,18 +6253,26 @@ class $MatterbridgeClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getBridgeOfRoom_Serializer();
+    return _i1.ResponseConverter<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$editBridgeOfRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void> $editBridgeOfRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Edit bridge information of one room.
   ///
@@ -5927,7 +6299,7 @@ class $MatterbridgeClient {
     MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = editBridgeOfRoomRaw(
+    final _rawResponse = await editBridgeOfRoomRaw(
       enabled: enabled,
       token: token,
       parts: parts,
@@ -5935,7 +6307,7 @@ class $MatterbridgeClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Edit bridge information of one room.
@@ -5959,13 +6331,13 @@ class $MatterbridgeClient {
   /// See:
   ///  * [editBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void> editBridgeOfRoomRaw({
+  Future<_i1.DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>> editBridgeOfRoomRaw({
     required MatterbridgeEditBridgeOfRoomEnabled enabled,
     required String token,
     ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
     MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6019,18 +6391,26 @@ class $MatterbridgeClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $editBridgeOfRoom_Serializer();
+    return _i1.ResponseConverter<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deleteBridgeOfRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>
+      $deleteBridgeOfRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Delete bridge of one room.
   ///
@@ -6053,13 +6433,13 @@ class $MatterbridgeClient {
     MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteBridgeOfRoomRaw(
+    final _rawResponse = await deleteBridgeOfRoomRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete bridge of one room.
@@ -6081,11 +6461,11 @@ class $MatterbridgeClient {
   /// See:
   ///  * [deleteBridgeOfRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void> deleteBridgeOfRoomRaw({
+  Future<_i1.DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>> deleteBridgeOfRoomRaw({
     required String token,
     MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6126,18 +6506,26 @@ class $MatterbridgeClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $deleteBridgeOfRoom_Serializer();
+    return _i1.ResponseConverter<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getBridgeProcessState_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>
+      $getBridgeProcessState_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Get bridge process information.
   ///
@@ -6159,13 +6547,13 @@ class $MatterbridgeClient {
     MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getBridgeProcessStateRaw(
+    final _rawResponse = await getBridgeProcessStateRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get bridge process information.
@@ -6186,11 +6574,12 @@ class $MatterbridgeClient {
   /// See:
   ///  * [getBridgeProcessState] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void> getBridgeProcessStateRaw({
+  Future<_i1.DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>>
+      getBridgeProcessStateRaw({
     required String token,
     MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6232,17 +6621,16 @@ class $MatterbridgeClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(_parameters);
-    return _i1.DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getBridgeProcessState_Serializer();
+    return _i1.ResponseConverter<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -6251,6 +6639,15 @@ class $MatterbridgeSettingsClient {
   $MatterbridgeSettingsClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$stopAllBridges_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>
+      $stopAllBridges_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Stop all bridges.
   ///
@@ -6273,12 +6670,12 @@ class $MatterbridgeSettingsClient {
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = stopAllBridgesRaw(
+    final _rawResponse = await stopAllBridgesRaw(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Stop all bridges.
@@ -6301,10 +6698,10 @@ class $MatterbridgeSettingsClient {
   /// See:
   ///  * [stopAllBridges] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void> stopAllBridgesRaw({
+  Future<_i1.DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>> stopAllBridgesRaw({
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6337,18 +6734,26 @@ class $MatterbridgeSettingsClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(_parameters);
-    return _i1.DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $stopAllBridges_Serializer();
+    return _i1.ResponseConverter<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getMatterbridgeVersion_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
+      $getMatterbridgeVersion_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Get Matterbridge version.
   ///
@@ -6372,12 +6777,12 @@ class $MatterbridgeSettingsClient {
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getMatterbridgeVersionRaw(
+    final _rawResponse = await getMatterbridgeVersionRaw(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get Matterbridge version.
@@ -6400,11 +6805,11 @@ class $MatterbridgeSettingsClient {
   /// See:
   ///  * [getMatterbridgeVersion] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
+  Future<_i1.DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>>
       getMatterbridgeVersionRaw({
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6437,17 +6842,16 @@ class $MatterbridgeSettingsClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(_parameters);
-    return _i1.DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getMatterbridgeVersion_Serializer();
+    return _i1.ResponseConverter<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -6456,6 +6860,15 @@ class $PollClient {
   $PollClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$createPoll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollCreatePollResponseApplicationJson, void> $createPoll_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PollCreatePollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a poll.
   ///
@@ -6486,7 +6899,7 @@ class $PollClient {
     PollCreatePollApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = createPollRaw(
+    final _rawResponse = await createPollRaw(
       question: question,
       options: options,
       resultMode: resultMode,
@@ -6496,7 +6909,7 @@ class $PollClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Create a poll.
@@ -6522,7 +6935,7 @@ class $PollClient {
   /// See:
   ///  * [createPoll] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<PollCreatePollResponseApplicationJson, void> createPollRaw({
+  Future<_i1.DynamiteRawResponse<PollCreatePollResponseApplicationJson, void>> createPollRaw({
     required String question,
     required BuiltList<String> options,
     required PollCreatePollResultMode resultMode,
@@ -6530,7 +6943,7 @@ class $PollClient {
     required String token,
     PollCreatePollApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6581,18 +6994,24 @@ class $PollClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}{?question*,options%5B%5D*,resultMode*,maxVotes*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<PollCreatePollResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {201},
-      ),
-      bodyType: const FullType(PollCreatePollResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {201},
     );
+
+    final _serializer = $createPoll_Serializer();
+    return _i1.ResponseConverter<PollCreatePollResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$showPoll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollShowPollResponseApplicationJson, void> $showPoll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(PollShowPollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a poll.
   ///
@@ -6617,14 +7036,14 @@ class $PollClient {
     PollShowPollApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = showPollRaw(
+    final _rawResponse = await showPollRaw(
       token: token,
       pollId: pollId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get a poll.
@@ -6647,12 +7066,12 @@ class $PollClient {
   /// See:
   ///  * [showPoll] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<PollShowPollResponseApplicationJson, void> showPollRaw({
+  Future<_i1.DynamiteRawResponse<PollShowPollResponseApplicationJson, void>> showPollRaw({
     required String token,
     required int pollId,
     PollShowPollApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6691,18 +7110,24 @@ class $PollClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<PollShowPollResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(PollShowPollResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $showPoll_Serializer();
+    return _i1.ResponseConverter<PollShowPollResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$votePoll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollVotePollResponseApplicationJson, void> $votePoll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(PollVotePollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Vote on a poll.
   ///
@@ -6730,7 +7155,7 @@ class $PollClient {
     PollVotePollApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = votePollRaw(
+    final _rawResponse = await votePollRaw(
       token: token,
       pollId: pollId,
       optionIds: optionIds,
@@ -6738,7 +7163,7 @@ class $PollClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Vote on a poll.
@@ -6763,13 +7188,13 @@ class $PollClient {
   /// See:
   ///  * [votePoll] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<PollVotePollResponseApplicationJson, void> votePollRaw({
+  Future<_i1.DynamiteRawResponse<PollVotePollResponseApplicationJson, void>> votePollRaw({
     required String token,
     required int pollId,
     BuiltList<int>? optionIds,
     PollVotePollApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6813,18 +7238,24 @@ class $PollClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<PollVotePollResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(PollVotePollResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $votePoll_Serializer();
+    return _i1.ResponseConverter<PollVotePollResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$closePoll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PollClosePollResponseApplicationJson, void> $closePoll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(PollClosePollResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Close a poll.
   ///
@@ -6852,14 +7283,14 @@ class $PollClient {
     PollClosePollApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = closePollRaw(
+    final _rawResponse = await closePollRaw(
       token: token,
       pollId: pollId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Close a poll.
@@ -6885,12 +7316,12 @@ class $PollClient {
   /// See:
   ///  * [closePoll] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<PollClosePollResponseApplicationJson, void> closePollRaw({
+  Future<_i1.DynamiteRawResponse<PollClosePollResponseApplicationJson, void>> closePollRaw({
     required String token,
     required int pollId,
     PollClosePollApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -6929,17 +7360,15 @@ class $PollClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<PollClosePollResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(PollClosePollResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $closePoll_Serializer();
+    return _i1.ResponseConverter<PollClosePollResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -6948,6 +7377,15 @@ class $PublicShareAuthClient {
   $PublicShareAuthClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$createRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PublicShareAuthCreateRoomResponseApplicationJson, void> $createRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Creates a new room for video verification (requesting the password of a share).
   ///
@@ -6973,13 +7411,13 @@ class $PublicShareAuthClient {
     PublicShareAuthCreateRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = createRoomRaw(
+    final _rawResponse = await createRoomRaw(
       shareToken: shareToken,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Creates a new room for video verification (requesting the password of a share).
@@ -7004,11 +7442,11 @@ class $PublicShareAuthClient {
   /// See:
   ///  * [createRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void> createRoomRaw({
+  Future<_i1.DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>> createRoomRaw({
     required String shareToken,
     PublicShareAuthCreateRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7041,17 +7479,16 @@ class $PublicShareAuthClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {201},
-      ),
-      bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {201},
     );
+
+    final _serializer = $createRoom_Serializer();
+    return _i1.ResponseConverter<PublicShareAuthCreateRoomResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -7060,6 +7497,15 @@ class $ReactionClient {
   $ReactionClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getReactions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReactionGetReactionsResponseApplicationJson, void> $getReactions_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReactionGetReactionsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get a list of reactions for a message.
   ///
@@ -7086,7 +7532,7 @@ class $ReactionClient {
     ReactionGetReactionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getReactionsRaw(
+    final _rawResponse = await getReactionsRaw(
       token: token,
       messageId: messageId,
       reaction: reaction,
@@ -7094,7 +7540,7 @@ class $ReactionClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get a list of reactions for a message.
@@ -7118,13 +7564,13 @@ class $ReactionClient {
   /// See:
   ///  * [getReactions] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void> getReactionsRaw({
+  Future<_i1.DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void>> getReactionsRaw({
     required String token,
     required int messageId,
     String? reaction,
     ReactionGetReactionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7168,18 +7614,24 @@ class $ReactionClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ReactionGetReactionsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getReactions_Serializer();
+    return _i1.ResponseConverter<ReactionGetReactionsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$react_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReactionReactResponseApplicationJson, void> $react_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ReactionReactResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Add a reaction to a message.
   ///
@@ -7208,7 +7660,7 @@ class $ReactionClient {
     ReactionReactApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = reactRaw(
+    final _rawResponse = await reactRaw(
       reaction: reaction,
       token: token,
       messageId: messageId,
@@ -7216,7 +7668,7 @@ class $ReactionClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Add a reaction to a message.
@@ -7242,13 +7694,13 @@ class $ReactionClient {
   /// See:
   ///  * [react] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ReactionReactResponseApplicationJson, void> reactRaw({
+  Future<_i1.DynamiteRawResponse<ReactionReactResponseApplicationJson, void>> reactRaw({
     required String reaction,
     required String token,
     required int messageId,
     ReactionReactApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7291,21 +7743,27 @@ class $ReactionClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ReactionReactResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          201,
-        },
-      ),
-      bodyType: const FullType(ReactionReactResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        201,
+      },
     );
+
+    final _serializer = $react_Serializer();
+    return _i1.ResponseConverter<ReactionReactResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$$delete_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReactionDeleteResponseApplicationJson, void> $$delete_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ReactionDeleteResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete a reaction from a message.
   ///
@@ -7333,7 +7791,7 @@ class $ReactionClient {
     ReactionDeleteApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = $deleteRaw(
+    final _rawResponse = await $deleteRaw(
       reaction: reaction,
       token: token,
       messageId: messageId,
@@ -7341,7 +7799,7 @@ class $ReactionClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete a reaction from a message.
@@ -7366,13 +7824,13 @@ class $ReactionClient {
   /// See:
   ///  * [$delete] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void> $deleteRaw({
+  Future<_i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void>> $deleteRaw({
     required String reaction,
     required String token,
     required int messageId,
     ReactionDeleteApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7415,17 +7873,15 @@ class $ReactionClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ReactionDeleteResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $$delete_Serializer();
+    return _i1.ResponseConverter<ReactionDeleteResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -7434,6 +7890,14 @@ class $RecordingClient {
   $RecordingClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$start_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingStartResponseApplicationJson, void> $start_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingStartResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Start the recording.
   ///
@@ -7458,14 +7922,14 @@ class $RecordingClient {
     RecordingStartApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = startRaw(
+    final _rawResponse = await startRaw(
       status: status,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Start the recording.
@@ -7488,12 +7952,12 @@ class $RecordingClient {
   /// See:
   ///  * [start] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RecordingStartResponseApplicationJson, void> startRaw({
+  Future<_i1.DynamiteRawResponse<RecordingStartResponseApplicationJson, void>> startRaw({
     required int status,
     required String token,
     RecordingStartApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7535,18 +7999,24 @@ class $RecordingClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RecordingStartResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RecordingStartResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $start_Serializer();
+    return _i1.ResponseConverter<RecordingStartResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$stop_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingStopResponseApplicationJson, void> $stop_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingStopResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Stop the recording.
   ///
@@ -7569,13 +8039,13 @@ class $RecordingClient {
     RecordingStopApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = stopRaw(
+    final _rawResponse = await stopRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Stop the recording.
@@ -7597,11 +8067,11 @@ class $RecordingClient {
   /// See:
   ///  * [stop] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RecordingStopResponseApplicationJson, void> stopRaw({
+  Future<_i1.DynamiteRawResponse<RecordingStopResponseApplicationJson, void>> stopRaw({
     required String token,
     RecordingStopApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7639,18 +8109,24 @@ class $RecordingClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RecordingStopResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RecordingStopResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $stop_Serializer();
+    return _i1.ResponseConverter<RecordingStopResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$store_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingStoreResponseApplicationJson, void> $store_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingStoreResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Store the recording.
   ///
@@ -7676,14 +8152,14 @@ class $RecordingClient {
     RecordingStoreApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = storeRaw(
+    final _rawResponse = await storeRaw(
       owner: owner,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Store the recording.
@@ -7707,12 +8183,12 @@ class $RecordingClient {
   /// See:
   ///  * [store] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RecordingStoreResponseApplicationJson, void> storeRaw({
+  Future<_i1.DynamiteRawResponse<RecordingStoreResponseApplicationJson, void>> storeRaw({
     required String owner,
     required String token,
     RecordingStoreApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7752,18 +8228,25 @@ class $RecordingClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RecordingStoreResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RecordingStoreResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $store_Serializer();
+    return _i1.ResponseConverter<RecordingStoreResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$notificationDismiss_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingNotificationDismissResponseApplicationJson, void> $notificationDismiss_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingNotificationDismissResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Dismiss the store call recording notification.
   ///
@@ -7788,14 +8271,14 @@ class $RecordingClient {
     RecordingNotificationDismissApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = notificationDismissRaw(
+    final _rawResponse = await notificationDismissRaw(
       timestamp: timestamp,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Dismiss the store call recording notification.
@@ -7818,12 +8301,12 @@ class $RecordingClient {
   /// See:
   ///  * [notificationDismiss] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void> notificationDismissRaw({
+  Future<_i1.DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void>> notificationDismissRaw({
     required int timestamp,
     required String token,
     RecordingNotificationDismissApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7867,18 +8350,26 @@ class $RecordingClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RecordingNotificationDismissResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $notificationDismiss_Serializer();
+    return _i1.ResponseConverter<RecordingNotificationDismissResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$shareToChat_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingShareToChatResponseApplicationJson, void> $shareToChat_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingShareToChatResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Share the recorded file to the chat.
   ///
@@ -7905,7 +8396,7 @@ class $RecordingClient {
     RecordingShareToChatApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = shareToChatRaw(
+    final _rawResponse = await shareToChatRaw(
       fileId: fileId,
       timestamp: timestamp,
       token: token,
@@ -7913,7 +8404,7 @@ class $RecordingClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Share the recorded file to the chat.
@@ -7937,13 +8428,13 @@ class $RecordingClient {
   /// See:
   ///  * [shareToChat] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void> shareToChatRaw({
+  Future<_i1.DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void>> shareToChatRaw({
     required int fileId,
     required int timestamp,
     required String token,
     RecordingShareToChatApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -7990,18 +8481,25 @@ class $RecordingClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RecordingShareToChatResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $shareToChat_Serializer();
+    return _i1.ResponseConverter<RecordingShareToChatResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getWelcomeMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingGetWelcomeMessageResponseApplicationJson, void> $getWelcomeMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the welcome message of a recording server.
   ///
@@ -8027,13 +8525,13 @@ class $RecordingClient {
     RecordingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getWelcomeMessageRaw(
+    final _rawResponse = await getWelcomeMessageRaw(
       serverId: serverId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the welcome message of a recording server.
@@ -8058,11 +8556,11 @@ class $RecordingClient {
   /// See:
   ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
+  Future<_i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessageRaw({
     required int serverId,
     RecordingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -8097,17 +8595,16 @@ class $RecordingClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getWelcomeMessage_Serializer();
+    return _i1.ResponseConverter<RecordingGetWelcomeMessageResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -8116,6 +8613,15 @@ class $RoomClient {
   $RoomClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> $getRooms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomGetRoomsResponseApplicationJson),
+        headersType: const FullType(RoomRoomGetRoomsHeaders),
+        serializers: _$jsonSerializers,
+      );
 
   /// Get all currently existent rooms which the user has joined.
   ///
@@ -8141,7 +8647,7 @@ class $RoomClient {
     RoomGetRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getRoomsRaw(
+    final _rawResponse = await getRoomsRaw(
       noStatusUpdate: noStatusUpdate,
       includeStatus: includeStatus,
       modifiedSince: modifiedSince,
@@ -8149,7 +8655,7 @@ class $RoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get all currently existent rooms which the user has joined.
@@ -8172,13 +8678,13 @@ class $RoomClient {
   /// See:
   ///  * [getRooms] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> getRoomsRaw({
+  Future<_i1.DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>> getRoomsRaw({
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     RoomGetRoomsIncludeStatus? includeStatus,
     int? modifiedSince,
     RoomGetRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -8224,18 +8730,26 @@ class $RoomClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomGetRoomsResponseApplicationJson),
-      headersType: const FullType(RoomRoomGetRoomsHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getRooms_Serializer();
+    return _i1.ResponseConverter<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$createRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomCreateRoomResponseApplicationJson, void> $createRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomCreateRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Create a room with a user, a group or a circle.
   ///
@@ -8271,7 +8785,7 @@ class $RoomClient {
     RoomCreateRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = createRoomRaw(
+    final _rawResponse = await createRoomRaw(
       roomType: roomType,
       invite: invite,
       roomName: roomName,
@@ -8282,7 +8796,7 @@ class $RoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Create a room with a user, a group or a circle.
@@ -8312,7 +8826,7 @@ class $RoomClient {
   /// See:
   ///  * [createRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void> createRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void>> createRoomRaw({
     required int roomType,
     String? invite,
     String? roomName,
@@ -8321,7 +8835,7 @@ class $RoomClient {
     String? objectId,
     RoomCreateRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -8376,21 +8890,28 @@ class $RoomClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?roomType*,invite*,roomName*,source*,objectType*,objectId*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          201,
-        },
-      ),
-      bodyType: const FullType(RoomCreateRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        201,
+      },
     );
+
+    final _serializer = $createRoom_Serializer();
+    return _i1.ResponseConverter<RoomCreateRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getListedRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetListedRoomsResponseApplicationJson, void> $getListedRooms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomGetListedRoomsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get listed rooms with optional search term.
   ///
@@ -8412,13 +8933,13 @@ class $RoomClient {
     RoomGetListedRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getListedRoomsRaw(
+    final _rawResponse = await getListedRoomsRaw(
       searchTerm: searchTerm,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get listed rooms with optional search term.
@@ -8439,11 +8960,11 @@ class $RoomClient {
   /// See:
   ///  * [getListedRooms] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void> getListedRoomsRaw({
+  Future<_i1.DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void>> getListedRoomsRaw({
     String? searchTerm,
     RoomGetListedRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -8479,18 +9000,25 @@ class $RoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomGetListedRoomsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getListedRooms_Serializer();
+    return _i1.ResponseConverter<RoomGetListedRoomsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getNoteToSelfConversation_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetNoteToSelfConversationResponseApplicationJson, RoomRoomGetNoteToSelfConversationHeaders>
+      $getNoteToSelfConversation_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetNoteToSelfConversationHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get the "Note to self" conversation for the user.
   ///
@@ -8514,12 +9042,12 @@ class $RoomClient {
     RoomGetNoteToSelfConversationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getNoteToSelfConversationRaw(
+    final _rawResponse = await getNoteToSelfConversationRaw(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the "Note to self" conversation for the user.
@@ -8541,11 +9069,12 @@ class $RoomClient {
   /// See:
   ///  * [getNoteToSelfConversation] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
-      RoomRoomGetNoteToSelfConversationHeaders> getNoteToSelfConversationRaw({
+  Future<
+      _i1.DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
+          RoomRoomGetNoteToSelfConversationHeaders>> getNoteToSelfConversationRaw({
     RoomGetNoteToSelfConversationApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -8576,19 +9105,27 @@ class $RoomClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
-        RoomRoomGetNoteToSelfConversationHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
-      headersType: const FullType(RoomRoomGetNoteToSelfConversationHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getNoteToSelfConversation_Serializer();
+    return _i1.ResponseConverter<RoomGetNoteToSelfConversationResponseApplicationJson,
+            RoomRoomGetNoteToSelfConversationHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getSingleRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>
+      $getSingleRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetSingleRoomHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get a room.
   ///
@@ -8612,13 +9149,13 @@ class $RoomClient {
     RoomGetSingleRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getSingleRoomRaw(
+    final _rawResponse = await getSingleRoomRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get a room.
@@ -8641,11 +9178,12 @@ class $RoomClient {
   /// See:
   ///  * [getSingleRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders> getSingleRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>>
+      getSingleRoomRaw({
     required String token,
     RoomGetSingleRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -8682,18 +9220,26 @@ class $RoomClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
-      headersType: const FullType(RoomRoomGetSingleRoomHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getSingleRoom_Serializer();
+    return _i1.ResponseConverter<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$renameRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRenameRoomResponseApplicationJson, void> $renameRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Rename a room.
   ///
@@ -8718,14 +9264,14 @@ class $RoomClient {
     RoomRenameRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = renameRoomRaw(
+    final _rawResponse = await renameRoomRaw(
       roomName: roomName,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Rename a room.
@@ -8748,12 +9294,12 @@ class $RoomClient {
   /// See:
   ///  * [renameRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void> renameRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void>> renameRoomRaw({
     required String roomName,
     required String token,
     RoomRenameRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -8793,21 +9339,28 @@ class $RoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $renameRoom_Serializer();
+    return _i1.ResponseConverter<RoomRenameRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deleteRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomDeleteRoomResponseApplicationJson, void> $deleteRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete a room.
   ///
@@ -8830,13 +9383,13 @@ class $RoomClient {
     RoomDeleteRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteRoomRaw(
+    final _rawResponse = await deleteRoomRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete a room.
@@ -8858,11 +9411,11 @@ class $RoomClient {
   /// See:
   ///  * [deleteRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void> deleteRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void>> deleteRoomRaw({
     required String token,
     RoomDeleteRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -8898,21 +9451,28 @@ class $RoomClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $deleteRoom_Serializer();
+    return _i1.ResponseConverter<RoomDeleteRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getBreakoutRooms_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetBreakoutRoomsResponseApplicationJson, void> $getBreakoutRooms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get breakout rooms.
   ///
@@ -8937,13 +9497,13 @@ class $RoomClient {
     RoomGetBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getBreakoutRoomsRaw(
+    final _rawResponse = await getBreakoutRoomsRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get breakout rooms.
@@ -8967,11 +9527,11 @@ class $RoomClient {
   /// See:
   ///  * [getBreakoutRooms] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void> getBreakoutRoomsRaw({
+  Future<_i1.DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>> getBreakoutRoomsRaw({
     required String token,
     RoomGetBreakoutRoomsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9011,18 +9571,25 @@ class $RoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getBreakoutRooms_Serializer();
+    return _i1.ResponseConverter<RoomGetBreakoutRoomsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$makePublic_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomMakePublicResponseApplicationJson, void> $makePublic_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomMakePublicResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Allowed guests to join conversation.
   ///
@@ -9045,13 +9612,13 @@ class $RoomClient {
     RoomMakePublicApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = makePublicRaw(
+    final _rawResponse = await makePublicRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Allowed guests to join conversation.
@@ -9073,11 +9640,11 @@ class $RoomClient {
   /// See:
   ///  * [makePublic] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void> makePublicRaw({
+  Future<_i1.DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void>> makePublicRaw({
     required String token,
     RoomMakePublicApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9115,21 +9682,28 @@ class $RoomClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomMakePublicResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $makePublic_Serializer();
+    return _i1.ResponseConverter<RoomMakePublicResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$makePrivate_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomMakePrivateResponseApplicationJson, void> $makePrivate_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomMakePrivateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Disallowed guests to join conversation.
   ///
@@ -9152,13 +9726,13 @@ class $RoomClient {
     RoomMakePrivateApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = makePrivateRaw(
+    final _rawResponse = await makePrivateRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Disallowed guests to join conversation.
@@ -9180,11 +9754,11 @@ class $RoomClient {
   /// See:
   ///  * [makePrivate] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void> makePrivateRaw({
+  Future<_i1.DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void>> makePrivateRaw({
     required String token,
     RoomMakePrivateApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9222,21 +9796,28 @@ class $RoomClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomMakePrivateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $makePrivate_Serializer();
+    return _i1.ResponseConverter<RoomMakePrivateResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setDescription_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetDescriptionResponseApplicationJson, void> $setDescription_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetDescriptionResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the description of a room.
   ///
@@ -9261,14 +9842,14 @@ class $RoomClient {
     RoomSetDescriptionApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setDescriptionRaw(
+    final _rawResponse = await setDescriptionRaw(
       description: description,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update the description of a room.
@@ -9291,12 +9872,12 @@ class $RoomClient {
   /// See:
   ///  * [setDescription] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void> setDescriptionRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void>> setDescriptionRaw({
     required String description,
     required String token,
     RoomSetDescriptionApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9337,21 +9918,28 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomSetDescriptionResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $setDescription_Serializer();
+    return _i1.ResponseConverter<RoomSetDescriptionResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setReadOnly_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetReadOnlyResponseApplicationJson, void> $setReadOnly_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetReadOnlyResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set read-only state of a room.
   ///
@@ -9376,14 +9964,14 @@ class $RoomClient {
     RoomSetReadOnlyApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setReadOnlyRaw(
+    final _rawResponse = await setReadOnlyRaw(
       state: state,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set read-only state of a room.
@@ -9406,12 +9994,12 @@ class $RoomClient {
   /// See:
   ///  * [setReadOnly] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void> setReadOnlyRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void>> setReadOnlyRaw({
     required RoomSetReadOnlyState state,
     required String token,
     RoomSetReadOnlyApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9453,21 +10041,28 @@ class $RoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomSetReadOnlyResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $setReadOnly_Serializer();
+    return _i1.ResponseConverter<RoomSetReadOnlyResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setListable_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetListableResponseApplicationJson, void> $setListable_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetListableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Make a room listable.
   ///
@@ -9492,14 +10087,14 @@ class $RoomClient {
     RoomSetListableApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setListableRaw(
+    final _rawResponse = await setListableRaw(
       scope: scope,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Make a room listable.
@@ -9522,12 +10117,12 @@ class $RoomClient {
   /// See:
   ///  * [setListable] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetListableResponseApplicationJson, void> setListableRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetListableResponseApplicationJson, void>> setListableRaw({
     required RoomSetListableScope scope,
     required String token,
     RoomSetListableApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9569,21 +10164,28 @@ class $RoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetListableResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomSetListableResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $setListable_Serializer();
+    return _i1.ResponseConverter<RoomSetListableResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setPassword_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetPasswordResponseApplicationJson, void> $setPassword_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetPasswordResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set a password for a room.
   ///
@@ -9609,14 +10211,14 @@ class $RoomClient {
     RoomSetPasswordApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setPasswordRaw(
+    final _rawResponse = await setPasswordRaw(
       password: password,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set a password for a room.
@@ -9640,12 +10242,12 @@ class $RoomClient {
   /// See:
   ///  * [setPassword] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void> setPasswordRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void>> setPasswordRaw({
     required String password,
     required String token,
     RoomSetPasswordApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9685,21 +10287,28 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          403,
-        },
-      ),
-      bodyType: const FullType(RoomSetPasswordResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        403,
+      },
     );
+
+    final _serializer = $setPassword_Serializer();
+    return _i1.ResponseConverter<RoomSetPasswordResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setPermissions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetPermissionsResponseApplicationJson, void> $setPermissions_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetPermissionsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the permissions of a room.
   ///
@@ -9726,7 +10335,7 @@ class $RoomClient {
     RoomSetPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setPermissionsRaw(
+    final _rawResponse = await setPermissionsRaw(
       permissions: permissions,
       token: token,
       mode: mode,
@@ -9734,7 +10343,7 @@ class $RoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update the permissions of a room.
@@ -9758,13 +10367,13 @@ class $RoomClient {
   /// See:
   ///  * [setPermissions] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void> setPermissionsRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void>> setPermissionsRaw({
     required RoomSetPermissionsPermissions permissions,
     required String token,
     required RoomSetPermissionsMode mode,
     RoomSetPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9815,18 +10424,25 @@ class $RoomClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomSetPermissionsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setPermissions_Serializer();
+    return _i1.ResponseConverter<RoomSetPermissionsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getParticipants_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>
+      $getParticipants_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetParticipantsHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get a list of participants for a room.
   ///
@@ -9852,14 +10468,14 @@ class $RoomClient {
     RoomGetParticipantsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getParticipantsRaw(
+    final _rawResponse = await getParticipantsRaw(
       token: token,
       includeStatus: includeStatus,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get a list of participants for a room.
@@ -9882,13 +10498,13 @@ class $RoomClient {
   /// See:
   ///  * [getParticipants] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>
+  Future<_i1.DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>>
       getParticipantsRaw({
     required String token,
     RoomGetParticipantsIncludeStatus? includeStatus,
     RoomGetParticipantsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -9931,18 +10547,27 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
-      headersType: const FullType(RoomRoomGetParticipantsHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getParticipants_Serializer();
+    return _i1.ResponseConverter<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>(
+      _serializer,
+    ).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$addParticipantToRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomAddParticipantToRoomResponseApplicationJson, void> $addParticipantToRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomAddParticipantToRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Add a participant to a room.
   ///
@@ -9971,7 +10596,7 @@ class $RoomClient {
     RoomAddParticipantToRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = addParticipantToRoomRaw(
+    final _rawResponse = await addParticipantToRoomRaw(
       newParticipant: newParticipant,
       token: token,
       source: source,
@@ -9979,7 +10604,7 @@ class $RoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Add a participant to a room.
@@ -10005,13 +10630,13 @@ class $RoomClient {
   /// See:
   ///  * [addParticipantToRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void> addParticipantToRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void>> addParticipantToRoomRaw({
     required String newParticipant,
     required String token,
     RoomAddParticipantToRoomSource? source,
     RoomAddParticipantToRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -10059,18 +10684,26 @@ class $RoomClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomAddParticipantToRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $addParticipantToRoom_Serializer();
+    return _i1.ResponseConverter<RoomAddParticipantToRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getBreakoutRoomParticipants_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<
+          RoomGetBreakoutRoomParticipantsResponseApplicationJson, RoomRoomGetBreakoutRoomParticipantsHeaders>
+      $getBreakoutRoomParticipants_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
+            serializers: _$jsonSerializers,
+          );
 
   /// Get the breakout room participants for a room.
   ///
@@ -10098,14 +10731,14 @@ class $RoomClient {
     RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getBreakoutRoomParticipantsRaw(
+    final _rawResponse = await getBreakoutRoomParticipantsRaw(
       token: token,
       includeStatus: includeStatus,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the breakout room participants for a room.
@@ -10129,13 +10762,14 @@ class $RoomClient {
   /// See:
   ///  * [getBreakoutRoomParticipants] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
-      RoomRoomGetBreakoutRoomParticipantsHeaders> getBreakoutRoomParticipantsRaw({
+  Future<
+      _i1.DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+          RoomRoomGetBreakoutRoomParticipantsHeaders>> getBreakoutRoomParticipantsRaw({
     required String token,
     RoomGetBreakoutRoomParticipantsIncludeStatus? includeStatus,
     RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -10183,19 +10817,27 @@ class $RoomClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants{?includeStatus*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
-        RoomRoomGetBreakoutRoomParticipantsHeaders>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
-      headersType: const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getBreakoutRoomParticipants_Serializer();
+    return _i1.ResponseConverter<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+            RoomRoomGetBreakoutRoomParticipantsHeaders>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$removeSelfFromRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRemoveSelfFromRoomResponseApplicationJson, void> $removeSelfFromRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Remove the current user from a room.
   ///
@@ -10219,13 +10861,13 @@ class $RoomClient {
     RoomRemoveSelfFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = removeSelfFromRoomRaw(
+    final _rawResponse = await removeSelfFromRoomRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Remove the current user from a room.
@@ -10248,11 +10890,11 @@ class $RoomClient {
   /// See:
   ///  * [removeSelfFromRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void> removeSelfFromRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>> removeSelfFromRoomRaw({
     required String token,
     RoomRemoveSelfFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -10292,22 +10934,29 @@ class $RoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          404,
-        },
-      ),
-      bodyType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        404,
+      },
     );
+
+    final _serializer = $removeSelfFromRoom_Serializer();
+    return _i1.ResponseConverter<RoomRemoveSelfFromRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$removeAttendeeFromRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>
+      $removeAttendeeFromRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Remove an attendee from a room.
   ///
@@ -10334,14 +10983,14 @@ class $RoomClient {
     RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = removeAttendeeFromRoomRaw(
+    final _rawResponse = await removeAttendeeFromRoomRaw(
       attendeeId: attendeeId,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Remove an attendee from a room.
@@ -10366,12 +11015,12 @@ class $RoomClient {
   /// See:
   ///  * [removeAttendeeFromRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void> removeAttendeeFromRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>> removeAttendeeFromRoomRaw({
     required int attendeeId,
     required String token,
     RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -10412,23 +11061,31 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        403,
+        404,
+      },
     );
+
+    final _serializer = $removeAttendeeFromRoom_Serializer();
+    return _i1.ResponseConverter<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setAttendeePermissions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetAttendeePermissionsResponseApplicationJson, void>
+      $setAttendeePermissions_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Update the permissions of an attendee.
   ///
@@ -10459,7 +11116,7 @@ class $RoomClient {
     RoomSetAttendeePermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setAttendeePermissionsRaw(
+    final _rawResponse = await setAttendeePermissionsRaw(
       attendeeId: attendeeId,
       method: method,
       permissions: permissions,
@@ -10468,7 +11125,7 @@ class $RoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update the permissions of an attendee.
@@ -10495,14 +11152,14 @@ class $RoomClient {
   /// See:
   ///  * [setAttendeePermissions] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void> setAttendeePermissionsRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>> setAttendeePermissionsRaw({
     required int attendeeId,
     required RoomSetAttendeePermissionsMethod method,
     required RoomSetAttendeePermissionsPermissions permissions,
     required String token,
     RoomSetAttendeePermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -10552,23 +11209,31 @@ class $RoomClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions{?attendeeId*,method*,permissions*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        403,
+        404,
+      },
     );
+
+    final _serializer = $setAttendeePermissions_Serializer();
+    return _i1.ResponseConverter<RoomSetAttendeePermissionsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setAllAttendeesPermissions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>
+      $setAllAttendeesPermissions_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Update the permissions of all attendees.
   ///
@@ -10595,7 +11260,7 @@ class $RoomClient {
     RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setAllAttendeesPermissionsRaw(
+    final _rawResponse = await setAllAttendeesPermissionsRaw(
       method: method,
       permissions: permissions,
       token: token,
@@ -10603,7 +11268,7 @@ class $RoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update the permissions of all attendees.
@@ -10627,13 +11292,14 @@ class $RoomClient {
   /// See:
   ///  * [setAllAttendeesPermissions] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void> setAllAttendeesPermissionsRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>>
+      setAllAttendeesPermissionsRaw({
     required RoomSetAllAttendeesPermissionsMethod method,
     required RoomSetAllAttendeesPermissionsPermissions permissions,
     required String token,
     RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -10684,18 +11350,25 @@ class $RoomClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all{?method*,permissions*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setAllAttendeesPermissions_Serializer();
+    return _i1.ResponseConverter<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$joinRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomJoinRoomResponseApplicationJson, void> $joinRoom_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomJoinRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Join a room.
   ///
@@ -10724,7 +11397,7 @@ class $RoomClient {
     RoomJoinRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = joinRoomRaw(
+    final _rawResponse = await joinRoomRaw(
       token: token,
       password: password,
       force: force,
@@ -10732,7 +11405,7 @@ class $RoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Join a room.
@@ -10758,13 +11431,13 @@ class $RoomClient {
   /// See:
   ///  * [joinRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void> joinRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void>> joinRoomRaw({
     required String token,
     String? password,
     RoomJoinRoomForce? force,
     RoomJoinRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -10810,18 +11483,24 @@ class $RoomClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomJoinRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $joinRoom_Serializer();
+    return _i1.ResponseConverter<RoomJoinRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$leaveRoom_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomLeaveRoomResponseApplicationJson, void> $leaveRoom_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Leave a room.
   ///
@@ -10843,13 +11522,13 @@ class $RoomClient {
     RoomLeaveRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = leaveRoomRaw(
+    final _rawResponse = await leaveRoomRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Leave a room.
@@ -10870,11 +11549,11 @@ class $RoomClient {
   /// See:
   ///  * [leaveRoom] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void> leaveRoomRaw({
+  Future<_i1.DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void>> leaveRoomRaw({
     required String token,
     RoomLeaveRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -10911,18 +11590,25 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $leaveRoom_Serializer();
+    return _i1.ResponseConverter<RoomLeaveRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$resendInvitations_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomResendInvitationsResponseApplicationJson, void> $resendInvitations_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomResendInvitationsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Resend invitations.
   ///
@@ -10947,14 +11633,14 @@ class $RoomClient {
     RoomResendInvitationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = resendInvitationsRaw(
+    final _rawResponse = await resendInvitationsRaw(
       token: token,
       attendeeId: attendeeId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Resend invitations.
@@ -10977,12 +11663,12 @@ class $RoomClient {
   /// See:
   ///  * [resendInvitations] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void> resendInvitationsRaw({
+  Future<_i1.DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void>> resendInvitationsRaw({
     required String token,
     int? attendeeId,
     RoomResendInvitationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11026,21 +11712,28 @@ class $RoomClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations{?attendeeId*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          404,
-        },
-      ),
-      bodyType: const FullType(RoomResendInvitationsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        404,
+      },
     );
+
+    final _serializer = $resendInvitations_Serializer();
+    return _i1.ResponseConverter<RoomResendInvitationsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setSessionState_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetSessionStateResponseApplicationJson, void> $setSessionState_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetSessionStateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set active state for a session.
   ///
@@ -11066,14 +11759,14 @@ class $RoomClient {
     RoomSetSessionStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setSessionStateRaw(
+    final _rawResponse = await setSessionStateRaw(
       state: state,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set active state for a session.
@@ -11097,12 +11790,12 @@ class $RoomClient {
   /// See:
   ///  * [setSessionState] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void> setSessionStateRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void>> setSessionStateRaw({
     required RoomSetSessionStateState state,
     required String token,
     RoomSetSessionStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11143,18 +11836,25 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomSetSessionStateResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setSessionState_Serializer();
+    return _i1.ResponseConverter<RoomSetSessionStateResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$promoteModerator_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomPromoteModeratorResponseApplicationJson, void> $promoteModerator_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomPromoteModeratorResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Promote an attendee to moderator.
   ///
@@ -11181,14 +11881,14 @@ class $RoomClient {
     RoomPromoteModeratorApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = promoteModeratorRaw(
+    final _rawResponse = await promoteModeratorRaw(
       attendeeId: attendeeId,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Promote an attendee to moderator.
@@ -11213,12 +11913,12 @@ class $RoomClient {
   /// See:
   ///  * [promoteModerator] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void> promoteModeratorRaw({
+  Future<_i1.DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void>> promoteModeratorRaw({
     required int attendeeId,
     required String token,
     RoomPromoteModeratorApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11259,23 +11959,30 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(RoomPromoteModeratorResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        403,
+        404,
+      },
     );
+
+    final _serializer = $promoteModerator_Serializer();
+    return _i1.ResponseConverter<RoomPromoteModeratorResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$demoteModerator_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomDemoteModeratorResponseApplicationJson, void> $demoteModerator_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomDemoteModeratorResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Demote an attendee from moderator.
   ///
@@ -11302,14 +12009,14 @@ class $RoomClient {
     RoomDemoteModeratorApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = demoteModeratorRaw(
+    final _rawResponse = await demoteModeratorRaw(
       attendeeId: attendeeId,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Demote an attendee from moderator.
@@ -11334,12 +12041,12 @@ class $RoomClient {
   /// See:
   ///  * [demoteModerator] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void> demoteModeratorRaw({
+  Future<_i1.DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void>> demoteModeratorRaw({
     required int attendeeId,
     required String token,
     RoomDemoteModeratorApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11380,23 +12087,30 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-          403,
-          404,
-        },
-      ),
-      bodyType: const FullType(RoomDemoteModeratorResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+        403,
+        404,
+      },
     );
+
+    final _serializer = $demoteModerator_Serializer();
+    return _i1.ResponseConverter<RoomDemoteModeratorResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$addToFavorites_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomAddToFavoritesResponseApplicationJson, void> $addToFavorites_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomAddToFavoritesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Add a room to the favorites.
   ///
@@ -11418,13 +12132,13 @@ class $RoomClient {
     RoomAddToFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = addToFavoritesRaw(
+    final _rawResponse = await addToFavoritesRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Add a room to the favorites.
@@ -11445,11 +12159,11 @@ class $RoomClient {
   /// See:
   ///  * [addToFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void> addToFavoritesRaw({
+  Future<_i1.DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void>> addToFavoritesRaw({
     required String token,
     RoomAddToFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11488,18 +12202,25 @@ class $RoomClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomAddToFavoritesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $addToFavorites_Serializer();
+    return _i1.ResponseConverter<RoomAddToFavoritesResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$removeFromFavorites_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRemoveFromFavoritesResponseApplicationJson, void> $removeFromFavorites_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Remove a room from the favorites.
   ///
@@ -11521,13 +12242,13 @@ class $RoomClient {
     RoomRemoveFromFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = removeFromFavoritesRaw(
+    final _rawResponse = await removeFromFavoritesRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Remove a room from the favorites.
@@ -11548,11 +12269,11 @@ class $RoomClient {
   /// See:
   ///  * [removeFromFavorites] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void> removeFromFavoritesRaw({
+  Future<_i1.DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>> removeFromFavoritesRaw({
     required String token,
     RoomRemoveFromFavoritesApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11591,18 +12312,25 @@ class $RoomClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $removeFromFavorites_Serializer();
+    return _i1.ResponseConverter<RoomRemoveFromFavoritesResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setNotificationLevel_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetNotificationLevelResponseApplicationJson, void> $setNotificationLevel_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetNotificationLevelResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the notification level for a room.
   ///
@@ -11627,14 +12355,14 @@ class $RoomClient {
     RoomSetNotificationLevelApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setNotificationLevelRaw(
+    final _rawResponse = await setNotificationLevelRaw(
       level: level,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update the notification level for a room.
@@ -11657,12 +12385,12 @@ class $RoomClient {
   /// See:
   ///  * [setNotificationLevel] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void> setNotificationLevelRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void>> setNotificationLevelRaw({
     required int level,
     required String token,
     RoomSetNotificationLevelApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11705,21 +12433,28 @@ class $RoomClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomSetNotificationLevelResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $setNotificationLevel_Serializer();
+    return _i1.ResponseConverter<RoomSetNotificationLevelResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setNotificationCalls_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetNotificationCallsResponseApplicationJson, void> $setNotificationCalls_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetNotificationCallsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update call notifications.
   ///
@@ -11744,14 +12479,14 @@ class $RoomClient {
     RoomSetNotificationCallsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setNotificationCallsRaw(
+    final _rawResponse = await setNotificationCallsRaw(
       level: level,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update call notifications.
@@ -11774,12 +12509,12 @@ class $RoomClient {
   /// See:
   ///  * [setNotificationCalls] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void> setNotificationCallsRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void>> setNotificationCallsRaw({
     required int level,
     required String token,
     RoomSetNotificationCallsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11822,21 +12557,27 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(RoomSetNotificationCallsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $setNotificationCalls_Serializer();
+    return _i1.ResponseConverter<RoomSetNotificationCallsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setLobby_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetLobbyResponseApplicationJson, void> $setLobby_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the lobby state for a room.
   ///
@@ -11863,7 +12604,7 @@ class $RoomClient {
     RoomSetLobbyApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setLobbyRaw(
+    final _rawResponse = await setLobbyRaw(
       state: state,
       token: token,
       timer: timer,
@@ -11871,7 +12612,7 @@ class $RoomClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update the lobby state for a room.
@@ -11895,13 +12636,13 @@ class $RoomClient {
   /// See:
   ///  * [setLobby] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void> setLobbyRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void>> setLobbyRaw({
     required int state,
     required String token,
     int? timer,
     RoomSetLobbyApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -11946,18 +12687,25 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setLobby_Serializer();
+    return _i1.ResponseConverter<RoomSetLobbyResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setsipEnabled_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetsipEnabledResponseApplicationJson, void> $setsipEnabled_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetsipEnabledResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update SIP enabled state.
   ///
@@ -11985,14 +12733,14 @@ class $RoomClient {
     RoomSetsipEnabledApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setsipEnabledRaw(
+    final _rawResponse = await setsipEnabledRaw(
       state: state,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update SIP enabled state.
@@ -12018,12 +12766,12 @@ class $RoomClient {
   /// See:
   ///  * [setsipEnabled] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void> setsipEnabledRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void>> setsipEnabledRaw({
     required RoomSetsipEnabledState state,
     required String token,
     RoomSetsipEnabledApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12066,18 +12814,25 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomSetsipEnabledResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setsipEnabled_Serializer();
+    return _i1.ResponseConverter<RoomSetsipEnabledResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setRecordingConsent_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetRecordingConsentResponseApplicationJson, void> $setRecordingConsent_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetRecordingConsentResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set recording consent requirement for this conversation.
   ///
@@ -12103,14 +12858,14 @@ class $RoomClient {
     RoomSetRecordingConsentApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setRecordingConsentRaw(
+    final _rawResponse = await setRecordingConsentRaw(
       recordingConsent: recordingConsent,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set recording consent requirement for this conversation.
@@ -12134,12 +12889,12 @@ class $RoomClient {
   /// See:
   ///  * [setRecordingConsent] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void> setRecordingConsentRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void>> setRecordingConsentRaw({
     required int recordingConsent,
     required String token,
     RoomSetRecordingConsentApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12183,18 +12938,25 @@ class $RoomClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomSetRecordingConsentResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setRecordingConsent_Serializer();
+    return _i1.ResponseConverter<RoomSetRecordingConsentResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setMessageExpiration_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomSetMessageExpirationResponseApplicationJson, void> $setMessageExpiration_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomSetMessageExpirationResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update message expiration time.
   ///
@@ -12219,14 +12981,14 @@ class $RoomClient {
     RoomSetMessageExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setMessageExpirationRaw(
+    final _rawResponse = await setMessageExpirationRaw(
       seconds: seconds,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update message expiration time.
@@ -12249,12 +13011,12 @@ class $RoomClient {
   /// See:
   ///  * [setMessageExpiration] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void> setMessageExpirationRaw({
+  Future<_i1.DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void>> setMessageExpirationRaw({
     required int seconds,
     required String token,
     RoomSetMessageExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12295,17 +13057,15 @@ class $RoomClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(RoomSetMessageExpirationResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setMessageExpiration_Serializer();
+    return _i1.ResponseConverter<RoomSetMessageExpirationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -12314,6 +13074,15 @@ class $SettingsClient {
   $SettingsClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$setUserSetting_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SettingsSetUserSettingResponseApplicationJson, void> $setUserSetting_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update user setting.
   ///
@@ -12338,14 +13107,14 @@ class $SettingsClient {
     SettingsSetUserSettingApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setUserSettingRaw(
+    final _rawResponse = await setUserSettingRaw(
       key: key,
       value: value,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update user setting.
@@ -12368,12 +13137,12 @@ class $SettingsClient {
   /// See:
   ///  * [setUserSetting] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
+  Future<_i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>> setUserSettingRaw({
     required SettingsSetUserSettingKey key,
     SettingsSetUserSettingValue? value,
     SettingsSetUserSettingApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12411,21 +13180,28 @@ class $SettingsClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $setUserSetting_Serializer();
+    return _i1.ResponseConverter<SettingsSetUserSettingResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setsipSettings_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SettingsSetsipSettingsResponseApplicationJson, void> $setsipSettings_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SettingsSetsipSettingsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update SIP bridge settings.
   ///
@@ -12453,7 +13229,7 @@ class $SettingsClient {
     SettingsSetsipSettingsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setsipSettingsRaw(
+    final _rawResponse = await setsipSettingsRaw(
       sipGroups: sipGroups,
       dialInInfo: dialInInfo,
       sharedSecret: sharedSecret,
@@ -12461,7 +13237,7 @@ class $SettingsClient {
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update SIP bridge settings.
@@ -12486,13 +13262,13 @@ class $SettingsClient {
   /// See:
   ///  * [setsipSettings] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void> setsipSettingsRaw({
+  Future<_i1.DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void>> setsipSettingsRaw({
     BuiltList<String>? sipGroups,
     String? dialInInfo,
     String? sharedSecret,
     SettingsSetsipSettingsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12538,17 +13314,15 @@ class $SettingsClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip{?sipGroups%5B%5D*,dialInInfo*,sharedSecret*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(SettingsSetsipSettingsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setsipSettings_Serializer();
+    return _i1.ResponseConverter<SettingsSetsipSettingsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -12557,6 +13331,15 @@ class $SignalingClient {
   $SignalingClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getSettings_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingGetSettingsResponseApplicationJson, void> $getSettings_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the signaling settings.
   ///
@@ -12580,13 +13363,13 @@ class $SignalingClient {
     SignalingGetSettingsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getSettingsRaw(
+    final _rawResponse = await getSettingsRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the signaling settings.
@@ -12609,11 +13392,11 @@ class $SignalingClient {
   /// See:
   ///  * [getSettings] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void> getSettingsRaw({
+  Future<_i1.DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void>> getSettingsRaw({
     String? token,
     SignalingGetSettingsApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12647,18 +13430,25 @@ class $SignalingClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getSettings_Serializer();
+    return _i1.ResponseConverter<SignalingGetSettingsResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$pullMessages_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingPullMessagesResponseApplicationJson, void> $pullMessages_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get signaling messages.
   ///
@@ -12683,13 +13473,13 @@ class $SignalingClient {
     SignalingPullMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = pullMessagesRaw(
+    final _rawResponse = await pullMessagesRaw(
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get signaling messages.
@@ -12713,11 +13503,11 @@ class $SignalingClient {
   /// See:
   ///  * [pullMessages] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void> pullMessagesRaw({
+  Future<_i1.DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void>> pullMessagesRaw({
     required String token,
     SignalingPullMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12754,22 +13544,29 @@ class $SignalingClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(_parameters);
-    return _i1.DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          404,
-          409,
-        },
-      ),
-      bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        404,
+        409,
+      },
     );
+
+    final _serializer = $pullMessages_Serializer();
+    return _i1.ResponseConverter<SignalingPullMessagesResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$sendMessages_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingSendMessagesResponseApplicationJson, void> $sendMessages_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Send signaling messages.
   ///
@@ -12794,14 +13591,14 @@ class $SignalingClient {
     SignalingSendMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = sendMessagesRaw(
+    final _rawResponse = await sendMessagesRaw(
       messages: messages,
       token: token,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Send signaling messages.
@@ -12824,12 +13621,12 @@ class $SignalingClient {
   /// See:
   ///  * [sendMessages] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void> sendMessagesRaw({
+  Future<_i1.DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void>> sendMessagesRaw({
     required String messages,
     required String token,
     SignalingSendMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12870,18 +13667,25 @@ class $SignalingClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $sendMessages_Serializer();
+    return _i1.ResponseConverter<SignalingSendMessagesResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getWelcomeMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingGetWelcomeMessageResponseApplicationJson, void> $getWelcomeMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the welcome message from a signaling server.
   ///
@@ -12908,13 +13712,13 @@ class $SignalingClient {
     SignalingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getWelcomeMessageRaw(
+    final _rawResponse = await getWelcomeMessageRaw(
       serverId: serverId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the welcome message from a signaling server.
@@ -12940,11 +13744,11 @@ class $SignalingClient {
   /// See:
   ///  * [getWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
+  Future<_i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessageRaw({
     required int serverId,
     SignalingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -12979,17 +13783,16 @@ class $SignalingClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getWelcomeMessage_Serializer();
+    return _i1.ResponseConverter<SignalingGetWelcomeMessageResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -12998,6 +13801,15 @@ class $TempAvatarClient {
   $TempAvatarClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$postAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TempAvatarPostAvatarResponseApplicationJson, void> $postAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TempAvatarPostAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Upload your avatar as a user.
   ///
@@ -13016,11 +13828,11 @@ class $TempAvatarClient {
   Future<_i1.DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> postAvatar({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = postAvatarRaw(
+    final _rawResponse = await postAvatarRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Upload your avatar as a user.
@@ -13040,7 +13852,9 @@ class $TempAvatarClient {
   /// See:
   ///  * [postAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void>> postAvatarRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -13065,18 +13879,25 @@ class $TempAvatarClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
-    return _i1.DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(TempAvatarPostAvatarResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $postAvatar_Serializer();
+    return _i1.ResponseConverter<TempAvatarPostAvatarResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deleteAvatar_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<TempAvatarDeleteAvatarResponseApplicationJson, void> $deleteAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Delete your avatar as a user.
   ///
@@ -13095,11 +13916,11 @@ class $TempAvatarClient {
   Future<_i1.DynamiteResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = deleteAvatarRaw(
+    final _rawResponse = await deleteAvatarRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Delete your avatar as a user.
@@ -13119,7 +13940,9 @@ class $TempAvatarClient {
   /// See:
   ///  * [deleteAvatar] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatarRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -13144,20 +13967,18 @@ class $TempAvatarClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
-    return _i1.DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {
-          200,
-          400,
-        },
-      ),
-      bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {
+        200,
+        400,
+      },
     );
+
+    final _serializer = $deleteAvatar_Serializer();
+    return _i1.ResponseConverter<TempAvatarDeleteAvatarResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

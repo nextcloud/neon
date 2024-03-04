@@ -13,6 +13,7 @@ targets:
             - unreachable_switch_case
             - camel_case_extensions
             - no_leading_underscores_for_local_identifiers
+            - non_constant_identifier_names
           coverage_ignores:
             - 'const .*\._\(\);'
             - 'factory .*\.fromJson\(Map<String, dynamic> json\) => _\$jsonSerializers\.deserializeWith\(serializer, json\)!;'

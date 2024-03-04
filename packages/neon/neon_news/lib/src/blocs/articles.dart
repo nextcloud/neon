@@ -158,6 +158,7 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
       ),
+      serializer: account.client.news.$listArticles_Serializer(),
       unwrap: (response) => response.body.items,
     );
   }

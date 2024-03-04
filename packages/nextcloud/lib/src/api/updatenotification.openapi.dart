@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// updatenotification Version: 0.0.1.
 ///
@@ -56,6 +57,14 @@ class $ApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getAppList_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiGetAppListResponseApplicationJson, void> $getAppList_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ApiGetAppListResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// List available updates for apps.
   ///
   /// This endpoint requires admin access.
@@ -79,13 +88,13 @@ class $ApiClient {
     ApiGetAppListApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getAppListRaw(
+    final _rawResponse = await getAppListRaw(
       newVersion: newVersion,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// List available updates for apps.
@@ -109,11 +118,11 @@ class $ApiClient {
   /// See:
   ///  * [getAppList] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void> getAppListRaw({
+  Future<_i1.DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>> getAppListRaw({
     required String newVersion,
     ApiGetAppListApiVersion? apiVersion,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -147,17 +156,15 @@ class $ApiClient {
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}')
         .expand(_parameters);
-    return _i1.DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ApiGetAppListResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getAppList_Serializer();
+    return _i1.ResponseConverter<ApiGetAppListResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

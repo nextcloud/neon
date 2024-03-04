@@ -2,8 +2,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case, unused_element
 
 /// Tags test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
@@ -44,6 +44,14 @@ class $FirstClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$$get_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $$get_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -53,9 +61,9 @@ class $FirstClient {
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> $get() async {
-    final rawResponse = $getRaw();
+    final _rawResponse = await $getRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -69,17 +77,15 @@ class $FirstClient {
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> $getRaw() {
+  Future<_i1.DynamiteRawResponse<void, void>> $getRaw() async {
     const _path = '/';
-    return _i1.DynamiteRawResponse<void, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
     );
+
+    final _serializer = $$get_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 
@@ -89,6 +95,14 @@ class $SecondClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$$get_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $$get_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -98,9 +112,9 @@ class $SecondClient {
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> $get() async {
-    final rawResponse = $getRaw();
+    final _rawResponse = await $getRaw();
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -114,17 +128,15 @@ class $SecondClient {
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> $getRaw() {
+  Future<_i1.DynamiteRawResponse<void, void>> $getRaw() async {
     const _path = '/';
-    return _i1.DynamiteRawResponse<void, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
     );
+
+    final _serializer = $$get_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 

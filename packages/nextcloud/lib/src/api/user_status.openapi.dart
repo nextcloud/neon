@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// user_status Version: 0.0.1.
 ///
@@ -63,6 +64,15 @@ class $HeartbeatClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$heartbeat_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<HeartbeatHeartbeatResponseApplicationJson, void> $heartbeat_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(HeartbeatHeartbeatResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Keep the status alive.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -84,12 +94,12 @@ class $HeartbeatClient {
     required String status,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = heartbeatRaw(
+    final _rawResponse = await heartbeatRaw(
       status: status,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Keep the status alive.
@@ -112,10 +122,10 @@ class $HeartbeatClient {
   /// See:
   ///  * [heartbeat] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void> heartbeatRaw({
+  Future<_i1.DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void>> heartbeatRaw({
     required String status,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -144,17 +154,15 @@ class $HeartbeatClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/heartbeat{?status*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(HeartbeatHeartbeatResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $heartbeat_Serializer();
+    return _i1.ResponseConverter<HeartbeatHeartbeatResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -163,6 +171,15 @@ class $PredefinedStatusClient {
   $PredefinedStatusClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$findAll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<PredefinedStatusFindAllResponseApplicationJson, void> $findAll_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(PredefinedStatusFindAllResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get all predefined messages.
   ///
@@ -180,11 +197,11 @@ class $PredefinedStatusClient {
   Future<_i1.DynamiteResponse<PredefinedStatusFindAllResponseApplicationJson, void>> findAll({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = findAllRaw(
+    final _rawResponse = await findAllRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get all predefined messages.
@@ -203,7 +220,9 @@ class $PredefinedStatusClient {
   /// See:
   ///  * [findAll] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void> findAllRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void>> findAllRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -228,17 +247,15 @@ class $PredefinedStatusClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
-    return _i1.DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(PredefinedStatusFindAllResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $findAll_Serializer();
+    return _i1.ResponseConverter<PredefinedStatusFindAllResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -247,6 +264,14 @@ class $StatusesClient {
   $StatusesClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$findAll_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<StatusesFindAllResponseApplicationJson, void> $findAll_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(StatusesFindAllResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Find statuses of users.
   ///
@@ -268,13 +293,13 @@ class $StatusesClient {
     int? offset,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = findAllRaw(
+    final _rawResponse = await findAllRaw(
       limit: limit,
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Find statuses of users.
@@ -295,11 +320,11 @@ class $StatusesClient {
   /// See:
   ///  * [findAll] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void> findAllRaw({
+  Future<_i1.DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void>> findAllRaw({
     int? limit,
     int? offset,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -331,18 +356,24 @@ class $StatusesClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(StatusesFindAllResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $findAll_Serializer();
+    return _i1.ResponseConverter<StatusesFindAllResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$find_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<StatusesFindResponseApplicationJson, void> $find_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(StatusesFindResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Find the status of a user.
   ///
@@ -363,12 +394,12 @@ class $StatusesClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = findRaw(
+    final _rawResponse = await findRaw(
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Find the status of a user.
@@ -389,10 +420,10 @@ class $StatusesClient {
   /// See:
   ///  * [find] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<StatusesFindResponseApplicationJson, void> findRaw({
+  Future<_i1.DynamiteRawResponse<StatusesFindResponseApplicationJson, void>> findRaw({
     required String userId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -421,17 +452,15 @@ class $StatusesClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<StatusesFindResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(StatusesFindResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $find_Serializer();
+    return _i1.ResponseConverter<StatusesFindResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -440,6 +469,15 @@ class $UserStatusClient {
   $UserStatusClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of `$getStatus_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusGetStatusResponseApplicationJson, void> $getStatus_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusGetStatusResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Get the status of the current user.
   ///
@@ -458,11 +496,11 @@ class $UserStatusClient {
   Future<_i1.DynamiteResponse<UserStatusGetStatusResponseApplicationJson, void>> getStatus({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getStatusRaw(
+    final _rawResponse = await getStatusRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the status of the current user.
@@ -482,7 +520,9 @@ class $UserStatusClient {
   /// See:
   ///  * [getStatus] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void> getStatusRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void>> getStatusRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -507,18 +547,25 @@ class $UserStatusClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
-    return _i1.DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(UserStatusGetStatusResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getStatus_Serializer();
+    return _i1.ResponseConverter<UserStatusGetStatusResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setStatus_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusSetStatusResponseApplicationJson, void> $setStatus_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusSetStatusResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Update the status type of the current user.
   ///
@@ -539,12 +586,12 @@ class $UserStatusClient {
     required String statusType,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setStatusRaw(
+    final _rawResponse = await setStatusRaw(
       statusType: statusType,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Update the status type of the current user.
@@ -565,10 +612,10 @@ class $UserStatusClient {
   /// See:
   ///  * [setStatus] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<UserStatusSetStatusResponseApplicationJson, void> setStatusRaw({
+  Future<_i1.DynamiteRawResponse<UserStatusSetStatusResponseApplicationJson, void>> setStatusRaw({
     required String statusType,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -598,18 +645,25 @@ class $UserStatusClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/status{?statusType*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<UserStatusSetStatusResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(UserStatusSetStatusResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setStatus_Serializer();
+    return _i1.ResponseConverter<UserStatusSetStatusResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setPredefinedMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusSetPredefinedMessageResponseApplicationJson, void>
+      $setPredefinedMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+          );
 
   /// Set the message to a predefined message for the current user.
   ///
@@ -632,13 +686,13 @@ class $UserStatusClient {
     int? clearAt,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setPredefinedMessageRaw(
+    final _rawResponse = await setPredefinedMessageRaw(
       messageId: messageId,
       clearAt: clearAt,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set the message to a predefined message for the current user.
@@ -660,11 +714,11 @@ class $UserStatusClient {
   /// See:
   ///  * [setPredefinedMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void> setPredefinedMessageRaw({
+  Future<_i1.DynamiteRawResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void>> setPredefinedMessageRaw({
     required String messageId,
     int? clearAt,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -698,18 +752,26 @@ class $UserStatusClient {
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined{?messageId*,clearAt*}')
             .expand(_parameters);
-    return _i1.DynamiteRawResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setPredefinedMessage_Serializer();
+    return _i1.ResponseConverter<UserStatusSetPredefinedMessageResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$setCustomMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusSetCustomMessageResponseApplicationJson, void> $setCustomMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusSetCustomMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Set the message to a custom message for the current user.
   ///
@@ -734,14 +796,14 @@ class $UserStatusClient {
     int? clearAt,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = setCustomMessageRaw(
+    final _rawResponse = await setCustomMessageRaw(
       statusIcon: statusIcon,
       message: message,
       clearAt: clearAt,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Set the message to a custom message for the current user.
@@ -764,12 +826,12 @@ class $UserStatusClient {
   /// See:
   ///  * [setCustomMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<UserStatusSetCustomMessageResponseApplicationJson, void> setCustomMessageRaw({
+  Future<_i1.DynamiteRawResponse<UserStatusSetCustomMessageResponseApplicationJson, void>> setCustomMessageRaw({
     String? statusIcon,
     String? message,
     int? clearAt,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -806,18 +868,26 @@ class $UserStatusClient {
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom{?statusIcon*,message*,clearAt*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<UserStatusSetCustomMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'put',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(UserStatusSetCustomMessageResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'put',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $setCustomMessage_Serializer();
+    return _i1.ResponseConverter<UserStatusSetCustomMessageResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$clearMessage_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusClearMessageResponseApplicationJson, void> $clearMessage_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusClearMessageResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Clear the message of the current user.
   ///
@@ -835,11 +905,11 @@ class $UserStatusClient {
   Future<_i1.DynamiteResponse<UserStatusClearMessageResponseApplicationJson, void>> clearMessage({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = clearMessageRaw(
+    final _rawResponse = await clearMessageRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Clear the message of the current user.
@@ -858,7 +928,9 @@ class $UserStatusClient {
   /// See:
   ///  * [clearMessage] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void> clearMessageRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void>> clearMessageRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -883,18 +955,25 @@ class $UserStatusClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
-    return _i1.DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(UserStatusClearMessageResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $clearMessage_Serializer();
+    return _i1.ResponseConverter<UserStatusClearMessageResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$revertStatus_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<UserStatusRevertStatusResponseApplicationJson, void> $revertStatus_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UserStatusRevertStatusResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Revert the status to the previous status.
   ///
@@ -914,12 +993,12 @@ class $UserStatusClient {
     required String messageId,
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = revertStatusRaw(
+    final _rawResponse = await revertStatusRaw(
       messageId: messageId,
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Revert the status to the previous status.
@@ -939,10 +1018,10 @@ class $UserStatusClient {
   /// See:
   ///  * [revertStatus] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void> revertStatusRaw({
+  Future<_i1.DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void>> revertStatusRaw({
     required String messageId,
     bool? oCSAPIRequest,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -972,17 +1051,15 @@ class $UserStatusClient {
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(_parameters);
-    return _i1.DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(UserStatusRevertStatusResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'delete',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $revertStatus_Serializer();
+    return _i1.ResponseConverter<UserStatusRevertStatusResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

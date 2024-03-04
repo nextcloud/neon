@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// Swagger Petstore Version: 1.0.0.
 ///
@@ -53,6 +54,14 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
+  /// Builds a serializer to parse the response of `$findPets_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<BuiltList<Pet>, void> $findPets_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BuiltList, [FullType(Pet)]),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Returns all pets from the system that the user has access to.
   /// Nam sed condimentum est. Maecenas tempor sagittis sapien, nec rhoncus sem sagittis sit amet. Aenean at gravida augue, ac iaculis sem. Curabitur odio lorem, ornare eget elementum nec, cursus id lectus. Duis mi turpis, pulvinar ac eros ac, tincidunt varius justo. In hac habitasse platea dictumst. Integer at adipiscing ante, a sagittis ligula. Aenean pharetra tempor ante molestie imperdiet. Vivamus id aliquam diam. Cras quis velit non tortor eleifend sagittis. Praesent at enim pharetra urna volutpat venenatis eget eget mauris. In eleifend fermentum facilisis. Praesent enim enim, gravida ac sodales sed, placerat id erat. Suspendisse lacus dolor, consectetur non augue vel, vehicula interdum libero. Morbi euismod sagittis libero sed lacinia.
   ///
@@ -76,12 +85,12 @@ class $Client extends _i1.DynamiteClient {
     BuiltList<String>? tags,
     int? limit,
   }) async {
-    final rawResponse = findPetsRaw(
+    final _rawResponse = await findPetsRaw(
       tags: tags,
       limit: limit,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Returns all pets from the system that the user has access to.
@@ -106,10 +115,10 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [findPets] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<BuiltList<Pet>, void> findPetsRaw({
+  Future<_i1.DynamiteRawResponse<BuiltList<Pet>, void>> findPetsRaw({
     BuiltList<String>? tags,
     int? limit,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{'Accept': 'application/json'};
 
@@ -120,18 +129,24 @@ class $Client extends _i1.DynamiteClient {
     _parameters['limit'] = $limit;
 
     final _path = _i3.UriTemplate('/pets{?tags*,limit*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<BuiltList<Pet>, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(BuiltList, [FullType(Pet)]),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $findPets_Serializer();
+    return _i1.ResponseConverter<BuiltList<Pet>, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$addPet_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Pet, void> $addPet_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Pet),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Creates a new pet in the store. Duplicates are allowed.
   ///
@@ -145,11 +160,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [addPetRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Pet, void>> addPet({required NewPet newPet}) async {
-    final rawResponse = addPetRaw(
+    final _rawResponse = await addPetRaw(
       newPet: newPet,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Creates a new pet in the store. Duplicates are allowed.
@@ -166,26 +181,32 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [addPet] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Pet, void> addPetRaw({required NewPet newPet}) {
+  Future<_i1.DynamiteRawResponse<Pet, void>> addPetRaw({required NewPet newPet}) async {
     final _headers = <String, String>{'Accept': 'application/json'};
     Uint8List? _body;
 
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(_$jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
     const _path = '/pets';
-    return _i1.DynamiteRawResponse<Pet, void>(
-      response: executeRequest(
-        'post',
-        _path,
-        headers: _headers,
-        body: _body,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Pet),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'post',
+      _path,
+      headers: _headers,
+      body: _body,
+      validStatuses: const {200},
     );
+
+    final _serializer = $addPet_Serializer();
+    return _i1.ResponseConverter<Pet, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$findPetById_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Pet, void> $findPetById_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Pet),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a user based on a single ID, if the user does not have access to the pet.
   ///
@@ -202,11 +223,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [findPetByIdRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<Pet, void>> findPetById({required int id}) async {
-    final rawResponse = findPetByIdRaw(
+    final _rawResponse = await findPetByIdRaw(
       id: id,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Returns a user based on a single ID, if the user does not have access to the pet.
@@ -226,7 +247,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [findPetById] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Pet, void> findPetByIdRaw({required int id}) {
+  Future<_i1.DynamiteRawResponse<Pet, void>> findPetByIdRaw({required int id}) async {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{'Accept': 'application/json'};
 
@@ -234,18 +255,24 @@ class $Client extends _i1.DynamiteClient {
     _parameters['id'] = $id;
 
     final _path = _i3.UriTemplate('/pets/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Pet, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Pet),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $findPetById_Serializer();
+    return _i1.ResponseConverter<Pet, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$deletePet_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $deletePet_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// deletes a single pet based on the ID supplied.
   ///
@@ -262,11 +289,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [deletePetRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<void, void>> deletePet({required int id}) async {
-    final rawResponse = deletePetRaw(
+    final _rawResponse = await deletePetRaw(
       id: id,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// deletes a single pet based on the ID supplied.
@@ -286,23 +313,21 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [deletePet] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<void, void> deletePetRaw({required int id}) {
+  Future<_i1.DynamiteRawResponse<void, void>> deletePetRaw({required int id}) async {
     final _parameters = <String, dynamic>{};
 
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
     final _path = _i3.UriTemplate('/pets/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
-      response: executeRequest(
-        'delete',
-        _path,
-        validStatuses: const {204},
-      ),
-      bodyType: null,
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'delete',
+      _path,
+      validStatuses: const {204},
     );
+
+    final _serializer = $deletePet_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 

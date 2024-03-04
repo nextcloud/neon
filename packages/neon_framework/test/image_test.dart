@@ -117,13 +117,12 @@ void main() {
       ),
     );
 
-    verify(() => getImage(any())).called(1);
     verify(
       () => mockRequestManager.wrapBinary(
         account: mockAccount,
         cacheKey: 'key',
         getCacheParameters: any(named: 'getCacheParameters'),
-        rawResponse: mockRawResponse,
+        rawResponse: any(named: 'rawResponse'),
         unwrap: any(named: 'unwrap', that: isNotNull),
         subject: any(named: 'subject'),
       ),

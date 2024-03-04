@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// files_external Version: 0.0.1.
 ///
@@ -56,6 +57,15 @@ class $ApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getUserMounts_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiGetUserMountsResponseApplicationJson, void> $getUserMounts_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ApiGetUserMountsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the mount points visible for this user.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -72,11 +82,11 @@ class $ApiClient {
   Future<_i1.DynamiteResponse<ApiGetUserMountsResponseApplicationJson, void>> getUserMounts({
     bool? oCSAPIRequest,
   }) async {
-    final rawResponse = getUserMountsRaw(
+    final _rawResponse = await getUserMountsRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the mount points visible for this user.
@@ -95,7 +105,9 @@ class $ApiClient {
   /// See:
   ///  * [getUserMounts] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({bool? oCSAPIRequest}) {
+  Future<_i1.DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>> getUserMountsRaw({
+    bool? oCSAPIRequest,
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
 // coverage:ignore-start
@@ -120,17 +132,15 @@ class $ApiClient {
     _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
-    return _i1.DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(ApiGetUserMountsResponseApplicationJson),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getUserMounts_Serializer();
+    return _i1.ResponseConverter<ApiGetUserMountsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

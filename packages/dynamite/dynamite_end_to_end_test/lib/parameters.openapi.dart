@@ -2,8 +2,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case, unused_element
 
 /// parameters test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
@@ -42,6 +42,14 @@ class $Client extends _i1.DynamiteClient {
           cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
+
+  /// Builds a serializer to parse the response of `$$get_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $$get_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -83,7 +91,7 @@ class $Client extends _i1.DynamiteClient {
     GetAnyOf? anyOf,
     GetEnumPattern? enumPattern,
   }) async {
-    final rawResponse = $getRaw(
+    final _rawResponse = await $getRaw(
       contentString: contentString,
       contentParameter: contentParameter,
       array: array,
@@ -100,7 +108,7 @@ class $Client extends _i1.DynamiteClient {
       enumPattern: enumPattern,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -130,7 +138,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<JsonObject, void> $getRaw({
+  Future<_i1.DynamiteRawResponse<JsonObject, void>> $getRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -145,7 +153,7 @@ class $Client extends _i1.DynamiteClient {
     GetOneOf? oneOf,
     GetAnyOf? anyOf,
     GetEnumPattern? enumPattern,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{'Accept': 'application/json'};
 
@@ -210,18 +218,24 @@ class $Client extends _i1.DynamiteClient {
     final _path = _i4.UriTemplate(
       '/{?content_string*,content_parameter*,array*,array_string*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
     ).expand(_parameters);
-    return _i1.DynamiteRawResponse<JsonObject, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(JsonObject),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $$get_Serializer();
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getHeaders_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $getHeaders_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -263,7 +277,7 @@ class $Client extends _i1.DynamiteClient {
     GetHeadersAnyOf? anyOf,
     GetHeadersEnumPattern? enumPattern,
   }) async {
-    final rawResponse = getHeadersRaw(
+    final _rawResponse = await getHeadersRaw(
       contentString: contentString,
       contentParameter: contentParameter,
       array: array,
@@ -280,7 +294,7 @@ class $Client extends _i1.DynamiteClient {
       enumPattern: enumPattern,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -310,7 +324,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getHeaders] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<JsonObject, void> getHeadersRaw({
+  Future<_i1.DynamiteRawResponse<JsonObject, void>> getHeadersRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -325,7 +339,7 @@ class $Client extends _i1.DynamiteClient {
     GetHeadersOneOf? oneOf,
     GetHeadersAnyOf? anyOf,
     GetHeadersEnumPattern? enumPattern,
-  }) {
+  }) async {
     final _headers = <String, String>{'Accept': 'application/json'};
 
     final $contentString = _$jsonSerializers.serialize(
@@ -415,18 +429,24 @@ class $Client extends _i1.DynamiteClient {
     }
 
     const _path = '/headers';
-    return _i1.DynamiteRawResponse<JsonObject, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(JsonObject),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getHeaders_Serializer();
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getPathParameter_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $getPathParameter_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -437,11 +457,11 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getPathParameterRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
-    final rawResponse = getPathParameterRaw(
+    final _rawResponse = await getPathParameterRaw(
       pathParameter: pathParameter,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -455,7 +475,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getPathParameter] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
+  Future<_i1.DynamiteRawResponse<JsonObject, void>> getPathParameterRaw({required String pathParameter}) async {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{'Accept': 'application/json'};
 
@@ -463,18 +483,24 @@ class $Client extends _i1.DynamiteClient {
     _parameters['path_parameter'] = $pathParameter;
 
     final _path = _i4.UriTemplate('/{path_parameter}').expand(_parameters);
-    return _i1.DynamiteRawResponse<JsonObject, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(JsonObject),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getPathParameter_Serializer();
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of `$getNamingCollisions_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<JsonObject, void> $getNamingCollisions_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(JsonObject),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -491,7 +517,7 @@ class $Client extends _i1.DynamiteClient {
     required String parameters,
     required String headers,
   }) async {
-    final rawResponse = getNamingCollisionsRaw(
+    final _rawResponse = await getNamingCollisionsRaw(
       jsonSerializers: jsonSerializers,
       serializers: serializers,
       body: body,
@@ -499,7 +525,7 @@ class $Client extends _i1.DynamiteClient {
       headers: headers,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// This method and the response it returns is experimental. The API might change without a major version bump.
@@ -513,13 +539,13 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [getNamingCollisions] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
+  Future<_i1.DynamiteRawResponse<JsonObject, void>> getNamingCollisionsRaw({
     required String jsonSerializers,
     required String serializers,
     required String body,
     required String parameters,
     required String headers,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': 'application/json'};
 
@@ -547,17 +573,15 @@ class $Client extends _i1.DynamiteClient {
     }
 
     final _path = _i4.UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<JsonObject, void>(
-      response: executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(JsonObject),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getNamingCollisions_Serializer();
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 }
 

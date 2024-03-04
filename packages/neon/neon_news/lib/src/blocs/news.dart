@@ -120,6 +120,7 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
         cacheKey: 'news-folders',
         subject: folders,
         rawResponse: account.client.news.listFoldersRaw(),
+        serializer: account.client.news.$listFolders_Serializer(),
         unwrap: (response) => response.body.folders,
       ),
       RequestManager.instance.wrapNextcloud(
@@ -127,6 +128,7 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
         cacheKey: 'news-feeds',
         subject: feeds,
         rawResponse: account.client.news.listFeedsRaw(),
+        serializer: account.client.news.$listFeeds_Serializer(),
         unwrap: (response) {
           if (response.body.newestItemId != null) {
             newestItemId = response.body.newestItemId!;

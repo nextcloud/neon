@@ -4,7 +4,8 @@
 
 // ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: non_constant_identifier_names, public_member_api_docs
+// ignore_for_file: unreachable_switch_case
 
 /// files_trashbin Version: 0.0.1.
 ///
@@ -57,6 +58,14 @@ class $PreviewClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of `$getPreview_Request`.
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
   /// Get the preview for a file.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -81,14 +90,14 @@ class $PreviewClient {
     int? y,
     PreviewGetPreviewA? a,
   }) async {
-    final rawResponse = getPreviewRaw(
+    final _rawResponse = await getPreviewRaw(
       fileId: fileId,
       x: x,
       y: y,
       a: a,
     );
 
-    return rawResponse.future;
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Get the preview for a file.
@@ -112,12 +121,12 @@ class $PreviewClient {
   /// See:
   ///  * [getPreview] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
-  _i1.DynamiteRawResponse<Uint8List, void> getPreviewRaw({
+  Future<_i1.DynamiteRawResponse<Uint8List, void>> getPreviewRaw({
     int? fileId,
     int? x,
     int? y,
     PreviewGetPreviewA? a,
-  }) {
+  }) async {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{'Accept': '*/*'};
 
@@ -155,17 +164,15 @@ class $PreviewClient {
     _parameters['a'] = $a;
 
     final _path = _i3.UriTemplate('/index.php/apps/files_trashbin/preview{?fileId*,x*,y*,a*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        headers: _headers,
-        validStatuses: const {200},
-      ),
-      bodyType: const FullType(Uint8List),
-      headersType: null,
-      serializers: _$jsonSerializers,
+    final _response = await _rootClient.executeRequest(
+      'get',
+      _path,
+      headers: _headers,
+      validStatuses: const {200},
     );
+
+    final _serializer = $getPreview_Serializer();
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 }
 

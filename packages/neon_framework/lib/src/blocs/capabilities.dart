@@ -48,6 +48,7 @@ class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
       cacheKey: 'capabilities',
       subject: capabilities,
       rawResponse: account.client.core.ocs.getCapabilitiesRaw(),
+      serializer: account.client.core.ocs.$getCapabilities_Serializer(),
       unwrap: (response) => response.body.ocs.data,
     );
   }
