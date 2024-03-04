@@ -134,9 +134,6 @@ class NeonUserStatusIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hasEmoji = result.data?.icon != null;
-    final scaledSize = size / (hasEmoji ? 2 : 2.5);
-
     Widget? child;
     if (result.isLoading) {
       child = CircularProgressIndicator(
@@ -146,11 +143,12 @@ class NeonUserStatusIndicator extends StatelessWidget {
     } else if (result.hasError) {
       child = Icon(
         AdaptiveIcons.error_outline,
-        size: scaledSize,
+        size: size / 2.5,
         color: Theme.of(context).colorScheme.error,
       );
     } else if (result.hasData) {
       final type = result.requireData.status;
+      final hasEmoji = result.data?.icon != null;
       if (type == user_status.$Type.dnd || !hasEmoji) {
         child = NeonUserStatusIcon(
           type: type,
@@ -160,7 +158,7 @@ class NeonUserStatusIndicator extends StatelessWidget {
         child = Text(
           result.data!.icon!,
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 14,
           ),
         );
       }
@@ -170,11 +168,7 @@ class NeonUserStatusIndicator extends StatelessWidget {
       dimension: size,
       child: Align(
         alignment: Alignment.bottomRight,
-        child: SizedBox(
-          width: scaledSize,
-          height: scaledSize,
-          child: child,
-        ),
+        child: child,
       ),
     );
   }
