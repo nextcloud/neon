@@ -12,9 +12,7 @@ class MockChatMessage extends Mock implements spreed.ChatMessage {}
 Widget wrapWidget(Widget child) => TestApp(
       localizationsDelegates: TalkLocalizations.localizationsDelegates,
       supportedLocales: TalkLocalizations.supportedLocales,
-      child: Material(
-        child: child,
-      ),
+      child: child,
     );
 
 void main() {
