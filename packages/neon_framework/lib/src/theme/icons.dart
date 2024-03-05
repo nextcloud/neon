@@ -164,4 +164,14 @@ abstract final class AdaptiveIcons {
   /// <i class="material-icons md-36">edit_note</i> &#x2014; material icon named "edit_note"
   /// and <i class='cupertino-icons md-36'>create</i> &#x2014; cupertino icon named "create".
   static IconData get edit_note => !isCupertinoPlatform() ? Icons.edit_note : CupertinoIcons.create;
+
+  /// Platform-adaptive icon for
+  /// <i class="material-icons md-36">person</i> &#x2014; material icon named "person".
+  /// and <i class='cupertino-icons md-36'>person</i> &#x2014; cupertino icon named "person".
+  static IconData get person => !isCupertinoPlatform() ? Icons.person : CupertinoIcons.person;
+
+  /// Platform-adaptive icon for
+  /// ![Icon preview](https://fafre.github.io/flutter_material_design_icons/icons/robot/1.7.12/64.png "robot") material design icon named "robot".
+  /// and <i class='cupertino-icons md-36'>command</i> &#x2014; cupertino icon named "command".
+  static IconData get automation => !isCupertinoPlatform() ? MdiIcons.robot : CupertinoIcons.command;
 }
