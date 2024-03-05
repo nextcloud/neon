@@ -179,10 +179,10 @@ class NeonApiImage extends StatefulWidget {
   /// Defaults to the currently active account in [AccountsBloc.activeAccount].
   final Account? account;
 
-  /// {@macro NeonImage.getImage}
+  /// Callback for downloading the image data.
   final ApiImageDownloader getImage;
 
-  /// {@macro NeonImage.cacheKey}
+  /// The unique key used for caching the image.
   final String cacheKey;
 
   /// The ETag used for invalidating the cache.
