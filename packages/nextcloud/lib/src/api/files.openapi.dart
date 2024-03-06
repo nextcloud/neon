@@ -74,6 +74,7 @@ class $ApiClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Gets a thumbnail of the specified file.
@@ -171,7 +172,6 @@ class $ApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getThumbnail_Serializer();
@@ -191,6 +191,7 @@ class $DirectEditingClient {
         bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the direct editing capabilities.
@@ -259,7 +260,6 @@ class $DirectEditingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $info_Serializer();
@@ -273,6 +273,7 @@ class $DirectEditingClient {
         bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the templates for direct editing.
@@ -365,7 +366,6 @@ class $DirectEditingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $templates_Serializer();
@@ -378,6 +378,7 @@ class $DirectEditingClient {
         bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Open a file for direct editing.
@@ -480,7 +481,6 @@ class $DirectEditingClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $open_Serializer();
@@ -494,6 +494,7 @@ class $DirectEditingClient {
         bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Create a file for direct editing.
@@ -605,7 +606,6 @@ class $DirectEditingClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $create_Serializer();
@@ -626,6 +626,7 @@ class $OpenLocalEditorClient {
         bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Create a local editor.
@@ -709,7 +710,6 @@ class $OpenLocalEditorClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $create_Serializer();
@@ -723,6 +723,7 @@ class $OpenLocalEditorClient {
         bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Validate a local editor.
@@ -814,7 +815,6 @@ class $OpenLocalEditorClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $validate_Serializer();
@@ -834,6 +834,7 @@ class $TemplateClient {
         bodyType: const FullType(TemplateListResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// List the available templates.
@@ -902,7 +903,6 @@ class $TemplateClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $list_Serializer();
@@ -915,6 +915,7 @@ class $TemplateClient {
         bodyType: const FullType(TemplateCreateResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Create a template.
@@ -1018,7 +1019,6 @@ class $TemplateClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $create_Serializer();
@@ -1031,6 +1031,7 @@ class $TemplateClient {
         bodyType: const FullType(TemplatePathResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Initialize the template directory.
@@ -1128,7 +1129,6 @@ class $TemplateClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $path_Serializer();
@@ -1149,6 +1149,7 @@ class $TransferOwnershipClient {
         bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400, 403},
       );
 
   /// Transfer the ownership to another user.
@@ -1243,11 +1244,6 @@ class $TransferOwnershipClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        403,
-      },
     );
 
     final _serializer = $transfer_Serializer();
@@ -1262,6 +1258,7 @@ class $TransferOwnershipClient {
         bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 403, 404},
       );
 
   /// Accept an ownership transfer.
@@ -1347,11 +1344,6 @@ class $TransferOwnershipClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        403,
-        404,
-      },
     );
 
     final _serializer = $accept_Serializer();
@@ -1365,6 +1357,7 @@ class $TransferOwnershipClient {
         bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 403, 404},
       );
 
   /// Reject an ownership transfer.
@@ -1450,11 +1443,6 @@ class $TransferOwnershipClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        403,
-        404,
-      },
     );
 
     final _serializer = $reject_Serializer();

@@ -65,6 +65,7 @@ class $DashboardApiClient {
         bodyType: const FullType(DashboardApiGetWidgetsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the widgets.
@@ -137,7 +138,6 @@ class $DashboardApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getWidgets_Serializer();
@@ -151,6 +151,7 @@ class $DashboardApiClient {
         bodyType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the items for the widgets.
@@ -256,7 +257,6 @@ class $DashboardApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getWidgetItems_Serializer();
@@ -271,6 +271,7 @@ class $DashboardApiClient {
         bodyType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the items for the widgets.
@@ -380,7 +381,6 @@ class $DashboardApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getWidgetItemsV2_Serializer();

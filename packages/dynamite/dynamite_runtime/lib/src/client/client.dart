@@ -3,7 +3,6 @@ import 'dart:typed_data';
 
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/src/utils/debug_mode.dart';
 import 'package:dynamite_runtime/src/utils/uri.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
@@ -64,7 +63,6 @@ class DynamiteClient with http.BaseClient {
     String path, {
     Map<String, String>? headers,
     Uint8List? body,
-    Set<int>? validStatuses,
   }) {
     final uri = Uri.parse('$baseURL$path');
 
@@ -73,7 +71,6 @@ class DynamiteClient with http.BaseClient {
       uri,
       headers: headers,
       body: body,
-      validStatuses: validStatuses,
     );
   }
 
@@ -83,7 +80,6 @@ class DynamiteClient with http.BaseClient {
     Uri uri, {
     Map<String, String>? headers,
     Uint8List? body,
-    Set<int>? validStatuses,
   }) async {
     final request = http.Request(method, uri);
 
@@ -95,18 +91,7 @@ class DynamiteClient with http.BaseClient {
       request.bodyBytes = body;
     }
 
-    final response = await sendWithCookies(request);
-
-    if (validStatuses?.contains(response.statusCode) ?? true) {
-      return response;
-    } else {
-      if (kDebugMode) {
-        final result = await http.Response.fromStream(response);
-        throw DynamiteStatusCodeException.fromResponse(result);
-      } else {
-        throw DynamiteStatusCodeException(response.statusCode);
-      }
-    }
+    return sendWithCookies(request);
   }
 
   /// Sends an HTTP request and asynchronously returns the response.

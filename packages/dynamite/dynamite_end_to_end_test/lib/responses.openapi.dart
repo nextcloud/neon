@@ -86,6 +86,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(String),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -123,7 +124,6 @@ class $Client extends _i1.DynamiteClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $$put_Serializer();
@@ -187,6 +187,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(String),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -224,10 +225,6 @@ class $Client extends _i1.DynamiteClient {
       'patch',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-      },
     );
 
     final _serializer = $$patch_Serializer();

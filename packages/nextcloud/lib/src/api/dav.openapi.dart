@@ -65,6 +65,7 @@ class $DirectClient {
         bodyType: const FullType(DirectGetUrlResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a direct link to a file.
@@ -160,7 +161,6 @@ class $DirectClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getUrl_Serializer();
@@ -181,6 +181,7 @@ class $OutOfOfficeClient {
             bodyType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get the currently configured out-of-office data of a user.
@@ -266,7 +267,6 @@ class $OutOfOfficeClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getCurrentOutOfOfficeData_Serializer();
@@ -281,6 +281,7 @@ class $OutOfOfficeClient {
         bodyType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the configured out-of-office data of a user.
@@ -364,7 +365,6 @@ class $OutOfOfficeClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getOutOfOffice_Serializer();
@@ -379,6 +379,7 @@ class $OutOfOfficeClient {
         bodyType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Set out-of-office absence.
@@ -498,7 +499,6 @@ class $OutOfOfficeClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setOutOfOffice_Serializer();
@@ -513,6 +513,7 @@ class $OutOfOfficeClient {
         bodyType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 401},
       );
 
   /// Clear the out-of-office.
@@ -596,10 +597,6 @@ class $OutOfOfficeClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        401,
-      },
     );
 
     final _serializer = $clearOutOfOffice_Serializer();

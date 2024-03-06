@@ -55,6 +55,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(SupportedAPIVersions),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -107,7 +108,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getSupportedApiVersions_Serializer();
@@ -120,6 +120,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(ListFolders),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -172,7 +173,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listFolders_Serializer();
@@ -185,6 +185,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(ListFolders),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -249,7 +250,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $createFolder_Serializer();
@@ -262,6 +262,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -336,7 +337,6 @@ class $Client extends _i1.DynamiteClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $renameFolder_Serializer();
@@ -349,6 +349,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -407,7 +408,6 @@ class $Client extends _i1.DynamiteClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteFolder_Serializer();
@@ -420,6 +420,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -495,7 +496,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $markFolderAsRead_Serializer();
@@ -508,6 +508,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(ListFeeds),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -560,7 +561,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listFeeds_Serializer();
@@ -573,6 +573,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(ListFeeds),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -649,7 +650,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $addFeed_Serializer();
@@ -662,6 +662,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -720,7 +721,6 @@ class $Client extends _i1.DynamiteClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteFeed_Serializer();
@@ -733,6 +733,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -807,7 +808,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $moveFeed_Serializer();
@@ -820,6 +820,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -895,7 +896,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $renameFeed_Serializer();
@@ -908,6 +908,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -983,7 +984,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $markFeedAsRead_Serializer();
@@ -996,6 +996,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(ListArticles),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1112,7 +1113,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listArticles_Serializer();
@@ -1125,6 +1125,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(ListArticles),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1213,7 +1214,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listUpdatedArticles_Serializer();
@@ -1226,6 +1226,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1284,7 +1285,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $markArticleAsRead_Serializer();
@@ -1297,6 +1297,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1355,7 +1356,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $markArticleAsUnread_Serializer();
@@ -1368,6 +1368,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1426,7 +1427,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $starArticle_Serializer();
@@ -1439,6 +1439,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -1497,7 +1498,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $unstarArticle_Serializer();

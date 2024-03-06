@@ -71,6 +71,7 @@ class $HeartbeatClient {
         bodyType: const FullType(HeartbeatHeartbeatResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Keep the status alive.
@@ -158,7 +159,6 @@ class $HeartbeatClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $heartbeat_Serializer();
@@ -179,6 +179,7 @@ class $PredefinedStatusClient {
         bodyType: const FullType(PredefinedStatusFindAllResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get all predefined messages.
@@ -251,7 +252,6 @@ class $PredefinedStatusClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $findAll_Serializer();
@@ -271,6 +271,7 @@ class $StatusesClient {
         bodyType: const FullType(StatusesFindAllResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Find statuses of users.
@@ -360,7 +361,6 @@ class $StatusesClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $findAll_Serializer();
@@ -373,6 +373,7 @@ class $StatusesClient {
         bodyType: const FullType(StatusesFindResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Find the status of a user.
@@ -456,7 +457,6 @@ class $StatusesClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $find_Serializer();
@@ -477,6 +477,7 @@ class $UserStatusClient {
         bodyType: const FullType(UserStatusGetStatusResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the status of the current user.
@@ -551,7 +552,6 @@ class $UserStatusClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getStatus_Serializer();
@@ -565,6 +565,7 @@ class $UserStatusClient {
         bodyType: const FullType(UserStatusSetStatusResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update the status type of the current user.
@@ -649,7 +650,6 @@ class $UserStatusClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setStatus_Serializer();
@@ -663,6 +663,7 @@ class $UserStatusClient {
             bodyType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Set the message to a predefined message for the current user.
@@ -756,7 +757,6 @@ class $UserStatusClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setPredefinedMessage_Serializer();
@@ -771,6 +771,7 @@ class $UserStatusClient {
         bodyType: const FullType(UserStatusSetCustomMessageResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Set the message to a custom message for the current user.
@@ -872,7 +873,6 @@ class $UserStatusClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setCustomMessage_Serializer();
@@ -887,6 +887,7 @@ class $UserStatusClient {
         bodyType: const FullType(UserStatusClearMessageResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Clear the message of the current user.
@@ -959,7 +960,6 @@ class $UserStatusClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $clearMessage_Serializer();
@@ -973,6 +973,7 @@ class $UserStatusClient {
         bodyType: const FullType(UserStatusRevertStatusResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Revert the status to the previous status.
@@ -1055,7 +1056,6 @@ class $UserStatusClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $revertStatus_Serializer();

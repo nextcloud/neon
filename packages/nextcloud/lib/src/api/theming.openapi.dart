@@ -72,6 +72,7 @@ class $IconClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Return a 32x32 favicon as png.
@@ -143,7 +144,6 @@ class $IconClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getFavicon_Serializer();
@@ -156,6 +156,7 @@ class $IconClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Return a 512x512 icon for touch devices.
@@ -227,7 +228,6 @@ class $IconClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getTouchIcon_Serializer();
@@ -240,6 +240,7 @@ class $IconClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a themed icon.
@@ -327,7 +328,6 @@ class $IconClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getThemedIcon_Serializer();
@@ -349,6 +349,7 @@ class $ThemingClient {
         bodyType: const FullType(String),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the CSS stylesheet for a theme.
@@ -443,7 +444,6 @@ class $ThemingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getThemeStylesheet_Serializer();
@@ -456,6 +456,7 @@ class $ThemingClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get an image.
@@ -539,7 +540,6 @@ class $ThemingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getImage_Serializer();
@@ -553,6 +553,7 @@ class $ThemingClient {
         bodyType: const FullType(ThemingGetManifestResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the manifest for an app.
@@ -622,7 +623,6 @@ class $ThemingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getManifest_Serializer();
@@ -642,6 +642,7 @@ class $UserThemeClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the background image.
@@ -700,7 +701,6 @@ class $UserThemeClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getBackground_Serializer();
@@ -714,6 +714,7 @@ class $UserThemeClient {
         bodyType: const FullType(UserThemeEnableThemeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Enable theme.
@@ -799,7 +800,6 @@ class $UserThemeClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $enableTheme_Serializer();
@@ -813,6 +813,7 @@ class $UserThemeClient {
         bodyType: const FullType(UserThemeDisableThemeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Disable theme.
@@ -898,7 +899,6 @@ class $UserThemeClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $disableTheme_Serializer();

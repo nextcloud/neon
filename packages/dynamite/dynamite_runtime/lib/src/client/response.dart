@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/src/utils/byte_stream_extension.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
@@ -79,6 +80,7 @@ final class DynamiteSerializer<B, H> {
     required this.bodyType,
     required this.headersType,
     required this.serializers,
+    this.validStatuses,
   });
 
   /// The serializers for the header and body.
@@ -93,9 +95,14 @@ final class DynamiteSerializer<B, H> {
   ///
   /// This is `null` if the headers type is void.
   final FullType? headersType;
+
+  /// The expected valid statuses of this request.
+  final Set<int>? validStatuses;
 }
 
 /// Converter to transform a [http.StreamedResponse] into a [DynamiteResponse].
+///
+/// Throws a [DynamiteApiException] on errors.
 final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future<DynamiteRawResponse<B, H>>> {
   /// Creates a new response converter
   const ResponseConverter(this.serializer);
@@ -106,9 +113,28 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
   @override
   Future<DynamiteRawResponse<B, H>> convert(http.StreamedResponse input) async {
     final rawHeaders = input.headers;
+    final encoding = encodingForHeaders(input.headers);
+
+    final statusCode = input.statusCode;
+    final validStatuses = serializer.validStatuses;
+    if (validStatuses != null && !validStatuses.contains(statusCode)) {
+      Object body;
+      try {
+        body = await input.stream.bytesToString(encoding);
+      } on FormatException {
+        body = 'binary';
+      }
+
+      throw DynamiteStatusCodeException.fromResponse(
+        statusCode: statusCode,
+        headers: rawHeaders,
+        body: body,
+        url: input.request?.url,
+      );
+    }
+
     final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
 
-    final encoding = encodingForHeaders(input.headers);
     final rawBody = switch (serializer.bodyType) {
       const FullType(Uint8List) => await input.stream.bytes,
       const FullType(String) => await input.stream.bytesToString(encoding),
@@ -117,7 +143,7 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
     final body = _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
 
     return DynamiteRawResponse<B, H>(
-      statusCode: input.statusCode,
+      statusCode: statusCode,
       rawHeaders: rawHeaders,
       headers: headers as H,
       rawBody: rawBody,

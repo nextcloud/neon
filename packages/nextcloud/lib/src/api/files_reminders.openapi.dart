@@ -63,6 +63,7 @@ class $ApiClient {
         bodyType: const FullType(ApiGetResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a reminder.
@@ -159,7 +160,6 @@ class $ApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $$get_Serializer();
@@ -172,6 +172,7 @@ class $ApiClient {
         bodyType: const FullType(ApiSetResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201, 400, 401, 404},
       );
 
   /// Set a reminder.
@@ -283,13 +284,6 @@ class $ApiClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-        400,
-        401,
-        404,
-      },
     );
 
     final _serializer = $$set_Serializer();
@@ -302,6 +296,7 @@ class $ApiClient {
         bodyType: const FullType(ApiRemoveResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 401, 404},
       );
 
   /// Remove a reminder.
@@ -400,11 +395,6 @@ class $ApiClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        401,
-        404,
-      },
     );
 
     final _serializer = $remove_Serializer();

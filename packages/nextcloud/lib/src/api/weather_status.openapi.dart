@@ -64,6 +64,7 @@ class $WeatherStatusClient {
         bodyType: const FullType(WeatherStatusSetModeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address.
@@ -145,7 +146,6 @@ class $WeatherStatusClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setMode_Serializer();
@@ -159,6 +159,7 @@ class $WeatherStatusClient {
             bodyType: const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Try to use the address set in user personal settings as weather location.
@@ -231,7 +232,6 @@ class $WeatherStatusClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $usePersonalAddress_Serializer();
@@ -246,6 +246,7 @@ class $WeatherStatusClient {
         bodyType: const FullType(WeatherStatusGetLocationResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get stored user location.
@@ -318,7 +319,6 @@ class $WeatherStatusClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getLocation_Serializer();
@@ -332,6 +332,7 @@ class $WeatherStatusClient {
         bodyType: const FullType(WeatherStatusSetLocationResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Set address and resolve it to get coordinates or directly set coordinates and get address with reverse geocoding.
@@ -430,7 +431,6 @@ class $WeatherStatusClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setLocation_Serializer();
@@ -444,6 +444,7 @@ class $WeatherStatusClient {
         bodyType: const FullType(WeatherStatusGetForecastResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get forecast for current location.
@@ -518,7 +519,6 @@ class $WeatherStatusClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getForecast_Serializer();
@@ -532,6 +532,7 @@ class $WeatherStatusClient {
         bodyType: const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get favorites list.
@@ -604,7 +605,6 @@ class $WeatherStatusClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getFavorites_Serializer();
@@ -619,6 +619,7 @@ class $WeatherStatusClient {
         bodyType: const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Set favorites list.
@@ -702,7 +703,6 @@ class $WeatherStatusClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setFavorites_Serializer();

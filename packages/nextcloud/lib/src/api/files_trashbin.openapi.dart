@@ -64,6 +64,7 @@ class $PreviewClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the preview for a file.
@@ -168,7 +169,6 @@ class $PreviewClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getPreview_Serializer();

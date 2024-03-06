@@ -60,6 +60,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(BuiltList, [FullType(Pet)]),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns all pets from the system that the user has access to.
@@ -133,7 +134,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $findPets_Serializer();
@@ -146,6 +146,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(Pet),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Creates a new pet in the store. Duplicates are allowed.
@@ -193,7 +194,6 @@ class $Client extends _i1.DynamiteClient {
       _path,
       headers: _headers,
       body: _body,
-      validStatuses: const {200},
     );
 
     final _serializer = $addPet_Serializer();
@@ -206,6 +206,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(Pet),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a user based on a single ID, if the user does not have access to the pet.
@@ -259,7 +260,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $findPetById_Serializer();
@@ -272,6 +272,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {204},
       );
 
   /// deletes a single pet based on the ID supplied.
@@ -323,7 +324,6 @@ class $Client extends _i1.DynamiteClient {
     final _response = await executeRequest(
       'delete',
       _path,
-      validStatuses: const {204},
     );
 
     final _serializer = $deletePet_Serializer();

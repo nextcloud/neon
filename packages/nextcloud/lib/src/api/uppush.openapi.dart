@@ -53,6 +53,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(CheckResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Check if the UnifiedPush provider is present.
@@ -109,7 +110,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $check_Serializer();
@@ -123,6 +123,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(SetKeepaliveResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Set keepalive interval.
@@ -197,7 +198,6 @@ class $Client extends _i1.DynamiteClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setKeepalive_Serializer();
@@ -211,6 +211,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(CreateDeviceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Request to create a new deviceId.
@@ -283,7 +284,6 @@ class $Client extends _i1.DynamiteClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $createDevice_Serializer();
@@ -296,6 +296,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(SyncDeviceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {401},
       );
 
   /// Request to get push messages.
@@ -364,7 +365,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {401},
     );
 
     final _serializer = $syncDevice_Serializer();
@@ -378,6 +378,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(DeleteDeviceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Delete a device.
@@ -444,7 +445,6 @@ class $Client extends _i1.DynamiteClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteDevice_Serializer();
@@ -457,6 +457,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(CreateAppResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Create an authorization token for a new 3rd party service.
@@ -537,7 +538,6 @@ class $Client extends _i1.DynamiteClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $createApp_Serializer();
@@ -550,6 +550,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(DeleteAppResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Delete an authorization token.
@@ -612,7 +613,6 @@ class $Client extends _i1.DynamiteClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteApp_Serializer();
@@ -626,6 +626,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(UnifiedpushDiscoveryResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Unifiedpush discovery Following specifications.
@@ -692,7 +693,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $unifiedpushDiscovery_Serializer();
@@ -705,6 +705,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(PushResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {201},
       );
 
   /// Receive notifications from 3rd parties.
@@ -767,7 +768,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {201},
     );
 
     final _serializer = $push_Serializer();
@@ -781,6 +781,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Matrix Gateway discovery.
@@ -838,7 +839,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $gatewayMatrixDiscovery_Serializer();
@@ -852,6 +852,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(GatewayMatrixResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Matrix Gateway.
@@ -908,7 +909,6 @@ class $Client extends _i1.DynamiteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $gatewayMatrix_Serializer();
