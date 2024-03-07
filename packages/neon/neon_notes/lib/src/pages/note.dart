@@ -181,6 +181,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
                       )
                     : SingleChildScrollView(
                         child: MarkdownBody(
+                          styleSheetTheme: MarkdownStyleSheetBaseTheme.platform,
                           data: _contentController.text,
                           onTapLink: (text, href, title) async {
                             if (href != null) {
