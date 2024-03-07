@@ -106,6 +106,8 @@ class AppTheme {
       useMaterial3: true,
       platform: platform,
       colorScheme: colorScheme,
+      // For Markdown
+      primaryColor: colorScheme.primary,
       scaffoldBackgroundColor: colorScheme.background,
       cardColor: colorScheme.background,
       // For LicensePage
