@@ -389,12 +389,6 @@ abstract class NeonLocalizations {
   /// **'Account'**
   String get settingsAccount;
 
-  /// No description provided for @settingsAccountManage.
-  ///
-  /// In en, this message translates to:
-  /// **'Manage accounts'**
-  String get settingsAccountManage;
-
   /// No description provided for @settingsExport.
   ///
   /// In en, this message translates to:

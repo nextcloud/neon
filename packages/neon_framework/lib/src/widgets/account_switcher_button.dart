@@ -3,7 +3,6 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
-import 'package:neon_framework/src/pages/settings.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/utils/provider.dart';
@@ -27,10 +26,10 @@ class AccountSwitcherButton extends StatelessWidget {
         children: [
           AdaptiveListTile(
             leading: Icon(AdaptiveIcons.settings),
-            title: Text(NeonLocalizations.of(context).settingsAccountManage),
+            title: Text(NeonLocalizations.of(context).settings),
             onTap: () {
               Navigator.of(context).pop();
-              const SettingsRoute(initialCategory: SettingsCategories.accounts).push<void>(context);
+              const SettingsRoute().push<void>(context);
             },
           ),
         ],

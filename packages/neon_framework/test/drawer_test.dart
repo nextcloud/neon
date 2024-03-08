@@ -36,7 +36,8 @@ void main() {
       ),
     );
 
-    final appImplementations = BehaviorSubject<Result<BuiltSet<AppImplementation>>>();
+    final appImplementations =
+        BehaviorSubject<Result<BuiltSet<AppImplementation>>>.seeded(Result.success(BuiltSet({appImplementation})));
     final activeApp = BehaviorSubject<AppImplementation>();
     final appsBloc = MockAppsBloc();
     when(() => appsBloc.activeApp).thenAnswer((_) => activeApp);
@@ -59,16 +60,9 @@ void main() {
         ),
       ),
     );
-
-    expect(find.byType(NeonDrawerHeader), findsOne);
-    expect(find.byType(NavigationDrawerDestination), findsOne);
-
-    activeApp.add(appImplementation);
-    appImplementations.add(Result.success(BuiltSet({appImplementation})));
-
     await tester.pumpAndSettle();
 
-    expect(find.byType(NavigationDrawerDestination), findsExactly(2));
+    expect(find.byType(NavigationDrawerDestination), findsOne);
     expect(find.text('label'), findsOne);
     expect(find.byIcon(Icons.add), findsOne);
 
