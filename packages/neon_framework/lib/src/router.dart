@@ -110,13 +110,18 @@ class AccountSettingsRoute extends GoRouteData {
   }
 }
 
+/// {@template AppRoutes.RouteNotFoundRoute}
+/// Route for the [RouteNotFoundPage].
+/// {@endtemplate}
 @TypedGoRoute<RouteNotFoundRoute>(path: '/not-found/:uri')
 @immutable
 class RouteNotFoundRoute extends GoRouteData {
+  /// {@macro AppRoutes.RouteNotFoundRoute}
   const RouteNotFoundRoute({
     required this.uri,
   });
 
+  /// The URI of the route that caused the error.
   final Uri uri;
 
   @override
