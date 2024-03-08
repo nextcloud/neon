@@ -67,15 +67,14 @@ Future<bool> showUploadConfirmationDialog(
     ) ??
     false;
 
-/// Displays a [FilesChooseFolderDialog] to choose a new location for a file with the given [details].
+/// Displays a [FilesChooseFolderDialog] to choose a location for a file with the given [uri].
 ///
-/// Returns a future with the new location.
-Future<PathUri?> showChooseFolderDialog(BuildContext context, FileDetails details) async {
+/// Returns a future with the location.
+Future<PathUri?> showChooseFolderDialog(BuildContext context, PathUri uri) async {
   final bloc = NeonProvider.of<FilesBloc>(context);
 
-  final originalUri = details.uri;
   final b = bloc.getNewFilesBrowserBloc(
-    initialUri: originalUri,
+    initialUri: uri,
     mode: FilesBrowserMode.selectDirectory,
   );
 
@@ -84,7 +83,6 @@ Future<PathUri?> showChooseFolderDialog(BuildContext context, FileDetails detail
     builder: (context) => FilesChooseFolderDialog(
       bloc: b,
       filesBloc: bloc,
-      originalPath: originalUri,
     ),
   );
   b.dispose();

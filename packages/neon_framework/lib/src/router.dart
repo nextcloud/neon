@@ -20,6 +20,7 @@ import 'package:neon_framework/src/pages/login_flow.dart';
 import 'package:neon_framework/src/pages/login_qr_code.dart';
 import 'package:neon_framework/src/pages/route_not_found.dart';
 import 'package:neon_framework/src/pages/settings.dart';
+import 'package:neon_framework/src/pages/sync.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -163,6 +164,9 @@ class RouteNotFoundRoute extends GoRouteData {
           name: 'AccountSettings',
         ),
       ],
+    ),
+    TypedGoRoute<SyncRoute>(
+      path: 'sync',
     ),
   ],
 )
@@ -519,4 +523,16 @@ class SettingsRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) => SettingsPage(initialCategory: initialCategory);
+}
+
+/// {@template AppRoutes.SyncRoute}
+/// Route for the the [SyncPage].
+/// {@endtemplate}
+@immutable
+class SyncRoute extends GoRouteData {
+  /// {@macro AppRoutes.SyncRoute}
+  const SyncRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const SyncPage();
 }

@@ -5,6 +5,7 @@ import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/pages/main.dart';
 import 'package:neon_files/src/routes.dart';
+import 'package:neon_files/src/sync/implementation.dart';
 import 'package:neon_framework/models.dart';
 import 'package:nextcloud/nextcloud.dart';
 
@@ -31,6 +32,9 @@ class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
 
   @override
   final Widget page = const FilesMainPage();
+
+  @override
+  final FilesSync syncImplementation = const FilesSync();
 
   @override
   final RouteBase route = $filesAppRoute;

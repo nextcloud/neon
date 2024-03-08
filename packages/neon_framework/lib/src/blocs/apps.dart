@@ -64,6 +64,12 @@ abstract class AppsBloc implements InteractiveBloc {
   /// If no bloc exists yet a new one will be instantiated and cached in [AppImplementation.blocsCache].
   T getAppBloc<T extends Bloc>(AppImplementation<T, dynamic> appImplementation);
 
+  /// Returns the active [Bloc] for the given [appId].
+  ///
+  /// If no bloc exists yet a new one will be instantiated and cached in [AppImplementation.blocsCache].
+  /// See [getAppBloc] for getting the [Bloc] by the [AppImplementation].
+  T getAppBlocByID<T extends Bloc>(String appId);
+
   /// Returns the active [Bloc] for every registered [AppImplementation] wrapped in a Provider.
   List<Provider<Bloc>> get appBlocProviders;
 }
@@ -290,6 +296,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   @override
   T getAppBloc<T extends Bloc>(AppImplementation<T, dynamic> appImplementation) => appImplementation.getBloc(account);
+
+  @override
+  T getAppBlocByID<T extends Bloc>(String appId) => allAppImplementations.find(appId).getBloc(account) as T;
 
   @override
   List<Provider<Bloc>> get appBlocProviders =>

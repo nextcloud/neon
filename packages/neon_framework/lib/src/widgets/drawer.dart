@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -35,6 +36,21 @@ class _NeonDrawerState extends State<NeonDrawer> {
   List<AppImplementation>? _apps;
   int? _activeApp;
 
+  final _extraDestinations = <NavigationDrawerDestination, void Function(BuildContext)>{
+    NavigationDrawerDestination(
+      icon: const Icon(MdiIcons.cloudSync),
+      label: Builder(
+        builder: (context) => Text(NeonLocalizations.of(context).sync),
+      ),
+    ): (context) => const SyncRoute().go(context),
+    NavigationDrawerDestination(
+      icon: Icon(AdaptiveIcons.settings),
+      label: Builder(
+        builder: (context) => Text(NeonLocalizations.of(context).settings),
+      ),
+    ): (context) => const SettingsRoute().go(context),
+  };
+
   @override
   void initState() {
     super.initState();
@@ -54,8 +70,9 @@ class _NeonDrawerState extends State<NeonDrawer> {
     Scaffold.maybeOf(context)?.closeDrawer();
 
     // selected item is not a registered app like the SettingsPage
-    if (index >= (_apps?.length ?? 0)) {
-      const SettingsRoute().go(context);
+    final appsCount = _apps?.length ?? 0;
+    if (index >= appsCount) {
+      _extraDestinations.values.elementAt(index - appsCount)(context);
       return;
     }
 
@@ -81,10 +98,7 @@ class _NeonDrawerState extends State<NeonDrawer> {
       children: [
         const NeonDrawerHeader(),
         ...?appDestinations,
-        NavigationDrawerDestination(
-          icon: Icon(AdaptiveIcons.settings),
-          label: Text(NeonLocalizations.of(context).settings),
-        ),
+        ..._extraDestinations.keys,
       ],
     );
 

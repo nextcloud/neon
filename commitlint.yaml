@@ -27,4 +27,5 @@ rules:
       - nextcloud_test
       - release
       - sort_box
+      - synchronize
       - tool
