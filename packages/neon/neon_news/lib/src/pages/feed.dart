@@ -17,22 +17,24 @@ class NewsFeedPage extends StatelessWidget {
   final news.Feed feed;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(feed.title),
-        ),
-        body: SafeArea(
-          child: NewsArticlesView(
-            bloc: NewsArticlesBloc(
-              bloc,
-              bloc.options,
-              NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
-              id: feed.id,
-              listType: ListType.feed,
-            ),
-            newsBloc: bloc,
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Text(feed.title),
+      ),
+      body: SafeArea(
+        child: NewsArticlesView(
+          bloc: NewsArticlesBloc(
+            bloc,
+            bloc.options,
+            NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+            id: feed.id,
+            listType: ListType.feed,
           ),
+          newsBloc: bloc,
         ),
-      );
+      ),
+    );
+  }
 }

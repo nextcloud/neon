@@ -13,18 +13,20 @@ class RouteNotFoundPage extends StatelessWidget {
   final Uri uri;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          leading: CloseButton(
-            onPressed: () {
-              const HomeRoute().go(context);
-            },
-          ),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: CloseButton(
+          onPressed: () {
+            const HomeRoute().go(context);
+          },
         ),
-        body: SafeArea(
-          child: Center(
-            child: Text(NeonLocalizations.of(context).errorRouteNotFound(uri.toString())),
-          ),
+      ),
+      body: SafeArea(
+        child: Center(
+          child: Text(NeonLocalizations.of(context).errorRouteNotFound(uri.toString())),
         ),
-      );
+      ),
+    );
+  }
 }

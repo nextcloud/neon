@@ -15,21 +15,23 @@ class NewsFeedFloatingActionButton extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(BuildContext context) => FloatingActionButton(
-        onPressed: () async {
-          final result = await showAdaptiveDialog<(String, int?)>(
-            context: context,
-            builder: (context) => NewsAddFeedDialog(
-              bloc: bloc,
-              folderID: folderID,
-            ),
-          );
-          if (result != null) {
-            final (url, folderId) = result;
-            bloc.addFeed(url, folderId);
-          }
-        },
-        tooltip: NewsLocalizations.of(context).feedAdd,
-        child: Icon(AdaptiveIcons.add),
-      );
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () async {
+        final result = await showAdaptiveDialog<(String, int?)>(
+          context: context,
+          builder: (context) => NewsAddFeedDialog(
+            bloc: bloc,
+            folderID: folderID,
+          ),
+        );
+        if (result != null) {
+          final (url, folderId) = result;
+          bloc.addFeed(url, folderId);
+        }
+      },
+      tooltip: NewsLocalizations.of(context).feedAdd,
+      child: Icon(AdaptiveIcons.add),
+    );
+  }
 }

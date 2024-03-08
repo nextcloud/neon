@@ -18,35 +18,37 @@ class NotesCategoriesView extends StatelessWidget {
   final NotesBloc bloc;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.notes,
-        builder: (context, notes) => SortBoxBuilder(
-          sortBox: categoriesSortBox,
-          sortProperty: bloc.options.categoriesSortPropertyOption,
-          sortBoxOrder: bloc.options.categoriesSortBoxOrderOption,
-          input: notes.data
-              ?.map((note) => note.category)
-              .toSet()
-              .map(
-                (category) => NoteCategory(
-                  category,
-                  notes.requireData.where((note) => note.category == category).length,
-                ),
-              )
-              .toList(),
-          builder: (context, sorted) => NeonListView(
-            scrollKey: 'notes-categories',
-            isLoading: notes.isLoading,
-            error: notes.error,
-            onRefresh: bloc.refresh,
-            itemCount: sorted.length,
-            itemBuilder: (context, index) => _buildCategory(
-              context,
-              sorted[index],
-            ),
+  Widget build(BuildContext context) {
+    return ResultBuilder.behaviorSubject(
+      subject: bloc.notes,
+      builder: (context, notes) => SortBoxBuilder(
+        sortBox: categoriesSortBox,
+        sortProperty: bloc.options.categoriesSortPropertyOption,
+        sortBoxOrder: bloc.options.categoriesSortBoxOrderOption,
+        input: notes.data
+            ?.map((note) => note.category)
+            .toSet()
+            .map(
+              (category) => NoteCategory(
+                category,
+                notes.requireData.where((note) => note.category == category).length,
+              ),
+            )
+            .toList(),
+        builder: (context, sorted) => NeonListView(
+          scrollKey: 'notes-categories',
+          isLoading: notes.isLoading,
+          error: notes.error,
+          onRefresh: bloc.refresh,
+          itemCount: sorted.length,
+          itemBuilder: (context, index) => _buildCategory(
+            context,
+            sorted[index],
           ),
         ),
-      );
+      ),
+    );
+  }
 
   Widget _buildCategory(
     BuildContext context,

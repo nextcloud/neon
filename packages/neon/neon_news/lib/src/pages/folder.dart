@@ -15,20 +15,22 @@ class NewsFolderPage extends StatelessWidget {
   final news.Folder folder;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(folder.name),
-        ),
-        body: SafeArea(
-          child: NewsFolderView(
-            bloc: bloc,
-            folder: folder,
-          ),
-        ),
-        floatingActionButton: NewsFeedFloatingActionButton(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Text(folder.name),
+      ),
+      body: SafeArea(
+        child: NewsFolderView(
           bloc: bloc,
-          folderID: folder.id,
+          folder: folder,
         ),
-      );
+      ),
+      floatingActionButton: NewsFeedFloatingActionButton(
+        bloc: bloc,
+        folderID: folder.id,
+      ),
+    );
+  }
 }

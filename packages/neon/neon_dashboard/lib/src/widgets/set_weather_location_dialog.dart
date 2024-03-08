@@ -40,24 +40,26 @@ class _DashboardSetWeatherLocationDialogState extends State<DashboardSetWeatherL
   }
 
   @override
-  Widget build(BuildContext context) => NeonDialog(
-        title: Text(DashboardLocalizations.of(context).locationSet),
-        content: TextField(
-          controller: controller,
-          keyboardType: TextInputType.streetAddress,
-          decoration: InputDecoration(
-            hintText: DashboardLocalizations.of(context).address,
-          ),
-          onSubmitted: (_) {
-            submit();
-          },
+  Widget build(BuildContext context) {
+    return NeonDialog(
+      title: Text(DashboardLocalizations.of(context).locationSet),
+      content: TextField(
+        controller: controller,
+        keyboardType: TextInputType.streetAddress,
+        decoration: InputDecoration(
+          hintText: DashboardLocalizations.of(context).address,
         ),
-        actions: [
-          NeonDialogAction(
-            isDefaultAction: true,
-            onPressed: submit,
-            child: Text(NeonLocalizations.of(context).actionDone),
-          ),
-        ],
-      );
+        onSubmitted: (_) {
+          submit();
+        },
+      ),
+      actions: [
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: submit,
+          child: Text(NeonLocalizations.of(context).actionDone),
+        ),
+      ],
+    );
+  }
 }

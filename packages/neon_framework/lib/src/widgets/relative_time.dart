@@ -46,8 +46,10 @@ class _RelativeTimeState extends State<RelativeTime> {
   }
 
   @override
-  Widget build(BuildContext context) => Text(
-        widget.date.formatRelative(NeonLocalizations.of(context)),
-        style: widget.style,
-      );
+  Widget build(BuildContext context) {
+    return Text(
+      widget.date.formatRelative(NeonLocalizations.of(context)),
+      style: widget.style,
+    );
+  }
 }

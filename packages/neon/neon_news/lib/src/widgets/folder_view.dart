@@ -27,45 +27,47 @@ class _NewsFolderViewState extends State<NewsFolderView> {
   late DefaultFolderViewType _viewType = option.value;
 
   @override
-  Widget build(BuildContext context) => Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 15),
-            child: DropdownButton(
-              isExpanded: true,
-              value: _viewType,
-              items: option.values.keys
-                  .map(
-                    (key) => DropdownMenuItem(
-                      value: key,
-                      child: Text(option.values[key]!(context)),
-                    ),
-                  )
-                  .toList(),
-              onChanged: (value) {
-                setState(() {
-                  _viewType = value!;
-                });
-              },
-            ),
-          ),
-          Expanded(
-            child: _viewType == DefaultFolderViewType.articles
-                ? NewsArticlesView(
-                    bloc: NewsArticlesBloc(
-                      widget.bloc,
-                      widget.bloc.options,
-                      NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
-                      id: widget.folder.id,
-                      listType: ListType.folder,
-                    ),
-                    newsBloc: widget.bloc,
-                  )
-                : NewsFeedsView(
-                    bloc: widget.bloc,
-                    folderID: widget.folder.id,
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 15),
+          child: DropdownButton(
+            isExpanded: true,
+            value: _viewType,
+            items: option.values.keys
+                .map(
+                  (key) => DropdownMenuItem(
+                    value: key,
+                    child: Text(option.values[key]!(context)),
                   ),
+                )
+                .toList(),
+            onChanged: (value) {
+              setState(() {
+                _viewType = value!;
+              });
+            },
           ),
-        ],
-      );
+        ),
+        Expanded(
+          child: _viewType == DefaultFolderViewType.articles
+              ? NewsArticlesView(
+                  bloc: NewsArticlesBloc(
+                    widget.bloc,
+                    widget.bloc.options,
+                    NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+                    id: widget.folder.id,
+                    listType: ListType.folder,
+                  ),
+                  newsBloc: widget.bloc,
+                )
+              : NewsFeedsView(
+                  bloc: widget.bloc,
+                  folderID: widget.folder.id,
+                ),
+        ),
+      ],
+    );
+  }
 }

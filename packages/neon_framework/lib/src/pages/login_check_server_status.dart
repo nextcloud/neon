@@ -49,51 +49,53 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
-        body: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: ConstrainedBox(
-                constraints: NeonDialogTheme.of(context).constraints,
-                child: ResultBuilder.behaviorSubject(
-                  subject: bloc.state,
-                  builder: (context, state) {
-                    final success =
-                        state.hasData && _isServerVersionAllowed(state.requireData) && !state.requireData.maintenance;
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: ConstrainedBox(
+              constraints: NeonDialogTheme.of(context).constraints,
+              child: ResultBuilder.behaviorSubject(
+                subject: bloc.state,
+                builder: (context, state) {
+                  final success =
+                      state.hasData && _isServerVersionAllowed(state.requireData) && !state.requireData.maintenance;
 
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (state.hasError) ...[
-                          NeonValidationTile(
-                            title: NeonError.getDetails(state.error).getText(context),
-                            state: ValidationState.failure,
-                          ),
-                        ],
-                        _buildServerVersionTile(state),
-                        _buildMaintenanceModeTile(state),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: ElevatedButton(
-                            onPressed: success ? _onContinue : bloc.refresh,
-                            child: Text(
-                              success
-                                  ? NeonLocalizations.of(context).actionContinue
-                                  : NeonLocalizations.of(context).actionRetry,
-                            ),
-                          ),
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (state.hasError) ...[
+                        NeonValidationTile(
+                          title: NeonError.getDetails(state.error).getText(context),
+                          state: ValidationState.failure,
                         ),
                       ],
-                    );
-                  },
-                ),
+                      _buildServerVersionTile(state),
+                      _buildMaintenanceModeTile(state),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: ElevatedButton(
+                          onPressed: success ? _onContinue : bloc.refresh,
+                          child: Text(
+                            success
+                                ? NeonLocalizations.of(context).actionContinue
+                                : NeonLocalizations.of(context).actionRetry,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 
   void _onContinue() {
     if (widget.loginName != null) {

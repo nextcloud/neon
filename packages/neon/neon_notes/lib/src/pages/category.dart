@@ -16,20 +16,22 @@ class NotesCategoryPage extends StatelessWidget {
   final NoteCategory category;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(category.name.isNotEmpty ? category.name : NotesLocalizations.of(context).categoryUncategorized),
-        ),
-        body: SafeArea(
-          child: NotesView(
-            bloc: bloc,
-            category: category.name,
-          ),
-        ),
-        floatingActionButton: NotesFloatingActionButton(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Text(category.name.isNotEmpty ? category.name : NotesLocalizations.of(context).categoryUncategorized),
+      ),
+      body: SafeArea(
+        child: NotesView(
           bloc: bloc,
           category: category.name,
         ),
-      );
+      ),
+      floatingActionButton: NotesFloatingActionButton(
+        bloc: bloc,
+        category: category.name,
+      ),
+    );
+  }
 }

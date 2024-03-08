@@ -23,31 +23,33 @@ class NeonUserStatusIcon extends StatelessWidget {
   final double? size;
 
   @override
-  Widget build(BuildContext context) => switch (type) {
-        user_status.$Type.online => Icon(
+  Widget build(BuildContext context) {
+    return switch (type) {
+      user_status.$Type.online => Icon(
+          size: size,
+          Icons.circle,
+          color: NcColors.success,
+        ),
+      user_status.$Type.dnd => Icon(
+          size: size,
+          MdiIcons.minusCircle,
+          color: NcColors.error,
+        ),
+      user_status.$Type.away => Transform.rotate(
+          angle: _minus45Rad,
+          child: Icon(
             size: size,
-            Icons.circle,
-            color: NcColors.success,
+            MdiIcons.moonWaningCrescent,
+            color: NcColors.warning,
           ),
-        user_status.$Type.dnd => Icon(
-            size: size,
-            MdiIcons.minusCircle,
-            color: NcColors.error,
-          ),
-        user_status.$Type.away => Transform.rotate(
-            angle: _minus45Rad,
-            child: Icon(
-              size: size,
-              MdiIcons.moonWaningCrescent,
-              color: NcColors.warning,
-            ),
-          ),
-        user_status.$Type.invisible => Icon(
-            size: size,
-            Icons.circle_outlined,
-            color: Theme.of(context).colorScheme.onBackground,
-          ),
-        user_status.$Type.offline || user_status.$Type.busy => const SizedBox.shrink(),
-        _ => throw UnimplementedError(type.value),
-      };
+        ),
+      user_status.$Type.invisible => Icon(
+          size: size,
+          Icons.circle_outlined,
+          color: Theme.of(context).colorScheme.onBackground,
+        ),
+      user_status.$Type.offline || user_status.$Type.busy => const SizedBox.shrink(),
+      _ => throw UnimplementedError(type.value),
+    };
+  }
 }

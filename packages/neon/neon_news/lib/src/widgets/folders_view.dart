@@ -18,37 +18,39 @@ class NewsFoldersView extends StatelessWidget {
   final NewsBloc bloc;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.folders,
-        builder: (context, folders) => ResultBuilder.behaviorSubject(
-          subject: bloc.feeds,
-          builder: (context, feeds) => SortBoxBuilder(
-            sortBox: foldersSortBox,
-            sortProperty: bloc.options.foldersSortPropertyOption,
-            sortBoxOrder: bloc.options.foldersSortBoxOrderOption,
-            input: feeds.hasData
-                ? folders.data?.map((folder) {
-                    final feedsInFolder = feeds.requireData.where((feed) => feed.folderId == folder.id);
-                    final feedCount = feedsInFolder.length;
-                    final unreadCount = feedsInFolder.fold(0, (a, b) => a + b.unreadCount!);
+  Widget build(BuildContext context) {
+    return ResultBuilder.behaviorSubject(
+      subject: bloc.folders,
+      builder: (context, folders) => ResultBuilder.behaviorSubject(
+        subject: bloc.feeds,
+        builder: (context, feeds) => SortBoxBuilder(
+          sortBox: foldersSortBox,
+          sortProperty: bloc.options.foldersSortPropertyOption,
+          sortBoxOrder: bloc.options.foldersSortBoxOrderOption,
+          input: feeds.hasData
+              ? folders.data?.map((folder) {
+                  final feedsInFolder = feeds.requireData.where((feed) => feed.folderId == folder.id);
+                  final feedCount = feedsInFolder.length;
+                  final unreadCount = feedsInFolder.fold(0, (a, b) => a + b.unreadCount!);
 
-                    return (folder: folder, feedCount: feedCount, unreadCount: unreadCount);
-                  }).toList()
-                : null,
-            builder: (context, sorted) => NeonListView(
-              scrollKey: 'news-folders',
-              isLoading: feeds.isLoading || folders.isLoading,
-              error: feeds.error ?? folders.error,
-              onRefresh: bloc.refresh,
-              itemCount: sorted.length,
-              itemBuilder: (context, index) => _buildFolder(
-                context,
-                sorted[index],
-              ),
+                  return (folder: folder, feedCount: feedCount, unreadCount: unreadCount);
+                }).toList()
+              : null,
+          builder: (context, sorted) => NeonListView(
+            scrollKey: 'news-folders',
+            isLoading: feeds.isLoading || folders.isLoading,
+            error: feeds.error ?? folders.error,
+            onRefresh: bloc.refresh,
+            itemCount: sorted.length,
+            itemBuilder: (context, index) => _buildFolder(
+              context,
+              sorted[index],
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 
   Widget _buildFolder(
     BuildContext context,

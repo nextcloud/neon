@@ -80,46 +80,48 @@ class NeonImage extends StatelessWidget {
   final ErrorWidgetBuilder? errorBuilder;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: image,
-        builder: (context, imageResult) {
-          final data = imageResult.data;
-          if (data != null) {
-            try {
-              // TODO: Is this safe enough?
-              if (isSvgHint || utf8.decode(data).contains('<svg')) {
-                return SvgPicture.memory(
-                  data,
-                  height: size?.height,
-                  width: size?.width,
-                  fit: fit ?? BoxFit.contain,
-                  colorFilter: svgColorFilter,
-                );
-              }
-            } catch (_) {
-              // If the data is not UTF-8
+  Widget build(BuildContext context) {
+    return ResultBuilder.behaviorSubject(
+      subject: image,
+      builder: (context, imageResult) {
+        final data = imageResult.data;
+        if (data != null) {
+          try {
+            // TODO: Is this safe enough?
+            if (isSvgHint || utf8.decode(data).contains('<svg')) {
+              return SvgPicture.memory(
+                data,
+                height: size?.height,
+                width: size?.width,
+                fit: fit ?? BoxFit.contain,
+                colorFilter: svgColorFilter,
+              );
             }
-
-            return Image.memory(
-              data,
-              height: size?.height,
-              width: size?.width,
-              fit: fit,
-              gaplessPlayback: true,
-              errorBuilder: (context, error, stacktrace) => _buildError(context, error),
-            );
+          } catch (_) {
+            // If the data is not UTF-8
           }
 
-          if (imageResult.hasError) {
-            return _buildError(context, imageResult.error);
-          }
-
-          return SizedBox(
+          return Image.memory(
+            data,
+            height: size?.height,
             width: size?.width,
-            child: const NeonLinearProgressIndicator(),
+            fit: fit,
+            gaplessPlayback: true,
+            errorBuilder: (context, error, stacktrace) => _buildError(context, error),
           );
-        },
-      );
+        }
+
+        if (imageResult.hasError) {
+          return _buildError(context, imageResult.error);
+        }
+
+        return SizedBox(
+          width: size?.width,
+          child: const NeonLinearProgressIndicator(),
+        );
+      },
+    );
+  }
 
   Widget _buildError(BuildContext context, Object? error) =>
       errorBuilder?.call(context, error) ??
@@ -250,15 +252,17 @@ class _NeonApiImageState extends State<NeonApiImage> {
   }
 
   @override
-  Widget build(BuildContext context) => NeonImage(
-        image: image,
-        onRetry: load,
-        isSvgHint: widget.isSvgHint,
-        size: widget.size,
-        fit: widget.fit,
-        svgColorFilter: widget.svgColorFilter,
-        errorBuilder: widget.errorBuilder,
-      );
+  Widget build(BuildContext context) {
+    return NeonImage(
+      image: image,
+      onRetry: load,
+      isSvgHint: widget.isSvgHint,
+      size: widget.size,
+      fit: widget.fit,
+      svgColorFilter: widget.svgColorFilter,
+      errorBuilder: widget.errorBuilder,
+    );
+  }
 }
 
 /// A widget painting an Image fetched from an arbitrary URI.
@@ -373,15 +377,17 @@ class _NeonUriImageState extends State<NeonUriImage> {
   }
 
   @override
-  Widget build(BuildContext context) => NeonImage(
-        image: image,
-        onRetry: load,
-        isSvgHint: widget.isSvgHint || (widget.uri.data?.mimeType.contains('svg') ?? false),
-        size: widget.size,
-        fit: widget.fit,
-        svgColorFilter: widget.svgColorFilter,
-        errorBuilder: widget.errorBuilder,
-      );
+  Widget build(BuildContext context) {
+    return NeonImage(
+      image: image,
+      onRetry: load,
+      isSvgHint: widget.isSvgHint || (widget.uri.data?.mimeType.contains('svg') ?? false),
+      size: widget.size,
+      fit: widget.fit,
+      svgColorFilter: widget.svgColorFilter,
+      errorBuilder: widget.errorBuilder,
+    );
+  }
 }
 
 /// Nextcloud image wrapper widget.
@@ -423,15 +429,17 @@ class NeonImageWrapper extends StatelessWidget {
   final BorderRadius? borderRadius;
 
   @override
-  Widget build(BuildContext context) => Container(
-        height: size?.height,
-        width: size?.width,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: borderRadius ?? const BorderRadius.all(Radius.circular(8)),
-          color: color,
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: child,
-      );
+  Widget build(BuildContext context) {
+    return Container(
+      height: size?.height,
+      width: size?.width,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: borderRadius ?? const BorderRadius.all(Radius.circular(8)),
+        color: color,
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: child,
+    );
+  }
 }

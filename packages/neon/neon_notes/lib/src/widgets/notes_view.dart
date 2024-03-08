@@ -24,28 +24,30 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.notes,
-        builder: (context, notesList) => SortBoxBuilder(
-          sortBox: notesSortBox,
-          presort: const {
-            (property: NotesSortProperty.favorite, order: SortBoxOrder.ascending),
-          },
-          sortProperty: bloc.options.notesSortPropertyOption,
-          sortBoxOrder: bloc.options.notesSortBoxOrderOption,
-          input: category != null
-              ? notesList.data?.where((note) => note.category == category).toList()
-              : notesList.data?.toList(),
-          builder: (context, sorted) => NeonListView(
-            scrollKey: 'notes-notes',
-            isLoading: notesList.isLoading,
-            error: notesList.error,
-            onRefresh: bloc.refresh,
-            itemCount: sorted.length,
-            itemBuilder: (context, index) => _buildNote(context, sorted[index]),
-          ),
+  Widget build(BuildContext context) {
+    return ResultBuilder.behaviorSubject(
+      subject: bloc.notes,
+      builder: (context, notesList) => SortBoxBuilder(
+        sortBox: notesSortBox,
+        presort: const {
+          (property: NotesSortProperty.favorite, order: SortBoxOrder.ascending),
+        },
+        sortProperty: bloc.options.notesSortPropertyOption,
+        sortBoxOrder: bloc.options.notesSortBoxOrderOption,
+        input: category != null
+            ? notesList.data?.where((note) => note.category == category).toList()
+            : notesList.data?.toList(),
+        builder: (context, sorted) => NeonListView(
+          scrollKey: 'notes-notes',
+          isLoading: notesList.isLoading,
+          error: notesList.error,
+          onRefresh: bloc.refresh,
+          itemCount: sorted.length,
+          itemBuilder: (context, index) => _buildNote(context, sorted[index]),
         ),
-      );
+      ),
+    );
+  }
 
   Widget _buildNote(
     BuildContext context,

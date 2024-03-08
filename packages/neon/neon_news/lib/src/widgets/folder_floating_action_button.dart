@@ -13,15 +13,17 @@ class NewsFolderFloatingActionButton extends StatelessWidget {
   final NewsBloc bloc;
 
   @override
-  Widget build(BuildContext context) => FloatingActionButton(
-        onPressed: () async {
-          final result = await showFolderCreateDialog(context: context);
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () async {
+        final result = await showFolderCreateDialog(context: context);
 
-          if (result != null) {
-            bloc.createFolder(result);
-          }
-        },
-        tooltip: NewsLocalizations.of(context).folderCreate,
-        child: Icon(AdaptiveIcons.add),
-      );
+        if (result != null) {
+          bloc.createFolder(result);
+        }
+      },
+      tooltip: NewsLocalizations.of(context).folderCreate,
+      child: Icon(AdaptiveIcons.add),
+    );
+  }
 }

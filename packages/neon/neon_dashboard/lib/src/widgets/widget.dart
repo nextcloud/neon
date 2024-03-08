@@ -18,16 +18,18 @@ class DashboardWidget extends StatelessWidget {
   final List<Widget> children;
 
   @override
-  Widget build(BuildContext context) => Card(
-        child: InkWell(
-          onTap: widget.widgetUrl != null && widget.widgetUrl!.isNotEmpty ? () => context.go(widget.widgetUrl!) : null,
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              children: children,
-            ),
+  Widget build(BuildContext context) {
+    return Card(
+      child: InkWell(
+        onTap: widget.widgetUrl != null && widget.widgetUrl!.isNotEmpty ? () => context.go(widget.widgetUrl!) : null,
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: children,
           ),
         ),
-      );
+      ),
+    );
+  }
 }

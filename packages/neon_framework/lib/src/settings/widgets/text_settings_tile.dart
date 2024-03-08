@@ -14,13 +14,15 @@ class TextSettingsTile extends SettingsTile {
   final TextStyle? style;
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        child: Text(
-          text,
-          style: style,
-        ),
-      );
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
+      child: Text(
+        text,
+        style: style,
+      ),
+    );
+  }
 }

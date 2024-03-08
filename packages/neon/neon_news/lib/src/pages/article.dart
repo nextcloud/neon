@@ -114,107 +114,108 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   }
 
   @override
-  Widget build(BuildContext context) => BackButtonListener(
-        onBackButtonPressed: () async {
-          if (_webviewController != null && await _webviewController!.canGoBack()) {
-            await _webviewController!.goBack();
-            return true;
-          }
+  Widget build(BuildContext context) {
+    return BackButtonListener(
+      onBackButtonPressed: () async {
+        if (_webviewController != null && await _webviewController!.canGoBack()) {
+          await _webviewController!.goBack();
+          return true;
+        }
 
-          unawaited(WakelockPlus.disable());
+        unawaited(WakelockPlus.disable());
 
-          return false;
-        },
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            actions: [
-              if (loading)
-                const SizedBox.square(
-                  dimension: 24,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                  ),
+        return false;
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          actions: [
+            if (loading)
+              const SizedBox.square(
+                dimension: 24,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
                 ),
-              StreamBuilder(
-                stream: widget.bloc.starred,
-                builder: (context, starredSnapshot) {
-                  final starred = starredSnapshot.data ?? false;
-                  return IconButton(
-                    onPressed: () async {
-                      if (starred) {
-                        widget.bloc.unstarArticle();
-                      } else {
-                        widget.bloc.starArticle();
-                      }
-                    },
-                    tooltip: starred
-                        ? NewsLocalizations.of(context).articleUnstar
-                        : NewsLocalizations.of(context).articleStar,
-                    icon: Icon(starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline),
+              ),
+            StreamBuilder(
+              stream: widget.bloc.starred,
+              builder: (context, starredSnapshot) {
+                final starred = starredSnapshot.data ?? false;
+                return IconButton(
+                  onPressed: () async {
+                    if (starred) {
+                      widget.bloc.unstarArticle();
+                    } else {
+                      widget.bloc.starArticle();
+                    }
+                  },
+                  tooltip:
+                      starred ? NewsLocalizations.of(context).articleUnstar : NewsLocalizations.of(context).articleStar,
+                  icon: Icon(starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline),
+                );
+              },
+            ),
+            StreamBuilder(
+              stream: widget.bloc.unread,
+              builder: (context, unreadSnapshot) {
+                final unread = unreadSnapshot.data ?? false;
+                return IconButton(
+                  onPressed: () async {
+                    if (unread) {
+                      widget.bloc.markArticleAsRead();
+                    } else {
+                      widget.bloc.markArticleAsUnread();
+                    }
+                  },
+                  tooltip: unread
+                      ? NewsLocalizations.of(context).articleMarkRead
+                      : NewsLocalizations.of(context).articleMarkUnread,
+                  icon: Icon(unread ? AdaptiveIcons.email : AdaptiveIcons.email_mark_as_unread),
+                );
+              },
+            ),
+            if (widget.url != null) ...[
+              IconButton(
+                onPressed: () async {
+                  await launchUrlString(
+                    await _getURL(),
+                    mode: LaunchMode.externalApplication,
                   );
                 },
+                tooltip: NewsLocalizations.of(context).articleOpenLink,
+                icon: const Icon(Icons.open_in_new),
               ),
-              StreamBuilder(
-                stream: widget.bloc.unread,
-                builder: (context, unreadSnapshot) {
-                  final unread = unreadSnapshot.data ?? false;
-                  return IconButton(
-                    onPressed: () async {
-                      if (unread) {
-                        widget.bloc.markArticleAsRead();
-                      } else {
-                        widget.bloc.markArticleAsUnread();
-                      }
-                    },
-                    tooltip: unread
-                        ? NewsLocalizations.of(context).articleMarkRead
-                        : NewsLocalizations.of(context).articleMarkUnread,
-                    icon: Icon(unread ? AdaptiveIcons.email : AdaptiveIcons.email_mark_as_unread),
-                  );
+              IconButton(
+                onPressed: () async {
+                  await Share.share(await _getURL());
                 },
+                tooltip: NewsLocalizations.of(context).articleShare,
+                icon: Icon(Icons.adaptive.share),
               ),
-              if (widget.url != null) ...[
-                IconButton(
-                  onPressed: () async {
-                    await launchUrlString(
-                      await _getURL(),
-                      mode: LaunchMode.externalApplication,
-                    );
-                  },
-                  tooltip: NewsLocalizations.of(context).articleOpenLink,
-                  icon: const Icon(Icons.open_in_new),
-                ),
-                IconButton(
-                  onPressed: () async {
-                    await Share.share(await _getURL());
-                  },
-                  tooltip: NewsLocalizations.of(context).articleShare,
-                  icon: Icon(Icons.adaptive.share),
-                ),
-              ],
             ],
-          ),
-          body: SafeArea(
-            child: widget.useWebView
-                ? WebViewWidget(
-                    controller: _webviewController!,
-                  )
-                : SingleChildScrollView(
-                    padding: const EdgeInsets.all(10),
-                    child: Html(
-                      data: widget.bodyData,
-                      onLinkTap: (url, attributes, element) async {
-                        if (url != null) {
-                          await launchUrlString(
-                            url,
-                            mode: LaunchMode.externalApplication,
-                          );
-                        }
-                      },
-                    ),
-                  ),
-          ),
+          ],
         ),
-      );
+        body: SafeArea(
+          child: widget.useWebView
+              ? WebViewWidget(
+                  controller: _webviewController!,
+                )
+              : SingleChildScrollView(
+                  padding: const EdgeInsets.all(10),
+                  child: Html(
+                    data: widget.bodyData,
+                    onLinkTap: (url, attributes, element) async {
+                      if (url != null) {
+                        await launchUrlString(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      }
+                    },
+                  ),
+                ),
+        ),
+      ),
+    );
+  }
 }

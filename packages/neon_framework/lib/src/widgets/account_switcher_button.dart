@@ -42,9 +42,11 @@ class AccountSwitcherButton extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => IconButton(
-        onPressed: () async => _onPressed(context),
-        tooltip: NeonLocalizations.of(context).settingsAccount,
-        icon: const NeonUserAvatar(),
-      );
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () async => _onPressed(context),
+      tooltip: NeonLocalizations.of(context).settingsAccount,
+      icon: const NeonUserAvatar(),
+    );
+  }
 }

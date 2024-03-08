@@ -24,50 +24,52 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
   String? _lastErrorURL;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
-        body: SafeArea(
-          child: ReaderWidget(
-            codeFormat: Format.qrCode,
-            showGallery: false,
-            showToggleCamera: false,
-            showScannerOverlay: false,
-            tryHarder: true,
-            cropPercent: 0,
-            scanDelaySuccess: const Duration(seconds: 3),
-            onScan: (code) async {
-              String? url;
-              try {
-                url = code.text;
-                if (url == null) {
-                  throw const InvalidQRcodeException();
-                }
-                final match = LoginQRcode.tryParse(url);
-                if (match == null) {
-                  throw const InvalidQRcodeException();
-                }
-
-                LoginCheckServerStatusRoute.withCredentials(
-                  serverUrl: match.serverURL,
-                  loginName: match.username,
-                  password: match.password,
-                ).pushReplacement(context);
-              } on InvalidQRcodeException catch (error, stackTrace) {
-                if (_lastErrorURL != url) {
-                  _log.warning(
-                    'Error parsing parsing qr code.',
-                    error,
-                    stackTrace,
-                  );
-
-                  _lastErrorURL = url;
-                  NeonError.showSnackbar(context, error);
-                }
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: ReaderWidget(
+          codeFormat: Format.qrCode,
+          showGallery: false,
+          showToggleCamera: false,
+          showScannerOverlay: false,
+          tryHarder: true,
+          cropPercent: 0,
+          scanDelaySuccess: const Duration(seconds: 3),
+          onScan: (code) async {
+            String? url;
+            try {
+              url = code.text;
+              if (url == null) {
+                throw const InvalidQRcodeException();
               }
-            },
-          ),
+              final match = LoginQRcode.tryParse(url);
+              if (match == null) {
+                throw const InvalidQRcodeException();
+              }
+
+              LoginCheckServerStatusRoute.withCredentials(
+                serverUrl: match.serverURL,
+                loginName: match.username,
+                password: match.password,
+              ).pushReplacement(context);
+            } on InvalidQRcodeException catch (error, stackTrace) {
+              if (_lastErrorURL != url) {
+                _log.warning(
+                  'Error parsing parsing qr code.',
+                  error,
+                  stackTrace,
+                );
+
+                _lastErrorURL = url;
+                NeonError.showSnackbar(context, error);
+              }
+            }
+          },
         ),
-      );
+      ),
+    );
+  }
 }
 
 /// Exception which is thrown when an invalid QR code is encountered.

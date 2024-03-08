@@ -155,42 +155,44 @@ class NewsFeedShowURLDialog extends StatelessWidget {
   final news.Feed feed;
 
   @override
-  Widget build(BuildContext context) => NeonDialog(
-        title: Text(feed.url),
-        actions: [
-          NeonDialogAction(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              NeonLocalizations.of(context).actionClose,
-              textAlign: TextAlign.end,
-            ),
+  Widget build(BuildContext context) {
+    return NeonDialog(
+      title: Text(feed.url),
+      actions: [
+        NeonDialogAction(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            NeonLocalizations.of(context).actionClose,
+            textAlign: TextAlign.end,
           ),
-          NeonDialogAction(
-            isDefaultAction: true,
-            onPressed: () async {
-              await Clipboard.setData(
-                ClipboardData(
-                  text: feed.url,
+        ),
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: () async {
+            await Clipboard.setData(
+              ClipboardData(
+                text: feed.url,
+              ),
+            );
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(NewsLocalizations.of(context).feedCopiedURL),
                 ),
               );
-              if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(NewsLocalizations.of(context).feedCopiedURL),
-                  ),
-                );
-                Navigator.of(context).pop();
-              }
-            },
-            child: Text(
-              NewsLocalizations.of(context).feedCopyURL,
-              textAlign: TextAlign.end,
-            ),
+              Navigator.of(context).pop();
+            }
+          },
+          child: Text(
+            NewsLocalizations.of(context).feedCopyURL,
+            textAlign: TextAlign.end,
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
 
 class NewsFeedUpdateErrorDialog extends StatelessWidget {
@@ -202,42 +204,44 @@ class NewsFeedUpdateErrorDialog extends StatelessWidget {
   final news.Feed feed;
 
   @override
-  Widget build(BuildContext context) => NeonDialog(
-        title: Text(feed.lastUpdateError!),
-        actions: [
-          NeonDialogAction(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              NeonLocalizations.of(context).actionClose,
-              textAlign: TextAlign.end,
-            ),
+  Widget build(BuildContext context) {
+    return NeonDialog(
+      title: Text(feed.lastUpdateError!),
+      actions: [
+        NeonDialogAction(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            NeonLocalizations.of(context).actionClose,
+            textAlign: TextAlign.end,
           ),
-          NeonDialogAction(
-            isDefaultAction: true,
-            onPressed: () async {
-              await Clipboard.setData(
-                ClipboardData(
-                  text: feed.lastUpdateError!,
+        ),
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: () async {
+            await Clipboard.setData(
+              ClipboardData(
+                text: feed.lastUpdateError!,
+              ),
+            );
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(NewsLocalizations.of(context).feedCopiedErrorMessage),
                 ),
               );
-              if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(NewsLocalizations.of(context).feedCopiedErrorMessage),
-                  ),
-                );
-                Navigator.of(context).pop();
-              }
-            },
-            child: Text(
-              NewsLocalizations.of(context).feedCopyErrorMessage,
-              textAlign: TextAlign.end,
-            ),
+              Navigator.of(context).pop();
+            }
+          },
+          child: Text(
+            NewsLocalizations.of(context).feedCopyErrorMessage,
+            textAlign: TextAlign.end,
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
 
 /// A dialog for moving a news feed by into a different folder.
@@ -280,33 +284,35 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
   }
 
   @override
-  Widget build(BuildContext context) => NeonDialog(
-        title: Text(NewsLocalizations.of(context).feedMove),
-        content: Material(
-          child: Form(
-            key: formKey,
-            child: NewsFolderSelect(
-              folders: widget.folders,
-              value: folder,
-              onChanged: (f) {
-                setState(() {
-                  folder = f;
-                });
-              },
-            ),
+  Widget build(BuildContext context) {
+    return NeonDialog(
+      title: Text(NewsLocalizations.of(context).feedMove),
+      content: Material(
+        child: Form(
+          key: formKey,
+          child: NewsFolderSelect(
+            folders: widget.folders,
+            value: folder,
+            onChanged: (f) {
+              setState(() {
+                folder = f;
+              });
+            },
           ),
         ),
-        actions: [
-          NeonDialogAction(
-            isDefaultAction: true,
-            onPressed: submit,
-            child: Text(
-              NewsLocalizations.of(context).feedMove,
-              textAlign: TextAlign.end,
-            ),
+      ),
+      actions: [
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: submit,
+          child: Text(
+            NewsLocalizations.of(context).feedMove,
+            textAlign: TextAlign.end,
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
 
 /// A [NeonDialog] that shows for renaming creating a new folder.

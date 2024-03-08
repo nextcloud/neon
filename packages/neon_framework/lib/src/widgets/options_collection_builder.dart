@@ -67,5 +67,11 @@ class _OptionsCollectionBuilderState<T extends OptionsCollection> extends State<
   }
 
   @override
-  Widget build(BuildContext context) => widget.builder(context, widget.valueListenable, widget.child);
+  Widget build(BuildContext context) {
+    return widget.builder(
+      context,
+      widget.valueListenable,
+      widget.child,
+    );
+  }
 }
