@@ -1239,6 +1239,248 @@
                     "federated_users",
                     "phones"
                 ]
+            },
+            "SignalingSessions": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "data"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SignalingSession"
+                        }
+                    }
+                }
+            },
+            "SignalingData": {
+                "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                        "usersInRoom": "#/components/schemas/SignalingSessions",
+                        "message": "#/components/schemas/SignalingMessageWrapper"
+                    }
+                },
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/SignalingSessions"
+                    },
+                    {
+                        "$ref": "#/components/schemas/SignalingMessageWrapper"
+                    }
+                ]
+            },
+            "SignalingMessageWrapper": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "data"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "string",
+                        "contentMediaType": "application/json",
+                        "contentSchema": {
+                            "$ref": "#/components/schemas/SignalingMessage"
+                        }
+                    }
+                }
+            },
+            "SignalingMessageType": {
+                "type": "string",
+                "enum": [
+                    "offer",
+                    "answer",
+                    "candidate",
+                    "unshareScreen",
+                    "remove-candidates",
+                    "control",
+                    "forceMute",
+                    "mute",
+                    "unmute",
+                    "nickChanged"
+                ]
+            },
+            "SignalingMessage": {
+                "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                        "offer": "#/components/schemas/SignalingSessionDescriptionMessage",
+                        "answer": "#/components/schemas/SignalingSessionDescriptionMessage",
+                        "candidate": "#/components/schemas/SignalingICECandidateMessage",
+                        "mute": "#/components/schemas/SignalingMuteMessage",
+                        "unmute": "#/components/schemas/SignalingMuteMessage"
+                    }
+                },
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/SignalingSessionDescriptionMessage"
+                    },
+                    {
+                        "$ref": "#/components/schemas/SignalingICECandidateMessage"
+                    },
+                    {
+                        "$ref": "#/components/schemas/SignalingMuteMessage"
+                    }
+                ]
+            },
+            "SignalingRoomType": {
+                "type": "string",
+                "enum": [
+                    "video",
+                    "screen"
+                ]
+            },
+            "SignalingSessionDescriptionMessage": {
+                "type": "object",
+                "required": [
+                    "from",
+                    "to",
+                    "type",
+                    "payload"
+                ],
+                "properties": {
+                    "from": {
+                        "type": "string"
+                    },
+                    "to": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/SignalingMessageType"
+                    },
+                    "roomType": {
+                        "$ref": "#/components/schemas/SignalingRoomType"
+                    },
+                    "sid": {
+                        "type": "string"
+                    },
+                    "payload": {
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "sdp",
+                            "nick"
+                        ],
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "offer",
+                                    "answer"
+                                ]
+                            },
+                            "sdp": {
+                                "type": "string"
+                            },
+                            "nick": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "SignalingICECandidateMessage": {
+                "type": "object",
+                "required": [
+                    "from",
+                    "to",
+                    "type",
+                    "payload"
+                ],
+                "properties": {
+                    "from": {
+                        "type": "string"
+                    },
+                    "to": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/SignalingMessageType"
+                    },
+                    "roomType": {
+                        "$ref": "#/components/schemas/SignalingRoomType"
+                    },
+                    "sid": {
+                        "type": "string"
+                    },
+                    "payload": {
+                        "type": "object",
+                        "required": [
+                            "candidate"
+                        ],
+                        "properties": {
+                            "candidate": {
+                                "type": "object",
+                                "required": [
+                                    "sdpMLineIndex",
+                                    "sdpMid",
+                                    "candidate"
+                                ],
+                                "properties": {
+                                    "sdpMLineIndex": {
+                                        "type": "integer"
+                                    },
+                                    "sdpMid": {
+                                        "type": "string"
+                                    },
+                                    "candidate": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "SignalingMuteMessage": {
+                "type": "object",
+                "required": [
+                    "from",
+                    "to",
+                    "type",
+                    "payload"
+                ],
+                "properties": {
+                    "from": {
+                        "type": "string"
+                    },
+                    "to": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/SignalingMessageType"
+                    },
+                    "roomType": {
+                        "$ref": "#/components/schemas/SignalingRoomType"
+                    },
+                    "sid": {
+                        "type": "string"
+                    },
+                    "payload": {
+                        "type": "object",
+                        "required": [
+                            "name"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "enum": [
+                                    "audio",
+                                    "video"
+                                ]
+                            }
+                        }
+                    }
+                }
             }
         }
     },
@@ -16086,8 +16328,36 @@
                         "in": "query",
                         "description": "JSON encoded messages",
                         "required": true,
-                        "schema": {
-                            "type": "string"
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "ev",
+                                            "fn",
+                                            "sessionId"
+                                        ],
+                                        "properties": {
+                                            "ev": {
+                                                "type": "string",
+                                                "default": "message"
+                                            },
+                                            "fn": {
+                                                "type": "string",
+                                                "contentMediaType": "application/json",
+                                                "contentSchema": {
+                                                    "$ref": "#/components/schemas/SignalingMessage"
+                                                }
+                                            },
+                                            "sessionId": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     },
                     {
@@ -16257,29 +16527,7 @@
                                                 "data": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "object",
-                                                        "required": [
-                                                            "type",
-                                                            "data"
-                                                        ],
-                                                        "properties": {
-                                                            "type": {
-                                                                "type": "string"
-                                                            },
-                                                            "data": {
-                                                                "oneOf": [
-                                                                    {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "$ref": "#/components/schemas/SignalingSession"
-                                                                        }
-                                                                    },
-                                                                    {
-                                                                        "type": "string"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
+                                                        "$ref": "#/components/schemas/SignalingData"
                                                     }
                                                 }
                                             }
@@ -16312,29 +16560,7 @@
                                                 "data": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "object",
-                                                        "required": [
-                                                            "type",
-                                                            "data"
-                                                        ],
-                                                        "properties": {
-                                                            "type": {
-                                                                "type": "string"
-                                                            },
-                                                            "data": {
-                                                                "oneOf": [
-                                                                    {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "$ref": "#/components/schemas/SignalingSession"
-                                                                        }
-                                                                    },
-                                                                    {
-                                                                        "type": "string"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
+                                                        "$ref": "#/components/schemas/SignalingData"
                                                     }
                                                 }
                                             }
@@ -16367,29 +16593,7 @@
                                                 "data": {
                                                     "type": "array",
                                                     "items": {
-                                                        "type": "object",
-                                                        "required": [
-                                                            "type",
-                                                            "data"
-                                                        ],
-                                                        "properties": {
-                                                            "type": {
-                                                                "type": "string"
-                                                            },
-                                                            "data": {
-                                                                "oneOf": [
-                                                                    {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "$ref": "#/components/schemas/SignalingSession"
-                                                                        }
-                                                                    },
-                                                                    {
-                                                                        "type": "string"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
+                                                        "$ref": "#/components/schemas/SignalingData"
                                                     }
                                                 }
                                             }

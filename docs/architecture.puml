@@ -13,6 +13,7 @@ package "Clients" {
     component neon_news
     component neon_notes
     component neon_notifications
+    component neon_spreed
 }
 
 package "OpenAPI" {
@@ -27,12 +28,14 @@ app ..> neon_files
 app ..> neon_news
 app ..> neon_notes
 app ..> neon_notifications
+app ..> neon_spreed
 
 neon_dashboard --> neon_framework
 neon_files --> neon_framework
 neon_news --> neon_framework
 neon_notes --> neon_framework
 neon_notifications --> neon_framework
+neon_spreed --> neon_framework
 
 
 neon_framework --> nextcloud

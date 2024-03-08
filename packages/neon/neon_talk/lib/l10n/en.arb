@@ -1,5 +1,18 @@
 {
   "@@locale": "en",
   "actorSelf": "You",
-  "actorGuest": "Guest"
+  "actorGuest": "Guest",
+  "roomCreate": "Create room",
+  "roomCreateUserName": "User name",
+  "roomCreateGroupName": "Group name",
+  "roomCreateRoomName": "Room name",
+  "roomTypeOneToOne": "Private",
+  "roomTypeGroup": "Group",
+  "roomTypePublic": "Public",
+  "callStart": "Start call",
+  "callJoin": "Join call",
+  "callLeave": "Leave call",
+  "screenSharingSelectScreen": "Select screen",
+  "screenSharingSelectScreenScreens": "Screens",
+  "screenSharingSelectScreenWindows": "Windows"
 }

@@ -13460,7 +13460,7 @@ class $SignalingClient {
   /// See:
   ///  * [sendMessagesRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
   Future<_i1.DynamiteResponse<SignalingSendMessagesResponseApplicationJson, void>> sendMessages({
-    required String messages,
+    required ContentString<BuiltList<SignalingSendMessagesMessages>> messages,
     required String token,
     SignalingSendMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -13496,7 +13496,7 @@ class $SignalingClient {
   ///  * [sendMessages] for an operation that returns a `DynamiteResponse` with a stable API.
   @_i2.experimental
   Future<_i1.DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void>> sendMessagesRaw({
-    required String messages,
+    required ContentString<BuiltList<SignalingSendMessagesMessages>> messages,
     required String token,
     SignalingSendMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -13519,7 +13519,12 @@ class $SignalingClient {
     }
 
 // coverage:ignore-end
-    final $messages = _$jsonSerializers.serialize(messages, specifiedType: const FullType(String));
+    final $messages = _$jsonSerializers.serialize(
+      messages,
+      specifiedType: const FullType(ContentString, [
+        FullType(BuiltList, [FullType(SignalingSendMessagesMessages)]),
+      ]),
+    );
     _parameters['messages'] = $messages;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -38525,36 +38530,296 @@ abstract class SignalingSession
   static Serializer<SignalingSession> get serializer => _$signalingSessionSerializer;
 }
 
-typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
-  BuiltList<SignalingSession>? builtListSignalingSession,
-  String? string
-});
-
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $SignalingSessionsInterface {
   String get type;
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data get data;
+  BuiltList<SignalingSession> get data;
 }
 
-abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
-    implements
-        $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface,
-        Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data,
-            SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data([
-    void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs_Data;
+abstract class SignalingSessions
+    implements $SignalingSessionsInterface, Built<SignalingSessions, SignalingSessionsBuilder> {
+  /// Creates a new SignalingSessions object using the builder pattern.
+  factory SignalingSessions([void Function(SignalingSessionsBuilder)? b]) = _$SignalingSessions;
 
   // coverage:ignore-start
-  const SignalingPullMessagesResponseApplicationJson_Ocs_Data._();
+  const SignalingSessions._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSessions.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSessions.
+  static Serializer<SignalingSessions> get serializer => _$signalingSessionsSerializer;
+}
+
+class SignalingMessageType extends EnumClass {
+  const SignalingMessageType._(super.name);
+
+  /// `offer`
+  static const SignalingMessageType offer = _$signalingMessageTypeOffer;
+
+  /// `answer`
+  static const SignalingMessageType answer = _$signalingMessageTypeAnswer;
+
+  /// `candidate`
+  static const SignalingMessageType candidate = _$signalingMessageTypeCandidate;
+
+  /// `unshareScreen`
+  static const SignalingMessageType unshareScreen = _$signalingMessageTypeUnshareScreen;
+
+  /// `remove-candidates`
+  @BuiltValueEnumConst(wireName: 'remove-candidates')
+  static const SignalingMessageType removeCandidates = _$signalingMessageTypeRemoveCandidates;
+
+  /// `control`
+  static const SignalingMessageType control = _$signalingMessageTypeControl;
+
+  /// `forceMute`
+  static const SignalingMessageType forceMute = _$signalingMessageTypeForceMute;
+
+  /// `mute`
+  static const SignalingMessageType mute = _$signalingMessageTypeMute;
+
+  /// `unmute`
+  static const SignalingMessageType unmute = _$signalingMessageTypeUnmute;
+
+  /// `nickChanged`
+  static const SignalingMessageType nickChanged = _$signalingMessageTypeNickChanged;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingMessageType> get values => _$signalingMessageTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingMessageType valueOf(String name) => _$valueOfSignalingMessageType(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingMessageType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingMessageType> get serializer => const _$SignalingMessageTypeSerializer();
+}
+
+class _$SignalingMessageTypeSerializer implements PrimitiveSerializer<SignalingMessageType> {
+  const _$SignalingMessageTypeSerializer();
+
+  static const Map<SignalingMessageType, Object> _toWire = <SignalingMessageType, Object>{
+    SignalingMessageType.offer: 'offer',
+    SignalingMessageType.answer: 'answer',
+    SignalingMessageType.candidate: 'candidate',
+    SignalingMessageType.unshareScreen: 'unshareScreen',
+    SignalingMessageType.removeCandidates: 'remove-candidates',
+    SignalingMessageType.control: 'control',
+    SignalingMessageType.forceMute: 'forceMute',
+    SignalingMessageType.mute: 'mute',
+    SignalingMessageType.unmute: 'unmute',
+    SignalingMessageType.nickChanged: 'nickChanged',
+  };
+
+  static const Map<Object, SignalingMessageType> _fromWire = <Object, SignalingMessageType>{
+    'offer': SignalingMessageType.offer,
+    'answer': SignalingMessageType.answer,
+    'candidate': SignalingMessageType.candidate,
+    'unshareScreen': SignalingMessageType.unshareScreen,
+    'remove-candidates': SignalingMessageType.removeCandidates,
+    'control': SignalingMessageType.control,
+    'forceMute': SignalingMessageType.forceMute,
+    'mute': SignalingMessageType.mute,
+    'unmute': SignalingMessageType.unmute,
+    'nickChanged': SignalingMessageType.nickChanged,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingMessageType];
+
+  @override
+  String get wireName => 'SignalingMessageType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingMessageType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingMessageType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class SignalingRoomType extends EnumClass {
+  const SignalingRoomType._(super.name);
+
+  /// `video`
+  static const SignalingRoomType video = _$signalingRoomTypeVideo;
+
+  /// `screen`
+  static const SignalingRoomType screen = _$signalingRoomTypeScreen;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingRoomType> get values => _$signalingRoomTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingRoomType valueOf(String name) => _$valueOfSignalingRoomType(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingRoomType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingRoomType> get serializer => const _$SignalingRoomTypeSerializer();
+}
+
+class _$SignalingRoomTypeSerializer implements PrimitiveSerializer<SignalingRoomType> {
+  const _$SignalingRoomTypeSerializer();
+
+  static const Map<SignalingRoomType, Object> _toWire = <SignalingRoomType, Object>{
+    SignalingRoomType.video: 'video',
+    SignalingRoomType.screen: 'screen',
+  };
+
+  static const Map<Object, SignalingRoomType> _fromWire = <Object, SignalingRoomType>{
+    'video': SignalingRoomType.video,
+    'screen': SignalingRoomType.screen,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingRoomType];
+
+  @override
+  String get wireName => 'SignalingRoomType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingRoomType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingRoomType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class SignalingSessionDescriptionMessage_Payload_Type extends EnumClass {
+  const SignalingSessionDescriptionMessage_Payload_Type._(super.name);
+
+  /// `offer`
+  static const SignalingSessionDescriptionMessage_Payload_Type offer =
+      _$signalingSessionDescriptionMessagePayloadTypeOffer;
+
+  /// `answer`
+  static const SignalingSessionDescriptionMessage_Payload_Type answer =
+      _$signalingSessionDescriptionMessagePayloadTypeAnswer;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingSessionDescriptionMessage_Payload_Type> get values =>
+      _$signalingSessionDescriptionMessagePayloadTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingSessionDescriptionMessage_Payload_Type valueOf(String name) =>
+      _$valueOfSignalingSessionDescriptionMessage_Payload_Type(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingSessionDescriptionMessage_Payload_Type.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingSessionDescriptionMessage_Payload_Type> get serializer =>
+      const _$SignalingSessionDescriptionMessage_Payload_TypeSerializer();
+}
+
+class _$SignalingSessionDescriptionMessage_Payload_TypeSerializer
+    implements PrimitiveSerializer<SignalingSessionDescriptionMessage_Payload_Type> {
+  const _$SignalingSessionDescriptionMessage_Payload_TypeSerializer();
+
+  static const Map<SignalingSessionDescriptionMessage_Payload_Type, Object> _toWire =
+      <SignalingSessionDescriptionMessage_Payload_Type, Object>{
+    SignalingSessionDescriptionMessage_Payload_Type.offer: 'offer',
+    SignalingSessionDescriptionMessage_Payload_Type.answer: 'answer',
+  };
+
+  static const Map<Object, SignalingSessionDescriptionMessage_Payload_Type> _fromWire =
+      <Object, SignalingSessionDescriptionMessage_Payload_Type>{
+    'offer': SignalingSessionDescriptionMessage_Payload_Type.offer,
+    'answer': SignalingSessionDescriptionMessage_Payload_Type.answer,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingSessionDescriptionMessage_Payload_Type];
+
+  @override
+  String get wireName => 'SignalingSessionDescriptionMessage_Payload_Type';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingSessionDescriptionMessage_Payload_Type object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingSessionDescriptionMessage_Payload_Type deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSessionDescriptionMessage_PayloadInterface {
+  SignalingSessionDescriptionMessage_Payload_Type get type;
+  String get sdp;
+  String get nick;
+}
+
+abstract class SignalingSessionDescriptionMessage_Payload
+    implements
+        $SignalingSessionDescriptionMessage_PayloadInterface,
+        Built<SignalingSessionDescriptionMessage_Payload, SignalingSessionDescriptionMessage_PayloadBuilder> {
+  /// Creates a new SignalingSessionDescriptionMessage_Payload object using the builder pattern.
+  factory SignalingSessionDescriptionMessage_Payload([
+    void Function(SignalingSessionDescriptionMessage_PayloadBuilder)? b,
+  ]) = _$SignalingSessionDescriptionMessage_Payload;
+
+  // coverage:ignore-start
+  const SignalingSessionDescriptionMessage_Payload._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSessionDescriptionMessage_Payload.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -38565,20 +38830,353 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data.
-  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get serializer =>
-      _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer;
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder b) {
-    b.data?.validateOneOf();
-  }
+  /// Serializer for SignalingSessionDescriptionMessage_Payload.
+  static Serializer<SignalingSessionDescriptionMessage_Payload> get serializer =>
+      _$signalingSessionDescriptionMessagePayloadSerializer;
 }
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSessionDescriptionMessageInterface {
+  String get from;
+  String get to;
+  SignalingMessageType get type;
+  SignalingRoomType? get roomType;
+  String? get sid;
+  SignalingSessionDescriptionMessage_Payload get payload;
+}
+
+abstract class SignalingSessionDescriptionMessage
+    implements
+        $SignalingSessionDescriptionMessageInterface,
+        Built<SignalingSessionDescriptionMessage, SignalingSessionDescriptionMessageBuilder> {
+  /// Creates a new SignalingSessionDescriptionMessage object using the builder pattern.
+  factory SignalingSessionDescriptionMessage([void Function(SignalingSessionDescriptionMessageBuilder)? b]) =
+      _$SignalingSessionDescriptionMessage;
+
+  // coverage:ignore-start
+  const SignalingSessionDescriptionMessage._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSessionDescriptionMessage.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSessionDescriptionMessage.
+  static Serializer<SignalingSessionDescriptionMessage> get serializer =>
+      _$signalingSessionDescriptionMessageSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingICECandidateMessage_Payload_CandidateInterface {
+  int get sdpMLineIndex;
+  String get sdpMid;
+  String get candidate;
+}
+
+abstract class SignalingICECandidateMessage_Payload_Candidate
+    implements
+        $SignalingICECandidateMessage_Payload_CandidateInterface,
+        Built<SignalingICECandidateMessage_Payload_Candidate, SignalingICECandidateMessage_Payload_CandidateBuilder> {
+  /// Creates a new SignalingICECandidateMessage_Payload_Candidate object using the builder pattern.
+  factory SignalingICECandidateMessage_Payload_Candidate([
+    void Function(SignalingICECandidateMessage_Payload_CandidateBuilder)? b,
+  ]) = _$SignalingICECandidateMessage_Payload_Candidate;
+
+  // coverage:ignore-start
+  const SignalingICECandidateMessage_Payload_Candidate._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingICECandidateMessage_Payload_Candidate.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingICECandidateMessage_Payload_Candidate.
+  static Serializer<SignalingICECandidateMessage_Payload_Candidate> get serializer =>
+      _$signalingICECandidateMessagePayloadCandidateSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingICECandidateMessage_PayloadInterface {
+  SignalingICECandidateMessage_Payload_Candidate get candidate;
+}
+
+abstract class SignalingICECandidateMessage_Payload
+    implements
+        $SignalingICECandidateMessage_PayloadInterface,
+        Built<SignalingICECandidateMessage_Payload, SignalingICECandidateMessage_PayloadBuilder> {
+  /// Creates a new SignalingICECandidateMessage_Payload object using the builder pattern.
+  factory SignalingICECandidateMessage_Payload([void Function(SignalingICECandidateMessage_PayloadBuilder)? b]) =
+      _$SignalingICECandidateMessage_Payload;
+
+  // coverage:ignore-start
+  const SignalingICECandidateMessage_Payload._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingICECandidateMessage_Payload.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingICECandidateMessage_Payload.
+  static Serializer<SignalingICECandidateMessage_Payload> get serializer =>
+      _$signalingICECandidateMessagePayloadSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingICECandidateMessageInterface {
+  String get from;
+  String get to;
+  SignalingMessageType get type;
+  SignalingRoomType? get roomType;
+  String? get sid;
+  SignalingICECandidateMessage_Payload get payload;
+}
+
+abstract class SignalingICECandidateMessage
+    implements
+        $SignalingICECandidateMessageInterface,
+        Built<SignalingICECandidateMessage, SignalingICECandidateMessageBuilder> {
+  /// Creates a new SignalingICECandidateMessage object using the builder pattern.
+  factory SignalingICECandidateMessage([void Function(SignalingICECandidateMessageBuilder)? b]) =
+      _$SignalingICECandidateMessage;
+
+  // coverage:ignore-start
+  const SignalingICECandidateMessage._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingICECandidateMessage.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingICECandidateMessage.
+  static Serializer<SignalingICECandidateMessage> get serializer => _$signalingICECandidateMessageSerializer;
+}
+
+class SignalingMuteMessage_Payload_Name extends EnumClass {
+  const SignalingMuteMessage_Payload_Name._(super.name);
+
+  /// `audio`
+  static const SignalingMuteMessage_Payload_Name audio = _$signalingMuteMessagePayloadNameAudio;
+
+  /// `video`
+  static const SignalingMuteMessage_Payload_Name video = _$signalingMuteMessagePayloadNameVideo;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingMuteMessage_Payload_Name> get values => _$signalingMuteMessagePayloadNameValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingMuteMessage_Payload_Name valueOf(String name) => _$valueOfSignalingMuteMessage_Payload_Name(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingMuteMessage_Payload_Name.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingMuteMessage_Payload_Name> get serializer =>
+      const _$SignalingMuteMessage_Payload_NameSerializer();
+}
+
+class _$SignalingMuteMessage_Payload_NameSerializer implements PrimitiveSerializer<SignalingMuteMessage_Payload_Name> {
+  const _$SignalingMuteMessage_Payload_NameSerializer();
+
+  static const Map<SignalingMuteMessage_Payload_Name, Object> _toWire = <SignalingMuteMessage_Payload_Name, Object>{
+    SignalingMuteMessage_Payload_Name.audio: 'audio',
+    SignalingMuteMessage_Payload_Name.video: 'video',
+  };
+
+  static const Map<Object, SignalingMuteMessage_Payload_Name> _fromWire = <Object, SignalingMuteMessage_Payload_Name>{
+    'audio': SignalingMuteMessage_Payload_Name.audio,
+    'video': SignalingMuteMessage_Payload_Name.video,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingMuteMessage_Payload_Name];
+
+  @override
+  String get wireName => 'SignalingMuteMessage_Payload_Name';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingMuteMessage_Payload_Name object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingMuteMessage_Payload_Name deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingMuteMessage_PayloadInterface {
+  SignalingMuteMessage_Payload_Name get name;
+}
+
+abstract class SignalingMuteMessage_Payload
+    implements
+        $SignalingMuteMessage_PayloadInterface,
+        Built<SignalingMuteMessage_Payload, SignalingMuteMessage_PayloadBuilder> {
+  /// Creates a new SignalingMuteMessage_Payload object using the builder pattern.
+  factory SignalingMuteMessage_Payload([void Function(SignalingMuteMessage_PayloadBuilder)? b]) =
+      _$SignalingMuteMessage_Payload;
+
+  // coverage:ignore-start
+  const SignalingMuteMessage_Payload._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingMuteMessage_Payload.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingMuteMessage_Payload.
+  static Serializer<SignalingMuteMessage_Payload> get serializer => _$signalingMuteMessagePayloadSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingMuteMessageInterface {
+  String get from;
+  String get to;
+  SignalingMessageType get type;
+  SignalingRoomType? get roomType;
+  String? get sid;
+  SignalingMuteMessage_Payload get payload;
+}
+
+abstract class SignalingMuteMessage
+    implements $SignalingMuteMessageInterface, Built<SignalingMuteMessage, SignalingMuteMessageBuilder> {
+  /// Creates a new SignalingMuteMessage object using the builder pattern.
+  factory SignalingMuteMessage([void Function(SignalingMuteMessageBuilder)? b]) = _$SignalingMuteMessage;
+
+  // coverage:ignore-start
+  const SignalingMuteMessage._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingMuteMessage.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingMuteMessage.
+  static Serializer<SignalingMuteMessage> get serializer => _$signalingMuteMessageSerializer;
+}
+
+typedef SignalingMessage = ({
+  SignalingICECandidateMessage? signalingICECandidateMessage,
+  SignalingMuteMessage? signalingMuteMessage,
+  SignalingSessionDescriptionMessage? signalingSessionDescriptionMessage
+});
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingMessageWrapperInterface {
+  String get type;
+  ContentString<SignalingMessage> get data;
+}
+
+abstract class SignalingMessageWrapper
+    implements $SignalingMessageWrapperInterface, Built<SignalingMessageWrapper, SignalingMessageWrapperBuilder> {
+  /// Creates a new SignalingMessageWrapper object using the builder pattern.
+  factory SignalingMessageWrapper([void Function(SignalingMessageWrapperBuilder)? b]) = _$SignalingMessageWrapper;
+
+  // coverage:ignore-start
+  const SignalingMessageWrapper._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingMessageWrapper.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingMessageWrapper.
+  static Serializer<SignalingMessageWrapper> get serializer => _$signalingMessageWrapperSerializer;
+}
+
+typedef SignalingData = ({SignalingMessageWrapper? signalingMessageWrapper, SignalingSessions? signalingSessions});
 
 @BuiltValue(instantiable: false)
 abstract interface class $SignalingPullMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  BuiltList<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get data;
+  BuiltList<SignalingData> get data;
 }
 
 abstract class SignalingPullMessagesResponseApplicationJson_Ocs
@@ -38651,6 +39249,47 @@ abstract class SignalingPullMessagesResponseApplicationJson
   /// Serializer for SignalingPullMessagesResponseApplicationJson.
   static Serializer<SignalingPullMessagesResponseApplicationJson> get serializer =>
       _$signalingPullMessagesResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSendMessagesMessagesInterface {
+  String get ev;
+  ContentString<SignalingMessage> get fn;
+  String get sessionId;
+}
+
+abstract class SignalingSendMessagesMessages
+    implements
+        $SignalingSendMessagesMessagesInterface,
+        Built<SignalingSendMessagesMessages, SignalingSendMessagesMessagesBuilder> {
+  /// Creates a new SignalingSendMessagesMessages object using the builder pattern.
+  factory SignalingSendMessagesMessages([void Function(SignalingSendMessagesMessagesBuilder)? b]) =
+      _$SignalingSendMessagesMessages;
+
+  // coverage:ignore-start
+  const SignalingSendMessagesMessages._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSendMessagesMessages.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSendMessagesMessages.
+  static Serializer<SignalingSendMessagesMessages> get serializer => _$signalingSendMessagesMessagesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingSendMessagesMessagesBuilder b) => b..ev = 'message';
 }
 
 class SignalingSendMessagesApiVersion extends EnumClass {
@@ -39572,19 +40211,28 @@ extension $SettingsSetUserSettingValueExtension on SettingsSetUserSettingValue {
       $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-/// Serialization extension for `SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data`.
-extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
-    on SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data {
-  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data.
+/// Serialization extension for `SignalingMessage`.
+extension $SignalingMessageExtension on SignalingMessage {
+  /// Serializer for SignalingMessage.
   @BuiltValueSerializer(custom: true)
-  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data> get serializer =>
-      $1df642f5035aea3b22543ab331c3fb01Extension._serializer;
+  static Serializer<SignalingMessage> get serializer => $aaa26ed867b68e19101e8f929ac3f6f2Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data fromJson(Object? json) =>
-      $1df642f5035aea3b22543ab331c3fb01Extension._fromJson(json);
+  static SignalingMessage fromJson(Object? json) => $aaa26ed867b68e19101e8f929ac3f6f2Extension._fromJson(json);
+}
+
+/// Serialization extension for `SignalingData`.
+extension $SignalingDataExtension on SignalingData {
+  /// Serializer for SignalingData.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingData> get serializer => $6fcb7f6535673c24974b8bafbdb3c329Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static SignalingData fromJson(Object? json) => $6fcb7f6535673c24974b8bafbdb3c329Extension._fromJson(json);
 }
 
 /// Serialization extension for `PublicCapabilities`.
@@ -39841,13 +40489,18 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
   }
 }
 
-typedef _$1df642f5035aea3b22543ab331c3fb01 = ({BuiltList<SignalingSession>? builtListSignalingSession, String? string});
+typedef _$aaa26ed867b68e19101e8f929ac3f6f2 = ({
+  SignalingICECandidateMessage? signalingICECandidateMessage,
+  SignalingMuteMessage? signalingMuteMessage,
+  SignalingSessionDescriptionMessage? signalingSessionDescriptionMessage
+});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543ab331c3fb01 {
-  List<dynamic> get _values => [builtListSignalingSession, string];
-  List<String> get _names => const ['builtListSignalingSession', 'string'];
+extension $aaa26ed867b68e19101e8f929ac3f6f2Extension on _$aaa26ed867b68e19101e8f929ac3f6f2 {
+  List<dynamic> get _values => [signalingICECandidateMessage, signalingMuteMessage, signalingSessionDescriptionMessage];
+  List<String> get _names =>
+      const ['signalingICECandidateMessage', 'signalingMuteMessage', 'signalingSessionDescriptionMessage'];
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i3.validateOneOf(
@@ -39860,9 +40513,9 @@ extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543a
         _values,
         _names,
       );
-  static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
-      const _$1df642f5035aea3b22543ab331c3fb01Serializer();
-  static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
+  static Serializer<_$aaa26ed867b68e19101e8f929ac3f6f2> get _serializer =>
+      const _$aaa26ed867b68e19101e8f929ac3f6f2Serializer();
+  static _$aaa26ed867b68e19101e8f929ac3f6f2 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -39871,52 +40524,149 @@ extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543a
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$1df642f5035aea3b22543ab331c3fb01Serializer implements PrimitiveSerializer<_$1df642f5035aea3b22543ab331c3fb01> {
-  const _$1df642f5035aea3b22543ab331c3fb01Serializer();
+class _$aaa26ed867b68e19101e8f929ac3f6f2Serializer implements PrimitiveSerializer<_$aaa26ed867b68e19101e8f929ac3f6f2> {
+  const _$aaa26ed867b68e19101e8f929ac3f6f2Serializer();
 
   @override
-  Iterable<Type> get types => const [_$1df642f5035aea3b22543ab331c3fb01];
+  Iterable<Type> get types => const [_$aaa26ed867b68e19101e8f929ac3f6f2];
 
   @override
-  String get wireName => r'_$1df642f5035aea3b22543ab331c3fb01';
+  String get wireName => r'_$aaa26ed867b68e19101e8f929ac3f6f2';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$1df642f5035aea3b22543ab331c3fb01 object, {
+    _$aaa26ed867b68e19101e8f929ac3f6f2 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListSignalingSession;
+    value = object.signalingICECandidateMessage;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(SignalingICECandidateMessage))!;
     }
-    value = object.string;
+    value = object.signalingMuteMessage;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(SignalingMuteMessage))!;
+    }
+    value = object.signalingSessionDescriptionMessage;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(SignalingSessionDescriptionMessage))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
   @override
-  _$1df642f5035aea3b22543ab331c3fb01 deserialize(
+  _$aaa26ed867b68e19101e8f929ac3f6f2 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<SignalingSession>? builtListSignalingSession;
+    SignalingICECandidateMessage? signalingICECandidateMessage;
     try {
-      builtListSignalingSession = serializers.deserialize(
+      signalingICECandidateMessage = serializers.deserialize(
         data,
-        specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]),
-      )! as BuiltList<SignalingSession>;
+        specifiedType: const FullType(SignalingICECandidateMessage),
+      )! as SignalingICECandidateMessage;
     } catch (_) {}
-    String? string;
+    SignalingMuteMessage? signalingMuteMessage;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      signalingMuteMessage =
+          serializers.deserialize(data, specifiedType: const FullType(SignalingMuteMessage))! as SignalingMuteMessage;
     } catch (_) {}
-    return (builtListSignalingSession: builtListSignalingSession, string: string);
+    SignalingSessionDescriptionMessage? signalingSessionDescriptionMessage;
+    try {
+      signalingSessionDescriptionMessage = serializers.deserialize(
+        data,
+        specifiedType: const FullType(SignalingSessionDescriptionMessage),
+      )! as SignalingSessionDescriptionMessage;
+    } catch (_) {}
+    return (
+      signalingICECandidateMessage: signalingICECandidateMessage,
+      signalingMuteMessage: signalingMuteMessage,
+      signalingSessionDescriptionMessage: signalingSessionDescriptionMessage
+    );
+  }
+}
+
+typedef _$6fcb7f6535673c24974b8bafbdb3c329 = ({
+  SignalingMessageWrapper? signalingMessageWrapper,
+  SignalingSessions? signalingSessions
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $6fcb7f6535673c24974b8bafbdb3c329Extension on _$6fcb7f6535673c24974b8bafbdb3c329 {
+  List<dynamic> get _values => [signalingMessageWrapper, signalingSessions];
+  List<String> get _names => const ['signalingMessageWrapper', 'signalingSessions'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i3.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i3.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$6fcb7f6535673c24974b8bafbdb3c329> get _serializer =>
+      const _$6fcb7f6535673c24974b8bafbdb3c329Serializer();
+  static _$6fcb7f6535673c24974b8bafbdb3c329 _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$6fcb7f6535673c24974b8bafbdb3c329Serializer implements PrimitiveSerializer<_$6fcb7f6535673c24974b8bafbdb3c329> {
+  const _$6fcb7f6535673c24974b8bafbdb3c329Serializer();
+
+  @override
+  Iterable<Type> get types => const [_$6fcb7f6535673c24974b8bafbdb3c329];
+
+  @override
+  String get wireName => r'_$6fcb7f6535673c24974b8bafbdb3c329';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$6fcb7f6535673c24974b8bafbdb3c329 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.signalingMessageWrapper;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(SignalingMessageWrapper))!;
+    }
+    value = object.signalingSessions;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(SignalingSessions))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$6fcb7f6535673c24974b8bafbdb3c329 deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    SignalingMessageWrapper? signalingMessageWrapper;
+    try {
+      signalingMessageWrapper = serializers.deserialize(data, specifiedType: const FullType(SignalingMessageWrapper))!
+          as SignalingMessageWrapper;
+    } catch (_) {}
+    SignalingSessions? signalingSessions;
+    try {
+      signalingSessions =
+          serializers.deserialize(data, specifiedType: const FullType(SignalingSessions))! as SignalingSessions;
+    } catch (_) {}
+    return (signalingMessageWrapper: signalingMessageWrapper, signalingSessions: signalingSessions);
   }
 }
 
@@ -41403,18 +42153,61 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SignalingPullMessagesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SignalingPullMessagesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data),
-        SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(SignalingSessions), SignalingSessionsBuilder.new)
+      ..add(SignalingSessions.serializer)
       ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
       ..add(SignalingSession.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(SignalingSession)]), ListBuilder<SignalingSession>.new)
-      ..add($1df642f5035aea3b22543ab331c3fb01Extension._serializer)
+      ..addBuilderFactory(const FullType(SignalingMessageWrapper), SignalingMessageWrapperBuilder.new)
+      ..add(SignalingMessageWrapper.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
-        ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>.new,
+        const FullType(SignalingSessionDescriptionMessage),
+        SignalingSessionDescriptionMessageBuilder.new,
+      )
+      ..add(SignalingSessionDescriptionMessage.serializer)
+      ..add(SignalingMessageType.serializer)
+      ..add(SignalingRoomType.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingSessionDescriptionMessage_Payload),
+        SignalingSessionDescriptionMessage_PayloadBuilder.new,
+      )
+      ..add(SignalingSessionDescriptionMessage_Payload.serializer)
+      ..add(SignalingSessionDescriptionMessage_Payload_Type.serializer)
+      ..addBuilderFactory(const FullType(SignalingICECandidateMessage), SignalingICECandidateMessageBuilder.new)
+      ..add(SignalingICECandidateMessage.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingICECandidateMessage_Payload),
+        SignalingICECandidateMessage_PayloadBuilder.new,
+      )
+      ..add(SignalingICECandidateMessage_Payload.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingICECandidateMessage_Payload_Candidate),
+        SignalingICECandidateMessage_Payload_CandidateBuilder.new,
+      )
+      ..add(SignalingICECandidateMessage_Payload_Candidate.serializer)
+      ..addBuilderFactory(const FullType(SignalingMuteMessage), SignalingMuteMessageBuilder.new)
+      ..add(SignalingMuteMessage.serializer)
+      ..addBuilderFactory(const FullType(SignalingMuteMessage_Payload), SignalingMuteMessage_PayloadBuilder.new)
+      ..add(SignalingMuteMessage_Payload.serializer)
+      ..add(SignalingMuteMessage_Payload_Name.serializer)
+      ..add($aaa26ed867b68e19101e8f929ac3f6f2Extension._serializer)
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(SignalingMessage)]),
+        ContentStringBuilder<SignalingMessage>.new,
+      )
+      ..add($6fcb7f6535673c24974b8bafbdb3c329Extension._serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(SignalingData)]), ListBuilder<SignalingData>.new)
+      ..addBuilderFactory(const FullType(SignalingSendMessagesMessages), SignalingSendMessagesMessagesBuilder.new)
+      ..add(SignalingSendMessagesMessages.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(SignalingSendMessagesMessages)]),
+        ListBuilder<SignalingSendMessagesMessages>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(ContentString, [
+          FullType(BuiltList, [FullType(SignalingSendMessagesMessages)]),
+        ]),
+        ContentStringBuilder<BuiltList<SignalingSendMessagesMessages>>.new,
       )
       ..add(SignalingSendMessagesApiVersion.serializer)
       ..addBuilderFactory(
@@ -41518,7 +42311,8 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$e620970959f428e934829e52f32b7089,
             _$bd993fb3f40af33e8594d0d698208560,
             _$b2c4857c0136baea42828d89c87c757d,
-            _$1df642f5035aea3b22543ab331c3fb01,
+            _$aaa26ed867b68e19101e8f929ac3f6f2,
+            _$6fcb7f6535673c24974b8bafbdb3c329,
             _$bc4aac45771b11649d372f39a92b1cf3,
           },
         ),

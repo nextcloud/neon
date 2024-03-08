@@ -7255,6 +7255,121 @@ final BuiltSet<SignalingPullMessagesApiVersion> _$signalingPullMessagesApiVersio
   _$signalingPullMessagesApiVersionV3,
 ]);
 
+const SignalingMessageType _$signalingMessageTypeOffer = SignalingMessageType._('offer');
+const SignalingMessageType _$signalingMessageTypeAnswer = SignalingMessageType._('answer');
+const SignalingMessageType _$signalingMessageTypeCandidate = SignalingMessageType._('candidate');
+const SignalingMessageType _$signalingMessageTypeUnshareScreen = SignalingMessageType._('unshareScreen');
+const SignalingMessageType _$signalingMessageTypeRemoveCandidates = SignalingMessageType._('removeCandidates');
+const SignalingMessageType _$signalingMessageTypeControl = SignalingMessageType._('control');
+const SignalingMessageType _$signalingMessageTypeForceMute = SignalingMessageType._('forceMute');
+const SignalingMessageType _$signalingMessageTypeMute = SignalingMessageType._('mute');
+const SignalingMessageType _$signalingMessageTypeUnmute = SignalingMessageType._('unmute');
+const SignalingMessageType _$signalingMessageTypeNickChanged = SignalingMessageType._('nickChanged');
+
+SignalingMessageType _$valueOfSignalingMessageType(String name) {
+  switch (name) {
+    case 'offer':
+      return _$signalingMessageTypeOffer;
+    case 'answer':
+      return _$signalingMessageTypeAnswer;
+    case 'candidate':
+      return _$signalingMessageTypeCandidate;
+    case 'unshareScreen':
+      return _$signalingMessageTypeUnshareScreen;
+    case 'removeCandidates':
+      return _$signalingMessageTypeRemoveCandidates;
+    case 'control':
+      return _$signalingMessageTypeControl;
+    case 'forceMute':
+      return _$signalingMessageTypeForceMute;
+    case 'mute':
+      return _$signalingMessageTypeMute;
+    case 'unmute':
+      return _$signalingMessageTypeUnmute;
+    case 'nickChanged':
+      return _$signalingMessageTypeNickChanged;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SignalingMessageType> _$signalingMessageTypeValues =
+    BuiltSet<SignalingMessageType>(const <SignalingMessageType>[
+  _$signalingMessageTypeOffer,
+  _$signalingMessageTypeAnswer,
+  _$signalingMessageTypeCandidate,
+  _$signalingMessageTypeUnshareScreen,
+  _$signalingMessageTypeRemoveCandidates,
+  _$signalingMessageTypeControl,
+  _$signalingMessageTypeForceMute,
+  _$signalingMessageTypeMute,
+  _$signalingMessageTypeUnmute,
+  _$signalingMessageTypeNickChanged,
+]);
+
+const SignalingRoomType _$signalingRoomTypeVideo = SignalingRoomType._('video');
+const SignalingRoomType _$signalingRoomTypeScreen = SignalingRoomType._('screen');
+
+SignalingRoomType _$valueOfSignalingRoomType(String name) {
+  switch (name) {
+    case 'video':
+      return _$signalingRoomTypeVideo;
+    case 'screen':
+      return _$signalingRoomTypeScreen;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SignalingRoomType> _$signalingRoomTypeValues = BuiltSet<SignalingRoomType>(const <SignalingRoomType>[
+  _$signalingRoomTypeVideo,
+  _$signalingRoomTypeScreen,
+]);
+
+const SignalingSessionDescriptionMessage_Payload_Type _$signalingSessionDescriptionMessagePayloadTypeOffer =
+    SignalingSessionDescriptionMessage_Payload_Type._('offer');
+const SignalingSessionDescriptionMessage_Payload_Type _$signalingSessionDescriptionMessagePayloadTypeAnswer =
+    SignalingSessionDescriptionMessage_Payload_Type._('answer');
+
+SignalingSessionDescriptionMessage_Payload_Type _$valueOfSignalingSessionDescriptionMessage_Payload_Type(String name) {
+  switch (name) {
+    case 'offer':
+      return _$signalingSessionDescriptionMessagePayloadTypeOffer;
+    case 'answer':
+      return _$signalingSessionDescriptionMessagePayloadTypeAnswer;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SignalingSessionDescriptionMessage_Payload_Type> _$signalingSessionDescriptionMessagePayloadTypeValues =
+    BuiltSet<SignalingSessionDescriptionMessage_Payload_Type>(const <SignalingSessionDescriptionMessage_Payload_Type>[
+  _$signalingSessionDescriptionMessagePayloadTypeOffer,
+  _$signalingSessionDescriptionMessagePayloadTypeAnswer,
+]);
+
+const SignalingMuteMessage_Payload_Name _$signalingMuteMessagePayloadNameAudio =
+    SignalingMuteMessage_Payload_Name._('audio');
+const SignalingMuteMessage_Payload_Name _$signalingMuteMessagePayloadNameVideo =
+    SignalingMuteMessage_Payload_Name._('video');
+
+SignalingMuteMessage_Payload_Name _$valueOfSignalingMuteMessage_Payload_Name(String name) {
+  switch (name) {
+    case 'audio':
+      return _$signalingMuteMessagePayloadNameAudio;
+    case 'video':
+      return _$signalingMuteMessagePayloadNameVideo;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SignalingMuteMessage_Payload_Name> _$signalingMuteMessagePayloadNameValues =
+    BuiltSet<SignalingMuteMessage_Payload_Name>(const <SignalingMuteMessage_Payload_Name>[
+  _$signalingMuteMessagePayloadNameAudio,
+  _$signalingMuteMessagePayloadNameVideo,
+]);
+
 const SignalingSendMessagesApiVersion _$signalingSendMessagesApiVersionV3 = SignalingSendMessagesApiVersion._('v3');
 
 SignalingSendMessagesApiVersion _$valueOfSignalingSendMessagesApiVersion(String name) {
@@ -7858,14 +7973,28 @@ Serializer<SignalingGetSettingsResponseApplicationJson_Ocs> _$signalingGetSettin
 Serializer<SignalingGetSettingsResponseApplicationJson> _$signalingGetSettingsResponseApplicationJsonSerializer =
     _$SignalingGetSettingsResponseApplicationJsonSerializer();
 Serializer<SignalingSession> _$signalingSessionSerializer = _$SignalingSessionSerializer();
-Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data>
-    _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer =
-    _$SignalingPullMessagesResponseApplicationJson_Ocs_DataSerializer();
+Serializer<SignalingSessions> _$signalingSessionsSerializer = _$SignalingSessionsSerializer();
+Serializer<SignalingSessionDescriptionMessage_Payload> _$signalingSessionDescriptionMessagePayloadSerializer =
+    _$SignalingSessionDescriptionMessage_PayloadSerializer();
+Serializer<SignalingSessionDescriptionMessage> _$signalingSessionDescriptionMessageSerializer =
+    _$SignalingSessionDescriptionMessageSerializer();
+Serializer<SignalingICECandidateMessage_Payload_Candidate> _$signalingICECandidateMessagePayloadCandidateSerializer =
+    _$SignalingICECandidateMessage_Payload_CandidateSerializer();
+Serializer<SignalingICECandidateMessage_Payload> _$signalingICECandidateMessagePayloadSerializer =
+    _$SignalingICECandidateMessage_PayloadSerializer();
+Serializer<SignalingICECandidateMessage> _$signalingICECandidateMessageSerializer =
+    _$SignalingICECandidateMessageSerializer();
+Serializer<SignalingMuteMessage_Payload> _$signalingMuteMessagePayloadSerializer =
+    _$SignalingMuteMessage_PayloadSerializer();
+Serializer<SignalingMuteMessage> _$signalingMuteMessageSerializer = _$SignalingMuteMessageSerializer();
+Serializer<SignalingMessageWrapper> _$signalingMessageWrapperSerializer = _$SignalingMessageWrapperSerializer();
 Serializer<SignalingPullMessagesResponseApplicationJson_Ocs>
     _$signalingPullMessagesResponseApplicationJsonOcsSerializer =
     _$SignalingPullMessagesResponseApplicationJson_OcsSerializer();
 Serializer<SignalingPullMessagesResponseApplicationJson> _$signalingPullMessagesResponseApplicationJsonSerializer =
     _$SignalingPullMessagesResponseApplicationJsonSerializer();
+Serializer<SignalingSendMessagesMessages> _$signalingSendMessagesMessagesSerializer =
+    _$SignalingSendMessagesMessagesSerializer();
 Serializer<SignalingSendMessagesResponseApplicationJson_Ocs>
     _$signalingSendMessagesResponseApplicationJsonOcsSerializer =
     _$SignalingSendMessagesResponseApplicationJson_OcsSerializer();
@@ -20394,35 +20523,29 @@ class _$SignalingSessionSerializer implements StructuredSerializer<SignalingSess
   }
 }
 
-class _$SignalingPullMessagesResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> {
+class _$SignalingSessionsSerializer implements StructuredSerializer<SignalingSessions> {
   @override
-  final Iterable<Type> types = const [
-    SignalingPullMessagesResponseApplicationJson_Ocs_Data,
-    _$SignalingPullMessagesResponseApplicationJson_Ocs_Data
-  ];
+  final Iterable<Type> types = const [SignalingSessions, _$SignalingSessions];
   @override
-  final String wireName = 'SignalingPullMessagesResponseApplicationJson_Ocs_Data';
+  final String wireName = 'SignalingSessions';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SignalingPullMessagesResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers, SignalingSessions object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data)),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(SignalingSession)])),
     ];
 
     return result;
   }
 
   @override
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  SignalingSessions deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder();
+    final result = SignalingSessionsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -20434,9 +20557,466 @@ class _$SignalingPullMessagesResponseApplicationJson_Ocs_DataSerializer
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'data':
-          result.data = serializers.deserialize(value,
-                  specifiedType: const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data))!
-              as SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data;
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingSessionDescriptionMessage_PayloadSerializer
+    implements StructuredSerializer<SignalingSessionDescriptionMessage_Payload> {
+  @override
+  final Iterable<Type> types = const [
+    SignalingSessionDescriptionMessage_Payload,
+    _$SignalingSessionDescriptionMessage_Payload
+  ];
+  @override
+  final String wireName = 'SignalingSessionDescriptionMessage_Payload';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingSessionDescriptionMessage_Payload object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'type',
+      serializers.serialize(object.type,
+          specifiedType: const FullType(SignalingSessionDescriptionMessage_Payload_Type)),
+      'sdp',
+      serializers.serialize(object.sdp, specifiedType: const FullType(String)),
+      'nick',
+      serializers.serialize(object.nick, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SignalingSessionDescriptionMessage_Payload deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingSessionDescriptionMessage_PayloadBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'type':
+          result.type = serializers.deserialize(value,
+                  specifiedType: const FullType(SignalingSessionDescriptionMessage_Payload_Type))!
+              as SignalingSessionDescriptionMessage_Payload_Type;
+          break;
+        case 'sdp':
+          result.sdp = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'nick':
+          result.nick = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingSessionDescriptionMessageSerializer
+    implements StructuredSerializer<SignalingSessionDescriptionMessage> {
+  @override
+  final Iterable<Type> types = const [SignalingSessionDescriptionMessage, _$SignalingSessionDescriptionMessage];
+  @override
+  final String wireName = 'SignalingSessionDescriptionMessage';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingSessionDescriptionMessage object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'from',
+      serializers.serialize(object.from, specifiedType: const FullType(String)),
+      'to',
+      serializers.serialize(object.to, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(SignalingMessageType)),
+      'payload',
+      serializers.serialize(object.payload, specifiedType: const FullType(SignalingSessionDescriptionMessage_Payload)),
+    ];
+    Object? value;
+    value = object.roomType;
+    if (value != null) {
+      result
+        ..add('roomType')
+        ..add(serializers.serialize(value, specifiedType: const FullType(SignalingRoomType)));
+    }
+    value = object.sid;
+    if (value != null) {
+      result
+        ..add('sid')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  SignalingSessionDescriptionMessage deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingSessionDescriptionMessageBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'from':
+          result.from = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'to':
+          result.to = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(SignalingMessageType))!
+              as SignalingMessageType;
+          break;
+        case 'roomType':
+          result.roomType =
+              serializers.deserialize(value, specifiedType: const FullType(SignalingRoomType)) as SignalingRoomType?;
+          break;
+        case 'sid':
+          result.sid = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'payload':
+          result.payload.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SignalingSessionDescriptionMessage_Payload))!
+                  as SignalingSessionDescriptionMessage_Payload);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingICECandidateMessage_Payload_CandidateSerializer
+    implements StructuredSerializer<SignalingICECandidateMessage_Payload_Candidate> {
+  @override
+  final Iterable<Type> types = const [
+    SignalingICECandidateMessage_Payload_Candidate,
+    _$SignalingICECandidateMessage_Payload_Candidate
+  ];
+  @override
+  final String wireName = 'SignalingICECandidateMessage_Payload_Candidate';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingICECandidateMessage_Payload_Candidate object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'sdpMLineIndex',
+      serializers.serialize(object.sdpMLineIndex, specifiedType: const FullType(int)),
+      'sdpMid',
+      serializers.serialize(object.sdpMid, specifiedType: const FullType(String)),
+      'candidate',
+      serializers.serialize(object.candidate, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SignalingICECandidateMessage_Payload_Candidate deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingICECandidateMessage_Payload_CandidateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'sdpMLineIndex':
+          result.sdpMLineIndex = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'sdpMid':
+          result.sdpMid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'candidate':
+          result.candidate = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingICECandidateMessage_PayloadSerializer
+    implements StructuredSerializer<SignalingICECandidateMessage_Payload> {
+  @override
+  final Iterable<Type> types = const [SignalingICECandidateMessage_Payload, _$SignalingICECandidateMessage_Payload];
+  @override
+  final String wireName = 'SignalingICECandidateMessage_Payload';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingICECandidateMessage_Payload object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'candidate',
+      serializers.serialize(object.candidate,
+          specifiedType: const FullType(SignalingICECandidateMessage_Payload_Candidate)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SignalingICECandidateMessage_Payload deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingICECandidateMessage_PayloadBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'candidate':
+          result.candidate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SignalingICECandidateMessage_Payload_Candidate))!
+              as SignalingICECandidateMessage_Payload_Candidate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingICECandidateMessageSerializer implements StructuredSerializer<SignalingICECandidateMessage> {
+  @override
+  final Iterable<Type> types = const [SignalingICECandidateMessage, _$SignalingICECandidateMessage];
+  @override
+  final String wireName = 'SignalingICECandidateMessage';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingICECandidateMessage object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'from',
+      serializers.serialize(object.from, specifiedType: const FullType(String)),
+      'to',
+      serializers.serialize(object.to, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(SignalingMessageType)),
+      'payload',
+      serializers.serialize(object.payload, specifiedType: const FullType(SignalingICECandidateMessage_Payload)),
+    ];
+    Object? value;
+    value = object.roomType;
+    if (value != null) {
+      result
+        ..add('roomType')
+        ..add(serializers.serialize(value, specifiedType: const FullType(SignalingRoomType)));
+    }
+    value = object.sid;
+    if (value != null) {
+      result
+        ..add('sid')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  SignalingICECandidateMessage deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingICECandidateMessageBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'from':
+          result.from = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'to':
+          result.to = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(SignalingMessageType))!
+              as SignalingMessageType;
+          break;
+        case 'roomType':
+          result.roomType =
+              serializers.deserialize(value, specifiedType: const FullType(SignalingRoomType)) as SignalingRoomType?;
+          break;
+        case 'sid':
+          result.sid = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'payload':
+          result.payload.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SignalingICECandidateMessage_Payload))!
+                  as SignalingICECandidateMessage_Payload);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingMuteMessage_PayloadSerializer implements StructuredSerializer<SignalingMuteMessage_Payload> {
+  @override
+  final Iterable<Type> types = const [SignalingMuteMessage_Payload, _$SignalingMuteMessage_Payload];
+  @override
+  final String wireName = 'SignalingMuteMessage_Payload';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingMuteMessage_Payload object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(SignalingMuteMessage_Payload_Name)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SignalingMuteMessage_Payload deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingMuteMessage_PayloadBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(SignalingMuteMessage_Payload_Name))! as SignalingMuteMessage_Payload_Name;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingMuteMessageSerializer implements StructuredSerializer<SignalingMuteMessage> {
+  @override
+  final Iterable<Type> types = const [SignalingMuteMessage, _$SignalingMuteMessage];
+  @override
+  final String wireName = 'SignalingMuteMessage';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingMuteMessage object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'from',
+      serializers.serialize(object.from, specifiedType: const FullType(String)),
+      'to',
+      serializers.serialize(object.to, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(SignalingMessageType)),
+      'payload',
+      serializers.serialize(object.payload, specifiedType: const FullType(SignalingMuteMessage_Payload)),
+    ];
+    Object? value;
+    value = object.roomType;
+    if (value != null) {
+      result
+        ..add('roomType')
+        ..add(serializers.serialize(value, specifiedType: const FullType(SignalingRoomType)));
+    }
+    value = object.sid;
+    if (value != null) {
+      result
+        ..add('sid')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  SignalingMuteMessage deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingMuteMessageBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'from':
+          result.from = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'to':
+          result.to = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(SignalingMessageType))!
+              as SignalingMessageType;
+          break;
+        case 'roomType':
+          result.roomType =
+              serializers.deserialize(value, specifiedType: const FullType(SignalingRoomType)) as SignalingRoomType?;
+          break;
+        case 'sid':
+          result.sid = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'payload':
+          result.payload.replace(serializers.deserialize(value,
+              specifiedType: const FullType(SignalingMuteMessage_Payload))! as SignalingMuteMessage_Payload);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingMessageWrapperSerializer implements StructuredSerializer<SignalingMessageWrapper> {
+  @override
+  final Iterable<Type> types = const [SignalingMessageWrapper, _$SignalingMessageWrapper];
+  @override
+  final String wireName = 'SignalingMessageWrapper';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingMessageWrapper object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(ContentString, [FullType(SignalingMessage)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  SignalingMessageWrapper deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingMessageWrapperBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ContentString, [FullType(SignalingMessage)]))!
+              as ContentString<SignalingMessage>);
           break;
       }
     }
@@ -20462,8 +21042,7 @@ class _$SignalingPullMessagesResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(SignalingData)])),
     ];
 
     return result;
@@ -20485,9 +21064,7 @@ class _$SignalingPullMessagesResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]))!
-              as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(SignalingData)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -20533,6 +21110,56 @@ class _$SignalingPullMessagesResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(SignalingPullMessagesResponseApplicationJson_Ocs))!
               as SignalingPullMessagesResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SignalingSendMessagesMessagesSerializer implements StructuredSerializer<SignalingSendMessagesMessages> {
+  @override
+  final Iterable<Type> types = const [SignalingSendMessagesMessages, _$SignalingSendMessagesMessages];
+  @override
+  final String wireName = 'SignalingSendMessagesMessages';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SignalingSendMessagesMessages object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ev',
+      serializers.serialize(object.ev, specifiedType: const FullType(String)),
+      'fn',
+      serializers.serialize(object.fn, specifiedType: const FullType(ContentString, [FullType(SignalingMessage)])),
+      'sessionId',
+      serializers.serialize(object.sessionId, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SignalingSendMessagesMessages deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingSendMessagesMessagesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ev':
+          result.ev = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'fn':
+          result.fn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ContentString, [FullType(SignalingMessage)]))!
+              as ContentString<SignalingMessage>);
+          break;
+        case 'sessionId':
+          result.sessionId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -52206,48 +52833,40 @@ class SignalingSessionBuilder
   }
 }
 
-abstract mixin class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace($SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function($SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $SignalingSessionsInterfaceBuilder {
+  void replace($SignalingSessionsInterface other);
+  void update(void Function($SignalingSessionsInterfaceBuilder) updates);
   String? get type;
   set type(String? type);
 
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? get data;
-  set data(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? data);
+  ListBuilder<SignalingSession> get data;
+  set data(ListBuilder<SignalingSession>? data);
 }
 
-class _$SignalingPullMessagesResponseApplicationJson_Ocs_Data
-    extends SignalingPullMessagesResponseApplicationJson_Ocs_Data {
+class _$SignalingSessions extends SignalingSessions {
   @override
   final String type;
   @override
-  final SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data data;
+  final BuiltList<SignalingSession> data;
 
-  factory _$SignalingPullMessagesResponseApplicationJson_Ocs_Data(
-          [void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$SignalingSessions([void Function(SignalingSessionsBuilder)? updates]) =>
+      (SignalingSessionsBuilder()..update(updates))._build();
 
-  _$SignalingPullMessagesResponseApplicationJson_Ocs_Data._({required this.type, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data', 'type');
-    BuiltValueNullFieldError.checkNotNull(data, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data', 'data');
+  _$SignalingSessions._({required this.type, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(type, r'SignalingSessions', 'type');
+    BuiltValueNullFieldError.checkNotNull(data, r'SignalingSessions', 'data');
   }
 
   @override
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data rebuild(
-          void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  SignalingSessions rebuild(void Function(SignalingSessionsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+  SignalingSessionsBuilder toBuilder() => SignalingSessionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
-    return other is SignalingPullMessagesResponseApplicationJson_Ocs_Data &&
-        type == other.type &&
-        data == _$dynamicOther.data;
+    return other is SignalingSessions && type == other.type && data == other.data;
   }
 
   @override
@@ -52261,62 +52880,1172 @@ class _$SignalingPullMessagesResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SignalingPullMessagesResponseApplicationJson_Ocs_Data')
+    return (newBuiltValueToStringHelper(r'SignalingSessions')
           ..add('type', type)
           ..add('data', data))
         .toString();
   }
 }
 
-class SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder
-    implements
-        Builder<SignalingPullMessagesResponseApplicationJson_Ocs_Data,
-            SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder>,
-        $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$SignalingPullMessagesResponseApplicationJson_Ocs_Data? _$v;
+class SignalingSessionsBuilder
+    implements Builder<SignalingSessions, SignalingSessionsBuilder>, $SignalingSessionsInterfaceBuilder {
+  _$SignalingSessions? _$v;
 
   String? _type;
   String? get type => _$this._type;
   set type(covariant String? type) => _$this._type = type;
 
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? _data;
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? get data => _$this._data;
-  set data(covariant SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? data) => _$this._data = data;
+  ListBuilder<SignalingSession>? _data;
+  ListBuilder<SignalingSession> get data => _$this._data ??= ListBuilder<SignalingSession>();
+  set data(covariant ListBuilder<SignalingSession>? data) => _$this._data = data;
 
-  SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder();
+  SignalingSessionsBuilder();
 
-  SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder get _$this {
+  SignalingSessionsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _type = $v.type;
-      _data = $v.data;
+      _data = $v.data.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant SignalingPullMessagesResponseApplicationJson_Ocs_Data other) {
+  void replace(covariant SignalingSessions other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SignalingPullMessagesResponseApplicationJson_Ocs_Data;
+    _$v = other as _$SignalingSessions;
   }
 
   @override
-  void update(void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(void Function(SignalingSessionsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data build() => _build();
+  SignalingSessions build() => _build();
 
-  _$SignalingPullMessagesResponseApplicationJson_Ocs_Data _build() {
-    SignalingPullMessagesResponseApplicationJson_Ocs_Data._validate(this);
+  _$SignalingSessions _build() {
+    _$SignalingSessions _$result;
+    try {
+      _$result = _$v ??
+          _$SignalingSessions._(
+              type: BuiltValueNullFieldError.checkNotNull(type, r'SignalingSessions', 'type'), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SignalingSessions', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingSessionDescriptionMessage_PayloadInterfaceBuilder {
+  void replace($SignalingSessionDescriptionMessage_PayloadInterface other);
+  void update(void Function($SignalingSessionDescriptionMessage_PayloadInterfaceBuilder) updates);
+  SignalingSessionDescriptionMessage_Payload_Type? get type;
+  set type(SignalingSessionDescriptionMessage_Payload_Type? type);
+
+  String? get sdp;
+  set sdp(String? sdp);
+
+  String? get nick;
+  set nick(String? nick);
+}
+
+class _$SignalingSessionDescriptionMessage_Payload extends SignalingSessionDescriptionMessage_Payload {
+  @override
+  final SignalingSessionDescriptionMessage_Payload_Type type;
+  @override
+  final String sdp;
+  @override
+  final String nick;
+
+  factory _$SignalingSessionDescriptionMessage_Payload(
+          [void Function(SignalingSessionDescriptionMessage_PayloadBuilder)? updates]) =>
+      (SignalingSessionDescriptionMessage_PayloadBuilder()..update(updates))._build();
+
+  _$SignalingSessionDescriptionMessage_Payload._({required this.type, required this.sdp, required this.nick})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(type, r'SignalingSessionDescriptionMessage_Payload', 'type');
+    BuiltValueNullFieldError.checkNotNull(sdp, r'SignalingSessionDescriptionMessage_Payload', 'sdp');
+    BuiltValueNullFieldError.checkNotNull(nick, r'SignalingSessionDescriptionMessage_Payload', 'nick');
+  }
+
+  @override
+  SignalingSessionDescriptionMessage_Payload rebuild(
+          void Function(SignalingSessionDescriptionMessage_PayloadBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingSessionDescriptionMessage_PayloadBuilder toBuilder() =>
+      SignalingSessionDescriptionMessage_PayloadBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingSessionDescriptionMessage_Payload &&
+        type == other.type &&
+        sdp == other.sdp &&
+        nick == other.nick;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, sdp.hashCode);
+    _$hash = $jc(_$hash, nick.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingSessionDescriptionMessage_Payload')
+          ..add('type', type)
+          ..add('sdp', sdp)
+          ..add('nick', nick))
+        .toString();
+  }
+}
+
+class SignalingSessionDescriptionMessage_PayloadBuilder
+    implements
+        Builder<SignalingSessionDescriptionMessage_Payload, SignalingSessionDescriptionMessage_PayloadBuilder>,
+        $SignalingSessionDescriptionMessage_PayloadInterfaceBuilder {
+  _$SignalingSessionDescriptionMessage_Payload? _$v;
+
+  SignalingSessionDescriptionMessage_Payload_Type? _type;
+  SignalingSessionDescriptionMessage_Payload_Type? get type => _$this._type;
+  set type(covariant SignalingSessionDescriptionMessage_Payload_Type? type) => _$this._type = type;
+
+  String? _sdp;
+  String? get sdp => _$this._sdp;
+  set sdp(covariant String? sdp) => _$this._sdp = sdp;
+
+  String? _nick;
+  String? get nick => _$this._nick;
+  set nick(covariant String? nick) => _$this._nick = nick;
+
+  SignalingSessionDescriptionMessage_PayloadBuilder();
+
+  SignalingSessionDescriptionMessage_PayloadBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _type = $v.type;
+      _sdp = $v.sdp;
+      _nick = $v.nick;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingSessionDescriptionMessage_Payload other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingSessionDescriptionMessage_Payload;
+  }
+
+  @override
+  void update(void Function(SignalingSessionDescriptionMessage_PayloadBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingSessionDescriptionMessage_Payload build() => _build();
+
+  _$SignalingSessionDescriptionMessage_Payload _build() {
     final _$result = _$v ??
-        _$SignalingPullMessagesResponseApplicationJson_Ocs_Data._(
-            type: BuiltValueNullFieldError.checkNotNull(
-                type, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data', 'type'),
-            data: BuiltValueNullFieldError.checkNotNull(
-                data, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data', 'data'));
+        _$SignalingSessionDescriptionMessage_Payload._(
+            type: BuiltValueNullFieldError.checkNotNull(type, r'SignalingSessionDescriptionMessage_Payload', 'type'),
+            sdp: BuiltValueNullFieldError.checkNotNull(sdp, r'SignalingSessionDescriptionMessage_Payload', 'sdp'),
+            nick: BuiltValueNullFieldError.checkNotNull(nick, r'SignalingSessionDescriptionMessage_Payload', 'nick'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingSessionDescriptionMessageInterfaceBuilder {
+  void replace($SignalingSessionDescriptionMessageInterface other);
+  void update(void Function($SignalingSessionDescriptionMessageInterfaceBuilder) updates);
+  String? get from;
+  set from(String? from);
+
+  String? get to;
+  set to(String? to);
+
+  SignalingMessageType? get type;
+  set type(SignalingMessageType? type);
+
+  SignalingRoomType? get roomType;
+  set roomType(SignalingRoomType? roomType);
+
+  String? get sid;
+  set sid(String? sid);
+
+  SignalingSessionDescriptionMessage_PayloadBuilder get payload;
+  set payload(SignalingSessionDescriptionMessage_PayloadBuilder? payload);
+}
+
+class _$SignalingSessionDescriptionMessage extends SignalingSessionDescriptionMessage {
+  @override
+  final String from;
+  @override
+  final String to;
+  @override
+  final SignalingMessageType type;
+  @override
+  final SignalingRoomType? roomType;
+  @override
+  final String? sid;
+  @override
+  final SignalingSessionDescriptionMessage_Payload payload;
+
+  factory _$SignalingSessionDescriptionMessage([void Function(SignalingSessionDescriptionMessageBuilder)? updates]) =>
+      (SignalingSessionDescriptionMessageBuilder()..update(updates))._build();
+
+  _$SignalingSessionDescriptionMessage._(
+      {required this.from, required this.to, required this.type, this.roomType, this.sid, required this.payload})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(from, r'SignalingSessionDescriptionMessage', 'from');
+    BuiltValueNullFieldError.checkNotNull(to, r'SignalingSessionDescriptionMessage', 'to');
+    BuiltValueNullFieldError.checkNotNull(type, r'SignalingSessionDescriptionMessage', 'type');
+    BuiltValueNullFieldError.checkNotNull(payload, r'SignalingSessionDescriptionMessage', 'payload');
+  }
+
+  @override
+  SignalingSessionDescriptionMessage rebuild(void Function(SignalingSessionDescriptionMessageBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingSessionDescriptionMessageBuilder toBuilder() => SignalingSessionDescriptionMessageBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingSessionDescriptionMessage &&
+        from == other.from &&
+        to == other.to &&
+        type == other.type &&
+        roomType == other.roomType &&
+        sid == other.sid &&
+        payload == other.payload;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, from.hashCode);
+    _$hash = $jc(_$hash, to.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, roomType.hashCode);
+    _$hash = $jc(_$hash, sid.hashCode);
+    _$hash = $jc(_$hash, payload.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingSessionDescriptionMessage')
+          ..add('from', from)
+          ..add('to', to)
+          ..add('type', type)
+          ..add('roomType', roomType)
+          ..add('sid', sid)
+          ..add('payload', payload))
+        .toString();
+  }
+}
+
+class SignalingSessionDescriptionMessageBuilder
+    implements
+        Builder<SignalingSessionDescriptionMessage, SignalingSessionDescriptionMessageBuilder>,
+        $SignalingSessionDescriptionMessageInterfaceBuilder {
+  _$SignalingSessionDescriptionMessage? _$v;
+
+  String? _from;
+  String? get from => _$this._from;
+  set from(covariant String? from) => _$this._from = from;
+
+  String? _to;
+  String? get to => _$this._to;
+  set to(covariant String? to) => _$this._to = to;
+
+  SignalingMessageType? _type;
+  SignalingMessageType? get type => _$this._type;
+  set type(covariant SignalingMessageType? type) => _$this._type = type;
+
+  SignalingRoomType? _roomType;
+  SignalingRoomType? get roomType => _$this._roomType;
+  set roomType(covariant SignalingRoomType? roomType) => _$this._roomType = roomType;
+
+  String? _sid;
+  String? get sid => _$this._sid;
+  set sid(covariant String? sid) => _$this._sid = sid;
+
+  SignalingSessionDescriptionMessage_PayloadBuilder? _payload;
+  SignalingSessionDescriptionMessage_PayloadBuilder get payload =>
+      _$this._payload ??= SignalingSessionDescriptionMessage_PayloadBuilder();
+  set payload(covariant SignalingSessionDescriptionMessage_PayloadBuilder? payload) => _$this._payload = payload;
+
+  SignalingSessionDescriptionMessageBuilder();
+
+  SignalingSessionDescriptionMessageBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _from = $v.from;
+      _to = $v.to;
+      _type = $v.type;
+      _roomType = $v.roomType;
+      _sid = $v.sid;
+      _payload = $v.payload.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingSessionDescriptionMessage other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingSessionDescriptionMessage;
+  }
+
+  @override
+  void update(void Function(SignalingSessionDescriptionMessageBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingSessionDescriptionMessage build() => _build();
+
+  _$SignalingSessionDescriptionMessage _build() {
+    _$SignalingSessionDescriptionMessage _$result;
+    try {
+      _$result = _$v ??
+          _$SignalingSessionDescriptionMessage._(
+              from: BuiltValueNullFieldError.checkNotNull(from, r'SignalingSessionDescriptionMessage', 'from'),
+              to: BuiltValueNullFieldError.checkNotNull(to, r'SignalingSessionDescriptionMessage', 'to'),
+              type: BuiltValueNullFieldError.checkNotNull(type, r'SignalingSessionDescriptionMessage', 'type'),
+              roomType: roomType,
+              sid: sid,
+              payload: payload.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'payload';
+        payload.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SignalingSessionDescriptionMessage', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingICECandidateMessage_Payload_CandidateInterfaceBuilder {
+  void replace($SignalingICECandidateMessage_Payload_CandidateInterface other);
+  void update(void Function($SignalingICECandidateMessage_Payload_CandidateInterfaceBuilder) updates);
+  int? get sdpMLineIndex;
+  set sdpMLineIndex(int? sdpMLineIndex);
+
+  String? get sdpMid;
+  set sdpMid(String? sdpMid);
+
+  String? get candidate;
+  set candidate(String? candidate);
+}
+
+class _$SignalingICECandidateMessage_Payload_Candidate extends SignalingICECandidateMessage_Payload_Candidate {
+  @override
+  final int sdpMLineIndex;
+  @override
+  final String sdpMid;
+  @override
+  final String candidate;
+
+  factory _$SignalingICECandidateMessage_Payload_Candidate(
+          [void Function(SignalingICECandidateMessage_Payload_CandidateBuilder)? updates]) =>
+      (SignalingICECandidateMessage_Payload_CandidateBuilder()..update(updates))._build();
+
+  _$SignalingICECandidateMessage_Payload_Candidate._(
+      {required this.sdpMLineIndex, required this.sdpMid, required this.candidate})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        sdpMLineIndex, r'SignalingICECandidateMessage_Payload_Candidate', 'sdpMLineIndex');
+    BuiltValueNullFieldError.checkNotNull(sdpMid, r'SignalingICECandidateMessage_Payload_Candidate', 'sdpMid');
+    BuiltValueNullFieldError.checkNotNull(candidate, r'SignalingICECandidateMessage_Payload_Candidate', 'candidate');
+  }
+
+  @override
+  SignalingICECandidateMessage_Payload_Candidate rebuild(
+          void Function(SignalingICECandidateMessage_Payload_CandidateBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingICECandidateMessage_Payload_CandidateBuilder toBuilder() =>
+      SignalingICECandidateMessage_Payload_CandidateBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingICECandidateMessage_Payload_Candidate &&
+        sdpMLineIndex == other.sdpMLineIndex &&
+        sdpMid == other.sdpMid &&
+        candidate == other.candidate;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, sdpMLineIndex.hashCode);
+    _$hash = $jc(_$hash, sdpMid.hashCode);
+    _$hash = $jc(_$hash, candidate.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingICECandidateMessage_Payload_Candidate')
+          ..add('sdpMLineIndex', sdpMLineIndex)
+          ..add('sdpMid', sdpMid)
+          ..add('candidate', candidate))
+        .toString();
+  }
+}
+
+class SignalingICECandidateMessage_Payload_CandidateBuilder
+    implements
+        Builder<SignalingICECandidateMessage_Payload_Candidate, SignalingICECandidateMessage_Payload_CandidateBuilder>,
+        $SignalingICECandidateMessage_Payload_CandidateInterfaceBuilder {
+  _$SignalingICECandidateMessage_Payload_Candidate? _$v;
+
+  int? _sdpMLineIndex;
+  int? get sdpMLineIndex => _$this._sdpMLineIndex;
+  set sdpMLineIndex(covariant int? sdpMLineIndex) => _$this._sdpMLineIndex = sdpMLineIndex;
+
+  String? _sdpMid;
+  String? get sdpMid => _$this._sdpMid;
+  set sdpMid(covariant String? sdpMid) => _$this._sdpMid = sdpMid;
+
+  String? _candidate;
+  String? get candidate => _$this._candidate;
+  set candidate(covariant String? candidate) => _$this._candidate = candidate;
+
+  SignalingICECandidateMessage_Payload_CandidateBuilder();
+
+  SignalingICECandidateMessage_Payload_CandidateBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _sdpMLineIndex = $v.sdpMLineIndex;
+      _sdpMid = $v.sdpMid;
+      _candidate = $v.candidate;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingICECandidateMessage_Payload_Candidate other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingICECandidateMessage_Payload_Candidate;
+  }
+
+  @override
+  void update(void Function(SignalingICECandidateMessage_Payload_CandidateBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingICECandidateMessage_Payload_Candidate build() => _build();
+
+  _$SignalingICECandidateMessage_Payload_Candidate _build() {
+    final _$result = _$v ??
+        _$SignalingICECandidateMessage_Payload_Candidate._(
+            sdpMLineIndex: BuiltValueNullFieldError.checkNotNull(
+                sdpMLineIndex, r'SignalingICECandidateMessage_Payload_Candidate', 'sdpMLineIndex'),
+            sdpMid: BuiltValueNullFieldError.checkNotNull(
+                sdpMid, r'SignalingICECandidateMessage_Payload_Candidate', 'sdpMid'),
+            candidate: BuiltValueNullFieldError.checkNotNull(
+                candidate, r'SignalingICECandidateMessage_Payload_Candidate', 'candidate'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingICECandidateMessage_PayloadInterfaceBuilder {
+  void replace($SignalingICECandidateMessage_PayloadInterface other);
+  void update(void Function($SignalingICECandidateMessage_PayloadInterfaceBuilder) updates);
+  SignalingICECandidateMessage_Payload_CandidateBuilder get candidate;
+  set candidate(SignalingICECandidateMessage_Payload_CandidateBuilder? candidate);
+}
+
+class _$SignalingICECandidateMessage_Payload extends SignalingICECandidateMessage_Payload {
+  @override
+  final SignalingICECandidateMessage_Payload_Candidate candidate;
+
+  factory _$SignalingICECandidateMessage_Payload(
+          [void Function(SignalingICECandidateMessage_PayloadBuilder)? updates]) =>
+      (SignalingICECandidateMessage_PayloadBuilder()..update(updates))._build();
+
+  _$SignalingICECandidateMessage_Payload._({required this.candidate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(candidate, r'SignalingICECandidateMessage_Payload', 'candidate');
+  }
+
+  @override
+  SignalingICECandidateMessage_Payload rebuild(void Function(SignalingICECandidateMessage_PayloadBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingICECandidateMessage_PayloadBuilder toBuilder() =>
+      SignalingICECandidateMessage_PayloadBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingICECandidateMessage_Payload && candidate == other.candidate;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, candidate.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingICECandidateMessage_Payload')..add('candidate', candidate))
+        .toString();
+  }
+}
+
+class SignalingICECandidateMessage_PayloadBuilder
+    implements
+        Builder<SignalingICECandidateMessage_Payload, SignalingICECandidateMessage_PayloadBuilder>,
+        $SignalingICECandidateMessage_PayloadInterfaceBuilder {
+  _$SignalingICECandidateMessage_Payload? _$v;
+
+  SignalingICECandidateMessage_Payload_CandidateBuilder? _candidate;
+  SignalingICECandidateMessage_Payload_CandidateBuilder get candidate =>
+      _$this._candidate ??= SignalingICECandidateMessage_Payload_CandidateBuilder();
+  set candidate(covariant SignalingICECandidateMessage_Payload_CandidateBuilder? candidate) =>
+      _$this._candidate = candidate;
+
+  SignalingICECandidateMessage_PayloadBuilder();
+
+  SignalingICECandidateMessage_PayloadBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _candidate = $v.candidate.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingICECandidateMessage_Payload other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingICECandidateMessage_Payload;
+  }
+
+  @override
+  void update(void Function(SignalingICECandidateMessage_PayloadBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingICECandidateMessage_Payload build() => _build();
+
+  _$SignalingICECandidateMessage_Payload _build() {
+    _$SignalingICECandidateMessage_Payload _$result;
+    try {
+      _$result = _$v ?? _$SignalingICECandidateMessage_Payload._(candidate: candidate.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'candidate';
+        candidate.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SignalingICECandidateMessage_Payload', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingICECandidateMessageInterfaceBuilder {
+  void replace($SignalingICECandidateMessageInterface other);
+  void update(void Function($SignalingICECandidateMessageInterfaceBuilder) updates);
+  String? get from;
+  set from(String? from);
+
+  String? get to;
+  set to(String? to);
+
+  SignalingMessageType? get type;
+  set type(SignalingMessageType? type);
+
+  SignalingRoomType? get roomType;
+  set roomType(SignalingRoomType? roomType);
+
+  String? get sid;
+  set sid(String? sid);
+
+  SignalingICECandidateMessage_PayloadBuilder get payload;
+  set payload(SignalingICECandidateMessage_PayloadBuilder? payload);
+}
+
+class _$SignalingICECandidateMessage extends SignalingICECandidateMessage {
+  @override
+  final String from;
+  @override
+  final String to;
+  @override
+  final SignalingMessageType type;
+  @override
+  final SignalingRoomType? roomType;
+  @override
+  final String? sid;
+  @override
+  final SignalingICECandidateMessage_Payload payload;
+
+  factory _$SignalingICECandidateMessage([void Function(SignalingICECandidateMessageBuilder)? updates]) =>
+      (SignalingICECandidateMessageBuilder()..update(updates))._build();
+
+  _$SignalingICECandidateMessage._(
+      {required this.from, required this.to, required this.type, this.roomType, this.sid, required this.payload})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(from, r'SignalingICECandidateMessage', 'from');
+    BuiltValueNullFieldError.checkNotNull(to, r'SignalingICECandidateMessage', 'to');
+    BuiltValueNullFieldError.checkNotNull(type, r'SignalingICECandidateMessage', 'type');
+    BuiltValueNullFieldError.checkNotNull(payload, r'SignalingICECandidateMessage', 'payload');
+  }
+
+  @override
+  SignalingICECandidateMessage rebuild(void Function(SignalingICECandidateMessageBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingICECandidateMessageBuilder toBuilder() => SignalingICECandidateMessageBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingICECandidateMessage &&
+        from == other.from &&
+        to == other.to &&
+        type == other.type &&
+        roomType == other.roomType &&
+        sid == other.sid &&
+        payload == other.payload;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, from.hashCode);
+    _$hash = $jc(_$hash, to.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, roomType.hashCode);
+    _$hash = $jc(_$hash, sid.hashCode);
+    _$hash = $jc(_$hash, payload.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingICECandidateMessage')
+          ..add('from', from)
+          ..add('to', to)
+          ..add('type', type)
+          ..add('roomType', roomType)
+          ..add('sid', sid)
+          ..add('payload', payload))
+        .toString();
+  }
+}
+
+class SignalingICECandidateMessageBuilder
+    implements
+        Builder<SignalingICECandidateMessage, SignalingICECandidateMessageBuilder>,
+        $SignalingICECandidateMessageInterfaceBuilder {
+  _$SignalingICECandidateMessage? _$v;
+
+  String? _from;
+  String? get from => _$this._from;
+  set from(covariant String? from) => _$this._from = from;
+
+  String? _to;
+  String? get to => _$this._to;
+  set to(covariant String? to) => _$this._to = to;
+
+  SignalingMessageType? _type;
+  SignalingMessageType? get type => _$this._type;
+  set type(covariant SignalingMessageType? type) => _$this._type = type;
+
+  SignalingRoomType? _roomType;
+  SignalingRoomType? get roomType => _$this._roomType;
+  set roomType(covariant SignalingRoomType? roomType) => _$this._roomType = roomType;
+
+  String? _sid;
+  String? get sid => _$this._sid;
+  set sid(covariant String? sid) => _$this._sid = sid;
+
+  SignalingICECandidateMessage_PayloadBuilder? _payload;
+  SignalingICECandidateMessage_PayloadBuilder get payload =>
+      _$this._payload ??= SignalingICECandidateMessage_PayloadBuilder();
+  set payload(covariant SignalingICECandidateMessage_PayloadBuilder? payload) => _$this._payload = payload;
+
+  SignalingICECandidateMessageBuilder();
+
+  SignalingICECandidateMessageBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _from = $v.from;
+      _to = $v.to;
+      _type = $v.type;
+      _roomType = $v.roomType;
+      _sid = $v.sid;
+      _payload = $v.payload.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingICECandidateMessage other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingICECandidateMessage;
+  }
+
+  @override
+  void update(void Function(SignalingICECandidateMessageBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingICECandidateMessage build() => _build();
+
+  _$SignalingICECandidateMessage _build() {
+    _$SignalingICECandidateMessage _$result;
+    try {
+      _$result = _$v ??
+          _$SignalingICECandidateMessage._(
+              from: BuiltValueNullFieldError.checkNotNull(from, r'SignalingICECandidateMessage', 'from'),
+              to: BuiltValueNullFieldError.checkNotNull(to, r'SignalingICECandidateMessage', 'to'),
+              type: BuiltValueNullFieldError.checkNotNull(type, r'SignalingICECandidateMessage', 'type'),
+              roomType: roomType,
+              sid: sid,
+              payload: payload.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'payload';
+        payload.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SignalingICECandidateMessage', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingMuteMessage_PayloadInterfaceBuilder {
+  void replace($SignalingMuteMessage_PayloadInterface other);
+  void update(void Function($SignalingMuteMessage_PayloadInterfaceBuilder) updates);
+  SignalingMuteMessage_Payload_Name? get name;
+  set name(SignalingMuteMessage_Payload_Name? name);
+}
+
+class _$SignalingMuteMessage_Payload extends SignalingMuteMessage_Payload {
+  @override
+  final SignalingMuteMessage_Payload_Name name;
+
+  factory _$SignalingMuteMessage_Payload([void Function(SignalingMuteMessage_PayloadBuilder)? updates]) =>
+      (SignalingMuteMessage_PayloadBuilder()..update(updates))._build();
+
+  _$SignalingMuteMessage_Payload._({required this.name}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'SignalingMuteMessage_Payload', 'name');
+  }
+
+  @override
+  SignalingMuteMessage_Payload rebuild(void Function(SignalingMuteMessage_PayloadBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingMuteMessage_PayloadBuilder toBuilder() => SignalingMuteMessage_PayloadBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingMuteMessage_Payload && name == other.name;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingMuteMessage_Payload')..add('name', name)).toString();
+  }
+}
+
+class SignalingMuteMessage_PayloadBuilder
+    implements
+        Builder<SignalingMuteMessage_Payload, SignalingMuteMessage_PayloadBuilder>,
+        $SignalingMuteMessage_PayloadInterfaceBuilder {
+  _$SignalingMuteMessage_Payload? _$v;
+
+  SignalingMuteMessage_Payload_Name? _name;
+  SignalingMuteMessage_Payload_Name? get name => _$this._name;
+  set name(covariant SignalingMuteMessage_Payload_Name? name) => _$this._name = name;
+
+  SignalingMuteMessage_PayloadBuilder();
+
+  SignalingMuteMessage_PayloadBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingMuteMessage_Payload other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingMuteMessage_Payload;
+  }
+
+  @override
+  void update(void Function(SignalingMuteMessage_PayloadBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingMuteMessage_Payload build() => _build();
+
+  _$SignalingMuteMessage_Payload _build() {
+    final _$result = _$v ??
+        _$SignalingMuteMessage_Payload._(
+            name: BuiltValueNullFieldError.checkNotNull(name, r'SignalingMuteMessage_Payload', 'name'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingMuteMessageInterfaceBuilder {
+  void replace($SignalingMuteMessageInterface other);
+  void update(void Function($SignalingMuteMessageInterfaceBuilder) updates);
+  String? get from;
+  set from(String? from);
+
+  String? get to;
+  set to(String? to);
+
+  SignalingMessageType? get type;
+  set type(SignalingMessageType? type);
+
+  SignalingRoomType? get roomType;
+  set roomType(SignalingRoomType? roomType);
+
+  String? get sid;
+  set sid(String? sid);
+
+  SignalingMuteMessage_PayloadBuilder get payload;
+  set payload(SignalingMuteMessage_PayloadBuilder? payload);
+}
+
+class _$SignalingMuteMessage extends SignalingMuteMessage {
+  @override
+  final String from;
+  @override
+  final String to;
+  @override
+  final SignalingMessageType type;
+  @override
+  final SignalingRoomType? roomType;
+  @override
+  final String? sid;
+  @override
+  final SignalingMuteMessage_Payload payload;
+
+  factory _$SignalingMuteMessage([void Function(SignalingMuteMessageBuilder)? updates]) =>
+      (SignalingMuteMessageBuilder()..update(updates))._build();
+
+  _$SignalingMuteMessage._(
+      {required this.from, required this.to, required this.type, this.roomType, this.sid, required this.payload})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(from, r'SignalingMuteMessage', 'from');
+    BuiltValueNullFieldError.checkNotNull(to, r'SignalingMuteMessage', 'to');
+    BuiltValueNullFieldError.checkNotNull(type, r'SignalingMuteMessage', 'type');
+    BuiltValueNullFieldError.checkNotNull(payload, r'SignalingMuteMessage', 'payload');
+  }
+
+  @override
+  SignalingMuteMessage rebuild(void Function(SignalingMuteMessageBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingMuteMessageBuilder toBuilder() => SignalingMuteMessageBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingMuteMessage &&
+        from == other.from &&
+        to == other.to &&
+        type == other.type &&
+        roomType == other.roomType &&
+        sid == other.sid &&
+        payload == other.payload;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, from.hashCode);
+    _$hash = $jc(_$hash, to.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, roomType.hashCode);
+    _$hash = $jc(_$hash, sid.hashCode);
+    _$hash = $jc(_$hash, payload.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingMuteMessage')
+          ..add('from', from)
+          ..add('to', to)
+          ..add('type', type)
+          ..add('roomType', roomType)
+          ..add('sid', sid)
+          ..add('payload', payload))
+        .toString();
+  }
+}
+
+class SignalingMuteMessageBuilder
+    implements Builder<SignalingMuteMessage, SignalingMuteMessageBuilder>, $SignalingMuteMessageInterfaceBuilder {
+  _$SignalingMuteMessage? _$v;
+
+  String? _from;
+  String? get from => _$this._from;
+  set from(covariant String? from) => _$this._from = from;
+
+  String? _to;
+  String? get to => _$this._to;
+  set to(covariant String? to) => _$this._to = to;
+
+  SignalingMessageType? _type;
+  SignalingMessageType? get type => _$this._type;
+  set type(covariant SignalingMessageType? type) => _$this._type = type;
+
+  SignalingRoomType? _roomType;
+  SignalingRoomType? get roomType => _$this._roomType;
+  set roomType(covariant SignalingRoomType? roomType) => _$this._roomType = roomType;
+
+  String? _sid;
+  String? get sid => _$this._sid;
+  set sid(covariant String? sid) => _$this._sid = sid;
+
+  SignalingMuteMessage_PayloadBuilder? _payload;
+  SignalingMuteMessage_PayloadBuilder get payload => _$this._payload ??= SignalingMuteMessage_PayloadBuilder();
+  set payload(covariant SignalingMuteMessage_PayloadBuilder? payload) => _$this._payload = payload;
+
+  SignalingMuteMessageBuilder();
+
+  SignalingMuteMessageBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _from = $v.from;
+      _to = $v.to;
+      _type = $v.type;
+      _roomType = $v.roomType;
+      _sid = $v.sid;
+      _payload = $v.payload.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingMuteMessage other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingMuteMessage;
+  }
+
+  @override
+  void update(void Function(SignalingMuteMessageBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingMuteMessage build() => _build();
+
+  _$SignalingMuteMessage _build() {
+    _$SignalingMuteMessage _$result;
+    try {
+      _$result = _$v ??
+          _$SignalingMuteMessage._(
+              from: BuiltValueNullFieldError.checkNotNull(from, r'SignalingMuteMessage', 'from'),
+              to: BuiltValueNullFieldError.checkNotNull(to, r'SignalingMuteMessage', 'to'),
+              type: BuiltValueNullFieldError.checkNotNull(type, r'SignalingMuteMessage', 'type'),
+              roomType: roomType,
+              sid: sid,
+              payload: payload.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'payload';
+        payload.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SignalingMuteMessage', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingMessageWrapperInterfaceBuilder {
+  void replace($SignalingMessageWrapperInterface other);
+  void update(void Function($SignalingMessageWrapperInterfaceBuilder) updates);
+  String? get type;
+  set type(String? type);
+
+  ContentStringBuilder<SignalingMessage> get data;
+  set data(ContentStringBuilder<SignalingMessage>? data);
+}
+
+class _$SignalingMessageWrapper extends SignalingMessageWrapper {
+  @override
+  final String type;
+  @override
+  final ContentString<SignalingMessage> data;
+
+  factory _$SignalingMessageWrapper([void Function(SignalingMessageWrapperBuilder)? updates]) =>
+      (SignalingMessageWrapperBuilder()..update(updates))._build();
+
+  _$SignalingMessageWrapper._({required this.type, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(type, r'SignalingMessageWrapper', 'type');
+    BuiltValueNullFieldError.checkNotNull(data, r'SignalingMessageWrapper', 'data');
+  }
+
+  @override
+  SignalingMessageWrapper rebuild(void Function(SignalingMessageWrapperBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingMessageWrapperBuilder toBuilder() => SignalingMessageWrapperBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
+    return other is SignalingMessageWrapper && type == other.type && data == _$dynamicOther.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingMessageWrapper')
+          ..add('type', type)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class SignalingMessageWrapperBuilder
+    implements
+        Builder<SignalingMessageWrapper, SignalingMessageWrapperBuilder>,
+        $SignalingMessageWrapperInterfaceBuilder {
+  _$SignalingMessageWrapper? _$v;
+
+  String? _type;
+  String? get type => _$this._type;
+  set type(covariant String? type) => _$this._type = type;
+
+  ContentStringBuilder<SignalingMessage>? _data;
+  ContentStringBuilder<SignalingMessage> get data => _$this._data ??= ContentStringBuilder<SignalingMessage>();
+  set data(covariant ContentStringBuilder<SignalingMessage>? data) => _$this._data = data;
+
+  SignalingMessageWrapperBuilder();
+
+  SignalingMessageWrapperBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _type = $v.type;
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingMessageWrapper other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingMessageWrapper;
+  }
+
+  @override
+  void update(void Function(SignalingMessageWrapperBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingMessageWrapper build() => _build();
+
+  _$SignalingMessageWrapper _build() {
+    _$SignalingMessageWrapper _$result;
+    try {
+      _$result = _$v ??
+          _$SignalingMessageWrapper._(
+              type: BuiltValueNullFieldError.checkNotNull(type, r'SignalingMessageWrapper', 'type'),
+              data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SignalingMessageWrapper', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -52328,15 +54057,15 @@ abstract mixin class $SignalingPullMessagesResponseApplicationJson_OcsInterfaceB
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get data;
-  set data(ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>? data);
+  ListBuilder<SignalingData> get data;
+  set data(ListBuilder<SignalingData>? data);
 }
 
 class _$SignalingPullMessagesResponseApplicationJson_Ocs extends SignalingPullMessagesResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
-  final BuiltList<SignalingPullMessagesResponseApplicationJson_Ocs_Data> data;
+  final BuiltList<SignalingData> data;
 
   factory _$SignalingPullMessagesResponseApplicationJson_Ocs(
           [void Function(SignalingPullMessagesResponseApplicationJson_OcsBuilder)? updates]) =>
@@ -52359,7 +54088,10 @@ class _$SignalingPullMessagesResponseApplicationJson_Ocs extends SignalingPullMe
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SignalingPullMessagesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    final dynamic _$dynamicOther = other;
+    return other is SignalingPullMessagesResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == _$dynamicOther.data;
   }
 
   @override
@@ -52391,10 +54123,9 @@ class SignalingPullMessagesResponseApplicationJson_OcsBuilder
   OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>? _data;
-  ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get data =>
-      _$this._data ??= ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>();
-  set data(covariant ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>? data) => _$this._data = data;
+  ListBuilder<SignalingData>? _data;
+  ListBuilder<SignalingData> get data => _$this._data ??= ListBuilder<SignalingData>();
+  set data(covariant ListBuilder<SignalingData>? data) => _$this._data = data;
 
   SignalingPullMessagesResponseApplicationJson_OcsBuilder();
 
@@ -52539,6 +54270,144 @@ class SignalingPullMessagesResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SignalingPullMessagesResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SignalingSendMessagesMessagesInterfaceBuilder {
+  void replace($SignalingSendMessagesMessagesInterface other);
+  void update(void Function($SignalingSendMessagesMessagesInterfaceBuilder) updates);
+  String? get ev;
+  set ev(String? ev);
+
+  ContentStringBuilder<SignalingMessage> get fn;
+  set fn(ContentStringBuilder<SignalingMessage>? fn);
+
+  String? get sessionId;
+  set sessionId(String? sessionId);
+}
+
+class _$SignalingSendMessagesMessages extends SignalingSendMessagesMessages {
+  @override
+  final String ev;
+  @override
+  final ContentString<SignalingMessage> fn;
+  @override
+  final String sessionId;
+
+  factory _$SignalingSendMessagesMessages([void Function(SignalingSendMessagesMessagesBuilder)? updates]) =>
+      (SignalingSendMessagesMessagesBuilder()..update(updates))._build();
+
+  _$SignalingSendMessagesMessages._({required this.ev, required this.fn, required this.sessionId}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ev, r'SignalingSendMessagesMessages', 'ev');
+    BuiltValueNullFieldError.checkNotNull(fn, r'SignalingSendMessagesMessages', 'fn');
+    BuiltValueNullFieldError.checkNotNull(sessionId, r'SignalingSendMessagesMessages', 'sessionId');
+  }
+
+  @override
+  SignalingSendMessagesMessages rebuild(void Function(SignalingSendMessagesMessagesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingSendMessagesMessagesBuilder toBuilder() => SignalingSendMessagesMessagesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
+    return other is SignalingSendMessagesMessages &&
+        ev == other.ev &&
+        fn == _$dynamicOther.fn &&
+        sessionId == other.sessionId;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ev.hashCode);
+    _$hash = $jc(_$hash, fn.hashCode);
+    _$hash = $jc(_$hash, sessionId.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingSendMessagesMessages')
+          ..add('ev', ev)
+          ..add('fn', fn)
+          ..add('sessionId', sessionId))
+        .toString();
+  }
+}
+
+class SignalingSendMessagesMessagesBuilder
+    implements
+        Builder<SignalingSendMessagesMessages, SignalingSendMessagesMessagesBuilder>,
+        $SignalingSendMessagesMessagesInterfaceBuilder {
+  _$SignalingSendMessagesMessages? _$v;
+
+  String? _ev;
+  String? get ev => _$this._ev;
+  set ev(covariant String? ev) => _$this._ev = ev;
+
+  ContentStringBuilder<SignalingMessage>? _fn;
+  ContentStringBuilder<SignalingMessage> get fn => _$this._fn ??= ContentStringBuilder<SignalingMessage>();
+  set fn(covariant ContentStringBuilder<SignalingMessage>? fn) => _$this._fn = fn;
+
+  String? _sessionId;
+  String? get sessionId => _$this._sessionId;
+  set sessionId(covariant String? sessionId) => _$this._sessionId = sessionId;
+
+  SignalingSendMessagesMessagesBuilder() {
+    SignalingSendMessagesMessages._defaults(this);
+  }
+
+  SignalingSendMessagesMessagesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ev = $v.ev;
+      _fn = $v.fn.toBuilder();
+      _sessionId = $v.sessionId;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingSendMessagesMessages other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SignalingSendMessagesMessages;
+  }
+
+  @override
+  void update(void Function(SignalingSendMessagesMessagesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingSendMessagesMessages build() => _build();
+
+  _$SignalingSendMessagesMessages _build() {
+    _$SignalingSendMessagesMessages _$result;
+    try {
+      _$result = _$v ??
+          _$SignalingSendMessagesMessages._(
+              ev: BuiltValueNullFieldError.checkNotNull(ev, r'SignalingSendMessagesMessages', 'ev'),
+              fn: fn.build(),
+              sessionId:
+                  BuiltValueNullFieldError.checkNotNull(sessionId, r'SignalingSendMessagesMessages', 'sessionId'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'fn';
+        fn.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SignalingSendMessagesMessages', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
@@ -425,29 +425,46 @@ void main() {
           final room2 = (await client2.spreed.room.joinRoom(token: room.token)).body.ocs.data;
           await client2.spreed.call.joinCall(token: room.token);
 
+          final muteMessage = spreed.SignalingMuteMessage(
+            (b) => b
+              ..from = room1.sessionId
+              ..to = room2.sessionId
+              ..type = spreed.SignalingMessageType.mute
+              ..payload.update(
+                (b) => b..name = spreed.SignalingMuteMessage_Payload_Name.audio,
+              ),
+          );
           await client1.spreed.signaling.sendMessages(
             token: room.token,
-            messages: json.encode([
-              {
-                'ev': 'message',
-                'sessionId': room1.sessionId,
-                'fn': json.encode({
-                  'to': room2.sessionId,
-                }),
-              },
-            ]),
+            messages: ContentString(
+              (b) => b
+                ..content = BuiltList([
+                  spreed.SignalingSendMessagesMessages(
+                    (b) => b
+                      ..sessionId = room1.sessionId
+                      ..fn.update(
+                        (b) => b
+                          ..content = (
+                            signalingICECandidateMessage: null,
+                            signalingMuteMessage: muteMessage,
+                            signalingSessionDescriptionMessage: null,
+                          ),
+                      ),
+                  ),
+                ]),
+            ),
           );
 
           await Future<void>.delayed(const Duration(seconds: 1));
 
           final messages = (await client2.spreed.signaling.pullMessages(token: room.token)).body.ocs.data;
           expect(messages, hasLength(2));
-          expect(messages[0].type, 'message');
-          expect(json.decode(messages[0].data.string!), {'to': room2.sessionId, 'from': room1.sessionId});
-          expect(messages[1].type, 'usersInRoom');
-          expect(messages[1].data.builtListSignalingSession, hasLength(2));
-          expect(messages[1].data.builtListSignalingSession![0].userId, 'user1');
-          expect(messages[1].data.builtListSignalingSession![1].userId, 'user2');
+          expect(messages[0].signalingMessageWrapper!.type, 'message');
+          expect(messages[0].signalingMessageWrapper!.data.content.signalingMuteMessage, muteMessage);
+          expect(messages[1].signalingSessions!.type, 'usersInRoom');
+          expect(messages[1].signalingSessions!.data, hasLength(2));
+          expect(messages[1].signalingSessions!.data[0].userId, 'user1');
+          expect(messages[1].signalingSessions!.data[1].userId, 'user2');
         });
       });
     },

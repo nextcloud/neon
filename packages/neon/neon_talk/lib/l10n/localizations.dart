@@ -100,6 +100,84 @@ abstract class TalkLocalizations {
   /// In en, this message translates to:
   /// **'Guest'**
   String get actorGuest;
+
+  /// No description provided for @roomCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create room'**
+  String get roomCreate;
+
+  /// No description provided for @roomCreateUserName.
+  ///
+  /// In en, this message translates to:
+  /// **'User name'**
+  String get roomCreateUserName;
+
+  /// No description provided for @roomCreateGroupName.
+  ///
+  /// In en, this message translates to:
+  /// **'Group name'**
+  String get roomCreateGroupName;
+
+  /// No description provided for @roomCreateRoomName.
+  ///
+  /// In en, this message translates to:
+  /// **'Room name'**
+  String get roomCreateRoomName;
+
+  /// No description provided for @roomTypeOneToOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Private'**
+  String get roomTypeOneToOne;
+
+  /// No description provided for @roomTypeGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Group'**
+  String get roomTypeGroup;
+
+  /// No description provided for @roomTypePublic.
+  ///
+  /// In en, this message translates to:
+  /// **'Public'**
+  String get roomTypePublic;
+
+  /// No description provided for @callStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start call'**
+  String get callStart;
+
+  /// No description provided for @callJoin.
+  ///
+  /// In en, this message translates to:
+  /// **'Join call'**
+  String get callJoin;
+
+  /// No description provided for @callLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave call'**
+  String get callLeave;
+
+  /// No description provided for @screenSharingSelectScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Select screen'**
+  String get screenSharingSelectScreen;
+
+  /// No description provided for @screenSharingSelectScreenScreens.
+  ///
+  /// In en, this message translates to:
+  /// **'Screens'**
+  String get screenSharingSelectScreenScreens;
+
+  /// No description provided for @screenSharingSelectScreenWindows.
+  ///
+  /// In en, this message translates to:
+  /// **'Windows'**
+  String get screenSharingSelectScreenWindows;
 }
 
 class _TalkLocalizationsDelegate extends LocalizationsDelegate<TalkLocalizations> {
