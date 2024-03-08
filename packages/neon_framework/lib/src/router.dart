@@ -22,6 +22,7 @@ import 'package:neon_framework/src/pages/route_not_found.dart';
 import 'package:neon_framework/src/pages/settings.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 part 'router.g.dart';
 
@@ -35,7 +36,25 @@ GoRouter buildAppRouter({
       debugLogDiagnostics: kDebugMode,
       navigatorKey: navigatorKey,
       initialLocation: const HomeRoute().location,
-      errorPageBuilder: _buildErrorPage,
+      onException: (context, state, router) async {
+        final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+        if (accountsBloc.hasAccounts) {
+          final activeAccount = accountsBloc.activeAccount.value!;
+
+          await launchUrl(
+            activeAccount.completeUri(state.uri),
+            mode: LaunchMode.externalApplication,
+          );
+
+          return;
+        }
+
+        if (!context.mounted) {
+          return;
+        }
+
+        await router.push(RouteNotFoundRoute(uri: state.uri).location);
+      },
       redirect: (context, state) {
         final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
         if (loginQRcode != null) {
@@ -64,12 +83,6 @@ GoRouter buildAppRouter({
       routes: $appRoutes,
     );
 
-Page<void> _buildErrorPage(BuildContext context, GoRouterState state) => MaterialPage(
-      child: RouteNotFoundPage(
-        uri: state.uri,
-      ),
-    );
-
 /// {@template AppRoutes.AccountSettingsRoute}
 /// Route for the [AccountSettingsPage].
 /// {@endtemplate}
@@ -95,6 +108,21 @@ class AccountSettingsRoute extends GoRouteData {
       account: account,
     );
   }
+}
+
+@TypedGoRoute<RouteNotFoundRoute>(path: '/not-found/:uri')
+@immutable
+class RouteNotFoundRoute extends GoRouteData {
+  const RouteNotFoundRoute({
+    required this.uri,
+  });
+
+  final Uri uri;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => RouteNotFoundPage(
+        uri: uri,
+      );
 }
 
 /// {@template AppRoutes.HomeRoute}
@@ -428,8 +456,10 @@ class _AddAccountCheckServerStatusRoute extends LoginCheckServerStatusRoute {
 
   @override
   Uri get serverUrl => super.serverUrl;
+
   @override
   String? get loginName => super.loginName;
+
   @override
   String? get password => super.password;
 }
@@ -444,8 +474,10 @@ class _AddAccountCheckAccountRoute extends LoginCheckAccountRoute {
 
   @override
   Uri get serverUrl => super.serverUrl;
+
   @override
   String get loginName => super.loginName;
+
   @override
   String get password => super.password;
 }

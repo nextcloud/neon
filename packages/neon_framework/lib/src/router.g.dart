@@ -7,9 +7,33 @@ part of 'router.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
+      $routeNotFoundRoute,
       $homeRoute,
       $loginRoute,
     ];
+
+RouteBase get $routeNotFoundRoute => GoRouteData.$route(
+      path: '/not-found/:uri',
+      factory: $RouteNotFoundRouteExtension._fromState,
+    );
+
+extension $RouteNotFoundRouteExtension on RouteNotFoundRoute {
+  static RouteNotFoundRoute _fromState(GoRouterState state) => RouteNotFoundRoute(
+        uri: Uri.parse(state.pathParameters['uri']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/not-found/${Uri.encodeComponent(uri.toString())}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 RouteBase get $homeRoute => GoRouteData.$route(
       path: '/',
