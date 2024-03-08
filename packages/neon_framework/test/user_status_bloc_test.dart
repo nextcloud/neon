@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -189,7 +191,11 @@ void main() {
         Result.success(user_status.$Type.dnd),
         Result.success(user_status.$Type.dnd).asLoading(),
         Result<String>.error(
-          DynamiteStatusCodeException.fromResponse(Response('', 201)),
+          DynamiteStatusCodeException.fromResponse(
+            statusCode: 201,
+            headers: {},
+            body: '',
+          ),
         ),
       ]),
     );

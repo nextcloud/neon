@@ -63,6 +63,7 @@ class $LogSettingsClient {
         bodyType: const FullType(Uint8List),
         headersType: const FullType(LogSettingsLogSettingsDownloadHeaders),
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// download logfile.
@@ -123,7 +124,6 @@ class $LogSettingsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $download_Serializer();

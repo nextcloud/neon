@@ -77,6 +77,7 @@ class $DeletedShareapiClient {
         bodyType: const FullType(DeletedShareapiIndexResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of all deleted shares.
@@ -147,7 +148,6 @@ class $DeletedShareapiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $index_Serializer();
@@ -161,6 +161,7 @@ class $DeletedShareapiClient {
         bodyType: const FullType(DeletedShareapiUndeleteResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Undelete a deleted share.
@@ -244,7 +245,6 @@ class $DeletedShareapiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $undelete_Serializer();
@@ -264,6 +264,7 @@ class $PublicPreviewClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a direct link preview for a shared file.
@@ -336,7 +337,6 @@ class $PublicPreviewClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $directLink_Serializer();
@@ -349,6 +349,7 @@ class $PublicPreviewClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a preview for a shared file.
@@ -462,7 +463,6 @@ class $PublicPreviewClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getPreview_Serializer();
@@ -483,6 +483,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteGetSharesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of accepted remote shares.
@@ -553,7 +554,6 @@ class $RemoteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getShares_Serializer();
@@ -567,6 +567,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteGetOpenSharesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get list of pending remote shares.
@@ -639,7 +640,6 @@ class $RemoteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getOpenShares_Serializer();
@@ -653,6 +653,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteAcceptShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Accept a remote share.
@@ -737,7 +738,6 @@ class $RemoteClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $acceptShare_Serializer();
@@ -751,6 +751,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteDeclineShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Decline a remote share.
@@ -835,7 +836,6 @@ class $RemoteClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $declineShare_Serializer();
@@ -848,6 +848,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteGetShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get info of a remote share.
@@ -931,7 +932,6 @@ class $RemoteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getShare_Serializer();
@@ -944,6 +944,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteUnshareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Unshare a remote share.
@@ -1029,7 +1030,6 @@ class $RemoteClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $unshare_Serializer();
@@ -1049,6 +1049,7 @@ class $ShareInfoClient {
         bodyType: const FullType(ShareInfo),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the info about a share.
@@ -1149,7 +1150,6 @@ class $ShareInfoClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $info_Serializer();
@@ -1170,6 +1170,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiGetSharesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get shares of the current user.
@@ -1292,7 +1293,6 @@ class $ShareapiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getShares_Serializer();
@@ -1306,6 +1306,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiCreateShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Create a share.
@@ -1481,7 +1482,6 @@ class $ShareapiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $createShare_Serializer();
@@ -1495,6 +1495,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get all shares relative to a file, including parent folders shares rights.
@@ -1580,7 +1581,6 @@ class $ShareapiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getInheritedShares_Serializer();
@@ -1595,6 +1595,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiPendingSharesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get all shares that are still pending.
@@ -1667,7 +1668,6 @@ class $ShareapiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $pendingShares_Serializer();
@@ -1681,6 +1681,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiGetShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a specific share by id.
@@ -1775,7 +1776,6 @@ class $ShareapiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getShare_Serializer();
@@ -1789,6 +1789,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiUpdateShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update a share.
@@ -1950,7 +1951,6 @@ class $ShareapiClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $updateShare_Serializer();
@@ -1964,6 +1964,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiDeleteShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Delete a share.
@@ -2049,7 +2050,6 @@ class $ShareapiClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteShare_Serializer();
@@ -2063,6 +2063,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiAcceptShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Accept a share.
@@ -2148,7 +2149,6 @@ class $ShareapiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $acceptShare_Serializer();
@@ -2169,6 +2169,7 @@ class $ShareesapiClient {
             bodyType: const FullType(ShareesapiSearchResponseApplicationJson),
             headersType: const FullType(ShareesapiShareesapiSearchHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Search for sharees.
@@ -2299,7 +2300,6 @@ class $ShareesapiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $search_Serializer();
@@ -2315,6 +2315,7 @@ class $ShareesapiClient {
         bodyType: const FullType(ShareesapiFindRecommendedResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Find recommended sharees.
@@ -2406,7 +2407,6 @@ class $ShareesapiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $findRecommended_Serializer();

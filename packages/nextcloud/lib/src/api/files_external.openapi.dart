@@ -64,6 +64,7 @@ class $ApiClient {
         bodyType: const FullType(ApiGetUserMountsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the mount points visible for this user.
@@ -136,7 +137,6 @@ class $ApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getUserMounts_Serializer();

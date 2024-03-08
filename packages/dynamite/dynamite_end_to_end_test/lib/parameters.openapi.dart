@@ -49,6 +49,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(JsonObject),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -222,7 +223,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $$get_Serializer();
@@ -235,6 +235,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(JsonObject),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -433,7 +434,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getHeaders_Serializer();
@@ -446,6 +446,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(JsonObject),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -487,7 +488,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getPathParameter_Serializer();
@@ -500,6 +500,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(JsonObject),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -577,7 +578,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getNamingCollisions_Serializer();

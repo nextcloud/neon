@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'dart:async';
 import 'dart:convert';
 
@@ -73,7 +75,11 @@ Account mockUnifiedSearchAccount() => mockServer({
     });
 
 void main() {
-  final error = DynamiteStatusCodeException.fromResponse(Response('', 400));
+  final error = DynamiteStatusCodeException.fromResponse(
+    statusCode: 400,
+    headers: {},
+    body: '',
+  );
 
   late BehaviorSubject<AppImplementation> activeApp;
   late AppsBloc appsBloc;

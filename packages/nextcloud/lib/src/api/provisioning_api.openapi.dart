@@ -73,6 +73,7 @@ class $AppConfigClient {
         bodyType: const FullType(AppConfigGetAppsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of apps.
@@ -147,7 +148,6 @@ class $AppConfigClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getApps_Serializer();
@@ -160,6 +160,7 @@ class $AppConfigClient {
         bodyType: const FullType(AppConfigGetKeysResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the config keys of an app.
@@ -247,7 +248,6 @@ class $AppConfigClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getKeys_Serializer();
@@ -261,6 +261,7 @@ class $AppConfigClient {
         bodyType: const FullType(AppConfigSetValueResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update the config value of an app.
@@ -361,7 +362,6 @@ class $AppConfigClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setValue_Serializer();
@@ -381,6 +381,7 @@ class $AppsClient {
         bodyType: const FullType(AppsGetAppsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of installed apps.
@@ -466,7 +467,6 @@ class $AppsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getApps_Serializer();
@@ -480,6 +480,7 @@ class $AppsClient {
         bodyType: const FullType(AppsGetAppInfoResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the app info for an app.
@@ -565,7 +566,6 @@ class $AppsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getAppInfo_Serializer();
@@ -578,6 +578,7 @@ class $AppsClient {
         bodyType: const FullType(AppsEnableResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Enable an app.
@@ -663,7 +664,6 @@ class $AppsClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $enable_Serializer();
@@ -676,6 +676,7 @@ class $AppsClient {
         bodyType: const FullType(AppsDisableResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Disable an app.
@@ -761,7 +762,6 @@ class $AppsClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $disable_Serializer();
@@ -782,6 +782,7 @@ class $GroupsClient {
         bodyType: const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the list of user IDs that are a subadmin of the group.
@@ -872,7 +873,6 @@ class $GroupsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getSubAdminsOfGroup_Serializer();
@@ -887,6 +887,7 @@ class $GroupsClient {
         bodyType: const FullType(GroupsGetGroupsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of groups.
@@ -986,7 +987,6 @@ class $GroupsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getGroups_Serializer();
@@ -1000,6 +1000,7 @@ class $GroupsClient {
         bodyType: const FullType(GroupsGetGroupResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of users in the specified group.
@@ -1088,7 +1089,6 @@ class $GroupsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getGroup_Serializer();
@@ -1102,6 +1102,7 @@ class $GroupsClient {
         bodyType: const FullType(GroupsGetGroupsDetailsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of groups details.
@@ -1201,7 +1202,6 @@ class $GroupsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getGroupsDetails_Serializer();
@@ -1215,6 +1215,7 @@ class $GroupsClient {
         bodyType: const FullType(GroupsGetGroupUsersResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of users in the specified group.
@@ -1305,7 +1306,6 @@ class $GroupsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getGroupUsers_Serializer();
@@ -1319,6 +1319,7 @@ class $GroupsClient {
         bodyType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of users details in the specified group.
@@ -1432,7 +1433,6 @@ class $GroupsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getGroupUsersDetails_Serializer();
@@ -1454,6 +1454,7 @@ class $PreferencesClient {
         bodyType: const FullType(PreferencesSetPreferenceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Update a preference value of an app.
@@ -1555,10 +1556,6 @@ class $PreferencesClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $setPreference_Serializer();
@@ -1572,6 +1569,7 @@ class $PreferencesClient {
         bodyType: const FullType(PreferencesDeletePreferenceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Delete a preference for an app.
@@ -1664,10 +1662,6 @@ class $PreferencesClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $deletePreference_Serializer();
@@ -1682,6 +1676,7 @@ class $PreferencesClient {
             bodyType: const FullType(PreferencesSetMultiplePreferencesResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200, 400},
           );
 
   /// Update multiple preference values of an app.
@@ -1780,10 +1775,6 @@ class $PreferencesClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $setMultiplePreferences_Serializer();
@@ -1798,6 +1789,7 @@ class $PreferencesClient {
             bodyType: const FullType(PreferencesDeleteMultiplePreferenceResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200, 400},
           );
 
   /// Delete multiple preferences for an app.
@@ -1893,10 +1885,6 @@ class $PreferencesClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $deleteMultiplePreference_Serializer();
@@ -1918,6 +1906,7 @@ class $UsersClient {
         bodyType: const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the groups a user is a subadmin of.
@@ -2003,7 +1992,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getUserSubAdminGroups_Serializer();
@@ -2018,6 +2006,7 @@ class $UsersClient {
         bodyType: const FullType(UsersAddSubAdminResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Make a user a subadmin of a group.
@@ -2111,7 +2100,6 @@ class $UsersClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $addSubAdmin_Serializer();
@@ -2125,6 +2113,7 @@ class $UsersClient {
         bodyType: const FullType(UsersRemoveSubAdminResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Remove a user from the subadmins of a group.
@@ -2218,7 +2207,6 @@ class $UsersClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $removeSubAdmin_Serializer();
@@ -2231,6 +2219,7 @@ class $UsersClient {
         bodyType: const FullType(UsersGetUsersResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of users.
@@ -2330,7 +2319,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getUsers_Serializer();
@@ -2343,6 +2331,7 @@ class $UsersClient {
         bodyType: const FullType(UsersAddUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Create a new user.
@@ -2499,7 +2488,6 @@ class $UsersClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $addUser_Serializer();
@@ -2513,6 +2501,7 @@ class $UsersClient {
         bodyType: const FullType(UsersGetUsersDetailsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of users and their details.
@@ -2612,7 +2601,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getUsersDetails_Serializer();
@@ -2626,6 +2614,7 @@ class $UsersClient {
             bodyType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get the list of disabled users and their details.
@@ -2717,7 +2706,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getDisabledUsersDetails_Serializer();
@@ -2732,6 +2720,7 @@ class $UsersClient {
         bodyType: const FullType(UsersSearchByPhoneNumbersResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Search users by their phone numbers.
@@ -2831,7 +2820,6 @@ class $UsersClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $searchByPhoneNumbers_Serializer();
@@ -2845,6 +2833,7 @@ class $UsersClient {
         bodyType: const FullType(UsersGetUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the details of a user.
@@ -2926,7 +2915,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getUser_Serializer();
@@ -2939,6 +2927,7 @@ class $UsersClient {
         bodyType: const FullType(UsersEditUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update a value of the user's details.
@@ -3036,7 +3025,6 @@ class $UsersClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $editUser_Serializer();
@@ -3050,6 +3038,7 @@ class $UsersClient {
         bodyType: const FullType(UsersDeleteUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Delete a user.
@@ -3131,7 +3120,6 @@ class $UsersClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteUser_Serializer();
@@ -3145,6 +3133,7 @@ class $UsersClient {
         bodyType: const FullType(UsersGetCurrentUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the details of the current user.
@@ -3217,7 +3206,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getCurrentUser_Serializer();
@@ -3231,6 +3219,7 @@ class $UsersClient {
         bodyType: const FullType(UsersGetEditableFieldsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of fields that are editable for the current user.
@@ -3303,7 +3292,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getEditableFields_Serializer();
@@ -3317,6 +3305,7 @@ class $UsersClient {
             bodyType: const FullType(UsersGetEditableFieldsForUserResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get a list of fields that are editable for a user.
@@ -3399,7 +3388,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getEditableFieldsForUser_Serializer();
@@ -3414,6 +3402,7 @@ class $UsersClient {
         bodyType: const FullType(UsersEditUserMultiValueResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update multiple values of the user's details.
@@ -3525,7 +3514,6 @@ class $UsersClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $editUserMultiValue_Serializer();
@@ -3539,6 +3527,7 @@ class $UsersClient {
         bodyType: const FullType(UsersWipeUserDevicesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Wipe all devices of a user.
@@ -3620,7 +3609,6 @@ class $UsersClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $wipeUserDevices_Serializer();
@@ -3634,6 +3622,7 @@ class $UsersClient {
         bodyType: const FullType(UsersEnableUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Enable a user.
@@ -3715,7 +3704,6 @@ class $UsersClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $enableUser_Serializer();
@@ -3729,6 +3717,7 @@ class $UsersClient {
         bodyType: const FullType(UsersDisableUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Disable a user.
@@ -3810,7 +3799,6 @@ class $UsersClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $disableUser_Serializer();
@@ -3824,6 +3812,7 @@ class $UsersClient {
         bodyType: const FullType(UsersGetUsersGroupsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of groups the user belongs to.
@@ -3905,7 +3894,6 @@ class $UsersClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getUsersGroups_Serializer();
@@ -3919,6 +3907,7 @@ class $UsersClient {
         bodyType: const FullType(UsersAddToGroupResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Add a user to a group.
@@ -4009,7 +3998,6 @@ class $UsersClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $addToGroup_Serializer();
@@ -4023,6 +4011,7 @@ class $UsersClient {
         bodyType: const FullType(UsersRemoveFromGroupResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Remove a user from a group.
@@ -4112,7 +4101,6 @@ class $UsersClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $removeFromGroup_Serializer();
@@ -4126,6 +4114,7 @@ class $UsersClient {
         bodyType: const FullType(UsersResendWelcomeMessageResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Resend the welcome message.
@@ -4207,7 +4196,6 @@ class $UsersClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $resendWelcomeMessage_Serializer();

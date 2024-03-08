@@ -71,6 +71,7 @@ class $ApiClient {
         bodyType: const FullType(ApiGenerateNotificationResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Generate a notification for a user.
@@ -191,7 +192,6 @@ class $ApiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $generateNotification_Serializer();
@@ -212,6 +212,7 @@ class $EndpointClient {
             bodyType: const FullType(EndpointListNotificationsResponseApplicationJson),
             headersType: const FullType(EndpointEndpointListNotificationsHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get all notifications.
@@ -302,7 +303,6 @@ class $EndpointClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listNotifications_Serializer();
@@ -318,6 +318,7 @@ class $EndpointClient {
             bodyType: const FullType(EndpointDeleteAllNotificationsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Delete all notifications.
@@ -406,7 +407,6 @@ class $EndpointClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteAllNotifications_Serializer();
@@ -421,6 +421,7 @@ class $EndpointClient {
         bodyType: const FullType(EndpointGetNotificationResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a notification.
@@ -515,7 +516,6 @@ class $EndpointClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getNotification_Serializer();
@@ -529,6 +529,7 @@ class $EndpointClient {
         bodyType: const FullType(EndpointDeleteNotificationResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Delete a notification.
@@ -625,7 +626,6 @@ class $EndpointClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteNotification_Serializer();
@@ -640,6 +640,7 @@ class $EndpointClient {
         bodyType: const FullType(EndpointConfirmIdsForUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Check if notification IDs exist.
@@ -734,10 +735,6 @@ class $EndpointClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $confirmIdsForUser_Serializer();
@@ -759,6 +756,7 @@ class $PushClient {
         bodyType: const FullType(PushRegisterDeviceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
       );
 
   /// Register device for push notifications.
@@ -874,10 +872,6 @@ class $PushClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-      },
     );
 
     final _serializer = $registerDevice_Serializer();
@@ -891,6 +885,7 @@ class $PushClient {
         bodyType: const FullType(PushRemoveDeviceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 202, 401},
       );
 
   /// Remove a device from push notifications.
@@ -980,11 +975,6 @@ class $PushClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        202,
-        401,
-      },
     );
 
     final _serializer = $removeDevice_Serializer();
@@ -1005,6 +995,7 @@ class $SettingsClient {
         bodyType: const FullType(SettingsPersonalResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update personal notification settings.
@@ -1114,7 +1105,6 @@ class $SettingsClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $personal_Serializer();
@@ -1127,6 +1117,7 @@ class $SettingsClient {
         bodyType: const FullType(SettingsAdminResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update default notification settings for new users.
@@ -1239,7 +1230,6 @@ class $SettingsClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $admin_Serializer();

@@ -63,6 +63,7 @@ class $ApiClient {
         bodyType: const FullType(ApiGetAppListResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// List available updates for apps.
@@ -160,7 +161,6 @@ class $ApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getAppList_Serializer();

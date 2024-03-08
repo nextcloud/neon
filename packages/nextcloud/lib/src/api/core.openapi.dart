@@ -101,6 +101,7 @@ class $Client extends _i1.DynamiteClient {
         bodyType: const FullType(Status),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
@@ -136,7 +137,6 @@ class $Client extends _i1.DynamiteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getStatus_Serializer();
@@ -157,6 +157,7 @@ class $AppPasswordClient {
         bodyType: const FullType(AppPasswordGetAppPasswordResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Create app password.
@@ -231,7 +232,6 @@ class $AppPasswordClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getAppPassword_Serializer();
@@ -246,6 +246,7 @@ class $AppPasswordClient {
         bodyType: const FullType(AppPasswordRotateAppPasswordResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Rotate app password.
@@ -320,7 +321,6 @@ class $AppPasswordClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $rotateAppPassword_Serializer();
@@ -335,6 +335,7 @@ class $AppPasswordClient {
         bodyType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Delete app password.
@@ -409,7 +410,6 @@ class $AppPasswordClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteAppPassword_Serializer();
@@ -430,6 +430,7 @@ class $AutoCompleteClient {
         bodyType: const FullType(AutoCompleteGetResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Autocomplete a query.
@@ -556,7 +557,6 @@ class $AutoCompleteClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $$get_Serializer();
@@ -578,6 +578,7 @@ class $AvatarClient {
         bodyType: const FullType(Uint8List),
         headersType: const FullType(AvatarAvatarGetAvatarDarkHeaders),
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the dark avatar.
@@ -658,7 +659,6 @@ class $AvatarClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getAvatarDark_Serializer();
@@ -671,6 +671,7 @@ class $AvatarClient {
         bodyType: const FullType(Uint8List),
         headersType: const FullType(AvatarAvatarGetAvatarHeaders),
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the avatar.
@@ -751,7 +752,6 @@ class $AvatarClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getAvatar_Serializer();
@@ -771,6 +771,7 @@ class $ClientFlowLoginV2Client {
         bodyType: const FullType(LoginFlowV2Credentials),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Poll the login flow credentials.
@@ -839,7 +840,6 @@ class $ClientFlowLoginV2Client {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $poll_Serializer();
@@ -852,6 +852,7 @@ class $ClientFlowLoginV2Client {
         bodyType: const FullType(LoginFlowV2),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Init a login flow.
@@ -906,7 +907,6 @@ class $ClientFlowLoginV2Client {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $init_Serializer();
@@ -927,6 +927,7 @@ class $CollaborationResourcesClient {
             bodyType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Search for collections.
@@ -1012,7 +1013,6 @@ class $CollaborationResourcesClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $searchCollections_Serializer();
@@ -1027,6 +1027,7 @@ class $CollaborationResourcesClient {
             bodyType: const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get a collection.
@@ -1112,7 +1113,6 @@ class $CollaborationResourcesClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listCollection_Serializer();
@@ -1127,6 +1127,7 @@ class $CollaborationResourcesClient {
             bodyType: const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Rename a collection.
@@ -1222,7 +1223,6 @@ class $CollaborationResourcesClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $renameCollection_Serializer();
@@ -1237,6 +1237,7 @@ class $CollaborationResourcesClient {
         bodyType: const FullType(CollaborationResourcesAddResourceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Add a resource to a collection.
@@ -1340,7 +1341,6 @@ class $CollaborationResourcesClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $addResource_Serializer();
@@ -1355,6 +1355,7 @@ class $CollaborationResourcesClient {
             bodyType: const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Remove a resource from a collection.
@@ -1458,7 +1459,6 @@ class $CollaborationResourcesClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $removeResource_Serializer();
@@ -1473,6 +1473,7 @@ class $CollaborationResourcesClient {
             bodyType: const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get collections by resource.
@@ -1567,7 +1568,6 @@ class $CollaborationResourcesClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getCollectionsByResource_Serializer();
@@ -1583,6 +1583,7 @@ class $CollaborationResourcesClient {
             bodyType: const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Create a collection for a resource.
@@ -1689,7 +1690,6 @@ class $CollaborationResourcesClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $createCollectionOnResource_Serializer();
@@ -1712,6 +1712,7 @@ class $GuestAvatarClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
       );
 
   /// Returns a dark guest avatar image response.
@@ -1794,10 +1795,6 @@ class $GuestAvatarClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-      },
     );
 
     final _serializer = $getAvatarDark_Serializer();
@@ -1810,6 +1807,7 @@ class $GuestAvatarClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
       );
 
   /// Returns a guest avatar image response.
@@ -1902,10 +1900,6 @@ class $GuestAvatarClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-      },
     );
 
     final _serializer = $getAvatar_Serializer();
@@ -1925,6 +1919,7 @@ class $HoverCardClient {
         bodyType: const FullType(HoverCardGetUserResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the user details for a hovercard.
@@ -2008,7 +2003,6 @@ class $HoverCardClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getUser_Serializer();
@@ -2029,6 +2023,7 @@ class $NavigationClient {
         bodyType: const FullType(NavigationGetAppsNavigationResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the apps navigation.
@@ -2114,7 +2109,6 @@ class $NavigationClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getAppsNavigation_Serializer();
@@ -2129,6 +2123,7 @@ class $NavigationClient {
             bodyType: const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get the settings navigation.
@@ -2215,7 +2210,6 @@ class $NavigationClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getSettingsNavigation_Serializer();
@@ -2238,6 +2232,7 @@ class $OcmClient {
         bodyType: const FullType(OcmDiscoveryResponseApplicationJson),
         headersType: const FullType(OcmOcmDiscoveryHeaders),
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php.
@@ -2294,7 +2289,6 @@ class $OcmClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $discovery_Serializer();
@@ -2316,6 +2310,7 @@ class $OcsClient {
         bodyType: const FullType(OcsGetCapabilitiesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the capabilities.
@@ -2386,7 +2381,6 @@ class $OcsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getCapabilities_Serializer();
@@ -2406,6 +2400,7 @@ class $PreviewClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a preview by file ID.
@@ -2544,7 +2539,6 @@ class $PreviewClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getPreviewByFileId_Serializer();
@@ -2557,6 +2551,7 @@ class $PreviewClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a preview by file path.
@@ -2694,7 +2689,6 @@ class $PreviewClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getPreview_Serializer();
@@ -2715,6 +2709,7 @@ class $ProfileApiClient {
         bodyType: const FullType(ProfileApiSetVisibilityResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update the visibility of a parameter.
@@ -2818,7 +2813,6 @@ class $ProfileApiClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setVisibility_Serializer();
@@ -2838,6 +2832,7 @@ class $ReferenceClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a preview for a reference.
@@ -2906,7 +2901,6 @@ class $ReferenceClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $preview_Serializer();
@@ -2927,6 +2921,7 @@ class $ReferenceApiClient {
         bodyType: const FullType(ReferenceApiResolveOneResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Resolve a reference.
@@ -3008,7 +3003,6 @@ class $ReferenceApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $resolveOne_Serializer();
@@ -3022,6 +3016,7 @@ class $ReferenceApiClient {
         bodyType: const FullType(ReferenceApiResolveResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Resolve multiple references.
@@ -3113,7 +3108,6 @@ class $ReferenceApiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $resolve_Serializer();
@@ -3127,6 +3121,7 @@ class $ReferenceApiClient {
         bodyType: const FullType(ReferenceApiExtractResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Extract references from a text.
@@ -3226,7 +3221,6 @@ class $ReferenceApiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $extract_Serializer();
@@ -3240,6 +3234,7 @@ class $ReferenceApiClient {
         bodyType: const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the providers.
@@ -3312,7 +3307,6 @@ class $ReferenceApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getProvidersInfo_Serializer();
@@ -3327,6 +3321,7 @@ class $ReferenceApiClient {
         bodyType: const FullType(ReferenceApiTouchProviderResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Touch a provider.
@@ -3416,7 +3411,6 @@ class $ReferenceApiClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $touchProvider_Serializer();
@@ -3438,6 +3432,7 @@ class $TextProcessingApiClient {
         bodyType: const FullType(TextProcessingApiTaskTypesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint returns all available LanguageModel task types.
@@ -3508,7 +3503,6 @@ class $TextProcessingApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $taskTypes_Serializer();
@@ -3523,6 +3517,7 @@ class $TextProcessingApiClient {
         bodyType: const FullType(TextProcessingApiScheduleResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint allows scheduling a language model task.
@@ -3634,7 +3629,6 @@ class $TextProcessingApiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $schedule_Serializer();
@@ -3649,6 +3643,7 @@ class $TextProcessingApiClient {
         bodyType: const FullType(TextProcessingApiGetTaskResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
@@ -3732,7 +3727,6 @@ class $TextProcessingApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getTask_Serializer();
@@ -3746,6 +3740,7 @@ class $TextProcessingApiClient {
         bodyType: const FullType(TextProcessingApiDeleteTaskResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint allows to delete a scheduled task for a user.
@@ -3831,7 +3826,6 @@ class $TextProcessingApiClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteTask_Serializer();
@@ -3846,6 +3840,7 @@ class $TextProcessingApiClient {
         bodyType: const FullType(TextProcessingApiListTasksByAppResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
@@ -3937,7 +3932,6 @@ class $TextProcessingApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listTasksByApp_Serializer();
@@ -3959,6 +3953,7 @@ class $TextToImageApiClient {
         bodyType: const FullType(TextToImageApiIsAvailableResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Check whether this feature is available.
@@ -4029,7 +4024,6 @@ class $TextToImageApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $isAvailable_Serializer();
@@ -4044,6 +4038,7 @@ class $TextToImageApiClient {
         bodyType: const FullType(TextToImageApiScheduleResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint allows scheduling a text to image task.
@@ -4154,7 +4149,6 @@ class $TextToImageApiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $schedule_Serializer();
@@ -4168,6 +4162,7 @@ class $TextToImageApiClient {
         bodyType: const FullType(TextToImageApiGetTaskResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
@@ -4251,7 +4246,6 @@ class $TextToImageApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getTask_Serializer();
@@ -4265,6 +4259,7 @@ class $TextToImageApiClient {
         bodyType: const FullType(TextToImageApiDeleteTaskResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint allows to delete a scheduled task for a user.
@@ -4350,7 +4345,6 @@ class $TextToImageApiClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteTask_Serializer();
@@ -4363,6 +4357,7 @@ class $TextToImageApiClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint allows downloading the resulting image of a task.
@@ -4454,7 +4449,6 @@ class $TextToImageApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getImage_Serializer();
@@ -4468,6 +4462,7 @@ class $TextToImageApiClient {
         bodyType: const FullType(TextToImageApiListTasksByAppResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
@@ -4559,7 +4554,6 @@ class $TextToImageApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listTasksByApp_Serializer();
@@ -4581,6 +4575,7 @@ class $TranslationApiClient {
         bodyType: const FullType(TranslationApiLanguagesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the list of supported languages.
@@ -4651,7 +4646,6 @@ class $TranslationApiClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $languages_Serializer();
@@ -4665,6 +4659,7 @@ class $TranslationApiClient {
         bodyType: const FullType(TranslationApiTranslateResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Translate a text.
@@ -4767,7 +4762,6 @@ class $TranslationApiClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $translate_Serializer();
@@ -4788,6 +4782,7 @@ class $UnifiedSearchClient {
         bodyType: const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the providers for unified search.
@@ -4870,7 +4865,6 @@ class $UnifiedSearchClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getProviders_Serializer();
@@ -4885,6 +4879,7 @@ class $UnifiedSearchClient {
         bodyType: const FullType(UnifiedSearchSearchResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Launch a search for a specific search provider.
@@ -5016,7 +5011,6 @@ class $UnifiedSearchClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $search_Serializer();
@@ -5036,6 +5030,7 @@ class $WhatsNewClient {
         bodyType: const FullType(WhatsNewGetResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the changes.
@@ -5106,7 +5101,6 @@ class $WhatsNewClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $$get_Serializer();
@@ -5119,6 +5113,7 @@ class $WhatsNewClient {
         bodyType: const FullType(WhatsNewDismissResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Dismiss the changes.
@@ -5202,7 +5197,6 @@ class $WhatsNewClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $dismiss_Serializer();
@@ -5222,6 +5216,7 @@ class $WipeClient {
         bodyType: const FullType(WipeCheckWipeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Check if the device should be wiped.
@@ -5292,7 +5287,6 @@ class $WipeClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $checkWipe_Serializer();
@@ -5305,6 +5299,7 @@ class $WipeClient {
         bodyType: const FullType(JsonObject),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 404},
       );
 
   /// Finish the wipe.
@@ -5373,10 +5368,6 @@ class $WipeClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        404,
-      },
     );
 
     final _serializer = $wipeDone_Serializer();

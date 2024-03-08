@@ -103,6 +103,7 @@ class $AvatarClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the avatar of a room.
@@ -206,7 +207,6 @@ class $AvatarClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getAvatar_Serializer();
@@ -220,6 +220,7 @@ class $AvatarClient {
         bodyType: const FullType(AvatarUploadAvatarResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Upload an avatar for a room.
@@ -316,7 +317,6 @@ class $AvatarClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $uploadAvatar_Serializer();
@@ -330,6 +330,7 @@ class $AvatarClient {
         bodyType: const FullType(AvatarDeleteAvatarResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Delete the avatar of a room.
@@ -424,7 +425,6 @@ class $AvatarClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteAvatar_Serializer();
@@ -438,6 +438,7 @@ class $AvatarClient {
         bodyType: const FullType(AvatarEmojiAvatarResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Set an emoji as avatar.
@@ -551,7 +552,6 @@ class $AvatarClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $emojiAvatar_Serializer();
@@ -564,6 +564,7 @@ class $AvatarClient {
         bodyType: const FullType(Uint8List),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the dark mode avatar of a room.
@@ -659,7 +660,6 @@ class $AvatarClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getAvatarDark_Serializer();
@@ -680,6 +680,7 @@ class $BotClient {
         bodyType: const FullType(BotSendMessageResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {201, 400, 401, 413},
       );
 
   /// Sends a new chat message to the given room.
@@ -820,12 +821,6 @@ class $BotClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        201,
-        400,
-        401,
-        413,
-      },
     );
 
     final _serializer = $sendMessage_Serializer();
@@ -838,6 +833,7 @@ class $BotClient {
         bodyType: const FullType(BotReactResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201, 400, 401, 404},
       );
 
   /// Adds a reaction to a chat message.
@@ -957,13 +953,6 @@ class $BotClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-        400,
-        401,
-        404,
-      },
     );
 
     final _serializer = $react_Serializer();
@@ -977,6 +966,7 @@ class $BotClient {
         bodyType: const FullType(BotDeleteReactionResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400, 404, 401},
       );
 
   /// Deletes a reaction from a chat message.
@@ -1095,12 +1085,6 @@ class $BotClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        404,
-        401,
-      },
     );
 
     final _serializer = $deleteReaction_Serializer();
@@ -1113,6 +1097,7 @@ class $BotClient {
         bodyType: const FullType(BotListBotsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// List bots.
@@ -1208,7 +1193,6 @@ class $BotClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $listBots_Serializer();
@@ -1221,6 +1205,7 @@ class $BotClient {
         bodyType: const FullType(BotEnableBotResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
       );
 
   /// Enables a bot.
@@ -1328,10 +1313,6 @@ class $BotClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-      },
     );
 
     final _serializer = $enableBot_Serializer();
@@ -1344,6 +1325,7 @@ class $BotClient {
         bodyType: const FullType(BotDisableBotResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Disables a bot.
@@ -1449,7 +1431,6 @@ class $BotClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $disableBot_Serializer();
@@ -1463,6 +1444,7 @@ class $BotClient {
         bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// List admin bots.
@@ -1550,7 +1532,6 @@ class $BotClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $adminListBots_Serializer();
@@ -1571,6 +1552,7 @@ class $BreakoutRoomClient {
             bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Configure the breakout rooms.
@@ -1700,7 +1682,6 @@ class $BreakoutRoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $configureBreakoutRooms_Serializer();
@@ -1715,6 +1696,7 @@ class $BreakoutRoomClient {
             bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Remove the breakout rooms.
@@ -1814,7 +1796,6 @@ class $BreakoutRoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $removeBreakoutRooms_Serializer();
@@ -1829,6 +1810,7 @@ class $BreakoutRoomClient {
             bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {201},
           );
 
   /// Broadcast a chat message to all breakout rooms.
@@ -1942,7 +1924,6 @@ class $BreakoutRoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {201},
     );
 
     final _serializer = $broadcastChatMessage_Serializer();
@@ -1957,6 +1938,7 @@ class $BreakoutRoomClient {
         bodyType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Apply an attendee map to the breakout rooms.
@@ -2065,7 +2047,6 @@ class $BreakoutRoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $applyAttendeeMap_Serializer();
@@ -2080,6 +2061,7 @@ class $BreakoutRoomClient {
         bodyType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Request assistance.
@@ -2179,7 +2161,6 @@ class $BreakoutRoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $requestAssistance_Serializer();
@@ -2194,6 +2175,7 @@ class $BreakoutRoomClient {
             bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Reset the request for assistance.
@@ -2297,7 +2279,6 @@ class $BreakoutRoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $resetRequestForAssistance_Serializer();
@@ -2312,6 +2293,7 @@ class $BreakoutRoomClient {
             bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Start the breakout rooms.
@@ -2413,7 +2395,6 @@ class $BreakoutRoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $startBreakoutRooms_Serializer();
@@ -2428,6 +2409,7 @@ class $BreakoutRoomClient {
         bodyType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Stop the breakout rooms.
@@ -2527,7 +2509,6 @@ class $BreakoutRoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $stopBreakoutRooms_Serializer();
@@ -2542,6 +2523,7 @@ class $BreakoutRoomClient {
             bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Switch to another breakout room.
@@ -2651,7 +2633,6 @@ class $BreakoutRoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $switchBreakoutRoom_Serializer();
@@ -2673,6 +2654,7 @@ class $CallClient {
         bodyType: const FullType(CallGetPeersForCallResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the peers for a call.
@@ -2767,7 +2749,6 @@ class $CallClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getPeersForCall_Serializer();
@@ -2781,6 +2762,7 @@ class $CallClient {
         bodyType: const FullType(CallUpdateCallFlagsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400, 404},
       );
 
   /// Update the in-call flags.
@@ -2887,11 +2869,6 @@ class $CallClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        404,
-      },
     );
 
     final _serializer = $updateCallFlags_Serializer();
@@ -2904,6 +2881,7 @@ class $CallClient {
         bodyType: const FullType(CallJoinCallResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 404},
       );
 
   /// Join a call.
@@ -3039,10 +3017,6 @@ class $CallClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        404,
-      },
     );
 
     final _serializer = $joinCall_Serializer();
@@ -3055,6 +3029,7 @@ class $CallClient {
         bodyType: const FullType(CallLeaveCallResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 404},
       );
 
   /// Leave a call.
@@ -3159,10 +3134,6 @@ class $CallClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        404,
-      },
     );
 
     final _serializer = $leaveCall_Serializer();
@@ -3176,6 +3147,7 @@ class $CallClient {
         bodyType: const FullType(CallRingAttendeeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400, 404},
       );
 
   /// Ring an attendee.
@@ -3283,11 +3255,6 @@ class $CallClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        404,
-      },
     );
 
     final _serializer = $ringAttendee_Serializer();
@@ -3301,6 +3268,7 @@ class $CallClient {
         bodyType: const FullType(CallSipDialOutResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {201, 400, 404, 501},
       );
 
   /// Call a SIP dial-out attendee.
@@ -3409,12 +3377,6 @@ class $CallClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        201,
-        400,
-        404,
-        501,
-      },
     );
 
     final _serializer = $sipDialOut_Serializer();
@@ -3435,6 +3397,7 @@ class $CertificateClient {
             bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get the certificate expiration for a host.
@@ -3537,7 +3500,6 @@ class $CertificateClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getCertificateExpiration_Serializer();
@@ -3559,6 +3521,7 @@ class $ChatClient {
             bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
             headersType: const FullType(ChatChatReceiveMessagesHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200, 304},
           );
 
   /// Receives chat messages from the given room.
@@ -3756,10 +3719,6 @@ class $ChatClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        304,
-      },
     );
 
     final _serializer = $receiveMessages_Serializer();
@@ -3775,6 +3734,7 @@ class $ChatClient {
             bodyType: const FullType(ChatSendMessageResponseApplicationJson),
             headersType: const FullType(ChatChatSendMessageHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {201},
           );
 
   /// Sends a new chat message to the given room.
@@ -3924,7 +3884,6 @@ class $ChatClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {201},
     );
 
     final _serializer = $sendMessage_Serializer();
@@ -3939,6 +3898,7 @@ class $ChatClient {
             bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
             headersType: const FullType(ChatChatClearHistoryHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200, 202},
           );
 
   /// Clear the chat history.
@@ -4040,10 +4000,6 @@ class $ChatClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        202,
-      },
     );
 
     final _serializer = $clearHistory_Serializer();
@@ -4058,6 +4014,7 @@ class $ChatClient {
             bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
             headersType: const FullType(ChatChatDeleteMessageHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200, 202},
           );
 
   /// Delete a chat message.
@@ -4174,10 +4131,6 @@ class $ChatClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        202,
-      },
     );
 
     final _serializer = $deleteMessage_Serializer();
@@ -4192,6 +4145,7 @@ class $ChatClient {
             bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
             headersType: const FullType(ChatChatGetMessageContextHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200, 304},
           );
 
   /// Get the context of a message.
@@ -4308,10 +4262,6 @@ class $ChatClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        304,
-      },
     );
 
     final _serializer = $getMessageContext_Serializer();
@@ -4327,6 +4277,7 @@ class $ChatClient {
         bodyType: const FullType(ChatGetReminderResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the reminder for a chat message.
@@ -4433,7 +4384,6 @@ class $ChatClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getReminder_Serializer();
@@ -4447,6 +4397,7 @@ class $ChatClient {
         bodyType: const FullType(ChatSetReminderResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {201},
       );
 
   /// Set a reminder for a chat message.
@@ -4562,7 +4513,6 @@ class $ChatClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {201},
     );
 
     final _serializer = $setReminder_Serializer();
@@ -4576,6 +4526,7 @@ class $ChatClient {
         bodyType: const FullType(ChatDeleteReminderResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 404},
       );
 
   /// Delete a chat reminder.
@@ -4683,10 +4634,6 @@ class $ChatClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        404,
-      },
     );
 
     final _serializer = $deleteReminder_Serializer();
@@ -4700,6 +4647,7 @@ class $ChatClient {
             bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
             headersType: const FullType(ChatChatSetReadMarkerHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Set the read marker to a specific message.
@@ -4806,7 +4754,6 @@ class $ChatClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setReadMarker_Serializer();
@@ -4821,6 +4768,7 @@ class $ChatClient {
         bodyType: const FullType(ChatMarkUnreadResponseApplicationJson),
         headersType: const FullType(ChatChatMarkUnreadHeaders),
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Mark a chat as unread.
@@ -4916,7 +4864,6 @@ class $ChatClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $markUnread_Serializer();
@@ -4930,6 +4877,7 @@ class $ChatClient {
         bodyType: const FullType(ChatMentionsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Search for mentions.
@@ -5052,7 +5000,6 @@ class $ChatClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $mentions_Serializer();
@@ -5066,6 +5013,7 @@ class $ChatClient {
             bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
             headersType: const FullType(ChatChatGetObjectsSharedInRoomHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get objects that are shared in the room.
@@ -5191,7 +5139,6 @@ class $ChatClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getObjectsSharedInRoom_Serializer();
@@ -5207,6 +5154,7 @@ class $ChatClient {
             bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
             headersType: const FullType(ChatChatShareObjectToChatHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {201},
           );
 
   /// Sends a rich-object to the given room.
@@ -5358,7 +5306,6 @@ class $ChatClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {201},
     );
 
     final _serializer = $shareObjectToChat_Serializer();
@@ -5374,6 +5321,7 @@ class $ChatClient {
             bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get objects that are shared in the room overview.
@@ -5482,7 +5430,6 @@ class $ChatClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getObjectsSharedInRoomOverview_Serializer();
@@ -5504,6 +5451,7 @@ class $FilesIntegrationClient {
         bodyType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the token of the room associated to the given file id.
@@ -5614,7 +5562,6 @@ class $FilesIntegrationClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getRoomByFileId_Serializer();
@@ -5629,6 +5576,7 @@ class $FilesIntegrationClient {
             bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Returns the token of the room associated to the file of the given share token.
@@ -5741,7 +5689,6 @@ class $FilesIntegrationClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getRoomByShareToken_Serializer();
@@ -5763,6 +5710,7 @@ class $GuestClient {
         bodyType: const FullType(GuestSetDisplayNameResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 403, 404},
       );
 
   /// Set the display name as a guest.
@@ -5870,11 +5818,6 @@ class $GuestClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        403,
-        404,
-      },
     );
 
     final _serializer = $setDisplayName_Serializer();
@@ -5895,6 +5838,7 @@ class $HostedSignalingServerClient {
         bodyType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Request a trial account.
@@ -6030,7 +5974,6 @@ class $HostedSignalingServerClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $requestTrial_Serializer();
@@ -6045,6 +5988,7 @@ class $HostedSignalingServerClient {
         bodyType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {204},
       );
 
   /// Delete the account.
@@ -6139,7 +6083,6 @@ class $HostedSignalingServerClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {204},
     );
 
     final _serializer = $deleteAccount_Serializer();
@@ -6161,6 +6104,7 @@ class $MatterbridgeClient {
         bodyType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get bridge information of one room.
@@ -6257,7 +6201,6 @@ class $MatterbridgeClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getBridgeOfRoom_Serializer();
@@ -6272,6 +6215,7 @@ class $MatterbridgeClient {
         bodyType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Edit bridge information of one room.
@@ -6395,7 +6339,6 @@ class $MatterbridgeClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $editBridgeOfRoom_Serializer();
@@ -6410,6 +6353,7 @@ class $MatterbridgeClient {
             bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Delete bridge of one room.
@@ -6510,7 +6454,6 @@ class $MatterbridgeClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $deleteBridgeOfRoom_Serializer();
@@ -6525,6 +6468,7 @@ class $MatterbridgeClient {
             bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get bridge process information.
@@ -6625,7 +6569,6 @@ class $MatterbridgeClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getBridgeProcessState_Serializer();
@@ -6647,6 +6590,7 @@ class $MatterbridgeSettingsClient {
             bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Stop all bridges.
@@ -6738,7 +6682,6 @@ class $MatterbridgeSettingsClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $stopAllBridges_Serializer();
@@ -6753,6 +6696,7 @@ class $MatterbridgeSettingsClient {
             bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get Matterbridge version.
@@ -6846,7 +6790,6 @@ class $MatterbridgeSettingsClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getMatterbridgeVersion_Serializer();
@@ -6868,6 +6811,7 @@ class $PollClient {
         bodyType: const FullType(PollCreatePollResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {201},
       );
 
   /// Create a poll.
@@ -6998,7 +6942,6 @@ class $PollClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {201},
     );
 
     final _serializer = $createPoll_Serializer();
@@ -7011,6 +6954,7 @@ class $PollClient {
         bodyType: const FullType(PollShowPollResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a poll.
@@ -7114,7 +7058,6 @@ class $PollClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $showPoll_Serializer();
@@ -7127,6 +7070,7 @@ class $PollClient {
         bodyType: const FullType(PollVotePollResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Vote on a poll.
@@ -7242,7 +7186,6 @@ class $PollClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $votePoll_Serializer();
@@ -7255,6 +7198,7 @@ class $PollClient {
         bodyType: const FullType(PollClosePollResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Close a poll.
@@ -7364,7 +7308,6 @@ class $PollClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $closePoll_Serializer();
@@ -7385,6 +7328,7 @@ class $PublicShareAuthClient {
         bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {201},
       );
 
   /// Creates a new room for video verification (requesting the password of a share).
@@ -7483,7 +7427,6 @@ class $PublicShareAuthClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {201},
     );
 
     final _serializer = $createRoom_Serializer();
@@ -7505,6 +7448,7 @@ class $ReactionClient {
         bodyType: const FullType(ReactionGetReactionsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get a list of reactions for a message.
@@ -7618,7 +7562,6 @@ class $ReactionClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getReactions_Serializer();
@@ -7631,6 +7574,7 @@ class $ReactionClient {
         bodyType: const FullType(ReactionReactResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
       );
 
   /// Add a reaction to a message.
@@ -7747,10 +7691,6 @@ class $ReactionClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-      },
     );
 
     final _serializer = $react_Serializer();
@@ -7763,6 +7703,7 @@ class $ReactionClient {
         bodyType: const FullType(ReactionDeleteResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Delete a reaction from a message.
@@ -7877,7 +7818,6 @@ class $ReactionClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $$delete_Serializer();
@@ -7897,6 +7837,7 @@ class $RecordingClient {
         bodyType: const FullType(RecordingStartResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Start the recording.
@@ -8003,7 +7944,6 @@ class $RecordingClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $start_Serializer();
@@ -8016,6 +7956,7 @@ class $RecordingClient {
         bodyType: const FullType(RecordingStopResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Stop the recording.
@@ -8113,7 +8054,6 @@ class $RecordingClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $stop_Serializer();
@@ -8126,6 +8066,7 @@ class $RecordingClient {
         bodyType: const FullType(RecordingStoreResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Store the recording.
@@ -8232,7 +8173,6 @@ class $RecordingClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $store_Serializer();
@@ -8246,6 +8186,7 @@ class $RecordingClient {
         bodyType: const FullType(RecordingNotificationDismissResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Dismiss the store call recording notification.
@@ -8354,7 +8295,6 @@ class $RecordingClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $notificationDismiss_Serializer();
@@ -8369,6 +8309,7 @@ class $RecordingClient {
         bodyType: const FullType(RecordingShareToChatResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Share the recorded file to the chat.
@@ -8485,7 +8426,6 @@ class $RecordingClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $shareToChat_Serializer();
@@ -8499,6 +8439,7 @@ class $RecordingClient {
         bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the welcome message of a recording server.
@@ -8599,7 +8540,6 @@ class $RecordingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getWelcomeMessage_Serializer();
@@ -8621,6 +8561,7 @@ class $RoomClient {
         bodyType: const FullType(RoomGetRoomsResponseApplicationJson),
         headersType: const FullType(RoomRoomGetRoomsHeaders),
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get all currently existent rooms which the user has joined.
@@ -8734,7 +8675,6 @@ class $RoomClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getRooms_Serializer();
@@ -8749,6 +8689,7 @@ class $RoomClient {
         bodyType: const FullType(RoomCreateRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
       );
 
   /// Create a room with a user, a group or a circle.
@@ -8894,10 +8835,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        201,
-      },
     );
 
     final _serializer = $createRoom_Serializer();
@@ -8911,6 +8848,7 @@ class $RoomClient {
         bodyType: const FullType(RoomGetListedRoomsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get listed rooms with optional search term.
@@ -9004,7 +8942,6 @@ class $RoomClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getListedRooms_Serializer();
@@ -9018,6 +8955,7 @@ class $RoomClient {
             bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
             headersType: const FullType(RoomRoomGetNoteToSelfConversationHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get the "Note to self" conversation for the user.
@@ -9109,7 +9047,6 @@ class $RoomClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getNoteToSelfConversation_Serializer();
@@ -9125,6 +9062,7 @@ class $RoomClient {
             bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
             headersType: const FullType(RoomRoomGetSingleRoomHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get a room.
@@ -9224,7 +9162,6 @@ class $RoomClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getSingleRoom_Serializer();
@@ -9239,6 +9176,7 @@ class $RoomClient {
         bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Rename a room.
@@ -9343,10 +9281,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $renameRoom_Serializer();
@@ -9360,6 +9294,7 @@ class $RoomClient {
         bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Delete a room.
@@ -9455,10 +9390,6 @@ class $RoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $deleteRoom_Serializer();
@@ -9472,6 +9403,7 @@ class $RoomClient {
         bodyType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get breakout rooms.
@@ -9575,7 +9507,6 @@ class $RoomClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getBreakoutRooms_Serializer();
@@ -9589,6 +9520,7 @@ class $RoomClient {
         bodyType: const FullType(RoomMakePublicResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Allowed guests to join conversation.
@@ -9686,10 +9618,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $makePublic_Serializer();
@@ -9703,6 +9631,7 @@ class $RoomClient {
         bodyType: const FullType(RoomMakePrivateResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Disallowed guests to join conversation.
@@ -9800,10 +9729,6 @@ class $RoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $makePrivate_Serializer();
@@ -9817,6 +9742,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetDescriptionResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Update the description of a room.
@@ -9922,10 +9848,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $setDescription_Serializer();
@@ -9939,6 +9861,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetReadOnlyResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Set read-only state of a room.
@@ -10045,10 +9968,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $setReadOnly_Serializer();
@@ -10062,6 +9981,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetListableResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Make a room listable.
@@ -10168,10 +10088,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $setListable_Serializer();
@@ -10185,6 +10101,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetPasswordResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 403},
       );
 
   /// Set a password for a room.
@@ -10291,10 +10208,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        403,
-      },
     );
 
     final _serializer = $setPassword_Serializer();
@@ -10308,6 +10221,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetPermissionsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update the permissions of a room.
@@ -10428,7 +10342,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setPermissions_Serializer();
@@ -10442,6 +10355,7 @@ class $RoomClient {
             bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
             headersType: const FullType(RoomRoomGetParticipantsHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get a list of participants for a room.
@@ -10551,7 +10465,6 @@ class $RoomClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getParticipants_Serializer();
@@ -10567,6 +10480,7 @@ class $RoomClient {
         bodyType: const FullType(RoomAddParticipantToRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Add a participant to a room.
@@ -10688,7 +10602,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $addParticipantToRoom_Serializer();
@@ -10703,6 +10616,7 @@ class $RoomClient {
             bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
             headersType: const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Get the breakout room participants for a room.
@@ -10821,7 +10735,6 @@ class $RoomClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getBreakoutRoomParticipants_Serializer();
@@ -10837,6 +10750,7 @@ class $RoomClient {
         bodyType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400, 404},
       );
 
   /// Remove the current user from a room.
@@ -10938,11 +10852,6 @@ class $RoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        404,
-      },
     );
 
     final _serializer = $removeSelfFromRoom_Serializer();
@@ -10956,6 +10865,7 @@ class $RoomClient {
             bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200, 400, 403, 404},
           );
 
   /// Remove an attendee from a room.
@@ -11065,12 +10975,6 @@ class $RoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        403,
-        404,
-      },
     );
 
     final _serializer = $removeAttendeeFromRoom_Serializer();
@@ -11085,6 +10989,7 @@ class $RoomClient {
             bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200, 400, 403, 404},
           );
 
   /// Update the permissions of an attendee.
@@ -11213,12 +11118,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        403,
-        404,
-      },
     );
 
     final _serializer = $setAttendeePermissions_Serializer();
@@ -11233,6 +11132,7 @@ class $RoomClient {
             bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
+            validStatuses: const {200},
           );
 
   /// Update the permissions of all attendees.
@@ -11354,7 +11254,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setAllAttendeesPermissions_Serializer();
@@ -11368,6 +11267,7 @@ class $RoomClient {
         bodyType: const FullType(RoomJoinRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Join a room.
@@ -11487,7 +11387,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $joinRoom_Serializer();
@@ -11500,6 +11399,7 @@ class $RoomClient {
         bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Leave a room.
@@ -11594,7 +11494,6 @@ class $RoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $leaveRoom_Serializer();
@@ -11608,6 +11507,7 @@ class $RoomClient {
         bodyType: const FullType(RoomResendInvitationsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 404},
       );
 
   /// Resend invitations.
@@ -11716,10 +11616,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        404,
-      },
     );
 
     final _serializer = $resendInvitations_Serializer();
@@ -11733,6 +11629,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetSessionStateResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Set active state for a session.
@@ -11840,7 +11737,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setSessionState_Serializer();
@@ -11854,6 +11750,7 @@ class $RoomClient {
         bodyType: const FullType(RoomPromoteModeratorResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400, 403, 404},
       );
 
   /// Promote an attendee to moderator.
@@ -11963,12 +11860,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        403,
-        404,
-      },
     );
 
     final _serializer = $promoteModerator_Serializer();
@@ -11982,6 +11873,7 @@ class $RoomClient {
         bodyType: const FullType(RoomDemoteModeratorResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400, 403, 404},
       );
 
   /// Demote an attendee from moderator.
@@ -12091,12 +11983,6 @@ class $RoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-        403,
-        404,
-      },
     );
 
     final _serializer = $demoteModerator_Serializer();
@@ -12110,6 +11996,7 @@ class $RoomClient {
         bodyType: const FullType(RoomAddToFavoritesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Add a room to the favorites.
@@ -12206,7 +12093,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $addToFavorites_Serializer();
@@ -12220,6 +12106,7 @@ class $RoomClient {
         bodyType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Remove a room from the favorites.
@@ -12316,7 +12203,6 @@ class $RoomClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $removeFromFavorites_Serializer();
@@ -12330,6 +12216,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetNotificationLevelResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Update the notification level for a room.
@@ -12437,10 +12324,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $setNotificationLevel_Serializer();
@@ -12454,6 +12337,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetNotificationCallsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Update call notifications.
@@ -12561,10 +12445,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $setNotificationCalls_Serializer();
@@ -12577,6 +12457,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update the lobby state for a room.
@@ -12691,7 +12572,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setLobby_Serializer();
@@ -12705,6 +12585,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetsipEnabledResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update SIP enabled state.
@@ -12818,7 +12699,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setsipEnabled_Serializer();
@@ -12832,6 +12712,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetRecordingConsentResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Set recording consent requirement for this conversation.
@@ -12942,7 +12823,6 @@ class $RoomClient {
       'put',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setRecordingConsent_Serializer();
@@ -12956,6 +12836,7 @@ class $RoomClient {
         bodyType: const FullType(RoomSetMessageExpirationResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update message expiration time.
@@ -13061,7 +12942,6 @@ class $RoomClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setMessageExpiration_Serializer();
@@ -13082,6 +12962,7 @@ class $SettingsClient {
         bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Update user setting.
@@ -13184,10 +13065,6 @@ class $SettingsClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $setUserSetting_Serializer();
@@ -13201,6 +13078,7 @@ class $SettingsClient {
         bodyType: const FullType(SettingsSetsipSettingsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Update SIP bridge settings.
@@ -13318,7 +13196,6 @@ class $SettingsClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $setsipSettings_Serializer();
@@ -13339,6 +13216,7 @@ class $SignalingClient {
         bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the signaling settings.
@@ -13434,7 +13312,6 @@ class $SignalingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getSettings_Serializer();
@@ -13448,6 +13325,7 @@ class $SignalingClient {
         bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 404, 409},
       );
 
   /// Get signaling messages.
@@ -13548,11 +13426,6 @@ class $SignalingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        404,
-        409,
-      },
     );
 
     final _serializer = $pullMessages_Serializer();
@@ -13566,6 +13439,7 @@ class $SignalingClient {
         bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Send signaling messages.
@@ -13671,7 +13545,6 @@ class $SignalingClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $sendMessages_Serializer();
@@ -13685,6 +13558,7 @@ class $SignalingClient {
         bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Get the welcome message from a signaling server.
@@ -13787,7 +13661,6 @@ class $SignalingClient {
       'get',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $getWelcomeMessage_Serializer();
@@ -13809,6 +13682,7 @@ class $TempAvatarClient {
         bodyType: const FullType(TempAvatarPostAvatarResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200},
       );
 
   /// Upload your avatar as a user.
@@ -13883,7 +13757,6 @@ class $TempAvatarClient {
       'post',
       _path,
       headers: _headers,
-      validStatuses: const {200},
     );
 
     final _serializer = $postAvatar_Serializer();
@@ -13897,6 +13770,7 @@ class $TempAvatarClient {
         bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
       );
 
   /// Delete your avatar as a user.
@@ -13971,10 +13845,6 @@ class $TempAvatarClient {
       'delete',
       _path,
       headers: _headers,
-      validStatuses: const {
-        200,
-        400,
-      },
     );
 
     final _serializer = $deleteAvatar_Serializer();

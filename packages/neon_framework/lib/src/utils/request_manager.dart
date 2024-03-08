@@ -160,12 +160,18 @@ class RequestManager {
     required UnwrapCallback<Uint8List, Uint8List>? unwrap,
     required BehaviorSubject<Result<Uint8List>> subject,
   }) {
+    final request = http.Request('GET', uri);
+
     final headers = account.getAuthorizationHeaders(uri);
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
 
     final serializer = DynamiteSerializer<Uint8List, Map<String, String>>(
       bodyType: const FullType(Uint8List),
       headersType: const FullType(Map, [FullType(String), FullType(String)]),
       serializers: Serializers(),
+      validStatuses: const {200, 201},
     );
 
     return wrapBinary(
@@ -181,12 +187,7 @@ class RequestManager {
         return CacheParameters.parseHeaders(response.headers);
       },
       rawResponse: () async {
-        final response = await account.client.executeRawRequest(
-          'GET',
-          uri,
-          headers: headers,
-          validStatuses: const {200, 201},
-        );
+        final response = await account.client.send(request);
 
         return ResponseConverter<Uint8List, Map<String, String>>(serializer).convert(response);
       },

@@ -323,15 +323,23 @@ Iterable<Method> buildTags(
         b
           ..returns = returnType
           ..lambda = true
-          ..body = Code.scope(
-            (allocate) => '''
+          ..body = Code.scope((allocate) {
+            final code = StringBuffer('''
 ${allocate(returnType)}(
   bodyType: ${bodyType.fullType ?? 'null'},
   headersType: ${headersType.fullType ?? 'null'},
   serializers: _\$jsonSerializers,
-)
-''',
-          );
+''');
+
+            final statusCodes = responseEntry.value;
+            if (responses.values.isNotEmpty && !statusCodes.contains('default')) {
+              code.writeln("validStatuses: const {${statusCodes.join(',')}},");
+            }
+
+            code.writeln(')');
+
+            return code.toString();
+          });
       });
 
       yield Method((b) {
@@ -466,7 +474,6 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
 
               buildUrlPath(pathEntry.key, parameters, code, state.emitter.allocator.allocate);
 
-              final statusCodes = responseEntry.value;
               final requestExpression = refer(client).property('executeRequest').call([
                 literalString(httpMethod),
                 refer('_path'),
@@ -474,8 +481,6 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
                 if (acceptHeader.isNotEmpty || hasHeaderParameters || hasAuthentication || hasContentEncoding)
                   'headers': refer('_headers'),
                 if (operation.requestBody != null) 'body': refer('_body'),
-                if (responses.values.isNotEmpty && !statusCodes.contains('default'))
-                  'validStatuses': literalConstSet(statusCodes),
               });
 
               final responseConverterType = refer(
