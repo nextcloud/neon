@@ -32,7 +32,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
     itemsV2.listen((_) => _updateItems());
 
     widgets.listen((result) async {
-      if (!result.hasData) {
+      if (!result.hasSuccessfulData) {
         return;
       }
 

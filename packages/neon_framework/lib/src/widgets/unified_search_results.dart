@@ -14,7 +14,6 @@ import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/image.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
-import 'package:neon_framework/src/widgets/list_view.dart';
 import 'package:neon_framework/src/widgets/server_icon.dart';
 import 'package:nextcloud/core.dart' as core;
 
@@ -28,19 +27,15 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   Widget build(BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final bloc = accountsBloc.activeUnifiedSearchBloc;
-    return ResultBuilder.behaviorSubject(
+    return ResultListBuilder(
+      scrollKey: 'unified-search',
       subject: bloc.providers,
-      builder: (context, providers) => NeonListView(
-        scrollKey: 'unified-search',
-        isLoading: providers.isLoading,
-        error: providers.error,
-        onRefresh: bloc.refresh,
-        itemCount: providers.data?.length ?? 0,
-        itemBuilder: (context, index) {
-          final provider = providers.requireData[index];
-
-          return NeonUnifiedSearchProvider(provider: provider);
-        },
+      onRefresh: bloc.refresh,
+      builder: (context, providers) => SliverList.builder(
+        itemCount: providers.length,
+        itemBuilder: (context, index) => NeonUnifiedSearchProvider(
+          provider: providers[index],
+        ),
       ),
     );
   }

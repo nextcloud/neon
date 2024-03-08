@@ -35,28 +35,26 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.notifications,
-        builder: (context, notifications) => Scaffold(
-          resizeToAvoidBottomInset: false,
-          floatingActionButton: StreamBuilder(
-            stream: bloc.unreadCounter,
-            builder: (context, snapshot) {
-              final unreadCount = snapshot.data ?? 0;
-              return FloatingActionButton(
-                onPressed: unreadCount > 0 ? bloc.deleteAllNotifications : null,
-                tooltip: NotificationsLocalizations.of(context).notificationsDismissAll,
-                child: const Icon(MdiIcons.checkAll),
-              );
-            },
-          ),
-          body: NeonListView(
-            scrollKey: 'notifications-notifications',
-            isLoading: notifications.isLoading,
-            error: notifications.error,
-            onRefresh: bloc.refresh,
-            itemCount: notifications.data?.length,
-            itemBuilder: (context, index) => _buildNotification(context, notifications.data![index]),
+  Widget build(BuildContext context) => Scaffold(
+        resizeToAvoidBottomInset: false,
+        floatingActionButton: StreamBuilder(
+          stream: bloc.unreadCounter,
+          builder: (context, snapshot) {
+            final unreadCount = snapshot.data ?? 0;
+            return FloatingActionButton(
+              onPressed: unreadCount > 0 ? bloc.deleteAllNotifications : null,
+              tooltip: NotificationsLocalizations.of(context).notificationsDismissAll,
+              child: const Icon(MdiIcons.checkAll),
+            );
+          },
+        ),
+        body: ResultListBuilder(
+          subject: bloc.notifications,
+          scrollKey: 'notifications-notifications',
+          onRefresh: bloc.refresh,
+          builder: (context, notifications) => SliverList.builder(
+            itemCount: notifications.length,
+            itemBuilder: (context, index) => _buildNotification(context, notifications[index]),
           ),
         ),
       );

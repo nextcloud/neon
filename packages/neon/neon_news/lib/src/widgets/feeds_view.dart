@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
 import 'package:neon_news/src/pages/feed.dart';
@@ -24,26 +23,23 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.folders,
-        builder: (context, folders) => ResultBuilder.behaviorSubject(
+  Widget build(BuildContext context) => StreamBuilder(
+        stream: bloc.folders.map((event) => event.data).distinct(),
+        builder: (context, folders) => ResultListBuilder(
           subject: bloc.feeds,
-          builder: (context, feeds) => SortBoxBuilder(
+          scrollKey: 'news-feeds',
+          onRefresh: bloc.refresh,
+          builder: (context, data) => SortBoxBuilder(
             sortBox: feedsSortBox,
             sortProperty: bloc.options.feedsSortPropertyOption,
             sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
-            input:
-                folders.hasData ? feeds.data?.where((f) => folderID == null || f.folderId == folderID).toList() : null,
-            builder: (context, sorted) => NeonListView(
-              scrollKey: 'news-feeds',
-              isLoading: feeds.isLoading || folders.isLoading,
-              error: feeds.error ?? folders.error,
-              onRefresh: bloc.refresh,
+            input: data.toList(),
+            builder: (context, sorted) => SliverList.builder(
               itemCount: sorted.length,
               itemBuilder: (context, index) => _buildFeed(
                 context,
                 sorted[index],
-                folders.requireData,
+                folders.data ?? BuiltList(),
               ),
             ),
           ),

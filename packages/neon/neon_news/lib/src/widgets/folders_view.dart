@@ -1,8 +1,8 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
-import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
 import 'package:neon_news/src/pages/folder.dart';
@@ -18,28 +18,24 @@ class NewsFoldersView extends StatelessWidget {
   final NewsBloc bloc;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.folders,
-        builder: (context, folders) => ResultBuilder.behaviorSubject(
-          subject: bloc.feeds,
-          builder: (context, feeds) => SortBoxBuilder(
+  Widget build(BuildContext context) => StreamBuilder(
+        stream: bloc.feeds.map((event) => event.data).distinct(),
+        builder: (context, feeds) => ResultListBuilder(
+          subject: bloc.folders,
+          scrollKey: 'news-folders',
+          onRefresh: bloc.refresh,
+          builder: (context, data) => SortBoxBuilder(
             sortBox: foldersSortBox,
             sortProperty: bloc.options.foldersSortPropertyOption,
             sortBoxOrder: bloc.options.foldersSortBoxOrderOption,
-            input: feeds.hasData
-                ? folders.data?.map((folder) {
-                    final feedsInFolder = feeds.requireData.where((feed) => feed.folderId == folder.id);
-                    final feedCount = feedsInFolder.length;
-                    final unreadCount = feedsInFolder.fold(0, (a, b) => a + b.unreadCount!);
+            input: data.map((folder) {
+              final feedsInFolder = feeds.data?.where((feed) => feed.folderId == folder.id) ?? BuiltList();
+              final feedCount = feedsInFolder.length;
+              final unreadCount = feedsInFolder.fold(0, (a, b) => a + b.unreadCount!);
 
-                    return (folder: folder, feedCount: feedCount, unreadCount: unreadCount);
-                  }).toList()
-                : null,
-            builder: (context, sorted) => NeonListView(
-              scrollKey: 'news-folders',
-              isLoading: feeds.isLoading || folders.isLoading,
-              error: feeds.error ?? folders.error,
-              onRefresh: bloc.refresh,
+              return (folder: folder, feedCount: feedCount, unreadCount: unreadCount);
+            }).toList(),
+            builder: (context, sorted) => SliverList.builder(
               itemCount: sorted.length,
               itemBuilder: (context, index) => _buildFolder(
                 context,

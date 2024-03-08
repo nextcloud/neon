@@ -46,25 +46,63 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: widget.newsBloc.feeds,
-        builder: (context, feeds) => ResultBuilder.behaviorSubject(
+  Widget build(BuildContext context) => StreamBuilder(
+        stream: widget.newsBloc.feeds.map((event) => event.data).distinct(),
+        builder: (context, feeds) => ResultListBuilder(
           subject: widget.bloc.articles,
-          builder: (context, articles) => SortBoxBuilder(
+          scrollKey: 'news-articles',
+          onRefresh: () async {
+            await Future.wait([
+              widget.bloc.refresh(),
+              widget.newsBloc.refresh(),
+            ]);
+          },
+          topFixedChildren: [
+            StreamBuilder(
+              stream: widget.bloc.filterType,
+              builder: (context, selectedFilterTypeSnapshot) => Container(
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                child: DropdownButton(
+                  isExpanded: true,
+                  value: selectedFilterTypeSnapshot.data,
+                  items: [
+                    FilterType.all,
+                    FilterType.unread,
+                    if (widget.bloc.listType == null) ...[
+                      FilterType.starred,
+                    ],
+                  ].map(
+                    (a) {
+                      late final String label;
+                      switch (a) {
+                        case FilterType.all:
+                          label = NewsLocalizations.of(context).articlesFilterAll;
+                        case FilterType.unread:
+                          label = NewsLocalizations.of(context).articlesFilterUnread;
+                        case FilterType.starred:
+                          label = NewsLocalizations.of(context).articlesFilterStarred;
+                        default:
+                          throw Exception('FilterType $a should not be shown');
+                      }
+                      return DropdownMenuItem(
+                        value: a,
+                        child: Text(label),
+                      );
+                    },
+                  ).toList(),
+                  onChanged: (value) {
+                    widget.bloc.setFilterType(value!);
+                  },
+                ),
+              ),
+            ),
+          ],
+          builder: (context, data) => SortBoxBuilder(
             sortBox: articlesSortBox,
             sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
             sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
-            input: articles.data?.toList(),
-            builder: (context, sorted) => NeonListView(
-              scrollKey: 'news-articles',
-              isLoading: articles.isLoading || feeds.isLoading,
-              error: articles.error ?? feeds.error,
-              onRefresh: () async {
-                await Future.wait([
-                  widget.bloc.refresh(),
-                  widget.newsBloc.refresh(),
-                ]);
-              },
+            input: data.toList(),
+            builder: (context, sorted) => SliverList.builder(
               itemCount: sorted.length,
               itemBuilder: (context, index) {
                 final article = sorted[index];
@@ -72,49 +110,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 return _buildArticle(
                   context,
                   article,
-                  feeds.requireData.singleWhere((feed) => feed.id == article.feedId),
+                  feeds.data?.singleWhere((feed) => feed.id == article.feedId),
                 );
               },
-              topFixedChildren: [
-                StreamBuilder(
-                  stream: widget.bloc.filterType,
-                  builder: (context, selectedFilterTypeSnapshot) => Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 15),
-                    child: DropdownButton(
-                      isExpanded: true,
-                      value: selectedFilterTypeSnapshot.data,
-                      items: [
-                        FilterType.all,
-                        FilterType.unread,
-                        if (widget.bloc.listType == null) ...[
-                          FilterType.starred,
-                        ],
-                      ].map(
-                        (a) {
-                          late final String label;
-                          switch (a) {
-                            case FilterType.all:
-                              label = NewsLocalizations.of(context).articlesFilterAll;
-                            case FilterType.unread:
-                              label = NewsLocalizations.of(context).articlesFilterUnread;
-                            case FilterType.starred:
-                              label = NewsLocalizations.of(context).articlesFilterStarred;
-                            default:
-                              throw Exception('FilterType $a should not be shown');
-                          }
-                          return DropdownMenuItem(
-                            value: a,
-                            child: Text(label),
-                          );
-                        },
-                      ).toList(),
-                      onChanged: (value) {
-                        widget.bloc.setFilterType(value!);
-                      },
-                    ),
-                  ),
-                ),
-              ],
             ),
           ),
         ),
@@ -123,7 +121,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   Widget _buildArticle(
     BuildContext context,
     news.Article article,
-    news.Feed feed,
+    news.Feed? feed,
   ) =>
       ListTile(
         title: Row(
@@ -154,11 +152,15 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 bottom: 8,
                 right: 8,
               ),
-              child: NewsFeedIcon(
-                feed: feed,
-                size: smallIconSize,
-                borderRadius: const BorderRadius.all(Radius.circular(2)),
-              ),
+              child: feed != null
+                  ? NewsFeedIcon(
+                      feed: feed,
+                      size: smallIconSize,
+                      borderRadius: const BorderRadius.all(Radius.circular(2)),
+                    )
+                  : const SizedBox.square(
+                      dimension: smallIconSize,
+                    ),
             ),
             RelativeTime(
               date: DateTime.fromMillisecondsSinceEpoch(article.pubDate * 1000),
@@ -170,13 +172,14 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             const SizedBox(
               width: 5,
             ),
-            Flexible(
-              child: Text(
-                feed.title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+            if (feed != null)
+              Flexible(
+                child: Text(
+                  feed.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ),
           ],
         ),
         trailing: IconButton(
