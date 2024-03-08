@@ -21,22 +21,24 @@ class TalkActorAvatar extends StatelessWidget {
   final spreed.ActorType actorType;
 
   @override
-  Widget build(BuildContext context) => switch (actorType) {
-        spreed.ActorType.users => NeonUserAvatar(
-            username: actorId,
-            showStatus: false,
-          ),
-        spreed.ActorType.groups || spreed.ActorType.circles => CircleAvatar(
-            child: Icon(AdaptiveIcons.group),
-          ),
-        spreed.ActorType.emails => CircleAvatar(
-            child: Icon(AdaptiveIcons.email),
-          ),
-        spreed.ActorType.bots => CircleAvatar(
-            child: Icon(AdaptiveIcons.automation),
-          ),
-        _ => CircleAvatar(
-            child: Icon(AdaptiveIcons.person),
-          ),
-      };
+  Widget build(BuildContext context) {
+    return switch (actorType) {
+      spreed.ActorType.users => NeonUserAvatar(
+          username: actorId,
+          showStatus: false,
+        ),
+      spreed.ActorType.groups || spreed.ActorType.circles => CircleAvatar(
+          child: Icon(AdaptiveIcons.group),
+        ),
+      spreed.ActorType.emails => CircleAvatar(
+          child: Icon(AdaptiveIcons.email),
+        ),
+      spreed.ActorType.bots => CircleAvatar(
+          child: Icon(AdaptiveIcons.automation),
+        ),
+      _ => CircleAvatar(
+          child: Icon(AdaptiveIcons.person),
+        ),
+    };
+  }
 }

@@ -40,42 +40,44 @@ class FileListTile extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => ListTile(
-        // When the ETag is null it means we are uploading this file right now
-        onTap: details.isDirectory || details.etag != null ? () async => _onTap(context, details) : null,
-        title: Text(
-          details.name,
-          overflow: TextOverflow.ellipsis,
-        ),
-        subtitle: Row(
-          children: [
-            if (details.lastModified != null)
-              RelativeTime(
-                date: details.lastModified!,
-              ),
-            if (details.size != null && details.size! > 0) ...[
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                filesize(details.size, 1),
-                style: DefaultTextStyle.of(context).style.copyWith(
-                      color: Colors.grey,
-                    ),
-              ),
-            ],
+  Widget build(BuildContext context) {
+    return ListTile(
+      // When the ETag is null it means we are uploading this file right now
+      onTap: details.isDirectory || details.etag != null ? () async => _onTap(context, details) : null,
+      title: Text(
+        details.name,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subtitle: Row(
+        children: [
+          if (details.lastModified != null)
+            RelativeTime(
+              date: details.lastModified!,
+            ),
+          if (details.size != null && details.size! > 0) ...[
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              filesize(details.size, 1),
+              style: DefaultTextStyle.of(context).style.copyWith(
+                    color: Colors.grey,
+                  ),
+            ),
           ],
-        ),
-        leading: _FileIcon(
-          details: details,
-          bloc: bloc,
-        ),
-        trailing: !details.hasTask && browserBloc.mode == FilesBrowserMode.browser
-            ? FileActions(details: details)
-            : const SizedBox.square(
-                dimension: largeIconSize,
-              ),
-      );
+        ],
+      ),
+      leading: _FileIcon(
+        details: details,
+        bloc: bloc,
+      ),
+      trailing: !details.hasTask && browserBloc.mode == FilesBrowserMode.browser
+          ? FileActions(details: details)
+          : const SizedBox.square(
+              dimension: largeIconSize,
+            ),
+    );
+  }
 }
 
 class _FileIcon extends StatelessWidget {

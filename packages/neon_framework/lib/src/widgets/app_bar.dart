@@ -185,15 +185,17 @@ class SearchIconButton extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => IconButton(
-        onPressed: () {
-          NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc.enable();
-        },
-        tooltip: NeonLocalizations.of(context).search,
-        icon: Icon(
-          AdaptiveIcons.search,
-        ),
-      );
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc.enable();
+      },
+      tooltip: NeonLocalizations.of(context).search,
+      icon: Icon(
+        AdaptiveIcons.search,
+      ),
+    );
+  }
 }
 
 /// Button opening the notifications page.
@@ -274,30 +276,32 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: _appsBloc.notificationsAppImplementation,
-        builder: (context, notificationsAppImplementation) {
-          if (!notificationsAppImplementation.hasData) {
-            return const SizedBox.shrink();
-          }
+  Widget build(BuildContext context) {
+    return ResultBuilder.behaviorSubject(
+      subject: _appsBloc.notificationsAppImplementation,
+      builder: (context, notificationsAppImplementation) {
+        if (!notificationsAppImplementation.hasData) {
+          return const SizedBox.shrink();
+        }
 
-          final notificationsImplementationData = notificationsAppImplementation.data!;
-          final notificationBloc = notificationsImplementationData.getBloc(_account);
+        final notificationsImplementationData = notificationsAppImplementation.data!;
+        final notificationBloc = notificationsImplementationData.getBloc(_account);
 
-          return IconButton(
-            key: Key('app-${notificationsImplementationData.id}'),
-            onPressed: () async {
-              await _openNotifications(notificationsImplementationData);
-            },
-            tooltip: NeonLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
-            icon: StreamBuilder<int>(
-              stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
-              builder: (context, unreadCounterSnapshot) => NeonAppImplementationIcon(
-                appImplementation: notificationsImplementationData,
-                unreadCount: unreadCounterSnapshot.data,
-              ),
+        return IconButton(
+          key: Key('app-${notificationsImplementationData.id}'),
+          onPressed: () async {
+            await _openNotifications(notificationsImplementationData);
+          },
+          tooltip: NeonLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
+          icon: StreamBuilder<int>(
+            stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
+            builder: (context, unreadCounterSnapshot) => NeonAppImplementationIcon(
+              appImplementation: notificationsImplementationData,
+              unreadCount: unreadCounterSnapshot.data,
             ),
-          );
-        },
-      );
+          ),
+        );
+      },
+    );
+  }
 }

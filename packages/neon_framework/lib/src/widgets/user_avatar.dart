@@ -70,54 +70,56 @@ class _UserAvatarState extends State<NeonUserAvatar> {
   }
 
   @override
-  Widget build(BuildContext context) => LayoutBuilder(
-        builder: (context, constraints) {
-          final brightness = Theme.of(context).brightness;
-          size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
-          final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final brightness = Theme.of(context).brightness;
+        size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
+        final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
 
-          final avatar = CircleAvatar(
-            radius: size / 2,
-            child: ClipOval(
-              child: NeonApiImage.withAccount(
-                account: account,
-                cacheKey: 'avatar-$username-$brightness-$pixelSize',
-                etag: null,
-                expires: null,
-                getImage: (client) async => switch (brightness) {
-                  Brightness.dark => client.core.avatar.getAvatarDarkRaw(
-                      userId: username,
-                      size: pixelSize,
-                    ),
-                  Brightness.light => client.core.avatar.getAvatarRaw(
-                      userId: username,
-                      size: pixelSize,
-                    ),
-                },
+        final avatar = CircleAvatar(
+          radius: size / 2,
+          child: ClipOval(
+            child: NeonApiImage.withAccount(
+              account: account,
+              cacheKey: 'avatar-$username-$brightness-$pixelSize',
+              etag: null,
+              expires: null,
+              getImage: (client) async => switch (brightness) {
+                Brightness.dark => client.core.avatar.getAvatarDarkRaw(
+                    userId: username,
+                    size: pixelSize,
+                  ),
+                Brightness.light => client.core.avatar.getAvatarRaw(
+                    userId: username,
+                    size: pixelSize,
+                  ),
+              },
+            ),
+          ),
+        );
+
+        if (!widget.showStatus) {
+          return avatar;
+        }
+        return Stack(
+          alignment: Alignment.center,
+          children: [
+            avatar,
+            ResultBuilder(
+              stream: userStatusBloc!.statuses.map(
+                (statuses) => statuses[username] ?? Result<user_status.$PublicInterface>.loading(),
+              ),
+              builder: (context, result) => NeonUserStatusIndicator(
+                result: result,
+                size: size,
               ),
             ),
-          );
-
-          if (!widget.showStatus) {
-            return avatar;
-          }
-          return Stack(
-            alignment: Alignment.center,
-            children: [
-              avatar,
-              ResultBuilder(
-                stream: userStatusBloc!.statuses.map(
-                  (statuses) => statuses[username] ?? Result<user_status.$PublicInterface>.loading(),
-                ),
-                builder: (context, result) => NeonUserStatusIndicator(
-                  result: result,
-                  size: size,
-                ),
-              ),
-            ],
-          );
-        },
-      );
+          ],
+        );
+      },
+    );
+  }
 }
 
 @internal

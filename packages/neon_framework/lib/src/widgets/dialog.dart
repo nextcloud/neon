@@ -664,35 +664,37 @@ class NeonUnifiedPushDialog extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => NeonDialog(
-        title: Text(NeonLocalizations.of(context).nextPushSupported),
-        content: Text(NeonLocalizations.of(context).nextPushSupportedText),
-        actions: [
-          NeonDialogAction(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text(
-              NeonLocalizations.of(context).actionCancel,
-              textAlign: TextAlign.end,
-            ),
+  Widget build(BuildContext context) {
+    return NeonDialog(
+      title: Text(NeonLocalizations.of(context).nextPushSupported),
+      content: Text(NeonLocalizations.of(context).nextPushSupportedText),
+      actions: [
+        NeonDialogAction(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text(
+            NeonLocalizations.of(context).actionCancel,
+            textAlign: TextAlign.end,
           ),
-          NeonDialogAction(
-            isDefaultAction: true,
-            onPressed: () async {
-              Navigator.pop(context);
-              await launchUrlString(
-                'https://f-droid.org/packages/$unifiedPushNextPushID',
-                mode: LaunchMode.externalApplication,
-              );
-            },
-            child: Text(
-              NeonLocalizations.of(context).nextPushSupportedInstall,
-              textAlign: TextAlign.end,
-            ),
+        ),
+        NeonDialogAction(
+          isDefaultAction: true,
+          onPressed: () async {
+            Navigator.pop(context);
+            await launchUrlString(
+              'https://f-droid.org/packages/$unifiedPushNextPushID',
+              mode: LaunchMode.externalApplication,
+            );
+          },
+          child: Text(
+            NeonLocalizations.of(context).nextPushSupportedInstall,
+            textAlign: TextAlign.end,
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
 
 /// Shows an emoji picker.

@@ -46,79 +46,81 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: widget.newsBloc.feeds,
-        builder: (context, feeds) => ResultBuilder.behaviorSubject(
-          subject: widget.bloc.articles,
-          builder: (context, articles) => SortBoxBuilder(
-            sortBox: articlesSortBox,
-            sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
-            sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
-            input: articles.data?.toList(),
-            builder: (context, sorted) => NeonListView(
-              scrollKey: 'news-articles',
-              isLoading: articles.isLoading || feeds.isLoading,
-              error: articles.error ?? feeds.error,
-              onRefresh: () async {
-                await Future.wait([
-                  widget.bloc.refresh(),
-                  widget.newsBloc.refresh(),
-                ]);
-              },
-              itemCount: sorted.length,
-              itemBuilder: (context, index) {
-                final article = sorted[index];
+  Widget build(BuildContext context) {
+    return ResultBuilder.behaviorSubject(
+      subject: widget.newsBloc.feeds,
+      builder: (context, feeds) => ResultBuilder.behaviorSubject(
+        subject: widget.bloc.articles,
+        builder: (context, articles) => SortBoxBuilder(
+          sortBox: articlesSortBox,
+          sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
+          sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
+          input: articles.data?.toList(),
+          builder: (context, sorted) => NeonListView(
+            scrollKey: 'news-articles',
+            isLoading: articles.isLoading || feeds.isLoading,
+            error: articles.error ?? feeds.error,
+            onRefresh: () async {
+              await Future.wait([
+                widget.bloc.refresh(),
+                widget.newsBloc.refresh(),
+              ]);
+            },
+            itemCount: sorted.length,
+            itemBuilder: (context, index) {
+              final article = sorted[index];
 
-                return _buildArticle(
-                  context,
-                  article,
-                  feeds.requireData.singleWhere((feed) => feed.id == article.feedId),
-                );
-              },
-              topFixedChildren: [
-                StreamBuilder(
-                  stream: widget.bloc.filterType,
-                  builder: (context, selectedFilterTypeSnapshot) => Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 15),
-                    child: DropdownButton(
-                      isExpanded: true,
-                      value: selectedFilterTypeSnapshot.data,
-                      items: [
-                        FilterType.all,
-                        FilterType.unread,
-                        if (widget.bloc.listType == null) ...[
-                          FilterType.starred,
-                        ],
-                      ].map(
-                        (a) {
-                          late final String label;
-                          switch (a) {
-                            case FilterType.all:
-                              label = NewsLocalizations.of(context).articlesFilterAll;
-                            case FilterType.unread:
-                              label = NewsLocalizations.of(context).articlesFilterUnread;
-                            case FilterType.starred:
-                              label = NewsLocalizations.of(context).articlesFilterStarred;
-                            default:
-                              throw Exception('FilterType $a should not be shown');
-                          }
-                          return DropdownMenuItem(
-                            value: a,
-                            child: Text(label),
-                          );
-                        },
-                      ).toList(),
-                      onChanged: (value) {
-                        widget.bloc.setFilterType(value!);
+              return _buildArticle(
+                context,
+                article,
+                feeds.requireData.singleWhere((feed) => feed.id == article.feedId),
+              );
+            },
+            topFixedChildren: [
+              StreamBuilder(
+                stream: widget.bloc.filterType,
+                builder: (context, selectedFilterTypeSnapshot) => Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                  child: DropdownButton(
+                    isExpanded: true,
+                    value: selectedFilterTypeSnapshot.data,
+                    items: [
+                      FilterType.all,
+                      FilterType.unread,
+                      if (widget.bloc.listType == null) ...[
+                        FilterType.starred,
+                      ],
+                    ].map(
+                      (a) {
+                        late final String label;
+                        switch (a) {
+                          case FilterType.all:
+                            label = NewsLocalizations.of(context).articlesFilterAll;
+                          case FilterType.unread:
+                            label = NewsLocalizations.of(context).articlesFilterUnread;
+                          case FilterType.starred:
+                            label = NewsLocalizations.of(context).articlesFilterStarred;
+                          default:
+                            throw Exception('FilterType $a should not be shown');
+                        }
+                        return DropdownMenuItem(
+                          value: a,
+                          child: Text(label),
+                        );
                       },
-                    ),
+                    ).toList(),
+                    onChanged: (value) {
+                      widget.bloc.setFilterType(value!);
+                    },
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-      );
+      ),
+    );
+  }
 
   Widget _buildArticle(
     BuildContext context,

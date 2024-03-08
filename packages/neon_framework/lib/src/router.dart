@@ -125,9 +125,11 @@ class RouteNotFoundRoute extends GoRouteData {
   final Uri uri;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => RouteNotFoundPage(
-        uri: uri,
-      );
+  Widget build(BuildContext context, GoRouterState state) {
+    return RouteNotFoundPage(
+      uri: uri,
+    );
+  }
 }
 
 /// {@template AppRoutes.HomeRoute}
@@ -260,7 +262,11 @@ class LoginFlowRoute extends GoRouteData {
   final Uri serverUrl;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => LoginFlowPage(serverURL: serverUrl);
+  Widget build(BuildContext context, GoRouterState state) {
+    return LoginFlowPage(
+      serverURL: serverUrl,
+    );
+  }
 
   @override
   FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
@@ -405,11 +411,13 @@ class LoginCheckAccountRoute extends GoRouteData {
   final String password;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => LoginCheckAccountPage(
-        serverURL: serverUrl,
-        loginName: loginName,
-        password: password,
-      );
+  Widget build(BuildContext context, GoRouterState state) {
+    return LoginCheckAccountPage(
+      serverURL: serverUrl,
+      loginName: loginName,
+      password: password,
+    );
+  }
 
   @override
   FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
@@ -523,5 +531,9 @@ class SettingsRoute extends GoRouteData {
   final SettingsCategories? initialCategory;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => SettingsPage(initialCategory: initialCategory);
+  Widget build(BuildContext context, GoRouterState state) {
+    return SettingsPage(
+      initialCategory: initialCategory,
+    );
+  }
 }

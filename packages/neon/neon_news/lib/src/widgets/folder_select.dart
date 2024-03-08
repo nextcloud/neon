@@ -18,22 +18,24 @@ class NewsFolderSelect extends StatelessWidget {
   final news.Folder? value;
 
   @override
-  Widget build(BuildContext context) => DropdownButtonFormField<news.Folder>(
-        decoration: InputDecoration(
-          hintText: NewsLocalizations.of(context).folder,
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField<news.Folder>(
+      decoration: InputDecoration(
+        hintText: NewsLocalizations.of(context).folder,
+      ),
+      value: value,
+      items: [
+        DropdownMenuItem(
+          child: Text(NewsLocalizations.of(context).folderRoot),
         ),
-        value: value,
-        items: [
-          DropdownMenuItem(
-            child: Text(NewsLocalizations.of(context).folderRoot),
+        ...folders.map(
+          (f) => DropdownMenuItem(
+            value: f,
+            child: Text(f.name),
           ),
-          ...folders.map(
-            (f) => DropdownMenuItem(
-              value: f,
-              child: Text(f.name),
-            ),
-          ),
-        ],
-        onChanged: onChanged,
-      );
+        ),
+      ],
+      onChanged: onChanged,
+    );
+  }
 }

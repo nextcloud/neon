@@ -196,48 +196,50 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
   }
 
   @override
-  Widget build(BuildContext context) => DynamicColorBuilder(
-        builder: (deviceThemeLight, deviceThemeDark) => OptionsCollectionBuilder(
-          valueListenable: _globalOptions,
-          builder: (context, options, _) => StreamBuilder(
-            stream: _accountsBloc.activeAccount,
-            builder: (context, activeAccountSnapshot) {
-              FlutterNativeSplash.remove();
-              return ResultBuilder.behaviorSubject(
-                subject: activeAccountSnapshot.hasData
-                    ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
-                    : null,
-                builder: (context, capabilitiesSnapshot) {
-                  final appTheme = AppTheme(
-                    serverTheme: ServerTheme(
-                      nextcloudTheme: capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
-                    ),
-                    useNextcloudTheme: options.themeUseNextcloudTheme.value,
-                    deviceThemeLight: deviceThemeLight,
-                    deviceThemeDark: deviceThemeDark,
-                    oledAsDark: options.themeOLEDAsDark.value,
-                    appThemes: _appImplementations.map((a) => a.theme).whereNotNull(),
-                    neonTheme: widget.neonTheme,
-                  );
+  Widget build(BuildContext context) {
+    return DynamicColorBuilder(
+      builder: (deviceThemeLight, deviceThemeDark) => OptionsCollectionBuilder(
+        valueListenable: _globalOptions,
+        builder: (context, options, _) => StreamBuilder(
+          stream: _accountsBloc.activeAccount,
+          builder: (context, activeAccountSnapshot) {
+            FlutterNativeSplash.remove();
+            return ResultBuilder.behaviorSubject(
+              subject: activeAccountSnapshot.hasData
+                  ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
+                  : null,
+              builder: (context, capabilitiesSnapshot) {
+                final appTheme = AppTheme(
+                  serverTheme: ServerTheme(
+                    nextcloudTheme: capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
+                  ),
+                  useNextcloudTheme: options.themeUseNextcloudTheme.value,
+                  deviceThemeLight: deviceThemeLight,
+                  deviceThemeDark: deviceThemeDark,
+                  oledAsDark: options.themeOLEDAsDark.value,
+                  appThemes: _appImplementations.map((a) => a.theme).whereNotNull(),
+                  neonTheme: widget.neonTheme,
+                );
 
-                  return MaterialApp.router(
-                    localizationsDelegates: [
-                      ..._appImplementations.map((app) => app.localizationsDelegate),
-                      ...NeonLocalizations.localizationsDelegates,
-                    ],
-                    supportedLocales: {
-                      ..._appImplementations.map((app) => app.supportedLocales).expand((element) => element),
-                      ...NeonLocalizations.supportedLocales,
-                    },
-                    themeMode: options.themeMode.value,
-                    theme: appTheme.lightTheme,
-                    darkTheme: appTheme.darkTheme,
-                    routerConfig: _routerDelegate,
-                  );
-                },
-              );
-            },
-          ),
+                return MaterialApp.router(
+                  localizationsDelegates: [
+                    ..._appImplementations.map((app) => app.localizationsDelegate),
+                    ...NeonLocalizations.localizationsDelegates,
+                  ],
+                  supportedLocales: {
+                    ..._appImplementations.map((app) => app.supportedLocales).expand((element) => element),
+                    ...NeonLocalizations.supportedLocales,
+                  },
+                  themeMode: options.themeMode.value,
+                  theme: appTheme.lightTheme,
+                  darkTheme: appTheme.darkTheme,
+                  routerConfig: _routerDelegate,
+                );
+              },
+            );
+          },
         ),
-      );
+      ),
+    );
+  }
 }

@@ -52,67 +52,69 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
-        body: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: ConstrainedBox(
-                constraints: NeonDialogTheme.of(context).constraints,
-                child: ResultBuilder.behaviorSubject(
-                  subject: bloc.state,
-                  builder: (context, state) => Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (state.hasError) ...[
-                        Builder(
-                          builder: (context) {
-                            final details = NeonError.getDetails(state.error);
-                            return NeonValidationTile(
-                              title: details.isUnauthorized
-                                  ? NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
-                                  : details.getText(context),
-                              state: ValidationState.failure,
-                            );
-                          },
-                        ),
-                      ],
-                      _buildAccountTile(state),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: ElevatedButton(
-                          onPressed: state.hasData
-                              ? () {
-                                  NeonProvider.of<AccountsBloc>(context)
-                                    ..updateAccount(state.requireData)
-                                    ..setActiveAccount(state.requireData);
-
-                                  const HomeRoute().go(context);
-                                }
-                              : () {
-                                  if (state.hasError && NeonError.getDetails(state.error).isUnauthorized) {
-                                    Navigator.pop(context);
-                                    return;
-                                  }
-
-                                  unawaited(bloc.refresh());
-                                },
-                          child: Text(
-                            state.hasData
-                                ? NeonLocalizations.of(context).actionContinue
-                                : NeonLocalizations.of(context).actionRetry,
-                          ),
-                        ),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: ConstrainedBox(
+              constraints: NeonDialogTheme.of(context).constraints,
+              child: ResultBuilder.behaviorSubject(
+                subject: bloc.state,
+                builder: (context, state) => Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (state.hasError) ...[
+                      Builder(
+                        builder: (context) {
+                          final details = NeonError.getDetails(state.error);
+                          return NeonValidationTile(
+                            title: details.isUnauthorized
+                                ? NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
+                                : details.getText(context),
+                            state: ValidationState.failure,
+                          );
+                        },
                       ),
                     ],
-                  ),
+                    _buildAccountTile(state),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: ElevatedButton(
+                        onPressed: state.hasData
+                            ? () {
+                                NeonProvider.of<AccountsBloc>(context)
+                                  ..updateAccount(state.requireData)
+                                  ..setActiveAccount(state.requireData);
+
+                                const HomeRoute().go(context);
+                              }
+                            : () {
+                                if (state.hasError && NeonError.getDetails(state.error).isUnauthorized) {
+                                  Navigator.pop(context);
+                                  return;
+                                }
+
+                                unawaited(bloc.refresh());
+                              },
+                        child: Text(
+                          state.hasData
+                              ? NeonLocalizations.of(context).actionContinue
+                              : NeonLocalizations.of(context).actionRetry,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 
   Widget _buildAccountTile(Result<Account> result) {
     if (result.hasError) {

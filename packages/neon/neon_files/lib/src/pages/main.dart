@@ -30,15 +30,17 @@ class _FilesMainPageState extends State<FilesMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: FilesBrowserView(
-          bloc: bloc.browser,
-          filesBloc: bloc,
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async => showFilesCreateModal(context),
-          tooltip: FilesLocalizations.of(context).uploadFiles,
-          child: Icon(AdaptiveIcons.add),
-        ),
-      );
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: FilesBrowserView(
+        bloc: bloc.browser,
+        filesBloc: bloc,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async => showFilesCreateModal(context),
+        tooltip: FilesLocalizations.of(context).uploadFiles,
+        child: Icon(AdaptiveIcons.add),
+      ),
+    );
+  }
 }

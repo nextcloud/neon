@@ -40,17 +40,19 @@ class _TalkMainPageState extends State<TalkMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.rooms,
-        builder: (context, rooms) => NeonListView(
-          scrollKey: 'talk-rooms',
-          isLoading: rooms.isLoading,
-          error: rooms.error,
-          onRefresh: bloc.refresh,
-          itemCount: rooms.data?.length ?? 0,
-          itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
-        ),
-      );
+  Widget build(BuildContext context) {
+    return ResultBuilder.behaviorSubject(
+      subject: bloc.rooms,
+      builder: (context, rooms) => NeonListView(
+        scrollKey: 'talk-rooms',
+        isLoading: rooms.isLoading,
+        error: rooms.error,
+        onRefresh: bloc.refresh,
+        itemCount: rooms.data?.length ?? 0,
+        itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
+      ),
+    );
+  }
 
   Widget buildRoom(spreed.Room room) {
     Widget? subtitle;

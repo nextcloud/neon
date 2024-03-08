@@ -55,39 +55,41 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
-        body: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: ResultBuilder.behaviorSubject(
-                subject: bloc.init,
-                builder: (context, init) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    NeonLinearProgressIndicator(
-                      visible: init.isLoading,
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: ResultBuilder.behaviorSubject(
+              subject: bloc.init,
+              builder: (context, init) => Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  NeonLinearProgressIndicator(
+                    visible: init.isLoading,
+                  ),
+                  NeonError(
+                    init.error,
+                    onRetry: bloc.refresh,
+                  ),
+                  if (init.hasData) ...[
+                    Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow),
+                    const SizedBox(
+                      height: 10,
                     ),
-                    NeonError(
-                      init.error,
-                      onRetry: bloc.refresh,
+                    ElevatedButton(
+                      onPressed: bloc.refresh,
+                      child: Text(NeonLocalizations.of(context).loginOpenAgain),
                     ),
-                    if (init.hasData) ...[
-                      Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      ElevatedButton(
-                        onPressed: bloc.refresh,
-                        child: Text(NeonLocalizations.of(context).loginOpenAgain),
-                      ),
-                    ],
                   ],
-                ),
+                ],
               ),
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }

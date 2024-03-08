@@ -18,13 +18,15 @@ class NextcloudLogo extends StatelessWidget {
   final double size;
 
   @override
-  Widget build(BuildContext context) => VectorGraphic(
-        width: size,
-        height: size,
-        loader: const AssetBytesLoader(
-          'assets/logo_nextcloud.svg.vec',
-          packageName: 'neon_framework',
-        ),
-        semanticsLabel: NeonLocalizations.of(context).nextcloudLogo,
-      );
+  Widget build(BuildContext context) {
+    return VectorGraphic(
+      width: size,
+      height: size,
+      loader: const AssetBytesLoader(
+        'assets/logo_nextcloud.svg.vec',
+        packageName: 'neon_framework',
+      ),
+      semanticsLabel: NeonLocalizations.of(context).nextcloudLogo,
+    );
+  }
 }

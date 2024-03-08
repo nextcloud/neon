@@ -17,10 +17,12 @@ class OptionSettingsTile extends InputSettingsTile {
   });
 
   @override
-  Widget build(BuildContext context) => switch (option) {
-        ToggleOption() => ToggleSettingsTile(option: option as ToggleOption),
-        SelectOption() => SelectSettingsTile(option: option as SelectOption),
-      };
+  Widget build(BuildContext context) {
+    return switch (option) {
+      ToggleOption() => ToggleSettingsTile(option: option as ToggleOption),
+      SelectOption() => SelectSettingsTile(option: option as SelectOption),
+    };
+  }
 }
 
 @internal
@@ -31,15 +33,17 @@ class ToggleSettingsTile extends InputSettingsTile<ToggleOption> {
   });
 
   @override
-  Widget build(BuildContext context) => ValueListenableBuilder(
-        valueListenable: option,
-        builder: (context, value, child) => SwitchListTile.adaptive(
-          title: child,
-          value: value,
-          onChanged: option.enabled ? (value) => option.value = value : null,
-        ),
-        child: Text(option.label(context)),
-      );
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+      valueListenable: option,
+      builder: (context, value, child) => SwitchListTile.adaptive(
+        title: child,
+        value: value,
+        onChanged: option.enabled ? (value) => option.value = value : null,
+      ),
+      child: Text(option.label(context)),
+    );
+  }
 }
 
 @internal
@@ -53,45 +57,47 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
   final bool immediateSelection;
 
   @override
-  Widget build(BuildContext context) => ValueListenableBuilder(
-        valueListenable: option,
-        builder: (context, value, child) {
-          final valueText = option.values[value]?.call(context);
-          return AdaptiveListTile.additionalInfo(
-            enabled: option.enabled,
-            title: child!,
-            additionalInfo: valueText != null ? Text(valueText) : null,
-            onTap: () async {
-              assert(option.enabled, 'Option must be enabled to handle taps');
-              final showCupertino = isCupertino(context);
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+      valueListenable: option,
+      builder: (context, value, child) {
+        final valueText = option.values[value]?.call(context);
+        return AdaptiveListTile.additionalInfo(
+          enabled: option.enabled,
+          title: child!,
+          additionalInfo: valueText != null ? Text(valueText) : null,
+          onTap: () async {
+            assert(option.enabled, 'Option must be enabled to handle taps');
+            final showCupertino = isCupertino(context);
 
-              if (showCupertino) {
-                await Navigator.push(
-                  context,
-                  CupertinoPageRoute<void>(
-                    builder: (_) => SelectSettingsTileScreen(option: option),
-                  ),
-                );
-              } else {
-                final result = await showAdaptiveDialog<({T value})>(
-                  context: context,
-                  builder: (context) => SelectSettingsTileDialog(
-                    option: option,
-                    immediateSelection: immediateSelection,
-                  ),
-                );
+            if (showCupertino) {
+              await Navigator.push(
+                context,
+                CupertinoPageRoute<void>(
+                  builder: (_) => SelectSettingsTileScreen(option: option),
+                ),
+              );
+            } else {
+              final result = await showAdaptiveDialog<({T value})>(
+                context: context,
+                builder: (context) => SelectSettingsTileDialog(
+                  option: option,
+                  immediateSelection: immediateSelection,
+                ),
+              );
 
-                if (result != null) {
-                  option.value = result.value;
-                }
+              if (result != null) {
+                option.value = result.value;
               }
-            },
-          );
-        },
-        child: Text(
-          option.label(context),
-        ),
-      );
+            }
+          },
+        );
+      },
+      child: Text(
+        option.label(context),
+      ),
+    );
+  }
 }
 
 /// A dialog to select an item from a [SelectOption].

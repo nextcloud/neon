@@ -83,118 +83,120 @@ class _NotesNotePageState extends State<NotesNotePage> {
   }
 
   @override
-  Widget build(BuildContext context) => BackButtonListener(
-        onBackButtonPressed: () async {
-          unawaited(WakelockPlus.disable());
+  Widget build(BuildContext context) {
+    return BackButtonListener(
+      onBackButtonPressed: () async {
+        unawaited(WakelockPlus.disable());
 
-          return false;
-        },
-        child: Scaffold(
-          resizeToAvoidBottomInset: true,
-          appBar: AppBar(
-            titleSpacing: 0,
-            title: TextField(
-              controller: _titleController,
-              focusNode: _titleFocusNode,
-              style: const TextStyle(
-                fontSize: 22,
-              ),
-              decoration: const InputDecoration(
-                isDense: true,
-                contentPadding: EdgeInsets.zero,
-                border: UnderlineInputBorder(),
-                focusedBorder: UnderlineInputBorder(),
+        return false;
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        appBar: AppBar(
+          titleSpacing: 0,
+          title: TextField(
+            controller: _titleController,
+            focusNode: _titleFocusNode,
+            style: const TextStyle(
+              fontSize: 22,
+            ),
+            decoration: const InputDecoration(
+              isDense: true,
+              contentPadding: EdgeInsets.zero,
+              border: UnderlineInputBorder(),
+              focusedBorder: UnderlineInputBorder(),
+            ),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  _showEditor = !_showEditor;
+                });
+                if (_showEditor) {
+                  _focusEditor();
+                } else {
+                  // Prevent the cursor going back to the title field
+                  _contentFocusNode.unfocus();
+                  _titleFocusNode.unfocus();
+                }
+              },
+              tooltip: _showEditor
+                  ? NotesLocalizations.of(context).noteShowPreview
+                  : NotesLocalizations.of(context).noteShowEditor,
+              icon: Icon(
+                _showEditor ? AdaptiveIcons.visibility : AdaptiveIcons.edit,
               ),
             ),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    _showEditor = !_showEditor;
-                  });
-                  if (_showEditor) {
-                    _focusEditor();
-                  } else {
-                    // Prevent the cursor going back to the title field
-                    _contentFocusNode.unfocus();
-                    _titleFocusNode.unfocus();
-                  }
-                },
-                tooltip: _showEditor
-                    ? NotesLocalizations.of(context).noteShowPreview
-                    : NotesLocalizations.of(context).noteShowEditor,
-                icon: Icon(
-                  _showEditor ? AdaptiveIcons.visibility : AdaptiveIcons.edit,
-                ),
-              ),
-              StreamBuilder(
-                stream: widget.bloc.category,
-                builder: (context, categorySnapshot) {
-                  final category = categorySnapshot.data ?? '';
+            StreamBuilder(
+              stream: widget.bloc.category,
+              builder: (context, categorySnapshot) {
+                final category = categorySnapshot.data ?? '';
 
-                  return IconButton(
-                    onPressed: () async {
-                      final result = await showAdaptiveDialog<String>(
-                        context: context,
-                        builder: (context) => NotesSelectCategoryDialog(
-                          bloc: widget.notesBloc,
-                          initialCategory: category,
-                        ),
-                      );
-                      if (result != null) {
-                        widget.bloc.updateCategory(result);
-                      }
-                    },
-                    tooltip: NotesLocalizations.of(context).noteChangeCategory,
-                    icon: Icon(
-                      AdaptiveIcons.tag,
-                      color: category.isNotEmpty ? NotesCategoryColor.compute(category) : null,
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-          body: SafeArea(
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  _showEditor = true;
-                });
-              },
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: _showEditor ? 20 : 10,
-                ),
-                color: Colors.transparent,
-                constraints: const BoxConstraints.expand(),
-                child: _showEditor
-                    ? TextField(
-                        controller: _contentController,
-                        focusNode: _contentFocusNode,
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      )
-                    : SingleChildScrollView(
-                        child: MarkdownBody(
-                          data: _contentController.text,
-                          onTapLink: (text, href, title) async {
-                            if (href != null) {
-                              await launchUrlString(
-                                href,
-                                mode: LaunchMode.externalApplication,
-                              );
-                            }
-                          },
-                        ),
+                return IconButton(
+                  onPressed: () async {
+                    final result = await showAdaptiveDialog<String>(
+                      context: context,
+                      builder: (context) => NotesSelectCategoryDialog(
+                        bloc: widget.notesBloc,
+                        initialCategory: category,
                       ),
+                    );
+                    if (result != null) {
+                      widget.bloc.updateCategory(result);
+                    }
+                  },
+                  tooltip: NotesLocalizations.of(context).noteChangeCategory,
+                  icon: Icon(
+                    AdaptiveIcons.tag,
+                    color: category.isNotEmpty ? NotesCategoryColor.compute(category) : null,
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _showEditor = true;
+              });
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: _showEditor ? 20 : 10,
               ),
+              color: Colors.transparent,
+              constraints: const BoxConstraints.expand(),
+              child: _showEditor
+                  ? TextField(
+                      controller: _contentController,
+                      focusNode: _contentFocusNode,
+                      keyboardType: TextInputType.multiline,
+                      maxLines: null,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    )
+                  : SingleChildScrollView(
+                      child: MarkdownBody(
+                        data: _contentController.text,
+                        onTapLink: (text, href, title) async {
+                          if (href != null) {
+                            await launchUrlString(
+                              href,
+                              mode: LaunchMode.externalApplication,
+                            );
+                          }
+                        },
+                      ),
+                    ),
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }

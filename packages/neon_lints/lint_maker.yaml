@@ -26,3 +26,4 @@ base:
         prefer_relative_imports: false
         unnecessary_final: false
         prefer_final_parameters: false
+        prefer_expression_function_bodies: false

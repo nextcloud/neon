@@ -259,5 +259,10 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
   }
 
   @override
-  Widget build(BuildContext context, Result<T> currentSummary) => builder(context, currentSummary);
+  Widget build(BuildContext context, Result<T> currentSummary) {
+    return builder(
+      context,
+      currentSummary,
+    );
+  }
 }

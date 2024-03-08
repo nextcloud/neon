@@ -24,31 +24,32 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(BuildContext context) => ResultBuilder.behaviorSubject(
-        subject: bloc.folders,
-        builder: (context, folders) => ResultBuilder.behaviorSubject(
-          subject: bloc.feeds,
-          builder: (context, feeds) => SortBoxBuilder(
-            sortBox: feedsSortBox,
-            sortProperty: bloc.options.feedsSortPropertyOption,
-            sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
-            input:
-                folders.hasData ? feeds.data?.where((f) => folderID == null || f.folderId == folderID).toList() : null,
-            builder: (context, sorted) => NeonListView(
-              scrollKey: 'news-feeds',
-              isLoading: feeds.isLoading || folders.isLoading,
-              error: feeds.error ?? folders.error,
-              onRefresh: bloc.refresh,
-              itemCount: sorted.length,
-              itemBuilder: (context, index) => _buildFeed(
-                context,
-                sorted[index],
-                folders.requireData,
-              ),
+  Widget build(BuildContext context) {
+    return ResultBuilder.behaviorSubject(
+      subject: bloc.folders,
+      builder: (context, folders) => ResultBuilder.behaviorSubject(
+        subject: bloc.feeds,
+        builder: (context, feeds) => SortBoxBuilder(
+          sortBox: feedsSortBox,
+          sortProperty: bloc.options.feedsSortPropertyOption,
+          sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
+          input: folders.hasData ? feeds.data?.where((f) => folderID == null || f.folderId == folderID).toList() : null,
+          builder: (context, sorted) => NeonListView(
+            scrollKey: 'news-feeds',
+            isLoading: feeds.isLoading || folders.isLoading,
+            error: feeds.error ?? folders.error,
+            onRefresh: bloc.refresh,
+            itemCount: sorted.length,
+            itemBuilder: (context, index) => _buildFeed(
+              context,
+              sorted[index],
+              folders.requireData,
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 
   Widget _buildFeed(
     BuildContext context,
