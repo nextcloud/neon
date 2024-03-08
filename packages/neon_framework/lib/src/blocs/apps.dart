@@ -8,7 +8,6 @@ import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
-import 'package:neon_framework/src/models/notifications_interface.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
@@ -36,18 +35,10 @@ abstract class AppsBloc implements InteractiveBloc {
   void setActiveApp(String appID, {bool skipAlreadySet = false});
 
   /// A collection of clients used in the app drawer.
-  ///
-  /// It does not contain clients for that are specially handled like for the notifications.
   BehaviorSubject<Result<BuiltSet<AppImplementation>>> get appImplementations;
-
-  /// The interface of the notifications app.
-  BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
 
   /// The currently active app.
   BehaviorSubject<AppImplementation> get activeApp;
-
-  /// A subject emitting an event when the notifications page should be opened.
-  BehaviorSubject<void> get openNotifications;
 
   /// A collection of apps and their version checks.
   BehaviorSubject<BuiltMap<String, VersionCheck>> get appVersionChecks;
@@ -74,44 +65,11 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     required this.allAppImplementations,
   }) {
     apps.listen((result) {
-      appImplementations.add(
-        result.transform(
-          (data) {
-            final apps = SetBuilder<AppImplementation>();
-
-            for (final entry in data) {
-              for (final app in allAppImplementations) {
-                if (app.id == entry.id || (app.additionalMatchingIDs?.contains(entry.id) ?? false)) {
-                  apps.add(app);
-                  break;
-                }
-              }
-            }
-
-            return apps.build();
-          },
-        ),
-      );
-
-      if (result.hasData) {
-        unawaited(updateApps());
-      }
+      unawaited(updateApps());
     });
 
     capabilitiesSubject.listen((result) {
-      notificationsAppImplementation.add(
-        result.transform(
-          (data) => data.capabilities.notificationsCapabilities?.notifications != null
-              ? allAppImplementations.firstWhereOrNull(
-                  (a) => a.id == AppIDs.notifications,
-                ) as NotificationsAppInterface?
-              : null,
-        ),
-      );
-
-      if (result.hasData) {
-        unawaited(updateApps());
-      }
+      unawaited(updateApps());
     });
 
     appImplementations.listen((result) {
@@ -137,23 +95,52 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   /// Disposes all unsupported apps, sets the active app and checks the app compatibility.
   ///
   /// Blocs of apps that are no longer present on the server are disposed.
-  /// The notifications app is handled separately because it does not appear in the list of apps.
   Future<void> updateApps() async {
+    final appsResult = apps.valueOrNull;
+    final capabilitiesResult = capabilitiesSubject.valueOrNull;
+
+    final appImplementationsBuilder = SetBuilder<AppImplementation>();
+    if (appsResult != null && appsResult.hasData) {
+      for (final entry in appsResult.requireData) {
+        for (final app in allAppImplementations) {
+          if (app.id == entry.id || (app.additionalMatchingIDs?.contains(entry.id) ?? false)) {
+            appImplementationsBuilder.add(app);
+            break;
+          }
+        }
+      }
+    }
+
+    if (capabilitiesResult != null && capabilitiesResult.hasData) {
+      final notificationsCapabilities =
+          capabilitiesResult.requireData.capabilities.notificationsCapabilities?.notifications;
+      if (notificationsCapabilities != null) {
+        final notificationsApp = allAppImplementations.firstWhereOrNull((a) => a.id == AppIDs.notifications);
+        if (notificationsApp != null) {
+          appImplementationsBuilder.add(notificationsApp);
+        }
+      }
+    }
+
+    appImplementations.add(
+      Result(
+        appImplementationsBuilder.build(),
+        appsResult?.error ?? capabilitiesResult?.error,
+        isLoading: (appsResult?.isLoading ?? false) || (capabilitiesResult?.isLoading ?? false),
+        isCached: (appsResult?.isCached ?? false) || (capabilitiesResult?.isCached ?? false),
+      ),
+    );
+
+    if (appsResult == null || !appsResult.hasData || capabilitiesResult == null || !capabilitiesResult.hasData) {
+      return;
+    }
+
     // dispose unsupported apps
-    for (final app in allAppImplementations) {
-      if (app.id == AppIDs.notifications) {
-        if (notificationsAppImplementation.hasValue &&
-            !notificationsAppImplementation.value.isCached &&
-            notificationsAppImplementation.value.data == null) {
+    if (appImplementations.hasValue && appImplementations.value.hasSuccessfulData) {
+      for (final app in allAppImplementations) {
+        if (appImplementations.value.data?.tryFind(app.id) == null) {
           app.blocsCache.remove(account);
         }
-        continue;
-      }
-
-      if (appImplementations.hasValue &&
-          !appImplementations.value.isCached &&
-          appImplementations.value.data?.tryFind(app.id) == null) {
-        app.blocsCache.remove(account);
       }
     }
 
@@ -236,9 +223,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   void dispose() {
     unawaited(apps.close());
     unawaited(appImplementations.close());
-    unawaited(notificationsAppImplementation.close());
     unawaited(activeApp.close());
-    unawaited(openNotifications.close());
     unawaited(appVersionChecks.close());
     unawaited(unsupportedApps.close());
 
@@ -250,12 +235,6 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   @override
   final appImplementations = BehaviorSubject();
-
-  @override
-  final notificationsAppImplementation = BehaviorSubject();
-
-  @override
-  final openNotifications = BehaviorSubject();
 
   @override
   final appVersionChecks = BehaviorSubject();
@@ -279,19 +258,12 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   @override
   Future<void> setActiveApp(String appID, {bool skipAlreadySet = false}) async {
-    if (appID == AppIDs.notifications) {
-      openNotifications.add(null);
-      return;
-    }
     if (activeApp.valueOrNull?.id == appID) {
       return;
     }
 
     final apps = await appImplementations.firstWhere((a) => a.hasData);
-    final app = apps.requireData.tryFind(appID);
-    if (app == null) {
-      throw Exception('App $appID not found');
-    }
+    final app = apps.requireData.find(appID);
 
     // Only override the current active app in case it is not yet set, not supported or explicitly requested
     if (!activeApp.hasValue || !skipAlreadySet || apps.requireData.tryFind(activeApp.value.id) == null) {
@@ -299,12 +271,14 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     }
   }
 
+  // coverage:ignore-start
   @override
   T getAppBloc<T extends Bloc>(AppImplementation<T, dynamic> appImplementation) => appImplementation.getBloc(account);
 
   @override
   List<Provider<Bloc>> get appBlocProviders =>
       allAppImplementations.map((appImplementation) => appImplementation.blocProvider).toList();
+  // coverage:ignore-end
 }
 
 extension _NavigationEntryOrder on core.NavigationEntry {
