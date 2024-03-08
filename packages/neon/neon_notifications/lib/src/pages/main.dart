@@ -55,7 +55,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             isLoading: notifications.isLoading,
             error: notifications.error,
             onRefresh: bloc.refresh,
-            itemCount: notifications.data?.length,
+            itemCount: notifications.data?.length ?? 0,
             itemBuilder: (context, index) => _buildNotification(context, notifications.data![index]),
           ),
         ),
