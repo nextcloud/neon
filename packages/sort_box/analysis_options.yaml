@@ -1,4 +1,1 @@
 include: package:neon_lints/dart.yaml
-linter:
-  rules:
-    lines_longer_than_80_chars: false

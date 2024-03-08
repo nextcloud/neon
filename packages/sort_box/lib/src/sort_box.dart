@@ -25,13 +25,15 @@ class SortBox<T extends Enum, R> {
 
   /// A mapping of values [T] to their *Boxes*.
   ///
-  /// The Boxes are applied if two elements are considered equal regarding their property [T].
+  /// The Boxes are applied if two elements are considered equal regarding their
+  /// property [T].
   final Map<T, Set<Box<T>>> boxes;
 
   /// Sorts the [input] list according to their [box].
   ///
-  /// A box contains the property and [SortBoxOrder] how the list should be sorted.
-  /// In case the property of two elements is considered equal all following boxes specified at `boxes[property]` are applied.
+  /// A box contains the property and [SortBoxOrder] how the list should be
+  /// sorted. In case the property of two elements is considered equal all
+  /// following boxes specified at `boxes[property]` are applied.
   /// If specified [presort] will be applied before [box] and [boxes].
   ///
   /// See:
@@ -51,13 +53,16 @@ class SortBox<T extends Enum, R> {
       ...?this.boxes[box.property],
     };
 
-    input.sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
+    input.sort(
+      (item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()),
+    );
   }
 
   /// Sorts the [input] list according to their [box].
   ///
-  /// A box contains the property and [SortBoxOrder] how the list should be sorted.
-  /// In case the property of two elements is considered equal all following boxes specified at `boxes[property]` are applied.
+  /// A box contains the property and [SortBoxOrder] how the list should be
+  /// sorted. In case the property of two elements is considered equal all
+  /// following boxes specified at `boxes[property]` are applied.
   /// If specified [presort] will be applied before [box] and [boxes].
   ///
   /// See:
@@ -77,10 +82,13 @@ class SortBox<T extends Enum, R> {
       ...?this.boxes[box.property],
     };
 
-    input.sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
+    input.sort(
+      (item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()),
+    );
   }
 
-  /// Iteratively compares two elements [item1] and [item2] according to the current box in [iterator].
+  /// Iteratively compares two elements [item1] and [item2] according to the
+  /// current box in [iterator].
   int _compare(
     R item1,
     R item2,
