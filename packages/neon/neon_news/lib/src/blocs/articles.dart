@@ -117,7 +117,8 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
   }
 
   Future<void> reload() async {
-    // The API for pagination is pretty useless in this case sadly. So no pagination for us :(
+    // The API for pagination is pretty useless in this case sadly.
+    // So no pagination for us :(
     // https://github.com/nextcloud/news/blob/master/docs/api/api-v1-2.md#get-items
 
     // https://github.com/nextcloud/news/blob/48ee5ce4d135da20079961a62ae37958d6a6b628/lib/Db/ListType.php#L21
@@ -165,12 +166,16 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
 
   @override
   Future<void> markArticleAsRead(news.Article article) async {
-    await wrapAction(() async => account.client.news.markArticleAsRead(itemId: article.id));
+    await wrapAction(
+      () async => account.client.news.markArticleAsRead(itemId: article.id),
+    );
   }
 
   @override
   Future<void> markArticleAsUnread(news.Article article) async {
-    await wrapAction(() async => account.client.news.markArticleAsUnread(itemId: article.id));
+    await wrapAction(
+      () async => account.client.news.markArticleAsUnread(itemId: article.id),
+    );
   }
 
   @override
@@ -180,11 +185,15 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
 
   @override
   Future<void> starArticle(news.Article article) async {
-    await wrapAction(() async => account.client.news.starArticle(itemId: article.id));
+    await wrapAction(
+      () async => account.client.news.starArticle(itemId: article.id),
+    );
   }
 
   @override
   Future<void> unstarArticle(news.Article article) async {
-    await wrapAction(() async => account.client.news.unstarArticle(itemId: article.id));
+    await wrapAction(
+      () async => account.client.news.unstarArticle(itemId: article.id),
+    );
   }
 }

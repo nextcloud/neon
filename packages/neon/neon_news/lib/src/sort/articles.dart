@@ -10,10 +10,16 @@ final articlesSortBox = SortBox<ArticlesSortProperty, news.Article>(
   },
   boxes: const {
     ArticlesSortProperty.alphabetical: {
-      (property: ArticlesSortProperty.publishDate, order: SortBoxOrder.descending),
+      (
+        property: ArticlesSortProperty.publishDate,
+        order: SortBoxOrder.descending
+      ),
     },
     ArticlesSortProperty.byFeed: {
-      (property: ArticlesSortProperty.alphabetical, order: SortBoxOrder.ascending),
+      (
+        property: ArticlesSortProperty.alphabetical,
+        order: SortBoxOrder.ascending
+      ),
     },
   },
 );

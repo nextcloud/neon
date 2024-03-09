@@ -29,11 +29,17 @@ class NewsFoldersView extends StatelessWidget {
           sortBoxOrder: bloc.options.foldersSortBoxOrderOption,
           input: feeds.hasData
               ? folders.data?.map((folder) {
-                  final feedsInFolder = feeds.requireData.where((feed) => feed.folderId == folder.id);
+                  final feedsInFolder = feeds.requireData
+                      .where((feed) => feed.folderId == folder.id);
                   final feedCount = feedsInFolder.length;
-                  final unreadCount = feedsInFolder.fold(0, (a, b) => a + b.unreadCount!);
+                  final unreadCount =
+                      feedsInFolder.fold(0, (a, b) => a + b.unreadCount!);
 
-                  return (folder: folder, feedCount: feedCount, unreadCount: unreadCount);
+                  return (
+                    folder: folder,
+                    feedCount: feedCount,
+                    unreadCount: unreadCount
+                  );
                 }).toList()
               : null,
           builder: (context, sorted) => NeonListView(
@@ -56,15 +62,21 @@ class NewsFoldersView extends StatelessWidget {
     BuildContext context,
     FolderFeedsWrapper folderFeedsWrapper,
   ) {
-    final (folder: folder, feedCount: feedCount, unreadCount: unreadCount) = folderFeedsWrapper;
+    final (folder: folder, feedCount: feedCount, unreadCount: unreadCount) =
+        folderFeedsWrapper;
     return ListTile(
       title: Text(
         folder.name,
         style: unreadCount == 0
-            ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
+            ? Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(color: Theme.of(context).disabledColor)
             : null,
       ),
-      subtitle: unreadCount > 0 ? Text(NewsLocalizations.of(context).articlesUnread(unreadCount)) : const SizedBox(),
+      subtitle: unreadCount > 0
+          ? Text(NewsLocalizations.of(context).articlesUnread(unreadCount))
+          : const SizedBox(),
       leading: SizedBox.square(
         dimension: largeIconSize,
         child: Stack(
@@ -99,7 +111,10 @@ class NewsFoldersView extends StatelessWidget {
         onSelected: (action) async {
           switch (action) {
             case NewsFolderAction.delete:
-              final result = await showFolderDeleteDialog(context: context, folderName: folder.name);
+              final result = await showFolderDeleteDialog(
+                context: context,
+                folderName: folder.name,
+              );
               if (result) {
                 bloc.deleteFolder(folder.id);
               }
@@ -107,7 +122,10 @@ class NewsFoldersView extends StatelessWidget {
               if (!context.mounted) {
                 return;
               }
-              final result = await showFolderRenameDialog(context: context, folderName: folder.name);
+              final result = await showFolderRenameDialog(
+                context: context,
+                folderName: folder.name,
+              );
               if (result != null) {
                 bloc.renameFolder(folder.id, result);
               }

@@ -20,8 +20,14 @@ class NewsArticlePage extends StatefulWidget {
     this.bodyData,
     this.url,
     super.key,
-  })  : assert(useWebView || bodyData != null, 'bodyData has to be set when not using a WebView'),
-        assert(!useWebView || url != null, 'url has to be set when using a WebView');
+  })  : assert(
+          useWebView || bodyData != null,
+          'bodyData has to be set when not using a WebView',
+        ),
+        assert(
+          !useWebView || url != null,
+          'url has to be set when using a WebView',
+        );
 
   final NewsArticleBloc bloc;
   final NewsArticlesBloc articlesBloc;
@@ -86,7 +92,8 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
 
   Future<void> _startMarkAsReadTimer() async {
     if (await widget.bloc.unread.first) {
-      if (widget.articlesBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
+      if (widget
+          .articlesBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
         widget.bloc.markArticleAsRead();
       } else {
         _markAsReadTimer = Timer(const Duration(seconds: 3), () async {
@@ -117,7 +124,8 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   Widget build(BuildContext context) {
     return BackButtonListener(
       onBackButtonPressed: () async {
-        if (_webviewController != null && await _webviewController!.canGoBack()) {
+        if (_webviewController != null &&
+            await _webviewController!.canGoBack()) {
           await _webviewController!.goBack();
           return true;
         }
@@ -149,9 +157,12 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                       widget.bloc.starArticle();
                     }
                   },
-                  tooltip:
-                      starred ? NewsLocalizations.of(context).articleUnstar : NewsLocalizations.of(context).articleStar,
-                  icon: Icon(starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline),
+                  tooltip: starred
+                      ? NewsLocalizations.of(context).articleUnstar
+                      : NewsLocalizations.of(context).articleStar,
+                  icon: Icon(
+                    starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
+                  ),
                 );
               },
             ),
@@ -170,7 +181,11 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                   tooltip: unread
                       ? NewsLocalizations.of(context).articleMarkRead
                       : NewsLocalizations.of(context).articleMarkUnread,
-                  icon: Icon(unread ? AdaptiveIcons.email : AdaptiveIcons.email_mark_as_unread),
+                  icon: Icon(
+                    unread
+                        ? AdaptiveIcons.email
+                        : AdaptiveIcons.email_mark_as_unread,
+                  ),
                 );
               },
             ),

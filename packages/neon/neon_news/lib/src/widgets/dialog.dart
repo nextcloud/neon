@@ -41,7 +41,8 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pop((controller.text, widget.folderID ?? folder?.id));
+      Navigator.of(context)
+          .pop((controller.text, widget.folderID ?? folder?.id));
     }
   }
 
@@ -228,7 +229,9 @@ class NewsFeedUpdateErrorDialog extends StatelessWidget {
             if (context.mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(NewsLocalizations.of(context).feedCopiedErrorMessage),
+                  content: Text(
+                    NewsLocalizations.of(context).feedCopiedErrorMessage,
+                  ),
                 ),
               );
               Navigator.of(context).pop();
@@ -278,7 +281,8 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
 
   @override
   void initState() {
-    folder = widget.folders.singleWhereOrNull((folder) => folder.id == widget.feed.folderId);
+    folder = widget.folders
+        .singleWhereOrNull((folder) => folder.id == widget.feed.folderId);
 
     super.initState();
   }

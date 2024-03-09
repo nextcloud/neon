@@ -59,7 +59,8 @@ import 'localizations_en.dart';
 /// be consistent with the languages listed in the NewsLocalizations.supportedLocales
 /// property.
 abstract class NewsLocalizations {
-  NewsLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  NewsLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -67,7 +68,8 @@ abstract class NewsLocalizations {
     return Localizations.of<NewsLocalizations>(context, NewsLocalizations)!;
   }
 
-  static const LocalizationsDelegate<NewsLocalizations> delegate = _NewsLocalizationsDelegate();
+  static const LocalizationsDelegate<NewsLocalizations> delegate =
+      _NewsLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -79,7 +81,8 @@ abstract class NewsLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -420,16 +423,19 @@ abstract class NewsLocalizations {
   String get optionsDefaultFolderViewType;
 }
 
-class _NewsLocalizationsDelegate extends LocalizationsDelegate<NewsLocalizations> {
+class _NewsLocalizationsDelegate
+    extends LocalizationsDelegate<NewsLocalizations> {
   const _NewsLocalizationsDelegate();
 
   @override
   Future<NewsLocalizations> load(Locale locale) {
-    return SynchronousFuture<NewsLocalizations>(lookupNewsLocalizations(locale));
+    return SynchronousFuture<NewsLocalizations>(
+        lookupNewsLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_NewsLocalizationsDelegate old) => false;
@@ -442,7 +448,8 @@ NewsLocalizations lookupNewsLocalizations(Locale locale) {
       return NewsLocalizationsEn();
   }
 
-  throw FlutterError('NewsLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+  throw FlutterError(
+      'NewsLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
       'an issue with the localizations generation tool. Please file an issue '
       'on GitHub with a reproducible sample app and the gen-l10n configuration '
       'that was used.');

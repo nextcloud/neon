@@ -51,8 +51,10 @@ class NewsOptions extends AppImplementationOptions {
     label: (context) => NewsLocalizations.of(context).optionsDefaultCategory,
     defaultValue: DefaultCategory.articles,
     values: {
-      DefaultCategory.articles: (context) => NewsLocalizations.of(context).articles,
-      DefaultCategory.folders: (context) => NewsLocalizations.of(context).folders,
+      DefaultCategory.articles: (context) =>
+          NewsLocalizations.of(context).articles,
+      DefaultCategory.folders: (context) =>
+          NewsLocalizations.of(context).folders,
       DefaultCategory.feeds: (context) => NewsLocalizations.of(context).feeds,
     },
   );
@@ -64,11 +66,13 @@ class NewsOptions extends AppImplementationOptions {
     label: (context) => NewsLocalizations.of(context).optionsArticleViewType,
     defaultValue: ArticleViewType.direct,
     values: {
-      ArticleViewType.direct: (context) => NewsLocalizations.of(context).optionsArticleViewTypeDirect,
+      ArticleViewType.direct: (context) =>
+          NewsLocalizations.of(context).optionsArticleViewTypeDirect,
       if (NeonPlatform.instance.canUseWebView)
         ArticleViewType.internalBrowser: (context) =>
             NewsLocalizations.of(context).optionsArticleViewTypeInternalBrowser,
-      ArticleViewType.externalBrowser: (context) => NewsLocalizations.of(context).optionsArticleViewTypeExternalBrowser,
+      ArticleViewType.externalBrowser: (context) =>
+          NewsLocalizations.of(context).optionsArticleViewTypeExternalBrowser,
     },
   );
 
@@ -76,7 +80,8 @@ class NewsOptions extends AppImplementationOptions {
     storage: super.storage,
     category: articlesCategory,
     key: NewsOptionKeys.articleDisableMarkAsReadTimeout,
-    label: (context) => NewsLocalizations.of(context).optionsArticleDisableMarkAsReadTimeout,
+    label: (context) =>
+        NewsLocalizations.of(context).optionsArticleDisableMarkAsReadTimeout,
     defaultValue: false,
   );
 
@@ -84,12 +89,16 @@ class NewsOptions extends AppImplementationOptions {
     storage: super.storage,
     category: articlesCategory,
     key: NewsOptionKeys.defaultArticlesFilter,
-    label: (context) => NewsLocalizations.of(context).optionsDefaultArticlesFilter,
+    label: (context) =>
+        NewsLocalizations.of(context).optionsDefaultArticlesFilter,
     defaultValue: FilterType.unread,
     values: {
-      FilterType.all: (context) => NewsLocalizations.of(context).articlesFilterAll,
-      FilterType.unread: (context) => NewsLocalizations.of(context).articlesFilterUnread,
-      FilterType.starred: (context) => NewsLocalizations.of(context).articlesFilterStarred,
+      FilterType.all: (context) =>
+          NewsLocalizations.of(context).articlesFilterAll,
+      FilterType.unread: (context) =>
+          NewsLocalizations.of(context).articlesFilterUnread,
+      FilterType.starred: (context) =>
+          NewsLocalizations.of(context).articlesFilterStarred,
     },
   );
 
@@ -97,14 +106,16 @@ class NewsOptions extends AppImplementationOptions {
     storage: super.storage,
     category: articlesCategory,
     key: NewsOptionKeys.articlesSortProperty,
-    label: (context) => NewsLocalizations.of(context).optionsArticlesSortProperty,
+    label: (context) =>
+        NewsLocalizations.of(context).optionsArticlesSortProperty,
     defaultValue: ArticlesSortProperty.publishDate,
     values: {
       ArticlesSortProperty.publishDate: (context) =>
           NewsLocalizations.of(context).optionsArticlesSortPropertyPublishDate,
       ArticlesSortProperty.alphabetical: (context) =>
           NewsLocalizations.of(context).optionsArticlesSortPropertyAlphabetical,
-      ArticlesSortProperty.byFeed: (context) => NewsLocalizations.of(context).optionsArticlesSortPropertyFeed,
+      ArticlesSortProperty.byFeed: (context) =>
+          NewsLocalizations.of(context).optionsArticlesSortPropertyFeed,
     },
   );
 
@@ -121,12 +132,14 @@ class NewsOptions extends AppImplementationOptions {
     storage: super.storage,
     category: foldersCategory,
     key: NewsOptionKeys.foldersSortProperty,
-    label: (context) => NewsLocalizations.of(context).optionsFoldersSortProperty,
+    label: (context) =>
+        NewsLocalizations.of(context).optionsFoldersSortProperty,
     defaultValue: FoldersSortProperty.alphabetical,
     values: {
       FoldersSortProperty.alphabetical: (context) =>
           NewsLocalizations.of(context).optionsFoldersSortPropertyAlphabetical,
-      FoldersSortProperty.unreadCount: (context) => NewsLocalizations.of(context).optionsFoldersSortPropertyUnreadCount,
+      FoldersSortProperty.unreadCount: (context) =>
+          NewsLocalizations.of(context).optionsFoldersSortPropertyUnreadCount,
     },
   );
 
@@ -143,11 +156,14 @@ class NewsOptions extends AppImplementationOptions {
     storage: super.storage,
     category: foldersCategory,
     key: NewsOptionKeys.defaultFolderViewType,
-    label: (context) => NewsLocalizations.of(context).optionsDefaultFolderViewType,
+    label: (context) =>
+        NewsLocalizations.of(context).optionsDefaultFolderViewType,
     defaultValue: DefaultFolderViewType.articles,
     values: {
-      DefaultFolderViewType.articles: (context) => NewsLocalizations.of(context).articles,
-      DefaultFolderViewType.feeds: (context) => NewsLocalizations.of(context).feeds,
+      DefaultFolderViewType.articles: (context) =>
+          NewsLocalizations.of(context).articles,
+      DefaultFolderViewType.feeds: (context) =>
+          NewsLocalizations.of(context).feeds,
     },
   );
 
@@ -158,8 +174,10 @@ class NewsOptions extends AppImplementationOptions {
     label: (context) => NewsLocalizations.of(context).optionsFeedsSortProperty,
     defaultValue: FeedsSortProperty.alphabetical,
     values: {
-      FeedsSortProperty.alphabetical: (context) => NewsLocalizations.of(context).optionsFeedsSortPropertyAlphabetical,
-      FeedsSortProperty.unreadCount: (context) => NewsLocalizations.of(context).optionsFeedsSortPropertyUnreadCount,
+      FeedsSortProperty.alphabetical: (context) =>
+          NewsLocalizations.of(context).optionsFeedsSortPropertyAlphabetical,
+      FeedsSortProperty.unreadCount: (context) =>
+          NewsLocalizations.of(context).optionsFeedsSortPropertyUnreadCount,
     },
   );
 

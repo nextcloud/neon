@@ -51,7 +51,8 @@ sealed class NewsBloc implements InteractiveBloc {
   NewsMainArticlesBloc get mainArticlesBloc;
 }
 
-class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBloc {
+class _NewsBloc extends InteractiveBloc
+    implements NewsBloc, NewsMainArticlesBloc {
   _NewsBloc(
     this.options,
     this.account,
@@ -59,7 +60,11 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
     mainArticlesBloc.articles.listen((result) {
       if (result.hasData) {
         final type = mainArticlesBloc.filterType.valueOrNull;
-        unreadCounter.add(result.requireData.where((a) => type == FilterType.starred ? a.starred : a.unread).length);
+        unreadCounter.add(
+          result.requireData
+              .where((a) => type == FilterType.starred ? a.starred : a.unread)
+              .length,
+        );
       }
     });
 
@@ -142,7 +147,9 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
 
   @override
   Future<void> addFeed(String url, int? folderId) async {
-    await wrapAction(() async => account.client.news.addFeed(url: url, folderId: folderId));
+    await wrapAction(
+      () async => account.client.news.addFeed(url: url, folderId: folderId),
+    );
   }
 
   @override
@@ -152,37 +159,56 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
 
   @override
   Future<void> deleteFolder(int folderId) async {
-    await wrapAction(() async => account.client.news.deleteFolder(folderId: folderId));
+    await wrapAction(
+      () async => account.client.news.deleteFolder(folderId: folderId),
+    );
   }
 
   @override
   Future<void> markFeedAsRead(int feedId) async {
-    await wrapAction(() async => account.client.news.markFeedAsRead(feedId: feedId, newestItemId: newestItemId));
+    await wrapAction(
+      () async => account.client.news
+          .markFeedAsRead(feedId: feedId, newestItemId: newestItemId),
+    );
   }
 
   @override
   Future<void> markFolderAsRead(int folderId) async {
-    await wrapAction(() async => account.client.news.markFolderAsRead(folderId: folderId, newestItemId: newestItemId));
+    await wrapAction(
+      () async => account.client.news
+          .markFolderAsRead(folderId: folderId, newestItemId: newestItemId),
+    );
   }
 
   @override
   Future<void> moveFeed(int feedId, int? folderId) async {
-    await wrapAction(() async => account.client.news.moveFeed(feedId: feedId, folderId: folderId));
+    await wrapAction(
+      () async =>
+          account.client.news.moveFeed(feedId: feedId, folderId: folderId),
+    );
   }
 
   @override
   Future<void> removeFeed(int feedId) async {
-    await wrapAction(() async => account.client.news.deleteFeed(feedId: feedId));
+    await wrapAction(
+      () async => account.client.news.deleteFeed(feedId: feedId),
+    );
   }
 
   @override
   Future<void> renameFeed(int feedId, String feedTitle) async {
-    await wrapAction(() async => account.client.news.renameFeed(feedId: feedId, feedTitle: feedTitle));
+    await wrapAction(
+      () async =>
+          account.client.news.renameFeed(feedId: feedId, feedTitle: feedTitle),
+    );
   }
 
   @override
   Future<void> renameFolder(int folderId, String name) async {
-    await wrapAction(() async => account.client.news.renameFolder(folderId: folderId, name: name));
+    await wrapAction(
+      () async =>
+          account.client.news.renameFolder(folderId: folderId, name: name),
+    );
   }
 
   @override

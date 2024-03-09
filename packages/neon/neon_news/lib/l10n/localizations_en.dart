@@ -122,13 +122,16 @@ class NewsLocalizationsEn extends NewsLocalizations {
   String get optionsArticleViewTypeDirect => 'Show text directly';
 
   @override
-  String get optionsArticleViewTypeInternalBrowser => 'Open in internal browser';
+  String get optionsArticleViewTypeInternalBrowser =>
+      'Open in internal browser';
 
   @override
-  String get optionsArticleViewTypeExternalBrowser => 'Open in external browser';
+  String get optionsArticleViewTypeExternalBrowser =>
+      'Open in external browser';
 
   @override
-  String get optionsArticleDisableMarkAsReadTimeout => 'Mark articles as read instantly';
+  String get optionsArticleDisableMarkAsReadTimeout =>
+      'Mark articles as read instantly';
 
   @override
   String get optionsDefaultArticlesFilter => 'Articles to show by default';
@@ -173,5 +176,6 @@ class NewsLocalizationsEn extends NewsLocalizations {
   String get optionsFoldersSortOrder => 'Sort order of folders';
 
   @override
-  String get optionsDefaultFolderViewType => 'What should be shown first when opening a folder';
+  String get optionsDefaultFolderViewType =>
+      'What should be shown first when opening a folder';
 }

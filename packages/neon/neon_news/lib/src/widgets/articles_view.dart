@@ -73,7 +73,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               return _buildArticle(
                 context,
                 article,
-                feeds.requireData.singleWhere((feed) => feed.id == article.feedId),
+                feeds.requireData
+                    .singleWhere((feed) => feed.id == article.feedId),
               );
             },
             topFixedChildren: [
@@ -95,13 +96,18 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                         late final String label;
                         switch (a) {
                           case FilterType.all:
-                            label = NewsLocalizations.of(context).articlesFilterAll;
+                            label =
+                                NewsLocalizations.of(context).articlesFilterAll;
                           case FilterType.unread:
-                            label = NewsLocalizations.of(context).articlesFilterUnread;
+                            label = NewsLocalizations.of(context)
+                                .articlesFilterUnread;
                           case FilterType.starred:
-                            label = NewsLocalizations.of(context).articlesFilterStarred;
+                            label = NewsLocalizations.of(context)
+                                .articlesFilterStarred;
                           default:
-                            throw Exception('FilterType $a should not be shown');
+                            throw Exception(
+                              'FilterType $a should not be shown',
+                            );
                         }
                         return DropdownMenuItem(
                           value: a,
@@ -136,7 +142,10 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 article.title,
                 style: article.unread
                     ? null
-                    : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
+                    : Theme.of(context)
+                        .textTheme
+                        .titleMedium!
+                        .copyWith(color: Theme.of(context).disabledColor),
               ),
             ),
             if (article.mediaThumbnail != null) ...[
@@ -189,8 +198,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               widget.bloc.starArticle(article);
             }
           },
-          tooltip:
-              article.starred ? NewsLocalizations.of(context).articleUnstar : NewsLocalizations.of(context).articleStar,
+          tooltip: article.starred
+              ? NewsLocalizations.of(context).articleUnstar
+              : NewsLocalizations.of(context).articleStar,
           icon: Icon(
             article.starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
             color: Theme.of(context).colorScheme.primary,
@@ -216,9 +226,11 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             );
           }
 
-          final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+          final account =
+              NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
-          if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
+          if ((viewType == ArticleViewType.direct || article.url == null) &&
+              bodyData != null) {
             await Navigator.of(context).push(
               MaterialPageRoute<void>(
                 builder: (context) => NewsArticlePage(
@@ -265,7 +277,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
         },
       );
 
-  String _fixArticleBody(String b) => _fixArticleBodyElement(html_parser.parse(b).documentElement!).outerHtml;
+  String _fixArticleBody(String b) =>
+      _fixArticleBodyElement(html_parser.parse(b).documentElement!).outerHtml;
 
   html_dom.Element _fixArticleBodyElement(html_dom.Element element) {
     for (final attributeName in ['src', 'href']) {

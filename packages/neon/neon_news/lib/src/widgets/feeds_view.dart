@@ -33,7 +33,11 @@ class NewsFeedsView extends StatelessWidget {
           sortBox: feedsSortBox,
           sortProperty: bloc.options.feedsSortPropertyOption,
           sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
-          input: folders.hasData ? feeds.data?.where((f) => folderID == null || f.folderId == folderID).toList() : null,
+          input: folders.hasData
+              ? feeds.data
+                  ?.where((f) => folderID == null || f.folderId == folderID)
+                  .toList()
+              : null,
           builder: (context, sorted) => NeonListView(
             scrollKey: 'news-feeds',
             isLoading: feeds.isLoading || folders.isLoading,
@@ -60,11 +64,16 @@ class NewsFeedsView extends StatelessWidget {
         title: Text(
           feed.title,
           style: feed.unreadCount! == 0
-              ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
+              ? Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: Theme.of(context).disabledColor)
               : null,
         ),
         subtitle: feed.unreadCount! > 0
-            ? Text(NewsLocalizations.of(context).articlesUnread(feed.unreadCount!))
+            ? Text(
+                NewsLocalizations.of(context).articlesUnread(feed.unreadCount!),
+              )
             : const SizedBox(),
         leading: NewsFeedIcon(feed: feed),
         trailing: Row(
