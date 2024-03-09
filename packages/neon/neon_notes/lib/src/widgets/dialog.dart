@@ -38,7 +38,8 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pop((controller.text, widget.initialCategory ?? selectedCategory));
+      Navigator.of(context)
+          .pop((controller.text, widget.initialCategory ?? selectedCategory));
     }
   }
 
@@ -79,7 +80,8 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
         }
 
         return NotesCategorySelect(
-          categories: notes.requireData.map((note) => note.category).toSet().toList(),
+          categories:
+              notes.requireData.map((note) => note.category).toSet().toList(),
           onChanged: (category) {
             selectedCategory = category;
           },
@@ -131,7 +133,8 @@ class NotesSelectCategoryDialog extends StatefulWidget {
   final String? initialCategory;
 
   @override
-  State<NotesSelectCategoryDialog> createState() => _NotesSelectCategoryDialogState();
+  State<NotesSelectCategoryDialog> createState() =>
+      _NotesSelectCategoryDialogState();
 }
 
 class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
@@ -169,7 +172,8 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
         return Form(
           key: formKey,
           child: NotesCategorySelect(
-            categories: notes.requireData.map((note) => note.category).toSet().toList(),
+            categories:
+                notes.requireData.map((note) => note.category).toSet().toList(),
             initialValue: widget.initialCategory,
             onChanged: (category) {
               selectedCategory = category;

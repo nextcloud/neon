@@ -15,5 +15,6 @@ class NotesAppRoute extends NeonBaseAppRoute {
   const NotesAppRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const NotesMainPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const NotesMainPage();
 }

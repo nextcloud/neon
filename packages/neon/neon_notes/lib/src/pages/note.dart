@@ -39,7 +39,8 @@ class _NotesNotePageState extends State<NotesNotePage> {
 
   void _focusEditor() {
     _contentFocusNode.requestFocus();
-    _contentController.selection = TextSelection.collapsed(offset: _contentController.text.length);
+    _contentController.selection =
+        TextSelection.collapsed(offset: _contentController.text.length);
   }
 
   @override
@@ -53,15 +54,23 @@ class _NotesNotePageState extends State<NotesNotePage> {
     _contentController.text = widget.bloc.initialContent;
     _titleController.text = widget.bloc.initialTitle;
 
-    _contentStreamController.stream.debounceTime(const Duration(seconds: 1)).listen(widget.bloc.updateContent);
-    _titleStreamController.stream.debounceTime(const Duration(seconds: 1)).listen(widget.bloc.updateTitle);
-    _contentController.addListener(() => _contentStreamController.add(_contentController.text));
-    _titleController.addListener(() => _titleStreamController.add(_titleController.text));
+    _contentStreamController.stream
+        .debounceTime(const Duration(seconds: 1))
+        .listen(widget.bloc.updateContent);
+    _titleStreamController.stream
+        .debounceTime(const Duration(seconds: 1))
+        .listen(widget.bloc.updateTitle);
+    _contentController.addListener(
+      () => _contentStreamController.add(_contentController.text),
+    );
+    _titleController
+        .addListener(() => _titleStreamController.add(_titleController.text));
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(WakelockPlus.enable());
 
-      if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
+      if (widget.bloc.options.defaultNoteViewTypeOption.value ==
+              DefaultNoteViewType.edit ||
           widget.bloc.initialContent.isEmpty) {
         setState(() {
           _showEditor = true;
@@ -149,7 +158,9 @@ class _NotesNotePageState extends State<NotesNotePage> {
                   tooltip: NotesLocalizations.of(context).noteChangeCategory,
                   icon: Icon(
                     AdaptiveIcons.tag,
-                    color: category.isNotEmpty ? NotesCategoryColor.compute(category) : null,
+                    color: category.isNotEmpty
+                        ? NotesCategoryColor.compute(category)
+                        : null,
                   ),
                 );
               },

@@ -31,7 +31,9 @@ class NotesCategoriesView extends StatelessWidget {
             .map(
               (category) => NoteCategory(
                 category,
-                notes.requireData.where((note) => note.category == category).length,
+                notes.requireData
+                    .where((note) => note.category == category)
+                    .length,
               ),
             )
             .toList(),
@@ -55,8 +57,14 @@ class NotesCategoriesView extends StatelessWidget {
     NoteCategory category,
   ) =>
       ListTile(
-        title: Text(category.name.isNotEmpty ? category.name : NotesLocalizations.of(context).categoryUncategorized),
-        subtitle: Text(NotesLocalizations.of(context).categoryNotesCount(category.count)),
+        title: Text(
+          category.name.isNotEmpty
+              ? category.name
+              : NotesLocalizations.of(context).categoryUncategorized,
+        ),
+        subtitle: Text(
+          NotesLocalizations.of(context).categoryNotesCount(category.count),
+        ),
         leading: category.name.isNotEmpty
             ? Icon(
                 AdaptiveIcons.tag,

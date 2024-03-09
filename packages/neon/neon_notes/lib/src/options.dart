@@ -40,7 +40,8 @@ class NotesOptions extends AppImplementationOptions {
     defaultValue: DefaultCategory.notes,
     values: {
       DefaultCategory.notes: (context) => NotesLocalizations.of(context).notes,
-      DefaultCategory.categories: (context) => NotesLocalizations.of(context).categories,
+      DefaultCategory.categories: (context) =>
+          NotesLocalizations.of(context).categories,
     },
   );
 
@@ -48,11 +49,14 @@ class NotesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: generalCategory,
     key: NotesOptionKeys.defaultNoteViewType,
-    label: (context) => NotesLocalizations.of(context).optionsDefaultNoteViewType,
+    label: (context) =>
+        NotesLocalizations.of(context).optionsDefaultNoteViewType,
     defaultValue: DefaultNoteViewType.preview,
     values: {
-      DefaultNoteViewType.preview: (context) => NotesLocalizations.of(context).optionsDefaultNoteViewTypePreview,
-      DefaultNoteViewType.edit: (context) => NotesLocalizations.of(context).optionsDefaultNoteViewTypeEdit,
+      DefaultNoteViewType.preview: (context) =>
+          NotesLocalizations.of(context).optionsDefaultNoteViewTypePreview,
+      DefaultNoteViewType.edit: (context) =>
+          NotesLocalizations.of(context).optionsDefaultNoteViewTypeEdit,
     },
   );
 
@@ -63,8 +67,10 @@ class NotesOptions extends AppImplementationOptions {
     label: (context) => NotesLocalizations.of(context).optionsNotesSortProperty,
     defaultValue: NotesSortProperty.lastModified,
     values: {
-      NotesSortProperty.lastModified: (context) => NotesLocalizations.of(context).optionsNotesSortPropertyLastModified,
-      NotesSortProperty.alphabetical: (context) => NotesLocalizations.of(context).optionsNotesSortPropertyAlphabetical,
+      NotesSortProperty.lastModified: (context) =>
+          NotesLocalizations.of(context).optionsNotesSortPropertyLastModified,
+      NotesSortProperty.alphabetical: (context) =>
+          NotesLocalizations.of(context).optionsNotesSortPropertyAlphabetical,
     },
   );
 
@@ -77,17 +83,21 @@ class NotesOptions extends AppImplementationOptions {
     values: sortBoxOrderOptionValues,
   );
 
-  late final categoriesSortPropertyOption = SelectOption<CategoriesSortProperty>(
+  late final categoriesSortPropertyOption =
+      SelectOption<CategoriesSortProperty>(
     storage: super.storage,
     category: categoriesCategory,
     key: NotesOptionKeys.categoriesSortProperty,
-    label: (context) => NotesLocalizations.of(context).optionsCategoriesSortProperty,
+    label: (context) =>
+        NotesLocalizations.of(context).optionsCategoriesSortProperty,
     defaultValue: CategoriesSortProperty.alphabetical,
     values: {
       CategoriesSortProperty.alphabetical: (context) =>
-          NotesLocalizations.of(context).optionsCategoriesSortPropertyAlphabetical,
+          NotesLocalizations.of(context)
+              .optionsCategoriesSortPropertyAlphabetical,
       CategoriesSortProperty.notesCount: (context) =>
-          NotesLocalizations.of(context).optionsCategoriesSortPropertyNotesCount,
+          NotesLocalizations.of(context)
+              .optionsCategoriesSortPropertyNotesCount,
     },
   );
 
@@ -95,7 +105,8 @@ class NotesOptions extends AppImplementationOptions {
     storage: super.storage,
     category: categoriesCategory,
     key: NotesOptionKeys.categoriesSortBoxOrder,
-    label: (context) => NotesLocalizations.of(context).optionsCategoriesSortOrder,
+    label: (context) =>
+        NotesLocalizations.of(context).optionsCategoriesSortOrder,
     defaultValue: SortBoxOrder.ascending,
     values: sortBoxOrderOptionValues,
   );

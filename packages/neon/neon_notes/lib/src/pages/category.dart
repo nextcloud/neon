@@ -20,7 +20,11 @@ class NotesCategoryPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text(category.name.isNotEmpty ? category.name : NotesLocalizations.of(context).categoryUncategorized),
+        title: Text(
+          category.name.isNotEmpty
+              ? category.name
+              : NotesLocalizations.of(context).categoryUncategorized,
+        ),
       ),
       body: SafeArea(
         child: NotesView(

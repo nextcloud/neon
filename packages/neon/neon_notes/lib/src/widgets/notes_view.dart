@@ -35,7 +35,9 @@ class NotesView extends StatelessWidget {
         sortProperty: bloc.options.notesSortPropertyOption,
         sortBoxOrder: bloc.options.notesSortBoxOrderOption,
         input: category != null
-            ? notesList.data?.where((note) => note.category == category).toList()
+            ? notesList.data
+                ?.where((note) => note.category == category)
+                .toList()
             : notesList.data?.toList(),
         builder: (context, sorted) => NeonListView(
           scrollKey: 'notes-notes',
@@ -84,7 +86,9 @@ class NotesView extends StatelessWidget {
               favorite: !note.favorite,
             );
           },
-          tooltip: note.favorite ? NotesLocalizations.of(context).noteUnstar : NotesLocalizations.of(context).noteStar,
+          tooltip: note.favorite
+              ? NotesLocalizations.of(context).noteUnstar
+              : NotesLocalizations.of(context).noteStar,
           icon: Icon(
             note.favorite ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
             color: Theme.of(context).colorScheme.primary,

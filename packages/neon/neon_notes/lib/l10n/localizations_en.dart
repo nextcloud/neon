@@ -5,7 +5,8 @@ class NotesLocalizationsEn extends NotesLocalizations {
   NotesLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get errorChangedOnServer => 'The note has been changed on the server. Please refresh and try again';
+  String get errorChangedOnServer =>
+      'The note has been changed on the server. Please refresh and try again';
 
   @override
   String get general => 'General';

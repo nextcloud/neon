@@ -14,7 +14,9 @@ class NotesCategoryColor {
       return _colors[category]!;
     }
 
-    final color = HexColor(sha1.convert(utf8.encode(category)).toString().substring(0, 6));
+    final color = HexColor(
+      sha1.convert(utf8.encode(category)).toString().substring(0, 6),
+    );
     _colors[category] = color;
     return color;
   }

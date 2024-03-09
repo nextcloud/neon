@@ -39,7 +39,10 @@ class NotesCategorySelect extends StatelessWidget {
         if (value.text.isEmpty) {
           return categories;
         }
-        return categories.where((category) => category.toLowerCase().contains(value.text.toLowerCase()));
+        return categories.where(
+          (category) =>
+              category.toLowerCase().contains(value.text.toLowerCase()),
+        );
       },
       fieldViewBuilder: (
         context,
@@ -75,10 +78,14 @@ class NotesCategorySelect extends StatelessWidget {
                 return ListTile(
                   leading: Icon(
                     AdaptiveIcons.tag,
-                    color: option.isNotEmpty ? NotesCategoryColor.compute(option) : null,
+                    color: option.isNotEmpty
+                        ? NotesCategoryColor.compute(option)
+                        : null,
                   ),
                   title: Text(
-                    option.isNotEmpty ? option : NotesLocalizations.of(context).categoryUncategorized,
+                    option.isNotEmpty
+                        ? option
+                        : NotesLocalizations.of(context).categoryUncategorized,
                   ),
                   onTap: () {
                     onSelected(option);

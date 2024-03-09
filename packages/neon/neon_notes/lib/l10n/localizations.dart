@@ -59,7 +59,8 @@ import 'localizations_en.dart';
 /// be consistent with the languages listed in the NotesLocalizations.supportedLocales
 /// property.
 abstract class NotesLocalizations {
-  NotesLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  NotesLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -67,7 +68,8 @@ abstract class NotesLocalizations {
     return Localizations.of<NotesLocalizations>(context, NotesLocalizations)!;
   }
 
-  static const LocalizationsDelegate<NotesLocalizations> delegate = _NotesLocalizationsDelegate();
+  static const LocalizationsDelegate<NotesLocalizations> delegate =
+      _NotesLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -79,7 +81,8 @@ abstract class NotesLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -264,16 +267,19 @@ abstract class NotesLocalizations {
   String get optionsCategoriesSortPropertyNotesCount;
 }
 
-class _NotesLocalizationsDelegate extends LocalizationsDelegate<NotesLocalizations> {
+class _NotesLocalizationsDelegate
+    extends LocalizationsDelegate<NotesLocalizations> {
   const _NotesLocalizationsDelegate();
 
   @override
   Future<NotesLocalizations> load(Locale locale) {
-    return SynchronousFuture<NotesLocalizations>(lookupNotesLocalizations(locale));
+    return SynchronousFuture<NotesLocalizations>(
+        lookupNotesLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_NotesLocalizationsDelegate old) => false;
@@ -286,7 +292,8 @@ NotesLocalizations lookupNotesLocalizations(Locale locale) {
       return NotesLocalizationsEn();
   }
 
-  throw FlutterError('NotesLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+  throw FlutterError(
+      'NotesLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
       'an issue with the localizations generation tool. Please file an issue '
       'on GitHub with a reproducible sample app and the gen-l10n configuration '
       'that was used.');

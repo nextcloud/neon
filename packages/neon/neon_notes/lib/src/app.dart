@@ -20,7 +20,8 @@ class NotesApp extends AppImplementation<NotesBloc, NotesOptions> {
   final List<Locale> supportedLocales = NotesLocalizations.supportedLocales;
 
   @override
-  final LocalizationsDelegate<NotesLocalizations> localizationsDelegate = NotesLocalizations.delegate;
+  final LocalizationsDelegate<NotesLocalizations> localizationsDelegate =
+      NotesLocalizations.delegate;
 
   @override
   late final NotesOptions options = NotesOptions(storage);
