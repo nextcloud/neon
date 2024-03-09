@@ -8,7 +8,7 @@ import 'package:http/testing.dart';
 import 'package:universal_io/io.dart';
 
 /// Gets a mocked [HttpClient] that proxies the request to a real [HttpClient].
-/// For every requests it calls [onRequest] which contains the formatted request.
+/// For each requests it calls [onRequest] which contains the formatted request.
 BaseClient getProxyHttpClient({
   required void Function(String fixture) onRequest,
 }) {
@@ -30,7 +30,9 @@ BaseClient getProxyHttpClient({
 }
 
 String _formatHttpRequest(BaseRequest request, Uint8List body) {
-  final buffer = StringBuffer('${request.method.toUpperCase()} ${request.url.replace(port: 80)}');
+  final buffer = StringBuffer(
+    '${request.method.toUpperCase()} ${request.url.replace(port: 80)}',
+  );
 
   final headers = <String>[];
   for (final header in request.headers.entries) {

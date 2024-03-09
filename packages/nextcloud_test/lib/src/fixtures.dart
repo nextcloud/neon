@@ -31,7 +31,8 @@ void validateFixture(Preset preset) {
     groups.add(group.name.replaceFirst('${groups.join(' ')} ', ''));
   }
 
-  // Remove the groups that are the preset name and the preset version and the app is kept.
+  // Remove the groups that are the preset name and the preset version and the
+  // app is kept.
   for (var i = 0; i <= 2; i++) {
     if (groups[i] == '${preset.version.major}.${preset.version.minor}') {
       if (i == 1) {
@@ -62,8 +63,10 @@ void validateFixture(Preset preset) {
     fixturesDir.createSync(recursive: true);
   }
 
-  final fixtureName = _formatName(Invoker.current!.liveTest.individualName.toLowerCase());
-  final fixtureFile = File(fixturesPath.join(PathUri.parse('$fixtureName.regexp')).path);
+  final fixtureName =
+      _formatName(Invoker.current!.liveTest.individualName.toLowerCase());
+  final fixtureFile =
+      File(fixturesPath.join(PathUri.parse('$fixtureName.regexp')).path);
   if (fixtureFile.existsSync()) {
     final pattern = fixtureFile.readAsStringSync();
     final hasMatch = RegExp('^$pattern\$').hasMatch(data);

@@ -16,7 +16,8 @@ class DockerContainer {
 
   /// Creates a new docker container and returns its representation.
   static Future<DockerContainer> create(Preset preset) async {
-    final dockerImageName = 'ghcr.io/nextcloud/neon/dev:${preset.name}-${preset.version.major}.${preset.version.minor}';
+    final dockerImageName =
+        'ghcr.io/nextcloud/neon/dev:${preset.name}-${preset.version.major}.${preset.version.minor}';
 
     var result = await runExecutableArguments(
       'docker',
@@ -30,7 +31,9 @@ class DockerContainer {
       throw Exception('Querying docker image failed: ${result.stderr}');
     }
     if (result.stdout.toString().isEmpty) {
-      throw Exception('Missing docker image $dockerImageName. Please build it using ./tool/build-dev-container.sh');
+      throw Exception(
+        'Missing docker image $dockerImageName. Please build it using ./tool/build-dev-container.sh',
+      );
     }
 
     late int port;
@@ -49,7 +52,8 @@ class DockerContainer {
           dockerImageName,
         ],
       );
-      // 125 means the docker run command itself has failed which indicated the port is already used
+      // 125 means the docker run command itself has failed which indicated the
+      // port is already used
       if (result.exitCode != 125) {
         break;
       }
@@ -115,5 +119,12 @@ class DockerContainer {
   /// Reads all logs.
   ///
   /// Combines the output of [webServerLogs] and [nextcloudLogs].
-  Future<String> allLogs() async => 'Web server:\n${await webServerLogs()}\nNextcloud:\n${await nextcloudLogs()}';
+  Future<String> allLogs() async {
+    final logs = await Future.wait([
+      webServerLogs(),
+      nextcloudLogs(),
+    ]);
+
+    return 'Web server:\n${logs[0]}\nNextcloud:\n${logs[1]}';
+  }
 }

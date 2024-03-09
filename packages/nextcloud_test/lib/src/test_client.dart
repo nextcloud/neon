@@ -40,7 +40,11 @@ extension TestNextcloudClient on NextcloudClient {
 
       final result = await process;
       if (result.exitCode != 0) {
-        throw Exception('Failed to run generate app password command\n${result.stderr}\n${result.stdout}');
+        throw Exception('''
+Failed to run generate app password command
+${result.stderr}
+${result.stdout}
+''');
       }
       appPassword = (result.stdout as String).split('\n')[1];
     }

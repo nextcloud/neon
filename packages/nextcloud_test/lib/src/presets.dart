@@ -16,10 +16,11 @@ final Map<String, List<Version>> _presets = () {
       .map((d) => PathUri.parse(d.path).name);
 
   for (final presetGroup in presetGroups) {
-    final presetVersions = Directory('../nextcloud_test/docker/presets/$presetGroup')
-        .listSync(followLinks: false)
-        .whereType<File>()
-        .map((f) => Version.parse(PathUri.parse(f.path).name));
+    final presetVersions =
+        Directory('../nextcloud_test/docker/presets/$presetGroup')
+            .listSync(followLinks: false)
+            .whereType<File>()
+            .map((f) => Version.parse(PathUri.parse(f.path).name));
 
     presets[presetGroup] = presetVersions.toList();
   }
@@ -27,7 +28,8 @@ final Map<String, List<Version>> _presets = () {
   return presets;
 }();
 
-/// All tests for apps that depend on the server version must be wrapped with this method and pass along the preset.
+/// All tests for apps that depend on the server version must be wrapped with
+/// this method and pass along the preset.
 void presets(
   String presetGroup,
   String app,

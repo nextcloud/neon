@@ -19,7 +19,10 @@ typedef App = ({
 
 @internal
 extension AppFindLatestRelease on App {
-  AppRelease? findLatestCompatibleRelease(Version serverVersion, {bool allowUnstable = false}) {
+  AppRelease? findLatestCompatibleRelease(
+    Version serverVersion, {
+    bool allowUnstable = false,
+  }) {
     final compatibleReleases = releases
         .where(
           (release) =>
@@ -33,7 +36,8 @@ extension AppFindLatestRelease on App {
   }
 
   AppRelease findLatestRelease() {
-    final sortedReleases = releases..sort((a, b) => b.version.compareTo(a.version));
+    final sortedReleases = releases
+      ..sort((a, b) => b.version.compareTo(a.version));
     return sortedReleases.first;
   }
 }
@@ -44,7 +48,8 @@ extension AppReleaseFindLatestServerVersion on AppRelease {
     final compatibleReleases = serverVersions
         .where(
           (serverVersion) =>
-              serverVersion >= minimumServerVersion && serverVersion < maximumServerVersion.incrementMajor(),
+              serverVersion >= minimumServerVersion &&
+              serverVersion < maximumServerVersion.incrementMajor(),
         )
         .toList()
       ..sort((a, b) => b.compareTo(a));

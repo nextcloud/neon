@@ -39,7 +39,10 @@ Future<void> main() async {
           buffer.writeln(release.url);
         } else {
           final release = a.findLatestCompatibleRelease(serverVersion) ??
-              a.findLatestCompatibleRelease(serverVersion, allowUnstable: true) ??
+              a.findLatestCompatibleRelease(
+                serverVersion,
+                allowUnstable: true,
+              ) ??
               a.findLatestRelease();
           buffer.writeln(release.url);
         }
@@ -66,14 +69,19 @@ Future<void> main() async {
       buffer.writeln('${app.id.toUpperCase()}_URL=${release.url}');
     }
 
-    File('${serverPresetsDir.path}/${serverVersion.major}.${serverVersion.minor}').writeAsStringSync(buffer.toString());
+    File('${serverPresetsDir.path}/${serverVersion.major}.${serverVersion.minor}')
+        .writeAsStringSync(buffer.toString());
   }
 
   final latestPresetLink = Link('docker/presets/latest');
   if (latestPresetLink.existsSync()) {
-    latestPresetLink.updateSync('server/${serverVersions.first.major}.${serverVersions.first.minor}');
+    latestPresetLink.updateSync(
+      'server/${serverVersions.first.major}.${serverVersions.first.minor}',
+    );
   } else {
-    latestPresetLink.createSync('server/${serverVersions.first.major}.${serverVersions.first.minor}');
+    latestPresetLink.createSync(
+      'server/${serverVersions.first.major}.${serverVersions.first.minor}',
+    );
   }
 
   httpClient.close(force: true);
@@ -81,14 +89,17 @@ Future<void> main() async {
 
 Future<List<Version>> _getServerVersions(HttpClient httpClient) async {
   final versions = <Version, Version>{};
-  String? next = 'https://hub.docker.com/v2/repositories/library/nextcloud/tags?page_size=1000';
+  String? next =
+      'https://hub.docker.com/v2/repositories/library/nextcloud/tags?page_size=1000';
 
   while (next != null) {
     final request = await httpClient.openUrl('GET', Uri.parse(next));
 
     final response = await request.close();
     if (response.statusCode != 200) {
-      throw Exception('Unable to get server versions, status code: ${response.statusCode}');
+      throw Exception(
+        'Unable to get server versions, status code: ${response.statusCode}',
+      );
     }
 
     final data = (await response.json)! as Map<String, dynamic>;
@@ -121,7 +132,10 @@ Future<List<Version>> _getServerVersions(HttpClient httpClient) async {
 Future<List<App>> _getApps(List<String> appIDs, HttpClient httpClient) async {
   final apps = <App>[];
 
-  final request = await httpClient.openUrl('GET', Uri.parse('https://apps.nextcloud.com/api/v1/apps.json'));
+  final request = await httpClient.openUrl(
+    'GET',
+    Uri.parse('https://apps.nextcloud.com/api/v1/apps.json'),
+  );
 
   final response = await request.close();
   if (response.statusCode != 200) {
@@ -146,11 +160,14 @@ Future<List<App>> _getApps(List<String> appIDs, HttpClient httpClient) async {
       final version = Version.parse(release['version'] as String);
       final normalizedVersion = Version(version.major, version.minor, 0);
 
-      final rawPlatformVersionSpec = release['rawPlatformVersionSpec'] as String;
-      final minimumServerVersionRequirement =
-          Version.parse(rawPlatformVersionSpec.split(' ')[0].replaceFirst('>=', ''));
-      final maximumServerVersionRequirement =
-          Version.parse(rawPlatformVersionSpec.split(' ')[1].replaceFirst('<=', ''));
+      final rawPlatformVersionSpec =
+          release['rawPlatformVersionSpec'] as String;
+      final minimumServerVersionRequirement = Version.parse(
+        rawPlatformVersionSpec.split(' ')[0].replaceFirst('>=', ''),
+      );
+      final maximumServerVersionRequirement = Version.parse(
+        rawPlatformVersionSpec.split(' ')[1].replaceFirst('<=', ''),
+      );
 
       if (maximumServerVersionRequirement < core.minVersion) {
         continue;
