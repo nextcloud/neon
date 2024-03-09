@@ -9,5 +9,6 @@ extension UpdatenotificationExtension on NextcloudClient {
   static final _updatenotification = Expando<$Client>();
 
   /// Client for the updatenotification APIs
-  $Client get updatenotification => _updatenotification[this] ??= $Client.fromClient(this);
+  $Client get updatenotification =>
+      _updatenotification[this] ??= $Client.fromClient(this);
 }

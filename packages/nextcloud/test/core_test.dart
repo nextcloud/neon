@@ -64,21 +64,66 @@ void main() {
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
-          expect(response.body.ocs.data.capabilities.commentsCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.davCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.dropAccountCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.filesCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.filesSharingCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.filesTrashbinCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.filesVersionsCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.notesCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.notificationsCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.provisioningApiCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.sharebymailCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.spreedPublicCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.themingPublicCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.userStatusCapabilities, isNotNull);
-          expect(response.body.ocs.data.capabilities.weatherStatusCapabilities, isNotNull);
+          expect(
+            response.body.ocs.data.capabilities.commentsCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.davCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.dropAccountCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.filesCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.filesSharingCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.filesTrashbinCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.filesVersionsCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.notesCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.notificationsCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.provisioningApiCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.sharebymailCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.spreedPublicCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.themingPublicCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.userStatusCapabilities,
+            isNotNull,
+          );
+          expect(
+            response.body.ocs.data.capabilities.weatherStatusCapabilities,
+            isNotNull,
+          );
         });
       });
 
@@ -113,7 +158,10 @@ void main() {
           expect(response.body.ocs.data[0].label, 'admin');
           expect(response.body.ocs.data[0].icon, '');
           expect(response.body.ocs.data[0].source, 'groups');
-          expect(response.body.ocs.data[0].status.autocompleteResultStatus0, isNull);
+          expect(
+            response.body.ocs.data[0].status.autocompleteResultStatus0,
+            isNull,
+          );
           expect(response.body.ocs.data[0].status.string, isEmpty);
           expect(response.body.ocs.data[0].subline, '');
           expect(response.body.ocs.data[0].shareWithDisplayNameUnique, '');
@@ -122,7 +170,8 @@ void main() {
 
       group('Preview', () {
         test('Get', () async {
-          final response = await client.core.preview.getPreview(file: 'Nextcloud.png');
+          final response =
+              await client.core.preview.getPreview(file: 'Nextcloud.png');
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -132,13 +181,15 @@ void main() {
 
       group('Avatar', () {
         test('Get', () async {
-          final response = await client.core.avatar.getAvatar(userId: 'admin', size: 32);
+          final response =
+              await client.core.avatar.getAvatar(userId: 'admin', size: 32);
           expect(response.body, isNotEmpty);
           expect(response.headers.xNcIscustomavatar?.content, 0);
         });
 
         test('Get dark', () async {
-          final response = await client.core.avatar.getAvatarDark(userId: 'admin', size: 32);
+          final response =
+              await client.core.avatar.getAvatarDark(userId: 'admin', size: 32);
           expect(response.body, isNotEmpty);
           expect(response.headers.xNcIscustomavatar?.content, 0);
         });
@@ -152,7 +203,11 @@ void main() {
           await client.core.appPassword.deleteAppPassword();
           await expectLater(
             () => client.core.appPassword.deleteAppPassword(),
-            throwsA(predicate((e) => (e! as DynamiteStatusCodeException).statusCode == 401)),
+            throwsA(
+              predicate(
+                (e) => (e! as DynamiteStatusCodeException).statusCode == 401,
+              ),
+            ),
           );
         });
       });
@@ -182,7 +237,10 @@ void main() {
           expect(response.body.ocs.data.entries.single.title, 'Personal info');
           expect(response.body.ocs.data.entries.single.subline, isEmpty);
           expect(response.body.ocs.data.entries.single.resourceUrl, isNotEmpty);
-          expect(response.body.ocs.data.entries.single.icon, 'icon-settings-dark');
+          expect(
+            response.body.ocs.data.entries.single.icon,
+            'icon-settings-dark',
+          );
           expect(response.body.ocs.data.entries.single.rounded, isFalse);
           expect(response.body.ocs.data.entries.single.attributes, isEmpty);
         });
@@ -199,8 +257,13 @@ void main() {
           expect(response.body.poll.token, isNotEmpty);
 
           await expectLater(
-            () => client.core.clientFlowLoginV2.poll(token: response.body.poll.token),
-            throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 404)),
+            () => client.core.clientFlowLoginV2
+                .poll(token: response.body.poll.token),
+            throwsA(
+              predicate<DynamiteStatusCodeException>(
+                (e) => e.statusCode == 404,
+              ),
+            ),
           );
         });
       });

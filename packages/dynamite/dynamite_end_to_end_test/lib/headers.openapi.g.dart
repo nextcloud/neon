@@ -7,9 +7,11 @@ part of 'headers.openapi.dart';
 // **************************************************************************
 
 Serializer<GetHeaders> _$getHeadersSerializer = _$GetHeadersSerializer();
-Serializer<WithContentOperationIdHeaders> _$withContentOperationIdHeadersSerializer =
+Serializer<WithContentOperationIdHeaders>
+    _$withContentOperationIdHeadersSerializer =
     _$WithContentOperationIdHeadersSerializer();
-Serializer<GetWithContentHeaders> _$getWithContentHeadersSerializer = _$GetWithContentHeadersSerializer();
+Serializer<GetWithContentHeaders> _$getWithContentHeadersSerializer =
+    _$GetWithContentHeadersSerializer();
 
 class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
   @override
@@ -26,7 +28,8 @@ class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
     if (value != null) {
       result
         ..add('my-header')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -43,7 +46,8 @@ class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
       final Object? value = iterator.current;
       switch (key) {
         case 'my-header':
-          result.myHeader = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.myHeader = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -52,14 +56,19 @@ class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
   }
 }
 
-class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<WithContentOperationIdHeaders> {
+class _$WithContentOperationIdHeadersSerializer
+    implements StructuredSerializer<WithContentOperationIdHeaders> {
   @override
-  final Iterable<Type> types = const [WithContentOperationIdHeaders, _$WithContentOperationIdHeaders];
+  final Iterable<Type> types = const [
+    WithContentOperationIdHeaders,
+    _$WithContentOperationIdHeaders
+  ];
   @override
   final String wireName = 'WithContentOperationIdHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WithContentOperationIdHeaders object,
+  Iterable<Object?> serialize(
+      Serializers serializers, WithContentOperationIdHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -67,13 +76,15 @@ class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<
     if (value != null) {
       result
         ..add('my-header')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  WithContentOperationIdHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  WithContentOperationIdHeaders deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = WithContentOperationIdHeadersBuilder();
 
@@ -84,7 +95,8 @@ class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<
       final Object? value = iterator.current;
       switch (key) {
         case 'my-header':
-          result.myHeader = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.myHeader = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -93,14 +105,19 @@ class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<
   }
 }
 
-class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithContentHeaders> {
+class _$GetWithContentHeadersSerializer
+    implements StructuredSerializer<GetWithContentHeaders> {
   @override
-  final Iterable<Type> types = const [GetWithContentHeaders, _$GetWithContentHeaders];
+  final Iterable<Type> types = const [
+    GetWithContentHeaders,
+    _$GetWithContentHeaders
+  ];
   @override
   final String wireName = 'GetWithContentHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GetWithContentHeaders object,
+  Iterable<Object?> serialize(
+      Serializers serializers, GetWithContentHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -108,13 +125,15 @@ class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithC
     if (value != null) {
       result
         ..add('my-header')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  GetWithContentHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  GetWithContentHeaders deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = GetWithContentHeadersBuilder();
 
@@ -125,7 +144,8 @@ class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithC
       final Object? value = iterator.current;
       switch (key) {
         case 'my-header':
-          result.myHeader = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.myHeader = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -145,12 +165,14 @@ class _$GetHeaders extends GetHeaders {
   @override
   final String? myHeader;
 
-  factory _$GetHeaders([void Function(GetHeadersBuilder)? updates]) => (GetHeadersBuilder()..update(updates))._build();
+  factory _$GetHeaders([void Function(GetHeadersBuilder)? updates]) =>
+      (GetHeadersBuilder()..update(updates))._build();
 
   _$GetHeaders._({this.myHeader}) : super._();
 
   @override
-  GetHeaders rebuild(void Function(GetHeadersBuilder) updates) => (toBuilder()..update(updates)).build();
+  GetHeaders rebuild(void Function(GetHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GetHeadersBuilder toBuilder() => GetHeadersBuilder()..replace(this);
@@ -171,11 +193,16 @@ class _$GetHeaders extends GetHeaders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GetHeaders')..add('myHeader', myHeader)).toString();
+    return (newBuiltValueToStringHelper(r'GetHeaders')
+          ..add('myHeader', myHeader))
+        .toString();
   }
 }
 
-class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetHeadersInterfaceBuilder {
+class GetHeadersBuilder
+    implements
+        Builder<GetHeaders, GetHeadersBuilder>,
+        $GetHeadersInterfaceBuilder {
   _$GetHeaders? _$v;
 
   String? _myHeader;
@@ -216,7 +243,8 @@ class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetH
 
 abstract mixin class $WithContentOperationIdHeadersInterfaceBuilder {
   void replace($WithContentOperationIdHeadersInterface other);
-  void update(void Function($WithContentOperationIdHeadersInterfaceBuilder) updates);
+  void update(
+      void Function($WithContentOperationIdHeadersInterfaceBuilder) updates);
   String? get myHeader;
   set myHeader(String? myHeader);
 }
@@ -225,17 +253,20 @@ class _$WithContentOperationIdHeaders extends WithContentOperationIdHeaders {
   @override
   final String? myHeader;
 
-  factory _$WithContentOperationIdHeaders([void Function(WithContentOperationIdHeadersBuilder)? updates]) =>
+  factory _$WithContentOperationIdHeaders(
+          [void Function(WithContentOperationIdHeadersBuilder)? updates]) =>
       (WithContentOperationIdHeadersBuilder()..update(updates))._build();
 
   _$WithContentOperationIdHeaders._({this.myHeader}) : super._();
 
   @override
-  WithContentOperationIdHeaders rebuild(void Function(WithContentOperationIdHeadersBuilder) updates) =>
+  WithContentOperationIdHeaders rebuild(
+          void Function(WithContentOperationIdHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  WithContentOperationIdHeadersBuilder toBuilder() => WithContentOperationIdHeadersBuilder()..replace(this);
+  WithContentOperationIdHeadersBuilder toBuilder() =>
+      WithContentOperationIdHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -253,13 +284,16 @@ class _$WithContentOperationIdHeaders extends WithContentOperationIdHeaders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'WithContentOperationIdHeaders')..add('myHeader', myHeader)).toString();
+    return (newBuiltValueToStringHelper(r'WithContentOperationIdHeaders')
+          ..add('myHeader', myHeader))
+        .toString();
   }
 }
 
 class WithContentOperationIdHeadersBuilder
     implements
-        Builder<WithContentOperationIdHeaders, WithContentOperationIdHeadersBuilder>,
+        Builder<WithContentOperationIdHeaders,
+            WithContentOperationIdHeadersBuilder>,
         $WithContentOperationIdHeadersInterfaceBuilder {
   _$WithContentOperationIdHeaders? _$v;
 
@@ -293,7 +327,8 @@ class WithContentOperationIdHeadersBuilder
   WithContentOperationIdHeaders build() => _build();
 
   _$WithContentOperationIdHeaders _build() {
-    final _$result = _$v ?? _$WithContentOperationIdHeaders._(myHeader: myHeader);
+    final _$result =
+        _$v ?? _$WithContentOperationIdHeaders._(myHeader: myHeader);
     replace(_$result);
     return _$result;
   }
@@ -310,17 +345,20 @@ class _$GetWithContentHeaders extends GetWithContentHeaders {
   @override
   final String? myHeader;
 
-  factory _$GetWithContentHeaders([void Function(GetWithContentHeadersBuilder)? updates]) =>
+  factory _$GetWithContentHeaders(
+          [void Function(GetWithContentHeadersBuilder)? updates]) =>
       (GetWithContentHeadersBuilder()..update(updates))._build();
 
   _$GetWithContentHeaders._({this.myHeader}) : super._();
 
   @override
-  GetWithContentHeaders rebuild(void Function(GetWithContentHeadersBuilder) updates) =>
+  GetWithContentHeaders rebuild(
+          void Function(GetWithContentHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GetWithContentHeadersBuilder toBuilder() => GetWithContentHeadersBuilder()..replace(this);
+  GetWithContentHeadersBuilder toBuilder() =>
+      GetWithContentHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -338,12 +376,16 @@ class _$GetWithContentHeaders extends GetWithContentHeaders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GetWithContentHeaders')..add('myHeader', myHeader)).toString();
+    return (newBuiltValueToStringHelper(r'GetWithContentHeaders')
+          ..add('myHeader', myHeader))
+        .toString();
   }
 }
 
 class GetWithContentHeadersBuilder
-    implements Builder<GetWithContentHeaders, GetWithContentHeadersBuilder>, $GetWithContentHeadersInterfaceBuilder {
+    implements
+        Builder<GetWithContentHeaders, GetWithContentHeadersBuilder>,
+        $GetWithContentHeadersInterfaceBuilder {
   _$GetWithContentHeaders? _$v;
 
   String? _myHeader;

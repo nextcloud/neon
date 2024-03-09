@@ -9,5 +9,6 @@ extension FilesRemindersExtension on NextcloudClient {
   static final _filesReminders = Expando<$Client>();
 
   /// Client for the files_reminders APIs
-  $Client get filesReminders => _filesReminders[this] ??= $Client.fromClient(this);
+  $Client get filesReminders =>
+      _filesReminders[this] ??= $Client.fromClient(this);
 }

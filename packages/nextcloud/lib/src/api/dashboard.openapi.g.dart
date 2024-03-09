@@ -7,12 +7,14 @@ part of 'dashboard.openapi.dart';
 // **************************************************************************
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<Widget_Buttons> _$widgetButtonsSerializer = _$Widget_ButtonsSerializer();
+Serializer<Widget_Buttons> _$widgetButtonsSerializer =
+    _$Widget_ButtonsSerializer();
 Serializer<Widget> _$widgetSerializer = _$WidgetSerializer();
 Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs>
     _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer =
     _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer();
-Serializer<DashboardApiGetWidgetsResponseApplicationJson> _$dashboardApiGetWidgetsResponseApplicationJsonSerializer =
+Serializer<DashboardApiGetWidgetsResponseApplicationJson>
+    _$dashboardApiGetWidgetsResponseApplicationJsonSerializer =
     _$DashboardApiGetWidgetsResponseApplicationJsonSerializer();
 Serializer<WidgetItem> _$widgetItemSerializer = _$WidgetItemSerializer();
 Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs>
@@ -40,28 +42,33 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status,
+          specifiedType: const FullType(String)),
       'statuscode',
-      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+      serializers.serialize(object.statuscode,
+          specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.message;
     if (value != null) {
       result
         ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.totalitems;
     if (value != null) {
       result
         ..add('totalitems')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.itemsperpage;
     if (value != null) {
       result
         ..add('itemsperpage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -78,19 +85,24 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       final Object? value = iterator.current;
       switch (key) {
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'statuscode':
-          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.statuscode = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'totalitems':
-          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.totalitems = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'itemsperpage':
-          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.itemsperpage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -99,7 +111,8 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 }
 
-class _$Widget_ButtonsSerializer implements StructuredSerializer<Widget_Buttons> {
+class _$Widget_ButtonsSerializer
+    implements StructuredSerializer<Widget_Buttons> {
   @override
   final Iterable<Type> types = const [Widget_Buttons, _$Widget_Buttons];
   @override
@@ -121,7 +134,8 @@ class _$Widget_ButtonsSerializer implements StructuredSerializer<Widget_Buttons>
   }
 
   @override
-  Widget_Buttons deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Widget_Buttons deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = Widget_ButtonsBuilder();
 
@@ -132,13 +146,16 @@ class _$Widget_ButtonsSerializer implements StructuredSerializer<Widget_Buttons>
       final Object? value = iterator.current;
       switch (key) {
         case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.type = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'text':
-          result.text = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.text = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'link':
-          result.link = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.link = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -154,33 +171,40 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
   final String wireName = 'Widget';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Widget object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Widget object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'title',
-      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      serializers.serialize(object.title,
+          specifiedType: const FullType(String)),
       'order',
       serializers.serialize(object.order, specifiedType: const FullType(int)),
       'icon_class',
-      serializers.serialize(object.iconClass, specifiedType: const FullType(String)),
+      serializers.serialize(object.iconClass,
+          specifiedType: const FullType(String)),
       'icon_url',
-      serializers.serialize(object.iconUrl, specifiedType: const FullType(String)),
+      serializers.serialize(object.iconUrl,
+          specifiedType: const FullType(String)),
       'item_icons_round',
-      serializers.serialize(object.itemIconsRound, specifiedType: const FullType(bool)),
+      serializers.serialize(object.itemIconsRound,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.widgetUrl;
     if (value != null) {
       result
         ..add('widget_url')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.itemApiVersions;
     if (value != null) {
       result
         ..add('item_api_versions')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(int)])));
     }
     value = object.reloadInterval;
     if (value != null) {
@@ -192,7 +216,9 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
     if (value != null) {
       result
         ..add('buttons')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Widget_Buttons)])));
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, [FullType(Widget_Buttons)])));
     }
     return result;
   }
@@ -209,36 +235,47 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'title':
-          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.title = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'order':
-          result.order = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.order = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'icon_class':
-          result.iconClass = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.iconClass = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'icon_url':
-          result.iconUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.iconUrl = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'widget_url':
-          result.widgetUrl = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.widgetUrl = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'item_icons_round':
-          result.itemIconsRound = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.itemIconsRound = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'item_api_versions':
           result.itemApiVersions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(int)]))!
+              as BuiltList<Object?>);
           break;
         case 'reload_interval':
-          result.reloadInterval = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.reloadInterval = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'buttons':
           result.buttons.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Widget_Buttons)]))! as BuiltList<Object?>);
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(Widget_Buttons)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -248,7 +285,9 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
 }
 
 class _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> {
+    implements
+        StructuredSerializer<
+            DashboardApiGetWidgetsResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetsResponseApplicationJson_Ocs,
@@ -258,20 +297,25 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
   final String wireName = 'DashboardApiGetWidgetsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetsResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers,
+      DashboardApiGetWidgetsResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Widget)])),
+      serializers.serialize(object.data,
+          specifiedType:
+              const FullType(BuiltMap, [FullType(String), FullType(Widget)])),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetWidgetsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DashboardApiGetWidgetsResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
 
@@ -282,11 +326,13 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Widget)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(Widget)]))!);
           break;
       }
     }
@@ -296,7 +342,8 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
 }
 
 class _$DashboardApiGetWidgetsResponseApplicationJsonSerializer
-    implements StructuredSerializer<DashboardApiGetWidgetsResponseApplicationJson> {
+    implements
+        StructuredSerializer<DashboardApiGetWidgetsResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetsResponseApplicationJson,
@@ -306,19 +353,22 @@ class _$DashboardApiGetWidgetsResponseApplicationJsonSerializer
   final String wireName = 'DashboardApiGetWidgetsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetsResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers,
+      DashboardApiGetWidgetsResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(
+              DashboardApiGetWidgetsResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetWidgetsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DashboardApiGetWidgetsResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = DashboardApiGetWidgetsResponseApplicationJsonBuilder();
 
@@ -330,7 +380,8 @@ class _$DashboardApiGetWidgetsResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs))!
+                  specifiedType: const FullType(
+                      DashboardApiGetWidgetsResponseApplicationJson_Ocs))!
               as DashboardApiGetWidgetsResponseApplicationJson_Ocs);
           break;
       }
@@ -351,22 +402,27 @@ class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'subtitle',
-      serializers.serialize(object.subtitle, specifiedType: const FullType(String)),
+      serializers.serialize(object.subtitle,
+          specifiedType: const FullType(String)),
       'title',
-      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      serializers.serialize(object.title,
+          specifiedType: const FullType(String)),
       'link',
       serializers.serialize(object.link, specifiedType: const FullType(String)),
       'iconUrl',
-      serializers.serialize(object.iconUrl, specifiedType: const FullType(String)),
+      serializers.serialize(object.iconUrl,
+          specifiedType: const FullType(String)),
       'sinceId',
-      serializers.serialize(object.sinceId, specifiedType: const FullType(String)),
+      serializers.serialize(object.sinceId,
+          specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.overlayIconUrl;
     if (value != null) {
       result
         ..add('overlayIconUrl')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -383,22 +439,28 @@ class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
       final Object? value = iterator.current;
       switch (key) {
         case 'subtitle':
-          result.subtitle = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.subtitle = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'title':
-          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.title = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'link':
-          result.link = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.link = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'iconUrl':
-          result.iconUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.iconUrl = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'overlayIconUrl':
-          result.overlayIconUrl = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.overlayIconUrl = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'sinceId':
-          result.sinceId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.sinceId = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -408,21 +470,26 @@ class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
 }
 
 class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> {
+    implements
+        StructuredSerializer<
+            DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
     _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs';
+  final String wireName =
+      'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers,
+      DashboardApiGetWidgetItemsResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
           specifiedType: const FullType(BuiltMap, [
@@ -438,7 +505,8 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
+    final result =
+        DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -447,7 +515,8 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
@@ -464,7 +533,9 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
 }
 
 class _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer
-    implements StructuredSerializer<DashboardApiGetWidgetItemsResponseApplicationJson> {
+    implements
+        StructuredSerializer<
+            DashboardApiGetWidgetItemsResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetItemsResponseApplicationJson,
@@ -474,19 +545,22 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer
   final String wireName = 'DashboardApiGetWidgetItemsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers,
+      DashboardApiGetWidgetItemsResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(
+              DashboardApiGetWidgetItemsResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetWidgetItemsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DashboardApiGetWidgetItemsResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = DashboardApiGetWidgetItemsResponseApplicationJsonBuilder();
 
@@ -498,7 +572,8 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs))!
+                  specifiedType: const FullType(
+                      DashboardApiGetWidgetItemsResponseApplicationJson_Ocs))!
               as DashboardApiGetWidgetItemsResponseApplicationJson_Ocs);
           break;
       }
@@ -519,11 +594,14 @@ class _$WidgetItemsSerializer implements StructuredSerializer<WidgetItems> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'items',
-      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(WidgetItem)])),
+      serializers.serialize(object.items,
+          specifiedType: const FullType(BuiltList, [FullType(WidgetItem)])),
       'emptyContentMessage',
-      serializers.serialize(object.emptyContentMessage, specifiedType: const FullType(String)),
+      serializers.serialize(object.emptyContentMessage,
+          specifiedType: const FullType(String)),
       'halfEmptyContentMessage',
-      serializers.serialize(object.halfEmptyContentMessage, specifiedType: const FullType(String)),
+      serializers.serialize(object.halfEmptyContentMessage,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -542,14 +620,17 @@ class _$WidgetItemsSerializer implements StructuredSerializer<WidgetItems> {
       switch (key) {
         case 'items':
           result.items.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(WidgetItem)]))! as BuiltList<Object?>);
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(WidgetItem)]))!
+              as BuiltList<Object?>);
           break;
         case 'emptyContentMessage':
-          result.emptyContentMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.emptyContentMessage = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'halfEmptyContentMessage':
-          result.halfEmptyContentMessage =
-              serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.halfEmptyContentMessage = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -559,24 +640,30 @@ class _$WidgetItemsSerializer implements StructuredSerializer<WidgetItems> {
 }
 
 class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> {
+    implements
+        StructuredSerializer<
+            DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs';
+  final String wireName =
+      'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers,
+      DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)])),
+          specifiedType: const FullType(
+              BuiltMap, [FullType(String), FullType(WidgetItems)])),
     ];
 
     return result;
@@ -586,7 +673,8 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
+    final result =
+        DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -595,11 +683,13 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(WidgetItems)]))!);
           break;
       }
     }
@@ -609,7 +699,9 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
 }
 
 class _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer
-    implements StructuredSerializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson> {
+    implements
+        StructuredSerializer<
+            DashboardApiGetWidgetItemsV2ResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetItemsV2ResponseApplicationJson,
@@ -619,19 +711,22 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer
   final String wireName = 'DashboardApiGetWidgetItemsV2ResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsV2ResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers,
+      DashboardApiGetWidgetItemsV2ResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(
+              DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetWidgetItemsV2ResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DashboardApiGetWidgetItemsV2ResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder();
 
@@ -643,7 +738,8 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs))!
+                  specifiedType: const FullType(
+                      DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs))!
               as DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs);
           break;
       }
@@ -684,16 +780,23 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) =>
+      (OCSMetaBuilder()..update(updates))._build();
 
-  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._(
+      {required this.status,
+      required this.statuscode,
+      this.message,
+      this.totalitems,
+      this.itemsperpage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
     BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
@@ -733,7 +836,8 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
+class OCSMetaBuilder
+    implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -750,11 +854,13 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) =>
+      _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) =>
+      _$this._itemsperpage = itemsperpage;
 
   OCSMetaBuilder();
 
@@ -788,8 +894,10 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(
+                statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -822,14 +930,17 @@ class _$Widget_Buttons extends Widget_Buttons {
   factory _$Widget_Buttons([void Function(Widget_ButtonsBuilder)? updates]) =>
       (Widget_ButtonsBuilder()..update(updates))._build();
 
-  _$Widget_Buttons._({required this.type, required this.text, required this.link}) : super._() {
+  _$Widget_Buttons._(
+      {required this.type, required this.text, required this.link})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(type, r'Widget_Buttons', 'type');
     BuiltValueNullFieldError.checkNotNull(text, r'Widget_Buttons', 'text');
     BuiltValueNullFieldError.checkNotNull(link, r'Widget_Buttons', 'link');
   }
 
   @override
-  Widget_Buttons rebuild(void Function(Widget_ButtonsBuilder) updates) => (toBuilder()..update(updates)).build();
+  Widget_Buttons rebuild(void Function(Widget_ButtonsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   Widget_ButtonsBuilder toBuilder() => Widget_ButtonsBuilder()..replace(this);
@@ -837,7 +948,10 @@ class _$Widget_Buttons extends Widget_Buttons {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Widget_Buttons && type == other.type && text == other.text && link == other.link;
+    return other is Widget_Buttons &&
+        type == other.type &&
+        text == other.text &&
+        link == other.link;
   }
 
   @override
@@ -860,7 +974,10 @@ class _$Widget_Buttons extends Widget_Buttons {
   }
 }
 
-class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBuilder>, $Widget_ButtonsInterfaceBuilder {
+class Widget_ButtonsBuilder
+    implements
+        Builder<Widget_Buttons, Widget_ButtonsBuilder>,
+        $Widget_ButtonsInterfaceBuilder {
   _$Widget_Buttons? _$v;
 
   String? _type;
@@ -905,9 +1022,12 @@ class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBui
   _$Widget_Buttons _build() {
     final _$result = _$v ??
         _$Widget_Buttons._(
-            type: BuiltValueNullFieldError.checkNotNull(type, r'Widget_Buttons', 'type'),
-            text: BuiltValueNullFieldError.checkNotNull(text, r'Widget_Buttons', 'text'),
-            link: BuiltValueNullFieldError.checkNotNull(link, r'Widget_Buttons', 'link'));
+            type: BuiltValueNullFieldError.checkNotNull(
+                type, r'Widget_Buttons', 'type'),
+            text: BuiltValueNullFieldError.checkNotNull(
+                text, r'Widget_Buttons', 'text'),
+            link: BuiltValueNullFieldError.checkNotNull(
+                link, r'Widget_Buttons', 'link'));
     replace(_$result);
     return _$result;
   }
@@ -969,7 +1089,8 @@ class _$Widget extends Widget {
   @override
   final BuiltList<Widget_Buttons>? buttons;
 
-  factory _$Widget([void Function(WidgetBuilder)? updates]) => (WidgetBuilder()..update(updates))._build();
+  factory _$Widget([void Function(WidgetBuilder)? updates]) =>
+      (WidgetBuilder()..update(updates))._build();
 
   _$Widget._(
       {required this.id,
@@ -988,11 +1109,13 @@ class _$Widget extends Widget {
     BuiltValueNullFieldError.checkNotNull(order, r'Widget', 'order');
     BuiltValueNullFieldError.checkNotNull(iconClass, r'Widget', 'iconClass');
     BuiltValueNullFieldError.checkNotNull(iconUrl, r'Widget', 'iconUrl');
-    BuiltValueNullFieldError.checkNotNull(itemIconsRound, r'Widget', 'itemIconsRound');
+    BuiltValueNullFieldError.checkNotNull(
+        itemIconsRound, r'Widget', 'itemIconsRound');
   }
 
   @override
-  Widget rebuild(void Function(WidgetBuilder) updates) => (toBuilder()..update(updates)).build();
+  Widget rebuild(void Function(WidgetBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   WidgetBuilder toBuilder() => WidgetBuilder()..replace(this);
@@ -1047,7 +1170,8 @@ class _$Widget extends Widget {
   }
 }
 
-class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceBuilder {
+class WidgetBuilder
+    implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceBuilder {
   _$Widget? _$v;
 
   String? _id;
@@ -1076,19 +1200,25 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
 
   bool? _itemIconsRound;
   bool? get itemIconsRound => _$this._itemIconsRound;
-  set itemIconsRound(covariant bool? itemIconsRound) => _$this._itemIconsRound = itemIconsRound;
+  set itemIconsRound(covariant bool? itemIconsRound) =>
+      _$this._itemIconsRound = itemIconsRound;
 
   ListBuilder<int>? _itemApiVersions;
-  ListBuilder<int> get itemApiVersions => _$this._itemApiVersions ??= ListBuilder<int>();
-  set itemApiVersions(covariant ListBuilder<int>? itemApiVersions) => _$this._itemApiVersions = itemApiVersions;
+  ListBuilder<int> get itemApiVersions =>
+      _$this._itemApiVersions ??= ListBuilder<int>();
+  set itemApiVersions(covariant ListBuilder<int>? itemApiVersions) =>
+      _$this._itemApiVersions = itemApiVersions;
 
   int? _reloadInterval;
   int? get reloadInterval => _$this._reloadInterval;
-  set reloadInterval(covariant int? reloadInterval) => _$this._reloadInterval = reloadInterval;
+  set reloadInterval(covariant int? reloadInterval) =>
+      _$this._reloadInterval = reloadInterval;
 
   ListBuilder<Widget_Buttons>? _buttons;
-  ListBuilder<Widget_Buttons> get buttons => _$this._buttons ??= ListBuilder<Widget_Buttons>();
-  set buttons(covariant ListBuilder<Widget_Buttons>? buttons) => _$this._buttons = buttons;
+  ListBuilder<Widget_Buttons> get buttons =>
+      _$this._buttons ??= ListBuilder<Widget_Buttons>();
+  set buttons(covariant ListBuilder<Widget_Buttons>? buttons) =>
+      _$this._buttons = buttons;
 
   WidgetBuilder();
 
@@ -1130,12 +1260,17 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
       _$result = _$v ??
           _$Widget._(
               id: BuiltValueNullFieldError.checkNotNull(id, r'Widget', 'id'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'Widget', 'title'),
-              order: BuiltValueNullFieldError.checkNotNull(order, r'Widget', 'order'),
-              iconClass: BuiltValueNullFieldError.checkNotNull(iconClass, r'Widget', 'iconClass'),
-              iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'Widget', 'iconUrl'),
+              title: BuiltValueNullFieldError.checkNotNull(
+                  title, r'Widget', 'title'),
+              order: BuiltValueNullFieldError.checkNotNull(
+                  order, r'Widget', 'order'),
+              iconClass: BuiltValueNullFieldError.checkNotNull(
+                  iconClass, r'Widget', 'iconClass'),
+              iconUrl: BuiltValueNullFieldError.checkNotNull(
+                  iconUrl, r'Widget', 'iconUrl'),
               widgetUrl: widgetUrl,
-              itemIconsRound: BuiltValueNullFieldError.checkNotNull(itemIconsRound, r'Widget', 'itemIconsRound'),
+              itemIconsRound: BuiltValueNullFieldError.checkNotNull(
+                  itemIconsRound, r'Widget', 'itemIconsRound'),
               itemApiVersions: _itemApiVersions?.build(),
               reloadInterval: reloadInterval,
               buttons: _buttons?.build());
@@ -1148,7 +1283,8 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
         _$failedField = 'buttons';
         _buttons?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Widget', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Widget', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1158,8 +1294,12 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
 }
 
 abstract mixin class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($DashboardApiGetWidgetsResponseApplicationJson_OcsInterface other);
-  void update(void Function($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void replace(
+      $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface other);
+  void update(
+      void Function(
+              $DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1167,24 +1307,35 @@ abstract mixin class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface
   set data(MapBuilder<String, Widget>? data);
 }
 
-class _$DashboardApiGetWidgetsResponseApplicationJson_Ocs extends DashboardApiGetWidgetsResponseApplicationJson_Ocs {
+class _$DashboardApiGetWidgetsResponseApplicationJson_Ocs
+    extends DashboardApiGetWidgetsResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
   final BuiltMap<String, Widget> data;
 
   factory _$DashboardApiGetWidgetsResponseApplicationJson_Ocs(
-          [void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(
+                  DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder()
+            ..update(updates))
+          ._build();
 
-  _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', 'data');
+  _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', 'data');
   }
 
   @override
   DashboardApiGetWidgetsResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(
+                  DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -1194,7 +1345,9 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_Ocs extends DashboardApiGe
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DashboardApiGetWidgetsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DashboardApiGetWidgetsResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -1208,7 +1361,8 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_Ocs extends DashboardApiGe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetsResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'DashboardApiGetWidgetsResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -1227,7 +1381,8 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, Widget>? _data;
-  MapBuilder<String, Widget> get data => _$this._data ??= MapBuilder<String, Widget>();
+  MapBuilder<String, Widget> get data =>
+      _$this._data ??= MapBuilder<String, Widget>();
   set data(covariant MapBuilder<String, Widget>? data) => _$this._data = data;
 
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
@@ -1243,13 +1398,16 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant DashboardApiGetWidgetsResponseApplicationJson_Ocs other) {
+  void replace(
+      covariant DashboardApiGetWidgetsResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetsResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -1259,7 +1417,9 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
   _$DashboardApiGetWidgetsResponseApplicationJson_Ocs _build() {
     _$DashboardApiGetWidgetsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1269,7 +1429,9 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'DashboardApiGetWidgetsResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1280,26 +1442,35 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
 
 abstract mixin class $DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder {
   void replace($DashboardApiGetWidgetsResponseApplicationJsonInterface other);
-  void update(void Function($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates);
+  void update(
+      void Function(
+              $DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder)
+          updates);
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$DashboardApiGetWidgetsResponseApplicationJson extends DashboardApiGetWidgetsResponseApplicationJson {
+class _$DashboardApiGetWidgetsResponseApplicationJson
+    extends DashboardApiGetWidgetsResponseApplicationJson {
   @override
   final DashboardApiGetWidgetsResponseApplicationJson_Ocs ocs;
 
   factory _$DashboardApiGetWidgetsResponseApplicationJson(
-          [void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiGetWidgetsResponseApplicationJsonBuilder()..update(updates))._build();
+          [void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)?
+              updates]) =>
+      (DashboardApiGetWidgetsResponseApplicationJsonBuilder()..update(updates))
+          ._build();
 
-  _$DashboardApiGetWidgetsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiGetWidgetsResponseApplicationJson', 'ocs');
+  _$DashboardApiGetWidgetsResponseApplicationJson._({required this.ocs})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'DashboardApiGetWidgetsResponseApplicationJson', 'ocs');
   }
 
   @override
   DashboardApiGetWidgetsResponseApplicationJson rebuild(
-          void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder) updates) =>
+          void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -1309,7 +1480,8 @@ class _$DashboardApiGetWidgetsResponseApplicationJson extends DashboardApiGetWid
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DashboardApiGetWidgetsResponseApplicationJson && ocs == other.ocs;
+    return other is DashboardApiGetWidgetsResponseApplicationJson &&
+        ocs == other.ocs;
   }
 
   @override
@@ -1322,20 +1494,28 @@ class _$DashboardApiGetWidgetsResponseApplicationJson extends DashboardApiGetWid
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetsResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(
+            r'DashboardApiGetWidgetsResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
   }
 }
 
 class DashboardApiGetWidgetsResponseApplicationJsonBuilder
     implements
-        Builder<DashboardApiGetWidgetsResponseApplicationJson, DashboardApiGetWidgetsResponseApplicationJsonBuilder>,
+        Builder<DashboardApiGetWidgetsResponseApplicationJson,
+            DashboardApiGetWidgetsResponseApplicationJsonBuilder>,
         $DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder {
   _$DashboardApiGetWidgetsResponseApplicationJson? _$v;
 
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+      _$this._ocs ??=
+          DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
+  set ocs(
+          covariant DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder?
+              ocs) =>
+      _$this._ocs = ocs;
 
   DashboardApiGetWidgetsResponseApplicationJsonBuilder();
 
@@ -1355,7 +1535,9 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
   }
 
   @override
-  void update(void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -1365,14 +1547,18 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
   _$DashboardApiGetWidgetsResponseApplicationJson _build() {
     _$DashboardApiGetWidgetsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetWidgetsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'DashboardApiGetWidgetsResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'DashboardApiGetWidgetsResponseApplicationJson',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1417,7 +1603,8 @@ class _$WidgetItem extends WidgetItem {
   @override
   final String sinceId;
 
-  factory _$WidgetItem([void Function(WidgetItemBuilder)? updates]) => (WidgetItemBuilder()..update(updates))._build();
+  factory _$WidgetItem([void Function(WidgetItemBuilder)? updates]) =>
+      (WidgetItemBuilder()..update(updates))._build();
 
   _$WidgetItem._(
       {required this.subtitle,
@@ -1435,7 +1622,8 @@ class _$WidgetItem extends WidgetItem {
   }
 
   @override
-  WidgetItem rebuild(void Function(WidgetItemBuilder) updates) => (toBuilder()..update(updates)).build();
+  WidgetItem rebuild(void Function(WidgetItemBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   WidgetItemBuilder toBuilder() => WidgetItemBuilder()..replace(this);
@@ -1478,7 +1666,10 @@ class _$WidgetItem extends WidgetItem {
   }
 }
 
-class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $WidgetItemInterfaceBuilder {
+class WidgetItemBuilder
+    implements
+        Builder<WidgetItem, WidgetItemBuilder>,
+        $WidgetItemInterfaceBuilder {
   _$WidgetItem? _$v;
 
   String? _subtitle;
@@ -1499,7 +1690,8 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
 
   String? _overlayIconUrl;
   String? get overlayIconUrl => _$this._overlayIconUrl;
-  set overlayIconUrl(covariant String? overlayIconUrl) => _$this._overlayIconUrl = overlayIconUrl;
+  set overlayIconUrl(covariant String? overlayIconUrl) =>
+      _$this._overlayIconUrl = overlayIconUrl;
 
   String? _sinceId;
   String? get sinceId => _$this._sinceId;
@@ -1538,20 +1730,29 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
   _$WidgetItem _build() {
     final _$result = _$v ??
         _$WidgetItem._(
-            subtitle: BuiltValueNullFieldError.checkNotNull(subtitle, r'WidgetItem', 'subtitle'),
-            title: BuiltValueNullFieldError.checkNotNull(title, r'WidgetItem', 'title'),
-            link: BuiltValueNullFieldError.checkNotNull(link, r'WidgetItem', 'link'),
-            iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'WidgetItem', 'iconUrl'),
+            subtitle: BuiltValueNullFieldError.checkNotNull(
+                subtitle, r'WidgetItem', 'subtitle'),
+            title: BuiltValueNullFieldError.checkNotNull(
+                title, r'WidgetItem', 'title'),
+            link: BuiltValueNullFieldError.checkNotNull(
+                link, r'WidgetItem', 'link'),
+            iconUrl: BuiltValueNullFieldError.checkNotNull(
+                iconUrl, r'WidgetItem', 'iconUrl'),
             overlayIconUrl: overlayIconUrl,
-            sinceId: BuiltValueNullFieldError.checkNotNull(sinceId, r'WidgetItem', 'sinceId'));
+            sinceId: BuiltValueNullFieldError.checkNotNull(
+                sinceId, r'WidgetItem', 'sinceId'));
     replace(_$result);
     return _$result;
   }
 }
 
 abstract mixin class $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface other);
-  void update(void Function($DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void replace(
+      $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface other);
+  void update(
+      void Function(
+              $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1567,27 +1768,40 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   final BuiltMap<String, BuiltList<WidgetItem>> data;
 
   factory _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs(
-          [void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(
+                  DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()
+            ..update(updates))
+          ._build();
 
-  _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', 'data');
+  _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', 'data');
   }
 
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(
+                  DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder toBuilder() =>
-      DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DashboardApiGetWidgetItemsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DashboardApiGetWidgetItemsResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -1601,7 +1815,8 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -1620,8 +1835,10 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, BuiltList<WidgetItem>>? _data;
-  MapBuilder<String, BuiltList<WidgetItem>> get data => _$this._data ??= MapBuilder<String, BuiltList<WidgetItem>>();
-  set data(covariant MapBuilder<String, BuiltList<WidgetItem>>? data) => _$this._data = data;
+  MapBuilder<String, BuiltList<WidgetItem>> get data =>
+      _$this._data ??= MapBuilder<String, BuiltList<WidgetItem>>();
+  set data(covariant MapBuilder<String, BuiltList<WidgetItem>>? data) =>
+      _$this._data = data;
 
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
 
@@ -1636,13 +1853,17 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant DashboardApiGetWidgetItemsResponseApplicationJson_Ocs other) {
+  void replace(
+      covariant DashboardApiGetWidgetItemsResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(
+              DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -1652,8 +1873,9 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
   _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs _build() {
     _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1663,7 +1885,9 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1673,27 +1897,40 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
 }
 
 abstract mixin class $DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder {
-  void replace($DashboardApiGetWidgetItemsResponseApplicationJsonInterface other);
-  void update(void Function($DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder) updates);
+  void replace(
+      $DashboardApiGetWidgetItemsResponseApplicationJsonInterface other);
+  void update(
+      void Function(
+              $DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder)
+          updates);
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$DashboardApiGetWidgetItemsResponseApplicationJson extends DashboardApiGetWidgetItemsResponseApplicationJson {
+class _$DashboardApiGetWidgetItemsResponseApplicationJson
+    extends DashboardApiGetWidgetItemsResponseApplicationJson {
   @override
   final DashboardApiGetWidgetItemsResponseApplicationJson_Ocs ocs;
 
   factory _$DashboardApiGetWidgetItemsResponseApplicationJson(
-          [void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiGetWidgetItemsResponseApplicationJsonBuilder()..update(updates))._build();
+          [void Function(
+                  DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)?
+              updates]) =>
+      (DashboardApiGetWidgetItemsResponseApplicationJsonBuilder()
+            ..update(updates))
+          ._build();
 
-  _$DashboardApiGetWidgetItemsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiGetWidgetItemsResponseApplicationJson', 'ocs');
+  _$DashboardApiGetWidgetItemsResponseApplicationJson._({required this.ocs})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'DashboardApiGetWidgetItemsResponseApplicationJson', 'ocs');
   }
 
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson rebuild(
-          void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder) updates) =>
+          void Function(
+                  DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -1703,7 +1940,8 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson extends DashboardApiGe
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DashboardApiGetWidgetItemsResponseApplicationJson && ocs == other.ocs;
+    return other is DashboardApiGetWidgetItemsResponseApplicationJson &&
+        ocs == other.ocs;
   }
 
   @override
@@ -1716,7 +1954,9 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson extends DashboardApiGe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsResponseApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(
+            r'DashboardApiGetWidgetItemsResponseApplicationJson')
+          ..add('ocs', ocs))
         .toString();
   }
 }
@@ -1730,8 +1970,12 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
 
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+      _$this._ocs ??=
+          DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
+  set ocs(
+          covariant DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder?
+              ocs) =>
+      _$this._ocs = ocs;
 
   DashboardApiGetWidgetItemsResponseApplicationJsonBuilder();
 
@@ -1745,13 +1989,16 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant DashboardApiGetWidgetItemsResponseApplicationJson other) {
+  void replace(
+      covariant DashboardApiGetWidgetItemsResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetItemsResponseApplicationJson;
   }
 
   @override
-  void update(void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -1761,7 +2008,9 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
   _$DashboardApiGetWidgetItemsResponseApplicationJson _build() {
     _$DashboardApiGetWidgetItemsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetWidgetItemsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsResponseApplicationJson._(
+              ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1769,7 +2018,9 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetItemsResponseApplicationJson', _$failedField, e.toString());
+            r'DashboardApiGetWidgetItemsResponseApplicationJson',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1802,15 +2053,21 @@ class _$WidgetItems extends WidgetItems {
   factory _$WidgetItems([void Function(WidgetItemsBuilder)? updates]) =>
       (WidgetItemsBuilder()..update(updates))._build();
 
-  _$WidgetItems._({required this.items, required this.emptyContentMessage, required this.halfEmptyContentMessage})
+  _$WidgetItems._(
+      {required this.items,
+      required this.emptyContentMessage,
+      required this.halfEmptyContentMessage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(items, r'WidgetItems', 'items');
-    BuiltValueNullFieldError.checkNotNull(emptyContentMessage, r'WidgetItems', 'emptyContentMessage');
-    BuiltValueNullFieldError.checkNotNull(halfEmptyContentMessage, r'WidgetItems', 'halfEmptyContentMessage');
+    BuiltValueNullFieldError.checkNotNull(
+        emptyContentMessage, r'WidgetItems', 'emptyContentMessage');
+    BuiltValueNullFieldError.checkNotNull(
+        halfEmptyContentMessage, r'WidgetItems', 'halfEmptyContentMessage');
   }
 
   @override
-  WidgetItems rebuild(void Function(WidgetItemsBuilder) updates) => (toBuilder()..update(updates)).build();
+  WidgetItems rebuild(void Function(WidgetItemsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   WidgetItemsBuilder toBuilder() => WidgetItemsBuilder()..replace(this);
@@ -1844,16 +2101,21 @@ class _$WidgetItems extends WidgetItems {
   }
 }
 
-class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $WidgetItemsInterfaceBuilder {
+class WidgetItemsBuilder
+    implements
+        Builder<WidgetItems, WidgetItemsBuilder>,
+        $WidgetItemsInterfaceBuilder {
   _$WidgetItems? _$v;
 
   ListBuilder<WidgetItem>? _items;
-  ListBuilder<WidgetItem> get items => _$this._items ??= ListBuilder<WidgetItem>();
+  ListBuilder<WidgetItem> get items =>
+      _$this._items ??= ListBuilder<WidgetItem>();
   set items(covariant ListBuilder<WidgetItem>? items) => _$this._items = items;
 
   String? _emptyContentMessage;
   String? get emptyContentMessage => _$this._emptyContentMessage;
-  set emptyContentMessage(covariant String? emptyContentMessage) => _$this._emptyContentMessage = emptyContentMessage;
+  set emptyContentMessage(covariant String? emptyContentMessage) =>
+      _$this._emptyContentMessage = emptyContentMessage;
 
   String? _halfEmptyContentMessage;
   String? get halfEmptyContentMessage => _$this._halfEmptyContentMessage;
@@ -1893,17 +2155,20 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
       _$result = _$v ??
           _$WidgetItems._(
               items: items.build(),
-              emptyContentMessage:
-                  BuiltValueNullFieldError.checkNotNull(emptyContentMessage, r'WidgetItems', 'emptyContentMessage'),
+              emptyContentMessage: BuiltValueNullFieldError.checkNotNull(
+                  emptyContentMessage, r'WidgetItems', 'emptyContentMessage'),
               halfEmptyContentMessage: BuiltValueNullFieldError.checkNotNull(
-                  halfEmptyContentMessage, r'WidgetItems', 'halfEmptyContentMessage'));
+                  halfEmptyContentMessage,
+                  r'WidgetItems',
+                  'halfEmptyContentMessage'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         items.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'WidgetItems', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'WidgetItems', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1913,8 +2178,12 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
 }
 
 abstract mixin class $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface other);
-  void update(void Function($DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void replace(
+      $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface other);
+  void update(
+      void Function(
+              $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1930,27 +2199,40 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   final BuiltMap<String, WidgetItems> data;
 
   factory _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs(
-          [void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(
+                  DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()
+            ..update(updates))
+          ._build();
 
-  _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', 'data');
+  _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta,
+        r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data,
+        r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', 'data');
   }
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(
+                  DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder toBuilder() =>
-      DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -1964,7 +2246,8 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -1983,8 +2266,10 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, WidgetItems>? _data;
-  MapBuilder<String, WidgetItems> get data => _$this._data ??= MapBuilder<String, WidgetItems>();
-  set data(covariant MapBuilder<String, WidgetItems>? data) => _$this._data = data;
+  MapBuilder<String, WidgetItems> get data =>
+      _$this._data ??= MapBuilder<String, WidgetItems>();
+  set data(covariant MapBuilder<String, WidgetItems>? data) =>
+      _$this._data = data;
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
 
@@ -1999,13 +2284,17 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs other) {
+  void replace(
+      covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(
+              DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -2015,8 +2304,9 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs _build() {
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2026,7 +2316,9 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -2036,8 +2328,12 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
 }
 
 abstract mixin class $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder {
-  void replace($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface other);
-  void update(void Function($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder) updates);
+  void replace(
+      $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface other);
+  void update(
+      void Function(
+              $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder)
+          updates);
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2048,26 +2344,36 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson
   final DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs ocs;
 
   factory _$DashboardApiGetWidgetItemsV2ResponseApplicationJson(
-          [void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()..update(updates))._build();
+          [void Function(
+                  DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)?
+              updates]) =>
+      (DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()
+            ..update(updates))
+          ._build();
 
-  _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiGetWidgetItemsV2ResponseApplicationJson', 'ocs');
+  _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._({required this.ocs})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'DashboardApiGetWidgetItemsV2ResponseApplicationJson', 'ocs');
   }
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson rebuild(
-          void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder) updates) =>
+          void Function(
+                  DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder toBuilder() =>
-      DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()..replace(this);
+      DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DashboardApiGetWidgetItemsV2ResponseApplicationJson && ocs == other.ocs;
+    return other is DashboardApiGetWidgetItemsV2ResponseApplicationJson &&
+        ocs == other.ocs;
   }
 
   @override
@@ -2080,7 +2386,9 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsV2ResponseApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(
+            r'DashboardApiGetWidgetItemsV2ResponseApplicationJson')
+          ..add('ocs', ocs))
         .toString();
   }
 }
@@ -2094,8 +2402,12 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
-  set ocs(covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+      _$this._ocs ??=
+          DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
+  set ocs(
+          covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder?
+              ocs) =>
+      _$this._ocs = ocs;
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder();
 
@@ -2109,13 +2421,16 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson other) {
+  void replace(
+      covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetItemsV2ResponseApplicationJson;
   }
 
   @override
-  void update(void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -2125,7 +2440,9 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson _build() {
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(
+              ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2133,7 +2450,9 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetItemsV2ResponseApplicationJson', _$failedField, e.toString());
+            r'DashboardApiGetWidgetItemsV2ResponseApplicationJson',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }

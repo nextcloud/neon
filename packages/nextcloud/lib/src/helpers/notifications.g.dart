@@ -6,7 +6,8 @@ part of 'notifications.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DecryptedSubject _$DecryptedSubjectFromJson(Map<String, dynamic> json) => DecryptedSubject(
+DecryptedSubject _$DecryptedSubjectFromJson(Map<String, dynamic> json) =>
+    DecryptedSubject(
       nid: json['nid'] as int?,
       app: json['app'] as String?,
       subject: json['subject'] as String?,
@@ -16,7 +17,8 @@ DecryptedSubject _$DecryptedSubjectFromJson(Map<String, dynamic> json) => Decryp
       deleteAll: json['delete-all'] as bool?,
     );
 
-Map<String, dynamic> _$DecryptedSubjectToJson(DecryptedSubject instance) => <String, dynamic>{
+Map<String, dynamic> _$DecryptedSubjectToJson(DecryptedSubject instance) =>
+    <String, dynamic>{
       'nid': instance.nid,
       'app': instance.app,
       'subject': instance.subject,

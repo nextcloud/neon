@@ -77,15 +77,18 @@ void main() {
       });
 
       test('Get favorites', () async {
-        await client.weatherStatus.weatherStatus.setFavorites(favorites: BuiltList(['a', 'b']));
+        await client.weatherStatus.weatherStatus
+            .setFavorites(favorites: BuiltList(['a', 'b']));
 
-        final response = await client.weatherStatus.weatherStatus.getFavorites();
+        final response =
+            await client.weatherStatus.weatherStatus.getFavorites();
         expect(response.statusCode, 200);
         expect(response.body.ocs.data, equals(['a', 'b']));
       });
 
       test('Set favorites', () async {
-        final response = await client.weatherStatus.weatherStatus.setFavorites(favorites: BuiltList(['a', 'b']));
+        final response = await client.weatherStatus.weatherStatus
+            .setFavorites(favorites: BuiltList(['a', 'b']));
         expect(response.statusCode, 200);
         expect(response.body.ocs.data.success, true);
       });

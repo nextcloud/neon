@@ -6,18 +6,23 @@ part of 'settings.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<LogSettingsLogSettingsDownloadHeaders> _$logSettingsLogSettingsDownloadHeadersSerializer =
+Serializer<LogSettingsLogSettingsDownloadHeaders>
+    _$logSettingsLogSettingsDownloadHeadersSerializer =
     _$LogSettingsLogSettingsDownloadHeadersSerializer();
 
 class _$LogSettingsLogSettingsDownloadHeadersSerializer
     implements StructuredSerializer<LogSettingsLogSettingsDownloadHeaders> {
   @override
-  final Iterable<Type> types = const [LogSettingsLogSettingsDownloadHeaders, _$LogSettingsLogSettingsDownloadHeaders];
+  final Iterable<Type> types = const [
+    LogSettingsLogSettingsDownloadHeaders,
+    _$LogSettingsLogSettingsDownloadHeaders
+  ];
   @override
   final String wireName = 'LogSettingsLogSettingsDownloadHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, LogSettingsLogSettingsDownloadHeaders object,
+  Iterable<Object?> serialize(
+      Serializers serializers, LogSettingsLogSettingsDownloadHeaders object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -25,13 +30,15 @@ class _$LogSettingsLogSettingsDownloadHeadersSerializer
     if (value != null) {
       result
         ..add('content-disposition')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  LogSettingsLogSettingsDownloadHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+  LogSettingsLogSettingsDownloadHeaders deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = LogSettingsLogSettingsDownloadHeadersBuilder();
 
@@ -42,7 +49,8 @@ class _$LogSettingsLogSettingsDownloadHeadersSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'content-disposition':
-          result.contentDisposition = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.contentDisposition = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -53,23 +61,31 @@ class _$LogSettingsLogSettingsDownloadHeadersSerializer
 
 abstract mixin class $LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
   void replace($LogSettingsLogSettingsDownloadHeadersInterface other);
-  void update(void Function($LogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates);
+  void update(
+      void Function($LogSettingsLogSettingsDownloadHeadersInterfaceBuilder)
+          updates);
   String? get contentDisposition;
   set contentDisposition(String? contentDisposition);
 }
 
-class _$LogSettingsLogSettingsDownloadHeaders extends LogSettingsLogSettingsDownloadHeaders {
+class _$LogSettingsLogSettingsDownloadHeaders
+    extends LogSettingsLogSettingsDownloadHeaders {
   @override
   final String? contentDisposition;
 
   factory _$LogSettingsLogSettingsDownloadHeaders(
-          [void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? updates]) =>
-      (LogSettingsLogSettingsDownloadHeadersBuilder()..update(updates))._build();
+          [void Function(LogSettingsLogSettingsDownloadHeadersBuilder)?
+              updates]) =>
+      (LogSettingsLogSettingsDownloadHeadersBuilder()..update(updates))
+          ._build();
 
-  _$LogSettingsLogSettingsDownloadHeaders._({this.contentDisposition}) : super._();
+  _$LogSettingsLogSettingsDownloadHeaders._({this.contentDisposition})
+      : super._();
 
   @override
-  LogSettingsLogSettingsDownloadHeaders rebuild(void Function(LogSettingsLogSettingsDownloadHeadersBuilder) updates) =>
+  LogSettingsLogSettingsDownloadHeaders rebuild(
+          void Function(LogSettingsLogSettingsDownloadHeadersBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -79,7 +95,8 @@ class _$LogSettingsLogSettingsDownloadHeaders extends LogSettingsLogSettingsDown
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is LogSettingsLogSettingsDownloadHeaders && contentDisposition == other.contentDisposition;
+    return other is LogSettingsLogSettingsDownloadHeaders &&
+        contentDisposition == other.contentDisposition;
   }
 
   @override
@@ -92,7 +109,8 @@ class _$LogSettingsLogSettingsDownloadHeaders extends LogSettingsLogSettingsDown
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'LogSettingsLogSettingsDownloadHeaders')
+    return (newBuiltValueToStringHelper(
+            r'LogSettingsLogSettingsDownloadHeaders')
           ..add('contentDisposition', contentDisposition))
         .toString();
   }
@@ -100,13 +118,15 @@ class _$LogSettingsLogSettingsDownloadHeaders extends LogSettingsLogSettingsDown
 
 class LogSettingsLogSettingsDownloadHeadersBuilder
     implements
-        Builder<LogSettingsLogSettingsDownloadHeaders, LogSettingsLogSettingsDownloadHeadersBuilder>,
+        Builder<LogSettingsLogSettingsDownloadHeaders,
+            LogSettingsLogSettingsDownloadHeadersBuilder>,
         $LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
   _$LogSettingsLogSettingsDownloadHeaders? _$v;
 
   String? _contentDisposition;
   String? get contentDisposition => _$this._contentDisposition;
-  set contentDisposition(covariant String? contentDisposition) => _$this._contentDisposition = contentDisposition;
+  set contentDisposition(covariant String? contentDisposition) =>
+      _$this._contentDisposition = contentDisposition;
 
   LogSettingsLogSettingsDownloadHeadersBuilder();
 
@@ -126,7 +146,8 @@ class LogSettingsLogSettingsDownloadHeadersBuilder
   }
 
   @override
-  void update(void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? updates) {
+  void update(
+      void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -134,7 +155,9 @@ class LogSettingsLogSettingsDownloadHeadersBuilder
   LogSettingsLogSettingsDownloadHeaders build() => _build();
 
   _$LogSettingsLogSettingsDownloadHeaders _build() {
-    final _$result = _$v ?? _$LogSettingsLogSettingsDownloadHeaders._(contentDisposition: contentDisposition);
+    final _$result = _$v ??
+        _$LogSettingsLogSettingsDownloadHeaders._(
+            contentDisposition: contentDisposition);
     replace(_$result);
     return _$result;
   }

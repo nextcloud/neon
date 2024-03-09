@@ -23,25 +23,29 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
     if (value != null) {
       result
         ..add('only-numbers')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.minLength;
     if (value != null) {
       result
         ..add('min-length')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.maxLength;
     if (value != null) {
       result
         ..add('max-length')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.multipleChecks;
     if (value != null) {
       result
         ..add('multiple-checks')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -58,16 +62,20 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
       final Object? value = iterator.current;
       switch (key) {
         case 'only-numbers':
-          result.onlyNumbers = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.onlyNumbers = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'min-length':
-          result.minLength = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.minLength = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'max-length':
-          result.maxLength = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.maxLength = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'multiple-checks':
-          result.multipleChecks = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.multipleChecks = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -102,12 +110,16 @@ class _$TestObject extends TestObject {
   @override
   final String? multipleChecks;
 
-  factory _$TestObject([void Function(TestObjectBuilder)? updates]) => (TestObjectBuilder()..update(updates))._build();
+  factory _$TestObject([void Function(TestObjectBuilder)? updates]) =>
+      (TestObjectBuilder()..update(updates))._build();
 
-  _$TestObject._({this.onlyNumbers, this.minLength, this.maxLength, this.multipleChecks}) : super._();
+  _$TestObject._(
+      {this.onlyNumbers, this.minLength, this.maxLength, this.multipleChecks})
+      : super._();
 
   @override
-  TestObject rebuild(void Function(TestObjectBuilder) updates) => (toBuilder()..update(updates)).build();
+  TestObject rebuild(void Function(TestObjectBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   TestObjectBuilder toBuilder() => TestObjectBuilder()..replace(this);
@@ -144,12 +156,16 @@ class _$TestObject extends TestObject {
   }
 }
 
-class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $TestObjectInterfaceBuilder {
+class TestObjectBuilder
+    implements
+        Builder<TestObject, TestObjectBuilder>,
+        $TestObjectInterfaceBuilder {
   _$TestObject? _$v;
 
   String? _onlyNumbers;
   String? get onlyNumbers => _$this._onlyNumbers;
-  set onlyNumbers(covariant String? onlyNumbers) => _$this._onlyNumbers = onlyNumbers;
+  set onlyNumbers(covariant String? onlyNumbers) =>
+      _$this._onlyNumbers = onlyNumbers;
 
   String? _minLength;
   String? get minLength => _$this._minLength;
@@ -161,7 +177,8 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
 
   String? _multipleChecks;
   String? get multipleChecks => _$this._multipleChecks;
-  set multipleChecks(covariant String? multipleChecks) => _$this._multipleChecks = multipleChecks;
+  set multipleChecks(covariant String? multipleChecks) =>
+      _$this._multipleChecks = multipleChecks;
 
   TestObjectBuilder();
 
@@ -195,7 +212,10 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
     TestObject._validate(this);
     final _$result = _$v ??
         _$TestObject._(
-            onlyNumbers: onlyNumbers, minLength: minLength, maxLength: maxLength, multipleChecks: multipleChecks);
+            onlyNumbers: onlyNumbers,
+            minLength: minLength,
+            maxLength: maxLength,
+            multipleChecks: multipleChecks);
     replace(_$result);
     return _$result;
   }

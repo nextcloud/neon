@@ -17,7 +17,8 @@ Mount_Type _$valueOfMount_Type(String name) {
   }
 }
 
-final BuiltSet<Mount_Type> _$mountTypeValues = BuiltSet<Mount_Type>(const <Mount_Type>[
+final BuiltSet<Mount_Type> _$mountTypeValues =
+    BuiltSet<Mount_Type>(const <Mount_Type>[
   _$mountTypeDir,
 ]);
 
@@ -35,13 +36,16 @@ Mount_Scope _$valueOfMount_Scope(String name) {
   }
 }
 
-final BuiltSet<Mount_Scope> _$mountScopeValues = BuiltSet<Mount_Scope>(const <Mount_Scope>[
+final BuiltSet<Mount_Scope> _$mountScopeValues =
+    BuiltSet<Mount_Scope>(const <Mount_Scope>[
   _$mountScopeSystem,
   _$mountScopePersonal,
 ]);
 
-const StorageConfig_Type _$storageConfigTypePersonal = StorageConfig_Type._('personal');
-const StorageConfig_Type _$storageConfigTypeSystem = StorageConfig_Type._('system');
+const StorageConfig_Type _$storageConfigTypePersonal =
+    StorageConfig_Type._('personal');
+const StorageConfig_Type _$storageConfigTypeSystem =
+    StorageConfig_Type._('system');
 
 StorageConfig_Type _$valueOfStorageConfig_Type(String name) {
   switch (name) {
@@ -54,17 +58,21 @@ StorageConfig_Type _$valueOfStorageConfig_Type(String name) {
   }
 }
 
-final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues = BuiltSet<StorageConfig_Type>(const <StorageConfig_Type>[
+final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues =
+    BuiltSet<StorageConfig_Type>(const <StorageConfig_Type>[
   _$storageConfigTypePersonal,
   _$storageConfigTypeSystem,
 ]);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<StorageConfig> _$storageConfigSerializer = _$StorageConfigSerializer();
+Serializer<StorageConfig> _$storageConfigSerializer =
+    _$StorageConfigSerializer();
 Serializer<Mount> _$mountSerializer = _$MountSerializer();
-Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> _$apiGetUserMountsResponseApplicationJsonOcsSerializer =
+Serializer<ApiGetUserMountsResponseApplicationJson_Ocs>
+    _$apiGetUserMountsResponseApplicationJsonOcsSerializer =
     _$ApiGetUserMountsResponseApplicationJson_OcsSerializer();
-Serializer<ApiGetUserMountsResponseApplicationJson> _$apiGetUserMountsResponseApplicationJsonSerializer =
+Serializer<ApiGetUserMountsResponseApplicationJson>
+    _$apiGetUserMountsResponseApplicationJsonSerializer =
     _$ApiGetUserMountsResponseApplicationJsonSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
@@ -78,28 +86,33 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status,
+          specifiedType: const FullType(String)),
       'statuscode',
-      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+      serializers.serialize(object.statuscode,
+          specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.message;
     if (value != null) {
       result
         ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.totalitems;
     if (value != null) {
       result
         ..add('totalitems')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.itemsperpage;
     if (value != null) {
       result
         ..add('itemsperpage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -116,19 +129,24 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       final Object? value = iterator.current;
       switch (key) {
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'statuscode':
-          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.statuscode = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'totalitems':
-          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.totalitems = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'itemsperpage':
-          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.itemsperpage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -148,31 +166,39 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'authMechanism',
-      serializers.serialize(object.authMechanism, specifiedType: const FullType(String)),
+      serializers.serialize(object.authMechanism,
+          specifiedType: const FullType(String)),
       'backend',
-      serializers.serialize(object.backend, specifiedType: const FullType(String)),
+      serializers.serialize(object.backend,
+          specifiedType: const FullType(String)),
       'backendOptions',
       serializers.serialize(object.backendOptions,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+          specifiedType: const FullType(
+              BuiltMap, [FullType(String), FullType(JsonObject)])),
       'mountPoint',
-      serializers.serialize(object.mountPoint, specifiedType: const FullType(String)),
+      serializers.serialize(object.mountPoint,
+          specifiedType: const FullType(String)),
       'type',
-      serializers.serialize(object.type, specifiedType: const FullType(StorageConfig_Type)),
+      serializers.serialize(object.type,
+          specifiedType: const FullType(StorageConfig_Type)),
       'userProvided',
-      serializers.serialize(object.userProvided, specifiedType: const FullType(bool)),
+      serializers.serialize(object.userProvided,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.applicableGroups;
     if (value != null) {
       result
         ..add('applicableGroups')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(String)])));
     }
     value = object.applicableUsers;
     if (value != null) {
       result
         ..add('applicableUsers')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(String)])));
     }
     value = object.id;
     if (value != null) {
@@ -185,7 +211,8 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
       result
         ..add('mountOptions')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])));
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType(JsonObject)])));
     }
     value = object.priority;
     if (value != null) {
@@ -203,13 +230,15 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
     if (value != null) {
       result
         ..add('statusMessage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  StorageConfig deserialize(Serializers serializers, Iterable<Object?> serialized,
+  StorageConfig deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = StorageConfigBuilder();
 
@@ -221,47 +250,60 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
       switch (key) {
         case 'applicableGroups':
           result.applicableGroups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<Object?>);
           break;
         case 'applicableUsers':
           result.applicableUsers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<Object?>);
           break;
         case 'authMechanism':
-          result.authMechanism = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.authMechanism = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'backend':
-          result.backend = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.backend = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'backendOptions':
           result.backendOptions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(JsonObject)]))!);
           break;
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'mountOptions':
           result.mountOptions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(JsonObject)]))!);
           break;
         case 'mountPoint':
-          result.mountPoint = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.mountPoint = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'priority':
-          result.priority = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.priority = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'statusMessage':
-          result.statusMessage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.statusMessage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'type':
-          result.type =
-              serializers.deserialize(value, specifiedType: const FullType(StorageConfig_Type))! as StorageConfig_Type;
+          result.type = serializers.deserialize(value,
+                  specifiedType: const FullType(StorageConfig_Type))!
+              as StorageConfig_Type;
           break;
         case 'userProvided':
-          result.userProvided = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.userProvided = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -277,26 +319,33 @@ class _$MountSerializer implements StructuredSerializer<Mount> {
   final String wireName = 'Mount';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Mount object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Mount object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'path',
       serializers.serialize(object.path, specifiedType: const FullType(String)),
       'type',
-      serializers.serialize(object.type, specifiedType: const FullType(Mount_Type)),
+      serializers.serialize(object.type,
+          specifiedType: const FullType(Mount_Type)),
       'backend',
-      serializers.serialize(object.backend, specifiedType: const FullType(String)),
+      serializers.serialize(object.backend,
+          specifiedType: const FullType(String)),
       'scope',
-      serializers.serialize(object.scope, specifiedType: const FullType(Mount_Scope)),
+      serializers.serialize(object.scope,
+          specifiedType: const FullType(Mount_Scope)),
       'permissions',
-      serializers.serialize(object.permissions, specifiedType: const FullType(int)),
+      serializers.serialize(object.permissions,
+          specifiedType: const FullType(int)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'class',
-      serializers.serialize(object.$class, specifiedType: const FullType(String)),
+      serializers.serialize(object.$class,
+          specifiedType: const FullType(String)),
       'config',
-      serializers.serialize(object.config, specifiedType: const FullType(StorageConfig)),
+      serializers.serialize(object.config,
+          specifiedType: const FullType(StorageConfig)),
     ];
 
     return result;
@@ -314,32 +363,40 @@ class _$MountSerializer implements StructuredSerializer<Mount> {
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'path':
-          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.path = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(Mount_Type))! as Mount_Type;
+          result.type = serializers.deserialize(value,
+              specifiedType: const FullType(Mount_Type))! as Mount_Type;
           break;
         case 'backend':
-          result.backend = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.backend = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'scope':
-          result.scope = serializers.deserialize(value, specifiedType: const FullType(Mount_Scope))! as Mount_Scope;
+          result.scope = serializers.deserialize(value,
+              specifiedType: const FullType(Mount_Scope))! as Mount_Scope;
           break;
         case 'permissions':
-          result.permissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.permissions = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'class':
-          result.$class = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.$class = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'config':
-          result.config
-              .replace(serializers.deserialize(value, specifiedType: const FullType(StorageConfig))! as StorageConfig);
+          result.config.replace(serializers.deserialize(value,
+              specifiedType: const FullType(StorageConfig))! as StorageConfig);
           break;
       }
     }
@@ -349,7 +406,8 @@ class _$MountSerializer implements StructuredSerializer<Mount> {
 }
 
 class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<ApiGetUserMountsResponseApplicationJson_Ocs> {
+    implements
+        StructuredSerializer<ApiGetUserMountsResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
     ApiGetUserMountsResponseApplicationJson_Ocs,
@@ -359,20 +417,24 @@ class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
   final String wireName = 'ApiGetUserMountsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGetUserMountsResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers,
+      ApiGetUserMountsResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Mount)])),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, [FullType(Mount)])),
     ];
 
     return result;
   }
 
   @override
-  ApiGetUserMountsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiGetUserMountsResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiGetUserMountsResponseApplicationJson_OcsBuilder();
 
@@ -383,11 +445,13 @@ class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Mount)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Mount)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -407,18 +471,22 @@ class _$ApiGetUserMountsResponseApplicationJsonSerializer
   final String wireName = 'ApiGetUserMountsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGetUserMountsResponseApplicationJson object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiGetUserMountsResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(ApiGetUserMountsResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType:
+              const FullType(ApiGetUserMountsResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  ApiGetUserMountsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiGetUserMountsResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiGetUserMountsResponseApplicationJsonBuilder();
 
@@ -430,7 +498,8 @@ class _$ApiGetUserMountsResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiGetUserMountsResponseApplicationJson_Ocs))!
+                  specifiedType: const FullType(
+                      ApiGetUserMountsResponseApplicationJson_Ocs))!
               as ApiGetUserMountsResponseApplicationJson_Ocs);
           break;
       }
@@ -471,16 +540,23 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) =>
+      (OCSMetaBuilder()..update(updates))._build();
 
-  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._(
+      {required this.status,
+      required this.statuscode,
+      this.message,
+      this.totalitems,
+      this.itemsperpage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
     BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
@@ -520,7 +596,8 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
+class OCSMetaBuilder
+    implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -537,11 +614,13 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) =>
+      _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) =>
+      _$this._itemsperpage = itemsperpage;
 
   OCSMetaBuilder();
 
@@ -575,8 +654,10 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(
+                statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -674,16 +755,21 @@ class _$StorageConfig extends StorageConfig {
       required this.type,
       required this.userProvided})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism');
+    BuiltValueNullFieldError.checkNotNull(
+        authMechanism, r'StorageConfig', 'authMechanism');
     BuiltValueNullFieldError.checkNotNull(backend, r'StorageConfig', 'backend');
-    BuiltValueNullFieldError.checkNotNull(backendOptions, r'StorageConfig', 'backendOptions');
-    BuiltValueNullFieldError.checkNotNull(mountPoint, r'StorageConfig', 'mountPoint');
+    BuiltValueNullFieldError.checkNotNull(
+        backendOptions, r'StorageConfig', 'backendOptions');
+    BuiltValueNullFieldError.checkNotNull(
+        mountPoint, r'StorageConfig', 'mountPoint');
     BuiltValueNullFieldError.checkNotNull(type, r'StorageConfig', 'type');
-    BuiltValueNullFieldError.checkNotNull(userProvided, r'StorageConfig', 'userProvided');
+    BuiltValueNullFieldError.checkNotNull(
+        userProvided, r'StorageConfig', 'userProvided');
   }
 
   @override
-  StorageConfig rebuild(void Function(StorageConfigBuilder) updates) => (toBuilder()..update(updates)).build();
+  StorageConfig rebuild(void Function(StorageConfigBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   StorageConfigBuilder toBuilder() => StorageConfigBuilder()..replace(this);
@@ -747,28 +833,38 @@ class _$StorageConfig extends StorageConfig {
   }
 }
 
-class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilder>, $StorageConfigInterfaceBuilder {
+class StorageConfigBuilder
+    implements
+        Builder<StorageConfig, StorageConfigBuilder>,
+        $StorageConfigInterfaceBuilder {
   _$StorageConfig? _$v;
 
   ListBuilder<String>? _applicableGroups;
-  ListBuilder<String> get applicableGroups => _$this._applicableGroups ??= ListBuilder<String>();
-  set applicableGroups(covariant ListBuilder<String>? applicableGroups) => _$this._applicableGroups = applicableGroups;
+  ListBuilder<String> get applicableGroups =>
+      _$this._applicableGroups ??= ListBuilder<String>();
+  set applicableGroups(covariant ListBuilder<String>? applicableGroups) =>
+      _$this._applicableGroups = applicableGroups;
 
   ListBuilder<String>? _applicableUsers;
-  ListBuilder<String> get applicableUsers => _$this._applicableUsers ??= ListBuilder<String>();
-  set applicableUsers(covariant ListBuilder<String>? applicableUsers) => _$this._applicableUsers = applicableUsers;
+  ListBuilder<String> get applicableUsers =>
+      _$this._applicableUsers ??= ListBuilder<String>();
+  set applicableUsers(covariant ListBuilder<String>? applicableUsers) =>
+      _$this._applicableUsers = applicableUsers;
 
   String? _authMechanism;
   String? get authMechanism => _$this._authMechanism;
-  set authMechanism(covariant String? authMechanism) => _$this._authMechanism = authMechanism;
+  set authMechanism(covariant String? authMechanism) =>
+      _$this._authMechanism = authMechanism;
 
   String? _backend;
   String? get backend => _$this._backend;
   set backend(covariant String? backend) => _$this._backend = backend;
 
   MapBuilder<String, JsonObject>? _backendOptions;
-  MapBuilder<String, JsonObject> get backendOptions => _$this._backendOptions ??= MapBuilder<String, JsonObject>();
-  set backendOptions(covariant MapBuilder<String, JsonObject>? backendOptions) =>
+  MapBuilder<String, JsonObject> get backendOptions =>
+      _$this._backendOptions ??= MapBuilder<String, JsonObject>();
+  set backendOptions(
+          covariant MapBuilder<String, JsonObject>? backendOptions) =>
       _$this._backendOptions = backendOptions;
 
   int? _id;
@@ -776,12 +872,15 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   set id(covariant int? id) => _$this._id = id;
 
   MapBuilder<String, JsonObject>? _mountOptions;
-  MapBuilder<String, JsonObject> get mountOptions => _$this._mountOptions ??= MapBuilder<String, JsonObject>();
-  set mountOptions(covariant MapBuilder<String, JsonObject>? mountOptions) => _$this._mountOptions = mountOptions;
+  MapBuilder<String, JsonObject> get mountOptions =>
+      _$this._mountOptions ??= MapBuilder<String, JsonObject>();
+  set mountOptions(covariant MapBuilder<String, JsonObject>? mountOptions) =>
+      _$this._mountOptions = mountOptions;
 
   String? _mountPoint;
   String? get mountPoint => _$this._mountPoint;
-  set mountPoint(covariant String? mountPoint) => _$this._mountPoint = mountPoint;
+  set mountPoint(covariant String? mountPoint) =>
+      _$this._mountPoint = mountPoint;
 
   int? _priority;
   int? get priority => _$this._priority;
@@ -793,7 +892,8 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
 
   String? _statusMessage;
   String? get statusMessage => _$this._statusMessage;
-  set statusMessage(covariant String? statusMessage) => _$this._statusMessage = statusMessage;
+  set statusMessage(covariant String? statusMessage) =>
+      _$this._statusMessage = statusMessage;
 
   StorageConfig_Type? _type;
   StorageConfig_Type? get type => _$this._type;
@@ -801,7 +901,8 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
 
   bool? _userProvided;
   bool? get userProvided => _$this._userProvided;
-  set userProvided(covariant bool? userProvided) => _$this._userProvided = userProvided;
+  set userProvided(covariant bool? userProvided) =>
+      _$this._userProvided = userProvided;
 
   StorageConfigBuilder();
 
@@ -847,17 +948,22 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
           _$StorageConfig._(
               applicableGroups: _applicableGroups?.build(),
               applicableUsers: _applicableUsers?.build(),
-              authMechanism: BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism'),
-              backend: BuiltValueNullFieldError.checkNotNull(backend, r'StorageConfig', 'backend'),
+              authMechanism: BuiltValueNullFieldError.checkNotNull(
+                  authMechanism, r'StorageConfig', 'authMechanism'),
+              backend: BuiltValueNullFieldError.checkNotNull(
+                  backend, r'StorageConfig', 'backend'),
               backendOptions: backendOptions.build(),
               id: id,
               mountOptions: _mountOptions?.build(),
-              mountPoint: BuiltValueNullFieldError.checkNotNull(mountPoint, r'StorageConfig', 'mountPoint'),
+              mountPoint: BuiltValueNullFieldError.checkNotNull(
+                  mountPoint, r'StorageConfig', 'mountPoint'),
               priority: priority,
               status: status,
               statusMessage: statusMessage,
-              type: BuiltValueNullFieldError.checkNotNull(type, r'StorageConfig', 'type'),
-              userProvided: BuiltValueNullFieldError.checkNotNull(userProvided, r'StorageConfig', 'userProvided'));
+              type: BuiltValueNullFieldError.checkNotNull(
+                  type, r'StorageConfig', 'type'),
+              userProvided: BuiltValueNullFieldError.checkNotNull(
+                  userProvided, r'StorageConfig', 'userProvided'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -872,7 +978,8 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
         _$failedField = 'mountOptions';
         _mountOptions?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'StorageConfig', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'StorageConfig', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -932,7 +1039,8 @@ class _$Mount extends Mount {
   @override
   final StorageConfig config;
 
-  factory _$Mount([void Function(MountBuilder)? updates]) => (MountBuilder()..update(updates))._build();
+  factory _$Mount([void Function(MountBuilder)? updates]) =>
+      (MountBuilder()..update(updates))._build();
 
   _$Mount._(
       {required this.name,
@@ -957,7 +1065,8 @@ class _$Mount extends Mount {
   }
 
   @override
-  Mount rebuild(void Function(MountBuilder) updates) => (toBuilder()..update(updates)).build();
+  Mount rebuild(void Function(MountBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   MountBuilder toBuilder() => MountBuilder()..replace(this);
@@ -1009,7 +1118,8 @@ class _$Mount extends Mount {
   }
 }
 
-class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuilder {
+class MountBuilder
+    implements Builder<Mount, MountBuilder>, $MountInterfaceBuilder {
   _$Mount? _$v;
 
   String? _name;
@@ -1034,7 +1144,8 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
 
   int? _permissions;
   int? get permissions => _$this._permissions;
-  set permissions(covariant int? permissions) => _$this._permissions = permissions;
+  set permissions(covariant int? permissions) =>
+      _$this._permissions = permissions;
 
   int? _id;
   int? get id => _$this._id;
@@ -1086,14 +1197,21 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
     try {
       _$result = _$v ??
           _$Mount._(
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name'),
-              path: BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type'),
-              backend: BuiltValueNullFieldError.checkNotNull(backend, r'Mount', 'backend'),
-              scope: BuiltValueNullFieldError.checkNotNull(scope, r'Mount', 'scope'),
-              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Mount', 'permissions'),
+              name:
+                  BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name'),
+              path:
+                  BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path'),
+              type:
+                  BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type'),
+              backend: BuiltValueNullFieldError.checkNotNull(
+                  backend, r'Mount', 'backend'),
+              scope: BuiltValueNullFieldError.checkNotNull(
+                  scope, r'Mount', 'scope'),
+              permissions: BuiltValueNullFieldError.checkNotNull(
+                  permissions, r'Mount', 'permissions'),
               id: BuiltValueNullFieldError.checkNotNull(id, r'Mount', 'id'),
-              $class: BuiltValueNullFieldError.checkNotNull($class, r'Mount', '\$class'),
+              $class: BuiltValueNullFieldError.checkNotNull(
+                  $class, r'Mount', '\$class'),
               config: config.build());
     } catch (_) {
       late String _$failedField;
@@ -1112,7 +1230,10 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
 
 abstract mixin class $ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ApiGetUserMountsResponseApplicationJson_OcsInterface other);
-  void update(void Function($ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void update(
+      void Function(
+              $ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1120,24 +1241,32 @@ abstract mixin class $ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilde
   set data(ListBuilder<Mount>? data);
 }
 
-class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResponseApplicationJson_Ocs {
+class _$ApiGetUserMountsResponseApplicationJson_Ocs
+    extends ApiGetUserMountsResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
   final BuiltList<Mount> data;
 
   factory _$ApiGetUserMountsResponseApplicationJson_Ocs(
-          [void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (ApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))
+          ._build();
 
-  _$ApiGetUserMountsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'data');
+  _$ApiGetUserMountsResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'data');
   }
 
   @override
   ApiGetUserMountsResponseApplicationJson_Ocs rebuild(
-          void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -1147,7 +1276,9 @@ class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResp
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ApiGetUserMountsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is ApiGetUserMountsResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -1161,7 +1292,8 @@ class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiGetUserMountsResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'ApiGetUserMountsResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -1170,7 +1302,8 @@ class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResp
 
 class ApiGetUserMountsResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiGetUserMountsResponseApplicationJson_Ocs, ApiGetUserMountsResponseApplicationJson_OcsBuilder>,
+        Builder<ApiGetUserMountsResponseApplicationJson_Ocs,
+            ApiGetUserMountsResponseApplicationJson_OcsBuilder>,
         $ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiGetUserMountsResponseApplicationJson_Ocs? _$v;
 
@@ -1201,7 +1334,9 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void update(void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -1211,7 +1346,9 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
   _$ApiGetUserMountsResponseApplicationJson_Ocs _build() {
     _$ApiGetUserMountsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ApiGetUserMountsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ApiGetUserMountsResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1220,7 +1357,10 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ApiGetUserMountsResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1231,26 +1371,33 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
 
 abstract mixin class $ApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
   void replace($ApiGetUserMountsResponseApplicationJsonInterface other);
-  void update(void Function($ApiGetUserMountsResponseApplicationJsonInterfaceBuilder) updates);
+  void update(
+      void Function($ApiGetUserMountsResponseApplicationJsonInterfaceBuilder)
+          updates);
   ApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$ApiGetUserMountsResponseApplicationJson extends ApiGetUserMountsResponseApplicationJson {
+class _$ApiGetUserMountsResponseApplicationJson
+    extends ApiGetUserMountsResponseApplicationJson {
   @override
   final ApiGetUserMountsResponseApplicationJson_Ocs ocs;
 
   factory _$ApiGetUserMountsResponseApplicationJson(
-          [void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? updates]) =>
-      (ApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))._build();
+          [void Function(ApiGetUserMountsResponseApplicationJsonBuilder)?
+              updates]) =>
+      (ApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))
+          ._build();
 
   _$ApiGetUserMountsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGetUserMountsResponseApplicationJson', 'ocs');
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'ApiGetUserMountsResponseApplicationJson', 'ocs');
   }
 
   @override
   ApiGetUserMountsResponseApplicationJson rebuild(
-          void Function(ApiGetUserMountsResponseApplicationJsonBuilder) updates) =>
+          void Function(ApiGetUserMountsResponseApplicationJsonBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -1273,20 +1420,25 @@ class _$ApiGetUserMountsResponseApplicationJson extends ApiGetUserMountsResponse
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiGetUserMountsResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(
+            r'ApiGetUserMountsResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
   }
 }
 
 class ApiGetUserMountsResponseApplicationJsonBuilder
     implements
-        Builder<ApiGetUserMountsResponseApplicationJson, ApiGetUserMountsResponseApplicationJsonBuilder>,
+        Builder<ApiGetUserMountsResponseApplicationJson,
+            ApiGetUserMountsResponseApplicationJsonBuilder>,
         $ApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
   _$ApiGetUserMountsResponseApplicationJson? _$v;
 
   ApiGetUserMountsResponseApplicationJson_OcsBuilder? _ocs;
   ApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= ApiGetUserMountsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ApiGetUserMountsResponseApplicationJsonBuilder();
 
@@ -1306,7 +1458,8 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
   }
 
   @override
-  void update(void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -1316,14 +1469,18 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
   _$ApiGetUserMountsResponseApplicationJson _build() {
     _$ApiGetUserMountsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiGetUserMountsResponseApplicationJson._(ocs: ocs.build());
+      _$result =
+          _$v ?? _$ApiGetUserMountsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ApiGetUserMountsResponseApplicationJson',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }

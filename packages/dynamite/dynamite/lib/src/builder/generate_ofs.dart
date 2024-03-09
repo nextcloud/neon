@@ -175,7 +175,6 @@ Iterable<Spec> generateSomeOf(
       ..on = refer(identifier)
       ..docs.addAll([
         '/// @nodoc',
-        '// ignore: library_private_types_in_public_api',
       ])
       ..methods.addAll([
         values,

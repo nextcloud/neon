@@ -9,5 +9,6 @@ extension WeatherStatusExtension on NextcloudClient {
   static final _weatherStatus = Expando<$Client>();
 
   /// Client for the weather_status APIs
-  $Client get weatherStatus => _weatherStatus[this] ??= $Client.fromClient(this);
+  $Client get weatherStatus =>
+      _weatherStatus[this] ??= $Client.fromClient(this);
 }

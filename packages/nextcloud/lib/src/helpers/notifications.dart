@@ -9,7 +9,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'notifications.g.dart';
 
 /// Generates the push token hash which is just sha512
-String generatePushTokenHash(String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
+String generatePushTokenHash(String pushToken) =>
+    sha512.convert(utf8.encode(pushToken)).toString();
 
 @JsonSerializable()
 // ignore: public_member_api_docs
@@ -26,7 +27,8 @@ class DecryptedSubject {
   });
 
   // ignore: public_member_api_docs
-  factory DecryptedSubject.fromJson(Map<String, dynamic> json) => _$DecryptedSubjectFromJson(json);
+  factory DecryptedSubject.fromJson(Map<String, dynamic> json) =>
+      _$DecryptedSubjectFromJson(json);
 
   /// ID if the notification
   final int? nid;

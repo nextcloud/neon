@@ -20,33 +20,39 @@ PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
   }
 }
 
-final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues = BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
+final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues =
+    BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
   _$previewGetPreviewA$0,
   _$previewGetPreviewA$1,
 ]);
 
-Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer =
+    _$Capabilities_FilesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
-class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
+class _$Capabilities_FilesSerializer
+    implements StructuredSerializer<Capabilities_Files> {
   @override
   final Iterable<Type> types = const [Capabilities_Files, _$Capabilities_Files];
   @override
   final String wireName = 'Capabilities_Files';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files object,
+  Iterable<Object?> serialize(
+      Serializers serializers, Capabilities_Files object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'undelete',
-      serializers.serialize(object.undelete, specifiedType: const FullType(bool)),
+      serializers.serialize(object.undelete,
+          specifiedType: const FullType(bool)),
     ];
 
     return result;
   }
 
   @override
-  Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_Files deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = Capabilities_FilesBuilder();
 
@@ -57,7 +63,8 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
       final Object? value = iterator.current;
       switch (key) {
         case 'undelete':
-          result.undelete = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.undelete = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -77,14 +84,16 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'files',
-      serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
+      serializers.serialize(object.files,
+          specifiedType: const FullType(Capabilities_Files)),
     ];
 
     return result;
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = CapabilitiesBuilder();
 
@@ -95,8 +104,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'files':
-          result.files.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files);
+          result.files.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Capabilities_Files))!
+              as Capabilities_Files);
           break;
       }
     }
@@ -116,19 +126,23 @@ class _$Capabilities_Files extends Capabilities_Files {
   @override
   final bool undelete;
 
-  factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
+  factory _$Capabilities_Files(
+          [void Function(Capabilities_FilesBuilder)? updates]) =>
       (Capabilities_FilesBuilder()..update(updates))._build();
 
   _$Capabilities_Files._({required this.undelete}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete');
+    BuiltValueNullFieldError.checkNotNull(
+        undelete, r'Capabilities_Files', 'undelete');
   }
 
   @override
-  Capabilities_Files rebuild(void Function(Capabilities_FilesBuilder) updates) =>
+  Capabilities_Files rebuild(
+          void Function(Capabilities_FilesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_FilesBuilder toBuilder() => Capabilities_FilesBuilder()..replace(this);
+  Capabilities_FilesBuilder toBuilder() =>
+      Capabilities_FilesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -146,12 +160,16 @@ class _$Capabilities_Files extends Capabilities_Files {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities_Files')..add('undelete', undelete)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities_Files')
+          ..add('undelete', undelete))
+        .toString();
   }
 }
 
 class Capabilities_FilesBuilder
-    implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, $Capabilities_FilesInterfaceBuilder {
+    implements
+        Builder<Capabilities_Files, Capabilities_FilesBuilder>,
+        $Capabilities_FilesInterfaceBuilder {
   _$Capabilities_Files? _$v;
 
   bool? _undelete;
@@ -186,7 +204,8 @@ class Capabilities_FilesBuilder
   _$Capabilities_Files _build() {
     final _$result = _$v ??
         _$Capabilities_Files._(
-            undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete'));
+            undelete: BuiltValueNullFieldError.checkNotNull(
+                undelete, r'Capabilities_Files', 'undelete'));
     replace(_$result);
     return _$result;
   }
@@ -211,7 +230,8 @@ class _$Capabilities extends Capabilities {
   }
 
   @override
-  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
@@ -232,16 +252,22 @@ class _$Capabilities extends Capabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities')..add('files', files)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('files', files))
+        .toString();
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder
+    implements
+        Builder<Capabilities, CapabilitiesBuilder>,
+        $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_FilesBuilder? _files;
-  Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
-  set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
+  Capabilities_FilesBuilder get files =>
+      _$this._files ??= Capabilities_FilesBuilder();
+  set files(covariant Capabilities_FilesBuilder? files) =>
+      _$this._files = files;
 
   CapabilitiesBuilder();
 
@@ -278,7 +304,8 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'files';
         files.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

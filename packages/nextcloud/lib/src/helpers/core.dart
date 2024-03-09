@@ -14,7 +14,9 @@ extension CoreVersionCheck on core.$Client {
   /// Check if the core/Server version is supported by this client
   ///
   /// Also returns the minimum supported version
-  VersionCheck getVersionCheck(core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
+  VersionCheck getVersionCheck(
+    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+  ) {
     final version = Version(
       capabilities.version.major,
       capabilities.version.minor,

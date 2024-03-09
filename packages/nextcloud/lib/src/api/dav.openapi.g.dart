@@ -7,21 +7,27 @@ part of 'dav.openapi.dart';
 // **************************************************************************
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<DirectGetUrlResponseApplicationJson_Ocs_Data> _$directGetUrlResponseApplicationJsonOcsDataSerializer =
+Serializer<DirectGetUrlResponseApplicationJson_Ocs_Data>
+    _$directGetUrlResponseApplicationJsonOcsDataSerializer =
     _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer();
-Serializer<DirectGetUrlResponseApplicationJson_Ocs> _$directGetUrlResponseApplicationJsonOcsSerializer =
+Serializer<DirectGetUrlResponseApplicationJson_Ocs>
+    _$directGetUrlResponseApplicationJsonOcsSerializer =
     _$DirectGetUrlResponseApplicationJson_OcsSerializer();
-Serializer<DirectGetUrlResponseApplicationJson> _$directGetUrlResponseApplicationJsonSerializer =
+Serializer<DirectGetUrlResponseApplicationJson>
+    _$directGetUrlResponseApplicationJsonSerializer =
     _$DirectGetUrlResponseApplicationJsonSerializer();
-Serializer<OutOfOfficeDataCommon> _$outOfOfficeDataCommonSerializer = _$OutOfOfficeDataCommonSerializer();
-Serializer<CurrentOutOfOfficeData> _$currentOutOfOfficeDataSerializer = _$CurrentOutOfOfficeDataSerializer();
+Serializer<OutOfOfficeDataCommon> _$outOfOfficeDataCommonSerializer =
+    _$OutOfOfficeDataCommonSerializer();
+Serializer<CurrentOutOfOfficeData> _$currentOutOfOfficeDataSerializer =
+    _$CurrentOutOfOfficeDataSerializer();
 Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs>
     _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonOcsSerializer =
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerializer();
 Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson>
     _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer =
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer();
-Serializer<OutOfOfficeData> _$outOfOfficeDataSerializer = _$OutOfOfficeDataSerializer();
+Serializer<OutOfOfficeData> _$outOfOfficeDataSerializer =
+    _$OutOfOfficeDataSerializer();
 Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs>
     _$outOfOfficeGetOutOfOfficeResponseApplicationJsonOcsSerializer =
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer();
@@ -40,7 +46,8 @@ Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs>
 Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson>
     _$outOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer =
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer();
-Serializer<Capabilities_Dav> _$capabilitiesDavSerializer = _$Capabilities_DavSerializer();
+Serializer<Capabilities_Dav> _$capabilitiesDavSerializer =
+    _$Capabilities_DavSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
@@ -54,28 +61,33 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status,
+          specifiedType: const FullType(String)),
       'statuscode',
-      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+      serializers.serialize(object.statuscode,
+          specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.message;
     if (value != null) {
       result
         ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.totalitems;
     if (value != null) {
       result
         ..add('totalitems')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.itemsperpage;
     if (value != null) {
       result
         ..add('itemsperpage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -92,19 +104,24 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       final Object? value = iterator.current;
       switch (key) {
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'statuscode':
-          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.statuscode = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'totalitems':
-          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.totalitems = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'itemsperpage':
-          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.itemsperpage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -114,7 +131,8 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
 }
 
 class _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<DirectGetUrlResponseApplicationJson_Ocs_Data> {
+    implements
+        StructuredSerializer<DirectGetUrlResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
     DirectGetUrlResponseApplicationJson_Ocs_Data,
@@ -124,7 +142,8 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer
   final String wireName = 'DirectGetUrlResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectGetUrlResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(Serializers serializers,
+      DirectGetUrlResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'url',
@@ -135,7 +154,8 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  DirectGetUrlResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectGetUrlResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = DirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
 
@@ -146,7 +166,8 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'url':
-          result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.url = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -166,20 +187,25 @@ class _$DirectGetUrlResponseApplicationJson_OcsSerializer
   final String wireName = 'DirectGetUrlResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectGetUrlResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(
+      Serializers serializers, DirectGetUrlResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(DirectGetUrlResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(object.data,
+          specifiedType:
+              const FullType(DirectGetUrlResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  DirectGetUrlResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectGetUrlResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = DirectGetUrlResponseApplicationJson_OcsBuilder();
 
@@ -190,11 +216,13 @@ class _$DirectGetUrlResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectGetUrlResponseApplicationJson_Ocs_Data))!
+                  specifiedType: const FullType(
+                      DirectGetUrlResponseApplicationJson_Ocs_Data))!
               as DirectGetUrlResponseApplicationJson_Ocs_Data);
           break;
       }
@@ -207,23 +235,30 @@ class _$DirectGetUrlResponseApplicationJson_OcsSerializer
 class _$DirectGetUrlResponseApplicationJsonSerializer
     implements StructuredSerializer<DirectGetUrlResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [DirectGetUrlResponseApplicationJson, _$DirectGetUrlResponseApplicationJson];
+  final Iterable<Type> types = const [
+    DirectGetUrlResponseApplicationJson,
+    _$DirectGetUrlResponseApplicationJson
+  ];
   @override
   final String wireName = 'DirectGetUrlResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectGetUrlResponseApplicationJson object,
+  Iterable<Object?> serialize(
+      Serializers serializers, DirectGetUrlResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(DirectGetUrlResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType:
+              const FullType(DirectGetUrlResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  DirectGetUrlResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  DirectGetUrlResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = DirectGetUrlResponseApplicationJsonBuilder();
 
@@ -234,9 +269,10 @@ class _$DirectGetUrlResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(DirectGetUrlResponseApplicationJson_Ocs))!
-                  as DirectGetUrlResponseApplicationJson_Ocs);
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(DirectGetUrlResponseApplicationJson_Ocs))!
+              as DirectGetUrlResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -245,27 +281,35 @@ class _$DirectGetUrlResponseApplicationJsonSerializer
   }
 }
 
-class _$OutOfOfficeDataCommonSerializer implements StructuredSerializer<OutOfOfficeDataCommon> {
+class _$OutOfOfficeDataCommonSerializer
+    implements StructuredSerializer<OutOfOfficeDataCommon> {
   @override
-  final Iterable<Type> types = const [OutOfOfficeDataCommon, _$OutOfOfficeDataCommon];
+  final Iterable<Type> types = const [
+    OutOfOfficeDataCommon,
+    _$OutOfOfficeDataCommon
+  ];
   @override
   final String wireName = 'OutOfOfficeDataCommon';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeDataCommon object,
+  Iterable<Object?> serialize(
+      Serializers serializers, OutOfOfficeDataCommon object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(String)),
       'message',
-      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      serializers.serialize(object.message,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  OutOfOfficeDataCommon deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OutOfOfficeDataCommon deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OutOfOfficeDataCommonBuilder();
 
@@ -276,10 +320,12 @@ class _$OutOfOfficeDataCommonSerializer implements StructuredSerializer<OutOfOff
       final Object? value = iterator.current;
       switch (key) {
         case 'userId':
-          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.userId = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -288,35 +334,45 @@ class _$OutOfOfficeDataCommonSerializer implements StructuredSerializer<OutOfOff
   }
 }
 
-class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<CurrentOutOfOfficeData> {
+class _$CurrentOutOfOfficeDataSerializer
+    implements StructuredSerializer<CurrentOutOfOfficeData> {
   @override
-  final Iterable<Type> types = const [CurrentOutOfOfficeData, _$CurrentOutOfOfficeData];
+  final Iterable<Type> types = const [
+    CurrentOutOfOfficeData,
+    _$CurrentOutOfOfficeData
+  ];
   @override
   final String wireName = 'CurrentOutOfOfficeData';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CurrentOutOfOfficeData object,
+  Iterable<Object?> serialize(
+      Serializers serializers, CurrentOutOfOfficeData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'startDate',
-      serializers.serialize(object.startDate, specifiedType: const FullType(int)),
+      serializers.serialize(object.startDate,
+          specifiedType: const FullType(int)),
       'endDate',
       serializers.serialize(object.endDate, specifiedType: const FullType(int)),
       'shortMessage',
-      serializers.serialize(object.shortMessage, specifiedType: const FullType(String)),
+      serializers.serialize(object.shortMessage,
+          specifiedType: const FullType(String)),
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(String)),
       'message',
-      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      serializers.serialize(object.message,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  CurrentOutOfOfficeData deserialize(Serializers serializers, Iterable<Object?> serialized,
+  CurrentOutOfOfficeData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = CurrentOutOfOfficeDataBuilder();
 
@@ -327,22 +383,28 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'startDate':
-          result.startDate = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.startDate = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'endDate':
-          result.endDate = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.endDate = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'shortMessage':
-          result.shortMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.shortMessage = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'userId':
-          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.userId = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -352,24 +414,29 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
 }
 
 class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs> {
+    implements
+        StructuredSerializer<
+            OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
     OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs,
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs';
+  final String wireName =
+      'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers,
+      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(CurrentOutOfOfficeData)),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(CurrentOutOfOfficeData)),
     ];
 
     return result;
@@ -379,7 +446,8 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerialize
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
+    final result =
+        OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -388,10 +456,12 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerialize
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(CurrentOutOfOfficeData))!
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CurrentOutOfOfficeData))!
               as CurrentOutOfOfficeData);
           break;
       }
@@ -402,23 +472,27 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerialize
 }
 
 class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer
-    implements StructuredSerializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson> {
+    implements
+        StructuredSerializer<
+            OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
     OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson,
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
   ];
   @override
-  final String wireName = 'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson';
+  final String wireName =
+      'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers,
+      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(
+              OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs)),
     ];
 
     return result;
@@ -428,7 +502,8 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder();
+    final result =
+        OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -438,7 +513,8 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs))!
+                  specifiedType: const FullType(
+                      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs))!
               as OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs);
           break;
       }
@@ -448,7 +524,8 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer
   }
 }
 
-class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeData> {
+class _$OutOfOfficeDataSerializer
+    implements StructuredSerializer<OutOfOfficeData> {
   @override
   final Iterable<Type> types = const [OutOfOfficeData, _$OutOfOfficeData];
   @override
@@ -461,22 +538,28 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'firstDay',
-      serializers.serialize(object.firstDay, specifiedType: const FullType(String)),
+      serializers.serialize(object.firstDay,
+          specifiedType: const FullType(String)),
       'lastDay',
-      serializers.serialize(object.lastDay, specifiedType: const FullType(String)),
+      serializers.serialize(object.lastDay,
+          specifiedType: const FullType(String)),
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status,
+          specifiedType: const FullType(String)),
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(String)),
       'message',
-      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      serializers.serialize(object.message,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  OutOfOfficeData deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OutOfOfficeData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OutOfOfficeDataBuilder();
 
@@ -487,22 +570,28 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'firstDay':
-          result.firstDay = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.firstDay = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'lastDay':
-          result.lastDay = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.lastDay = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'userId':
-          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.userId = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -512,23 +601,29 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
 }
 
 class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs> {
+    implements
+        StructuredSerializer<
+            OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
     OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs,
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs';
+  final String wireName =
+      'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers,
+      OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(OutOfOfficeData)),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(OutOfOfficeData)),
     ];
 
     return result;
@@ -538,7 +633,8 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
+    final result =
+        OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -547,11 +643,13 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(OutOfOfficeData))! as OutOfOfficeData);
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(OutOfOfficeData))!
+              as OutOfOfficeData);
           break;
       }
     }
@@ -561,7 +659,8 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer
 }
 
 class _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer
-    implements StructuredSerializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson> {
+    implements
+        StructuredSerializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
     OutOfOfficeGetOutOfOfficeResponseApplicationJson,
@@ -571,19 +670,22 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer
   final String wireName = 'OutOfOfficeGetOutOfOfficeResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeGetOutOfOfficeResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers,
+      OutOfOfficeGetOutOfOfficeResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(
+              OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  OutOfOfficeGetOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder();
 
@@ -595,7 +697,8 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs))!
+                  specifiedType: const FullType(
+                      OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs))!
               as OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs);
           break;
       }
@@ -606,23 +709,29 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer
 }
 
 class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs> {
+    implements
+        StructuredSerializer<
+            OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
     OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs,
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs';
+  final String wireName =
+      'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers,
+      OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(OutOfOfficeData)),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(OutOfOfficeData)),
     ];
 
     return result;
@@ -632,7 +741,8 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
+    final result =
+        OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -641,11 +751,13 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(OutOfOfficeData))! as OutOfOfficeData);
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(OutOfOfficeData))!
+              as OutOfOfficeData);
           break;
       }
     }
@@ -655,7 +767,8 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer
 }
 
 class _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer
-    implements StructuredSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson> {
+    implements
+        StructuredSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
     OutOfOfficeSetOutOfOfficeResponseApplicationJson,
@@ -665,19 +778,22 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer
   final String wireName = 'OutOfOfficeSetOutOfOfficeResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeSetOutOfOfficeResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers,
+      OutOfOfficeSetOutOfOfficeResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(
+              OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  OutOfOfficeSetOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder();
 
@@ -689,7 +805,8 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs))!
+                  specifiedType: const FullType(
+                      OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs))!
               as OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs);
           break;
       }
@@ -700,28 +817,34 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer
 }
 
 class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs> {
+    implements
+        StructuredSerializer<
+            OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs> {
   @override
   final Iterable<Type> types = const [
     OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs,
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
   ];
   @override
-  final String wireName = 'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs';
+  final String wireName =
+      'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers,
+      OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
     ];
     Object? value;
     value = object.data;
     if (value != null) {
       result
         ..add('data')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(JsonObject)));
     }
     return result;
   }
@@ -730,7 +853,8 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
+    final result =
+        OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -739,10 +863,12 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          result.data = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
       }
     }
@@ -752,7 +878,9 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer
 }
 
 class _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer
-    implements StructuredSerializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson> {
+    implements
+        StructuredSerializer<
+            OutOfOfficeClearOutOfOfficeResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
     OutOfOfficeClearOutOfOfficeResponseApplicationJson,
@@ -762,19 +890,22 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer
   final String wireName = 'OutOfOfficeClearOutOfOfficeResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeClearOutOfOfficeResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers,
+      OutOfOfficeClearOutOfOfficeResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(
+              OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  OutOfOfficeClearOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder();
 
@@ -786,7 +917,8 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs))!
+                  specifiedType: const FullType(
+                      OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs))!
               as OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs);
           break;
       }
@@ -796,7 +928,8 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer
   }
 }
 
-class _$Capabilities_DavSerializer implements StructuredSerializer<Capabilities_Dav> {
+class _$Capabilities_DavSerializer
+    implements StructuredSerializer<Capabilities_Dav> {
   @override
   final Iterable<Type> types = const [Capabilities_Dav, _$Capabilities_Dav];
   @override
@@ -807,20 +940,23 @@ class _$Capabilities_DavSerializer implements StructuredSerializer<Capabilities_
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'chunking',
-      serializers.serialize(object.chunking, specifiedType: const FullType(String)),
+      serializers.serialize(object.chunking,
+          specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.bulkupload;
     if (value != null) {
       result
         ..add('bulkupload')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Capabilities_Dav deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_Dav deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = Capabilities_DavBuilder();
 
@@ -831,10 +967,12 @@ class _$Capabilities_DavSerializer implements StructuredSerializer<Capabilities_
       final Object? value = iterator.current;
       switch (key) {
         case 'chunking':
-          result.chunking = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.chunking = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'bulkupload':
-          result.bulkupload = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.bulkupload = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -854,14 +992,16 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'dav',
-      serializers.serialize(object.dav, specifiedType: const FullType(Capabilities_Dav)),
+      serializers.serialize(object.dav,
+          specifiedType: const FullType(Capabilities_Dav)),
     ];
 
     return result;
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = CapabilitiesBuilder();
 
@@ -872,8 +1012,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'dav':
-          result.dav.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Dav))! as Capabilities_Dav);
+          result.dav.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Capabilities_Dav))!
+              as Capabilities_Dav);
           break;
       }
     }
@@ -913,16 +1054,23 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) =>
+      (OCSMetaBuilder()..update(updates))._build();
 
-  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._(
+      {required this.status,
+      required this.statuscode,
+      this.message,
+      this.totalitems,
+      this.itemsperpage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
     BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
@@ -962,7 +1110,8 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
+class OCSMetaBuilder
+    implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -979,11 +1128,13 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) =>
+      _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) =>
+      _$this._itemsperpage = itemsperpage;
 
   OCSMetaBuilder();
 
@@ -1017,8 +1168,10 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(
+                statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -1029,26 +1182,35 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
 abstract mixin class $DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($DirectGetUrlResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function($DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  void update(
+      void Function(
+              $DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder)
+          updates);
   String? get url;
   set url(String? url);
 }
 
-class _$DirectGetUrlResponseApplicationJson_Ocs_Data extends DirectGetUrlResponseApplicationJson_Ocs_Data {
+class _$DirectGetUrlResponseApplicationJson_Ocs_Data
+    extends DirectGetUrlResponseApplicationJson_Ocs_Data {
   @override
   final String url;
 
   factory _$DirectGetUrlResponseApplicationJson_Ocs_Data(
-          [void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DirectGetUrlResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+          [void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)?
+              updates]) =>
+      (DirectGetUrlResponseApplicationJson_Ocs_DataBuilder()..update(updates))
+          ._build();
 
-  _$DirectGetUrlResponseApplicationJson_Ocs_Data._({required this.url}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url');
+  _$DirectGetUrlResponseApplicationJson_Ocs_Data._({required this.url})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url');
   }
 
   @override
   DirectGetUrlResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder) updates) =>
+          void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -1058,7 +1220,8 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_Data extends DirectGetUrlRespons
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DirectGetUrlResponseApplicationJson_Ocs_Data && url == other.url;
+    return other is DirectGetUrlResponseApplicationJson_Ocs_Data &&
+        url == other.url;
   }
 
   @override
@@ -1071,13 +1234,17 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_Data extends DirectGetUrlRespons
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DirectGetUrlResponseApplicationJson_Ocs_Data')..add('url', url)).toString();
+    return (newBuiltValueToStringHelper(
+            r'DirectGetUrlResponseApplicationJson_Ocs_Data')
+          ..add('url', url))
+        .toString();
   }
 }
 
 class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DirectGetUrlResponseApplicationJson_Ocs_Data, DirectGetUrlResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<DirectGetUrlResponseApplicationJson_Ocs_Data,
+            DirectGetUrlResponseApplicationJson_Ocs_DataBuilder>,
         $DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectGetUrlResponseApplicationJson_Ocs_Data? _$v;
 
@@ -1103,7 +1270,9 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void update(void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(
+      void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -1113,7 +1282,8 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
   _$DirectGetUrlResponseApplicationJson_Ocs_Data _build() {
     final _$result = _$v ??
         _$DirectGetUrlResponseApplicationJson_Ocs_Data._(
-            url: BuiltValueNullFieldError.checkNotNull(url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url'));
+            url: BuiltValueNullFieldError.checkNotNull(
+                url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url'));
     replace(_$result);
     return _$result;
   }
@@ -1121,7 +1291,9 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
 
 abstract mixin class $DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
   void replace($DirectGetUrlResponseApplicationJson_OcsInterface other);
-  void update(void Function($DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void update(
+      void Function($DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1129,24 +1301,32 @@ abstract mixin class $DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
   set data(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$DirectGetUrlResponseApplicationJson_Ocs extends DirectGetUrlResponseApplicationJson_Ocs {
+class _$DirectGetUrlResponseApplicationJson_Ocs
+    extends DirectGetUrlResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
   final DirectGetUrlResponseApplicationJson_Ocs_Data data;
 
   factory _$DirectGetUrlResponseApplicationJson_Ocs(
-          [void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DirectGetUrlResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (DirectGetUrlResponseApplicationJson_OcsBuilder()..update(updates))
+          ._build();
 
-  _$DirectGetUrlResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DirectGetUrlResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DirectGetUrlResponseApplicationJson_Ocs', 'data');
+  _$DirectGetUrlResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'DirectGetUrlResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'DirectGetUrlResponseApplicationJson_Ocs', 'data');
   }
 
   @override
   DirectGetUrlResponseApplicationJson_Ocs rebuild(
-          void Function(DirectGetUrlResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -1156,7 +1336,9 @@ class _$DirectGetUrlResponseApplicationJson_Ocs extends DirectGetUrlResponseAppl
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DirectGetUrlResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is DirectGetUrlResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -1170,7 +1352,8 @@ class _$DirectGetUrlResponseApplicationJson_Ocs extends DirectGetUrlResponseAppl
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DirectGetUrlResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'DirectGetUrlResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -1179,7 +1362,8 @@ class _$DirectGetUrlResponseApplicationJson_Ocs extends DirectGetUrlResponseAppl
 
 class DirectGetUrlResponseApplicationJson_OcsBuilder
     implements
-        Builder<DirectGetUrlResponseApplicationJson_Ocs, DirectGetUrlResponseApplicationJson_OcsBuilder>,
+        Builder<DirectGetUrlResponseApplicationJson_Ocs,
+            DirectGetUrlResponseApplicationJson_OcsBuilder>,
         $DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
   _$DirectGetUrlResponseApplicationJson_Ocs? _$v;
 
@@ -1190,7 +1374,10 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
   DirectGetUrlResponseApplicationJson_Ocs_DataBuilder? _data;
   DirectGetUrlResponseApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= DirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant DirectGetUrlResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(
+          covariant DirectGetUrlResponseApplicationJson_Ocs_DataBuilder?
+              data) =>
+      _$this._data = data;
 
   DirectGetUrlResponseApplicationJson_OcsBuilder();
 
@@ -1211,7 +1398,8 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void update(void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -1221,7 +1409,9 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
   _$DirectGetUrlResponseApplicationJson_Ocs _build() {
     _$DirectGetUrlResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DirectGetUrlResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DirectGetUrlResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1230,7 +1420,10 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'DirectGetUrlResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'DirectGetUrlResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1241,28 +1434,36 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
 
 abstract mixin class $DirectGetUrlResponseApplicationJsonInterfaceBuilder {
   void replace($DirectGetUrlResponseApplicationJsonInterface other);
-  void update(void Function($DirectGetUrlResponseApplicationJsonInterfaceBuilder) updates);
+  void update(
+      void Function($DirectGetUrlResponseApplicationJsonInterfaceBuilder)
+          updates);
   DirectGetUrlResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DirectGetUrlResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$DirectGetUrlResponseApplicationJson extends DirectGetUrlResponseApplicationJson {
+class _$DirectGetUrlResponseApplicationJson
+    extends DirectGetUrlResponseApplicationJson {
   @override
   final DirectGetUrlResponseApplicationJson_Ocs ocs;
 
-  factory _$DirectGetUrlResponseApplicationJson([void Function(DirectGetUrlResponseApplicationJsonBuilder)? updates]) =>
+  factory _$DirectGetUrlResponseApplicationJson(
+          [void Function(DirectGetUrlResponseApplicationJsonBuilder)?
+              updates]) =>
       (DirectGetUrlResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DirectGetUrlResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DirectGetUrlResponseApplicationJson', 'ocs');
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'DirectGetUrlResponseApplicationJson', 'ocs');
   }
 
   @override
-  DirectGetUrlResponseApplicationJson rebuild(void Function(DirectGetUrlResponseApplicationJsonBuilder) updates) =>
+  DirectGetUrlResponseApplicationJson rebuild(
+          void Function(DirectGetUrlResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DirectGetUrlResponseApplicationJsonBuilder toBuilder() => DirectGetUrlResponseApplicationJsonBuilder()..replace(this);
+  DirectGetUrlResponseApplicationJsonBuilder toBuilder() =>
+      DirectGetUrlResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1280,20 +1481,24 @@ class _$DirectGetUrlResponseApplicationJson extends DirectGetUrlResponseApplicat
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DirectGetUrlResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'DirectGetUrlResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
   }
 }
 
 class DirectGetUrlResponseApplicationJsonBuilder
     implements
-        Builder<DirectGetUrlResponseApplicationJson, DirectGetUrlResponseApplicationJsonBuilder>,
+        Builder<DirectGetUrlResponseApplicationJson,
+            DirectGetUrlResponseApplicationJsonBuilder>,
         $DirectGetUrlResponseApplicationJsonInterfaceBuilder {
   _$DirectGetUrlResponseApplicationJson? _$v;
 
   DirectGetUrlResponseApplicationJson_OcsBuilder? _ocs;
   DirectGetUrlResponseApplicationJson_OcsBuilder get ocs =>
       _$this._ocs ??= DirectGetUrlResponseApplicationJson_OcsBuilder();
-  set ocs(covariant DirectGetUrlResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  set ocs(covariant DirectGetUrlResponseApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   DirectGetUrlResponseApplicationJsonBuilder();
 
@@ -1313,7 +1518,8 @@ class DirectGetUrlResponseApplicationJsonBuilder
   }
 
   @override
-  void update(void Function(DirectGetUrlResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(DirectGetUrlResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -1323,14 +1529,16 @@ class DirectGetUrlResponseApplicationJsonBuilder
   _$DirectGetUrlResponseApplicationJson _build() {
     _$DirectGetUrlResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DirectGetUrlResponseApplicationJson._(ocs: ocs.build());
+      _$result =
+          _$v ?? _$DirectGetUrlResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'DirectGetUrlResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectGetUrlResponseApplicationJson',
+            _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1355,25 +1563,33 @@ class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
   @override
   final String message;
 
-  factory _$OutOfOfficeDataCommon([void Function(OutOfOfficeDataCommonBuilder)? updates]) =>
+  factory _$OutOfOfficeDataCommon(
+          [void Function(OutOfOfficeDataCommonBuilder)? updates]) =>
       (OutOfOfficeDataCommonBuilder()..update(updates))._build();
 
-  _$OutOfOfficeDataCommon._({required this.userId, required this.message}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId');
-    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message');
+  _$OutOfOfficeDataCommon._({required this.userId, required this.message})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        userId, r'OutOfOfficeDataCommon', 'userId');
+    BuiltValueNullFieldError.checkNotNull(
+        message, r'OutOfOfficeDataCommon', 'message');
   }
 
   @override
-  OutOfOfficeDataCommon rebuild(void Function(OutOfOfficeDataCommonBuilder) updates) =>
+  OutOfOfficeDataCommon rebuild(
+          void Function(OutOfOfficeDataCommonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  OutOfOfficeDataCommonBuilder toBuilder() => OutOfOfficeDataCommonBuilder()..replace(this);
+  OutOfOfficeDataCommonBuilder toBuilder() =>
+      OutOfOfficeDataCommonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeDataCommon && userId == other.userId && message == other.message;
+    return other is OutOfOfficeDataCommon &&
+        userId == other.userId &&
+        message == other.message;
   }
 
   @override
@@ -1395,7 +1611,9 @@ class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
 }
 
 class OutOfOfficeDataCommonBuilder
-    implements Builder<OutOfOfficeDataCommon, OutOfOfficeDataCommonBuilder>, $OutOfOfficeDataCommonInterfaceBuilder {
+    implements
+        Builder<OutOfOfficeDataCommon, OutOfOfficeDataCommonBuilder>,
+        $OutOfOfficeDataCommonInterfaceBuilder {
   _$OutOfOfficeDataCommon? _$v;
 
   String? _userId;
@@ -1435,14 +1653,17 @@ class OutOfOfficeDataCommonBuilder
   _$OutOfOfficeDataCommon _build() {
     final _$result = _$v ??
         _$OutOfOfficeDataCommon._(
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message'));
+            userId: BuiltValueNullFieldError.checkNotNull(
+                userId, r'OutOfOfficeDataCommon', 'userId'),
+            message: BuiltValueNullFieldError.checkNotNull(
+                message, r'OutOfOfficeDataCommon', 'message'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $CurrentOutOfOfficeDataInterfaceBuilder implements $OutOfOfficeDataCommonInterfaceBuilder {
+abstract mixin class $CurrentOutOfOfficeDataInterfaceBuilder
+    implements $OutOfOfficeDataCommonInterfaceBuilder {
   void replace(covariant $CurrentOutOfOfficeDataInterface other);
   void update(void Function($CurrentOutOfOfficeDataInterfaceBuilder) updates);
   String? get id;
@@ -1478,7 +1699,8 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
   @override
   final String message;
 
-  factory _$CurrentOutOfOfficeData([void Function(CurrentOutOfOfficeDataBuilder)? updates]) =>
+  factory _$CurrentOutOfOfficeData(
+          [void Function(CurrentOutOfOfficeDataBuilder)? updates]) =>
       (CurrentOutOfOfficeDataBuilder()..update(updates))._build();
 
   _$CurrentOutOfOfficeData._(
@@ -1490,19 +1712,26 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
       required this.message})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id');
-    BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate');
-    BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate');
-    BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage');
-    BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId');
-    BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message');
+    BuiltValueNullFieldError.checkNotNull(
+        startDate, r'CurrentOutOfOfficeData', 'startDate');
+    BuiltValueNullFieldError.checkNotNull(
+        endDate, r'CurrentOutOfOfficeData', 'endDate');
+    BuiltValueNullFieldError.checkNotNull(
+        shortMessage, r'CurrentOutOfOfficeData', 'shortMessage');
+    BuiltValueNullFieldError.checkNotNull(
+        userId, r'CurrentOutOfOfficeData', 'userId');
+    BuiltValueNullFieldError.checkNotNull(
+        message, r'CurrentOutOfOfficeData', 'message');
   }
 
   @override
-  CurrentOutOfOfficeData rebuild(void Function(CurrentOutOfOfficeDataBuilder) updates) =>
+  CurrentOutOfOfficeData rebuild(
+          void Function(CurrentOutOfOfficeDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CurrentOutOfOfficeDataBuilder toBuilder() => CurrentOutOfOfficeDataBuilder()..replace(this);
+  CurrentOutOfOfficeDataBuilder toBuilder() =>
+      CurrentOutOfOfficeDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1543,7 +1772,9 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
 }
 
 class CurrentOutOfOfficeDataBuilder
-    implements Builder<CurrentOutOfOfficeData, CurrentOutOfOfficeDataBuilder>, $CurrentOutOfOfficeDataInterfaceBuilder {
+    implements
+        Builder<CurrentOutOfOfficeData, CurrentOutOfOfficeDataBuilder>,
+        $CurrentOutOfOfficeDataInterfaceBuilder {
   _$CurrentOutOfOfficeData? _$v;
 
   String? _id;
@@ -1560,7 +1791,8 @@ class CurrentOutOfOfficeDataBuilder
 
   String? _shortMessage;
   String? get shortMessage => _$this._shortMessage;
-  set shortMessage(covariant String? shortMessage) => _$this._shortMessage = shortMessage;
+  set shortMessage(covariant String? shortMessage) =>
+      _$this._shortMessage = shortMessage;
 
   String? _userId;
   String? get userId => _$this._userId;
@@ -1603,21 +1835,31 @@ class CurrentOutOfOfficeDataBuilder
   _$CurrentOutOfOfficeData _build() {
     final _$result = _$v ??
         _$CurrentOutOfOfficeData._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id'),
-            startDate: BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate'),
-            endDate: BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate'),
-            shortMessage:
-                BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage'),
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message'));
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'CurrentOutOfOfficeData', 'id'),
+            startDate: BuiltValueNullFieldError.checkNotNull(
+                startDate, r'CurrentOutOfOfficeData', 'startDate'),
+            endDate: BuiltValueNullFieldError.checkNotNull(
+                endDate, r'CurrentOutOfOfficeData', 'endDate'),
+            shortMessage: BuiltValueNullFieldError.checkNotNull(
+                shortMessage, r'CurrentOutOfOfficeData', 'shortMessage'),
+            userId: BuiltValueNullFieldError.checkNotNull(
+                userId, r'CurrentOutOfOfficeData', 'userId'),
+            message: BuiltValueNullFieldError.checkNotNull(
+                message, r'CurrentOutOfOfficeData', 'message'));
     replace(_$result);
     return _$result;
   }
 }
 
 abstract mixin class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface other);
-  void update(void Function($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void replace(
+      $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface
+          other);
+  void update(
+      void Function(
+              $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1633,30 +1875,44 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
   final CurrentOutOfOfficeData data;
 
   factory _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs(
-          [void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)? updates]) =>
-      (OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(
+                  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()
+            ..update(updates))
+          ._build();
 
-  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._({required this.meta, required this.data})
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        meta, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', 'meta');
+        meta,
+        r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs',
+        'meta');
     BuiltValueNullFieldError.checkNotNull(
-        data, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', 'data');
+        data,
+        r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs',
+        'data');
   }
 
   @override
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs rebuild(
-          void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(
+                  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder toBuilder() =>
-      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()..replace(this);
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
+      toBuilder() =>
+          OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()
+            ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs &&
+    return other
+            is OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs &&
         meta == other.meta &&
         data == other.data;
   }
@@ -1672,7 +1928,8 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -1691,12 +1948,15 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   CurrentOutOfOfficeDataBuilder? _data;
-  CurrentOutOfOfficeDataBuilder get data => _$this._data ??= CurrentOutOfOfficeDataBuilder();
-  set data(covariant CurrentOutOfOfficeDataBuilder? data) => _$this._data = data;
+  CurrentOutOfOfficeDataBuilder get data =>
+      _$this._data ??= CurrentOutOfOfficeDataBuilder();
+  set data(covariant CurrentOutOfOfficeDataBuilder? data) =>
+      _$this._data = data;
 
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
 
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder get _$this {
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
+      get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -1707,24 +1967,32 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs other) {
+  void replace(
+      covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
+          other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs;
+    _$v = other
+        as _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(
+              OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs build() => _build();
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs build() =>
+      _build();
 
   _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs _build() {
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1734,7 +2002,9 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1744,10 +2014,18 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
 }
 
 abstract mixin class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder {
-  void replace($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface other);
-  void update(void Function($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder) updates);
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? ocs);
+  void replace(
+      $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface
+          other);
+  void update(
+      void Function(
+              $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder)
+          updates);
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
+      get ocs;
+  set ocs(
+      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder?
+          ocs);
 }
 
 class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
@@ -1756,26 +2034,39 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
   final OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs ocs;
 
   factory _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson(
-          [void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)? updates]) =>
-      (OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()..update(updates))._build();
+          [void Function(
+                  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)?
+              updates]) =>
+      (OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()
+            ..update(updates))
+          ._build();
 
-  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson', 'ocs');
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(
+      {required this.ocs})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs,
+        r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson', 'ocs');
   }
 
   @override
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson rebuild(
-          void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder) updates) =>
+          void Function(
+                  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder toBuilder() =>
-      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()..replace(this);
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
+      toBuilder() =>
+          OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()
+            ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson && ocs == other.ocs;
+    return other
+            is OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson &&
+        ocs == other.ocs;
   }
 
   @override
@@ -1788,7 +2079,8 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson')
+    return (newBuiltValueToStringHelper(
+            r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson')
           ..add('ocs', ocs))
         .toString();
   }
@@ -1802,13 +2094,18 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
   _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson? _$v;
 
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? _ocs;
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
-  set ocs(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
+      get ocs => _$this._ocs ??=
+          OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
+  set ocs(
+          covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder?
+              ocs) =>
+      _$this._ocs = ocs;
 
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder();
 
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder get _$this {
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
+      get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -1818,23 +2115,32 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson other) {
+  void replace(
+      covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
+          other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson;
+    _$v =
+        other as _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson;
   }
 
   @override
-  void update(void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(
+              OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson build() => _build();
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson build() =>
+      _build();
 
   _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson _build() {
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(
+              ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1842,7 +2148,9 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson', _$failedField, e.toString());
+            r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1851,7 +2159,8 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $OutOfOfficeDataInterfaceBuilder implements $OutOfOfficeDataCommonInterfaceBuilder {
+abstract mixin class $OutOfOfficeDataInterfaceBuilder
+    implements $OutOfOfficeDataCommonInterfaceBuilder {
   void replace(covariant $OutOfOfficeDataInterface other);
   void update(void Function($OutOfOfficeDataInterfaceBuilder) updates);
   int? get id;
@@ -1899,15 +2208,19 @@ class _$OutOfOfficeData extends OutOfOfficeData {
       required this.message})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id');
-    BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay');
-    BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay');
+    BuiltValueNullFieldError.checkNotNull(
+        firstDay, r'OutOfOfficeData', 'firstDay');
+    BuiltValueNullFieldError.checkNotNull(
+        lastDay, r'OutOfOfficeData', 'lastDay');
     BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status');
     BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId');
-    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message');
+    BuiltValueNullFieldError.checkNotNull(
+        message, r'OutOfOfficeData', 'message');
   }
 
   @override
-  OutOfOfficeData rebuild(void Function(OutOfOfficeDataBuilder) updates) => (toBuilder()..update(updates)).build();
+  OutOfOfficeData rebuild(void Function(OutOfOfficeDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OutOfOfficeDataBuilder toBuilder() => OutOfOfficeDataBuilder()..replace(this);
@@ -1951,7 +2264,9 @@ class _$OutOfOfficeData extends OutOfOfficeData {
 }
 
 class OutOfOfficeDataBuilder
-    implements Builder<OutOfOfficeData, OutOfOfficeDataBuilder>, $OutOfOfficeDataInterfaceBuilder {
+    implements
+        Builder<OutOfOfficeData, OutOfOfficeDataBuilder>,
+        $OutOfOfficeDataInterfaceBuilder {
   _$OutOfOfficeData? _$v;
 
   int? _id;
@@ -2011,20 +2326,30 @@ class OutOfOfficeDataBuilder
   _$OutOfOfficeData _build() {
     final _$result = _$v ??
         _$OutOfOfficeData._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id'),
-            firstDay: BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay'),
-            lastDay: BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay'),
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status'),
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message'));
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'OutOfOfficeData', 'id'),
+            firstDay: BuiltValueNullFieldError.checkNotNull(
+                firstDay, r'OutOfOfficeData', 'firstDay'),
+            lastDay: BuiltValueNullFieldError.checkNotNull(
+                lastDay, r'OutOfOfficeData', 'lastDay'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'OutOfOfficeData', 'status'),
+            userId: BuiltValueNullFieldError.checkNotNull(
+                userId, r'OutOfOfficeData', 'userId'),
+            message: BuiltValueNullFieldError.checkNotNull(
+                message, r'OutOfOfficeData', 'message'));
     replace(_$result);
     return _$result;
   }
 }
 
 abstract mixin class $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface other);
-  void update(void Function($OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void replace(
+      $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface other);
+  void update(
+      void Function(
+              $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2040,27 +2365,40 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
   final OutOfOfficeData data;
 
   factory _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs(
-          [void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(
+                  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()
+            ..update(updates))
+          ._build();
 
-  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', 'data');
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', 'data');
   }
 
   @override
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs rebuild(
-          void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(
+                  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
-      OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+      OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -2074,7 +2412,8 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -2109,13 +2448,17 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs other) {
+  void replace(
+      covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(
+              OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -2125,8 +2468,9 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
   _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs _build() {
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2136,7 +2480,9 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -2146,27 +2492,39 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
 }
 
 abstract mixin class $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder {
-  void replace($OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface other);
-  void update(void Function($OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder) updates);
+  void replace(
+      $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface other);
+  void update(
+      void Function(
+              $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder)
+          updates);
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs;
   set ocs(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson extends OutOfOfficeGetOutOfOfficeResponseApplicationJson {
+class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson
+    extends OutOfOfficeGetOutOfOfficeResponseApplicationJson {
   @override
   final OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs ocs;
 
   factory _$OutOfOfficeGetOutOfOfficeResponseApplicationJson(
-          [void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
-      (OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+          [void Function(
+                  OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)?
+              updates]) =>
+      (OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder()
+            ..update(updates))
+          ._build();
 
-  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson', 'ocs');
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._({required this.ocs})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson', 'ocs');
   }
 
   @override
   OutOfOfficeGetOutOfOfficeResponseApplicationJson rebuild(
-          void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder) updates) =>
+          void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -2176,7 +2534,8 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson extends OutOfOfficeGetO
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeGetOutOfOfficeResponseApplicationJson && ocs == other.ocs;
+    return other is OutOfOfficeGetOutOfOfficeResponseApplicationJson &&
+        ocs == other.ocs;
   }
 
   @override
@@ -2189,7 +2548,9 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson extends OutOfOfficeGetO
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OutOfOfficeGetOutOfOfficeResponseApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(
+            r'OutOfOfficeGetOutOfOfficeResponseApplicationJson')
+          ..add('ocs', ocs))
         .toString();
   }
 }
@@ -2203,8 +2564,12 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
 
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
-  set ocs(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+      _$this._ocs ??=
+          OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
+  set ocs(
+          covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder?
+              ocs) =>
+      _$this._ocs = ocs;
 
   OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder();
 
@@ -2218,13 +2583,16 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson other) {
+  void replace(
+      covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeGetOutOfOfficeResponseApplicationJson;
   }
 
   @override
-  void update(void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -2234,7 +2602,9 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
   _$OutOfOfficeGetOutOfOfficeResponseApplicationJson _build() {
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._(
+              ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2242,7 +2612,9 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OutOfOfficeGetOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
+            r'OutOfOfficeGetOutOfOfficeResponseApplicationJson',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -2252,8 +2624,12 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
 }
 
 abstract mixin class $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface other);
-  void update(void Function($OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void replace(
+      $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface other);
+  void update(
+      void Function(
+              $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2269,27 +2645,40 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
   final OutOfOfficeData data;
 
   factory _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs(
-          [void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(
+                  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()
+            ..update(updates))
+          ._build();
 
-  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', 'data');
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', 'data');
   }
 
   @override
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs rebuild(
-          void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(
+                  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
-      OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+      OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -2303,7 +2692,8 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -2338,13 +2728,17 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs other) {
+  void replace(
+      covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(
+              OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -2354,8 +2748,9 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
   _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs _build() {
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2365,7 +2760,9 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -2375,27 +2772,39 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
 }
 
 abstract mixin class $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder {
-  void replace($OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface other);
-  void update(void Function($OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder) updates);
+  void replace(
+      $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface other);
+  void update(
+      void Function(
+              $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder)
+          updates);
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs;
   set ocs(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson extends OutOfOfficeSetOutOfOfficeResponseApplicationJson {
+class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson
+    extends OutOfOfficeSetOutOfOfficeResponseApplicationJson {
   @override
   final OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs ocs;
 
   factory _$OutOfOfficeSetOutOfOfficeResponseApplicationJson(
-          [void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
-      (OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+          [void Function(
+                  OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)?
+              updates]) =>
+      (OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder()
+            ..update(updates))
+          ._build();
 
-  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson', 'ocs');
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._({required this.ocs})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson', 'ocs');
   }
 
   @override
   OutOfOfficeSetOutOfOfficeResponseApplicationJson rebuild(
-          void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder) updates) =>
+          void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -2405,7 +2814,8 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson extends OutOfOfficeSetO
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeSetOutOfOfficeResponseApplicationJson && ocs == other.ocs;
+    return other is OutOfOfficeSetOutOfOfficeResponseApplicationJson &&
+        ocs == other.ocs;
   }
 
   @override
@@ -2418,7 +2828,9 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson extends OutOfOfficeSetO
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OutOfOfficeSetOutOfOfficeResponseApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(
+            r'OutOfOfficeSetOutOfOfficeResponseApplicationJson')
+          ..add('ocs', ocs))
         .toString();
   }
 }
@@ -2432,8 +2844,12 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
 
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
-  set ocs(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+      _$this._ocs ??=
+          OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
+  set ocs(
+          covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder?
+              ocs) =>
+      _$this._ocs = ocs;
 
   OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder();
 
@@ -2447,13 +2863,16 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson other) {
+  void replace(
+      covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeSetOutOfOfficeResponseApplicationJson;
   }
 
   @override
-  void update(void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -2463,7 +2882,9 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
   _$OutOfOfficeSetOutOfOfficeResponseApplicationJson _build() {
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._(
+              ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2471,7 +2892,9 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OutOfOfficeSetOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
+            r'OutOfOfficeSetOutOfOfficeResponseApplicationJson',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -2481,8 +2904,12 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
 }
 
 abstract mixin class $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface other);
-  void update(void Function($OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void replace(
+      $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface other);
+  void update(
+      void Function(
+              $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2498,26 +2925,38 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
   final JsonObject? data;
 
   factory _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs(
-          [void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+          [void Function(
+                  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)?
+              updates]) =>
+      (OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()
+            ..update(updates))
+          ._build();
 
-  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs', 'meta');
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(
+      {required this.meta, this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta,
+        r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs', 'meta');
   }
 
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs rebuild(
-          void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
+          void Function(
+                  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
-      OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+      OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -2531,7 +2970,8 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(
+            r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
@@ -2566,13 +3006,17 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void replace(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs other) {
+  void replace(
+      covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(
+              OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -2582,7 +3026,9 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
   _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs _build() {
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data);
+      _$result = _$v ??
+          _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data);
     } catch (_) {
       late String _$failedField;
       try {
@@ -2590,7 +3036,9 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -2600,37 +3048,52 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
 }
 
 abstract mixin class $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder {
-  void replace($OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface other);
-  void update(void Function($OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder) updates);
+  void replace(
+      $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface other);
+  void update(
+      void Function(
+              $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder)
+          updates);
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder get ocs;
   set ocs(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson extends OutOfOfficeClearOutOfOfficeResponseApplicationJson {
+class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson
+    extends OutOfOfficeClearOutOfOfficeResponseApplicationJson {
   @override
   final OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs ocs;
 
   factory _$OutOfOfficeClearOutOfOfficeResponseApplicationJson(
-          [void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
-      (OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+          [void Function(
+                  OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)?
+              updates]) =>
+      (OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()
+            ..update(updates))
+          ._build();
 
-  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeClearOutOfOfficeResponseApplicationJson', 'ocs');
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._({required this.ocs})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'OutOfOfficeClearOutOfOfficeResponseApplicationJson', 'ocs');
   }
 
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJson rebuild(
-          void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder) updates) =>
+          void Function(
+                  OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder toBuilder() =>
-      OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
+      OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()
+        ..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeClearOutOfOfficeResponseApplicationJson && ocs == other.ocs;
+    return other is OutOfOfficeClearOutOfOfficeResponseApplicationJson &&
+        ocs == other.ocs;
   }
 
   @override
@@ -2643,7 +3106,9 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson extends OutOfOfficeCl
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OutOfOfficeClearOutOfOfficeResponseApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(
+            r'OutOfOfficeClearOutOfOfficeResponseApplicationJson')
+          ..add('ocs', ocs))
         .toString();
   }
 }
@@ -2657,8 +3122,12 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
 
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
-  set ocs(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+      _$this._ocs ??=
+          OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
+  set ocs(
+          covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder?
+              ocs) =>
+      _$this._ocs = ocs;
 
   OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder();
 
@@ -2672,13 +3141,16 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson other) {
+  void replace(
+      covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeClearOutOfOfficeResponseApplicationJson;
   }
 
   @override
-  void update(void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)? updates) {
+  void update(
+      void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -2688,7 +3160,9 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
   _$OutOfOfficeClearOutOfOfficeResponseApplicationJson _build() {
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._(
+              ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2696,7 +3170,9 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OutOfOfficeClearOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
+            r'OutOfOfficeClearOutOfOfficeResponseApplicationJson',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -2721,23 +3197,29 @@ class _$Capabilities_Dav extends Capabilities_Dav {
   @override
   final String? bulkupload;
 
-  factory _$Capabilities_Dav([void Function(Capabilities_DavBuilder)? updates]) =>
+  factory _$Capabilities_Dav(
+          [void Function(Capabilities_DavBuilder)? updates]) =>
       (Capabilities_DavBuilder()..update(updates))._build();
 
   _$Capabilities_Dav._({required this.chunking, this.bulkupload}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking');
+    BuiltValueNullFieldError.checkNotNull(
+        chunking, r'Capabilities_Dav', 'chunking');
   }
 
   @override
-  Capabilities_Dav rebuild(void Function(Capabilities_DavBuilder) updates) => (toBuilder()..update(updates)).build();
+  Capabilities_Dav rebuild(void Function(Capabilities_DavBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_DavBuilder toBuilder() => Capabilities_DavBuilder()..replace(this);
+  Capabilities_DavBuilder toBuilder() =>
+      Capabilities_DavBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Capabilities_Dav && chunking == other.chunking && bulkupload == other.bulkupload;
+    return other is Capabilities_Dav &&
+        chunking == other.chunking &&
+        bulkupload == other.bulkupload;
   }
 
   @override
@@ -2759,7 +3241,9 @@ class _$Capabilities_Dav extends Capabilities_Dav {
 }
 
 class Capabilities_DavBuilder
-    implements Builder<Capabilities_Dav, Capabilities_DavBuilder>, $Capabilities_DavInterfaceBuilder {
+    implements
+        Builder<Capabilities_Dav, Capabilities_DavBuilder>,
+        $Capabilities_DavInterfaceBuilder {
   _$Capabilities_Dav? _$v;
 
   String? _chunking;
@@ -2768,7 +3252,8 @@ class Capabilities_DavBuilder
 
   String? _bulkupload;
   String? get bulkupload => _$this._bulkupload;
-  set bulkupload(covariant String? bulkupload) => _$this._bulkupload = bulkupload;
+  set bulkupload(covariant String? bulkupload) =>
+      _$this._bulkupload = bulkupload;
 
   Capabilities_DavBuilder();
 
@@ -2799,7 +3284,8 @@ class Capabilities_DavBuilder
   _$Capabilities_Dav _build() {
     final _$result = _$v ??
         _$Capabilities_Dav._(
-            chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking'),
+            chunking: BuiltValueNullFieldError.checkNotNull(
+                chunking, r'Capabilities_Dav', 'chunking'),
             bulkupload: bulkupload);
     replace(_$result);
     return _$result;
@@ -2825,7 +3311,8 @@ class _$Capabilities extends Capabilities {
   }
 
   @override
-  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
@@ -2846,11 +3333,15 @@ class _$Capabilities extends Capabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities')..add('dav', dav)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('dav', dav))
+        .toString();
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder
+    implements
+        Builder<Capabilities, CapabilitiesBuilder>,
+        $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_DavBuilder? _dav;
@@ -2892,7 +3383,8 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'dav';
         dav.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -26,7 +26,8 @@ HuntingSkill _$valueOfHuntingSkill(String name) {
   }
 }
 
-final BuiltSet<HuntingSkill> _$huntingSkillValues = BuiltSet<HuntingSkill>(const <HuntingSkill>[
+final BuiltSet<HuntingSkill> _$huntingSkillValues =
+    BuiltSet<HuntingSkill>(const <HuntingSkill>[
   _$huntingSkillClueless,
   _$huntingSkillLazy,
   _$huntingSkillAdventurous,
@@ -54,7 +55,8 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
     if (value != null) {
       result
         ..add('tag')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -71,10 +73,12 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'tag':
-          result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.tag = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -103,7 +107,8 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
     if (value != null) {
       result
         ..add('tag')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -120,13 +125,16 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'tag':
-          result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.tag = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -151,14 +159,16 @@ class _$Object2 extends Object2 {
   @override
   final String? tag;
 
-  factory _$Object2([void Function(Object2Builder)? updates]) => (Object2Builder()..update(updates))._build();
+  factory _$Object2([void Function(Object2Builder)? updates]) =>
+      (Object2Builder()..update(updates))._build();
 
   _$Object2._({required this.name, this.tag}) : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name');
   }
 
   @override
-  Object2 rebuild(void Function(Object2Builder) updates) => (toBuilder()..update(updates)).build();
+  Object2 rebuild(void Function(Object2Builder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   Object2Builder toBuilder() => Object2Builder()..replace(this);
@@ -187,7 +197,8 @@ class _$Object2 extends Object2 {
   }
 }
 
-class Object2Builder implements Builder<Object2, Object2Builder>, $Object2InterfaceBuilder {
+class Object2Builder
+    implements Builder<Object2, Object2Builder>, $Object2InterfaceBuilder {
   _$Object2? _$v;
 
   String? _name;
@@ -225,14 +236,18 @@ class Object2Builder implements Builder<Object2, Object2Builder>, $Object2Interf
   Object2 build() => _build();
 
   _$Object2 _build() {
-    final _$result =
-        _$v ?? _$Object2._(name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'), tag: tag);
+    final _$result = _$v ??
+        _$Object2._(
+            name:
+                BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'),
+            tag: tag);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $Object1InterfaceBuilder implements $Object2InterfaceBuilder {
+abstract mixin class $Object1InterfaceBuilder
+    implements $Object2InterfaceBuilder {
   void replace(covariant $Object1Interface other);
   void update(void Function($Object1InterfaceBuilder) updates);
   int? get id;
@@ -253,7 +268,8 @@ class _$Object1 extends Object1 {
   @override
   final String? tag;
 
-  factory _$Object1([void Function(Object1Builder)? updates]) => (Object1Builder()..update(updates))._build();
+  factory _$Object1([void Function(Object1Builder)? updates]) =>
+      (Object1Builder()..update(updates))._build();
 
   _$Object1._({required this.id, required this.name, this.tag}) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id');
@@ -261,7 +277,8 @@ class _$Object1 extends Object1 {
   }
 
   @override
-  Object1 rebuild(void Function(Object1Builder) updates) => (toBuilder()..update(updates)).build();
+  Object1 rebuild(void Function(Object1Builder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   Object1Builder toBuilder() => Object1Builder()..replace(this);
@@ -269,7 +286,10 @@ class _$Object1 extends Object1 {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Object1 && id == other.id && name == other.name && tag == other.tag;
+    return other is Object1 &&
+        id == other.id &&
+        name == other.name &&
+        tag == other.tag;
   }
 
   @override
@@ -292,7 +312,8 @@ class _$Object1 extends Object1 {
   }
 }
 
-class Object1Builder implements Builder<Object1, Object1Builder>, $Object1InterfaceBuilder {
+class Object1Builder
+    implements Builder<Object1, Object1Builder>, $Object1InterfaceBuilder {
   _$Object1? _$v;
 
   int? _id;
@@ -338,7 +359,8 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
     final _$result = _$v ??
         _$Object1._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
+            name:
+                BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
             tag: tag);
     replace(_$result);
     return _$result;

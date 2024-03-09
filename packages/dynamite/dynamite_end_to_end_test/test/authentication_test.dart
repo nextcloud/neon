@@ -94,7 +94,8 @@ void main() {
           request.headers,
           equals({
             'Accept': 'application/json',
-            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
+            'Authorization':
+                'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
           }),
         );
 
@@ -126,7 +127,8 @@ void main() {
           request.headers,
           equals({
             'Accept': 'application/json',
-            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
+            'Authorization':
+                'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
           }),
         );
 
@@ -226,7 +228,8 @@ void main() {
           request.headers,
           equals({
             'Accept': 'application/json',
-            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
+            'Authorization':
+                'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
           }),
         );
 
@@ -264,7 +267,8 @@ void main() {
           request.headers,
           equals({
             'Accept': 'application/json',
-            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
+            'Authorization':
+                'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
           }),
         );
 

@@ -9,5 +9,6 @@ extension FilesVersionsExtension on NextcloudClient {
   static final _filesVersions = Expando<$Client>();
 
   /// Client for the files_versions APIs
-  $Client get filesVersions => _filesVersions[this] ??= $Client.fromClient(this);
+  $Client get filesVersions =>
+      _filesVersions[this] ??= $Client.fromClient(this);
 }

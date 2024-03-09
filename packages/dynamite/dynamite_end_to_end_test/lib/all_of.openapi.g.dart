@@ -7,10 +7,13 @@ part of 'all_of.openapi.dart';
 // **************************************************************************
 
 Serializer<ObjectAllOf> _$objectAllOfSerializer = _$ObjectAllOfSerializer();
-Serializer<OneObjectAllOf> _$oneObjectAllOfSerializer = _$OneObjectAllOfSerializer();
-Serializer<PrimitiveAllOf> _$primitiveAllOfSerializer = _$PrimitiveAllOfSerializer();
+Serializer<OneObjectAllOf> _$oneObjectAllOfSerializer =
+    _$OneObjectAllOfSerializer();
+Serializer<PrimitiveAllOf> _$primitiveAllOfSerializer =
+    _$PrimitiveAllOfSerializer();
 Serializer<MixedAllOf> _$mixedAllOfSerializer = _$MixedAllOfSerializer();
-Serializer<OneValueAllOf> _$oneValueAllOfSerializer = _$OneValueAllOfSerializer();
+Serializer<OneValueAllOf> _$oneValueAllOfSerializer =
+    _$OneValueAllOfSerializer();
 
 class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
   @override
@@ -23,9 +26,11 @@ class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attribute1-allOf',
-      serializers.serialize(object.attribute1AllOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attribute1AllOf,
+          specifiedType: const FullType(String)),
       'attribute2-allOf',
-      serializers.serialize(object.attribute2AllOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attribute2AllOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -43,10 +48,12 @@ class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute1-allOf':
-          result.attribute1AllOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attribute1AllOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'attribute2-allOf':
-          result.attribute2AllOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attribute2AllOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -55,7 +62,8 @@ class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
   }
 }
 
-class _$OneObjectAllOfSerializer implements StructuredSerializer<OneObjectAllOf> {
+class _$OneObjectAllOfSerializer
+    implements StructuredSerializer<OneObjectAllOf> {
   @override
   final Iterable<Type> types = const [OneObjectAllOf, _$OneObjectAllOf];
   @override
@@ -66,14 +74,16 @@ class _$OneObjectAllOfSerializer implements StructuredSerializer<OneObjectAllOf>
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attribute-allOf',
-      serializers.serialize(object.attributeAllOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attributeAllOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  OneObjectAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OneObjectAllOf deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OneObjectAllOfBuilder();
 
@@ -84,7 +94,8 @@ class _$OneObjectAllOfSerializer implements StructuredSerializer<OneObjectAllOf>
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute-allOf':
-          result.attributeAllOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attributeAllOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -93,7 +104,8 @@ class _$OneObjectAllOfSerializer implements StructuredSerializer<OneObjectAllOf>
   }
 }
 
-class _$PrimitiveAllOfSerializer implements StructuredSerializer<PrimitiveAllOf> {
+class _$PrimitiveAllOfSerializer
+    implements StructuredSerializer<PrimitiveAllOf> {
   @override
   final Iterable<Type> types = const [PrimitiveAllOf, _$PrimitiveAllOf];
   @override
@@ -106,14 +118,16 @@ class _$PrimitiveAllOfSerializer implements StructuredSerializer<PrimitiveAllOf>
       'int',
       serializers.serialize(object.$int, specifiedType: const FullType(int)),
       'String',
-      serializers.serialize(object.string, specifiedType: const FullType(String)),
+      serializers.serialize(object.string,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  PrimitiveAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
+  PrimitiveAllOf deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = PrimitiveAllOfBuilder();
 
@@ -124,10 +138,12 @@ class _$PrimitiveAllOfSerializer implements StructuredSerializer<PrimitiveAllOf>
       final Object? value = iterator.current;
       switch (key) {
         case 'int':
-          result.$int = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.$int = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'String':
-          result.string = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.string = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -147,9 +163,11 @@ class _$MixedAllOfSerializer implements StructuredSerializer<MixedAllOf> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'String',
-      serializers.serialize(object.string, specifiedType: const FullType(String)),
+      serializers.serialize(object.string,
+          specifiedType: const FullType(String)),
       'attribute-allOf',
-      serializers.serialize(object.attributeAllOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attributeAllOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -167,10 +185,12 @@ class _$MixedAllOfSerializer implements StructuredSerializer<MixedAllOf> {
       final Object? value = iterator.current;
       switch (key) {
         case 'String':
-          result.string = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.string = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'attribute-allOf':
-          result.attributeAllOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attributeAllOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -190,14 +210,16 @@ class _$OneValueAllOfSerializer implements StructuredSerializer<OneValueAllOf> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'String',
-      serializers.serialize(object.string, specifiedType: const FullType(String)),
+      serializers.serialize(object.string,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  OneValueAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OneValueAllOf deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OneValueAllOfBuilder();
 
@@ -208,7 +230,8 @@ class _$OneValueAllOfSerializer implements StructuredSerializer<OneValueAllOf> {
       final Object? value = iterator.current;
       switch (key) {
         case 'String':
-          result.string = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.string = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -236,13 +259,18 @@ class _$ObjectAllOf extends ObjectAllOf {
   factory _$ObjectAllOf([void Function(ObjectAllOfBuilder)? updates]) =>
       (ObjectAllOfBuilder()..update(updates))._build();
 
-  _$ObjectAllOf._({required this.attribute1AllOf, required this.attribute2AllOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf');
-    BuiltValueNullFieldError.checkNotNull(attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf');
+  _$ObjectAllOf._(
+      {required this.attribute1AllOf, required this.attribute2AllOf})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf');
   }
 
   @override
-  ObjectAllOf rebuild(void Function(ObjectAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
+  ObjectAllOf rebuild(void Function(ObjectAllOfBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ObjectAllOfBuilder toBuilder() => ObjectAllOfBuilder()..replace(this);
@@ -250,7 +278,9 @@ class _$ObjectAllOf extends ObjectAllOf {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ObjectAllOf && attribute1AllOf == other.attribute1AllOf && attribute2AllOf == other.attribute2AllOf;
+    return other is ObjectAllOf &&
+        attribute1AllOf == other.attribute1AllOf &&
+        attribute2AllOf == other.attribute2AllOf;
   }
 
   @override
@@ -271,16 +301,21 @@ class _$ObjectAllOf extends ObjectAllOf {
   }
 }
 
-class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $ObjectAllOfInterfaceBuilder {
+class ObjectAllOfBuilder
+    implements
+        Builder<ObjectAllOf, ObjectAllOfBuilder>,
+        $ObjectAllOfInterfaceBuilder {
   _$ObjectAllOf? _$v;
 
   String? _attribute1AllOf;
   String? get attribute1AllOf => _$this._attribute1AllOf;
-  set attribute1AllOf(covariant String? attribute1AllOf) => _$this._attribute1AllOf = attribute1AllOf;
+  set attribute1AllOf(covariant String? attribute1AllOf) =>
+      _$this._attribute1AllOf = attribute1AllOf;
 
   String? _attribute2AllOf;
   String? get attribute2AllOf => _$this._attribute2AllOf;
-  set attribute2AllOf(covariant String? attribute2AllOf) => _$this._attribute2AllOf = attribute2AllOf;
+  set attribute2AllOf(covariant String? attribute2AllOf) =>
+      _$this._attribute2AllOf = attribute2AllOf;
 
   ObjectAllOfBuilder();
 
@@ -311,8 +346,10 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $O
   _$ObjectAllOf _build() {
     final _$result = _$v ??
         _$ObjectAllOf._(
-            attribute1AllOf: BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf'),
-            attribute2AllOf: BuiltValueNullFieldError.checkNotNull(attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf'));
+            attribute1AllOf: BuiltValueNullFieldError.checkNotNull(
+                attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf'),
+            attribute2AllOf: BuiltValueNullFieldError.checkNotNull(
+                attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf'));
     replace(_$result);
     return _$result;
   }
@@ -333,11 +370,13 @@ class _$OneObjectAllOf extends OneObjectAllOf {
       (OneObjectAllOfBuilder()..update(updates))._build();
 
   _$OneObjectAllOf._({required this.attributeAllOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attributeAllOf, r'OneObjectAllOf', 'attributeAllOf');
   }
 
   @override
-  OneObjectAllOf rebuild(void Function(OneObjectAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
+  OneObjectAllOf rebuild(void Function(OneObjectAllOfBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OneObjectAllOfBuilder toBuilder() => OneObjectAllOfBuilder()..replace(this);
@@ -358,16 +397,22 @@ class _$OneObjectAllOf extends OneObjectAllOf {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OneObjectAllOf')..add('attributeAllOf', attributeAllOf)).toString();
+    return (newBuiltValueToStringHelper(r'OneObjectAllOf')
+          ..add('attributeAllOf', attributeAllOf))
+        .toString();
   }
 }
 
-class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBuilder>, $OneObjectAllOfInterfaceBuilder {
+class OneObjectAllOfBuilder
+    implements
+        Builder<OneObjectAllOf, OneObjectAllOfBuilder>,
+        $OneObjectAllOfInterfaceBuilder {
   _$OneObjectAllOf? _$v;
 
   String? _attributeAllOf;
   String? get attributeAllOf => _$this._attributeAllOf;
-  set attributeAllOf(covariant String? attributeAllOf) => _$this._attributeAllOf = attributeAllOf;
+  set attributeAllOf(covariant String? attributeAllOf) =>
+      _$this._attributeAllOf = attributeAllOf;
 
   OneObjectAllOfBuilder();
 
@@ -397,7 +442,8 @@ class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBui
   _$OneObjectAllOf _build() {
     final _$result = _$v ??
         _$OneObjectAllOf._(
-            attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf'));
+            attributeAllOf: BuiltValueNullFieldError.checkNotNull(
+                attributeAllOf, r'OneObjectAllOf', 'attributeAllOf'));
     replace(_$result);
     return _$result;
   }
@@ -428,7 +474,8 @@ class _$PrimitiveAllOf extends PrimitiveAllOf {
   }
 
   @override
-  PrimitiveAllOf rebuild(void Function(PrimitiveAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
+  PrimitiveAllOf rebuild(void Function(PrimitiveAllOfBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   PrimitiveAllOfBuilder toBuilder() => PrimitiveAllOfBuilder()..replace(this);
@@ -436,7 +483,9 @@ class _$PrimitiveAllOf extends PrimitiveAllOf {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is PrimitiveAllOf && $int == other.$int && string == other.string;
+    return other is PrimitiveAllOf &&
+        $int == other.$int &&
+        string == other.string;
   }
 
   @override
@@ -457,7 +506,10 @@ class _$PrimitiveAllOf extends PrimitiveAllOf {
   }
 }
 
-class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBuilder>, $PrimitiveAllOfInterfaceBuilder {
+class PrimitiveAllOfBuilder
+    implements
+        Builder<PrimitiveAllOf, PrimitiveAllOfBuilder>,
+        $PrimitiveAllOfInterfaceBuilder {
   _$PrimitiveAllOf? _$v;
 
   int? _$int;
@@ -497,8 +549,10 @@ class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBui
   _$PrimitiveAllOf _build() {
     final _$result = _$v ??
         _$PrimitiveAllOf._(
-            $int: BuiltValueNullFieldError.checkNotNull($int, r'PrimitiveAllOf', '\$int'),
-            string: BuiltValueNullFieldError.checkNotNull(string, r'PrimitiveAllOf', 'string'));
+            $int: BuiltValueNullFieldError.checkNotNull(
+                $int, r'PrimitiveAllOf', '\$int'),
+            string: BuiltValueNullFieldError.checkNotNull(
+                string, r'PrimitiveAllOf', 'string'));
     replace(_$result);
     return _$result;
   }
@@ -520,15 +574,19 @@ class _$MixedAllOf extends MixedAllOf {
   @override
   final String attributeAllOf;
 
-  factory _$MixedAllOf([void Function(MixedAllOfBuilder)? updates]) => (MixedAllOfBuilder()..update(updates))._build();
+  factory _$MixedAllOf([void Function(MixedAllOfBuilder)? updates]) =>
+      (MixedAllOfBuilder()..update(updates))._build();
 
-  _$MixedAllOf._({required this.string, required this.attributeAllOf}) : super._() {
+  _$MixedAllOf._({required this.string, required this.attributeAllOf})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(string, r'MixedAllOf', 'string');
-    BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'MixedAllOf', 'attributeAllOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attributeAllOf, r'MixedAllOf', 'attributeAllOf');
   }
 
   @override
-  MixedAllOf rebuild(void Function(MixedAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
+  MixedAllOf rebuild(void Function(MixedAllOfBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   MixedAllOfBuilder toBuilder() => MixedAllOfBuilder()..replace(this);
@@ -536,7 +594,9 @@ class _$MixedAllOf extends MixedAllOf {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is MixedAllOf && string == other.string && attributeAllOf == other.attributeAllOf;
+    return other is MixedAllOf &&
+        string == other.string &&
+        attributeAllOf == other.attributeAllOf;
   }
 
   @override
@@ -557,7 +617,10 @@ class _$MixedAllOf extends MixedAllOf {
   }
 }
 
-class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $MixedAllOfInterfaceBuilder {
+class MixedAllOfBuilder
+    implements
+        Builder<MixedAllOf, MixedAllOfBuilder>,
+        $MixedAllOfInterfaceBuilder {
   _$MixedAllOf? _$v;
 
   String? _string;
@@ -566,7 +629,8 @@ class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $Mixe
 
   String? _attributeAllOf;
   String? get attributeAllOf => _$this._attributeAllOf;
-  set attributeAllOf(covariant String? attributeAllOf) => _$this._attributeAllOf = attributeAllOf;
+  set attributeAllOf(covariant String? attributeAllOf) =>
+      _$this._attributeAllOf = attributeAllOf;
 
   MixedAllOfBuilder();
 
@@ -597,8 +661,10 @@ class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $Mixe
   _$MixedAllOf _build() {
     final _$result = _$v ??
         _$MixedAllOf._(
-            string: BuiltValueNullFieldError.checkNotNull(string, r'MixedAllOf', 'string'),
-            attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'MixedAllOf', 'attributeAllOf'));
+            string: BuiltValueNullFieldError.checkNotNull(
+                string, r'MixedAllOf', 'string'),
+            attributeAllOf: BuiltValueNullFieldError.checkNotNull(
+                attributeAllOf, r'MixedAllOf', 'attributeAllOf'));
     replace(_$result);
     return _$result;
   }
@@ -623,7 +689,8 @@ class _$OneValueAllOf extends OneValueAllOf {
   }
 
   @override
-  OneValueAllOf rebuild(void Function(OneValueAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
+  OneValueAllOf rebuild(void Function(OneValueAllOfBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OneValueAllOfBuilder toBuilder() => OneValueAllOfBuilder()..replace(this);
@@ -644,11 +711,16 @@ class _$OneValueAllOf extends OneValueAllOf {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OneValueAllOf')..add('string', string)).toString();
+    return (newBuiltValueToStringHelper(r'OneValueAllOf')
+          ..add('string', string))
+        .toString();
   }
 }
 
-class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilder>, $OneValueAllOfInterfaceBuilder {
+class OneValueAllOfBuilder
+    implements
+        Builder<OneValueAllOf, OneValueAllOfBuilder>,
+        $OneValueAllOfInterfaceBuilder {
   _$OneValueAllOf? _$v;
 
   String? _string;
@@ -681,8 +753,10 @@ class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilde
   OneValueAllOf build() => _build();
 
   _$OneValueAllOf _build() {
-    final _$result =
-        _$v ?? _$OneValueAllOf._(string: BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string'));
+    final _$result = _$v ??
+        _$OneValueAllOf._(
+            string: BuiltValueNullFieldError.checkNotNull(
+                string, r'OneValueAllOf', 'string'));
     replace(_$result);
     return _$result;
   }

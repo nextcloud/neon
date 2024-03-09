@@ -24,7 +24,10 @@ class WebDavRequest extends http.BaseRequest {
     this.dataStream,
     this.data,
     Map<String, String>? headers,
-  }) : assert(dataStream == null || data == null, 'Only one of dataStream or data can be specified.') {
+  }) : assert(
+          dataStream == null || data == null,
+          'Only one of dataStream or data can be specified.',
+        ) {
     this.headers.addAll({
       ...?headers,
       HttpHeaders.contentTypeHeader: 'application/xml',
@@ -89,14 +92,17 @@ class WebDavClient {
     // TODO: Fix this bug in server.
     if (_kIsWeb) {
       if (_token == null) {
-        final response = await rootClient.get(Uri.parse('${rootClient.baseURL}/index.php'));
+        final response =
+            await rootClient.get(Uri.parse('${rootClient.baseURL}/index.php'));
         if (response.statusCode >= 300) {
           throw DynamiteStatusCodeException(
             response.statusCode,
           );
         }
 
-        _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
+        _token = RegExp('data-requesttoken="([^"]*)"')
+            .firstMatch(response.body)!
+            .group(1);
       }
 
       request.headers.addAll({
@@ -121,14 +127,17 @@ class WebDavClient {
   @visibleForTesting
   // ignore: public_member_api_docs
   static Uri constructUri(Uri baseURL, [PathUri? path]) {
-    final segments = baseURL.pathSegments.toList()..addAll(webdavBase.pathSegments);
+    final segments = baseURL.pathSegments.toList()
+      ..addAll(webdavBase.pathSegments);
     if (path != null) {
       segments.addAll(path.pathSegments);
     }
     return baseURL.replace(pathSegments: segments.where((s) => s.isNotEmpty));
   }
 
-  Future<WebDavMultistatus> _parseResponse(http.StreamedResponse response) async =>
+  Future<WebDavMultistatus> _parseResponse(
+    http.StreamedResponse response,
+  ) async =>
       WebDavMultistatus.fromXmlElement(await response.stream.xml);
 
   Map<String, String> _getUploadHeaders({
@@ -137,9 +146,13 @@ class WebDavClient {
     required int? contentLength,
   }) =>
       {
-        if (lastModified != null) 'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString(),
-        if (created != null) 'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
-        if (contentLength != null) HttpHeaders.contentLengthHeader: contentLength.toString(),
+        if (lastModified != null)
+          'X-OC-Mtime':
+              (lastModified.millisecondsSinceEpoch ~/ 1000).toString(),
+        if (created != null)
+          'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
+        if (contentLength != null)
+          HttpHeaders.contentLengthHeader: contentLength.toString(),
       };
 
   /// Gets the WebDAV capabilities of the server.
@@ -152,8 +165,16 @@ class WebDavClient {
     final davCapabilities = response.headers['dav'];
     final davSearchCapabilities = response.headers['dasl'];
     return WebDavOptions(
-      davCapabilities?.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toSet(),
-      davSearchCapabilities?.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toSet(),
+      davCapabilities
+          ?.split(',')
+          .map((e) => e.trim())
+          .where((e) => e.isNotEmpty)
+          .toSet(),
+      davSearchCapabilities
+          ?.split(',')
+          .map((e) => e.trim())
+          .where((e) => e.isNotEmpty)
+          .toSet(),
     );
   }
 
@@ -353,7 +374,8 @@ class WebDavClient {
           data: utf8.encode(
             WebDavOcFilterFiles(
               filterRules: filterRules,
-              prop: prop ?? const WebDavPropWithoutValues(), // coverage:ignore-line
+              prop: prop ??
+                  const WebDavPropWithoutValues(), // coverage:ignore-line
             ).toXmlElement(namespaces: namespaces).toXmlString(),
           ),
         ),

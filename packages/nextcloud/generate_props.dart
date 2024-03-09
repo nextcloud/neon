@@ -1,7 +1,9 @@
 import 'dart:io';
 
 void main() {
-  final props = File('lib/src/webdav/props.csv').readAsLinesSync().map((line) => line.split(','));
+  final props = File('lib/src/webdav/props.csv')
+      .readAsLinesSync()
+      .map((line) => line.split(','));
   final valueProps = <String>[];
   final findProps = <String>[];
   final variables = <String>[];
@@ -10,7 +12,8 @@ void main() {
     final namespaceVariable = convertNamespace(namespacePrefix);
     final type = prop[2];
     final name = prop[1];
-    final variable = namespacePrefix + name.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
+    final variable =
+        namespacePrefix + name.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
     valueProps.add(
       "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  final $type? $variable;",
     );

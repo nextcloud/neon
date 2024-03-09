@@ -15,14 +15,16 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   final String wireName = 'Base';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Base object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Base object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
     value = object.$bool;
     if (value != null) {
       result
         ..add('bool')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.integer;
     if (value != null) {
@@ -34,7 +36,8 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
     if (value != null) {
       result
         ..add('double')
-        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
     }
     value = object.$num;
     if (value != null) {
@@ -46,37 +49,43 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
     if (value != null) {
       result
         ..add('string')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.contentString;
     if (value != null) {
       result
         ..add('content-string')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(ContentString, [FullType(int)])));
     }
     value = object.stringBinary;
     if (value != null) {
       result
         ..add('string-binary')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Uint8List)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Uint8List)));
     }
     value = object.list;
     if (value != null) {
       result
         ..add('list')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.listNever;
     if (value != null) {
       result
         ..add('list-never')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(Never)])));
     }
     value = object.listString;
     if (value != null) {
       result
         ..add('list-string')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(String)])));
     }
     return result;
   }
@@ -93,38 +102,50 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
       final Object? value = iterator.current;
       switch (key) {
         case 'bool':
-          result.$bool = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.$bool = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'integer':
-          result.integer = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.integer = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'double':
-          result.$double = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
+          result.$double = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
           break;
         case 'num':
-          result.$num = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.$num = serializers.deserialize(value,
+              specifiedType: const FullType(num)) as num?;
           break;
         case 'string':
-          result.string = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.string = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'content-string':
           result.contentString.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>);
+                  specifiedType:
+                      const FullType(ContentString, [FullType(int)]))!
+              as ContentString<int>);
           break;
         case 'string-binary':
-          result.stringBinary = serializers.deserialize(value, specifiedType: const FullType(Uint8List)) as Uint8List?;
+          result.stringBinary = serializers.deserialize(value,
+              specifiedType: const FullType(Uint8List)) as Uint8List?;
           break;
         case 'list':
           result.list.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(JsonObject)]))!
+              as BuiltList<Object?>);
           break;
         case 'list-never':
           result.listNever.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Never)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+              as BuiltList<Object?>);
           break;
         case 'list-string':
           result.listString.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -189,7 +210,8 @@ class _$Base extends Base {
   @override
   final BuiltList<String>? listString;
 
-  factory _$Base([void Function(BaseBuilder)? updates]) => (BaseBuilder()..update(updates))._build();
+  factory _$Base([void Function(BaseBuilder)? updates]) =>
+      (BaseBuilder()..update(updates))._build();
 
   _$Base._(
       {this.$bool,
@@ -205,7 +227,8 @@ class _$Base extends Base {
       : super._();
 
   @override
-  Base rebuild(void Function(BaseBuilder) updates) => (toBuilder()..update(updates)).build();
+  Base rebuild(void Function(BaseBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   BaseBuilder toBuilder() => BaseBuilder()..replace(this);
@@ -284,24 +307,32 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   set string(covariant String? string) => _$this._string = string;
 
   ContentStringBuilder<int>? _contentString;
-  ContentStringBuilder<int> get contentString => _$this._contentString ??= ContentStringBuilder<int>();
-  set contentString(covariant ContentStringBuilder<int>? contentString) => _$this._contentString = contentString;
+  ContentStringBuilder<int> get contentString =>
+      _$this._contentString ??= ContentStringBuilder<int>();
+  set contentString(covariant ContentStringBuilder<int>? contentString) =>
+      _$this._contentString = contentString;
 
   Uint8List? _stringBinary;
   Uint8List? get stringBinary => _$this._stringBinary;
-  set stringBinary(covariant Uint8List? stringBinary) => _$this._stringBinary = stringBinary;
+  set stringBinary(covariant Uint8List? stringBinary) =>
+      _$this._stringBinary = stringBinary;
 
   ListBuilder<JsonObject>? _list;
-  ListBuilder<JsonObject> get list => _$this._list ??= ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get list =>
+      _$this._list ??= ListBuilder<JsonObject>();
   set list(covariant ListBuilder<JsonObject>? list) => _$this._list = list;
 
   ListBuilder<Never>? _listNever;
-  ListBuilder<Never> get listNever => _$this._listNever ??= ListBuilder<Never>();
-  set listNever(covariant ListBuilder<Never>? listNever) => _$this._listNever = listNever;
+  ListBuilder<Never> get listNever =>
+      _$this._listNever ??= ListBuilder<Never>();
+  set listNever(covariant ListBuilder<Never>? listNever) =>
+      _$this._listNever = listNever;
 
   ListBuilder<String>? _listString;
-  ListBuilder<String> get listString => _$this._listString ??= ListBuilder<String>();
-  set listString(covariant ListBuilder<String>? listString) => _$this._listString = listString;
+  ListBuilder<String> get listString =>
+      _$this._listString ??= ListBuilder<String>();
+  set listString(covariant ListBuilder<String>? listString) =>
+      _$this._listString = listString;
 
   BaseBuilder();
 

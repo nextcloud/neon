@@ -5,7 +5,6 @@ targets:
         enabled: true
       dynamite:
         options:
-          pageWidth: 120
           analyzer_ignores:
             - camel_case_types
             - discarded_futures
@@ -13,6 +12,7 @@ targets:
             - unreachable_switch_case
             - no_leading_underscores_for_local_identifiers
             - non_constant_identifier_names
+            - library_private_types_in_public_api
           coverage_ignores:
             - 'const .*\._\(\);'
             - 'factory .*\.fromJson\(Map<String, dynamic> json\) => jsonSerializers\.deserializeWith\(serializer, json\)!;'

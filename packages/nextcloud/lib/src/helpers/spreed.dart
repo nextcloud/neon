@@ -14,8 +14,11 @@ extension SpreedVersionCheck on spreed.$Client {
   /// Checks whether the spreed app installed on the server is supported by this client.
   ///
   /// Also returns the supported version number.
-  VersionCheck getVersionCheck(core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
-    final version = capabilities.capabilities.spreedPublicCapabilities?.spreedPublicCapabilities0?.spreed.version;
+  VersionCheck getVersionCheck(
+    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+  ) {
+    final version = capabilities.capabilities.spreedPublicCapabilities
+        ?.spreedPublicCapabilities0?.spreed.version;
     return VersionCheck(
       versions: version != null ? [Version.parse(version)] : null,
       minimumVersion: minVersion,
@@ -55,7 +58,11 @@ enum RoomType {
 
   /// Whether the room is only with one other user.
   bool get isSingleUser => switch (this) {
-        RoomType.oneToOne || RoomType.changelog || RoomType.oneToOneFormer || RoomType.noteToSelf => true,
+        RoomType.oneToOne ||
+        RoomType.changelog ||
+        RoomType.oneToOneFormer ||
+        RoomType.noteToSelf =>
+          true,
         _ => false,
       };
 }
@@ -87,7 +94,8 @@ enum ParticipantType {
   int get value => index + 1;
 
   /// Converts the integer [value] representation of a [ParticipantType] into a [ParticipantType].
-  static ParticipantType fromValue(int value) => ParticipantType.values[value - 1];
+  static ParticipantType fromValue(int value) =>
+      ParticipantType.values[value - 1];
 }
 
 /// Attendee permissions.

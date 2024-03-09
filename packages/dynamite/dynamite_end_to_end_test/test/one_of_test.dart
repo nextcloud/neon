@@ -125,7 +125,9 @@ void main() {
     expect($OneOfUnspecifiedArrayExtension.fromJson(json), equals(object));
 
     object = (
-      builtListJsonObject: BuiltList([JsonObject('value1'), JsonObject('value2'), JsonObject('value3')]),
+      builtListJsonObject: BuiltList(
+        [JsonObject('value1'), JsonObject('value2'), JsonObject('value3')],
+      ),
       oneOfUnspecifiedArray0: null,
     );
 

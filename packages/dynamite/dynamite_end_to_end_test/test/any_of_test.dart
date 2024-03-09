@@ -96,7 +96,10 @@ void main() {
     json = 361;
 
     expect(object.toJson(), equals(json));
-    expect($AnyOfIntDoubleOtherExtension.fromJson(json)..validateAnyOf(), equals(object));
+    expect(
+      $AnyOfIntDoubleOtherExtension.fromJson(json)..validateAnyOf(),
+      equals(object),
+    );
 
     object = (
       $num: null,

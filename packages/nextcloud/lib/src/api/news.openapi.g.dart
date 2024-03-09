@@ -6,7 +6,8 @@ part of 'news.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<SupportedAPIVersions> _$supportedAPIVersionsSerializer = _$SupportedAPIVersionsSerializer();
+Serializer<SupportedAPIVersions> _$supportedAPIVersionsSerializer =
+    _$SupportedAPIVersionsSerializer();
 Serializer<Article> _$articleSerializer = _$ArticleSerializer();
 Serializer<Feed> _$feedSerializer = _$FeedSerializer();
 Serializer<Folder> _$folderSerializer = _$FolderSerializer();
@@ -17,14 +18,19 @@ Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = _$EmptyOCS_OcsSerializer();
 Serializer<EmptyOCS> _$emptyOCSSerializer = _$EmptyOCSSerializer();
 
-class _$SupportedAPIVersionsSerializer implements StructuredSerializer<SupportedAPIVersions> {
+class _$SupportedAPIVersionsSerializer
+    implements StructuredSerializer<SupportedAPIVersions> {
   @override
-  final Iterable<Type> types = const [SupportedAPIVersions, _$SupportedAPIVersions];
+  final Iterable<Type> types = const [
+    SupportedAPIVersions,
+    _$SupportedAPIVersions
+  ];
   @override
   final String wireName = 'SupportedAPIVersions';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SupportedAPIVersions object,
+  Iterable<Object?> serialize(
+      Serializers serializers, SupportedAPIVersions object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -32,13 +38,15 @@ class _$SupportedAPIVersionsSerializer implements StructuredSerializer<Supported
     if (value != null) {
       result
         ..add('apiLevels')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(String)])));
     }
     return result;
   }
 
   @override
-  SupportedAPIVersions deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SupportedAPIVersions deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = SupportedAPIVersionsBuilder();
 
@@ -50,7 +58,8 @@ class _$SupportedAPIVersionsSerializer implements StructuredSerializer<Supported
       switch (key) {
         case 'apiLevels':
           result.apiLevels.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -74,9 +83,11 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
       'guid',
       serializers.serialize(object.guid, specifiedType: const FullType(String)),
       'guidHash',
-      serializers.serialize(object.guidHash, specifiedType: const FullType(String)),
+      serializers.serialize(object.guidHash,
+          specifiedType: const FullType(String)),
       'title',
-      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      serializers.serialize(object.title,
+          specifiedType: const FullType(String)),
       'pubDate',
       serializers.serialize(object.pubDate, specifiedType: const FullType(int)),
       'body',
@@ -86,28 +97,34 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
       'unread',
       serializers.serialize(object.unread, specifiedType: const FullType(bool)),
       'starred',
-      serializers.serialize(object.starred, specifiedType: const FullType(bool)),
+      serializers.serialize(object.starred,
+          specifiedType: const FullType(bool)),
       'lastModified',
-      serializers.serialize(object.lastModified, specifiedType: const FullType(int)),
+      serializers.serialize(object.lastModified,
+          specifiedType: const FullType(int)),
       'rtl',
       serializers.serialize(object.rtl, specifiedType: const FullType(bool)),
       'fingerprint',
-      serializers.serialize(object.fingerprint, specifiedType: const FullType(String)),
+      serializers.serialize(object.fingerprint,
+          specifiedType: const FullType(String)),
       'contentHash',
-      serializers.serialize(object.contentHash, specifiedType: const FullType(String)),
+      serializers.serialize(object.contentHash,
+          specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.url;
     if (value != null) {
       result
         ..add('url')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.author;
     if (value != null) {
       result
         ..add('author')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updatedDate;
     if (value != null) {
@@ -119,25 +136,29 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
     if (value != null) {
       result
         ..add('enclosureMime')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.enclosureLink;
     if (value != null) {
       result
         ..add('enclosureLink')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.mediaThumbnail;
     if (value != null) {
       result
         ..add('mediaThumbnail')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.mediaDescription;
     if (value != null) {
       result
         ..add('mediaDescription')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -154,64 +175,84 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'guid':
-          result.guid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.guid = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'guidHash':
-          result.guidHash = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.guidHash = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'url':
-          result.url = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.url = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'title':
-          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.title = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'author':
-          result.author = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.author = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'pubDate':
-          result.pubDate = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.pubDate = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'updatedDate':
-          result.updatedDate = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.updatedDate = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'body':
-          result.body = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.body = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'enclosureMime':
-          result.enclosureMime = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.enclosureMime = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'enclosureLink':
-          result.enclosureLink = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.enclosureLink = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'mediaThumbnail':
-          result.mediaThumbnail = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.mediaThumbnail = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'mediaDescription':
-          result.mediaDescription = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.mediaDescription = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'feedId':
-          result.feedId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.feedId = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'unread':
-          result.unread = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.unread = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'starred':
-          result.starred = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.starred = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'lastModified':
-          result.lastModified = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.lastModified = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'rtl':
-          result.rtl = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.rtl = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'fingerprint':
-          result.fingerprint = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.fingerprint = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'contentHash':
-          result.contentHash = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.contentHash = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -227,31 +268,37 @@ class _$FeedSerializer implements StructuredSerializer<Feed> {
   final String wireName = 'Feed';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Feed object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Feed object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'url',
       serializers.serialize(object.url, specifiedType: const FullType(String)),
       'title',
-      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      serializers.serialize(object.title,
+          specifiedType: const FullType(String)),
       'added',
       serializers.serialize(object.added, specifiedType: const FullType(int)),
       'ordering',
-      serializers.serialize(object.ordering, specifiedType: const FullType(int)),
+      serializers.serialize(object.ordering,
+          specifiedType: const FullType(int)),
       'pinned',
       serializers.serialize(object.pinned, specifiedType: const FullType(bool)),
       'updateErrorCount',
-      serializers.serialize(object.updateErrorCount, specifiedType: const FullType(int)),
+      serializers.serialize(object.updateErrorCount,
+          specifiedType: const FullType(int)),
       'items',
-      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(Article)])),
+      serializers.serialize(object.items,
+          specifiedType: const FullType(BuiltList, [FullType(Article)])),
     ];
     Object? value;
     value = object.faviconLink;
     if (value != null) {
       result
         ..add('faviconLink')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.folderId;
     if (value != null) {
@@ -269,13 +316,15 @@ class _$FeedSerializer implements StructuredSerializer<Feed> {
     if (value != null) {
       result
         ..add('link')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.lastUpdateError;
     if (value != null) {
       result
         ..add('lastUpdateError')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -292,44 +341,58 @@ class _$FeedSerializer implements StructuredSerializer<Feed> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'url':
-          result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.url = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'title':
-          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.title = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'faviconLink':
-          result.faviconLink = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.faviconLink = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'added':
-          result.added = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.added = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'folderId':
-          result.folderId = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.folderId = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'unreadCount':
-          result.unreadCount = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.unreadCount = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'ordering':
-          result.ordering = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.ordering = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'link':
-          result.link = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.link = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'pinned':
-          result.pinned = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.pinned = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'updateErrorCount':
-          result.updateErrorCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.updateErrorCount = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'lastUpdateError':
-          result.lastUpdateError = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.lastUpdateError = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'items':
           result.items.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Article)]))! as BuiltList<Object?>);
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(Article)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -345,7 +408,8 @@ class _$FolderSerializer implements StructuredSerializer<Folder> {
   final String wireName = 'Folder';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Folder object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Folder object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -354,7 +418,8 @@ class _$FolderSerializer implements StructuredSerializer<Folder> {
       'opened',
       serializers.serialize(object.opened, specifiedType: const FullType(bool)),
       'feeds',
-      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(Feed)])),
+      serializers.serialize(object.feeds,
+          specifiedType: const FullType(BuiltList, [FullType(Feed)])),
     ];
 
     return result;
@@ -372,17 +437,21 @@ class _$FolderSerializer implements StructuredSerializer<Folder> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'opened':
-          result.opened = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.opened = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'feeds':
           result.feeds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Feed)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Feed)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -402,7 +471,8 @@ class _$ListFoldersSerializer implements StructuredSerializer<ListFolders> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'folders',
-      serializers.serialize(object.folders, specifiedType: const FullType(BuiltList, [FullType(Folder)])),
+      serializers.serialize(object.folders,
+          specifiedType: const FullType(BuiltList, [FullType(Folder)])),
     ];
 
     return result;
@@ -421,7 +491,8 @@ class _$ListFoldersSerializer implements StructuredSerializer<ListFolders> {
       switch (key) {
         case 'folders':
           result.folders.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Folder)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Folder)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -441,7 +512,8 @@ class _$ListFeedsSerializer implements StructuredSerializer<ListFeeds> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'feeds',
-      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(Feed)])),
+      serializers.serialize(object.feeds,
+          specifiedType: const FullType(BuiltList, [FullType(Feed)])),
     ];
     Object? value;
     value = object.starredCount;
@@ -471,14 +543,17 @@ class _$ListFeedsSerializer implements StructuredSerializer<ListFeeds> {
       final Object? value = iterator.current;
       switch (key) {
         case 'starredCount':
-          result.starredCount = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.starredCount = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'newestItemId':
-          result.newestItemId = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.newestItemId = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'feeds':
           result.feeds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Feed)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Feed)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -498,14 +573,16 @@ class _$ListArticlesSerializer implements StructuredSerializer<ListArticles> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'items',
-      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(Article)])),
+      serializers.serialize(object.items,
+          specifiedType: const FullType(BuiltList, [FullType(Article)])),
     ];
 
     return result;
   }
 
   @override
-  ListArticles deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ListArticles deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ListArticlesBuilder();
 
@@ -517,7 +594,9 @@ class _$ListArticlesSerializer implements StructuredSerializer<ListArticles> {
       switch (key) {
         case 'items':
           result.items.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Article)]))! as BuiltList<Object?>);
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(Article)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -537,28 +616,33 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status,
+          specifiedType: const FullType(String)),
       'statuscode',
-      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+      serializers.serialize(object.statuscode,
+          specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.message;
     if (value != null) {
       result
         ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.totalitems;
     if (value != null) {
       result
         ..add('totalitems')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.itemsperpage;
     if (value != null) {
       result
         ..add('itemsperpage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -575,19 +659,24 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       final Object? value = iterator.current;
       switch (key) {
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'statuscode':
-          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.statuscode = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'totalitems':
-          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.totalitems = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'itemsperpage':
-          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.itemsperpage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -607,16 +696,19 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
     ];
 
     return result;
   }
 
   @override
-  EmptyOCS_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  EmptyOCS_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = EmptyOCS_OcsBuilder();
 
@@ -627,11 +719,14 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(JsonObject)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -651,7 +746,8 @@ class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(EmptyOCS_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(EmptyOCS_Ocs)),
     ];
 
     return result;
@@ -669,8 +765,8 @@ class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs
-              .replace(serializers.deserialize(value, specifiedType: const FullType(EmptyOCS_Ocs))! as EmptyOCS_Ocs);
+          result.ocs.replace(serializers.deserialize(value,
+              specifiedType: const FullType(EmptyOCS_Ocs))! as EmptyOCS_Ocs);
           break;
       }
     }
@@ -690,17 +786,20 @@ class _$SupportedAPIVersions extends SupportedAPIVersions {
   @override
   final BuiltList<String>? apiLevels;
 
-  factory _$SupportedAPIVersions([void Function(SupportedAPIVersionsBuilder)? updates]) =>
+  factory _$SupportedAPIVersions(
+          [void Function(SupportedAPIVersionsBuilder)? updates]) =>
       (SupportedAPIVersionsBuilder()..update(updates))._build();
 
   _$SupportedAPIVersions._({this.apiLevels}) : super._();
 
   @override
-  SupportedAPIVersions rebuild(void Function(SupportedAPIVersionsBuilder) updates) =>
+  SupportedAPIVersions rebuild(
+          void Function(SupportedAPIVersionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SupportedAPIVersionsBuilder toBuilder() => SupportedAPIVersionsBuilder()..replace(this);
+  SupportedAPIVersionsBuilder toBuilder() =>
+      SupportedAPIVersionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -718,17 +817,23 @@ class _$SupportedAPIVersions extends SupportedAPIVersions {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SupportedAPIVersions')..add('apiLevels', apiLevels)).toString();
+    return (newBuiltValueToStringHelper(r'SupportedAPIVersions')
+          ..add('apiLevels', apiLevels))
+        .toString();
   }
 }
 
 class SupportedAPIVersionsBuilder
-    implements Builder<SupportedAPIVersions, SupportedAPIVersionsBuilder>, $SupportedAPIVersionsInterfaceBuilder {
+    implements
+        Builder<SupportedAPIVersions, SupportedAPIVersionsBuilder>,
+        $SupportedAPIVersionsInterfaceBuilder {
   _$SupportedAPIVersions? _$v;
 
   ListBuilder<String>? _apiLevels;
-  ListBuilder<String> get apiLevels => _$this._apiLevels ??= ListBuilder<String>();
-  set apiLevels(covariant ListBuilder<String>? apiLevels) => _$this._apiLevels = apiLevels;
+  ListBuilder<String> get apiLevels =>
+      _$this._apiLevels ??= ListBuilder<String>();
+  set apiLevels(covariant ListBuilder<String>? apiLevels) =>
+      _$this._apiLevels = apiLevels;
 
   SupportedAPIVersionsBuilder();
 
@@ -758,14 +863,16 @@ class SupportedAPIVersionsBuilder
   _$SupportedAPIVersions _build() {
     _$SupportedAPIVersions _$result;
     try {
-      _$result = _$v ?? _$SupportedAPIVersions._(apiLevels: _apiLevels?.build());
+      _$result =
+          _$v ?? _$SupportedAPIVersions._(apiLevels: _apiLevels?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'apiLevels';
         _apiLevels?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SupportedAPIVersions', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'SupportedAPIVersions', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -880,7 +987,8 @@ class _$Article extends Article {
   @override
   final String contentHash;
 
-  factory _$Article([void Function(ArticleBuilder)? updates]) => (ArticleBuilder()..update(updates))._build();
+  factory _$Article([void Function(ArticleBuilder)? updates]) =>
+      (ArticleBuilder()..update(updates))._build();
 
   _$Article._(
       {required this.id,
@@ -913,14 +1021,18 @@ class _$Article extends Article {
     BuiltValueNullFieldError.checkNotNull(feedId, r'Article', 'feedId');
     BuiltValueNullFieldError.checkNotNull(unread, r'Article', 'unread');
     BuiltValueNullFieldError.checkNotNull(starred, r'Article', 'starred');
-    BuiltValueNullFieldError.checkNotNull(lastModified, r'Article', 'lastModified');
+    BuiltValueNullFieldError.checkNotNull(
+        lastModified, r'Article', 'lastModified');
     BuiltValueNullFieldError.checkNotNull(rtl, r'Article', 'rtl');
-    BuiltValueNullFieldError.checkNotNull(fingerprint, r'Article', 'fingerprint');
-    BuiltValueNullFieldError.checkNotNull(contentHash, r'Article', 'contentHash');
+    BuiltValueNullFieldError.checkNotNull(
+        fingerprint, r'Article', 'fingerprint');
+    BuiltValueNullFieldError.checkNotNull(
+        contentHash, r'Article', 'contentHash');
   }
 
   @override
-  Article rebuild(void Function(ArticleBuilder) updates) => (toBuilder()..update(updates)).build();
+  Article rebuild(void Function(ArticleBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ArticleBuilder toBuilder() => ArticleBuilder()..replace(this);
@@ -1005,7 +1117,8 @@ class _$Article extends Article {
   }
 }
 
-class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterfaceBuilder {
+class ArticleBuilder
+    implements Builder<Article, ArticleBuilder>, $ArticleInterfaceBuilder {
   _$Article? _$v;
 
   int? _id;
@@ -1038,7 +1151,8 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
 
   int? _updatedDate;
   int? get updatedDate => _$this._updatedDate;
-  set updatedDate(covariant int? updatedDate) => _$this._updatedDate = updatedDate;
+  set updatedDate(covariant int? updatedDate) =>
+      _$this._updatedDate = updatedDate;
 
   String? _body;
   String? get body => _$this._body;
@@ -1046,19 +1160,23 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
 
   String? _enclosureMime;
   String? get enclosureMime => _$this._enclosureMime;
-  set enclosureMime(covariant String? enclosureMime) => _$this._enclosureMime = enclosureMime;
+  set enclosureMime(covariant String? enclosureMime) =>
+      _$this._enclosureMime = enclosureMime;
 
   String? _enclosureLink;
   String? get enclosureLink => _$this._enclosureLink;
-  set enclosureLink(covariant String? enclosureLink) => _$this._enclosureLink = enclosureLink;
+  set enclosureLink(covariant String? enclosureLink) =>
+      _$this._enclosureLink = enclosureLink;
 
   String? _mediaThumbnail;
   String? get mediaThumbnail => _$this._mediaThumbnail;
-  set mediaThumbnail(covariant String? mediaThumbnail) => _$this._mediaThumbnail = mediaThumbnail;
+  set mediaThumbnail(covariant String? mediaThumbnail) =>
+      _$this._mediaThumbnail = mediaThumbnail;
 
   String? _mediaDescription;
   String? get mediaDescription => _$this._mediaDescription;
-  set mediaDescription(covariant String? mediaDescription) => _$this._mediaDescription = mediaDescription;
+  set mediaDescription(covariant String? mediaDescription) =>
+      _$this._mediaDescription = mediaDescription;
 
   int? _feedId;
   int? get feedId => _$this._feedId;
@@ -1074,7 +1192,8 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
 
   int? _lastModified;
   int? get lastModified => _$this._lastModified;
-  set lastModified(covariant int? lastModified) => _$this._lastModified = lastModified;
+  set lastModified(covariant int? lastModified) =>
+      _$this._lastModified = lastModified;
 
   bool? _rtl;
   bool? get rtl => _$this._rtl;
@@ -1082,11 +1201,13 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
 
   String? _fingerprint;
   String? get fingerprint => _$this._fingerprint;
-  set fingerprint(covariant String? fingerprint) => _$this._fingerprint = fingerprint;
+  set fingerprint(covariant String? fingerprint) =>
+      _$this._fingerprint = fingerprint;
 
   String? _contentHash;
   String? get contentHash => _$this._contentHash;
-  set contentHash(covariant String? contentHash) => _$this._contentHash = contentHash;
+  set contentHash(covariant String? contentHash) =>
+      _$this._contentHash = contentHash;
 
   ArticleBuilder();
 
@@ -1136,25 +1257,36 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
     final _$result = _$v ??
         _$Article._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Article', 'id'),
-            guid: BuiltValueNullFieldError.checkNotNull(guid, r'Article', 'guid'),
-            guidHash: BuiltValueNullFieldError.checkNotNull(guidHash, r'Article', 'guidHash'),
+            guid:
+                BuiltValueNullFieldError.checkNotNull(guid, r'Article', 'guid'),
+            guidHash: BuiltValueNullFieldError.checkNotNull(
+                guidHash, r'Article', 'guidHash'),
             url: url,
-            title: BuiltValueNullFieldError.checkNotNull(title, r'Article', 'title'),
+            title: BuiltValueNullFieldError.checkNotNull(
+                title, r'Article', 'title'),
             author: author,
-            pubDate: BuiltValueNullFieldError.checkNotNull(pubDate, r'Article', 'pubDate'),
+            pubDate: BuiltValueNullFieldError.checkNotNull(
+                pubDate, r'Article', 'pubDate'),
             updatedDate: updatedDate,
-            body: BuiltValueNullFieldError.checkNotNull(body, r'Article', 'body'),
+            body:
+                BuiltValueNullFieldError.checkNotNull(body, r'Article', 'body'),
             enclosureMime: enclosureMime,
             enclosureLink: enclosureLink,
             mediaThumbnail: mediaThumbnail,
             mediaDescription: mediaDescription,
-            feedId: BuiltValueNullFieldError.checkNotNull(feedId, r'Article', 'feedId'),
-            unread: BuiltValueNullFieldError.checkNotNull(unread, r'Article', 'unread'),
-            starred: BuiltValueNullFieldError.checkNotNull(starred, r'Article', 'starred'),
-            lastModified: BuiltValueNullFieldError.checkNotNull(lastModified, r'Article', 'lastModified'),
+            feedId: BuiltValueNullFieldError.checkNotNull(
+                feedId, r'Article', 'feedId'),
+            unread: BuiltValueNullFieldError.checkNotNull(
+                unread, r'Article', 'unread'),
+            starred: BuiltValueNullFieldError.checkNotNull(
+                starred, r'Article', 'starred'),
+            lastModified: BuiltValueNullFieldError.checkNotNull(
+                lastModified, r'Article', 'lastModified'),
             rtl: BuiltValueNullFieldError.checkNotNull(rtl, r'Article', 'rtl'),
-            fingerprint: BuiltValueNullFieldError.checkNotNull(fingerprint, r'Article', 'fingerprint'),
-            contentHash: BuiltValueNullFieldError.checkNotNull(contentHash, r'Article', 'contentHash'));
+            fingerprint: BuiltValueNullFieldError.checkNotNull(
+                fingerprint, r'Article', 'fingerprint'),
+            contentHash: BuiltValueNullFieldError.checkNotNull(
+                contentHash, r'Article', 'contentHash'));
     replace(_$result);
     return _$result;
   }
@@ -1231,7 +1363,8 @@ class _$Feed extends Feed {
   @override
   final BuiltList<Article> items;
 
-  factory _$Feed([void Function(FeedBuilder)? updates]) => (FeedBuilder()..update(updates))._build();
+  factory _$Feed([void Function(FeedBuilder)? updates]) =>
+      (FeedBuilder()..update(updates))._build();
 
   _$Feed._(
       {required this.id,
@@ -1254,12 +1387,14 @@ class _$Feed extends Feed {
     BuiltValueNullFieldError.checkNotNull(added, r'Feed', 'added');
     BuiltValueNullFieldError.checkNotNull(ordering, r'Feed', 'ordering');
     BuiltValueNullFieldError.checkNotNull(pinned, r'Feed', 'pinned');
-    BuiltValueNullFieldError.checkNotNull(updateErrorCount, r'Feed', 'updateErrorCount');
+    BuiltValueNullFieldError.checkNotNull(
+        updateErrorCount, r'Feed', 'updateErrorCount');
     BuiltValueNullFieldError.checkNotNull(items, r'Feed', 'items');
   }
 
   @override
-  Feed rebuild(void Function(FeedBuilder) updates) => (toBuilder()..update(updates)).build();
+  Feed rebuild(void Function(FeedBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   FeedBuilder toBuilder() => FeedBuilder()..replace(this);
@@ -1340,7 +1475,8 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
 
   String? _faviconLink;
   String? get faviconLink => _$this._faviconLink;
-  set faviconLink(covariant String? faviconLink) => _$this._faviconLink = faviconLink;
+  set faviconLink(covariant String? faviconLink) =>
+      _$this._faviconLink = faviconLink;
 
   int? _added;
   int? get added => _$this._added;
@@ -1352,7 +1488,8 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
 
   int? _unreadCount;
   int? get unreadCount => _$this._unreadCount;
-  set unreadCount(covariant int? unreadCount) => _$this._unreadCount = unreadCount;
+  set unreadCount(covariant int? unreadCount) =>
+      _$this._unreadCount = unreadCount;
 
   int? _ordering;
   int? get ordering => _$this._ordering;
@@ -1368,11 +1505,13 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
 
   int? _updateErrorCount;
   int? get updateErrorCount => _$this._updateErrorCount;
-  set updateErrorCount(covariant int? updateErrorCount) => _$this._updateErrorCount = updateErrorCount;
+  set updateErrorCount(covariant int? updateErrorCount) =>
+      _$this._updateErrorCount = updateErrorCount;
 
   String? _lastUpdateError;
   String? get lastUpdateError => _$this._lastUpdateError;
-  set lastUpdateError(covariant String? lastUpdateError) => _$this._lastUpdateError = lastUpdateError;
+  set lastUpdateError(covariant String? lastUpdateError) =>
+      _$this._lastUpdateError = lastUpdateError;
 
   ListBuilder<Article>? _items;
   ListBuilder<Article> get items => _$this._items ??= ListBuilder<Article>();
@@ -1422,15 +1561,20 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
           _$Feed._(
               id: BuiltValueNullFieldError.checkNotNull(id, r'Feed', 'id'),
               url: BuiltValueNullFieldError.checkNotNull(url, r'Feed', 'url'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'Feed', 'title'),
+              title: BuiltValueNullFieldError.checkNotNull(
+                  title, r'Feed', 'title'),
               faviconLink: faviconLink,
-              added: BuiltValueNullFieldError.checkNotNull(added, r'Feed', 'added'),
+              added: BuiltValueNullFieldError.checkNotNull(
+                  added, r'Feed', 'added'),
               folderId: folderId,
               unreadCount: unreadCount,
-              ordering: BuiltValueNullFieldError.checkNotNull(ordering, r'Feed', 'ordering'),
+              ordering: BuiltValueNullFieldError.checkNotNull(
+                  ordering, r'Feed', 'ordering'),
               link: link,
-              pinned: BuiltValueNullFieldError.checkNotNull(pinned, r'Feed', 'pinned'),
-              updateErrorCount: BuiltValueNullFieldError.checkNotNull(updateErrorCount, r'Feed', 'updateErrorCount'),
+              pinned: BuiltValueNullFieldError.checkNotNull(
+                  pinned, r'Feed', 'pinned'),
+              updateErrorCount: BuiltValueNullFieldError.checkNotNull(
+                  updateErrorCount, r'Feed', 'updateErrorCount'),
               lastUpdateError: lastUpdateError,
               items: items.build());
     } catch (_) {
@@ -1474,9 +1618,15 @@ class _$Folder extends Folder {
   @override
   final BuiltList<Feed> feeds;
 
-  factory _$Folder([void Function(FolderBuilder)? updates]) => (FolderBuilder()..update(updates))._build();
+  factory _$Folder([void Function(FolderBuilder)? updates]) =>
+      (FolderBuilder()..update(updates))._build();
 
-  _$Folder._({required this.id, required this.name, required this.opened, required this.feeds}) : super._() {
+  _$Folder._(
+      {required this.id,
+      required this.name,
+      required this.opened,
+      required this.feeds})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Folder', 'id');
     BuiltValueNullFieldError.checkNotNull(name, r'Folder', 'name');
     BuiltValueNullFieldError.checkNotNull(opened, r'Folder', 'opened');
@@ -1484,7 +1634,8 @@ class _$Folder extends Folder {
   }
 
   @override
-  Folder rebuild(void Function(FolderBuilder) updates) => (toBuilder()..update(updates)).build();
+  Folder rebuild(void Function(FolderBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   FolderBuilder toBuilder() => FolderBuilder()..replace(this);
@@ -1492,7 +1643,11 @@ class _$Folder extends Folder {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Folder && id == other.id && name == other.name && opened == other.opened && feeds == other.feeds;
+    return other is Folder &&
+        id == other.id &&
+        name == other.name &&
+        opened == other.opened &&
+        feeds == other.feeds;
   }
 
   @override
@@ -1517,7 +1672,8 @@ class _$Folder extends Folder {
   }
 }
 
-class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceBuilder {
+class FolderBuilder
+    implements Builder<Folder, FolderBuilder>, $FolderInterfaceBuilder {
   _$Folder? _$v;
 
   int? _id;
@@ -1570,8 +1726,10 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceB
       _$result = _$v ??
           _$Folder._(
               id: BuiltValueNullFieldError.checkNotNull(id, r'Folder', 'id'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Folder', 'name'),
-              opened: BuiltValueNullFieldError.checkNotNull(opened, r'Folder', 'opened'),
+              name: BuiltValueNullFieldError.checkNotNull(
+                  name, r'Folder', 'name'),
+              opened: BuiltValueNullFieldError.checkNotNull(
+                  opened, r'Folder', 'opened'),
               feeds: feeds.build());
     } catch (_) {
       late String _$failedField;
@@ -1579,7 +1737,8 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceB
         _$failedField = 'feeds';
         feeds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Folder', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Folder', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1607,7 +1766,8 @@ class _$ListFolders extends ListFolders {
   }
 
   @override
-  ListFolders rebuild(void Function(ListFoldersBuilder) updates) => (toBuilder()..update(updates)).build();
+  ListFolders rebuild(void Function(ListFoldersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ListFoldersBuilder toBuilder() => ListFoldersBuilder()..replace(this);
@@ -1628,16 +1788,22 @@ class _$ListFolders extends ListFolders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ListFolders')..add('folders', folders)).toString();
+    return (newBuiltValueToStringHelper(r'ListFolders')
+          ..add('folders', folders))
+        .toString();
   }
 }
 
-class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $ListFoldersInterfaceBuilder {
+class ListFoldersBuilder
+    implements
+        Builder<ListFolders, ListFoldersBuilder>,
+        $ListFoldersInterfaceBuilder {
   _$ListFolders? _$v;
 
   ListBuilder<Folder>? _folders;
   ListBuilder<Folder> get folders => _$this._folders ??= ListBuilder<Folder>();
-  set folders(covariant ListBuilder<Folder>? folders) => _$this._folders = folders;
+  set folders(covariant ListBuilder<Folder>? folders) =>
+      _$this._folders = folders;
 
   ListFoldersBuilder();
 
@@ -1674,7 +1840,8 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $L
         _$failedField = 'folders';
         folders.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ListFolders', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ListFolders', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1704,14 +1871,17 @@ class _$ListFeeds extends ListFeeds {
   @override
   final BuiltList<Feed> feeds;
 
-  factory _$ListFeeds([void Function(ListFeedsBuilder)? updates]) => (ListFeedsBuilder()..update(updates))._build();
+  factory _$ListFeeds([void Function(ListFeedsBuilder)? updates]) =>
+      (ListFeedsBuilder()..update(updates))._build();
 
-  _$ListFeeds._({this.starredCount, this.newestItemId, required this.feeds}) : super._() {
+  _$ListFeeds._({this.starredCount, this.newestItemId, required this.feeds})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(feeds, r'ListFeeds', 'feeds');
   }
 
   @override
-  ListFeeds rebuild(void Function(ListFeedsBuilder) updates) => (toBuilder()..update(updates)).build();
+  ListFeeds rebuild(void Function(ListFeedsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ListFeedsBuilder toBuilder() => ListFeedsBuilder()..replace(this);
@@ -1745,16 +1915,21 @@ class _$ListFeeds extends ListFeeds {
   }
 }
 
-class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFeedsInterfaceBuilder {
+class ListFeedsBuilder
+    implements
+        Builder<ListFeeds, ListFeedsBuilder>,
+        $ListFeedsInterfaceBuilder {
   _$ListFeeds? _$v;
 
   int? _starredCount;
   int? get starredCount => _$this._starredCount;
-  set starredCount(covariant int? starredCount) => _$this._starredCount = starredCount;
+  set starredCount(covariant int? starredCount) =>
+      _$this._starredCount = starredCount;
 
   int? _newestItemId;
   int? get newestItemId => _$this._newestItemId;
-  set newestItemId(covariant int? newestItemId) => _$this._newestItemId = newestItemId;
+  set newestItemId(covariant int? newestItemId) =>
+      _$this._newestItemId = newestItemId;
 
   ListBuilder<Feed>? _feeds;
   ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
@@ -1790,14 +1965,19 @@ class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFee
   _$ListFeeds _build() {
     _$ListFeeds _$result;
     try {
-      _$result = _$v ?? _$ListFeeds._(starredCount: starredCount, newestItemId: newestItemId, feeds: feeds.build());
+      _$result = _$v ??
+          _$ListFeeds._(
+              starredCount: starredCount,
+              newestItemId: newestItemId,
+              feeds: feeds.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'feeds';
         feeds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ListFeeds', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ListFeeds', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1825,7 +2005,8 @@ class _$ListArticles extends ListArticles {
   }
 
   @override
-  ListArticles rebuild(void Function(ListArticlesBuilder) updates) => (toBuilder()..update(updates)).build();
+  ListArticles rebuild(void Function(ListArticlesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ListArticlesBuilder toBuilder() => ListArticlesBuilder()..replace(this);
@@ -1846,11 +2027,15 @@ class _$ListArticles extends ListArticles {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ListArticles')..add('items', items)).toString();
+    return (newBuiltValueToStringHelper(r'ListArticles')..add('items', items))
+        .toString();
   }
 }
 
-class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>, $ListArticlesInterfaceBuilder {
+class ListArticlesBuilder
+    implements
+        Builder<ListArticles, ListArticlesBuilder>,
+        $ListArticlesInterfaceBuilder {
   _$ListArticles? _$v;
 
   ListBuilder<Article>? _items;
@@ -1892,7 +2077,8 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
         _$failedField = 'items';
         items.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ListArticles', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ListArticles', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1932,16 +2118,23 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) =>
+      (OCSMetaBuilder()..update(updates))._build();
 
-  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._(
+      {required this.status,
+      required this.statuscode,
+      this.message,
+      this.totalitems,
+      this.itemsperpage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
     BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
@@ -1981,7 +2174,8 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
+class OCSMetaBuilder
+    implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -1998,11 +2192,13 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) =>
+      _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) =>
+      _$this._itemsperpage = itemsperpage;
 
   OCSMetaBuilder();
 
@@ -2036,8 +2232,10 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(
+                statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -2071,7 +2269,8 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   }
 
   @override
-  EmptyOCS_Ocs rebuild(void Function(EmptyOCS_OcsBuilder) updates) => (toBuilder()..update(updates)).build();
+  EmptyOCS_Ocs rebuild(void Function(EmptyOCS_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   EmptyOCS_OcsBuilder toBuilder() => EmptyOCS_OcsBuilder()..replace(this);
@@ -2100,7 +2299,10 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   }
 }
 
-class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>, $EmptyOCS_OcsInterfaceBuilder {
+class EmptyOCS_OcsBuilder
+    implements
+        Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
+        $EmptyOCS_OcsInterfaceBuilder {
   _$EmptyOCS_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2108,7 +2310,8 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<JsonObject>? _data;
-  ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get data =>
+      _$this._data ??= ListBuilder<JsonObject>();
   set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
   EmptyOCS_OcsBuilder();
@@ -2140,7 +2343,8 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   _$EmptyOCS_Ocs _build() {
     _$EmptyOCS_Ocs _$result;
     try {
-      _$result = _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2149,7 +2353,8 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'EmptyOCS_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'EmptyOCS_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2169,14 +2374,16 @@ class _$EmptyOCS extends EmptyOCS {
   @override
   final EmptyOCS_Ocs ocs;
 
-  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) => (EmptyOCSBuilder()..update(updates))._build();
+  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) =>
+      (EmptyOCSBuilder()..update(updates))._build();
 
   _$EmptyOCS._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EmptyOCS', 'ocs');
   }
 
   @override
-  EmptyOCS rebuild(void Function(EmptyOCSBuilder) updates) => (toBuilder()..update(updates)).build();
+  EmptyOCS rebuild(void Function(EmptyOCSBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   EmptyOCSBuilder toBuilder() => EmptyOCSBuilder()..replace(this);
@@ -2197,11 +2404,13 @@ class _$EmptyOCS extends EmptyOCS {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'EmptyOCS')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'EmptyOCS')..add('ocs', ocs))
+        .toString();
   }
 }
 
-class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSInterfaceBuilder {
+class EmptyOCSBuilder
+    implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSInterfaceBuilder {
   _$EmptyOCS? _$v;
 
   EmptyOCS_OcsBuilder? _ocs;
@@ -2243,7 +2452,8 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'EmptyOCS', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'EmptyOCS', _$failedField, e.toString());
       }
       rethrow;
     }

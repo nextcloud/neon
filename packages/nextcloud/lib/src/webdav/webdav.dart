@@ -15,7 +15,8 @@ final webdavDateFormat = DateFormat('E, d MMM yyyy HH:mm:ss', 'en_US');
 const namespaceDav = 'DAV:';
 const namespaceOwncloud = 'http://owncloud.org/ns';
 const namespaceNextcloud = 'http://nextcloud.org/ns';
-const namespaceOpenCollaborationServices = 'http://open-collaboration-services.org/ns';
+const namespaceOpenCollaborationServices =
+    'http://open-collaboration-services.org/ns';
 const namespaceOpenCloudMesh = 'http://open-cloud-mesh.org/ns';
 
 const Map<String, String> namespaces = {
@@ -34,7 +35,8 @@ class WebDavMultistatus with _$WebDavMultistatusXmlSerializableMixin {
     required this.responses,
   });
 
-  factory WebDavMultistatus.fromXmlElement(XmlElement element) => _$WebDavMultistatusFromXmlElement(element);
+  factory WebDavMultistatus.fromXmlElement(XmlElement element) =>
+      _$WebDavMultistatusFromXmlElement(element);
 
   @annotation.XmlElement(name: 'response', namespace: namespaceDav)
   final List<WebDavResponse> responses;
@@ -49,7 +51,8 @@ class WebDavResponse with _$WebDavResponseXmlSerializableMixin {
     required this.propstats,
   });
 
-  factory WebDavResponse.fromXmlElement(XmlElement element) => _$WebDavResponseFromXmlElement(element);
+  factory WebDavResponse.fromXmlElement(XmlElement element) =>
+      _$WebDavResponseFromXmlElement(element);
 
   @annotation.XmlElement(name: 'href', namespace: namespaceDav)
   final String? href;
@@ -67,7 +70,8 @@ class WebDavPropstat with _$WebDavPropstatXmlSerializableMixin {
     required this.prop,
   });
 
-  factory WebDavPropstat.fromXmlElement(XmlElement element) => _$WebDavPropstatFromXmlElement(element);
+  factory WebDavPropstat.fromXmlElement(XmlElement element) =>
+      _$WebDavPropstatFromXmlElement(element);
 
   @annotation.XmlElement(name: 'status', namespace: namespaceDav)
   final String status;
@@ -85,10 +89,18 @@ class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
     this.remove,
   });
 
-  @annotation.XmlElement(name: 'set', namespace: namespaceDav, includeIfNull: false)
+  @annotation.XmlElement(
+    name: 'set',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
   final WebDavSet? set;
 
-  @annotation.XmlElement(name: 'remove', namespace: namespaceDav, includeIfNull: false)
+  @annotation.XmlElement(
+    name: 'remove',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
   final WebDavRemove? remove;
 }
 
@@ -100,7 +112,8 @@ class WebDavSet with _$WebDavSetXmlSerializableMixin {
     required this.prop,
   });
 
-  factory WebDavSet.fromXmlElement(XmlElement element) => _$WebDavSetFromXmlElement(element);
+  factory WebDavSet.fromXmlElement(XmlElement element) =>
+      _$WebDavSetFromXmlElement(element);
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
   final WebDavProp prop; // coverage:ignore-line
@@ -114,7 +127,8 @@ class WebDavRemove with _$WebDavRemoveXmlSerializableMixin {
     required this.prop,
   });
 
-  factory WebDavRemove.fromXmlElement(XmlElement element) => _$WebDavRemoveFromXmlElement(element);
+  factory WebDavRemove.fromXmlElement(XmlElement element) =>
+      _$WebDavRemoveFromXmlElement(element);
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
   final WebDavPropWithoutValues prop; // coverage:ignore-line
@@ -156,9 +170,15 @@ class WebDavResourcetype with _$WebDavResourcetypeXmlSerializableMixin {
     required this.collection,
   });
 
-  factory WebDavResourcetype.fromXmlElement(XmlElement element) => _$WebDavResourcetypeFromXmlElement(element);
+  factory WebDavResourcetype.fromXmlElement(XmlElement element) =>
+      _$WebDavResourcetypeFromXmlElement(element);
 
-  @annotation.XmlElement(name: 'collection', namespace: namespaceDav, isSelfClosing: true, includeIfNull: true)
+  @annotation.XmlElement(
+    name: 'collection',
+    namespace: namespaceDav,
+    isSelfClosing: true,
+    includeIfNull: true,
+  )
   final List<String?>? collection;
 }
 

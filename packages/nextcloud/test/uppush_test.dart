@@ -51,7 +51,9 @@ void main() {
       });
 
       test('Delete device', () async {
-        final deviceId = (await client.uppush.createDevice(deviceName: 'Test')).body.deviceId;
+        final deviceId = (await client.uppush.createDevice(deviceName: 'Test'))
+            .body
+            .deviceId;
 
         final response = await client.uppush.deleteDevice(deviceId: deviceId);
         expect(response.statusCode, 200);
@@ -61,9 +63,12 @@ void main() {
       });
 
       test('Create app', () async {
-        final deviceId = (await client.uppush.createDevice(deviceName: 'Test')).body.deviceId;
+        final deviceId = (await client.uppush.createDevice(deviceName: 'Test'))
+            .body
+            .deviceId;
 
-        final response = await client.uppush.createApp(deviceId: deviceId, appName: 'Test');
+        final response =
+            await client.uppush.createApp(deviceId: deviceId, appName: 'Test');
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
@@ -72,7 +77,8 @@ void main() {
       });
 
       test('UnifiedPush discovery', () async {
-        final response = await client.uppush.unifiedpushDiscovery(token: 'example');
+        final response =
+            await client.uppush.unifiedpushDiscovery(token: 'example');
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 

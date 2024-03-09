@@ -51,13 +51,15 @@ void main() {
           await sendTestNotification();
 
           final startTime = DateTime.now().toUtc();
-          final response = await client.notifications.endpoint.listNotifications();
+          final response =
+              await client.notifications.endpoint.listNotifications();
           expect(response.body.ocs.data, hasLength(1));
           expect(response.body.ocs.data[0].notificationId, isPositive);
           expect(response.body.ocs.data[0].app, 'admin_notifications');
           expect(response.body.ocs.data[0].user, 'admin');
           expect(
-            DateTime.parse(response.body.ocs.data[0].datetime).millisecondsSinceEpoch,
+            DateTime.parse(response.body.ocs.data[0].datetime)
+                .millisecondsSinceEpoch,
             closeTo(startTime.millisecondsSinceEpoch, 10E3),
           );
           expect(response.body.ocs.data[0].objectType, 'admin_notifications');
@@ -75,7 +77,8 @@ void main() {
 
         test('Get notification', () async {
           await sendTestNotification();
-          final listResponse = await client.notifications.endpoint.listNotifications();
+          final listResponse =
+              await client.notifications.endpoint.listNotifications();
           expect(listResponse.body.ocs.data, hasLength(1));
 
           final startTime = DateTime.now().toUtc();
@@ -89,7 +92,8 @@ void main() {
           expect(response.body.ocs.data.app, 'admin_notifications');
           expect(response.body.ocs.data.user, 'admin');
           expect(
-            DateTime.parse(response.body.ocs.data.datetime).millisecondsSinceEpoch,
+            DateTime.parse(response.body.ocs.data.datetime)
+                .millisecondsSinceEpoch,
             closeTo(startTime.millisecondsSinceEpoch, 10E3),
           );
           expect(response.body.ocs.data.objectType, 'admin_notifications');
@@ -107,11 +111,15 @@ void main() {
 
         test('Delete notification', () async {
           await sendTestNotification();
-          final listResponse = await client.notifications.endpoint.listNotifications();
+          final listResponse =
+              await client.notifications.endpoint.listNotifications();
           expect(listResponse.body.ocs.data, hasLength(1));
-          await client.notifications.endpoint.deleteNotification(id: listResponse.body.ocs.data.first.notificationId);
+          await client.notifications.endpoint.deleteNotification(
+            id: listResponse.body.ocs.data.first.notificationId,
+          );
 
-          final response = await client.notifications.endpoint.listNotifications();
+          final response =
+              await client.notifications.endpoint.listNotifications();
           expect(response.body.ocs.data, hasLength(0));
         });
 
@@ -120,7 +128,8 @@ void main() {
           await sendTestNotification();
           await client.notifications.endpoint.deleteAllNotifications();
 
-          final response = await client.notifications.endpoint.listNotifications();
+          final response =
+              await client.notifications.endpoint.listNotifications();
           expect(response.body.ocs.data, hasLength(0));
         });
       });

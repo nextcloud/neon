@@ -28,7 +28,13 @@ void main() {
         expect(response.statusCode, 200);
         expect(
           response.body.ocs.data.keys,
-          equals(['activity', 'notes', 'recommendations', 'spreed', 'user_status']),
+          equals([
+            'activity',
+            'notes',
+            'recommendations',
+            'spreed',
+            'user_status',
+          ]),
         );
       });
 
@@ -36,13 +42,17 @@ void main() {
         test('v1', () async {
           final response = await client.dashboard.dashboardApi.getWidgetItems();
           expect(response.statusCode, 200);
-          expect(response.body.ocs.data.keys, equals(['recommendations', 'spreed']));
+          expect(
+            response.body.ocs.data.keys,
+            equals(['recommendations', 'spreed']),
+          );
         });
 
         test(
           'v2',
           () async {
-            final response = await client.dashboard.dashboardApi.getWidgetItemsV2();
+            final response =
+                await client.dashboard.dashboardApi.getWidgetItemsV2();
             expect(response.statusCode, 200);
           },
           skip: preset.version < Version(27, 1, 0),

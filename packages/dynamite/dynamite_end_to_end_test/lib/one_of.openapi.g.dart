@@ -9,9 +9,12 @@ part of 'one_of.openapi.dart';
 Serializer<ObjectOneOf0> _$objectOneOf0Serializer = _$ObjectOneOf0Serializer();
 Serializer<ObjectOneOf1> _$objectOneOf1Serializer = _$ObjectOneOf1Serializer();
 Serializer<MixedOneOf1> _$mixedOneOf1Serializer = _$MixedOneOf1Serializer();
-Serializer<OneObjectOneOf0> _$oneObjectOneOf0Serializer = _$OneObjectOneOf0Serializer();
-Serializer<OneOfUnspecifiedArray0> _$oneOfUnspecifiedArray0Serializer = _$OneOfUnspecifiedArray0Serializer();
-Serializer<OneOfStringArray0> _$oneOfStringArray0Serializer = _$OneOfStringArray0Serializer();
+Serializer<OneObjectOneOf0> _$oneObjectOneOf0Serializer =
+    _$OneObjectOneOf0Serializer();
+Serializer<OneOfUnspecifiedArray0> _$oneOfUnspecifiedArray0Serializer =
+    _$OneOfUnspecifiedArray0Serializer();
+Serializer<OneOfStringArray0> _$oneOfStringArray0Serializer =
+    _$OneOfStringArray0Serializer();
 
 class _$ObjectOneOf0Serializer implements StructuredSerializer<ObjectOneOf0> {
   @override
@@ -24,14 +27,16 @@ class _$ObjectOneOf0Serializer implements StructuredSerializer<ObjectOneOf0> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attribute1-oneOf',
-      serializers.serialize(object.attribute1OneOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attribute1OneOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  ObjectOneOf0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ObjectOneOf0 deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ObjectOneOf0Builder();
 
@@ -42,7 +47,8 @@ class _$ObjectOneOf0Serializer implements StructuredSerializer<ObjectOneOf0> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute1-oneOf':
-          result.attribute1OneOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attribute1OneOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -62,14 +68,16 @@ class _$ObjectOneOf1Serializer implements StructuredSerializer<ObjectOneOf1> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attribute2-oneOf',
-      serializers.serialize(object.attribute2OneOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attribute2OneOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  ObjectOneOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ObjectOneOf1 deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ObjectOneOf1Builder();
 
@@ -80,7 +88,8 @@ class _$ObjectOneOf1Serializer implements StructuredSerializer<ObjectOneOf1> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute2-oneOf':
-          result.attribute2OneOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attribute2OneOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -100,7 +109,8 @@ class _$MixedOneOf1Serializer implements StructuredSerializer<MixedOneOf1> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attribute-oneOf',
-      serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attributeOneOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -118,7 +128,8 @@ class _$MixedOneOf1Serializer implements StructuredSerializer<MixedOneOf1> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute-oneOf':
-          result.attributeOneOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attributeOneOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -127,7 +138,8 @@ class _$MixedOneOf1Serializer implements StructuredSerializer<MixedOneOf1> {
   }
 }
 
-class _$OneObjectOneOf0Serializer implements StructuredSerializer<OneObjectOneOf0> {
+class _$OneObjectOneOf0Serializer
+    implements StructuredSerializer<OneObjectOneOf0> {
   @override
   final Iterable<Type> types = const [OneObjectOneOf0, _$OneObjectOneOf0];
   @override
@@ -138,14 +150,16 @@ class _$OneObjectOneOf0Serializer implements StructuredSerializer<OneObjectOneOf
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attribute-oneOf',
-      serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attributeOneOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  OneObjectOneOf0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OneObjectOneOf0 deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OneObjectOneOf0Builder();
 
@@ -156,7 +170,8 @@ class _$OneObjectOneOf0Serializer implements StructuredSerializer<OneObjectOneOf
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute-oneOf':
-          result.attributeOneOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attributeOneOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -165,25 +180,32 @@ class _$OneObjectOneOf0Serializer implements StructuredSerializer<OneObjectOneOf
   }
 }
 
-class _$OneOfUnspecifiedArray0Serializer implements StructuredSerializer<OneOfUnspecifiedArray0> {
+class _$OneOfUnspecifiedArray0Serializer
+    implements StructuredSerializer<OneOfUnspecifiedArray0> {
   @override
-  final Iterable<Type> types = const [OneOfUnspecifiedArray0, _$OneOfUnspecifiedArray0];
+  final Iterable<Type> types = const [
+    OneOfUnspecifiedArray0,
+    _$OneOfUnspecifiedArray0
+  ];
   @override
   final String wireName = 'OneOfUnspecifiedArray0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OneOfUnspecifiedArray0 object,
+  Iterable<Object?> serialize(
+      Serializers serializers, OneOfUnspecifiedArray0 object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attribute-oneOf',
-      serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attributeOneOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  OneOfUnspecifiedArray0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OneOfUnspecifiedArray0 deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OneOfUnspecifiedArray0Builder();
 
@@ -194,7 +216,8 @@ class _$OneOfUnspecifiedArray0Serializer implements StructuredSerializer<OneOfUn
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute-oneOf':
-          result.attributeOneOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attributeOneOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -203,7 +226,8 @@ class _$OneOfUnspecifiedArray0Serializer implements StructuredSerializer<OneOfUn
   }
 }
 
-class _$OneOfStringArray0Serializer implements StructuredSerializer<OneOfStringArray0> {
+class _$OneOfStringArray0Serializer
+    implements StructuredSerializer<OneOfStringArray0> {
   @override
   final Iterable<Type> types = const [OneOfStringArray0, _$OneOfStringArray0];
   @override
@@ -214,14 +238,16 @@ class _$OneOfStringArray0Serializer implements StructuredSerializer<OneOfStringA
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attribute-oneOf',
-      serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
+      serializers.serialize(object.attributeOneOf,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
   }
 
   @override
-  OneOfStringArray0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  OneOfStringArray0 deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = OneOfStringArray0Builder();
 
@@ -232,7 +258,8 @@ class _$OneOfStringArray0Serializer implements StructuredSerializer<OneOfStringA
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute-oneOf':
-          result.attributeOneOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.attributeOneOf = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -256,11 +283,13 @@ class _$ObjectOneOf0 extends ObjectOneOf0 {
       (ObjectOneOf0Builder()..update(updates))._build();
 
   _$ObjectOneOf0._({required this.attribute1OneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attribute1OneOf, r'ObjectOneOf0', 'attribute1OneOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attribute1OneOf, r'ObjectOneOf0', 'attribute1OneOf');
   }
 
   @override
-  ObjectOneOf0 rebuild(void Function(ObjectOneOf0Builder) updates) => (toBuilder()..update(updates)).build();
+  ObjectOneOf0 rebuild(void Function(ObjectOneOf0Builder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ObjectOneOf0Builder toBuilder() => ObjectOneOf0Builder()..replace(this);
@@ -281,16 +310,22 @@ class _$ObjectOneOf0 extends ObjectOneOf0 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ObjectOneOf0')..add('attribute1OneOf', attribute1OneOf)).toString();
+    return (newBuiltValueToStringHelper(r'ObjectOneOf0')
+          ..add('attribute1OneOf', attribute1OneOf))
+        .toString();
   }
 }
 
-class ObjectOneOf0Builder implements Builder<ObjectOneOf0, ObjectOneOf0Builder>, $ObjectOneOf0InterfaceBuilder {
+class ObjectOneOf0Builder
+    implements
+        Builder<ObjectOneOf0, ObjectOneOf0Builder>,
+        $ObjectOneOf0InterfaceBuilder {
   _$ObjectOneOf0? _$v;
 
   String? _attribute1OneOf;
   String? get attribute1OneOf => _$this._attribute1OneOf;
-  set attribute1OneOf(covariant String? attribute1OneOf) => _$this._attribute1OneOf = attribute1OneOf;
+  set attribute1OneOf(covariant String? attribute1OneOf) =>
+      _$this._attribute1OneOf = attribute1OneOf;
 
   ObjectOneOf0Builder();
 
@@ -320,8 +355,8 @@ class ObjectOneOf0Builder implements Builder<ObjectOneOf0, ObjectOneOf0Builder>,
   _$ObjectOneOf0 _build() {
     final _$result = _$v ??
         _$ObjectOneOf0._(
-            attribute1OneOf:
-                BuiltValueNullFieldError.checkNotNull(attribute1OneOf, r'ObjectOneOf0', 'attribute1OneOf'));
+            attribute1OneOf: BuiltValueNullFieldError.checkNotNull(
+                attribute1OneOf, r'ObjectOneOf0', 'attribute1OneOf'));
     replace(_$result);
     return _$result;
   }
@@ -342,11 +377,13 @@ class _$ObjectOneOf1 extends ObjectOneOf1 {
       (ObjectOneOf1Builder()..update(updates))._build();
 
   _$ObjectOneOf1._({required this.attribute2OneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attribute2OneOf, r'ObjectOneOf1', 'attribute2OneOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attribute2OneOf, r'ObjectOneOf1', 'attribute2OneOf');
   }
 
   @override
-  ObjectOneOf1 rebuild(void Function(ObjectOneOf1Builder) updates) => (toBuilder()..update(updates)).build();
+  ObjectOneOf1 rebuild(void Function(ObjectOneOf1Builder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ObjectOneOf1Builder toBuilder() => ObjectOneOf1Builder()..replace(this);
@@ -367,16 +404,22 @@ class _$ObjectOneOf1 extends ObjectOneOf1 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ObjectOneOf1')..add('attribute2OneOf', attribute2OneOf)).toString();
+    return (newBuiltValueToStringHelper(r'ObjectOneOf1')
+          ..add('attribute2OneOf', attribute2OneOf))
+        .toString();
   }
 }
 
-class ObjectOneOf1Builder implements Builder<ObjectOneOf1, ObjectOneOf1Builder>, $ObjectOneOf1InterfaceBuilder {
+class ObjectOneOf1Builder
+    implements
+        Builder<ObjectOneOf1, ObjectOneOf1Builder>,
+        $ObjectOneOf1InterfaceBuilder {
   _$ObjectOneOf1? _$v;
 
   String? _attribute2OneOf;
   String? get attribute2OneOf => _$this._attribute2OneOf;
-  set attribute2OneOf(covariant String? attribute2OneOf) => _$this._attribute2OneOf = attribute2OneOf;
+  set attribute2OneOf(covariant String? attribute2OneOf) =>
+      _$this._attribute2OneOf = attribute2OneOf;
 
   ObjectOneOf1Builder();
 
@@ -406,8 +449,8 @@ class ObjectOneOf1Builder implements Builder<ObjectOneOf1, ObjectOneOf1Builder>,
   _$ObjectOneOf1 _build() {
     final _$result = _$v ??
         _$ObjectOneOf1._(
-            attribute2OneOf:
-                BuiltValueNullFieldError.checkNotNull(attribute2OneOf, r'ObjectOneOf1', 'attribute2OneOf'));
+            attribute2OneOf: BuiltValueNullFieldError.checkNotNull(
+                attribute2OneOf, r'ObjectOneOf1', 'attribute2OneOf'));
     replace(_$result);
     return _$result;
   }
@@ -428,11 +471,13 @@ class _$MixedOneOf1 extends MixedOneOf1 {
       (MixedOneOf1Builder()..update(updates))._build();
 
   _$MixedOneOf1._({required this.attributeOneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'MixedOneOf1', 'attributeOneOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attributeOneOf, r'MixedOneOf1', 'attributeOneOf');
   }
 
   @override
-  MixedOneOf1 rebuild(void Function(MixedOneOf1Builder) updates) => (toBuilder()..update(updates)).build();
+  MixedOneOf1 rebuild(void Function(MixedOneOf1Builder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   MixedOneOf1Builder toBuilder() => MixedOneOf1Builder()..replace(this);
@@ -453,16 +498,22 @@ class _$MixedOneOf1 extends MixedOneOf1 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'MixedOneOf1')..add('attributeOneOf', attributeOneOf)).toString();
+    return (newBuiltValueToStringHelper(r'MixedOneOf1')
+          ..add('attributeOneOf', attributeOneOf))
+        .toString();
   }
 }
 
-class MixedOneOf1Builder implements Builder<MixedOneOf1, MixedOneOf1Builder>, $MixedOneOf1InterfaceBuilder {
+class MixedOneOf1Builder
+    implements
+        Builder<MixedOneOf1, MixedOneOf1Builder>,
+        $MixedOneOf1InterfaceBuilder {
   _$MixedOneOf1? _$v;
 
   String? _attributeOneOf;
   String? get attributeOneOf => _$this._attributeOneOf;
-  set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
+  set attributeOneOf(covariant String? attributeOneOf) =>
+      _$this._attributeOneOf = attributeOneOf;
 
   MixedOneOf1Builder();
 
@@ -492,7 +543,8 @@ class MixedOneOf1Builder implements Builder<MixedOneOf1, MixedOneOf1Builder>, $M
   _$MixedOneOf1 _build() {
     final _$result = _$v ??
         _$MixedOneOf1._(
-            attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'MixedOneOf1', 'attributeOneOf'));
+            attributeOneOf: BuiltValueNullFieldError.checkNotNull(
+                attributeOneOf, r'MixedOneOf1', 'attributeOneOf'));
     replace(_$result);
     return _$result;
   }
@@ -513,11 +565,13 @@ class _$OneObjectOneOf0 extends OneObjectOneOf0 {
       (OneObjectOneOf0Builder()..update(updates))._build();
 
   _$OneObjectOneOf0._({required this.attributeOneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneObjectOneOf0', 'attributeOneOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attributeOneOf, r'OneObjectOneOf0', 'attributeOneOf');
   }
 
   @override
-  OneObjectOneOf0 rebuild(void Function(OneObjectOneOf0Builder) updates) => (toBuilder()..update(updates)).build();
+  OneObjectOneOf0 rebuild(void Function(OneObjectOneOf0Builder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OneObjectOneOf0Builder toBuilder() => OneObjectOneOf0Builder()..replace(this);
@@ -538,17 +592,22 @@ class _$OneObjectOneOf0 extends OneObjectOneOf0 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OneObjectOneOf0')..add('attributeOneOf', attributeOneOf)).toString();
+    return (newBuiltValueToStringHelper(r'OneObjectOneOf0')
+          ..add('attributeOneOf', attributeOneOf))
+        .toString();
   }
 }
 
 class OneObjectOneOf0Builder
-    implements Builder<OneObjectOneOf0, OneObjectOneOf0Builder>, $OneObjectOneOf0InterfaceBuilder {
+    implements
+        Builder<OneObjectOneOf0, OneObjectOneOf0Builder>,
+        $OneObjectOneOf0InterfaceBuilder {
   _$OneObjectOneOf0? _$v;
 
   String? _attributeOneOf;
   String? get attributeOneOf => _$this._attributeOneOf;
-  set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
+  set attributeOneOf(covariant String? attributeOneOf) =>
+      _$this._attributeOneOf = attributeOneOf;
 
   OneObjectOneOf0Builder();
 
@@ -578,8 +637,8 @@ class OneObjectOneOf0Builder
   _$OneObjectOneOf0 _build() {
     final _$result = _$v ??
         _$OneObjectOneOf0._(
-            attributeOneOf:
-                BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneObjectOneOf0', 'attributeOneOf'));
+            attributeOneOf: BuiltValueNullFieldError.checkNotNull(
+                attributeOneOf, r'OneObjectOneOf0', 'attributeOneOf'));
     replace(_$result);
     return _$result;
   }
@@ -596,24 +655,29 @@ class _$OneOfUnspecifiedArray0 extends OneOfUnspecifiedArray0 {
   @override
   final String attributeOneOf;
 
-  factory _$OneOfUnspecifiedArray0([void Function(OneOfUnspecifiedArray0Builder)? updates]) =>
+  factory _$OneOfUnspecifiedArray0(
+          [void Function(OneOfUnspecifiedArray0Builder)? updates]) =>
       (OneOfUnspecifiedArray0Builder()..update(updates))._build();
 
   _$OneOfUnspecifiedArray0._({required this.attributeOneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfUnspecifiedArray0', 'attributeOneOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attributeOneOf, r'OneOfUnspecifiedArray0', 'attributeOneOf');
   }
 
   @override
-  OneOfUnspecifiedArray0 rebuild(void Function(OneOfUnspecifiedArray0Builder) updates) =>
+  OneOfUnspecifiedArray0 rebuild(
+          void Function(OneOfUnspecifiedArray0Builder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  OneOfUnspecifiedArray0Builder toBuilder() => OneOfUnspecifiedArray0Builder()..replace(this);
+  OneOfUnspecifiedArray0Builder toBuilder() =>
+      OneOfUnspecifiedArray0Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OneOfUnspecifiedArray0 && attributeOneOf == other.attributeOneOf;
+    return other is OneOfUnspecifiedArray0 &&
+        attributeOneOf == other.attributeOneOf;
   }
 
   @override
@@ -626,17 +690,22 @@ class _$OneOfUnspecifiedArray0 extends OneOfUnspecifiedArray0 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OneOfUnspecifiedArray0')..add('attributeOneOf', attributeOneOf)).toString();
+    return (newBuiltValueToStringHelper(r'OneOfUnspecifiedArray0')
+          ..add('attributeOneOf', attributeOneOf))
+        .toString();
   }
 }
 
 class OneOfUnspecifiedArray0Builder
-    implements Builder<OneOfUnspecifiedArray0, OneOfUnspecifiedArray0Builder>, $OneOfUnspecifiedArray0InterfaceBuilder {
+    implements
+        Builder<OneOfUnspecifiedArray0, OneOfUnspecifiedArray0Builder>,
+        $OneOfUnspecifiedArray0InterfaceBuilder {
   _$OneOfUnspecifiedArray0? _$v;
 
   String? _attributeOneOf;
   String? get attributeOneOf => _$this._attributeOneOf;
-  set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
+  set attributeOneOf(covariant String? attributeOneOf) =>
+      _$this._attributeOneOf = attributeOneOf;
 
   OneOfUnspecifiedArray0Builder();
 
@@ -666,8 +735,8 @@ class OneOfUnspecifiedArray0Builder
   _$OneOfUnspecifiedArray0 _build() {
     final _$result = _$v ??
         _$OneOfUnspecifiedArray0._(
-            attributeOneOf:
-                BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfUnspecifiedArray0', 'attributeOneOf'));
+            attributeOneOf: BuiltValueNullFieldError.checkNotNull(
+                attributeOneOf, r'OneOfUnspecifiedArray0', 'attributeOneOf'));
     replace(_$result);
     return _$result;
   }
@@ -684,18 +753,22 @@ class _$OneOfStringArray0 extends OneOfStringArray0 {
   @override
   final String attributeOneOf;
 
-  factory _$OneOfStringArray0([void Function(OneOfStringArray0Builder)? updates]) =>
+  factory _$OneOfStringArray0(
+          [void Function(OneOfStringArray0Builder)? updates]) =>
       (OneOfStringArray0Builder()..update(updates))._build();
 
   _$OneOfStringArray0._({required this.attributeOneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfStringArray0', 'attributeOneOf');
+    BuiltValueNullFieldError.checkNotNull(
+        attributeOneOf, r'OneOfStringArray0', 'attributeOneOf');
   }
 
   @override
-  OneOfStringArray0 rebuild(void Function(OneOfStringArray0Builder) updates) => (toBuilder()..update(updates)).build();
+  OneOfStringArray0 rebuild(void Function(OneOfStringArray0Builder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
-  OneOfStringArray0Builder toBuilder() => OneOfStringArray0Builder()..replace(this);
+  OneOfStringArray0Builder toBuilder() =>
+      OneOfStringArray0Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -713,17 +786,22 @@ class _$OneOfStringArray0 extends OneOfStringArray0 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OneOfStringArray0')..add('attributeOneOf', attributeOneOf)).toString();
+    return (newBuiltValueToStringHelper(r'OneOfStringArray0')
+          ..add('attributeOneOf', attributeOneOf))
+        .toString();
   }
 }
 
 class OneOfStringArray0Builder
-    implements Builder<OneOfStringArray0, OneOfStringArray0Builder>, $OneOfStringArray0InterfaceBuilder {
+    implements
+        Builder<OneOfStringArray0, OneOfStringArray0Builder>,
+        $OneOfStringArray0InterfaceBuilder {
   _$OneOfStringArray0? _$v;
 
   String? _attributeOneOf;
   String? get attributeOneOf => _$this._attributeOneOf;
-  set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
+  set attributeOneOf(covariant String? attributeOneOf) =>
+      _$this._attributeOneOf = attributeOneOf;
 
   OneOfStringArray0Builder();
 
@@ -753,8 +831,8 @@ class OneOfStringArray0Builder
   _$OneOfStringArray0 _build() {
     final _$result = _$v ??
         _$OneOfStringArray0._(
-            attributeOneOf:
-                BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfStringArray0', 'attributeOneOf'));
+            attributeOneOf: BuiltValueNullFieldError.checkNotNull(
+                attributeOneOf, r'OneOfStringArray0', 'attributeOneOf'));
     replace(_$result);
     return _$result;
   }

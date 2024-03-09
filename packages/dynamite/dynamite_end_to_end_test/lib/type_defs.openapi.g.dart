@@ -7,7 +7,8 @@ part of 'type_defs.openapi.dart';
 // **************************************************************************
 
 Serializer<Base> _$baseSerializer = _$BaseSerializer();
-Serializer<NestedRedirect> _$nestedRedirectSerializer = _$NestedRedirectSerializer();
+Serializer<NestedRedirect> _$nestedRedirectSerializer =
+    _$NestedRedirectSerializer();
 
 class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
@@ -16,14 +17,16 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   final String wireName = 'Base';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Base object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Base object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
     value = object.attribute;
     if (value != null) {
       result
         ..add('attribute')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -40,7 +43,8 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
       final Object? value = iterator.current;
       switch (key) {
         case 'attribute':
-          result.attribute = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.attribute = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -49,7 +53,8 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   }
 }
 
-class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect> {
+class _$NestedRedirectSerializer
+    implements StructuredSerializer<NestedRedirect> {
   @override
   final Iterable<Type> types = const [NestedRedirect, _$NestedRedirect];
   @override
@@ -64,7 +69,8 @@ class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect>
     if (value != null) {
       result
         ..add('redirect')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Base)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(Base)));
     }
     value = object.redirectBaseType;
     if (value != null) {
@@ -76,13 +82,15 @@ class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect>
     if (value != null) {
       result
         ..add('redirectEmptyType')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(JsonObject)));
     }
     return result;
   }
 
   @override
-  NestedRedirect deserialize(Serializers serializers, Iterable<Object?> serialized,
+  NestedRedirect deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = NestedRedirectBuilder();
 
@@ -93,14 +101,16 @@ class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect>
       final Object? value = iterator.current;
       switch (key) {
         case 'redirect':
-          result.redirect.replace(serializers.deserialize(value, specifiedType: const FullType(Base))! as Base);
+          result.redirect.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Base))! as Base);
           break;
         case 'redirectBaseType':
-          result.redirectBaseType = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.redirectBaseType = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'redirectEmptyType':
-          result.redirectEmptyType =
-              serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          result.redirectEmptyType = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
       }
     }
@@ -120,12 +130,14 @@ class _$Base extends Base {
   @override
   final String? attribute;
 
-  factory _$Base([void Function(BaseBuilder)? updates]) => (BaseBuilder()..update(updates))._build();
+  factory _$Base([void Function(BaseBuilder)? updates]) =>
+      (BaseBuilder()..update(updates))._build();
 
   _$Base._({this.attribute}) : super._();
 
   @override
-  Base rebuild(void Function(BaseBuilder) updates) => (toBuilder()..update(updates)).build();
+  Base rebuild(void Function(BaseBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   BaseBuilder toBuilder() => BaseBuilder()..replace(this);
@@ -146,7 +158,8 @@ class _$Base extends Base {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Base')..add('attribute', attribute)).toString();
+    return (newBuiltValueToStringHelper(r'Base')..add('attribute', attribute))
+        .toString();
   }
 }
 
@@ -213,10 +226,13 @@ class _$NestedRedirect extends NestedRedirect {
   factory _$NestedRedirect([void Function(NestedRedirectBuilder)? updates]) =>
       (NestedRedirectBuilder()..update(updates))._build();
 
-  _$NestedRedirect._({this.redirect, this.redirectBaseType, this.redirectEmptyType}) : super._();
+  _$NestedRedirect._(
+      {this.redirect, this.redirectBaseType, this.redirectEmptyType})
+      : super._();
 
   @override
-  NestedRedirect rebuild(void Function(NestedRedirectBuilder) updates) => (toBuilder()..update(updates)).build();
+  NestedRedirect rebuild(void Function(NestedRedirectBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   NestedRedirectBuilder toBuilder() => NestedRedirectBuilder()..replace(this);
@@ -250,7 +266,10 @@ class _$NestedRedirect extends NestedRedirect {
   }
 }
 
-class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBuilder>, $NestedRedirectInterfaceBuilder {
+class NestedRedirectBuilder
+    implements
+        Builder<NestedRedirect, NestedRedirectBuilder>,
+        $NestedRedirectInterfaceBuilder {
   _$NestedRedirect? _$v;
 
   BaseBuilder? _redirect;
@@ -259,11 +278,13 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
 
   int? _redirectBaseType;
   int? get redirectBaseType => _$this._redirectBaseType;
-  set redirectBaseType(covariant int? redirectBaseType) => _$this._redirectBaseType = redirectBaseType;
+  set redirectBaseType(covariant int? redirectBaseType) =>
+      _$this._redirectBaseType = redirectBaseType;
 
   JsonObject? _redirectEmptyType;
   JsonObject? get redirectEmptyType => _$this._redirectEmptyType;
-  set redirectEmptyType(covariant JsonObject? redirectEmptyType) => _$this._redirectEmptyType = redirectEmptyType;
+  set redirectEmptyType(covariant JsonObject? redirectEmptyType) =>
+      _$this._redirectEmptyType = redirectEmptyType;
 
   NestedRedirectBuilder();
 
@@ -297,14 +318,17 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
     try {
       _$result = _$v ??
           _$NestedRedirect._(
-              redirect: _redirect?.build(), redirectBaseType: redirectBaseType, redirectEmptyType: redirectEmptyType);
+              redirect: _redirect?.build(),
+              redirectBaseType: redirectBaseType,
+              redirectEmptyType: redirectEmptyType);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'redirect';
         _redirect?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'NestedRedirect', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'NestedRedirect', _$failedField, e.toString());
       }
       rethrow;
     }

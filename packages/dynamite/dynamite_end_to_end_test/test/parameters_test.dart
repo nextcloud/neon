@@ -28,9 +28,12 @@ void main() {
 
     test('with contentString', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
-        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b
+          ..content =
+              BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
-      final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
+      final queryComponent =
+          Uri.encodeQueryComponent(json.encode({'key': 'value'}));
 
       final client = $Client(
         uri,
@@ -38,7 +41,10 @@ void main() {
           expect(request.bodyBytes.length, 0);
           expect(request.headers, equals({'Accept': 'application/json'}));
           expect(request.method, equalsIgnoringCase('get'));
-          expect(request.url, equals(Uri.parse('example.com/?content_string=$queryComponent')));
+          expect(
+            request.url,
+            equals(Uri.parse('example.com/?content_string=$queryComponent')),
+          );
 
           return Response('{}', 200);
         }),
@@ -48,9 +54,12 @@ void main() {
 
     test('with contentParameter', () async {
       final contentParameter = ContentString<BuiltMap<String, JsonObject>>(
-        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b
+          ..content =
+              BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
-      final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
+      final queryComponent =
+          Uri.encodeQueryComponent(json.encode({'key': 'value'}));
 
       final client = $Client(
         uri,
@@ -58,7 +67,12 @@ void main() {
           expect(request.bodyBytes.length, 0);
           expect(request.headers, equals({'Accept': 'application/json'}));
           expect(request.method, equalsIgnoringCase('get'));
-          expect(request.url, equals(Uri.parse('example.com/?content_parameter=$queryComponent')));
+          expect(
+            request.url,
+            equals(
+              Uri.parse('example.com/?content_parameter=$queryComponent'),
+            ),
+          );
 
           return Response('{}', 200);
         }),
@@ -84,9 +98,12 @@ void main() {
 
     test('with multiple query parameters', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
-        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b
+          ..content =
+              BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
-      final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
+      final queryComponent =
+          Uri.encodeQueryComponent(json.encode({'key': 'value'}));
 
       final client = $Client(
         uri,
@@ -96,13 +113,20 @@ void main() {
           expect(request.method, equalsIgnoringCase('get'));
           expect(
             request.url,
-            equals(Uri.parse('example.com/?content_string=$queryComponent&content_parameter=$queryComponent')),
+            equals(
+              Uri.parse(
+                'example.com/?content_string=$queryComponent&content_parameter=$queryComponent',
+              ),
+            ),
           );
 
           return Response('{}', 200);
         }),
       );
-      await client.$get(contentString: contentString, contentParameter: contentString);
+      await client.$get(
+        contentString: contentString,
+        contentParameter: contentString,
+      );
     });
 
     test('oneOf', () async {
@@ -231,10 +255,14 @@ void main() {
 
       await client.getHeaders(
         contentString: ContentString<BuiltMap<String, JsonObject>>(
-          (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+          (b) => b
+            ..content =
+                BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
         ),
         contentParameter: ContentString<BuiltMap<String, JsonObject>>(
-          (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+          (b) => b
+            ..content =
+                BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
         ),
         array: BuiltList<JsonObject>([
           JsonObject(107),
@@ -290,8 +318,14 @@ void main() {
           return Response('{}', 200);
         }),
       );
-      expect(() => client.$get(enumPattern: GetEnumPattern.$0), throwsA(isA<FormatException>()));
-      expect(() => client.getHeaders(enumPattern: GetHeadersEnumPattern.$0), throwsA(isA<FormatException>()));
+      expect(
+        () => client.$get(enumPattern: GetEnumPattern.$0),
+        throwsA(isA<FormatException>()),
+      );
+      expect(
+        () => client.getHeaders(enumPattern: GetHeadersEnumPattern.$0),
+        throwsA(isA<FormatException>()),
+      );
     });
   });
 
@@ -313,7 +347,11 @@ void main() {
         expect(request.method, equalsIgnoringCase('get'));
         expect(
           request.url,
-          equals(Uri.parse('example.com/naming_collisions?%24jsonSerializers=jsonSerializers%20value%24')),
+          equals(
+            Uri.parse(
+              'example.com/naming_collisions?%24jsonSerializers=jsonSerializers%20value%24',
+            ),
+          ),
         );
 
         return Response('{}', 200);

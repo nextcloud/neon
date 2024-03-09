@@ -6,8 +6,10 @@ import 'package:nextcloud/src/webdav/webdav.dart';
 // ignore: public_member_api_docs
 extension WebDavMultistatusFile on WebDavMultistatus {
   /// Convert the [WebDavMultistatus] into a [WebDavFile] for easier handling
-  List<WebDavFile> toWebDavFiles() =>
-      responses.where((response) => response.href != null).map((response) => WebDavFile(response: response)).toList();
+  List<WebDavFile> toWebDavFiles() => responses
+      .where((response) => response.href != null)
+      .map((response) => WebDavFile(response: response))
+      .toList();
 }
 
 /// WebDavFile class
@@ -20,7 +22,9 @@ class WebDavFile {
   final WebDavResponse _response;
 
   /// Get the props of the file
-  late final WebDavProp props = _response.propstats.singleWhere((propstat) => propstat.status.contains('200')).prop;
+  late final WebDavProp props = _response.propstats
+      .singleWhere((propstat) => propstat.status.contains('200'))
+      .prop;
 
   /// The path of file
   late final PathUri path = () {
@@ -39,7 +43,9 @@ class WebDavFile {
   late final String? fileId = props.ocfileid;
 
   /// Whether this is a collection resource type
-  late final bool? isCollection = props.davresourcetype != null ? props.davresourcetype!.collection != null : null;
+  late final bool? isCollection = props.davresourcetype != null
+      ? props.davresourcetype!.collection != null
+      : null;
 
   /// Mime-type of the file
   late final String? mimeType = props.davgetcontenttype;
@@ -68,16 +74,24 @@ class WebDavFile {
   }();
 
   /// Upload date of the file
-  late final DateTime? uploadedDate =
-      props.ncuploadtime != null ? DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000, isUtc: true) : null;
+  late final DateTime? uploadedDate = props.ncuploadtime != null
+      ? DateTime.fromMillisecondsSinceEpoch(
+          props.ncuploadtime! * 1000,
+          isUtc: true,
+        )
+      : null;
 
   /// Creation date of the file as provided by uploader
   late final DateTime? createdDate = props.nccreationtime != null
-      ? DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000, isUtc: true)
+      ? DateTime.fromMillisecondsSinceEpoch(
+          props.nccreationtime! * 1000,
+          isUtc: true,
+        )
       : null;
 
   /// Whether this file is marked as favorite
-  late final bool? favorite = props.ocfavorite == null ? null : props.ocfavorite == 1;
+  late final bool? favorite =
+      props.ocfavorite == null ? null : props.ocfavorite == 1;
 
   /// Whether this file has a preview image
   late final bool? hasPreview = props.nchaspreview;

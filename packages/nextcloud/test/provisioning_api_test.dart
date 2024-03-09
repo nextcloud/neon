@@ -39,7 +39,8 @@ void main() {
         });
 
         test('Get user by username', () async {
-          final response = await client.provisioningApi.users.getUser(userId: 'user1');
+          final response =
+              await client.provisioningApi.users.getUser(userId: 'user1');
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -61,7 +62,10 @@ void main() {
             final app = await client.provisioningApi.apps.getAppInfo(app: id);
             expect(response.statusCode, 200);
             expect(() => response.headers, isA<void>());
-            expect((app.body.ocs.data['id']! as StringJsonObject).value, isNotEmpty);
+            expect(
+              (app.body.ocs.data['id']! as StringJsonObject).value,
+              isNotEmpty,
+            );
           }
         });
       });

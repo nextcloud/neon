@@ -7,19 +7,26 @@ part of 'files_reminders.openapi.dart';
 // **************************************************************************
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<ApiGetResponseApplicationJson_Ocs_Data> _$apiGetResponseApplicationJsonOcsDataSerializer =
+Serializer<ApiGetResponseApplicationJson_Ocs_Data>
+    _$apiGetResponseApplicationJsonOcsDataSerializer =
     _$ApiGetResponseApplicationJson_Ocs_DataSerializer();
-Serializer<ApiGetResponseApplicationJson_Ocs> _$apiGetResponseApplicationJsonOcsSerializer =
+Serializer<ApiGetResponseApplicationJson_Ocs>
+    _$apiGetResponseApplicationJsonOcsSerializer =
     _$ApiGetResponseApplicationJson_OcsSerializer();
-Serializer<ApiGetResponseApplicationJson> _$apiGetResponseApplicationJsonSerializer =
+Serializer<ApiGetResponseApplicationJson>
+    _$apiGetResponseApplicationJsonSerializer =
     _$ApiGetResponseApplicationJsonSerializer();
-Serializer<ApiSetResponseApplicationJson_Ocs> _$apiSetResponseApplicationJsonOcsSerializer =
+Serializer<ApiSetResponseApplicationJson_Ocs>
+    _$apiSetResponseApplicationJsonOcsSerializer =
     _$ApiSetResponseApplicationJson_OcsSerializer();
-Serializer<ApiSetResponseApplicationJson> _$apiSetResponseApplicationJsonSerializer =
+Serializer<ApiSetResponseApplicationJson>
+    _$apiSetResponseApplicationJsonSerializer =
     _$ApiSetResponseApplicationJsonSerializer();
-Serializer<ApiRemoveResponseApplicationJson_Ocs> _$apiRemoveResponseApplicationJsonOcsSerializer =
+Serializer<ApiRemoveResponseApplicationJson_Ocs>
+    _$apiRemoveResponseApplicationJsonOcsSerializer =
     _$ApiRemoveResponseApplicationJson_OcsSerializer();
-Serializer<ApiRemoveResponseApplicationJson> _$apiRemoveResponseApplicationJsonSerializer =
+Serializer<ApiRemoveResponseApplicationJson>
+    _$apiRemoveResponseApplicationJsonSerializer =
     _$ApiRemoveResponseApplicationJsonSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
@@ -33,28 +40,33 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status,
+          specifiedType: const FullType(String)),
       'statuscode',
-      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+      serializers.serialize(object.statuscode,
+          specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.message;
     if (value != null) {
       result
         ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.totalitems;
     if (value != null) {
       result
         ..add('totalitems')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.itemsperpage;
     if (value != null) {
       result
         ..add('itemsperpage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -71,19 +83,24 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       final Object? value = iterator.current;
       switch (key) {
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'statuscode':
-          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.statuscode = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'totalitems':
-          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.totalitems = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'itemsperpage':
-          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.itemsperpage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -95,12 +112,16 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
 class _$ApiGetResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<ApiGetResponseApplicationJson_Ocs_Data> {
   @override
-  final Iterable<Type> types = const [ApiGetResponseApplicationJson_Ocs_Data, _$ApiGetResponseApplicationJson_Ocs_Data];
+  final Iterable<Type> types = const [
+    ApiGetResponseApplicationJson_Ocs_Data,
+    _$ApiGetResponseApplicationJson_Ocs_Data
+  ];
   @override
   final String wireName = 'ApiGetResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGetResponseApplicationJson_Ocs_Data object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiGetResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -108,13 +129,15 @@ class _$ApiGetResponseApplicationJson_Ocs_DataSerializer
     if (value != null) {
       result
         ..add('dueDate')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  ApiGetResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiGetResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiGetResponseApplicationJson_Ocs_DataBuilder();
 
@@ -125,7 +148,8 @@ class _$ApiGetResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'dueDate':
-          result.dueDate = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.dueDate = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -134,27 +158,36 @@ class _$ApiGetResponseApplicationJson_Ocs_DataSerializer
   }
 }
 
-class _$ApiGetResponseApplicationJson_OcsSerializer implements StructuredSerializer<ApiGetResponseApplicationJson_Ocs> {
+class _$ApiGetResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiGetResponseApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [ApiGetResponseApplicationJson_Ocs, _$ApiGetResponseApplicationJson_Ocs];
+  final Iterable<Type> types = const [
+    ApiGetResponseApplicationJson_Ocs,
+    _$ApiGetResponseApplicationJson_Ocs
+  ];
   @override
   final String wireName = 'ApiGetResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGetResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiGetResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(object.data,
+          specifiedType:
+              const FullType(ApiGetResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
   }
 
   @override
-  ApiGetResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiGetResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiGetResponseApplicationJson_OcsBuilder();
 
@@ -165,12 +198,14 @@ class _$ApiGetResponseApplicationJson_OcsSerializer implements StructuredSeriali
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs_Data))!
-                  as ApiGetResponseApplicationJson_Ocs_Data);
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(ApiGetResponseApplicationJson_Ocs_Data))!
+              as ApiGetResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -179,25 +214,32 @@ class _$ApiGetResponseApplicationJson_OcsSerializer implements StructuredSeriali
   }
 }
 
-class _$ApiGetResponseApplicationJsonSerializer implements StructuredSerializer<ApiGetResponseApplicationJson> {
+class _$ApiGetResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiGetResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [ApiGetResponseApplicationJson, _$ApiGetResponseApplicationJson];
+  final Iterable<Type> types = const [
+    ApiGetResponseApplicationJson,
+    _$ApiGetResponseApplicationJson
+  ];
   @override
   final String wireName = 'ApiGetResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGetResponseApplicationJson object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiGetResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  ApiGetResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiGetResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiGetResponseApplicationJsonBuilder();
 
@@ -209,7 +251,9 @@ class _$ApiGetResponseApplicationJsonSerializer implements StructuredSerializer<
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs))! as ApiGetResponseApplicationJson_Ocs);
+                  specifiedType:
+                      const FullType(ApiGetResponseApplicationJson_Ocs))!
+              as ApiGetResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -218,27 +262,35 @@ class _$ApiGetResponseApplicationJsonSerializer implements StructuredSerializer<
   }
 }
 
-class _$ApiSetResponseApplicationJson_OcsSerializer implements StructuredSerializer<ApiSetResponseApplicationJson_Ocs> {
+class _$ApiSetResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiSetResponseApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [ApiSetResponseApplicationJson_Ocs, _$ApiSetResponseApplicationJson_Ocs];
+  final Iterable<Type> types = const [
+    ApiSetResponseApplicationJson_Ocs,
+    _$ApiSetResponseApplicationJson_Ocs
+  ];
   @override
   final String wireName = 'ApiSetResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiSetResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiSetResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(JsonObject)),
     ];
 
     return result;
   }
 
   @override
-  ApiSetResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiSetResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiSetResponseApplicationJson_OcsBuilder();
 
@@ -249,10 +301,12 @@ class _$ApiSetResponseApplicationJson_OcsSerializer implements StructuredSeriali
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          result.data = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject))! as JsonObject;
           break;
       }
     }
@@ -261,25 +315,32 @@ class _$ApiSetResponseApplicationJson_OcsSerializer implements StructuredSeriali
   }
 }
 
-class _$ApiSetResponseApplicationJsonSerializer implements StructuredSerializer<ApiSetResponseApplicationJson> {
+class _$ApiSetResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiSetResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [ApiSetResponseApplicationJson, _$ApiSetResponseApplicationJson];
+  final Iterable<Type> types = const [
+    ApiSetResponseApplicationJson,
+    _$ApiSetResponseApplicationJson
+  ];
   @override
   final String wireName = 'ApiSetResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiSetResponseApplicationJson object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiSetResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(ApiSetResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ApiSetResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  ApiSetResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiSetResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiSetResponseApplicationJsonBuilder();
 
@@ -291,7 +352,9 @@ class _$ApiSetResponseApplicationJsonSerializer implements StructuredSerializer<
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ApiSetResponseApplicationJson_Ocs))! as ApiSetResponseApplicationJson_Ocs);
+                  specifiedType:
+                      const FullType(ApiSetResponseApplicationJson_Ocs))!
+              as ApiSetResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -303,25 +366,32 @@ class _$ApiSetResponseApplicationJsonSerializer implements StructuredSerializer<
 class _$ApiRemoveResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ApiRemoveResponseApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [ApiRemoveResponseApplicationJson_Ocs, _$ApiRemoveResponseApplicationJson_Ocs];
+  final Iterable<Type> types = const [
+    ApiRemoveResponseApplicationJson_Ocs,
+    _$ApiRemoveResponseApplicationJson_Ocs
+  ];
   @override
   final String wireName = 'ApiRemoveResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiRemoveResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiRemoveResponseApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(JsonObject)),
     ];
 
     return result;
   }
 
   @override
-  ApiRemoveResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiRemoveResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiRemoveResponseApplicationJson_OcsBuilder();
 
@@ -332,10 +402,12 @@ class _$ApiRemoveResponseApplicationJson_OcsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          result.data = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject))! as JsonObject;
           break;
       }
     }
@@ -344,25 +416,32 @@ class _$ApiRemoveResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$ApiRemoveResponseApplicationJsonSerializer implements StructuredSerializer<ApiRemoveResponseApplicationJson> {
+class _$ApiRemoveResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiRemoveResponseApplicationJson> {
   @override
-  final Iterable<Type> types = const [ApiRemoveResponseApplicationJson, _$ApiRemoveResponseApplicationJson];
+  final Iterable<Type> types = const [
+    ApiRemoveResponseApplicationJson,
+    _$ApiRemoveResponseApplicationJson
+  ];
   @override
   final String wireName = 'ApiRemoveResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiRemoveResponseApplicationJson object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiRemoveResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(ApiRemoveResponseApplicationJson_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ApiRemoveResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  ApiRemoveResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ApiRemoveResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ApiRemoveResponseApplicationJsonBuilder();
 
@@ -373,9 +452,10 @@ class _$ApiRemoveResponseApplicationJsonSerializer implements StructuredSerializ
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiRemoveResponseApplicationJson_Ocs))!
-                  as ApiRemoveResponseApplicationJson_Ocs);
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(ApiRemoveResponseApplicationJson_Ocs))!
+              as ApiRemoveResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -415,16 +495,23 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) =>
+      (OCSMetaBuilder()..update(updates))._build();
 
-  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._(
+      {required this.status,
+      required this.statuscode,
+      this.message,
+      this.totalitems,
+      this.itemsperpage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
     BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
@@ -464,7 +551,8 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
+class OCSMetaBuilder
+    implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -481,11 +569,13 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) =>
+      _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) =>
+      _$this._itemsperpage = itemsperpage;
 
   OCSMetaBuilder();
 
@@ -519,8 +609,10 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(
+                statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -531,24 +623,30 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
 abstract mixin class $ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($ApiGetResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function($ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  void update(
+      void Function($ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder)
+          updates);
   String? get dueDate;
   set dueDate(String? dueDate);
 }
 
-class _$ApiGetResponseApplicationJson_Ocs_Data extends ApiGetResponseApplicationJson_Ocs_Data {
+class _$ApiGetResponseApplicationJson_Ocs_Data
+    extends ApiGetResponseApplicationJson_Ocs_Data {
   @override
   final String? dueDate;
 
   factory _$ApiGetResponseApplicationJson_Ocs_Data(
-          [void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ApiGetResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+          [void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)?
+              updates]) =>
+      (ApiGetResponseApplicationJson_Ocs_DataBuilder()..update(updates))
+          ._build();
 
   _$ApiGetResponseApplicationJson_Ocs_Data._({this.dueDate}) : super._();
 
   @override
   ApiGetResponseApplicationJson_Ocs_Data rebuild(
-          void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder) updates) =>
+          void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -558,7 +656,8 @@ class _$ApiGetResponseApplicationJson_Ocs_Data extends ApiGetResponseApplication
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ApiGetResponseApplicationJson_Ocs_Data && dueDate == other.dueDate;
+    return other is ApiGetResponseApplicationJson_Ocs_Data &&
+        dueDate == other.dueDate;
   }
 
   @override
@@ -571,13 +670,17 @@ class _$ApiGetResponseApplicationJson_Ocs_Data extends ApiGetResponseApplication
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiGetResponseApplicationJson_Ocs_Data')..add('dueDate', dueDate)).toString();
+    return (newBuiltValueToStringHelper(
+            r'ApiGetResponseApplicationJson_Ocs_Data')
+          ..add('dueDate', dueDate))
+        .toString();
   }
 }
 
 class ApiGetResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<ApiGetResponseApplicationJson_Ocs_Data, ApiGetResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<ApiGetResponseApplicationJson_Ocs_Data,
+            ApiGetResponseApplicationJson_Ocs_DataBuilder>,
         $ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$ApiGetResponseApplicationJson_Ocs_Data? _$v;
 
@@ -603,7 +706,8 @@ class ApiGetResponseApplicationJson_Ocs_DataBuilder
   }
 
   @override
-  void update(void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? updates) {
+  void update(
+      void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -611,7 +715,8 @@ class ApiGetResponseApplicationJson_Ocs_DataBuilder
   ApiGetResponseApplicationJson_Ocs_Data build() => _build();
 
   _$ApiGetResponseApplicationJson_Ocs_Data _build() {
-    final _$result = _$v ?? _$ApiGetResponseApplicationJson_Ocs_Data._(dueDate: dueDate);
+    final _$result =
+        _$v ?? _$ApiGetResponseApplicationJson_Ocs_Data._(dueDate: dueDate);
     replace(_$result);
     return _$result;
   }
@@ -619,7 +724,9 @@ class ApiGetResponseApplicationJson_Ocs_DataBuilder
 
 abstract mixin class $ApiGetResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ApiGetResponseApplicationJson_OcsInterface other);
-  void update(void Function($ApiGetResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void update(
+      void Function($ApiGetResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -627,31 +734,41 @@ abstract mixin class $ApiGetResponseApplicationJson_OcsInterfaceBuilder {
   set data(ApiGetResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
-class _$ApiGetResponseApplicationJson_Ocs extends ApiGetResponseApplicationJson_Ocs {
+class _$ApiGetResponseApplicationJson_Ocs
+    extends ApiGetResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
   final ApiGetResponseApplicationJson_Ocs_Data data;
 
-  factory _$ApiGetResponseApplicationJson_Ocs([void Function(ApiGetResponseApplicationJson_OcsBuilder)? updates]) =>
+  factory _$ApiGetResponseApplicationJson_Ocs(
+          [void Function(ApiGetResponseApplicationJson_OcsBuilder)? updates]) =>
       (ApiGetResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$ApiGetResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGetResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'ApiGetResponseApplicationJson_Ocs', 'data');
+  _$ApiGetResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'ApiGetResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'ApiGetResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  ApiGetResponseApplicationJson_Ocs rebuild(void Function(ApiGetResponseApplicationJson_OcsBuilder) updates) =>
+  ApiGetResponseApplicationJson_Ocs rebuild(
+          void Function(ApiGetResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiGetResponseApplicationJson_OcsBuilder toBuilder() => ApiGetResponseApplicationJson_OcsBuilder()..replace(this);
+  ApiGetResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiGetResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ApiGetResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is ApiGetResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -674,7 +791,8 @@ class _$ApiGetResponseApplicationJson_Ocs extends ApiGetResponseApplicationJson_
 
 class ApiGetResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiGetResponseApplicationJson_Ocs, ApiGetResponseApplicationJson_OcsBuilder>,
+        Builder<ApiGetResponseApplicationJson_Ocs,
+            ApiGetResponseApplicationJson_OcsBuilder>,
         $ApiGetResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiGetResponseApplicationJson_Ocs? _$v;
 
@@ -685,7 +803,8 @@ class ApiGetResponseApplicationJson_OcsBuilder
   ApiGetResponseApplicationJson_Ocs_DataBuilder? _data;
   ApiGetResponseApplicationJson_Ocs_DataBuilder get data =>
       _$this._data ??= ApiGetResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant ApiGetResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  set data(covariant ApiGetResponseApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
   ApiGetResponseApplicationJson_OcsBuilder();
 
@@ -706,7 +825,8 @@ class ApiGetResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void update(void Function(ApiGetResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(ApiGetResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -716,7 +836,9 @@ class ApiGetResponseApplicationJson_OcsBuilder
   _$ApiGetResponseApplicationJson_Ocs _build() {
     _$ApiGetResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ApiGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ApiGetResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -725,7 +847,8 @@ class ApiGetResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiGetResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ApiGetResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -736,7 +859,8 @@ class ApiGetResponseApplicationJson_OcsBuilder
 
 abstract mixin class $ApiGetResponseApplicationJsonInterfaceBuilder {
   void replace($ApiGetResponseApplicationJsonInterface other);
-  void update(void Function($ApiGetResponseApplicationJsonInterfaceBuilder) updates);
+  void update(
+      void Function($ApiGetResponseApplicationJsonInterfaceBuilder) updates);
   ApiGetResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiGetResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -745,19 +869,23 @@ class _$ApiGetResponseApplicationJson extends ApiGetResponseApplicationJson {
   @override
   final ApiGetResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiGetResponseApplicationJson([void Function(ApiGetResponseApplicationJsonBuilder)? updates]) =>
+  factory _$ApiGetResponseApplicationJson(
+          [void Function(ApiGetResponseApplicationJsonBuilder)? updates]) =>
       (ApiGetResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiGetResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGetResponseApplicationJson', 'ocs');
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'ApiGetResponseApplicationJson', 'ocs');
   }
 
   @override
-  ApiGetResponseApplicationJson rebuild(void Function(ApiGetResponseApplicationJsonBuilder) updates) =>
+  ApiGetResponseApplicationJson rebuild(
+          void Function(ApiGetResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiGetResponseApplicationJsonBuilder toBuilder() => ApiGetResponseApplicationJsonBuilder()..replace(this);
+  ApiGetResponseApplicationJsonBuilder toBuilder() =>
+      ApiGetResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -775,19 +903,24 @@ class _$ApiGetResponseApplicationJson extends ApiGetResponseApplicationJson {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiGetResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'ApiGetResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
   }
 }
 
 class ApiGetResponseApplicationJsonBuilder
     implements
-        Builder<ApiGetResponseApplicationJson, ApiGetResponseApplicationJsonBuilder>,
+        Builder<ApiGetResponseApplicationJson,
+            ApiGetResponseApplicationJsonBuilder>,
         $ApiGetResponseApplicationJsonInterfaceBuilder {
   _$ApiGetResponseApplicationJson? _$v;
 
   ApiGetResponseApplicationJson_OcsBuilder? _ocs;
-  ApiGetResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiGetResponseApplicationJson_OcsBuilder();
-  set ocs(covariant ApiGetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ApiGetResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiGetResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiGetResponseApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ApiGetResponseApplicationJsonBuilder();
 
@@ -824,7 +957,8 @@ class ApiGetResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiGetResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ApiGetResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -835,7 +969,9 @@ class ApiGetResponseApplicationJsonBuilder
 
 abstract mixin class $ApiSetResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ApiSetResponseApplicationJson_OcsInterface other);
-  void update(void Function($ApiSetResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void update(
+      void Function($ApiSetResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -843,31 +979,41 @@ abstract mixin class $ApiSetResponseApplicationJson_OcsInterfaceBuilder {
   set data(JsonObject? data);
 }
 
-class _$ApiSetResponseApplicationJson_Ocs extends ApiSetResponseApplicationJson_Ocs {
+class _$ApiSetResponseApplicationJson_Ocs
+    extends ApiSetResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
   final JsonObject data;
 
-  factory _$ApiSetResponseApplicationJson_Ocs([void Function(ApiSetResponseApplicationJson_OcsBuilder)? updates]) =>
+  factory _$ApiSetResponseApplicationJson_Ocs(
+          [void Function(ApiSetResponseApplicationJson_OcsBuilder)? updates]) =>
       (ApiSetResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$ApiSetResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'ApiSetResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'ApiSetResponseApplicationJson_Ocs', 'data');
+  _$ApiSetResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'ApiSetResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'ApiSetResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  ApiSetResponseApplicationJson_Ocs rebuild(void Function(ApiSetResponseApplicationJson_OcsBuilder) updates) =>
+  ApiSetResponseApplicationJson_Ocs rebuild(
+          void Function(ApiSetResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiSetResponseApplicationJson_OcsBuilder toBuilder() => ApiSetResponseApplicationJson_OcsBuilder()..replace(this);
+  ApiSetResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiSetResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ApiSetResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is ApiSetResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -890,7 +1036,8 @@ class _$ApiSetResponseApplicationJson_Ocs extends ApiSetResponseApplicationJson_
 
 class ApiSetResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiSetResponseApplicationJson_Ocs, ApiSetResponseApplicationJson_OcsBuilder>,
+        Builder<ApiSetResponseApplicationJson_Ocs,
+            ApiSetResponseApplicationJson_OcsBuilder>,
         $ApiSetResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiSetResponseApplicationJson_Ocs? _$v;
 
@@ -921,7 +1068,8 @@ class ApiSetResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void update(void Function(ApiSetResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(ApiSetResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -934,14 +1082,16 @@ class ApiSetResponseApplicationJson_OcsBuilder
       _$result = _$v ??
           _$ApiSetResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'ApiSetResponseApplicationJson_Ocs', 'data'));
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'ApiSetResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiSetResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ApiSetResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -952,7 +1102,8 @@ class ApiSetResponseApplicationJson_OcsBuilder
 
 abstract mixin class $ApiSetResponseApplicationJsonInterfaceBuilder {
   void replace($ApiSetResponseApplicationJsonInterface other);
-  void update(void Function($ApiSetResponseApplicationJsonInterfaceBuilder) updates);
+  void update(
+      void Function($ApiSetResponseApplicationJsonInterfaceBuilder) updates);
   ApiSetResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiSetResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -961,19 +1112,23 @@ class _$ApiSetResponseApplicationJson extends ApiSetResponseApplicationJson {
   @override
   final ApiSetResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiSetResponseApplicationJson([void Function(ApiSetResponseApplicationJsonBuilder)? updates]) =>
+  factory _$ApiSetResponseApplicationJson(
+          [void Function(ApiSetResponseApplicationJsonBuilder)? updates]) =>
       (ApiSetResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiSetResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiSetResponseApplicationJson', 'ocs');
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'ApiSetResponseApplicationJson', 'ocs');
   }
 
   @override
-  ApiSetResponseApplicationJson rebuild(void Function(ApiSetResponseApplicationJsonBuilder) updates) =>
+  ApiSetResponseApplicationJson rebuild(
+          void Function(ApiSetResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiSetResponseApplicationJsonBuilder toBuilder() => ApiSetResponseApplicationJsonBuilder()..replace(this);
+  ApiSetResponseApplicationJsonBuilder toBuilder() =>
+      ApiSetResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -991,19 +1146,24 @@ class _$ApiSetResponseApplicationJson extends ApiSetResponseApplicationJson {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiSetResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'ApiSetResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
   }
 }
 
 class ApiSetResponseApplicationJsonBuilder
     implements
-        Builder<ApiSetResponseApplicationJson, ApiSetResponseApplicationJsonBuilder>,
+        Builder<ApiSetResponseApplicationJson,
+            ApiSetResponseApplicationJsonBuilder>,
         $ApiSetResponseApplicationJsonInterfaceBuilder {
   _$ApiSetResponseApplicationJson? _$v;
 
   ApiSetResponseApplicationJson_OcsBuilder? _ocs;
-  ApiSetResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiSetResponseApplicationJson_OcsBuilder();
-  set ocs(covariant ApiSetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ApiSetResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiSetResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiSetResponseApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ApiSetResponseApplicationJsonBuilder();
 
@@ -1040,7 +1200,8 @@ class ApiSetResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiSetResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ApiSetResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1051,7 +1212,9 @@ class ApiSetResponseApplicationJsonBuilder
 
 abstract mixin class $ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ApiRemoveResponseApplicationJson_OcsInterface other);
-  void update(void Function($ApiRemoveResponseApplicationJson_OcsInterfaceBuilder) updates);
+  void update(
+      void Function($ApiRemoveResponseApplicationJson_OcsInterfaceBuilder)
+          updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1059,23 +1222,30 @@ abstract mixin class $ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
   set data(JsonObject? data);
 }
 
-class _$ApiRemoveResponseApplicationJson_Ocs extends ApiRemoveResponseApplicationJson_Ocs {
+class _$ApiRemoveResponseApplicationJson_Ocs
+    extends ApiRemoveResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
   final JsonObject data;
 
   factory _$ApiRemoveResponseApplicationJson_Ocs(
-          [void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? updates]) =>
+          [void Function(ApiRemoveResponseApplicationJson_OcsBuilder)?
+              updates]) =>
       (ApiRemoveResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$ApiRemoveResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'ApiRemoveResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'ApiRemoveResponseApplicationJson_Ocs', 'data');
+  _$ApiRemoveResponseApplicationJson_Ocs._(
+      {required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'ApiRemoveResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'ApiRemoveResponseApplicationJson_Ocs', 'data');
   }
 
   @override
-  ApiRemoveResponseApplicationJson_Ocs rebuild(void Function(ApiRemoveResponseApplicationJson_OcsBuilder) updates) =>
+  ApiRemoveResponseApplicationJson_Ocs rebuild(
+          void Function(ApiRemoveResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -1085,7 +1255,9 @@ class _$ApiRemoveResponseApplicationJson_Ocs extends ApiRemoveResponseApplicatio
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ApiRemoveResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is ApiRemoveResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -1108,7 +1280,8 @@ class _$ApiRemoveResponseApplicationJson_Ocs extends ApiRemoveResponseApplicatio
 
 class ApiRemoveResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiRemoveResponseApplicationJson_Ocs, ApiRemoveResponseApplicationJson_OcsBuilder>,
+        Builder<ApiRemoveResponseApplicationJson_Ocs,
+            ApiRemoveResponseApplicationJson_OcsBuilder>,
         $ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiRemoveResponseApplicationJson_Ocs? _$v;
 
@@ -1139,7 +1312,8 @@ class ApiRemoveResponseApplicationJson_OcsBuilder
   }
 
   @override
-  void update(void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? updates) {
+  void update(
+      void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -1152,14 +1326,18 @@ class ApiRemoveResponseApplicationJson_OcsBuilder
       _$result = _$v ??
           _$ApiRemoveResponseApplicationJson_Ocs._(
               meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'ApiRemoveResponseApplicationJson_Ocs', 'data'));
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'ApiRemoveResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiRemoveResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ApiRemoveResponseApplicationJson_Ocs',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1170,28 +1348,34 @@ class ApiRemoveResponseApplicationJson_OcsBuilder
 
 abstract mixin class $ApiRemoveResponseApplicationJsonInterfaceBuilder {
   void replace($ApiRemoveResponseApplicationJsonInterface other);
-  void update(void Function($ApiRemoveResponseApplicationJsonInterfaceBuilder) updates);
+  void update(
+      void Function($ApiRemoveResponseApplicationJsonInterfaceBuilder) updates);
   ApiRemoveResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiRemoveResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$ApiRemoveResponseApplicationJson extends ApiRemoveResponseApplicationJson {
+class _$ApiRemoveResponseApplicationJson
+    extends ApiRemoveResponseApplicationJson {
   @override
   final ApiRemoveResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiRemoveResponseApplicationJson([void Function(ApiRemoveResponseApplicationJsonBuilder)? updates]) =>
+  factory _$ApiRemoveResponseApplicationJson(
+          [void Function(ApiRemoveResponseApplicationJsonBuilder)? updates]) =>
       (ApiRemoveResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiRemoveResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiRemoveResponseApplicationJson', 'ocs');
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'ApiRemoveResponseApplicationJson', 'ocs');
   }
 
   @override
-  ApiRemoveResponseApplicationJson rebuild(void Function(ApiRemoveResponseApplicationJsonBuilder) updates) =>
+  ApiRemoveResponseApplicationJson rebuild(
+          void Function(ApiRemoveResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiRemoveResponseApplicationJsonBuilder toBuilder() => ApiRemoveResponseApplicationJsonBuilder()..replace(this);
+  ApiRemoveResponseApplicationJsonBuilder toBuilder() =>
+      ApiRemoveResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1209,19 +1393,24 @@ class _$ApiRemoveResponseApplicationJson extends ApiRemoveResponseApplicationJso
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiRemoveResponseApplicationJson')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'ApiRemoveResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
   }
 }
 
 class ApiRemoveResponseApplicationJsonBuilder
     implements
-        Builder<ApiRemoveResponseApplicationJson, ApiRemoveResponseApplicationJsonBuilder>,
+        Builder<ApiRemoveResponseApplicationJson,
+            ApiRemoveResponseApplicationJsonBuilder>,
         $ApiRemoveResponseApplicationJsonInterfaceBuilder {
   _$ApiRemoveResponseApplicationJson? _$v;
 
   ApiRemoveResponseApplicationJson_OcsBuilder? _ocs;
-  ApiRemoveResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiRemoveResponseApplicationJson_OcsBuilder();
-  set ocs(covariant ApiRemoveResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  ApiRemoveResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiRemoveResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiRemoveResponseApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
 
   ApiRemoveResponseApplicationJsonBuilder();
 
@@ -1258,7 +1447,8 @@ class ApiRemoveResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiRemoveResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ApiRemoveResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

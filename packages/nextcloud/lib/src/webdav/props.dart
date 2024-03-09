@@ -9,7 +9,8 @@ part 'props.g.dart';
 @immutable
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'prop', namespace: namespaceDav)
-class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin {
+class WebDavPropWithoutValues
+    with _$WebDavPropWithoutValuesXmlSerializableMixin {
   const WebDavPropWithoutValues({
     this.davgetlastmodified,
     this.davgetetag,
@@ -350,7 +351,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     this.ocmsharepermissions,
   });
 
-  factory WebDavProp.fromXmlElement(XmlElement element) => _$WebDavPropFromXmlElement(element);
+  factory WebDavProp.fromXmlElement(XmlElement element) =>
+      _$WebDavPropFromXmlElement(element);
 
   @annotation.XmlElement(
     name: 'getlastmodified',
@@ -576,7 +578,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     this.ocmsharepermissions,
   });
 
-  factory WebDavOcFilterRules.fromXmlElement(XmlElement element) => _$WebDavOcFilterRulesFromXmlElement(element);
+  factory WebDavOcFilterRules.fromXmlElement(XmlElement element) =>
+      _$WebDavOcFilterRulesFromXmlElement(element);
 
   @annotation.XmlElement(
     name: 'getlastmodified',

@@ -6,23 +6,31 @@ part of 'drop_account.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Capabilities_DropAccount_Delay> _$capabilitiesDropAccountDelaySerializer =
+Serializer<Capabilities_DropAccount_Delay>
+    _$capabilitiesDropAccountDelaySerializer =
     _$Capabilities_DropAccount_DelaySerializer();
-Serializer<Capabilities_DropAccount> _$capabilitiesDropAccountSerializer = _$Capabilities_DropAccountSerializer();
+Serializer<Capabilities_DropAccount> _$capabilitiesDropAccountSerializer =
+    _$Capabilities_DropAccountSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
-class _$Capabilities_DropAccount_DelaySerializer implements StructuredSerializer<Capabilities_DropAccount_Delay> {
+class _$Capabilities_DropAccount_DelaySerializer
+    implements StructuredSerializer<Capabilities_DropAccount_Delay> {
   @override
-  final Iterable<Type> types = const [Capabilities_DropAccount_Delay, _$Capabilities_DropAccount_Delay];
+  final Iterable<Type> types = const [
+    Capabilities_DropAccount_Delay,
+    _$Capabilities_DropAccount_Delay
+  ];
   @override
   final String wireName = 'Capabilities_DropAccount_Delay';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_DropAccount_Delay object,
+  Iterable<Object?> serialize(
+      Serializers serializers, Capabilities_DropAccount_Delay object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      serializers.serialize(object.enabled,
+          specifiedType: const FullType(bool)),
       'hours',
       serializers.serialize(object.hours, specifiedType: const FullType(int)),
     ];
@@ -31,7 +39,8 @@ class _$Capabilities_DropAccount_DelaySerializer implements StructuredSerializer
   }
 
   @override
-  Capabilities_DropAccount_Delay deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_DropAccount_Delay deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = Capabilities_DropAccount_DelayBuilder();
 
@@ -42,10 +51,12 @@ class _$Capabilities_DropAccount_DelaySerializer implements StructuredSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'enabled':
-          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.enabled = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'hours':
-          result.hours = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.hours = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -54,35 +65,45 @@ class _$Capabilities_DropAccount_DelaySerializer implements StructuredSerializer
   }
 }
 
-class _$Capabilities_DropAccountSerializer implements StructuredSerializer<Capabilities_DropAccount> {
+class _$Capabilities_DropAccountSerializer
+    implements StructuredSerializer<Capabilities_DropAccount> {
   @override
-  final Iterable<Type> types = const [Capabilities_DropAccount, _$Capabilities_DropAccount];
+  final Iterable<Type> types = const [
+    Capabilities_DropAccount,
+    _$Capabilities_DropAccount
+  ];
   @override
   final String wireName = 'Capabilities_DropAccount';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_DropAccount object,
+  Iterable<Object?> serialize(
+      Serializers serializers, Capabilities_DropAccount object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      serializers.serialize(object.enabled,
+          specifiedType: const FullType(bool)),
       'api-version',
-      serializers.serialize(object.apiVersion, specifiedType: const FullType(String)),
+      serializers.serialize(object.apiVersion,
+          specifiedType: const FullType(String)),
       'delay',
-      serializers.serialize(object.delay, specifiedType: const FullType(Capabilities_DropAccount_Delay)),
+      serializers.serialize(object.delay,
+          specifiedType: const FullType(Capabilities_DropAccount_Delay)),
     ];
     Object? value;
     value = object.details;
     if (value != null) {
       result
         ..add('details')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Capabilities_DropAccount deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_DropAccount deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = Capabilities_DropAccountBuilder();
 
@@ -93,17 +114,22 @@ class _$Capabilities_DropAccountSerializer implements StructuredSerializer<Capab
       final Object? value = iterator.current;
       switch (key) {
         case 'enabled':
-          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.enabled = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'api-version':
-          result.apiVersion = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.apiVersion = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'delay':
           result.delay.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_DropAccount_Delay))! as Capabilities_DropAccount_Delay);
+                  specifiedType:
+                      const FullType(Capabilities_DropAccount_Delay))!
+              as Capabilities_DropAccount_Delay);
           break;
         case 'details':
-          result.details = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.details = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -123,14 +149,16 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'drop-account',
-      serializers.serialize(object.dropAccount, specifiedType: const FullType(Capabilities_DropAccount)),
+      serializers.serialize(object.dropAccount,
+          specifiedType: const FullType(Capabilities_DropAccount)),
     ];
 
     return result;
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = CapabilitiesBuilder();
 
@@ -142,7 +170,8 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       switch (key) {
         case 'drop-account':
           result.dropAccount.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_DropAccount))! as Capabilities_DropAccount);
+                  specifiedType: const FullType(Capabilities_DropAccount))!
+              as Capabilities_DropAccount);
           break;
       }
     }
@@ -153,7 +182,8 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
 
 abstract mixin class $Capabilities_DropAccount_DelayInterfaceBuilder {
   void replace($Capabilities_DropAccount_DelayInterface other);
-  void update(void Function($Capabilities_DropAccount_DelayInterfaceBuilder) updates);
+  void update(
+      void Function($Capabilities_DropAccount_DelayInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -167,25 +197,34 @@ class _$Capabilities_DropAccount_Delay extends Capabilities_DropAccount_Delay {
   @override
   final int hours;
 
-  factory _$Capabilities_DropAccount_Delay([void Function(Capabilities_DropAccount_DelayBuilder)? updates]) =>
+  factory _$Capabilities_DropAccount_Delay(
+          [void Function(Capabilities_DropAccount_DelayBuilder)? updates]) =>
       (Capabilities_DropAccount_DelayBuilder()..update(updates))._build();
 
-  _$Capabilities_DropAccount_Delay._({required this.enabled, required this.hours}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount_Delay', 'enabled');
-    BuiltValueNullFieldError.checkNotNull(hours, r'Capabilities_DropAccount_Delay', 'hours');
+  _$Capabilities_DropAccount_Delay._(
+      {required this.enabled, required this.hours})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled, r'Capabilities_DropAccount_Delay', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(
+        hours, r'Capabilities_DropAccount_Delay', 'hours');
   }
 
   @override
-  Capabilities_DropAccount_Delay rebuild(void Function(Capabilities_DropAccount_DelayBuilder) updates) =>
+  Capabilities_DropAccount_Delay rebuild(
+          void Function(Capabilities_DropAccount_DelayBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_DropAccount_DelayBuilder toBuilder() => Capabilities_DropAccount_DelayBuilder()..replace(this);
+  Capabilities_DropAccount_DelayBuilder toBuilder() =>
+      Capabilities_DropAccount_DelayBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Capabilities_DropAccount_Delay && enabled == other.enabled && hours == other.hours;
+    return other is Capabilities_DropAccount_Delay &&
+        enabled == other.enabled &&
+        hours == other.hours;
   }
 
   @override
@@ -208,7 +247,8 @@ class _$Capabilities_DropAccount_Delay extends Capabilities_DropAccount_Delay {
 
 class Capabilities_DropAccount_DelayBuilder
     implements
-        Builder<Capabilities_DropAccount_Delay, Capabilities_DropAccount_DelayBuilder>,
+        Builder<Capabilities_DropAccount_Delay,
+            Capabilities_DropAccount_DelayBuilder>,
         $Capabilities_DropAccount_DelayInterfaceBuilder {
   _$Capabilities_DropAccount_Delay? _$v;
 
@@ -249,8 +289,10 @@ class Capabilities_DropAccount_DelayBuilder
   _$Capabilities_DropAccount_Delay _build() {
     final _$result = _$v ??
         _$Capabilities_DropAccount_Delay._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount_Delay', 'enabled'),
-            hours: BuiltValueNullFieldError.checkNotNull(hours, r'Capabilities_DropAccount_Delay', 'hours'));
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled, r'Capabilities_DropAccount_Delay', 'enabled'),
+            hours: BuiltValueNullFieldError.checkNotNull(
+                hours, r'Capabilities_DropAccount_Delay', 'hours'));
     replace(_$result);
     return _$result;
   }
@@ -282,22 +324,32 @@ class _$Capabilities_DropAccount extends Capabilities_DropAccount {
   @override
   final String? details;
 
-  factory _$Capabilities_DropAccount([void Function(Capabilities_DropAccountBuilder)? updates]) =>
+  factory _$Capabilities_DropAccount(
+          [void Function(Capabilities_DropAccountBuilder)? updates]) =>
       (Capabilities_DropAccountBuilder()..update(updates))._build();
 
-  _$Capabilities_DropAccount._({required this.enabled, required this.apiVersion, required this.delay, this.details})
+  _$Capabilities_DropAccount._(
+      {required this.enabled,
+      required this.apiVersion,
+      required this.delay,
+      this.details})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount', 'enabled');
-    BuiltValueNullFieldError.checkNotNull(apiVersion, r'Capabilities_DropAccount', 'apiVersion');
-    BuiltValueNullFieldError.checkNotNull(delay, r'Capabilities_DropAccount', 'delay');
+    BuiltValueNullFieldError.checkNotNull(
+        enabled, r'Capabilities_DropAccount', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(
+        apiVersion, r'Capabilities_DropAccount', 'apiVersion');
+    BuiltValueNullFieldError.checkNotNull(
+        delay, r'Capabilities_DropAccount', 'delay');
   }
 
   @override
-  Capabilities_DropAccount rebuild(void Function(Capabilities_DropAccountBuilder) updates) =>
+  Capabilities_DropAccount rebuild(
+          void Function(Capabilities_DropAccountBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_DropAccountBuilder toBuilder() => Capabilities_DropAccountBuilder()..replace(this);
+  Capabilities_DropAccountBuilder toBuilder() =>
+      Capabilities_DropAccountBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -343,11 +395,14 @@ class Capabilities_DropAccountBuilder
 
   String? _apiVersion;
   String? get apiVersion => _$this._apiVersion;
-  set apiVersion(covariant String? apiVersion) => _$this._apiVersion = apiVersion;
+  set apiVersion(covariant String? apiVersion) =>
+      _$this._apiVersion = apiVersion;
 
   Capabilities_DropAccount_DelayBuilder? _delay;
-  Capabilities_DropAccount_DelayBuilder get delay => _$this._delay ??= Capabilities_DropAccount_DelayBuilder();
-  set delay(covariant Capabilities_DropAccount_DelayBuilder? delay) => _$this._delay = delay;
+  Capabilities_DropAccount_DelayBuilder get delay =>
+      _$this._delay ??= Capabilities_DropAccount_DelayBuilder();
+  set delay(covariant Capabilities_DropAccount_DelayBuilder? delay) =>
+      _$this._delay = delay;
 
   String? _details;
   String? get details => _$this._details;
@@ -386,8 +441,10 @@ class Capabilities_DropAccountBuilder
     try {
       _$result = _$v ??
           _$Capabilities_DropAccount._(
-              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount', 'enabled'),
-              apiVersion: BuiltValueNullFieldError.checkNotNull(apiVersion, r'Capabilities_DropAccount', 'apiVersion'),
+              enabled: BuiltValueNullFieldError.checkNotNull(
+                  enabled, r'Capabilities_DropAccount', 'enabled'),
+              apiVersion: BuiltValueNullFieldError.checkNotNull(
+                  apiVersion, r'Capabilities_DropAccount', 'apiVersion'),
               delay: delay.build(),
               details: details);
     } catch (_) {
@@ -396,7 +453,8 @@ class Capabilities_DropAccountBuilder
         _$failedField = 'delay';
         delay.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities_DropAccount', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Capabilities_DropAccount', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -420,11 +478,13 @@ class _$Capabilities extends Capabilities {
       (CapabilitiesBuilder()..update(updates))._build();
 
   _$Capabilities._({required this.dropAccount}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(dropAccount, r'Capabilities', 'dropAccount');
+    BuiltValueNullFieldError.checkNotNull(
+        dropAccount, r'Capabilities', 'dropAccount');
   }
 
   @override
-  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
@@ -445,16 +505,23 @@ class _$Capabilities extends Capabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities')..add('dropAccount', dropAccount)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')
+          ..add('dropAccount', dropAccount))
+        .toString();
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder
+    implements
+        Builder<Capabilities, CapabilitiesBuilder>,
+        $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_DropAccountBuilder? _dropAccount;
-  Capabilities_DropAccountBuilder get dropAccount => _$this._dropAccount ??= Capabilities_DropAccountBuilder();
-  set dropAccount(covariant Capabilities_DropAccountBuilder? dropAccount) => _$this._dropAccount = dropAccount;
+  Capabilities_DropAccountBuilder get dropAccount =>
+      _$this._dropAccount ??= Capabilities_DropAccountBuilder();
+  set dropAccount(covariant Capabilities_DropAccountBuilder? dropAccount) =>
+      _$this._dropAccount = dropAccount;
 
   CapabilitiesBuilder();
 
@@ -491,7 +558,8 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'dropAccount';
         dropAccount.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

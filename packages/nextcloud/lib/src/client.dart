@@ -37,7 +37,8 @@ class NextcloudClient extends DynamiteClient {
           baseHeaders: {
             if (language != null) HttpHeaders.acceptLanguageHeader: language,
             if ((userAgentOverride ?? appType.userAgent) != null)
-              HttpHeaders.userAgentHeader: userAgentOverride ?? appType.userAgent!,
+              HttpHeaders.userAgentHeader:
+                  userAgentOverride ?? appType.userAgent!,
           },
           authentications: [
             if (appPassword != null)

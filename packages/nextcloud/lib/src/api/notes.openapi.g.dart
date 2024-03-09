@@ -7,7 +7,8 @@ part of 'notes.openapi.dart';
 // **************************************************************************
 
 const Settings_NoteMode _$settingsNoteModeEdit = Settings_NoteMode._('edit');
-const Settings_NoteMode _$settingsNoteModePreview = Settings_NoteMode._('preview');
+const Settings_NoteMode _$settingsNoteModePreview =
+    Settings_NoteMode._('preview');
 const Settings_NoteMode _$settingsNoteModeRich = Settings_NoteMode._('rich');
 
 Settings_NoteMode _$valueOfSettings_NoteMode(String name) {
@@ -23,7 +24,8 @@ Settings_NoteMode _$valueOfSettings_NoteMode(String name) {
   }
 }
 
-final BuiltSet<Settings_NoteMode> _$settingsNoteModeValues = BuiltSet<Settings_NoteMode>(const <Settings_NoteMode>[
+final BuiltSet<Settings_NoteMode> _$settingsNoteModeValues =
+    BuiltSet<Settings_NoteMode>(const <Settings_NoteMode>[
   _$settingsNoteModeEdit,
   _$settingsNoteModePreview,
   _$settingsNoteModeRich,
@@ -31,7 +33,8 @@ final BuiltSet<Settings_NoteMode> _$settingsNoteModeValues = BuiltSet<Settings_N
 
 Serializer<Note> _$noteSerializer = _$NoteSerializer();
 Serializer<Settings> _$settingsSerializer = _$SettingsSerializer();
-Serializer<Capabilities_Notes> _$capabilitiesNotesSerializer = _$Capabilities_NotesSerializer();
+Serializer<Capabilities_Notes> _$capabilitiesNotesSerializer =
+    _$Capabilities_NotesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = _$EmptyOCS_OcsSerializer();
@@ -44,28 +47,36 @@ class _$NoteSerializer implements StructuredSerializer<Note> {
   final String wireName = 'Note';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Note object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Note object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'etag',
       serializers.serialize(object.etag, specifiedType: const FullType(String)),
       'readonly',
-      serializers.serialize(object.readonly, specifiedType: const FullType(bool)),
+      serializers.serialize(object.readonly,
+          specifiedType: const FullType(bool)),
       'content',
-      serializers.serialize(object.content, specifiedType: const FullType(String)),
+      serializers.serialize(object.content,
+          specifiedType: const FullType(String)),
       'title',
-      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      serializers.serialize(object.title,
+          specifiedType: const FullType(String)),
       'category',
-      serializers.serialize(object.category, specifiedType: const FullType(String)),
+      serializers.serialize(object.category,
+          specifiedType: const FullType(String)),
       'favorite',
-      serializers.serialize(object.favorite, specifiedType: const FullType(bool)),
+      serializers.serialize(object.favorite,
+          specifiedType: const FullType(bool)),
       'modified',
-      serializers.serialize(object.modified, specifiedType: const FullType(int)),
+      serializers.serialize(object.modified,
+          specifiedType: const FullType(int)),
       'error',
       serializers.serialize(object.error, specifiedType: const FullType(bool)),
       'errorType',
-      serializers.serialize(object.errorType, specifiedType: const FullType(String)),
+      serializers.serialize(object.errorType,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -83,34 +94,44 @@ class _$NoteSerializer implements StructuredSerializer<Note> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'etag':
-          result.etag = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.etag = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'readonly':
-          result.readonly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.readonly = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'content':
-          result.content = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.content = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'title':
-          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.title = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'category':
-          result.category = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.category = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'favorite':
-          result.favorite = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.favorite = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'modified':
-          result.modified = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.modified = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'error':
-          result.error = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.error = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'errorType':
-          result.errorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.errorType = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -130,11 +151,14 @@ class _$SettingsSerializer implements StructuredSerializer<Settings> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'notesPath',
-      serializers.serialize(object.notesPath, specifiedType: const FullType(String)),
+      serializers.serialize(object.notesPath,
+          specifiedType: const FullType(String)),
       'fileSuffix',
-      serializers.serialize(object.fileSuffix, specifiedType: const FullType(String)),
+      serializers.serialize(object.fileSuffix,
+          specifiedType: const FullType(String)),
       'noteMode',
-      serializers.serialize(object.noteMode, specifiedType: const FullType(Settings_NoteMode)),
+      serializers.serialize(object.noteMode,
+          specifiedType: const FullType(Settings_NoteMode)),
     ];
 
     return result;
@@ -152,14 +176,17 @@ class _$SettingsSerializer implements StructuredSerializer<Settings> {
       final Object? value = iterator.current;
       switch (key) {
         case 'notesPath':
-          result.notesPath = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.notesPath = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'fileSuffix':
-          result.fileSuffix = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.fileSuffix = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'noteMode':
-          result.noteMode =
-              serializers.deserialize(value, specifiedType: const FullType(Settings_NoteMode))! as Settings_NoteMode;
+          result.noteMode = serializers.deserialize(value,
+                  specifiedType: const FullType(Settings_NoteMode))!
+              as Settings_NoteMode;
           break;
       }
     }
@@ -168,14 +195,16 @@ class _$SettingsSerializer implements StructuredSerializer<Settings> {
   }
 }
 
-class _$Capabilities_NotesSerializer implements StructuredSerializer<Capabilities_Notes> {
+class _$Capabilities_NotesSerializer
+    implements StructuredSerializer<Capabilities_Notes> {
   @override
   final Iterable<Type> types = const [Capabilities_Notes, _$Capabilities_Notes];
   @override
   final String wireName = 'Capabilities_Notes';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Notes object,
+  Iterable<Object?> serialize(
+      Serializers serializers, Capabilities_Notes object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -183,19 +212,22 @@ class _$Capabilities_NotesSerializer implements StructuredSerializer<Capabilitie
     if (value != null) {
       result
         ..add('api_version')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(String)])));
     }
     value = object.version;
     if (value != null) {
       result
         ..add('version')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Capabilities_Notes deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities_Notes deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = Capabilities_NotesBuilder();
 
@@ -207,10 +239,12 @@ class _$Capabilities_NotesSerializer implements StructuredSerializer<Capabilitie
       switch (key) {
         case 'api_version':
           result.apiVersion.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<Object?>);
           break;
         case 'version':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.version = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -230,14 +264,16 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'notes',
-      serializers.serialize(object.notes, specifiedType: const FullType(Capabilities_Notes)),
+      serializers.serialize(object.notes,
+          specifiedType: const FullType(Capabilities_Notes)),
     ];
 
     return result;
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Capabilities deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = CapabilitiesBuilder();
 
@@ -248,8 +284,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'notes':
-          result.notes.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Notes))! as Capabilities_Notes);
+          result.notes.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Capabilities_Notes))!
+              as Capabilities_Notes);
           break;
       }
     }
@@ -269,28 +306,33 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      serializers.serialize(object.status,
+          specifiedType: const FullType(String)),
       'statuscode',
-      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+      serializers.serialize(object.statuscode,
+          specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.message;
     if (value != null) {
       result
         ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.totalitems;
     if (value != null) {
       result
         ..add('totalitems')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.itemsperpage;
     if (value != null) {
       result
         ..add('itemsperpage')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -307,19 +349,24 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
       final Object? value = iterator.current;
       switch (key) {
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'statuscode':
-          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.statuscode = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'totalitems':
-          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.totalitems = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'itemsperpage':
-          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.itemsperpage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -339,16 +386,19 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      serializers.serialize(object.meta,
+          specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
     ];
 
     return result;
   }
 
   @override
-  EmptyOCS_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  EmptyOCS_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = EmptyOCS_OcsBuilder();
 
@@ -359,11 +409,14 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
       final Object? value = iterator.current;
       switch (key) {
         case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          result.meta.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(JsonObject)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -383,7 +436,8 @@ class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(EmptyOCS_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(EmptyOCS_Ocs)),
     ];
 
     return result;
@@ -401,8 +455,8 @@ class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs
-              .replace(serializers.deserialize(value, specifiedType: const FullType(EmptyOCS_Ocs))! as EmptyOCS_Ocs);
+          result.ocs.replace(serializers.deserialize(value,
+              specifiedType: const FullType(EmptyOCS_Ocs))! as EmptyOCS_Ocs);
           break;
       }
     }
@@ -467,7 +521,8 @@ class _$Note extends Note {
   @override
   final String errorType;
 
-  factory _$Note([void Function(NoteBuilder)? updates]) => (NoteBuilder()..update(updates))._build();
+  factory _$Note([void Function(NoteBuilder)? updates]) =>
+      (NoteBuilder()..update(updates))._build();
 
   _$Note._(
       {required this.id,
@@ -494,7 +549,8 @@ class _$Note extends Note {
   }
 
   @override
-  Note rebuild(void Function(NoteBuilder) updates) => (toBuilder()..update(updates)).build();
+  Note rebuild(void Function(NoteBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   NoteBuilder toBuilder() => NoteBuilder()..replace(this);
@@ -631,14 +687,22 @@ class NoteBuilder implements Builder<Note, NoteBuilder>, $NoteInterfaceBuilder {
         _$Note._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Note', 'id'),
             etag: BuiltValueNullFieldError.checkNotNull(etag, r'Note', 'etag'),
-            readonly: BuiltValueNullFieldError.checkNotNull(readonly, r'Note', 'readonly'),
-            content: BuiltValueNullFieldError.checkNotNull(content, r'Note', 'content'),
-            title: BuiltValueNullFieldError.checkNotNull(title, r'Note', 'title'),
-            category: BuiltValueNullFieldError.checkNotNull(category, r'Note', 'category'),
-            favorite: BuiltValueNullFieldError.checkNotNull(favorite, r'Note', 'favorite'),
-            modified: BuiltValueNullFieldError.checkNotNull(modified, r'Note', 'modified'),
-            error: BuiltValueNullFieldError.checkNotNull(error, r'Note', 'error'),
-            errorType: BuiltValueNullFieldError.checkNotNull(errorType, r'Note', 'errorType'));
+            readonly: BuiltValueNullFieldError.checkNotNull(
+                readonly, r'Note', 'readonly'),
+            content: BuiltValueNullFieldError.checkNotNull(
+                content, r'Note', 'content'),
+            title:
+                BuiltValueNullFieldError.checkNotNull(title, r'Note', 'title'),
+            category: BuiltValueNullFieldError.checkNotNull(
+                category, r'Note', 'category'),
+            favorite: BuiltValueNullFieldError.checkNotNull(
+                favorite, r'Note', 'favorite'),
+            modified: BuiltValueNullFieldError.checkNotNull(
+                modified, r'Note', 'modified'),
+            error:
+                BuiltValueNullFieldError.checkNotNull(error, r'Note', 'error'),
+            errorType: BuiltValueNullFieldError.checkNotNull(
+                errorType, r'Note', 'errorType'));
     replace(_$result);
     return _$result;
   }
@@ -665,16 +729,23 @@ class _$Settings extends Settings {
   @override
   final Settings_NoteMode noteMode;
 
-  factory _$Settings([void Function(SettingsBuilder)? updates]) => (SettingsBuilder()..update(updates))._build();
+  factory _$Settings([void Function(SettingsBuilder)? updates]) =>
+      (SettingsBuilder()..update(updates))._build();
 
-  _$Settings._({required this.notesPath, required this.fileSuffix, required this.noteMode}) : super._() {
+  _$Settings._(
+      {required this.notesPath,
+      required this.fileSuffix,
+      required this.noteMode})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(notesPath, r'Settings', 'notesPath');
-    BuiltValueNullFieldError.checkNotNull(fileSuffix, r'Settings', 'fileSuffix');
+    BuiltValueNullFieldError.checkNotNull(
+        fileSuffix, r'Settings', 'fileSuffix');
     BuiltValueNullFieldError.checkNotNull(noteMode, r'Settings', 'noteMode');
   }
 
   @override
-  Settings rebuild(void Function(SettingsBuilder) updates) => (toBuilder()..update(updates)).build();
+  Settings rebuild(void Function(SettingsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   SettingsBuilder toBuilder() => SettingsBuilder()..replace(this);
@@ -708,7 +779,8 @@ class _$Settings extends Settings {
   }
 }
 
-class SettingsBuilder implements Builder<Settings, SettingsBuilder>, $SettingsInterfaceBuilder {
+class SettingsBuilder
+    implements Builder<Settings, SettingsBuilder>, $SettingsInterfaceBuilder {
   _$Settings? _$v;
 
   String? _notesPath;
@@ -717,11 +789,13 @@ class SettingsBuilder implements Builder<Settings, SettingsBuilder>, $SettingsIn
 
   String? _fileSuffix;
   String? get fileSuffix => _$this._fileSuffix;
-  set fileSuffix(covariant String? fileSuffix) => _$this._fileSuffix = fileSuffix;
+  set fileSuffix(covariant String? fileSuffix) =>
+      _$this._fileSuffix = fileSuffix;
 
   Settings_NoteMode? _noteMode;
   Settings_NoteMode? get noteMode => _$this._noteMode;
-  set noteMode(covariant Settings_NoteMode? noteMode) => _$this._noteMode = noteMode;
+  set noteMode(covariant Settings_NoteMode? noteMode) =>
+      _$this._noteMode = noteMode;
 
   SettingsBuilder();
 
@@ -753,9 +827,12 @@ class SettingsBuilder implements Builder<Settings, SettingsBuilder>, $SettingsIn
   _$Settings _build() {
     final _$result = _$v ??
         _$Settings._(
-            notesPath: BuiltValueNullFieldError.checkNotNull(notesPath, r'Settings', 'notesPath'),
-            fileSuffix: BuiltValueNullFieldError.checkNotNull(fileSuffix, r'Settings', 'fileSuffix'),
-            noteMode: BuiltValueNullFieldError.checkNotNull(noteMode, r'Settings', 'noteMode'));
+            notesPath: BuiltValueNullFieldError.checkNotNull(
+                notesPath, r'Settings', 'notesPath'),
+            fileSuffix: BuiltValueNullFieldError.checkNotNull(
+                fileSuffix, r'Settings', 'fileSuffix'),
+            noteMode: BuiltValueNullFieldError.checkNotNull(
+                noteMode, r'Settings', 'noteMode'));
     replace(_$result);
     return _$result;
   }
@@ -777,22 +854,27 @@ class _$Capabilities_Notes extends Capabilities_Notes {
   @override
   final String? version;
 
-  factory _$Capabilities_Notes([void Function(Capabilities_NotesBuilder)? updates]) =>
+  factory _$Capabilities_Notes(
+          [void Function(Capabilities_NotesBuilder)? updates]) =>
       (Capabilities_NotesBuilder()..update(updates))._build();
 
   _$Capabilities_Notes._({this.apiVersion, this.version}) : super._();
 
   @override
-  Capabilities_Notes rebuild(void Function(Capabilities_NotesBuilder) updates) =>
+  Capabilities_Notes rebuild(
+          void Function(Capabilities_NotesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_NotesBuilder toBuilder() => Capabilities_NotesBuilder()..replace(this);
+  Capabilities_NotesBuilder toBuilder() =>
+      Capabilities_NotesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Capabilities_Notes && apiVersion == other.apiVersion && version == other.version;
+    return other is Capabilities_Notes &&
+        apiVersion == other.apiVersion &&
+        version == other.version;
   }
 
   @override
@@ -814,12 +896,16 @@ class _$Capabilities_Notes extends Capabilities_Notes {
 }
 
 class Capabilities_NotesBuilder
-    implements Builder<Capabilities_Notes, Capabilities_NotesBuilder>, $Capabilities_NotesInterfaceBuilder {
+    implements
+        Builder<Capabilities_Notes, Capabilities_NotesBuilder>,
+        $Capabilities_NotesInterfaceBuilder {
   _$Capabilities_Notes? _$v;
 
   ListBuilder<String>? _apiVersion;
-  ListBuilder<String> get apiVersion => _$this._apiVersion ??= ListBuilder<String>();
-  set apiVersion(covariant ListBuilder<String>? apiVersion) => _$this._apiVersion = apiVersion;
+  ListBuilder<String> get apiVersion =>
+      _$this._apiVersion ??= ListBuilder<String>();
+  set apiVersion(covariant ListBuilder<String>? apiVersion) =>
+      _$this._apiVersion = apiVersion;
 
   String? _version;
   String? get version => _$this._version;
@@ -854,14 +940,17 @@ class Capabilities_NotesBuilder
   _$Capabilities_Notes _build() {
     _$Capabilities_Notes _$result;
     try {
-      _$result = _$v ?? _$Capabilities_Notes._(apiVersion: _apiVersion?.build(), version: version);
+      _$result = _$v ??
+          _$Capabilities_Notes._(
+              apiVersion: _apiVersion?.build(), version: version);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'apiVersion';
         _apiVersion?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities_Notes', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Capabilities_Notes', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -889,7 +978,8 @@ class _$Capabilities extends Capabilities {
   }
 
   @override
-  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
@@ -910,16 +1000,22 @@ class _$Capabilities extends Capabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities')..add('notes', notes)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('notes', notes))
+        .toString();
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder
+    implements
+        Builder<Capabilities, CapabilitiesBuilder>,
+        $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_NotesBuilder? _notes;
-  Capabilities_NotesBuilder get notes => _$this._notes ??= Capabilities_NotesBuilder();
-  set notes(covariant Capabilities_NotesBuilder? notes) => _$this._notes = notes;
+  Capabilities_NotesBuilder get notes =>
+      _$this._notes ??= Capabilities_NotesBuilder();
+  set notes(covariant Capabilities_NotesBuilder? notes) =>
+      _$this._notes = notes;
 
   CapabilitiesBuilder();
 
@@ -956,7 +1052,8 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'notes';
         notes.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -996,16 +1093,23 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) =>
+      (OCSMetaBuilder()..update(updates))._build();
 
-  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+  _$OCSMeta._(
+      {required this.status,
+      required this.statuscode,
+      this.message,
+      this.totalitems,
+      this.itemsperpage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
     BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
   }
 
   @override
-  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
@@ -1045,7 +1149,8 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
+class OCSMetaBuilder
+    implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -1062,11 +1167,13 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   String? _totalitems;
   String? get totalitems => _$this._totalitems;
-  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
+  set totalitems(covariant String? totalitems) =>
+      _$this._totalitems = totalitems;
 
   String? _itemsperpage;
   String? get itemsperpage => _$this._itemsperpage;
-  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) =>
+      _$this._itemsperpage = itemsperpage;
 
   OCSMetaBuilder();
 
@@ -1100,8 +1207,10 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(
+                statuscode, r'OCSMeta', 'statuscode'),
             message: message,
             totalitems: totalitems,
             itemsperpage: itemsperpage);
@@ -1135,7 +1244,8 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   }
 
   @override
-  EmptyOCS_Ocs rebuild(void Function(EmptyOCS_OcsBuilder) updates) => (toBuilder()..update(updates)).build();
+  EmptyOCS_Ocs rebuild(void Function(EmptyOCS_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   EmptyOCS_OcsBuilder toBuilder() => EmptyOCS_OcsBuilder()..replace(this);
@@ -1164,7 +1274,10 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   }
 }
 
-class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>, $EmptyOCS_OcsInterfaceBuilder {
+class EmptyOCS_OcsBuilder
+    implements
+        Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
+        $EmptyOCS_OcsInterfaceBuilder {
   _$EmptyOCS_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -1172,7 +1285,8 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<JsonObject>? _data;
-  ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get data =>
+      _$this._data ??= ListBuilder<JsonObject>();
   set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
   EmptyOCS_OcsBuilder();
@@ -1204,7 +1318,8 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   _$EmptyOCS_Ocs _build() {
     _$EmptyOCS_Ocs _$result;
     try {
-      _$result = _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
+      _$result =
+          _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1213,7 +1328,8 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'EmptyOCS_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'EmptyOCS_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1233,14 +1349,16 @@ class _$EmptyOCS extends EmptyOCS {
   @override
   final EmptyOCS_Ocs ocs;
 
-  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) => (EmptyOCSBuilder()..update(updates))._build();
+  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) =>
+      (EmptyOCSBuilder()..update(updates))._build();
 
   _$EmptyOCS._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EmptyOCS', 'ocs');
   }
 
   @override
-  EmptyOCS rebuild(void Function(EmptyOCSBuilder) updates) => (toBuilder()..update(updates)).build();
+  EmptyOCS rebuild(void Function(EmptyOCSBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   EmptyOCSBuilder toBuilder() => EmptyOCSBuilder()..replace(this);
@@ -1261,11 +1379,13 @@ class _$EmptyOCS extends EmptyOCS {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'EmptyOCS')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'EmptyOCS')..add('ocs', ocs))
+        .toString();
   }
 }
 
-class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSInterfaceBuilder {
+class EmptyOCSBuilder
+    implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSInterfaceBuilder {
   _$EmptyOCS? _$v;
 
   EmptyOCS_OcsBuilder? _ocs;
@@ -1307,7 +1427,8 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'EmptyOCS', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'EmptyOCS', _$failedField, e.toString());
       }
       rethrow;
     }

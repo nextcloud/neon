@@ -20,13 +20,16 @@ GetEnumPattern _$valueOfGetEnumPattern(String name) {
   }
 }
 
-final BuiltSet<GetEnumPattern> _$getEnumPatternValues = BuiltSet<GetEnumPattern>(const <GetEnumPattern>[
+final BuiltSet<GetEnumPattern> _$getEnumPatternValues =
+    BuiltSet<GetEnumPattern>(const <GetEnumPattern>[
   _$getEnumPatternA,
   _$getEnumPattern$0,
 ]);
 
-const GetHeadersEnumPattern _$getHeadersEnumPatternA = GetHeadersEnumPattern._('a');
-const GetHeadersEnumPattern _$getHeadersEnumPattern$0 = GetHeadersEnumPattern._('\$0');
+const GetHeadersEnumPattern _$getHeadersEnumPatternA =
+    GetHeadersEnumPattern._('a');
+const GetHeadersEnumPattern _$getHeadersEnumPattern$0 =
+    GetHeadersEnumPattern._('\$0');
 
 GetHeadersEnumPattern _$valueOfGetHeadersEnumPattern(String name) {
   switch (name) {
