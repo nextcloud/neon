@@ -123,7 +123,8 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
           }
 
           // Do not show itself when selecting a directory
-          if (mode == FilesBrowserMode.selectDirectory && initialPath == file.path) {
+          if (mode == FilesBrowserMode.selectDirectory &&
+              initialPath == file.path) {
             continue;
           }
 
@@ -148,7 +149,9 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
     // data.
     final currentFiles = files.valueOrNull;
     if (currentFiles != null && currentFiles.data?.first.path != uri) {
-      files.add(Result(null, currentFiles.error, isCached: true, isLoading: false));
+      files.add(
+        Result(null, currentFiles.error, isCached: true, isLoading: false),
+      );
     }
   }
 

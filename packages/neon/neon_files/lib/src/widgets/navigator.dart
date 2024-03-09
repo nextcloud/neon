@@ -51,7 +51,8 @@ class FilesBrowserNavigator extends StatelessWidget {
             },
             child: Text(
               partialPath.name,
-              semanticsLabel: FilesLocalizations.of(context).goToPath(partialPath.name),
+              semanticsLabel:
+                  FilesLocalizations.of(context).goToPath(partialPath.name),
             ),
           );
         },

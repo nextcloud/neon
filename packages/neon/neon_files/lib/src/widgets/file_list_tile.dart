@@ -28,8 +28,14 @@ class FileListTile extends StatelessWidget {
       browserBloc.setPath(details.uri);
     } else if (browserBloc.mode == FilesBrowserMode.browser) {
       final sizeWarning = bloc.options.downloadSizeWarning.value;
-      if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
-        final decision = await showDownloadConfirmationDialog(context, sizeWarning, details.size!);
+      if (sizeWarning != null &&
+          details.size != null &&
+          details.size! > sizeWarning) {
+        final decision = await showDownloadConfirmationDialog(
+          context,
+          sizeWarning,
+          details.size!,
+        );
 
         if (!decision) {
           return;
@@ -43,7 +49,9 @@ class FileListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       // When the ETag is null it means we are uploading this file right now
-      onTap: details.isDirectory || details.etag != null ? () async => _onTap(context, details) : null,
+      onTap: details.isDirectory || details.etag != null
+          ? () async => _onTap(context, details)
+          : null,
       title: Text(
         details.name,
         overflow: TextOverflow.ellipsis,

@@ -15,7 +15,8 @@ class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
   final String id = AppIDs.files;
 
   @override
-  final LocalizationsDelegate<FilesLocalizations> localizationsDelegate = FilesLocalizations.delegate;
+  final LocalizationsDelegate<FilesLocalizations> localizationsDelegate =
+      FilesLocalizations.delegate;
 
   @override
   final List<Locale> supportedLocales = FilesLocalizations.supportedLocales;

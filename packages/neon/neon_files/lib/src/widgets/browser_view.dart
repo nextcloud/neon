@@ -64,19 +64,26 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                 sortProperty: widget.bloc.options.filesSortPropertyOption,
                 sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,
                 presort: const {
-                  (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
+                  (
+                    property: FilesSortProperty.isFolder,
+                    order: SortBoxOrder.ascending
+                  ),
                 },
                 input: filesSnapshot.data?.sublist(1).toList(),
                 builder: (context, sorted) {
-                  final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
+                  final uploadingTaskTiles =
+                      buildUploadTasks(tasksSnapshot.requireData, sorted);
 
                   return NeonListView(
                     scrollKey: 'files-${uriSnapshot.requireData.path}',
                     itemCount: sorted.length,
                     itemBuilder: (context, index) {
                       final file = sorted[index];
-                      final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
-                        (task) => file.name == task.uri.name && widget.bloc.uri.value == task.uri.parent,
+                      final matchingTask =
+                          tasksSnapshot.requireData.firstWhereOrNull(
+                        (task) =>
+                            file.name == task.uri.name &&
+                            widget.bloc.uri.value == task.uri.parent,
                       );
 
                       final details = matchingTask != null
@@ -114,7 +121,10 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
     );
   }
 
-  Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<WebDavFile> files) sync* {
+  Iterable<Widget> buildUploadTasks(
+    BuiltList<FilesTask> tasks,
+    List<WebDavFile> files,
+  ) sync* {
     for (final task in tasks) {
       if (task is! FilesUploadTask) {
         continue;

@@ -5,7 +5,8 @@ import 'package:nextcloud/webdav.dart';
 final filesSortBox = SortBox<FilesSortProperty, WebDavFile>(
   properties: {
     FilesSortProperty.name: (file) => file.name.toLowerCase(),
-    FilesSortProperty.modifiedDate: (file) => file.lastModified?.millisecondsSinceEpoch ?? 0,
+    FilesSortProperty.modifiedDate: (file) =>
+        file.lastModified?.millisecondsSinceEpoch ?? 0,
     FilesSortProperty.size: (file) => file.size ?? 0,
     FilesSortProperty.isFolder: (file) => file.isDirectory ? 0 : 1,
   },

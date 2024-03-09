@@ -76,7 +76,8 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
     final sizeWarning = widget.bloc.options.uploadSizeWarning.value;
     if (sizeWarning != null) {
       if (size > sizeWarning) {
-        final result = await showUploadConfirmationDialog(context, sizeWarning, size);
+        final result =
+            await showUploadConfirmationDialog(context, sizeWarning, size);
 
         if (!result) {
           return false;
@@ -177,7 +178,8 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
 
           final result = await showFolderCreateDialog(context: context);
           if (result != null) {
-            widget.bloc.browser.createFolder(baseUri.join(PathUri.parse(result)));
+            widget.bloc.browser
+                .createFolder(baseUri.join(PathUri.parse(result)));
           }
         },
       ),
@@ -196,7 +198,8 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: Align(
                     alignment: AlignmentDirectional.centerStart,
                     child: Text(
@@ -257,7 +260,9 @@ class FilesChooseFolderDialog extends StatelessWidget {
               final result = await showFolderCreateDialog(context: context);
 
               if (result != null) {
-                bloc.createFolder(uriSnapshot.requireData.join(PathUri.parse(result)));
+                bloc.createFolder(
+                  uriSnapshot.requireData.join(PathUri.parse(result)),
+                );
               }
             },
             child: Text(
@@ -305,7 +310,8 @@ class FilesCreateFolderDialog extends StatefulWidget {
   });
 
   @override
-  State<FilesCreateFolderDialog> createState() => _FilesCreateFolderDialogState();
+  State<FilesCreateFolderDialog> createState() =>
+      _FilesCreateFolderDialogState();
 }
 
 class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {

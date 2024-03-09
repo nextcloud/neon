@@ -100,7 +100,8 @@ class FilesUploadTaskIO extends FilesTaskIO implements FilesUploadTask {
   }
 }
 
-class FilesDownloadTaskMemory extends FilesTaskMemory implements FilesDownloadTask {
+class FilesDownloadTaskMemory extends FilesTaskMemory
+    implements FilesDownloadTask {
   FilesDownloadTaskMemory({
     required super.uri,
   });

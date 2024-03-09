@@ -67,10 +67,14 @@ Future<bool> showUploadConfirmationDialog(
     ) ??
     false;
 
-/// Displays a [FilesChooseFolderDialog] to choose a new location for a file with the given [details].
+/// Displays a [FilesChooseFolderDialog] to choose a new location for a file
+/// with the given [details].
 ///
 /// Returns a future with the new location.
-Future<PathUri?> showChooseFolderDialog(BuildContext context, FileDetails details) async {
+Future<PathUri?> showChooseFolderDialog(
+  BuildContext context,
+  FileDetails details,
+) async {
   final bloc = NeonProvider.of<FilesBloc>(context);
 
   final originalUri = details.uri;
@@ -92,10 +96,14 @@ Future<PathUri?> showChooseFolderDialog(BuildContext context, FileDetails detail
   return result;
 }
 
-/// Displays a [NeonConfirmationDialog] to confirm deleting a file or folder with the given [details].
+/// Displays a [NeonConfirmationDialog] to confirm deleting a file or folder
+/// with the given [details].
 ///
 /// Returns a future whether the action has been accepted.
-Future<bool> showDeleteConfirmationDialog(BuildContext context, FileDetails details) async =>
+Future<bool> showDeleteConfirmationDialog(
+  BuildContext context,
+  FileDetails details,
+) async =>
     await showAdaptiveDialog<bool>(
       context: context,
       builder: (context) => NeonConfirmationDialog(

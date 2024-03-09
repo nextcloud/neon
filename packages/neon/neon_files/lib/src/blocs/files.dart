@@ -58,7 +58,10 @@ sealed class FilesBloc implements InteractiveBloc {
 
   FilesBrowserBloc get browser;
 
-  FilesBrowserBloc getNewFilesBrowserBloc({PathUri? initialUri, FilesBrowserMode? mode});
+  FilesBrowserBloc getNewFilesBrowserBloc({
+    PathUri? initialUri,
+    FilesBrowserMode? mode,
+  });
 }
 
 class _FilesBloc extends InteractiveBloc implements FilesBloc {
@@ -89,7 +92,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     unawaited(tasks.close());
 
     options.uploadQueueParallelism.removeListener(uploadParallelismListener);
-    options.downloadQueueParallelism.removeListener(downloadParallelismListener);
+    options.downloadQueueParallelism
+        .removeListener(downloadParallelismListener);
 
     super.dispose();
   }
@@ -119,7 +123,11 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified}) async {
+  Future<void> uploadMemory(
+    PathUri uri,
+    Uint8List bytes, {
+    DateTime? lastModified,
+  }) async {
     await wrapAction(
       () async {
         final task = FilesUploadTaskMemory(
@@ -148,7 +156,11 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
           }
         } else {
           final bytes = await downloadMemory(uri);
-          await NeonPlatform.instance.saveFileWithPickDialog(uri.name, mimeType ?? 'application/octet-stream', bytes);
+          await NeonPlatform.instance.saveFileWithPickDialog(
+            uri.name,
+            mimeType ?? 'application/octet-stream',
+            bytes,
+          );
         }
       },
       disableTimeout: true,
@@ -156,7 +168,11 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> shareFileNative(PathUri uri, String etag, String? mimeType) async {
+  Future<void> shareFileNative(
+    PathUri uri,
+    String etag,
+    String? mimeType,
+  ) async {
     await wrapAction(
       () async {
         if (NeonPlatform.instance.canUsePaths) {
@@ -217,7 +233,9 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   Future<File> cacheFile(PathUri uri, String etag) async {
     final cacheDir = await getApplicationCacheDirectory();
-    final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name));
+    final file = File(
+      p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name),
+    );
 
     if (!file.existsSync()) {
       log.fine('Downloading $uri since it does not exist');
@@ -254,7 +272,11 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  FilesBrowserBloc getNewFilesBrowserBloc({PathUri? initialUri, FilesBrowserMode? mode}) => FilesBrowserBloc(
+  FilesBrowserBloc getNewFilesBrowserBloc({
+    PathUri? initialUri,
+    FilesBrowserMode? mode,
+  }) =>
+      FilesBrowserBloc(
         options,
         account,
         initialPath: initialUri,
@@ -276,6 +298,7 @@ class UnableToOpenFileException extends NeonException {
 
   @override
   NeonExceptionDetails get details => NeonExceptionDetails(
-        getText: (context) => FilesLocalizations.of(context).errorUnableToOpenFile,
+        getText: (context) =>
+            FilesLocalizations.of(context).errorUnableToOpenFile,
       );
 }

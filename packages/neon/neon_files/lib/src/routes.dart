@@ -15,5 +15,6 @@ class FilesAppRoute extends NeonBaseAppRoute {
   const FilesAppRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const FilesMainPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const FilesMainPage();
 }

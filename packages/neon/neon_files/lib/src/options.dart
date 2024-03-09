@@ -32,9 +32,12 @@ class FilesOptions extends AppImplementationOptions {
     label: (context) => FilesLocalizations.of(context).optionsFilesSortProperty,
     defaultValue: FilesSortProperty.name,
     values: {
-      FilesSortProperty.name: (context) => FilesLocalizations.of(context).optionsFilesSortPropertyName,
-      FilesSortProperty.modifiedDate: (context) => FilesLocalizations.of(context).optionsFilesSortPropertyModifiedDate,
-      FilesSortProperty.size: (context) => FilesLocalizations.of(context).optionsFilesSortPropertySize,
+      FilesSortProperty.name: (context) =>
+          FilesLocalizations.of(context).optionsFilesSortPropertyName,
+      FilesSortProperty.modifiedDate: (context) =>
+          FilesLocalizations.of(context).optionsFilesSortPropertyModifiedDate,
+      FilesSortProperty.size: (context) =>
+          FilesLocalizations.of(context).optionsFilesSortPropertySize,
     },
   );
 
@@ -67,7 +70,8 @@ class FilesOptions extends AppImplementationOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.uploadQueueParallelism,
-    label: (context) => FilesLocalizations.of(context).optionsUploadQueueParallelism,
+    label: (context) =>
+        FilesLocalizations.of(context).optionsUploadQueueParallelism,
     defaultValue: 4,
     values: {
       for (var i = 1; i <= 16; i = i * 2) ...{
@@ -80,7 +84,8 @@ class FilesOptions extends AppImplementationOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.downloadQueueParallelism,
-    label: (context) => FilesLocalizations.of(context).optionsDownloadQueueParallelism,
+    label: (context) =>
+        FilesLocalizations.of(context).optionsDownloadQueueParallelism,
     defaultValue: 4,
     values: {
       for (var i = 1; i <= 16; i = i * 2) ...{
@@ -90,7 +95,8 @@ class FilesOptions extends AppImplementationOptions {
   );
 
   late final _sizeWarningValues = <int?, LabelBuilder>{
-    null: (context) => FilesLocalizations.of(context).optionsSizeWarningDisabled,
+    null: (context) =>
+        FilesLocalizations.of(context).optionsSizeWarningDisabled,
     for (var i in [
       1,
       10,
@@ -119,7 +125,8 @@ class FilesOptions extends AppImplementationOptions {
     storage: storage,
     category: generalCategory,
     key: FilesOptionKeys.downloadSizeWarning,
-    label: (context) => FilesLocalizations.of(context).optionsDownloadSizeWarning,
+    label: (context) =>
+        FilesLocalizations.of(context).optionsDownloadSizeWarning,
     defaultValue: _mb(10),
     values: _sizeWarningValues,
   );
