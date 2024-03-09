@@ -154,13 +154,13 @@ class NeonUserStatusIndicator extends StatelessWidget {
       if (type == user_status.$Type.dnd || !hasEmoji) {
         child = NeonUserStatusIcon(
           type: type,
-          size: 16,
+          size: size / 2.5,
         );
       } else if (hasEmoji) {
         child = Text(
           result.data!.icon!,
-          style: const TextStyle(
-            fontSize: 14,
+          style: TextStyle(
+            fontSize: size / 3,
           ),
         );
       }
