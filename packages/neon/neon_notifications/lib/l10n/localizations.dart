@@ -59,15 +59,18 @@ import 'localizations_en.dart';
 /// be consistent with the languages listed in the NotificationsLocalizations.supportedLocales
 /// property.
 abstract class NotificationsLocalizations {
-  NotificationsLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  NotificationsLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static NotificationsLocalizations of(BuildContext context) {
-    return Localizations.of<NotificationsLocalizations>(context, NotificationsLocalizations)!;
+    return Localizations.of<NotificationsLocalizations>(
+        context, NotificationsLocalizations)!;
   }
 
-  static const LocalizationsDelegate<NotificationsLocalizations> delegate = _NotificationsLocalizationsDelegate();
+  static const LocalizationsDelegate<NotificationsLocalizations> delegate =
+      _NotificationsLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -79,7 +82,8 @@ abstract class NotificationsLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -102,16 +106,19 @@ abstract class NotificationsLocalizations {
   String get notificationAppNotImplementedYet;
 }
 
-class _NotificationsLocalizationsDelegate extends LocalizationsDelegate<NotificationsLocalizations> {
+class _NotificationsLocalizationsDelegate
+    extends LocalizationsDelegate<NotificationsLocalizations> {
   const _NotificationsLocalizationsDelegate();
 
   @override
   Future<NotificationsLocalizations> load(Locale locale) {
-    return SynchronousFuture<NotificationsLocalizations>(lookupNotificationsLocalizations(locale));
+    return SynchronousFuture<NotificationsLocalizations>(
+        lookupNotificationsLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_NotificationsLocalizationsDelegate old) => false;
@@ -124,7 +131,8 @@ NotificationsLocalizations lookupNotificationsLocalizations(Locale locale) {
       return NotificationsLocalizationsEn();
   }
 
-  throw FlutterError('NotificationsLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+  throw FlutterError(
+      'NotificationsLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
       'an issue with the localizations generation tool. Please file an issue '
       'on GitHub with a reproducible sample app and the gen-l10n configuration '
       'that was used.');

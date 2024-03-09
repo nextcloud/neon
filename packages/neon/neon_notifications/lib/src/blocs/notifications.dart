@@ -10,7 +10,8 @@ import 'package:neon_notifications/src/options.dart';
 import 'package:nextcloud/notifications.dart' as $notifications;
 import 'package:rxdart/rxdart.dart';
 
-sealed class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
+sealed class NotificationsBloc
+    implements NotificationsBlocInterface, InteractiveBloc {
   @internal
   factory NotificationsBloc(
     NotificationsOptions options,
@@ -23,12 +24,14 @@ sealed class NotificationsBloc implements NotificationsBlocInterface, Interactiv
 
   void deleteAllNotifications();
 
-  BehaviorSubject<Result<BuiltList<$notifications.Notification>>> get notifications;
+  BehaviorSubject<Result<BuiltList<$notifications.Notification>>>
+      get notifications;
 
   BehaviorSubject<int> get unreadCounter;
 }
 
-class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInterface, NotificationsBloc {
+class _NotificationsBloc extends InteractiveBloc
+    implements NotificationsBlocInterface, NotificationsBloc {
   _NotificationsBloc(
     this.options,
     this.account,
@@ -70,19 +73,27 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
       account: account,
       cacheKey: 'notifications-notifications',
       subject: notifications,
-      request: account.client.notifications.endpoint.$listNotifications_Request(),
-      serializer: account.client.notifications.endpoint.$listNotifications_Serializer(),
+      request:
+          account.client.notifications.endpoint.$listNotifications_Request(),
+      serializer:
+          account.client.notifications.endpoint.$listNotifications_Serializer(),
       unwrap: (response) => response.body.ocs.data,
     );
   }
 
   @override
   Future<void> deleteAllNotifications() async {
-    await wrapAction(() async => account.client.notifications.endpoint.deleteAllNotifications());
+    await wrapAction(
+      () async =>
+          account.client.notifications.endpoint.deleteAllNotifications(),
+    );
   }
 
   @override
   Future<void> deleteNotification(int id) async {
-    await wrapAction(() async => account.client.notifications.endpoint.deleteNotification(id: id));
+    await wrapAction(
+      () async =>
+          account.client.notifications.endpoint.deleteNotification(id: id),
+    );
   }
 }

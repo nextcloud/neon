@@ -17,7 +17,8 @@ RouteBase get $notificationsAppRoute => GoRouteData.$route(
     );
 
 extension $NotificationsAppRouteExtension on NotificationsAppRoute {
-  static NotificationsAppRoute _fromState(GoRouterState state) => const NotificationsAppRoute();
+  static NotificationsAppRoute _fromState(GoRouterState state) =>
+      const NotificationsAppRoute();
 
   String get location => GoRouteData.$location(
         '/apps/notifications',
@@ -27,7 +28,8 @@ extension $NotificationsAppRouteExtension on NotificationsAppRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }

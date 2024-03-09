@@ -27,7 +27,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   void initState() {
     super.initState();
 
-    bloc = NeonProvider.of<NotificationsBlocInterface>(context) as NotificationsBloc;
+    bloc = NeonProvider.of<NotificationsBlocInterface>(context)
+        as NotificationsBloc;
 
     bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
@@ -46,7 +47,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             final unreadCount = snapshot.data ?? 0;
             return FloatingActionButton(
               onPressed: unreadCount > 0 ? bloc.deleteAllNotifications : null,
-              tooltip: NotificationsLocalizations.of(context).notificationsDismissAll,
+              tooltip: NotificationsLocalizations.of(context)
+                  .notificationsDismissAll,
               child: const Icon(MdiIcons.checkAll),
             );
           },
@@ -57,7 +59,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           error: notifications.error,
           onRefresh: bloc.refresh,
           itemCount: notifications.data?.length ?? 0,
-          itemBuilder: (context, index) => _buildNotification(context, notifications.data![index]),
+          itemBuilder: (context, index) =>
+              _buildNotification(context, notifications.data![index]),
         ),
       ),
     );
@@ -67,7 +70,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
     BuildContext context,
     notifications.Notification notification,
   ) {
-    final app = NeonProvider.of<BuiltSet<AppImplementation>>(context).tryFind(notification.app);
+    final app = NeonProvider.of<BuiltSet<AppImplementation>>(context)
+        .tryFind(notification.app);
 
     return ListTile(
       title: Text(notification.subject),
@@ -97,7 +101,10 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               child: NeonUriImage(
                 uri: Uri.parse(notification.icon!),
                 size: const Size.square(largeIconSize),
-                svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+                svgColorFilter: ColorFilter.mode(
+                  Theme.of(context).colorScheme.primary,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
       onTap: () async {
@@ -111,7 +118,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         } else {
           await showUnimplementedDialog(
             context: context,
-            title: NotificationsLocalizations.of(context).notificationAppNotImplementedYet,
+            title: NotificationsLocalizations.of(context)
+                .notificationAppNotImplementedYet,
           );
         }
       },

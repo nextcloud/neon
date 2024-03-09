@@ -8,5 +8,6 @@ class NotificationsLocalizationsEn extends NotificationsLocalizations {
   String get notificationsDismissAll => 'Dismiss all notifications';
 
   @override
-  String get notificationAppNotImplementedYet => 'Sorry, this Nextcloud app has not been implemented yet';
+  String get notificationAppNotImplementedYet =>
+      'Sorry, this Nextcloud app has not been implemented yet';
 }
