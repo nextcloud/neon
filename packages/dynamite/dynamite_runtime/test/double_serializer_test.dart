@@ -7,7 +7,8 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final serializers = (Serializers().toBuilder()..add(DynamiteDoubleSerializer())).build();
+  final serializers =
+      (Serializers().toBuilder()..add(DynamiteDoubleSerializer())).build();
 
   group('double with known specifiedType', () {
     const data = 3.141592653589793;
@@ -15,11 +16,17 @@ void main() {
     const specifiedType = FullType(double);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -29,11 +36,17 @@ void main() {
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -56,12 +69,20 @@ void main() {
     const specifiedType = FullType(double);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
       // Compare using toString as NaN != NaN.
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType).toString(), data.toString());
+      expect(
+        serializers
+            .deserialize(serialized, specifiedType: specifiedType)
+            .toString(),
+        data.toString(),
+      );
     });
   });
 
@@ -71,11 +92,17 @@ void main() {
     const specifiedType = FullType(double);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -85,11 +112,17 @@ void main() {
     const specifiedType = FullType(double);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 }

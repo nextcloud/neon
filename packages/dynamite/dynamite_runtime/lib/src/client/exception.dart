@@ -26,7 +26,10 @@ class DynamiteStatusCodeException extends DynamiteApiException {
     Map<String, Object?>? headers,
     Object? body,
     Uri? url,
-  }) : super('Invalid status code $statusCode, $statusCode, headers: $headers, body: $body', url);
+  }) : super(
+          '''Invalid status code $statusCode, $statusCode, headers: $headers, body: $body''',
+          url,
+        );
 
   /// The returned status code when the exception was thrown.
   final int statusCode;

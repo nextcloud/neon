@@ -18,8 +18,10 @@ final jsonBytesConverter = utf8.decoder.fuse(json.decoder);
 
 /// Converter for UTF-8 encoded bytes to XML.
 @visibleForTesting
-final xmlBytesConverter =
-    utf8.decoder.fuse(XmlEventDecoder()).fuse(const XmlNormalizeEvents()).fuse(const XmlNodeDecoder());
+final xmlBytesConverter = utf8.decoder
+    .fuse(XmlEventDecoder())
+    .fuse(const XmlNormalizeEvents())
+    .fuse(const XmlNodeDecoder());
 
 /// Extension on byte streams that enable efficient transformations.
 @Deprecated('use HttpBytesStreamExtension to convert a ByteStream')
@@ -46,8 +48,9 @@ extension BytesStreamExtension on BytesStream {
   ///
   /// Returns the root element of this stream.
   Future<XmlElement> get xml async {
-    final element =
-        await transform(xmlBytesConverter).expand((events) => events).firstWhere((element) => element is XmlElement);
+    final element = await transform(xmlBytesConverter)
+        .expand((events) => events)
+        .firstWhere((element) => element is XmlElement);
 
     return element as XmlElement;
   }

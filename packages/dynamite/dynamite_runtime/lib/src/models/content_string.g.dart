@@ -6,20 +6,25 @@ part of 'content_string.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<ContentString<Object?>> _$contentStringSerializer = _$ContentStringSerializer();
+Serializer<ContentString<Object?>> _$contentStringSerializer =
+    _$ContentStringSerializer();
 
-class _$ContentStringSerializer implements StructuredSerializer<ContentString<Object?>> {
+class _$ContentStringSerializer
+    implements StructuredSerializer<ContentString<Object?>> {
   @override
   final Iterable<Type> types = const [ContentString, _$ContentString];
   @override
   final String wireName = 'ContentString';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContentString<Object?> object,
+  Iterable<Object?> serialize(
+      Serializers serializers, ContentString<Object?> object,
       {FullType specifiedType = FullType.unspecified}) {
-    final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
+    final isUnderspecified =
+        specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
     if (!isUnderspecified) serializers.expectBuilder(specifiedType);
-    final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];
+    final parameterT =
+        isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
     final result = <Object?>[
       'content',
@@ -30,15 +35,19 @@ class _$ContentStringSerializer implements StructuredSerializer<ContentString<Ob
   }
 
   @override
-  ContentString<Object?> deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ContentString<Object?> deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
+    final isUnderspecified =
+        specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
     if (!isUnderspecified) serializers.expectBuilder(specifiedType);
-    final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];
+    final parameterT =
+        isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
     final result = isUnderspecified
         ? ContentStringBuilder<Object?>()
-        : serializers.newBuilder(specifiedType) as ContentStringBuilder<Object?>;
+        : serializers.newBuilder(specifiedType)
+            as ContentStringBuilder<Object?>;
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -47,7 +56,8 @@ class _$ContentStringSerializer implements StructuredSerializer<ContentString<Ob
       final Object? value = iterator.current;
       switch (key) {
         case 'content':
-          result.content = serializers.deserialize(value, specifiedType: parameterT);
+          result.content =
+              serializers.deserialize(value, specifiedType: parameterT);
           break;
       }
     }
@@ -71,10 +81,12 @@ class _$ContentString<T> extends ContentString<T> {
   }
 
   @override
-  ContentString<T> rebuild(void Function(ContentStringBuilder<T>) updates) => (toBuilder()..update(updates)).build();
+  ContentString<T> rebuild(void Function(ContentStringBuilder<T>) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
-  ContentStringBuilder<T> toBuilder() => ContentStringBuilder<T>()..replace(this);
+  ContentStringBuilder<T> toBuilder() =>
+      ContentStringBuilder<T>()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -92,11 +104,14 @@ class _$ContentString<T> extends ContentString<T> {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ContentString')..add('content', content)).toString();
+    return (newBuiltValueToStringHelper(r'ContentString')
+          ..add('content', content))
+        .toString();
   }
 }
 
-class ContentStringBuilder<T> implements Builder<ContentString<T>, ContentStringBuilder<T>> {
+class ContentStringBuilder<T>
+    implements Builder<ContentString<T>, ContentStringBuilder<T>> {
   _$ContentString<T>? _$v;
 
   T? _content;
@@ -130,7 +145,9 @@ class ContentStringBuilder<T> implements Builder<ContentString<T>, ContentString
 
   _$ContentString<T> _build() {
     final _$result = _$v ??
-        _$ContentString<T>._(content: BuiltValueNullFieldError.checkNotNull(content, r'ContentString', 'content'));
+        _$ContentString<T>._(
+            content: BuiltValueNullFieldError.checkNotNull(
+                content, r'ContentString', 'content'));
     replace(_$result);
     return _$result;
   }

@@ -19,7 +19,10 @@ class DynamiteResponse<B, H> {
 
   /// Converts the [rawResponse] to a generic dynamite response to free the
   /// resources taken by the raw parameters.
-  factory DynamiteResponse.fromRawResponse(DynamiteRawResponse<B, H> rawResponse) => DynamiteResponse(
+  factory DynamiteResponse.fromRawResponse(
+    DynamiteRawResponse<B, H> rawResponse,
+  ) =>
+      DynamiteResponse(
         rawResponse.statusCode,
         rawResponse.body,
         rawResponse.headers,
@@ -35,7 +38,13 @@ class DynamiteResponse<B, H> {
   final H headers;
 
   @override
-  String toString() => 'DynamiteResponse(data: $body, headers: $headers, statusCode: $statusCode)';
+  String toString() => '''
+DynamiteResponse(
+  data: $body,
+  headers: $headers,
+  statusCode: $statusCode
+)
+''';
 }
 
 /// Raw response that can be efficiently serialized into a json Map.
@@ -66,10 +75,15 @@ class DynamiteRawResponse<B, H> extends DynamiteResponse<B, H> {
       };
 
   @override
-  String toString() => 'DynamiteRawResponse(data: $body, headers: $headers, statusCode: $statusCode)';
+  String toString() => '''
+DynamiteRawResponse(
+  data: $body,
+  headers: $headers,
+  statusCode: $statusCode
+)''';
 }
 
-/// The serializer to convert the raw headers and body from a [http.BaseResponse].
+/// The serializer to convert the headers and body from a [http.BaseResponse].
 ///
 /// The generics [B] and [H] must match the type returned after deserializing to
 /// [bodyType] and [headersType] respectively.
@@ -103,7 +117,8 @@ final class DynamiteSerializer<B, H> {
 /// Converter to transform a [http.StreamedResponse] into a [DynamiteResponse].
 ///
 /// Throws a [DynamiteApiException] on errors.
-final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future<DynamiteRawResponse<B, H>>> {
+final class ResponseConverter<B, H>
+    with Converter<http.StreamedResponse, Future<DynamiteRawResponse<B, H>>> {
   /// Creates a new response converter
   const ResponseConverter(this.serializer);
 
@@ -133,14 +148,19 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
       );
     }
 
-    final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
+    final headers = _deserialize<H>(
+      rawHeaders,
+      serializer.serializers,
+      serializer.headersType,
+    );
 
     final rawBody = switch (serializer.bodyType) {
       const FullType(Uint8List) => await input.stream.bytes,
       const FullType(String) => await input.stream.bytesToString(encoding),
       _ => await input.stream.bytesToJson(encoding),
     };
-    final body = _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
+    final body =
+        _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
 
     return DynamiteRawResponse<B, H>(
       statusCode: statusCode,
@@ -153,7 +173,9 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
 }
 
 /// Encoder to efficiently convert a raw response to json.
-final class RawResponseEncoder with Converter<DynamiteRawResponse<dynamic, dynamic>, Map<String, Object?>> {
+final class RawResponseEncoder
+    with
+        Converter<DynamiteRawResponse<dynamic, dynamic>, Map<String, Object?>> {
   /// Creates a new raw response encoder.
   const RawResponseEncoder();
 
@@ -166,7 +188,8 @@ final class RawResponseEncoder with Converter<DynamiteRawResponse<dynamic, dynam
 }
 
 /// Encoder to revive the json from a raw response.
-final class RawResponseDecoder<B, H> with Converter<Map<String, Object?>, DynamiteResponse<B, H>> {
+final class RawResponseDecoder<B, H>
+    with Converter<Map<String, Object?>, DynamiteResponse<B, H>> {
   /// Creates a new raw response decoder.
   const RawResponseDecoder(this.serializer);
 
@@ -176,10 +199,15 @@ final class RawResponseDecoder<B, H> with Converter<Map<String, Object?>, Dynami
   @override
   DynamiteResponse<B, H> convert(Map<String, Object?> input) {
     final rawHeaders = input['headers'];
-    final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
+    final headers = _deserialize<H>(
+      rawHeaders,
+      serializer.serializers,
+      serializer.headersType,
+    );
 
     final rawBody = input['body'];
-    final body = _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
+    final body =
+        _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
 
     return DynamiteResponse<B, H>(
       input['statusCode']! as int,
@@ -193,8 +221,13 @@ final class RawResponseDecoder<B, H> with Converter<Map<String, Object?>, Dynami
 ///
 /// Serialization is skipped if the data already represents the desired type.
 /// The [fullType] should represent the return type [T].
-T? _deserialize<T>(Object? serialized, Serializers serializers, FullType? fullType) {
-  // If we use the more efficient helpers from BytesStreamExtension the serialized value can already be correct.
+T? _deserialize<T>(
+  Object? serialized,
+  Serializers serializers,
+  FullType? fullType,
+) {
+  // If we use the more efficient helpers from BytesStreamExtension the
+  // serialized value can already be correct.
   if (serialized is T) {
     return serialized;
   }

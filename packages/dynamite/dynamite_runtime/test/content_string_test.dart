@@ -17,24 +17,42 @@ part 'content_string_test.g.dart';
 final Serializers serializers = (_$serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin())
-      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(double)]), ContentStringBuilder<double>.new)
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(bool)]),
+        ContentStringBuilder<bool>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(double)]),
+        ContentStringBuilder<double>.new,
+      )
       ..addBuilderFactory(
         const FullType(ContentString, [
           FullType(BuiltList, [FullType(int)]),
         ]),
         ContentStringBuilder<BuiltList<int>>.new,
       )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(int)]),
+        ListBuilder<int>.new,
+      )
       ..addBuilderFactory(
         const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(int)]),
         ]),
         ContentStringBuilder<BuiltMap<String, int>>.new,
       )
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(String)]), ContentStringBuilder<String>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(int)]),
+        MapBuilder<String, int>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(int)]),
+        ContentStringBuilder<int>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(String)]),
+        ContentStringBuilder<String>.new,
+      )
       ..addBuilderFactory(
         const FullType(ContentString, [
           FullType(ContentString, [FullType(String)]),
@@ -45,7 +63,10 @@ final Serializers serializers = (_$serializers.toBuilder()
 
 final Serializers invalidSerializers = (_$serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin())
-      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new))
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(bool)]),
+        ContentStringBuilder<bool>.new,
+      ))
     .build();
 
 void main() {
@@ -55,11 +76,17 @@ void main() {
     const specifiedType = FullType(ContentString, [FullType(bool)]);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -74,11 +101,17 @@ void main() {
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -88,11 +121,17 @@ void main() {
     const specifiedType = FullType(ContentString, [FullType(double)]);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -107,27 +146,40 @@ void main() {
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
   group('ContentString with known specifiedType holding list', () {
-    final data = ContentString<BuiltList<int>>((b) => b..content = BuiltList([1, 2, 3]));
+    final data =
+        ContentString<BuiltList<int>>((b) => b..content = BuiltList([1, 2, 3]));
     final serialized = json.encode([1, 2, 3]);
     const specifiedType = FullType(ContentString, [
       FullType(BuiltList, [FullType(int)]),
     ]);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), equals(data));
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        equals(data),
+      );
     });
   });
 
@@ -149,16 +201,24 @@ void main() {
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
   group('ContentString with known specifiedType holding map', () {
-    final data = ContentString<BuiltMap<String, int>>((b) => b..content = BuiltMap({'one': 1, 'two': 2, 'three': 3}));
+    final data = ContentString<BuiltMap<String, int>>(
+      (b) => b..content = BuiltMap({'one': 1, 'two': 2, 'three': 3}),
+    );
     // while not being valid json it's what built_value expects.
     // using the StandardJsonPlugin will encode it to a valid Map<String, int>.
     final serialized = json.encode({'one': 1, 'two': 2, 'three': 3});
@@ -167,16 +227,25 @@ void main() {
     ]);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
   group('ContentString with unknown specifiedType holding map', () {
-    final data = ContentString((b) => b..content = BuiltMap<String, int>({'one': 1, 'two': 2, 'three': 3}));
+    final data = ContentString(
+      (b) =>
+          b..content = BuiltMap<String, int>({'one': 1, 'two': 2, 'three': 3}),
+    );
     final serialized = json.decode(
       json.encode({
         r'$': 'ContentString',
@@ -191,11 +260,17 @@ void main() {
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -207,11 +282,17 @@ void main() {
       const specifiedType = FullType(ContentString, [FullType(int)]);
 
       test('can be serialized', () {
-        expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+        expect(
+          serializers.serialize(data, specifiedType: specifiedType),
+          serialized,
+        );
       });
 
       test('can be deserialized', () {
-        expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+        expect(
+          serializers.deserialize(serialized, specifiedType: specifiedType),
+          data,
+        );
       });
     },
   );
@@ -227,11 +308,17 @@ void main() {
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -241,11 +328,17 @@ void main() {
     const specifiedType = FullType(ContentString, [FullType(String)]);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -260,11 +353,17 @@ void main() {
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -281,11 +380,17 @@ void main() {
     ]);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -308,11 +413,17 @@ void main() {
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 
@@ -322,12 +433,18 @@ void main() {
     const specifiedType = FullType(ContentString, [FullType(bool)]);
 
     test('serialization error', () {
-      expect(() => invalidSerializers.serialize(data, specifiedType: specifiedType), throwsA(isA<StateError>()));
+      expect(
+        () => invalidSerializers.serialize(data, specifiedType: specifiedType),
+        throwsA(isA<StateError>()),
+      );
     });
 
     test('deserialization error', () {
       expect(
-        () => invalidSerializers.deserialize(serialized, specifiedType: specifiedType),
+        () => invalidSerializers.deserialize(
+          serialized,
+          specifiedType: specifiedType,
+        ),
         throwsA(isA<StateError>()),
       );
     });
@@ -339,11 +456,17 @@ void main() {
     const specifiedType = FullType(ContentString, [FullType(bool)]);
 
     test('can be serialized', () {
-      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(
+        serializers.serialize(data, specifiedType: specifiedType),
+        serialized,
+      );
     });
 
     test('can be deserialized', () {
-      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+      expect(
+        serializers.deserialize(serialized, specifiedType: specifiedType),
+        data,
+      );
     });
   });
 }

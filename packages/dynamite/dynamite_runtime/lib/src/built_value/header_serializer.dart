@@ -25,7 +25,8 @@ class HeaderPlugin implements SerializerPlugin {
     }
 
     if (object is! Map<String, dynamic>) {
-      throw StateError('HeaderPlugin can only be applied to Map<String, dynamic>. '
+      throw StateError(
+          'HeaderPlugin can only be applied to Map<String, dynamic>. '
           'Please ensure the StandardJsonPlugin is applied and run before.');
     }
 
@@ -48,7 +49,9 @@ class HeaderPlugin implements SerializerPlugin {
           'Please ensure the StandardJsonPlugin is applied and run before.');
     }
 
-    final elementType = specifiedType.parameters.isEmpty ? FullType.unspecified : specifiedType.parameters[0];
+    final elementType = specifiedType.parameters.isEmpty
+        ? FullType.unspecified
+        : specifiedType.parameters[0];
     final content = HeaderDecoder(specifiedType: elementType).convert(object);
 
     return ['content', content];

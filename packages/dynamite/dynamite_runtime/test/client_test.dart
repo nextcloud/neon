@@ -109,7 +109,11 @@ void main() {
         },
       );
 
-      await client.executeRawRequest('GET', uri, headers: {'some-key': 'some-other-value'});
+      await client.executeRawRequest(
+        'GET',
+        uri,
+        headers: {'some-key': 'some-other-value'},
+      );
     });
   });
 }

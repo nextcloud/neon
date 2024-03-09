@@ -9,7 +9,9 @@ import 'package:xml/xml_events.dart';
 
 /// Converter for `String` to `XML`.
 @visibleForTesting
-final xmlConverter = XmlEventDecoder().fuse(const XmlNormalizeEvents()).fuse(const XmlNodeDecoder());
+final xmlConverter = XmlEventDecoder()
+    .fuse(const XmlNormalizeEvents())
+    .fuse(const XmlNodeDecoder());
 
 /// Extension on byte streams that enable efficient transformations.
 @internal

@@ -30,7 +30,9 @@ class DynamiteClient with http.BaseClient {
   })  : httpClient = httpClient ?? http.Client(),
         baseURL = baseURL.normalizeEmptyPath() {
     if (baseURL.queryParametersAll.isNotEmpty) {
-      throw UnsupportedError('Dynamite can not work with a baseURL containing query parameters.');
+      throw UnsupportedError(
+        'Dynamite can not work with a baseURL containing query parameters.',
+      );
     }
   }
 
@@ -99,7 +101,9 @@ class DynamiteClient with http.BaseClient {
   /// Sends an HTTP request and asynchronously returns the response.
   ///
   /// Cookies are persisted in the [cookieJar] and loaded for requests.
-  Future<http.StreamedResponse> sendWithCookies(http.BaseRequest request) async {
+  Future<http.StreamedResponse> sendWithCookies(
+    http.BaseRequest request,
+  ) async {
     if (cookieJar != null) {
       final cookies = await cookieJar!.loadForRequest(request.url);
       if (cookies.isNotEmpty) {

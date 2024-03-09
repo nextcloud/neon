@@ -17,9 +17,11 @@ class _$HeaderSerializer implements StructuredSerializer<Header<Object?>> {
   @override
   Iterable<Object?> serialize(Serializers serializers, Header<Object?> object,
       {FullType specifiedType = FullType.unspecified}) {
-    final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
+    final isUnderspecified =
+        specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
     if (!isUnderspecified) serializers.expectBuilder(specifiedType);
-    final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];
+    final parameterT =
+        isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
     final result = <Object?>[
       'content',
@@ -30,14 +32,18 @@ class _$HeaderSerializer implements StructuredSerializer<Header<Object?>> {
   }
 
   @override
-  Header<Object?> deserialize(Serializers serializers, Iterable<Object?> serialized,
+  Header<Object?> deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
+    final isUnderspecified =
+        specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
     if (!isUnderspecified) serializers.expectBuilder(specifiedType);
-    final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];
+    final parameterT =
+        isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
-    final result =
-        isUnderspecified ? HeaderBuilder<Object?>() : serializers.newBuilder(specifiedType) as HeaderBuilder<Object?>;
+    final result = isUnderspecified
+        ? HeaderBuilder<Object?>()
+        : serializers.newBuilder(specifiedType) as HeaderBuilder<Object?>;
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -46,7 +52,8 @@ class _$HeaderSerializer implements StructuredSerializer<Header<Object?>> {
       final Object? value = iterator.current;
       switch (key) {
         case 'content':
-          result.content = serializers.deserialize(value, specifiedType: parameterT);
+          result.content =
+              serializers.deserialize(value, specifiedType: parameterT);
           break;
       }
     }
@@ -59,7 +66,8 @@ class _$Header<T> extends Header<T> {
   @override
   final T content;
 
-  factory _$Header([void Function(HeaderBuilder<T>)? updates]) => (HeaderBuilder<T>()..update(updates))._build();
+  factory _$Header([void Function(HeaderBuilder<T>)? updates]) =>
+      (HeaderBuilder<T>()..update(updates))._build();
 
   _$Header._({required this.content}) : super._() {
     BuiltValueNullFieldError.checkNotNull(content, r'Header', 'content');
@@ -69,7 +77,8 @@ class _$Header<T> extends Header<T> {
   }
 
   @override
-  Header<T> rebuild(void Function(HeaderBuilder<T>) updates) => (toBuilder()..update(updates)).build();
+  Header<T> rebuild(void Function(HeaderBuilder<T>) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   HeaderBuilder<T> toBuilder() => HeaderBuilder<T>()..replace(this);
@@ -90,7 +99,8 @@ class _$Header<T> extends Header<T> {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Header')..add('content', content)).toString();
+    return (newBuiltValueToStringHelper(r'Header')..add('content', content))
+        .toString();
   }
 }
 
@@ -127,8 +137,10 @@ class HeaderBuilder<T> implements Builder<Header<T>, HeaderBuilder<T>> {
   Header<T> build() => _build();
 
   _$Header<T> _build() {
-    final _$result =
-        _$v ?? _$Header<T>._(content: BuiltValueNullFieldError.checkNotNull(content, r'Header', 'content'));
+    final _$result = _$v ??
+        _$Header<T>._(
+            content: BuiltValueNullFieldError.checkNotNull(
+                content, r'Header', 'content'));
     replace(_$result);
     return _$result;
   }

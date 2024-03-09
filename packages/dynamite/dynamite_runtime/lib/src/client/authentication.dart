@@ -40,7 +40,8 @@ class DynamiteHttpBasicAuthentication extends DynamiteAuthentication {
 
   @override
   Map<String, String> get headers => {
-        'Authorization': 'Basic ${base64.encode(utf8.encode('$username:$password'))}',
+        'Authorization':
+            'Basic ${base64.encode(utf8.encode('$username:$password'))}',
       };
 }
 

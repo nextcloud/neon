@@ -9,12 +9,14 @@ import 'package:dynamite_runtime/models.dart';
 ///
 /// Examples:
 /// ```dart
-/// var codec = HeaderCodec(specifiedType: FullType(BuiltList, [FullType(int)]));
+/// var codec = HeaderCodec(
+///   specifiedType: FullType(BuiltList, [FullType(int)]),
+/// );
 /// var encoded = codec.encode([1, 2, 3, 4]);
 /// var decoded = codec.decode('1,2,3,4');
 /// ```
 final class HeaderCodec extends Codec<Object?, String> {
-  /// Creates a `HeaderCodec` for the given [specifiedType] and encoding format ([explode]).
+  /// Creates a `HeaderCodec` for the given [specifiedType] and encoding format.
   ///
   /// The [specifiedType] is needed to revive the value when in the decoder.
   const HeaderCodec({
@@ -64,13 +66,17 @@ final class HeaderDecoder extends Converter<String, Object?> {
 
     switch (specifiedType.root) {
       case const (Header):
-        final elementType = specifiedType.parameters.isEmpty ? FullType.unspecified : specifiedType.parameters[0];
+        final elementType = specifiedType.parameters.isEmpty
+            ? FullType.unspecified
+            : specifiedType.parameters[0];
 
         return _decode(content, elementType);
       case const (Map) || const (BuiltMap):
         final values = content.split(',');
         final deserialized = <String, Object?>{};
-        final elementType = specifiedType.parameters.isEmpty ? FullType.unspecified : specifiedType.parameters[1];
+        final elementType = specifiedType.parameters.isEmpty
+            ? FullType.unspecified
+            : specifiedType.parameters[1];
 
         for (var i = 0; i < values.length; i += 2) {
           deserialized[values[i]] = _decode(values[i + 1], elementType);
@@ -79,9 +85,14 @@ final class HeaderDecoder extends Converter<String, Object?> {
         return deserialized;
 
       case const (List) || const (BuiltList):
-        final elementType = specifiedType.parameters.isEmpty ? FullType.unspecified : specifiedType.parameters[0];
+        final elementType = specifiedType.parameters.isEmpty
+            ? FullType.unspecified
+            : specifiedType.parameters[0];
 
-        return content.split(',').map((value) => _decode(value, elementType)).toList();
+        return content
+            .split(',')
+            .map((value) => _decode(value, elementType))
+            .toList();
       default:
         if (specifiedType.root == String) {
           return content;
@@ -112,7 +123,9 @@ final class HeaderEncoder extends Converter<Object?, String> {
 
     switch (input) {
       case Map():
-        return input.entries.map((entry) => '${entry.key},${convert(entry.value)}').join(',');
+        return input.entries
+            .map((entry) => '${entry.key},${convert(entry.value)}')
+            .join(',');
       case List():
         return input.map(convert).join(',');
 
