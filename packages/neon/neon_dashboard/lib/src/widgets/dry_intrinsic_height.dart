@@ -16,7 +16,8 @@ class DryIntrinsicHeight extends SingleChildRenderObjectWidget {
   });
 
   @override
-  RenderDryIntrinsicHeight createRenderObject(BuildContext context) => RenderDryIntrinsicHeight();
+  RenderDryIntrinsicHeight createRenderObject(BuildContext context) =>
+      RenderDryIntrinsicHeight();
 }
 
 class RenderDryIntrinsicHeight extends RenderIntrinsicHeight {

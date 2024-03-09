@@ -55,7 +55,8 @@ class DashboardMainPage extends StatelessWidget {
                   items: itemsResult.data?[widget.id],
                 ).toList();
 
-                final height = items.map((i) => i.height!).reduce((a, b) => a + b);
+                final height =
+                    items.map((i) => i.height!).reduce((a, b) => a + b);
                 minHeight = max(minHeight, height);
 
                 widgets.add(
@@ -171,10 +172,12 @@ class DashboardMainPage extends StatelessWidget {
           ),
           StreamBuilder(
             stream: weatherStatusBloc.isSupported,
-            builder: (context, weatherStatusSupportedSnapshot) => ResultBuilder.behaviorSubject(
+            builder: (context, weatherStatusSupportedSnapshot) =>
+                ResultBuilder.behaviorSubject(
               subject: weatherStatusBloc.forecasts,
               builder: (context, forecastsResult) {
-                if (weatherStatusSupportedSnapshot.hasData && !weatherStatusSupportedSnapshot.requireData) {
+                if (weatherStatusSupportedSnapshot.hasData &&
+                    !weatherStatusSupportedSnapshot.requireData) {
                   return const SizedBox.shrink();
                 }
 
@@ -182,7 +185,8 @@ class DashboardMainPage extends StatelessWidget {
                   final location = await showDialog<String>(
                     context: context,
                     builder: (context) => DashboardSetWeatherLocationDialog(
-                      currentAddress: weatherStatusBloc.location.valueOrNull?.data?.address,
+                      currentAddress:
+                          weatherStatusBloc.location.valueOrNull?.data?.address,
                     ),
                   );
                   if (location != null) {
@@ -191,9 +195,12 @@ class DashboardMainPage extends StatelessWidget {
                 }
 
                 if (forecastsResult.hasData) {
-                  final weatherCode = forecastsResult.requireData.first.data.next1Hours.summary.symbolCode;
-                  final temperature = forecastsResult.requireData.first.data.instant.details.airTemperature;
-                  final description = DashboardLocalizations.of(context).weather(
+                  final weatherCode = forecastsResult
+                      .requireData.first.data.next1Hours.summary.symbolCode;
+                  final temperature = forecastsResult
+                      .requireData.first.data.instant.details.airTemperature;
+                  final description =
+                      DashboardLocalizations.of(context).weather(
                     weatherCode.replaceAll(RegExp(r'_(day|night)$'), ''),
                   );
 
@@ -296,7 +303,8 @@ class DashboardMainPage extends StatelessWidget {
       height: 20,
     );
 
-    final halfEmptyContentMessage = _buildMessage(items?.halfEmptyContentMessage);
+    final halfEmptyContentMessage =
+        _buildMessage(items?.halfEmptyContentMessage);
     final emptyContentMessage = _buildMessage(items?.emptyContentMessage);
     if (halfEmptyContentMessage != null) {
       yield halfEmptyContentMessage;
@@ -304,7 +312,9 @@ class DashboardMainPage extends StatelessWidget {
     if (emptyContentMessage != null) {
       yield emptyContentMessage;
     }
-    if (halfEmptyContentMessage == null && emptyContentMessage == null && (items?.items.isEmpty ?? true)) {
+    if (halfEmptyContentMessage == null &&
+        emptyContentMessage == null &&
+        (items?.items.isEmpty ?? true)) {
       yield _buildMessage(DashboardLocalizations.of(context).noEntries)!;
     }
 
@@ -345,7 +355,10 @@ class DashboardMainPage extends StatelessWidget {
     required BuildContext context,
     required dashboard.Widget widget,
   }) {
-    final colorFilter = ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn);
+    final colorFilter = ColorFilter.mode(
+      Theme.of(context).colorScheme.primary,
+      BlendMode.srcIn,
+    );
 
     if (widget.iconUrl.isNotEmpty) {
       return NeonUriImage(

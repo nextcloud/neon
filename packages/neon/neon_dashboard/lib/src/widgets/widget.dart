@@ -21,7 +21,9 @@ class DashboardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: widget.widgetUrl != null && widget.widgetUrl!.isNotEmpty ? () => context.go(widget.widgetUrl!) : null,
+        onTap: widget.widgetUrl != null && widget.widgetUrl!.isNotEmpty
+            ? () => context.go(widget.widgetUrl!)
+            : null,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         child: Padding(
           padding: const EdgeInsets.all(8),

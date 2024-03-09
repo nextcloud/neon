@@ -25,7 +25,8 @@ sealed class DashboardBloc implements InteractiveBloc {
 
 /// Implementation of [DashboardBloc].
 ///
-/// Automatically starts fetching the widgets and their items and refreshes everything every 30 seconds.
+/// Automatically starts fetching the widgets and their items and refreshes
+/// everything every 30 seconds.
 class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
   _DashboardBloc(this.account) {
     itemsV1.listen((_) => _updateItems());
@@ -54,11 +55,13 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
             account: account,
             cacheKey: 'dashboard-widgets-v1',
             subject: itemsV1,
-            request: account.client.dashboard.dashboardApi.$getWidgetItems_Request(
+            request:
+                account.client.dashboard.dashboardApi.$getWidgetItems_Request(
               widgets: v1WidgetIDs.build(),
               limit: maxItems,
             ),
-            serializer: account.client.dashboard.dashboardApi.$getWidgetItems_Serializer(),
+            serializer: account.client.dashboard.dashboardApi
+                .$getWidgetItems_Serializer(),
             unwrap: (response) => response.body.ocs.data,
           ),
         if (v2WidgetIDs.isNotEmpty)
@@ -66,11 +69,13 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
             account: account,
             cacheKey: 'dashboard-widgets-v2',
             subject: itemsV2,
-            request: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
+            request:
+                account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
               widgets: v2WidgetIDs.build(),
               limit: maxItems,
             ),
-            serializer: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer(),
+            serializer: account.client.dashboard.dashboardApi
+                .$getWidgetItemsV2_Serializer(),
             unwrap: (response) => response.body.ocs.data,
           ),
       ]);
@@ -86,8 +91,10 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
 
   final Account account;
   late final NeonTimer timer;
-  final itemsV1 = BehaviorSubject<Result<BuiltMap<String, BuiltList<dashboard.WidgetItem>>>>();
-  final itemsV2 = BehaviorSubject<Result<BuiltMap<String, dashboard.WidgetItems>>>();
+  final itemsV1 = BehaviorSubject<
+      Result<BuiltMap<String, BuiltList<dashboard.WidgetItem>>>>();
+  final itemsV2 =
+      BehaviorSubject<Result<BuiltMap<String, dashboard.WidgetItems>>>();
   static const int maxItems = 7;
 
   @override
@@ -113,11 +120,15 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
       cacheKey: 'dashboard-widgets',
       subject: widgets,
       request: account.client.dashboard.dashboardApi.$getWidgets_Request(),
-      serializer: account.client.dashboard.dashboardApi.$getWidgets_Serializer(),
+      serializer:
+          account.client.dashboard.dashboardApi.$getWidgets_Serializer(),
       // Filter all widgets that don't support v1 nor v2
       unwrap: (response) => BuiltList(
-        response.body.ocs.data.values
-            .where((widget) => widget.itemApiVersions == null || widget.itemApiVersions!.isNotEmpty),
+        response.body.ocs.data.values.where(
+          (widget) =>
+              widget.itemApiVersions == null ||
+              widget.itemApiVersions!.isNotEmpty,
+        ),
       ),
     );
   }
@@ -130,7 +141,9 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
       for (final entry in resultV1.requireData.entries) {
         data[entry.key] = dashboard.WidgetItems(
           (b) => b
-            ..items.replace(entry.value.sublist(0, min(entry.value.length, maxItems)))
+            ..items.replace(
+              entry.value.sublist(0, min(entry.value.length, maxItems)),
+            )
             ..emptyContentMessage = ''
             ..halfEmptyContentMessage = '',
         );
@@ -152,7 +165,8 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
       Result(
         data.build(),
         resultV1?.error ?? resultV2?.error,
-        isLoading: (resultV1?.isLoading ?? true) || (resultV2?.isLoading ?? true),
+        isLoading:
+            (resultV1?.isLoading ?? true) || (resultV2?.isLoading ?? true),
         isCached: (resultV1?.isCached ?? true) || (resultV2?.isCached ?? true),
       ),
     );

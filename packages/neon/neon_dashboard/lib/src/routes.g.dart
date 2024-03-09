@@ -17,7 +17,8 @@ RouteBase get $dashboardAppRoute => GoRouteData.$route(
     );
 
 extension $DashboardAppRouteExtension on DashboardAppRoute {
-  static DashboardAppRoute _fromState(GoRouterState state) => const DashboardAppRoute();
+  static DashboardAppRoute _fromState(GoRouterState state) =>
+      const DashboardAppRoute();
 
   String get location => GoRouteData.$location(
         '/apps/dashboard',
@@ -27,7 +28,8 @@ extension $DashboardAppRouteExtension on DashboardAppRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }

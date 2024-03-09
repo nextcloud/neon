@@ -15,10 +15,12 @@ class DashboardSetWeatherLocationDialog extends StatefulWidget {
   final String? currentAddress;
 
   @override
-  State<DashboardSetWeatherLocationDialog> createState() => _DashboardSetWeatherLocationDialogState();
+  State<DashboardSetWeatherLocationDialog> createState() =>
+      _DashboardSetWeatherLocationDialogState();
 }
 
-class _DashboardSetWeatherLocationDialogState extends State<DashboardSetWeatherLocationDialog> {
+class _DashboardSetWeatherLocationDialogState
+    extends State<DashboardSetWeatherLocationDialog> {
   final controller = TextEditingController();
 
   @override

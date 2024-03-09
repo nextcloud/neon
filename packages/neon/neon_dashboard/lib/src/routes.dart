@@ -17,5 +17,6 @@ class DashboardAppRoute extends NeonBaseAppRoute {
   const DashboardAppRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const DashboardMainPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const DashboardMainPage();
 }

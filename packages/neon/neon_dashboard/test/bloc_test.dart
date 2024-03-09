@@ -140,7 +140,8 @@ void main() {
       'v1v2',
     ]);
     expect(
-      bloc.widgets.transformResult((e) => BuiltList<String>(e.map((w) => w.id))),
+      bloc.widgets
+          .transformResult((e) => BuiltList<String>(e.map((w) => w.id))),
       emitsInOrder([
         Result<BuiltList<String>>.loading(),
         Result.success(widgets),
@@ -173,7 +174,8 @@ void main() {
         Result.success(items),
       ]),
     );
-    // The delay is necessary to avoid a race condition with loading twice at the same time
+    // The delay is necessary to avoid a race condition with loading twice at
+    // the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
     await bloc.refresh();
   });

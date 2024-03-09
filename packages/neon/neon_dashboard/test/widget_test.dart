@@ -84,7 +84,10 @@ void main() {
       );
       expect(find.byType(NeonUriImage), findsNWidgets(2));
 
-      await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item.png'));
+      await expectLater(
+        find.byType(DashboardWidgetItem),
+        matchesGoldenFile('goldens/widget_item.png'),
+      );
     });
 
     testWidgets('Not round', (tester) async {
@@ -107,7 +110,10 @@ void main() {
         ),
       );
 
-      await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item_not_round.png'));
+      await expectLater(
+        find.byType(DashboardWidgetItem),
+        matchesGoldenFile('goldens/widget_item_not_round.png'),
+      );
     });
 
     testWidgets('Without link', (tester) async {
@@ -167,7 +173,10 @@ void main() {
       expect(find.byIcon(AdaptiveIcons.add), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
-      await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_new.png'));
+      await expectLater(
+        find.byType(DashboardWidgetButton),
+        matchesGoldenFile('goldens/widget_button_new.png'),
+      );
     });
 
     testWidgets('More', (tester) async {
@@ -183,7 +192,10 @@ void main() {
       expect(find.byIcon(Icons.more_outlined), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
-      await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_more.png'));
+      await expectLater(
+        find.byType(DashboardWidgetButton),
+        matchesGoldenFile('goldens/widget_button_more.png'),
+      );
     });
 
     testWidgets('Setup', (tester) async {
@@ -199,7 +211,10 @@ void main() {
       expect(find.byIcon(Icons.launch), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
-      await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_setup.png'));
+      await expectLater(
+        find.byType(DashboardWidgetButton),
+        matchesGoldenFile('goldens/widget_button_setup.png'),
+      );
     });
 
     testWidgets('Invalid', (tester) async {
@@ -215,7 +230,10 @@ void main() {
       expect(find.byType(Icon), findsNothing);
       expect(find.text('Button'), findsOneWidget);
 
-      await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_invalid.png'));
+      await expectLater(
+        find.byType(DashboardWidgetButton),
+        matchesGoldenFile('goldens/widget_button_invalid.png'),
+      );
     });
   });
 
@@ -297,7 +315,10 @@ void main() {
       expect(find.byIcon(AdaptiveIcons.add), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
-      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget.png'));
+      await expectLater(
+        find.byType(DashboardWidget),
+        matchesGoldenFile('goldens/widget.png'),
+      );
     });
 
     testWidgets('Without widgetUrl', (tester) async {
@@ -355,7 +376,10 @@ void main() {
         ),
       );
 
-      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_not_round.png'));
+      await expectLater(
+        find.byType(DashboardWidget),
+        matchesGoldenFile('goldens/widget_not_round.png'),
+      );
     });
 
     testWidgets('With halfEmptyContentMessage', (tester) async {
@@ -368,7 +392,8 @@ void main() {
               children: DashboardMainPage.buildWidgetItems(
                 context: context,
                 widget: widget,
-                items: items.rebuild((b) => b.halfEmptyContentMessage = 'Half empty'),
+                items: items
+                    .rebuild((b) => b.halfEmptyContentMessage = 'Half empty'),
               ).toList(),
             ),
           ),
@@ -378,7 +403,10 @@ void main() {
       expect(find.text('Half empty'), findsOneWidget);
       expect(find.byIcon(AdaptiveIcons.check), findsOneWidget);
 
-      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_half_empty.png'));
+      await expectLater(
+        find.byType(DashboardWidget),
+        matchesGoldenFile('goldens/widget_with_half_empty.png'),
+      );
     });
 
     testWidgets('With emptyContentMessage', (tester) async {
@@ -401,7 +429,10 @@ void main() {
       expect(find.text('Empty'), findsOneWidget);
       expect(find.byIcon(AdaptiveIcons.check), findsOneWidget);
 
-      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_empty.png'));
+      await expectLater(
+        find.byType(DashboardWidget),
+        matchesGoldenFile('goldens/widget_with_empty.png'),
+      );
     });
 
     testWidgets('Without items', (tester) async {
@@ -424,7 +455,10 @@ void main() {
       expect(find.text('No entries'), findsOneWidget);
       expect(find.byIcon(AdaptiveIcons.check), findsOneWidget);
 
-      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_items.png'));
+      await expectLater(
+        find.byType(DashboardWidget),
+        matchesGoldenFile('goldens/widget_without_items.png'),
+      );
     });
 
     testWidgets('Without buttons', (tester) async {
@@ -447,7 +481,10 @@ void main() {
 
       expect(find.bySubtype<FilledButton>(), findsNothing);
 
-      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_buttons.png'));
+      await expectLater(
+        find.byType(DashboardWidget),
+        matchesGoldenFile('goldens/widget_without_buttons.png'),
+      );
     });
 
     testWidgets('With multiple buttons', (tester) async {
@@ -472,7 +509,10 @@ void main() {
 
       expect(find.bySubtype<FilledButton>(), findsExactly(2));
 
-      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_multiple_buttons.png'));
+      await expectLater(
+        find.byType(DashboardWidget),
+        matchesGoldenFile('goldens/widget_with_multiple_buttons.png'),
+      );
     });
   });
 }

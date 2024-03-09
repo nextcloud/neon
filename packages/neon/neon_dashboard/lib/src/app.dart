@@ -17,7 +17,8 @@ class DashboardApp extends AppImplementation<DashboardBloc, DashboardOptions> {
   final String id = AppIDs.dashboard;
 
   @override
-  final LocalizationsDelegate<DashboardLocalizations> localizationsDelegate = DashboardLocalizations.delegate;
+  final LocalizationsDelegate<DashboardLocalizations> localizationsDelegate =
+      DashboardLocalizations.delegate;
 
   @override
   final List<Locale> supportedLocales = DashboardLocalizations.supportedLocales;
