@@ -22,7 +22,8 @@ final class AvoidDebugPrint extends DartLintRule {
 
   static const _code = LintCode(
     name: 'avoid_debug_print',
-    problemMessage: "Do not invoke 'debugPrint' and 'debugPrintStack' in production code.",
+    problemMessage:
+        "Do not invoke 'debugPrint' and 'debugPrintStack' in production code.",
     correctionMessage: '''
 Use 'package:logging' instead.
 Refer to https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels/64806781#64806781
@@ -40,7 +41,8 @@ if unsure about the logging level to use.
   ) {
     context.registry.addInvocationExpression((node) {
       final element = node.function;
-      if (element case Identifier(:final name) when name.startsWith(_debugPrint)) {
+      if (element case Identifier(:final name)
+          when name.startsWith(_debugPrint)) {
         reporter.reportErrorForToken(code, node.beginToken);
       }
     });
