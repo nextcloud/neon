@@ -5,8 +5,9 @@ import 'package:nextcloud/spreed.dart' as spreed;
 
 /// Displays the avatar of the [room].
 ///
-/// If the room has a custom avatar it will be displayed. If that is not the case and it is a
-/// [spreed.RoomType.oneToOne] the user avatar will be shown, otherwise an appropriate icon is displayed.
+/// If the room has a custom avatar it will be displayed. If that is not the
+/// case and it is a [spreed.RoomType.oneToOne] the user avatar will be shown,
+/// otherwise an appropriate icon is displayed.
 class TalkRoomAvatar extends StatelessWidget {
   /// Creates a new Talk room avatar.
   const TalkRoomAvatar({
@@ -26,8 +27,12 @@ class TalkRoomAvatar extends StatelessWidget {
         child: ClipOval(
           child: NeonApiImage(
             getImage: (client) async => switch (brightness) {
-              Brightness.dark => client.spreed.avatar.getAvatarDark(token: room.token),
-              Brightness.light => client.spreed.avatar.getAvatar(token: room.token),
+              Brightness.dark => client.spreed.avatar.getAvatarDark(
+                  token: room.token,
+                ),
+              Brightness.light => client.spreed.avatar.getAvatar(
+                  token: room.token,
+                ),
             },
             cacheKey: 'talk-room-${room.token}-avatar-$brightness',
             etag: room.avatarVersion,
@@ -43,7 +48,8 @@ class TalkRoomAvatar extends StatelessWidget {
         ),
       spreed.RoomType.group => _buildIconAvatar(AdaptiveIcons.group),
       spreed.RoomType.public => _buildIconAvatar(AdaptiveIcons.link),
-      spreed.RoomType.changelog => _buildIconAvatar(AdaptiveIcons.text_snippet_outlined),
+      spreed.RoomType.changelog =>
+        _buildIconAvatar(AdaptiveIcons.text_snippet_outlined),
       spreed.RoomType.oneToOneFormer => _buildIconAvatar(AdaptiveIcons.lock),
       spreed.RoomType.noteToSelf => _buildIconAvatar(AdaptiveIcons.edit_note),
     };

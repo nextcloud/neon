@@ -128,7 +128,8 @@ void main() {
       ]),
     );
 
-    // The delay is necessary to avoid a race condition with loading twice at the same time
+    // The delay is necessary to avoid a race condition with loading twice at
+    // the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
     await bloc.refresh();
   });

@@ -33,7 +33,8 @@ void main() {
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
     final accountsBloc = MockAccountsBloc();
-    when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
+    when(() => accountsBloc.activeAccount)
+        .thenAnswer((_) => BehaviorSubject.seeded(account));
 
     final room = MockRoom();
     when(() => room.isCustomAvatar).thenReturn(true);
@@ -57,11 +58,14 @@ void main() {
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
     final userStatusBloc = MockUserStatusBloc();
-    when(() => userStatusBloc.statuses).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+    when(() => userStatusBloc.statuses)
+        .thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
     final accountsBloc = MockAccountsBloc();
-    when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-    when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
+    when(() => accountsBloc.activeAccount)
+        .thenAnswer((_) => BehaviorSubject.seeded(account));
+    when(() => accountsBloc.getUserStatusBlocFor(account))
+        .thenReturn(userStatusBloc);
 
     final room = MockRoom();
     when(() => room.isCustomAvatar).thenReturn(false);
@@ -83,7 +87,8 @@ void main() {
     final account = MockAccount();
 
     final accountsBloc = MockAccountsBloc();
-    when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
+    when(() => accountsBloc.activeAccount)
+        .thenAnswer((_) => BehaviorSubject.seeded(account));
 
     final room = MockRoom();
     when(() => room.isCustomAvatar).thenReturn(false);

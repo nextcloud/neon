@@ -16,5 +16,6 @@ class TalkAppRoute extends NeonBaseAppRoute {
   const TalkAppRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const TalkMainPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const TalkMainPage();
 }

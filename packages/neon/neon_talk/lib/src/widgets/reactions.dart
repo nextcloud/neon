@@ -27,7 +27,8 @@ class TalkReactions extends StatelessWidget {
               avatar: Text(reaction.key),
               label: Text(reaction.value.toString()),
               padding: EdgeInsets.zero,
-              labelPadding: const EdgeInsetsDirectional.fromSTEB(0, -2.5, 10, -2.5),
+              labelPadding:
+                  const EdgeInsetsDirectional.fromSTEB(0, -2.5, 10, -2.5),
             ),
           )
           .intersperse(

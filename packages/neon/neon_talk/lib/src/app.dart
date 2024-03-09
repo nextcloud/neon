@@ -26,7 +26,8 @@ class TalkApp extends AppImplementation<TalkBloc, TalkOptions> {
   final BuiltSet<String> additionalMatchingIDs = BuiltSet([AppIDs.spreed]);
 
   @override
-  final LocalizationsDelegate<TalkLocalizations> localizationsDelegate = TalkLocalizations.delegate;
+  final LocalizationsDelegate<TalkLocalizations> localizationsDelegate =
+      TalkLocalizations.delegate;
 
   @override
   final List<Locale> supportedLocales = TalkLocalizations.supportedLocales;

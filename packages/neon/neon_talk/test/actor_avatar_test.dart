@@ -17,8 +17,10 @@ void main() {
   });
 
   for (final type in spreed.ActorType.values) {
-    final avatarMatcher = type == spreed.ActorType.users ? findsOne : findsNothing;
-    final iconMatcher = type == spreed.ActorType.users ? findsNothing : findsOne;
+    final avatarMatcher =
+        type == spreed.ActorType.users ? findsOne : findsNothing;
+    final iconMatcher =
+        type == spreed.ActorType.users ? findsNothing : findsOne;
 
     testWidgets('$type', (tester) async {
       final account = MockAccount();
@@ -26,7 +28,8 @@ void main() {
       when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
+      when(() => accountsBloc.activeAccount)
+          .thenAnswer((_) => BehaviorSubject.seeded(account));
 
       await tester.pumpWidget(
         TestApp(

@@ -5,12 +5,17 @@ import 'package:nextcloud/spreed.dart' as spreed;
 
 /// Returns the display name of the actor of the [chatMessage].
 ///
-/// In case the actor is a guest and has no display name set a default display name will be returned.
+/// In case the actor is a guest and has no display name set a default display
+/// name will be returned.
 @internal
-String getActorDisplayName(TalkLocalizations localizations, spreed.$ChatMessageInterface chatMessage) {
+String getActorDisplayName(
+  TalkLocalizations localizations,
+  spreed.$ChatMessageInterface chatMessage,
+) {
   final actorDisplayName = chatMessage.actorDisplayName;
 
-  if (actorDisplayName.isEmpty && chatMessage.actorType == spreed.ActorType.guests) {
+  if (actorDisplayName.isEmpty &&
+      chatMessage.actorType == spreed.ActorType.guests) {
     return localizations.actorGuest;
   }
 
@@ -35,7 +40,8 @@ TextSpan buildChatMessage({
   );
 }
 
-/// Displays a preview of the [chatMessage] including the display name of the sender.
+/// Displays a preview of the [chatMessage] including the display name of the
+/// sender.
 class TalkMessagePreview extends StatelessWidget {
   /// Creates a new Talk message preview.
   const TalkMessagePreview({
@@ -61,7 +67,8 @@ class TalkMessagePreview extends StatelessWidget {
       if (chatMessage.actorId == actorId) {
         actorName = TalkLocalizations.of(context).actorSelf;
       } else if (!roomType.isSingleUser) {
-        actorName = getActorDisplayName(TalkLocalizations.of(context), chatMessage);
+        actorName =
+            getActorDisplayName(TalkLocalizations.of(context), chatMessage);
       }
     }
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
-/// Displays the number of unread messages and whether the user was mentioned for a given [room].
+/// Displays the number of unread messages and whether the user was mentioned
+/// for a given [room].
 class TalkUnreadIndicator extends StatelessWidget {
   /// Creates a new Talk unread indicator.
   const TalkUnreadIndicator({
@@ -18,9 +19,12 @@ class TalkUnreadIndicator extends StatelessWidget {
 
     final colorScheme = Theme.of(context).colorScheme;
 
-    final highlight = room.unreadMention || spreed.RoomType.fromValue(room.type).isSingleUser;
-    final backgroundColor = highlight ? colorScheme.primaryContainer : colorScheme.background;
-    final textColor = highlight ? colorScheme.onPrimaryContainer : colorScheme.onBackground;
+    final highlight =
+        room.unreadMention || spreed.RoomType.fromValue(room.type).isSingleUser;
+    final backgroundColor =
+        highlight ? colorScheme.primaryContainer : colorScheme.background;
+    final textColor =
+        highlight ? colorScheme.onPrimaryContainer : colorScheme.onBackground;
 
     Widget? avatar;
     if (room.unreadMentionDirect) {

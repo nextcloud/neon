@@ -17,6 +17,9 @@ void main() {
         ),
       ),
     );
-    await expectLater(find.byType(TalkReactions), matchesGoldenFile('goldens/reactions.png'));
+    await expectLater(
+      find.byType(TalkReactions),
+      matchesGoldenFile('goldens/reactions.png'),
+    );
   });
 }

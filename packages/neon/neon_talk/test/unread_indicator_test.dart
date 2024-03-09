@@ -43,7 +43,9 @@ void main() {
     );
     await expectLater(
       find.byType(TalkUnreadIndicator),
-      matchesGoldenFile('goldens/unread_indicator_unread_single_user_messages.png'),
+      matchesGoldenFile(
+        'goldens/unread_indicator_unread_single_user_messages.png',
+      ),
     );
   });
 

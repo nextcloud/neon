@@ -59,7 +59,8 @@ import 'localizations_en.dart';
 /// be consistent with the languages listed in the TalkLocalizations.supportedLocales
 /// property.
 abstract class TalkLocalizations {
-  TalkLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  TalkLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -67,7 +68,8 @@ abstract class TalkLocalizations {
     return Localizations.of<TalkLocalizations>(context, TalkLocalizations)!;
   }
 
-  static const LocalizationsDelegate<TalkLocalizations> delegate = _TalkLocalizationsDelegate();
+  static const LocalizationsDelegate<TalkLocalizations> delegate =
+      _TalkLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -79,7 +81,8 @@ abstract class TalkLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -102,16 +105,19 @@ abstract class TalkLocalizations {
   String get actorGuest;
 }
 
-class _TalkLocalizationsDelegate extends LocalizationsDelegate<TalkLocalizations> {
+class _TalkLocalizationsDelegate
+    extends LocalizationsDelegate<TalkLocalizations> {
   const _TalkLocalizationsDelegate();
 
   @override
   Future<TalkLocalizations> load(Locale locale) {
-    return SynchronousFuture<TalkLocalizations>(lookupTalkLocalizations(locale));
+    return SynchronousFuture<TalkLocalizations>(
+        lookupTalkLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_TalkLocalizationsDelegate old) => false;
@@ -124,7 +130,8 @@ TalkLocalizations lookupTalkLocalizations(Locale locale) {
       return TalkLocalizationsEn();
   }
 
-  throw FlutterError('TalkLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+  throw FlutterError(
+      'TalkLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
       'an issue with the localizations generation tool. Please file an issue '
       'on GitHub with a reproducible sample app and the gen-l10n configuration '
       'that was used.');

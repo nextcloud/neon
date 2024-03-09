@@ -5,7 +5,8 @@ import 'package:nextcloud/spreed.dart' as spreed;
 
 /// Displays an avatar for the actor.
 ///
-/// In case the [actorType] is [spreed.ActorType.users] the user avatar will be shown, otherwise an appropriate icon is displayed.
+/// In case the [actorType] is [spreed.ActorType.users] the user avatar will be
+/// shown, otherwise an appropriate icon is displayed.
 class TalkActorAvatar extends StatelessWidget {
   /// Creates a new Talk actor avatar.
   const TalkActorAvatar({
