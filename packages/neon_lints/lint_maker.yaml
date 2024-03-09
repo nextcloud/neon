@@ -19,7 +19,6 @@ base:
         avoid_catches_without_on_clauses: false
         avoid_print: false
         diagnostic_describe_all_properties: false
-        lines_longer_than_80_chars: false
         no_default_cases: false
         one_member_abstracts: false
         prefer_double_quotes: false

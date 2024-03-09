@@ -1,5 +1,5 @@
 {
-  "dart.lineLength": 120,
+  "dart.lineLength": 80,
   "yaml.format.singleQuote": true,
   "dart.flutterSdkPath": ".fvm/flutter_sdk",
   "dart.testInvocationMode": "line",

@@ -3,3 +3,6 @@ include: package:neon_lints/dart.yaml
 analyzer:
   exclude:
     - '**.g.dart'
+linter:
+  rules:
+    lines_longer_than_80_chars: false

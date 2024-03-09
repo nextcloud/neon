@@ -30,7 +30,7 @@ command:
         git add packages/app/pubspec.lock
 
 scripts:
-  format: dart format --fix --line-length 120 .
+  format: dart format --fix .
   format:check: dart format --output=none --set-exit-if-changed --line-length 120 .
   analyze: >
     dart analyze --fatal-infos . &&
