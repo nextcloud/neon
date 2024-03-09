@@ -107,6 +107,7 @@ copy_app_svg talk external/nextcloud-spreed
   fvm dart run sqflite_common_ffi_web:setup --force
 
   precompile_assets
+  cp ../../assets/logo.svg assets/logo.svg
 )
 
 for path in packages/neon/neon_*; do
