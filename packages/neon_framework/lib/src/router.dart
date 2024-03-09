@@ -133,7 +133,7 @@ class RouteNotFoundRoute extends GoRouteData {
 }
 
 /// {@template AppRoutes.HomeRoute}
-/// Route for the the [HomePage].
+/// Route for the [HomePage].
 /// {@endtemplate}
 @TypedGoRoute<HomeRoute>(
   path: '/',
@@ -199,7 +199,7 @@ class HomeRoute extends GoRouteData {
 }
 
 /// {@template AppRoutes.LoginRoute}
-/// Route for the the initial [LoginPage].
+/// Route for the initial [LoginPage].
 ///
 /// All routes related to the login flow are subroutes of this.
 /// All subroutes redirect to subroutes of [HomeRoute] if a at least one
@@ -244,7 +244,7 @@ class LoginRoute extends GoRouteData {
 }
 
 /// {@template AppRoutes.LoginFlowRoute}
-/// Route for the the [LoginFlowPage].
+/// Route for the [LoginFlowPage].
 ///
 /// Redirects to [_AddAccountFlowRoute] when at least one account is already
 /// logged in.
@@ -281,7 +281,7 @@ class LoginFlowRoute extends GoRouteData {
 }
 
 /// {@template AppRoutes.LoginQRcodeRoute}
-/// Route for the the [LoginQRcodePage].
+/// Route for the [LoginQRcodePage].
 ///
 /// Redirects to [_AddAccountQRcodeRoute] when at least one account is already
 /// logged in.
@@ -307,7 +307,7 @@ class LoginQRcodeRoute extends GoRouteData {
 }
 
 /// {@template AppRoutes.LoginCheckServerStatusRoute}
-/// Route for the the [LoginCheckServerStatusPage].
+/// Route for the [LoginCheckServerStatusPage].
 ///
 /// Redirects to [_AddAccountCheckServerStatusRoute] when at least one account
 /// is already logged in.
@@ -387,7 +387,7 @@ class LoginCheckServerStatusRoute extends GoRouteData {
 }
 
 /// {@template AppRoutes.LoginCheckAccountRoute}
-/// Route for the the [LoginCheckAccountPage].
+/// Route for the [LoginCheckAccountPage].
 ///
 /// Redirects to [_AddAccountCheckAccountRoute] when at least one account
 /// is already logged in.
@@ -496,7 +496,7 @@ class _AddAccountCheckAccountRoute extends LoginCheckAccountRoute {
 }
 
 /// {@template AppRoutes.AppImplementationSettingsRoute}
-/// Route for the the [AppImplementationSettingsPage].
+/// Route for the [AppImplementationSettingsPage].
 /// {@endtemplate}
 @immutable
 class AppImplementationSettingsRoute extends GoRouteData {
@@ -518,7 +518,7 @@ class AppImplementationSettingsRoute extends GoRouteData {
 }
 
 /// {@template AppRoutes.SettingsRoute}
-/// Route for the the [SettingsPage].
+/// Route for the [SettingsPage].
 /// {@endtemplate}
 @immutable
 class SettingsRoute extends GoRouteData {
