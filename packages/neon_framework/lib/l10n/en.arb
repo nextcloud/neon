@@ -91,8 +91,14 @@
   "nextPushSupported": "NextPush is supported!",
   "nextPushSupportedText": "NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.",
   "nextPushSupportedInstall": "Install NextPush",
-  "search": "Search",
-  "searchCancel": "Cancel search",
+  "searchIn": "Search in {app}",
+  "@searchIn": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
   "searchNoResults": "No search results",
   "settings": "Settings",
   "settingsApps": "Apps",

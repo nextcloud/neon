@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -21,8 +20,11 @@ import 'package:nextcloud/core.dart' as core;
 @internal
 class NeonUnifiedSearchResults extends StatelessWidget {
   const NeonUnifiedSearchResults({
+    required this.onSelected,
     super.key,
   });
+
+  final void Function(core.UnifiedSearchResultEntry entry) onSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,10 @@ class NeonUnifiedSearchResults extends StatelessWidget {
         itemBuilder: (context, index) {
           final provider = providers.requireData[index];
 
-          return NeonUnifiedSearchProvider(provider: provider);
+          return NeonUnifiedSearchProvider(
+            provider: provider,
+            onSelected: onSelected,
+          );
         },
       ),
     );
@@ -50,10 +55,13 @@ class NeonUnifiedSearchResults extends StatelessWidget {
 class NeonUnifiedSearchProvider extends StatelessWidget {
   const NeonUnifiedSearchProvider({
     required this.provider,
+    required this.onSelected,
     super.key,
   });
 
   final core.UnifiedSearchProvider provider;
+
+  final void Function(core.UnifiedSearchResultEntry entry) onSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +109,7 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
                 title: Text(entry.title),
                 subtitle: Text(entry.subline),
                 onTap: () {
-                  context.go(entry.resourceUrl);
+                  onSelected(entry);
                 },
               ),
         ];

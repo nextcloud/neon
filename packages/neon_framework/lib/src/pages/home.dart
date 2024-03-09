@@ -17,7 +17,6 @@ import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/app_bar.dart';
 import 'package:neon_framework/src/widgets/drawer.dart';
 import 'package:neon_framework/src/widgets/error.dart';
-import 'package:neon_framework/src/widgets/unified_search_results.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
@@ -109,39 +108,31 @@ class _HomePageState extends State<HomePage> {
     const drawer = NeonDrawer();
     const appBar = NeonAppBar();
 
-    final appView = StreamBuilder(
-      stream: _accountsBloc.getUnifiedSearchBlocFor(widget.account).enabled,
-      builder: (context, unifiedSearchEnabledSnapshot) {
-        if (unifiedSearchEnabledSnapshot.data ?? false) {
-          return const NeonUnifiedSearchResults();
+    final appView = ResultBuilder.behaviorSubject(
+      subject: _appsBloc.appImplementations,
+      builder: (context, appImplementations) {
+        if (!appImplementations.hasData) {
+          return const SizedBox();
         }
-        return ResultBuilder.behaviorSubject(
-          subject: _appsBloc.appImplementations,
-          builder: (context, appImplementations) {
-            if (!appImplementations.hasData) {
+
+        if (appImplementations.requireData.isEmpty) {
+          return Center(
+            child: Text(
+              NeonLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+              textAlign: TextAlign.center,
+            ),
+          );
+        }
+
+        return StreamBuilder(
+          stream: _appsBloc.activeApp,
+          builder: (context, activeAppSnapshot) {
+            if (!activeAppSnapshot.hasData) {
               return const SizedBox();
             }
 
-            if (appImplementations.requireData.isEmpty) {
-              return Center(
-                child: Text(
-                  NeonLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-                  textAlign: TextAlign.center,
-                ),
-              );
-            }
-
-            return StreamBuilder(
-              stream: _appsBloc.activeApp,
-              builder: (context, activeAppSnapshot) {
-                if (!activeAppSnapshot.hasData) {
-                  return const SizedBox();
-                }
-
-                return SafeArea(
-                  child: activeAppSnapshot.requireData.page,
-                );
-              },
+            return SafeArea(
+              child: activeAppSnapshot.requireData.page,
             );
           },
         );

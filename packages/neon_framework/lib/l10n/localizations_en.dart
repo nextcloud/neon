@@ -171,10 +171,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get nextPushSupportedInstall => 'Install NextPush';
 
   @override
-  String get search => 'Search';
-
-  @override
-  String get searchCancel => 'Cancel search';
+  String searchIn(String app) {
+    return 'Search in $app';
+  }
 
   @override
   String get searchNoResults => 'No search results';

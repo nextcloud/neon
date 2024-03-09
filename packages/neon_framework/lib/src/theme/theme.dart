@@ -113,6 +113,11 @@ class AppTheme {
       dividerTheme: _dividerTheme,
       scrollbarTheme: _scrollbarTheme,
       inputDecorationTheme: _inputDecorationTheme,
+      searchBarTheme: SearchBarThemeData(
+        elevation: const MaterialStatePropertyAll(0),
+        backgroundColor: MaterialStatePropertyAll(colorScheme.secondaryContainer),
+        textStyle: MaterialStatePropertyAll(TextStyle(color: colorScheme.onSecondaryContainer)),
+      ),
       cupertinoOverrideTheme: CupertinoThemeData(
         brightness: brightness,
         textTheme: const CupertinoTextThemeData(),
