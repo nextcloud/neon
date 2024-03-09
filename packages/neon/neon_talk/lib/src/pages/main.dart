@@ -5,6 +5,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
+import 'package:neon_talk/src/pages/room.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
@@ -80,6 +81,15 @@ class _TalkMainPageState extends State<TalkMainPage> {
       title: Text(room.displayName),
       subtitle: subtitle,
       trailing: trailing,
+      onTap: () async {
+        await Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (context) => TalkRoomPage(
+              room: room,
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -8,61 +8,8 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
-import 'package:nextcloud/spreed.dart';
 
-Map<String, dynamic> getRoom({
-  required int id,
-  required int unreadMessages,
-}) =>
-    {
-      'actorId': '',
-      'actorType': ActorType.users.name,
-      'attendeeId': 0,
-      'attendeePermissions': 0,
-      'avatarVersion': '',
-      'breakoutRoomMode': 0,
-      'breakoutRoomStatus': 0,
-      'callFlag': 0,
-      'callPermissions': 0,
-      'callRecording': 0,
-      'callStartTime': 0,
-      'canDeleteConversation': false,
-      'canEnableSIP': false,
-      'canLeaveConversation': false,
-      'canStartCall': false,
-      'defaultPermissions': 0,
-      'description': '',
-      'displayName': '',
-      'hasCall': false,
-      'hasPassword': false,
-      'id': id,
-      'isFavorite': false,
-      'lastActivity': 0,
-      'lastCommonReadMessage': 0,
-      'lastMessage': <dynamic>[],
-      'lastPing': 0,
-      'lastReadMessage': 0,
-      'listable': 0,
-      'lobbyState': 0,
-      'lobbyTimer': 0,
-      'messageExpiration': 0,
-      'name': '',
-      'notificationCalls': 0,
-      'notificationLevel': 0,
-      'objectId': '',
-      'objectType': '',
-      'participantFlags': 0,
-      'participantType': 0,
-      'permissions': 0,
-      'readOnly': 0,
-      'sessionId': '',
-      'sipEnabled': 0,
-      'token': '',
-      'type': 0,
-      'unreadMention': false,
-      'unreadMentionDirect': false,
-      'unreadMessages': unreadMessages,
-    };
+import 'testing.dart';
 
 Account mockTalkAccount() => mockServer({
       RegExp(r'/ocs/v2\.php/apps/spreed/api/v4/room'): {
