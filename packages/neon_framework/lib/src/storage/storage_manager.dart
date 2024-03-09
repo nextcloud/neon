@@ -5,8 +5,8 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
-import 'package:neon_framework/src/storage/shared_preferences_persistence.dart';
 import 'package:neon_framework/src/storage/single_value_store.dart';
+import 'package:neon_framework/src/storage/sqlite_persistence.dart';
 
 /// Neon storage that manages the storage backend.
 ///
@@ -49,7 +49,7 @@ class NeonStorage {
       _requestCache = requestCache;
     }
 
-    await SharedPreferencesPersistence.init();
+    await SQLiteCachedPersistence.init();
 
     _initialized = true;
   }
@@ -74,14 +74,14 @@ class NeonStorage {
     var key = groupKey.value;
 
     if (key.isEmpty) {
-      throw ArgumentError('The group key must not be empty to avoid conflicts with the `SingleValueStore`.');
+      throw ArgumentError.value(key, 'key', 'must not be empty to avoid conflicts with the `SingleValueStore`.');
     }
 
     if (suffix != null) {
       key = '$key-$suffix';
     }
 
-    final storage = SharedPreferencesPersistence(prefix: key);
+    final storage = SQLiteCachedPersistence(prefix: key);
     return DefaultSettingsStore(storage, suffix ?? groupKey.name);
   }
 
@@ -89,7 +89,7 @@ class NeonStorage {
   SingleValueStore singleValueStore(StorageKeys key) {
     _assertInitialized();
 
-    const storage = SharedPreferencesPersistence();
+    final storage = SQLiteCachedPersistence();
     return DefaultSingleValueStore(storage, key);
   }
 

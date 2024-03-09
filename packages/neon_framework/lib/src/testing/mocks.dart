@@ -51,7 +51,9 @@ class MockNeonStorage extends Mock implements NeonStorage {
   }
 }
 
-class MockPersistence extends Mock implements CachedPersistence {}
+class MockCachedPersistence<T extends Object> extends Mock implements CachedPersistence<T> {}
+
+class MockPersistence<T extends Object> extends Mock implements Persistence<T> {}
 
 class MockSettingsStore extends Mock implements SettingsStore {}
 
