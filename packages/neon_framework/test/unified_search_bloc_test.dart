@@ -12,7 +12,6 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/testing.dart';
-import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -167,46 +166,5 @@ void main() {
         bloc.search(entry.key);
       });
     }
-  });
-
-  test('enable', () {
-    expect(bloc.enabled, emitsInOrder([false, true]));
-
-    bloc.enable();
-  });
-
-  test('disable', () {
-    expect(
-      bloc.enabled,
-      emitsInOrder([
-        false,
-        true,
-        false,
-      ]),
-    );
-    expect(
-      bloc.results,
-      emitsInOrder([
-        BuiltMap<String, Result<core.UnifiedSearchResult>>(),
-        BuiltMap<String, Result<core.UnifiedSearchResult>>(),
-      ]),
-    );
-
-    bloc
-      ..enable()
-      ..disable();
-  });
-
-  test('disable when active app changes', () async {
-    expect(
-      bloc.enabled,
-      emitsInOrder([
-        false,
-        true,
-      ]),
-    );
-
-    bloc.enable();
-    activeApp.add(MockAppImplementation());
   });
 }

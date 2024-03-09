@@ -353,17 +353,11 @@ abstract class NeonLocalizations {
   /// **'Install NextPush'**
   String get nextPushSupportedInstall;
 
-  /// No description provided for @search.
+  /// No description provided for @searchIn.
   ///
   /// In en, this message translates to:
-  /// **'Search'**
-  String get search;
-
-  /// No description provided for @searchCancel.
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel search'**
-  String get searchCancel;
+  /// **'Search in {app}'**
+  String searchIn(String app);
 
   /// No description provided for @searchNoResults.
   ///

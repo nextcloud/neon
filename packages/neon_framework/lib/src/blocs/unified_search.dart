@@ -28,15 +28,6 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
   /// Search for a [term].
   void search(String term);
 
-  /// Enable unified search.
-  void enable();
-
-  /// Disable unified search.
-  void disable();
-
-  /// Contains whether unified search is currently enabled.
-  BehaviorSubject<bool> get enabled;
-
   /// The available search providers.
   BehaviorSubject<Result<BuiltList<core.UnifiedSearchProvider>>> get providers;
 
@@ -49,12 +40,6 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     this.appsBloc,
     this.account,
   ) {
-    appsBloc.activeApp.listen((_) {
-      if (enabled.value) {
-        disable();
-      }
-    });
-
     providers.listen((result) async {
       if (result.isLoading) {
         return;
@@ -77,9 +62,6 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   String term = '';
 
   @override
-  final enabled = BehaviorSubject.seeded(false);
-
-  @override
   final providers = BehaviorSubject.seeded(Result.success(BuiltList()));
 
   @override
@@ -87,7 +69,6 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
   @override
   void dispose() {
-    unawaited(enabled.close());
     unawaited(providers.close());
     unawaited(results.close());
     super.dispose();
@@ -109,18 +90,6 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   Future<void> search(String term) async {
     this.term = term.trim();
     await refresh();
-  }
-
-  @override
-  void enable() {
-    enabled.add(true);
-  }
-
-  @override
-  void disable() {
-    enabled.add(false);
-    results.add(BuiltMap());
-    term = '';
   }
 
   Future<void> searchProviders(List<String> providerIDs) async {
