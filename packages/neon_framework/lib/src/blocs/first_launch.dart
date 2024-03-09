@@ -8,7 +8,7 @@ import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-/// Bloc that manages tasks that only need to run at the first launch of the app.
+/// Bloc that manages tasks that only need to run at the first app launch.
 sealed class FirstLaunchBloc implements Disposable {
   @internal
   factory FirstLaunchBloc({

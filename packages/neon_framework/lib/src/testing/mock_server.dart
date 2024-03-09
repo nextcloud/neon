@@ -6,7 +6,15 @@ import 'package:neon_framework/src/models/account.dart';
 ///
 /// To be used for end-to-end testing `Bloc`s.
 Account mockServer(
-  Map<RegExp, Map<String, Response Function(RegExpMatch match, Map<String, List<String>> queryParameters)>> requests,
+  Map<
+          RegExp,
+          Map<
+              String,
+              Response Function(
+                RegExpMatch match,
+                Map<String, List<String>> queryParameters,
+              )>>
+      requests,
 ) =>
     Account(
       serverURL: Uri.parse('https://example.com'),

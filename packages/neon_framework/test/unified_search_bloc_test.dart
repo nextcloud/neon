@@ -114,7 +114,10 @@ void main() {
     }.entries) {
       test(entry.key, () {
         expect(
-          bloc.providers.transformResult((providers) => BuiltList<String>(providers.map((provider) => provider.id))),
+          bloc.providers.transformResult(
+            (providers) =>
+                BuiltList<String>(providers.map((provider) => provider.id)),
+          ),
           emitsInOrder([
             Result.success(BuiltList<String>([])),
             Result.success(BuiltList<String>([])).asLoading(),

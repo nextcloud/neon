@@ -32,12 +32,18 @@ void main() {
 
   group('RequestManager', () {
     test('singleton', () {
-      expect(identical(RequestManager.instance, RequestManager.instance), isTrue);
+      expect(
+        identical(RequestManager.instance, RequestManager.instance),
+        isTrue,
+      );
     });
 
     test('timeout', () async {
       final callback = MockCallbackFunction<bool>();
-      when(callback.call).thenAnswer((_) async => Future.delayed(const Duration(milliseconds: 100), () => true));
+      when(callback.call).thenAnswer(
+        (_) async =>
+            Future.delayed(const Duration(milliseconds: 100), () => true),
+      );
 
       expect(
         () => RequestManager.instance.timeout<bool>(
@@ -67,7 +73,8 @@ void main() {
     test('throwing DynamiteException should retry', () async {
       final subject = BehaviorSubject<Result<String>>();
       final callback = MockCallbackFunction<Uint8List>();
-      when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
+      when(callback.call)
+          .thenAnswer((_) async => throw DynamiteStatusCodeException(500));
 
       await RequestManager.instance.wrap<String, Uint8List>(
         account: account,
@@ -144,7 +151,11 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result<String>.error('TimeoutException after 0:00:00.050000: Future not completed')),
+            equals(
+              Result<String>.error(
+                'TimeoutException after 0:00:00.050000: Future not completed',
+              ),
+            ),
             emitsDone,
           ]),
         );
@@ -162,7 +173,10 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          request: () => Future.delayed(
+            const Duration(milliseconds: 100),
+            () => utf8.encode('Test value'),
+          ),
           unwrap: (deserialized) => base64.encode(deserialized),
           serialize: (deserialized) => utf8.decode(deserialized),
           deserialize: (serialized) => utf8.encode(serialized),
@@ -171,7 +185,9 @@ void main() {
 
         await subject.close();
 
-        subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
+        subject = BehaviorSubject<Result<String>>.seeded(
+          Result.success('Seed value'),
+        );
 
         // ignore: unawaited_futures
         expectLater(
@@ -204,7 +220,10 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          request: () => Future.delayed(
+            const Duration(milliseconds: 100),
+            () => utf8.encode('Test value'),
+          ),
           unwrap: (deserialized) => base64.encode(deserialized),
           serialize: (deserialized) => utf8.decode(deserialized),
           deserialize: (serialized) => utf8.encode(serialized),
@@ -239,7 +258,9 @@ void main() {
 
         await subject.close();
 
-        subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
+        subject = BehaviorSubject<Result<String>>.seeded(
+          Result.success('Seed value'),
+        );
 
         // ignore: unawaited_futures
         expectLater(
@@ -247,7 +268,14 @@ void main() {
           emitsInOrder([
             equals(Result.success('Seed value')),
             equals(Result.success('Seed value').asLoading()),
-            equals(Result('Seed value', 'ClientException: ', isLoading: false, isCached: false)),
+            equals(
+              Result(
+                'Seed value',
+                'ClientException: ',
+                isLoading: false,
+                isCached: false,
+              ),
+            ),
             emitsDone,
           ]),
         );
@@ -299,7 +327,14 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: true,
+                isCached: true,
+              ),
+            ),
             equals(Result.success(base64String('Test value'))),
             emitsDone,
           ]),
@@ -319,14 +354,23 @@ void main() {
         verify(() => cache.get('clientID-key')).called(1);
         verify(() => cache.set('clientID-key', 'Test value', null)).called(1);
 
-        subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
+        subject = BehaviorSubject<Result<String>>.seeded(
+          Result.success('Seed value'),
+        );
 
         // ignore: unawaited_futures
         expectLater(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
-            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: true,
+                isCached: true,
+              ),
+            ),
             equals(Result.success(base64String('Test value'))),
             emitsDone,
           ]),
@@ -355,7 +399,14 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: true,
+                isCached: true,
+              ),
+            ),
             equals(
               Result(
                 base64String('Cached value'),
@@ -381,7 +432,10 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          request: () => Future.delayed(
+            const Duration(milliseconds: 100),
+            () => utf8.encode('Test value'),
+          ),
           unwrap: (deserialized) => base64.encode(deserialized),
           serialize: (deserialized) => utf8.decode(deserialized),
           deserialize: (serialized) => utf8.encode(serialized),
@@ -392,14 +446,23 @@ void main() {
         verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any(), any()));
 
-        subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
+        subject = BehaviorSubject<Result<String>>.seeded(
+          Result.success('Seed value'),
+        );
 
         // ignore: unawaited_futures
         expectLater(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
-            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: true,
+                isCached: true,
+              ),
+            ),
             equals(
               Result(
                 base64String('Cached value'),
@@ -425,7 +488,10 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          request: () => Future.delayed(
+            const Duration(milliseconds: 100),
+            () => utf8.encode('Test value'),
+          ),
           unwrap: (deserialized) => base64.encode(deserialized),
           serialize: (deserialized) => utf8.decode(deserialized),
           deserialize: (serialized) => utf8.encode(serialized),
@@ -445,8 +511,22 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
-            equals(Result(base64String('Cached value'), 'ClientException: ', isLoading: false, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: true,
+                isCached: true,
+              ),
+            ),
+            equals(
+              Result(
+                base64String('Cached value'),
+                'ClientException: ',
+                isLoading: false,
+                isCached: true,
+              ),
+            ),
             emitsDone,
           ]),
         );
@@ -465,15 +545,31 @@ void main() {
         verify(() => cache.get('clientID-key')).called(1);
         verifyNever(() => cache.set(any(), any(), any()));
 
-        subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
+        subject = BehaviorSubject<Result<String>>.seeded(
+          Result.success('Seed value'),
+        );
 
         // ignore: unawaited_futures
         expectLater(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
-            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
-            equals(Result(base64String('Cached value'), 'ClientException: ', isLoading: false, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: true,
+                isCached: true,
+              ),
+            ),
+            equals(
+              Result(
+                base64String('Cached value'),
+                'ClientException: ',
+                isLoading: false,
+                isCached: true,
+              ),
+            ),
             emitsDone,
           ]),
         );
@@ -513,7 +609,14 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result(base64String('Cached value'), null, isLoading: false, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: false,
+                isCached: true,
+              ),
+            ),
             emitsDone,
           ]),
         );
@@ -551,7 +654,14 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: true,
+                isCached: true,
+              ),
+            ),
             equals(Result.success(base64String('Test value'))),
             emitsDone,
           ]),
@@ -608,7 +718,14 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result(base64String('Cached value'), null, isLoading: false, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: false,
+                isCached: true,
+              ),
+            ),
             emitsDone,
           ]),
         );
@@ -627,7 +744,12 @@ void main() {
         await subject.close();
         verify(() => cache.get('clientID-key')).called(1);
         verify(callback.call).called(1);
-        verify(() => cache.updateParameters('clientID-key', CacheParameters(etag: 'a', expires: newExpires))).called(1);
+        verify(
+          () => cache.updateParameters(
+            'clientID-key',
+            CacheParameters(etag: 'a', expires: newExpires),
+          ),
+        ).called(1);
         verifyNever(() => cache.set(any(), any(), any()));
 
         when(() => cache.getParameters(any())).thenAnswer(
@@ -655,7 +777,14 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
-            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
+            equals(
+              Result(
+                base64String('Cached value'),
+                null,
+                isLoading: true,
+                isCached: true,
+              ),
+            ),
             equals(Result.success(base64String('Test value'))),
             emitsDone,
           ]),
@@ -697,17 +826,26 @@ void main() {
             subject.stream,
             emitsInOrder([
               equals(Result<String>.loading()),
-              equals(Result('Cached value', null, isLoading: true, isCached: true)),
+              equals(
+                Result(
+                  'Cached value',
+                  null,
+                  isLoading: true,
+                  isCached: true,
+                ),
+              ),
               equals(Result.success('Test value')),
               emitsDone,
             ]),
           );
 
-          await RequestManager.instance.wrap<String, DynamiteResponse<String, Map<String, String>>>(
+          await RequestManager.instance
+              .wrap<String, DynamiteResponse<String, Map<String, String>>>(
             account: account,
             cacheKey: 'key',
             subject: subject,
-            request: () async => DynamiteRawResponse<String, Map<String, String>>(
+            request: () async =>
+                DynamiteRawResponse<String, Map<String, String>>(
               statusCode: 200,
               body: 'Test value',
               headers: {},
@@ -725,13 +863,16 @@ void main() {
                 'headers': <String, String>{},
               };
 
-              final serializer = DynamiteSerializer<String, Map<String, String>>(
+              final serializer =
+                  DynamiteSerializer<String, Map<String, String>>(
                 bodyType: const FullType(String),
-                headersType: const FullType(Map, [FullType(String), FullType(String)]),
+                headersType:
+                    const FullType(Map, [FullType(String), FullType(String)]),
                 serializers: Serializers(),
               );
 
-              return RawResponseDecoder<String, Map<String, String>>(serializer).convert(json);
+              return RawResponseDecoder<String, Map<String, String>>(serializer)
+                  .convert(json);
             },
           );
 

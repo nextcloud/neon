@@ -20,8 +20,11 @@ class AccountOptions extends OptionsCollection {
       }
 
       initialApp.values = {
-        null: (context) => NeonLocalizations.of(context).accountOptionsAutomatic,
-      }..addEntries(result.requireData.map((app) => MapEntry(app.id, app.name)));
+        null: (context) =>
+            NeonLocalizations.of(context).accountOptionsAutomatic,
+      }..addEntries(
+          result.requireData.map((app) => MapEntry(app.id, app.name)),
+        );
     });
   }
 

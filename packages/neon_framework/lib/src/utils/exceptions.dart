@@ -16,9 +16,11 @@ class NeonExceptionDetails {
   /// Text that will be displayed in the UI
   final LabelBuilder getText;
 
-  /// If the [Exception] is the result of an unauthorized API request this should be set to `true`.
+  /// If the [Exception] is the result of an unauthorized API request this
+  /// should be set to `true`.
   ///
-  /// The user will then be shown a button to update the credentials of the account instead of retrying the action.
+  /// The user will then be shown a button to update the credentials of the
+  /// account instead of retrying the action.
   final bool isUnauthorized;
 }
 
@@ -42,6 +44,7 @@ class MissingPermissionException extends NeonException {
 
   @override
   NeonExceptionDetails get details => NeonExceptionDetails(
-        getText: (context) => NeonLocalizations.of(context).errorMissingPermission(permission.toString().split('.')[1]),
+        getText: (context) => NeonLocalizations.of(context)
+            .errorMissingPermission(permission.toString().split('.')[1]),
       );
 }

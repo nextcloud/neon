@@ -15,8 +15,14 @@ void main() {
       TimerBloc().registerTimer(duration, callback);
       await Future<void>.delayed(duration);
 
-      expect(stopwatch.elapsedMilliseconds, greaterThan(duration.inMilliseconds));
-      expect(stopwatch.elapsedMilliseconds, lessThan(duration.inMilliseconds * 2));
+      expect(
+        stopwatch.elapsedMilliseconds,
+        greaterThan(duration.inMilliseconds),
+      );
+      expect(
+        stopwatch.elapsedMilliseconds,
+        lessThan(duration.inMilliseconds * 2),
+      );
       expect(TimerBloc().callbacks[duration.inSeconds], contains(callback));
       expect(TimerBloc().timers[duration.inSeconds], isNot(isNull));
     });
@@ -28,7 +34,10 @@ void main() {
       TimerBloc().registerTimer(duration, callback).cancel();
       await Future<void>.delayed(duration);
 
-      expect(TimerBloc().callbacks[duration.inSeconds], isNot(contains(callback)));
+      expect(
+        TimerBloc().callbacks[duration.inSeconds],
+        isNot(contains(callback)),
+      );
     });
 
     test('dispose', () {

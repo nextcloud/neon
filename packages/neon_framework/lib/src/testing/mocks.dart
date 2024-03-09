@@ -1,4 +1,5 @@
-// ignore_for_file: avoid_implementing_value_types, public_member_api_docs, missing_override_of_must_be_overridden
+// ignore_for_file: avoid_implementing_value_types, public_member_api_docs
+// ignore_for_file: missing_override_of_must_be_overridden
 
 import 'dart:async';
 
@@ -41,7 +42,8 @@ class MockExporter extends Mock implements Exportable {}
 
 class MockOption extends Mock implements ToggleOption {}
 
-class MockAppImplementationOptions extends Mock implements AppImplementationOptions {}
+class MockAppImplementationOptions extends Mock
+    implements AppImplementationOptions {}
 
 class MockRequestCache extends Mock implements RequestCache {}
 
@@ -55,7 +57,8 @@ class MockPersistence extends Mock implements CachedPersistence {}
 
 class MockSettingsStore extends Mock implements SettingsStore {}
 
-class MockSharedPreferencesPlatform extends Mock implements SharedPreferencesStorePlatform {
+class MockSharedPreferencesPlatform extends Mock
+    implements SharedPreferencesStorePlatform {
   @override
   bool get isMock => true;
 }

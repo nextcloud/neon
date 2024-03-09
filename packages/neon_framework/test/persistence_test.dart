@@ -65,7 +65,10 @@ void main() {
         expect(await sharedPreferences.getAll(), equals(persistence.cache));
 
         // Invalid type
-        expect(() => persistence.setValue('key.StringList', {}), throwsA(isA<ArgumentError>()));
+        expect(
+          () => persistence.setValue('key.StringList', {}),
+          throwsA(isA<ArgumentError>()),
+        );
 
         persistence.setCache('key.StringListCache', value);
         expect(persistence.getValue('key.StringListCache'), equals(value));
@@ -84,7 +87,11 @@ void main() {
           reason: 'only clears withing the prefix',
         );
 
-        await sharedPreferences.setValue('valueType', 'flutter.prefix-key', 'value');
+        await sharedPreferences.setValue(
+          'valueType',
+          'flutter.prefix-key',
+          'value',
+        );
         await persistence.reload();
         expect(persistence.containsKey('key'), isTrue);
       });
@@ -129,10 +136,16 @@ void main() {
         expect(await sharedPreferences.getAll(), equals(persistence.cache));
 
         // Invalid type
-        expect(() => persistence.setValue('no_prefix.StringList', {}), throwsA(isA<ArgumentError>()));
+        expect(
+          () => persistence.setValue('no_prefix.StringList', {}),
+          throwsA(isA<ArgumentError>()),
+        );
 
         persistence.setCache('no_prefix.StringListCache', value);
-        expect(persistence.getValue('no_prefix.StringListCache'), equals(value));
+        expect(
+          persistence.getValue('no_prefix.StringListCache'),
+          equals(value),
+        );
         var stored = await sharedPreferences.getAll();
         expect(stored.containsKey('no_prefix.StringListCache'), isFalse);
 
@@ -141,7 +154,8 @@ void main() {
         expect(
           stored,
           isEmpty,
-          reason: 'An empty prefix matches every non empty one. Clearing everything.',
+          reason: 'An empty prefix matches every non empty one. '
+              'Clearing everything.',
         );
 
         await sharedPreferences.setValue('valueType', 'flutter.key', 'value');

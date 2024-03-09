@@ -91,7 +91,8 @@ class _LoginPageState extends State<LoginPage> {
                       controller: _controller,
                       decoration: InputDecoration(
                         hintText: 'https://...',
-                        labelText: NeonLocalizations.of(context).loginUsingServerAddress,
+                        labelText: NeonLocalizations.of(context)
+                            .loginUsingServerAddress,
                         suffixIcon: IconButton(
                           icon: Icon(AdaptiveIcons.arrow_forward),
                           onPressed: () {

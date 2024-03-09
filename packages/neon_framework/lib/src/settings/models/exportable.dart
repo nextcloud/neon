@@ -28,7 +28,8 @@ extension SerializeOptions on Iterable<Option<dynamic>> {
   /// Deserializes [data] and updates the [Option]s.
   void deserialize(Map<String, Object?> data) {
     for (final entry in data.entries) {
-      final option = firstWhereOrNull((option) => option.key.value == entry.key);
+      final option =
+          firstWhereOrNull((option) => option.key.value == entry.key);
 
       if (entry.value != null) {
         option?.load(entry.value);

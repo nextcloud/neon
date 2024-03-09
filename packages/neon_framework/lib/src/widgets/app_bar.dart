@@ -45,11 +45,13 @@ class _NeonAppBarState extends State<NeonAppBar> {
     super.initState();
 
     globalOptions = NeonProvider.of<global_options.GlobalOptions>(context);
-    unifiedSearchBloc = NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc;
+    unifiedSearchBloc =
+        NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc;
     appsBloc = NeonProvider.of<AccountsBloc>(context).activeAppsBloc;
 
-    searchTermSubscription =
-        searchTermController.stream.debounceTime(const Duration(milliseconds: 250)).listen(unifiedSearchBloc.search);
+    searchTermSubscription = searchTermController.stream
+        .debounceTime(const Duration(milliseconds: 250))
+        .listen(unifiedSearchBloc.search);
   }
 
   @override
@@ -74,7 +76,8 @@ class _NeonAppBarState extends State<NeonAppBar> {
             final activeApp = activeAppSnapshot.requireData;
 
             final localizations = NeonLocalizations.of(context);
-            final hintText = localizations.searchIn(activeApp.nameFromLocalization(localizations));
+            final hintText = localizations
+                .searchIn(activeApp.nameFromLocalization(localizations));
 
             return SearchAnchor(
               isFullScreen: true,
@@ -85,12 +88,16 @@ class _NeonAppBarState extends State<NeonAppBar> {
                 return ValueListenableBuilder(
                   valueListenable: globalOptions.navigationMode,
                   builder: (context, navigationMode, _) {
-                    final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
+                    final drawerAlwaysVisible = navigationMode ==
+                        global_options.NavigationMode.drawerAlwaysVisible;
                     return SearchBar(
                       hintText: hintText,
-                      padding: const MaterialStatePropertyAll(EdgeInsetsDirectional.only(start: 4)),
+                      padding: const MaterialStatePropertyAll(
+                        EdgeInsetsDirectional.only(start: 4),
+                      ),
                       textInputAction: TextInputAction.search,
-                      leading: !drawerAlwaysVisible ? const DrawerButton() : null,
+                      leading:
+                          !drawerAlwaysVisible ? const DrawerButton() : null,
                       trailing: const [
                         NotificationIconButton(),
                         AccountSwitcherButton(),
@@ -112,7 +119,8 @@ class _NeonAppBarState extends State<NeonAppBar> {
                 ),
               ),
               viewOnChanged: searchTermController.add,
-              // The view is completely custom rendered, so we don't need the suggestions
+              // The view is completely custom rendered, so we do not need the
+              // suggestions
               suggestionsBuilder: (context, controller) async {
                 return [];
               },
@@ -152,8 +160,10 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
     _account = _accountsBloc.activeAccount.value!;
 
     notificationSubscription = _appsBloc.openNotifications.listen((_) async {
-      final notificationsAppImplementation = _appsBloc.notificationsAppImplementation.valueOrNull;
-      if (notificationsAppImplementation != null && notificationsAppImplementation.hasData) {
+      final notificationsAppImplementation =
+          _appsBloc.notificationsAppImplementation.valueOrNull;
+      if (notificationsAppImplementation != null &&
+          notificationsAppImplementation.hasData) {
         await _openNotifications(notificationsAppImplementation.data!);
       }
     });
@@ -210,19 +220,24 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
           return const SizedBox.shrink();
         }
 
-        final notificationsImplementationData = notificationsAppImplementation.data!;
-        final notificationBloc = notificationsImplementationData.getBloc(_account);
+        final notificationsImplementationData =
+            notificationsAppImplementation.data!;
+        final notificationBloc =
+            notificationsImplementationData.getBloc(_account);
 
         return IconButton(
           key: Key('app-${notificationsImplementationData.id}'),
           onPressed: () async {
             await _openNotifications(notificationsImplementationData);
           },
-          tooltip: NeonLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
+          tooltip: NeonLocalizations.of(context)
+              .appImplementationName(notificationsImplementationData.id),
           padding: const EdgeInsets.all(4),
           icon: StreamBuilder<int>(
-            stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
-            builder: (context, unreadCounterSnapshot) => NeonAppImplementationIcon(
+            stream: notificationsImplementationData
+                .getUnreadCounter(notificationBloc),
+            builder: (context, unreadCounterSnapshot) =>
+                NeonAppImplementationIcon(
               appImplementation: notificationsImplementationData,
               unreadCount: unreadCounterSnapshot.data,
             ),

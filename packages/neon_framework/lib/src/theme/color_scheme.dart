@@ -25,8 +25,10 @@ class NeonColorScheme {
         primary: primary ?? this.primary,
       );
 
-  /// The data from the closest [NeonColorScheme] instance given the build context.
-  static NeonColorScheme of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.colorScheme;
+  /// The data from the closest [NeonColorScheme] instance given the build
+  /// context.
+  static NeonColorScheme of(BuildContext context) =>
+      Theme.of(context).extension<NeonTheme>()!.colorScheme;
 
   /// Linearly interpolate between two [NeonColorScheme]s.
   ///

@@ -49,7 +49,11 @@ class LinuxNeonPlatform implements NeonPlatform {
   }
 
   @override
-  Future<void> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data) async {
+  Future<void> saveFileWithPickDialog(
+    String fileName,
+    String mimeType,
+    Uint8List data,
+  ) async {
     final result = await FilePicker.platform.saveFile(
       fileName: fileName,
     );

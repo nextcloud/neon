@@ -46,7 +46,8 @@ class Account implements Credentials, Findable {
         );
 
   /// Creates a new account object from the given [json] data.
-  factory Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
+  factory Account.fromJson(Map<String, dynamic> json) =>
+      _$AccountFromJson(json);
 
   /// Parses this object into a json like map.
   Map<String, dynamic> toJson() => _$AccountToJson(this);
@@ -105,11 +106,14 @@ class Account implements Credentials, Findable {
 
   /// Completes an incomplete [Uri] using the [serverURL].
   ///
-  /// Some Nextcloud APIs return [Uri]s to resources on the server (e.g. an image) but only give an absolute path.
-  /// Those [Uri]s need to be completed using the [serverURL] to have a working [Uri].
+  /// Some Nextcloud APIs return [Uri]s to resources (e.g. an image) on the
+  /// server but only give an absolute path. Those [Uri]s need to be completed
+  /// using the [serverURL] to have a working [Uri].
   ///
-  /// The paths of the [serverURL] and the [uri] need to be join to get the full path, unless the [uri] path is already an absolute path.
-  /// In that case an instance hosted at a sub folder will already contain the sub folder part in the [uri].
+  /// The paths of the [serverURL] and the [uri] need to be join to get the full
+  /// path, unless the [uri] path is already an absolute path. In that case an
+  /// instance hosted at a sub folder will already contain the sub folder part
+  /// in the [uri].
   Uri completeUri(Uri uri) {
     final result = serverURL.resolveUri(uri);
     if (!uri.hasAbsolutePath) {
@@ -131,8 +135,11 @@ class Account implements Credentials, Findable {
 
   /// Removes the [serverURL] part from the [uri].
   ///
-  /// Should be used when trying to push a [uri] from an API to the router as it might contain the scheme, host and sub path of the instance which will not work with the router.
-  Uri stripUri(Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
+  /// Should be used when trying to push a [uri] from an API to the router as it
+  /// might contain the scheme, host and sub path of the instance which will not
+  /// work with the router.
+  Uri stripUri(Uri uri) =>
+      Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
 }
 
 /// Global [Account.id] cache.
@@ -161,12 +168,14 @@ class LoginQRcode implements Credentials {
   final String password;
 
   /// Pattern matching the full QRcode content.
-  static final _loginQRcodeUrlRegex = RegExp(r'^nc://login/user:(.*)&password:(.*)&server:(.*)$');
+  static final _loginQRcodeUrlRegex =
+      RegExp(r'^nc://login/user:(.*)&password:(.*)&server:(.*)$');
 
   /// Pattern matching the path part of the QRcode.
   ///
   /// This is used when launching the app through an intent.
-  static final _loginQRcodePathRegex = RegExp(r'^/user:(.*)&password:(.*)&server:(.*)$');
+  static final _loginQRcodePathRegex =
+      RegExp(r'^/user:(.*)&password:(.*)&server:(.*)$');
 
   /// Creates a new `LoginQRcode` object by parsing a url string.
   ///
@@ -230,7 +239,10 @@ class LoginQRcode implements Credentials {
 
   @override
   bool operator ==(Object other) =>
-      other is LoginQRcode && other.serverURL == serverURL && other.username == username && other.password == password;
+      other is LoginQRcode &&
+      other.serverURL == serverURL &&
+      other.username == username &&
+      other.password == password;
 
   @override
   int get hashCode => Object.hashAll([

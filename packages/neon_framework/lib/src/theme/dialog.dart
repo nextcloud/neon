@@ -5,8 +5,8 @@ import 'package:neon_framework/src/widgets/dialog.dart';
 /// Defines a theme for [NeonDialog] widgets.
 ///
 /// Descendant widgets obtain the current [NeonDialogTheme] object using
-/// `NeonDialogTheme.of(context)`. Instances of [NeonDialogTheme] can be customized with
-/// [NeonDialogTheme.copyWith].
+/// `NeonDialogTheme.of(context)`. Instances of [NeonDialogTheme] can be
+/// customized with [NeonDialogTheme.copyWith].
 @immutable
 class NeonDialogTheme {
   /// Creates a dialog theme that can be used for [NeonTheme.dialogTheme].
@@ -20,8 +20,8 @@ class NeonDialogTheme {
 
   /// Used to configure the [BoxConstraints] for the [NeonDialog] widget.
   ///
-  /// This value should also be used on [Dialog.fullscreen] and other similar pages.
-  /// By default it follows the default [m3 dialog specification](https://m3.material.io/components/dialogs/specs).
+  /// This value should also be used on [Dialog.fullscreen] and other similar
+  /// pages. By default it follows the default [m3 dialog specification](https://m3.material.io/components/dialogs/specs).
   final BoxConstraints constraints;
 
   /// Padding around the content.
@@ -41,8 +41,10 @@ class NeonDialogTheme {
         padding: padding ?? this.padding,
       );
 
-  /// The data from the closest [NeonDialogTheme] instance given the build context.
-  static NeonDialogTheme of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.dialogTheme;
+  /// The data from the closest [NeonDialogTheme] instance given the build
+  /// context.
+  static NeonDialogTheme of(BuildContext context) =>
+      Theme.of(context).extension<NeonTheme>()!.dialogTheme;
 
   /// Linearly interpolate between two [NeonDialogTheme]s.
   ///
@@ -70,6 +72,8 @@ class NeonDialogTheme {
       return true;
     }
 
-    return other is NeonDialogTheme && other.constraints == constraints && other.padding == padding;
+    return other is NeonDialogTheme &&
+        other.constraints == constraints &&
+        other.padding == padding;
   }
 }

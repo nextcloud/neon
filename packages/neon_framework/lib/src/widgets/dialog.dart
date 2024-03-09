@@ -185,7 +185,8 @@ class NeonDialog extends StatelessWidget {
 
     final needsCancelAction = automaticallyShowCancel &&
         (actions == null || actions!.length <= 1) &&
-        (theme.platform == TargetPlatform.iOS || theme.platform == TargetPlatform.macOS);
+        (theme.platform == TargetPlatform.iOS ||
+            theme.platform == TargetPlatform.macOS);
 
     return AlertDialog.adaptive(
       icon: icon,
@@ -444,7 +445,8 @@ class NeonAccountSelectionDialog extends StatelessWidget {
   /// Whether the selected account is highlighted with a leading check icon.
   final bool highlightActiveAccount;
 
-  /// Whether a button for setting the status of the active account should be shown.
+  /// Whether a button for setting the status of the active account should be
+  /// shown.
   final bool showChangeStatusButton;
 
   /// The (optional) trailing children of this dialog.
@@ -465,8 +467,9 @@ class NeonAccountSelectionDialog extends StatelessWidget {
         .map<Widget>(
           (account) => NeonAccountTile(
             account: account,
-            trailing:
-                highlightActiveAccount && account.id == activeAccount.id ? Icon(AdaptiveIcons.check_circle) : null,
+            trailing: highlightActiveAccount && account.id == activeAccount.id
+                ? Icon(AdaptiveIcons.check_circle)
+                : null,
             onTap: () {
               Navigator.of(context).pop(account);
             },
@@ -533,10 +536,11 @@ enum AccountDeletion {
 
 /// Displays a confirmation dialog for deleting the [account].
 ///
-/// If the `drop_account` app is enabled the user can also choose to delete the account on the server
-/// instead of only logging out the account.
+/// If the `drop_account` app is enabled the user can also choose to delete the
+/// account on the server instead of only logging out the account.
 ///
-/// Will pop a value of type [AccountDeletion] or null if the user canceled the dialog.
+/// Will pop a value of type [AccountDeletion] or null if the user canceled the
+/// dialog.
 class NeonAccountDeletionDialog extends StatefulWidget {
   const NeonAccountDeletionDialog({
     required this.account,
@@ -546,7 +550,8 @@ class NeonAccountDeletionDialog extends StatefulWidget {
   final Account account;
 
   @override
-  State<NeonAccountDeletionDialog> createState() => _NeonAccountDeletionDialogState();
+  State<NeonAccountDeletionDialog> createState() =>
+      _NeonAccountDeletionDialogState();
 }
 
 class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
@@ -563,9 +568,13 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
   void initState() {
     super.initState();
 
-    NeonProvider.of<AccountsBloc>(context).getCapabilitiesBlocFor(widget.account).capabilities.listen((result) {
+    NeonProvider.of<AccountsBloc>(context)
+        .getCapabilitiesBlocFor(widget.account)
+        .capabilities
+        .listen((result) {
       setState(() {
-        dropAccountCapabilities = result.data?.capabilities.dropAccountCapabilities?.dropAccount;
+        dropAccountCapabilities =
+            result.data?.capabilities.dropAccountCapabilities?.dropAccount;
         if (!(dropAccountCapabilities?.enabled ?? false)) {
           value = AccountDeletion.local;
         }
@@ -604,7 +613,10 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
       return NeonConfirmationDialog(
         icon: icon,
         title: title,
-        content: Text(localizations.accountOptionsRemoveConfirm(widget.account.humanReadableID)),
+        content: Text(
+          localizations
+              .accountOptionsRemoveConfirm(widget.account.humanReadableID),
+        ),
         confirmAction: confirmAction,
         declineAction: declineAction,
       );
@@ -640,7 +652,8 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
             RadioListTile<AccountDeletion>(
               value: AccountDeletion.remote,
               groupValue: value,
-              onChanged: capabilities.enabled ? (value) => update(value!) : null,
+              onChanged:
+                  capabilities.enabled ? (value) => update(value!) : null,
               title: Text(localizations.accountOptionsRemoveRemote),
               subtitle: subtitle,
             ),
@@ -699,7 +712,8 @@ class NeonUnifiedPushDialog extends StatelessWidget {
 
 /// Shows an emoji picker.
 ///
-/// When the user selects an emoji the dialog will pop and return the emoji as a `String`.
+/// When the user selects an emoji the dialog will pop and return the emoji as a
+/// `String`.
 class NeonEmojiPickerDialog extends StatelessWidget {
   /// Creates a new emoji picker dialog.
   const NeonEmojiPickerDialog({
@@ -765,7 +779,8 @@ class NeonUserStatusDialog extends StatefulWidget {
 class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
   late final UserStatusBloc bloc;
   final messageController = TextEditingController();
-  late final StreamSubscription<Result<user_status.$PublicInterface?>> statusSubscription;
+  late final StreamSubscription<Result<user_status.$PublicInterface?>>
+      statusSubscription;
 
   late final onlineStatuses = {
     user_status.$Type.online: (
@@ -814,7 +829,8 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
     user_status.ClearAt(
       (b) => b
         ..type = user_status.ClearAt_Type.endOf
-        ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
+        ..time =
+            ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
     ),
   ];
 
@@ -829,7 +845,8 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
   void initState() {
     super.initState();
 
-    bloc = NeonProvider.of<AccountsBloc>(context).getUserStatusBlocFor(widget.account);
+    bloc = NeonProvider.of<AccountsBloc>(context)
+        .getUserStatusBlocFor(widget.account);
 
     statusSubscription = bloc.status.listen((result) {
       if (result.hasData) {
@@ -838,7 +855,8 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
     });
 
     messageController.addListener(() {
-      if ((bloc.status.valueOrNull?.data?.message ?? '') != messageController.text) {
+      if ((bloc.status.valueOrNull?.data?.message ?? '') !=
+          messageController.text) {
         bloc.setCustomMessage(
           message: messageController.text,
           icon: bloc.status.valueOrNull?.data?.icon,
@@ -853,7 +871,8 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
     final body = SingleChildScrollView(
       child: ResultBuilder.behaviorSubject(
         subject: bloc.predefinedStatuses,
-        builder: (context, predefinedStatusesResult) => ResultBuilder.behaviorSubject(
+        builder: (context, predefinedStatusesResult) =>
+            ResultBuilder.behaviorSubject(
           subject: bloc.status,
           builder: (context, statusResult) => Column(
             mainAxisSize: MainAxisSize.min,
@@ -901,7 +920,8 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
               TextField(
                 controller: messageController,
                 decoration: InputDecoration(
-                  hintText: NeonLocalizations.of(context).userStatusStatusMessage,
+                  hintText:
+                      NeonLocalizations.of(context).userStatusStatusMessage,
                   icon: SizedBox.square(
                     dimension: 50,
                     child: IconButton(
@@ -999,7 +1019,8 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
   }) {
     final localizations = NeonLocalizations.of(context);
 
-    final selectedPredefinedStatus = status is user_status.Private ? status.messageId : null;
+    final selectedPredefinedStatus =
+        status is user_status.Private ? status.messageId : null;
 
     return buildGrid(
       children: predefinedStatuses.map(
@@ -1014,11 +1035,19 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
                 style: const TextStyle(fontSize: 18),
               ),
               title: Text(status.message),
-              subtitle: Text(clearAt?.formatRelative(localizations) ?? localizations.userStatusClearAtDoNotClear),
+              subtitle: Text(
+                clearAt?.formatRelative(localizations) ??
+                    localizations.userStatusClearAtDoNotClear,
+              ),
               onTap: () {
                 bloc.setPredefinedMessage(
                   id: status.id,
-                  clearAt: clearAt != null ? clearAt.toDateTime(widget.now)!.millisecondsSinceEpoch ~/ 1000 : null,
+                  clearAt: clearAt != null
+                      ? clearAt
+                              .toDateTime(widget.now)!
+                              .millisecondsSinceEpoch ~/
+                          1000
+                      : null,
                 );
               },
             ),
@@ -1038,7 +1067,10 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
             (b) => b
               ..type = user_status.ClearAt_Type.period
               ..time = (
-                $int: DateTime.fromMillisecondsSinceEpoch(status!.clearAt! * 1000).difference(DateTime.now()).inSeconds,
+                $int:
+                    DateTime.fromMillisecondsSinceEpoch(status!.clearAt! * 1000)
+                        .difference(DateTime.now())
+                        .inSeconds,
                 clearAtTimeType: null
               ),
           )
@@ -1059,7 +1091,10 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
             bloc.setCustomMessage(
               message: bloc.status.valueOrNull?.data?.message,
               icon: bloc.status.valueOrNull?.data?.icon,
-              clearAt: clearAt != null ? clearAt.toDateTime(widget.now)!.millisecondsSinceEpoch ~/ 1000 : null,
+              clearAt: clearAt != null
+                  ? clearAt.toDateTime(widget.now)!.millisecondsSinceEpoch ~/
+                      1000
+                  : null,
             );
           },
           value: selected,
@@ -1072,7 +1107,10 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
                 (clearAt) => DropdownMenuItem(
                   value: clearAt,
                   enabled: selected == null || clearAt != selected,
-                  child: Text(clearAt?.formatRelative(localizations) ?? localizations.userStatusClearAtDoNotClear),
+                  child: Text(
+                    clearAt?.formatRelative(localizations) ??
+                        localizations.userStatusClearAtDoNotClear,
+                  ),
                 ),
               )
               .toList(),

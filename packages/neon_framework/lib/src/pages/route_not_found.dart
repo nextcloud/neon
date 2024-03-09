@@ -24,7 +24,9 @@ class RouteNotFoundPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: Text(NeonLocalizations.of(context).errorRouteNotFound(uri.toString())),
+          child: Text(
+            NeonLocalizations.of(context).errorRouteNotFound(uri.toString()),
+          ),
         ),
       ),
     );

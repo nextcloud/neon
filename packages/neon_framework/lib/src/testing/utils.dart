@@ -52,7 +52,9 @@ class TestApp extends StatelessWidget {
     final theme = AppTheme.test(platform: platform);
 
     var child = this.child;
-    if (wrapMaterial && platform != TargetPlatform.iOS && platform != TargetPlatform.macOS) {
+    if (wrapMaterial &&
+        platform != TargetPlatform.iOS &&
+        platform != TargetPlatform.macOS) {
       child = Material(child: child);
     }
 

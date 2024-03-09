@@ -37,7 +37,8 @@ abstract class InteractiveBloc extends Bloc {
   final _errorsStreamController = StreamController<Object>();
 
   /// A stream of error events.
-  late Stream<Object> errors = _errorsStreamController.stream.asBroadcastStream();
+  late Stream<Object> errors =
+      _errorsStreamController.stream.asBroadcastStream();
 
   /// Refreshes the state of the bloc.
   ///

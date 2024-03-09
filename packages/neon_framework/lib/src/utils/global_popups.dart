@@ -50,7 +50,8 @@ class GlobalPopups {
 
   /// Registers the global backups to the given [context].
   ///
-  /// Subsequent calls will update the cached `context` but will not run the registration again.
+  /// Subsequent calls will update the cached `context` but will not run the
+  /// registration again.
   void register(BuildContext context) {
     _context = context;
     if (_registered) {
@@ -72,11 +73,16 @@ class GlobalPopups {
 
           ScaffoldMessenger.of(_context).showSnackBar(
             SnackBar(
-              content: Text(NeonLocalizations.of(_context).firstLaunchGoToSettingsToEnablePushNotifications),
+              content: Text(
+                NeonLocalizations.of(_context)
+                    .firstLaunchGoToSettingsToEnablePushNotifications,
+              ),
               action: SnackBarAction(
                 label: NeonLocalizations.of(_context).settings,
                 onPressed: () {
-                  const SettingsRoute(initialCategory: SettingsCategories.pushNotifications).go(_context);
+                  const SettingsRoute(
+                    initialCategory: SettingsCategories.pushNotifications,
+                  ).go(_context);
                 },
               ),
             ),

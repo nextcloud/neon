@@ -40,7 +40,8 @@ final _log = Logger('SettingsPage');
 enum SettingsCategories {
   /// `AppImplementationOptions` category.
   ///
-  /// Each activated `AppImplementation` has an entry if it has any options specified.
+  /// Each activated `AppImplementation` has an entry if it has any options
+  /// specified.
   apps,
 
   /// Theming category.
@@ -89,7 +90,8 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final appImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
+    final appImplementations =
+        NeonProvider.of<BuiltSet<AppImplementation>>(context);
     final branding = Branding.of(context);
 
     final appBar = AppBar(
@@ -97,14 +99,17 @@ class _SettingsPageState extends State<SettingsPage> {
       actions: [
         IconButton(
           onPressed: () async {
-            final content =
-                '${NeonLocalizations.of(context).settingsResetAllConfirmation} ${NeonLocalizations.of(context).settingsResetAllExplanation}';
+            final confirmation =
+                NeonLocalizations.of(context).settingsResetAllConfirmation;
+            final explanation =
+                NeonLocalizations.of(context).settingsResetAllExplanation;
+
             final decision = await showAdaptiveDialog<bool>(
               context: context,
               builder: (context) => NeonConfirmationDialog(
                 icon: const Icon(Icons.restart_alt),
                 title: NeonLocalizations.of(context).settingsReset,
-                content: Text(content),
+                content: Text('$confirmation $explanation'),
               ),
             );
 
@@ -139,7 +144,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   leading: appImplementation.buildIcon(),
                   title: Text(appImplementation.name(context)),
                   onTap: () {
-                    AppImplementationSettingsRoute(appid: appImplementation.id).go(context);
+                    AppImplementationSettingsRoute(appid: appImplementation.id)
+                        .go(context);
                   },
                 ),
               ],
@@ -173,7 +179,8 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ],
         ),
-        if (NeonPlatform.instance.canUsePushNotifications) buildNotificationsCategory(),
+        if (NeonPlatform.instance.canUsePushNotifications)
+          buildNotificationsCategory(),
         if (NeonPlatform.instance.canUseWindowManager) ...[
           SettingsCategory(
             title: Text(NeonLocalizations.of(context).optionsCategoryStartup),
@@ -234,7 +241,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   applicationName: branding.name,
                   applicationIcon: branding.logo,
                   applicationLegalese: branding.legalese,
-                  applicationVersion: NeonProvider.of<PackageInfo>(context).version,
+                  applicationVersion:
+                      NeonProvider.of<PackageInfo>(context).version,
                 );
               },
             ),
@@ -245,13 +253,20 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               title: Text(NeonLocalizations.of(context).settingsExport),
               onTap: () async {
-                final settingsExportHelper = _buildSettingsExportHelper(context);
+                final settingsExportHelper =
+                    _buildSettingsExportHelper(context);
 
                 try {
-                  final fileName = 'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json';
+                  final fileName =
+                      // ignore: lines_longer_than_80_chars
+                      'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json';
 
                   final data = settingsExportHelper.exportToFile();
-                  await NeonPlatform.instance.saveFileWithPickDialog(fileName, 'application/json', data);
+                  await NeonPlatform.instance.saveFileWithPickDialog(
+                    fileName,
+                    'application/json',
+                    data,
+                  );
                 } on Exception catch (error, stackTrace) {
                   _log.info(
                     'Error selecting an export destination.',
@@ -272,7 +287,8 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               title: Text(NeonLocalizations.of(context).settingsImport),
               onTap: () async {
-                final settingsExportHelper = _buildSettingsExportHelper(context);
+                final settingsExportHelper =
+                    _buildSettingsExportHelper(context);
 
                 try {
                   final result = await FilePicker.platform.pickFiles(
@@ -287,13 +303,15 @@ class _SettingsPageState extends State<SettingsPage> {
                     if (context.mounted) {
                       NeonError.showSnackbar(
                         context,
-                        NeonLocalizations.of(context).settingsImportWrongFileExtension,
+                        NeonLocalizations.of(context)
+                            .settingsImportWrongFileExtension,
                       );
                     }
                     return;
                   }
 
-                  await settingsExportHelper.applyFromFile(result.files.single.readStream);
+                  await settingsExportHelper
+                      .applyFromFile(result.files.single.readStream);
                 } on Exception catch (error, stackTrace) {
                   _log.info(
                     'Error importing settings.',
@@ -332,12 +350,15 @@ class _SettingsPageState extends State<SettingsPage> {
     return ValueListenableBuilder(
       valueListenable: globalOptions.pushNotificationsEnabled,
       builder: (context, _, __) => SettingsCategory(
-        title: Text(NeonLocalizations.of(context).optionsCategoryPushNotifications),
+        title: Text(
+          NeonLocalizations.of(context).optionsCategoryPushNotifications,
+        ),
         key: ValueKey(SettingsCategories.pushNotifications.name),
         tiles: [
           if (!globalOptions.pushNotificationsEnabled.enabled)
             TextSettingsTile(
-              text: NeonLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
+              text: NeonLocalizations.of(context)
+                  .globalOptionsPushNotificationsEnabledDisabledNotice,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontStyle: FontStyle.italic,
@@ -428,7 +449,8 @@ class _SettingsPageState extends State<SettingsPage> {
   SettingsExportHelper _buildSettingsExportHelper(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final appImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
+    final appImplementations =
+        NeonProvider.of<BuiltSet<AppImplementation>>(context);
 
     return SettingsExportHelper(
       exportables: {

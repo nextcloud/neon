@@ -18,7 +18,8 @@ void main() {
     user_status.ClearAt(
       (b) => b
         ..type = user_status.ClearAt_Type.endOf
-        ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
+        ..time =
+            ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
     ): (
       localizations.userStatusClearAtThisWeek,
       DateTime(2024, 1, 8),

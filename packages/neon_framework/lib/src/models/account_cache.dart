@@ -40,7 +40,8 @@ class AccountCache<T extends Disposable> implements Disposable {
     removed?.dispose();
   }
 
-  /// The value for the given [account], or `null` if [account] is not in the cache.
+  /// The value for the given [account], or `null` if [account] is not in the
+  /// cache.
   T? operator [](Account account) => _cache[account.id];
 
   /// Associates the [account] with the given [value].

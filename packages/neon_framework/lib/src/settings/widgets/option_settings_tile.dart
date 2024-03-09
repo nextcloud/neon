@@ -119,10 +119,12 @@ class SelectSettingsTileDialog<T> extends StatefulWidget {
   final bool immediateSelection;
 
   @override
-  State<SelectSettingsTileDialog<T>> createState() => _SelectSettingsTileDialogState<T>();
+  State<SelectSettingsTileDialog<T>> createState() =>
+      _SelectSettingsTileDialogState<T>();
 }
 
-class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T>> {
+class _SelectSettingsTileDialogState<T>
+    extends State<SelectSettingsTileDialog<T>> {
   late T value;
   late SelectOption<T> option = widget.option;
 

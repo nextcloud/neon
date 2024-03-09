@@ -20,7 +20,8 @@ String? validateHttpUrl(
       return null;
     }
     if (uri.isScheme('http') && !httpsOnly) {
-      // TODO: Maybe make a better error message for http URLs if only https is allowed
+      // TODO: Maybe make a better error message for http URLs if only https is
+      // allowed
       return null;
     }
   }

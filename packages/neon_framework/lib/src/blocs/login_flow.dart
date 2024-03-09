@@ -67,7 +67,8 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
       cancelPollTimer();
       pollTimer = Timer.periodic(const Duration(seconds: 1), (_) async {
         try {
-          final resultResponse = await client.core.clientFlowLoginV2.poll(token: initResponse.body.poll.token);
+          final resultResponse = await client.core.clientFlowLoginV2
+              .poll(token: initResponse.body.poll.token);
           cancelPollTimer();
           resultController.add(resultResponse.body);
         } on DynamiteStatusCodeException catch (error) {
@@ -75,7 +76,9 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
             rethrow;
           }
 
-          log.fine('Login flow not found or completed. Polling again in one second.');
+          log.fine(
+            'Login flow not found or completed. Polling again in one second.',
+          );
         }
       });
     } on http.ClientException catch (error, stackTrace) {

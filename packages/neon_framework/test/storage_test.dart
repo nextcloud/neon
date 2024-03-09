@@ -17,10 +17,12 @@ void main() {
     });
 
     test('AppStorage interface', () async {
-      final appStorage = DefaultSettingsStore(persistence, StorageKeys.accountOptions.value);
+      final appStorage =
+          DefaultSettingsStore(persistence, StorageKeys.accountOptions.value);
       const key = 'key';
 
-      when(() => persistence.remove(key)).thenAnswer((_) => Future.value(false));
+      when(() => persistence.remove(key))
+          .thenAnswer((_) => Future.value(false));
       dynamic result = await appStorage.remove(key);
       expect(result, equals(false));
       verify(() => persistence.remove(key)).called(1);
@@ -30,7 +32,8 @@ void main() {
       expect(result, isNull);
       verify(() => persistence.getValue(key)).called(1);
 
-      when(() => persistence.setValue(key, 'value')).thenAnswer((_) => Future.value(false));
+      when(() => persistence.setValue(key, 'value'))
+          .thenAnswer((_) => Future.value(false));
       result = await appStorage.setString(key, 'value');
       expect(result, false);
       verify(() => persistence.setValue(key, 'value')).called(1);
@@ -40,7 +43,8 @@ void main() {
       expect(result, equals(true));
       verify(() => persistence.getValue(key)).called(1);
 
-      when(() => persistence.setValue(key, true)).thenAnswer((_) => Future.value(true));
+      when(() => persistence.setValue(key, true))
+          .thenAnswer((_) => Future.value(true));
       result = await appStorage.setBool(key, true);
       expect(result, true);
       verify(() => persistence.setValue(key, true)).called(1);
@@ -55,7 +59,8 @@ void main() {
       expect(result, equals(true));
       verify(() => persistence.containsKey(key)).called(1);
 
-      when(() => persistence.remove(key)).thenAnswer((_) => Future.value(false));
+      when(() => persistence.remove(key))
+          .thenAnswer((_) => Future.value(false));
       result = await storage.remove();
       expect(result, equals(false));
       verify(() => persistence.remove(key)).called(1);
@@ -65,7 +70,8 @@ void main() {
       expect(result, isNull);
       verify(() => persistence.getValue(key)).called(1);
 
-      when(() => persistence.setValue(key, 'value')).thenAnswer((_) => Future.value(false));
+      when(() => persistence.setValue(key, 'value'))
+          .thenAnswer((_) => Future.value(false));
       result = await storage.setString('value');
       expect(result, false);
       verify(() => persistence.setValue(key, 'value')).called(1);
@@ -75,7 +81,8 @@ void main() {
       expect(result, equals(true));
       verify(() => persistence.getValue(key)).called(1);
 
-      when(() => persistence.setValue(key, true)).thenAnswer((_) => Future.value(true));
+      when(() => persistence.setValue(key, true))
+          .thenAnswer((_) => Future.value(true));
       result = await storage.setBool(true);
       expect(result, true);
       verify(() => persistence.setValue(key, true)).called(1);
@@ -85,10 +92,12 @@ void main() {
       expect(result, equals(['hi there']));
       verify(() => persistence.getValue(key)).called(1);
 
-      when(() => persistence.setValue(key, BuiltList(['hi there']))).thenAnswer((_) => Future.value(false));
+      when(() => persistence.setValue(key, BuiltList(['hi there'])))
+          .thenAnswer((_) => Future.value(false));
       result = await storage.setStringList(BuiltList(['hi there']));
       expect(result, false);
-      verify(() => persistence.setValue(key, BuiltList(['hi there']))).called(1);
+      verify(() => persistence.setValue(key, BuiltList(['hi there'])))
+          .called(1);
     });
   });
 }

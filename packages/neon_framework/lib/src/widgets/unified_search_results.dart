@@ -104,7 +104,11 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
               AdaptiveListTile(
                 leading: NeonImageWrapper(
                   size: const Size.square(largeIconSize),
-                  child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
+                  child: _buildThumbnail(
+                    context,
+                    accountsBloc.activeAccount.value!,
+                    entry,
+                  ),
                 ),
                 title: Text(entry.title),
                 subtitle: Text(entry.subline),
@@ -134,18 +138,25 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
     );
   }
 
-  Widget _buildThumbnail(BuildContext context, Account account, core.UnifiedSearchResultEntry entry) {
+  Widget _buildThumbnail(
+    BuildContext context,
+    Account account,
+    core.UnifiedSearchResultEntry entry,
+  ) {
     if (entry.thumbnailUrl.isNotEmpty) {
       return NeonUriImage.withAccount(
         size: const Size.square(largeIconSize),
         uri: Uri.parse(entry.thumbnailUrl),
         account: account,
-        // The thumbnail URL might be set but a 404 is returned because there is no preview available
-        errorBuilder: (context, _) => _buildFallbackIcon(context, account, entry),
+        // The thumbnail URL might be set but a 404 is returned because there is
+        // no preview available
+        errorBuilder: (context, _) =>
+            _buildFallbackIcon(context, account, entry),
       );
     }
 
-    return _buildFallbackIcon(context, account, entry) ?? const SizedBox.shrink();
+    return _buildFallbackIcon(context, account, entry) ??
+        const SizedBox.shrink();
   }
 
   Widget? _buildFallbackIcon(
@@ -163,7 +174,10 @@ class NeonUnifiedSearchProvider extends StatelessWidget {
 
     if (entry.icon.startsWith('icon-')) {
       return NeonServerIcon(
-        colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+        colorFilter: ColorFilter.mode(
+          Theme.of(context).colorScheme.primary,
+          BlendMode.srcIn,
+        ),
         icon: entry.icon,
       );
     }

@@ -46,10 +46,12 @@ class NeonError extends StatelessWidget {
 
   /// The error object.
   ///
-  /// Can be of type [String] or [Exception], various subtypes of `Exception` are also handled separately.
+  /// Can be of type [String] or [Exception], various subtypes of `Exception`
+  /// are also handled separately.
   final Object? error;
 
-  /// A function that's called when the user decides to retry the action that lead to the error.
+  /// A function that's called when the user decides to retry the action that
+  /// lead to the error.
   final VoidCallback onRetry;
 
   /// The size of the icon in logical pixels.
@@ -103,10 +105,12 @@ class NeonError extends StatelessWidget {
       color: color,
     );
 
-    final actionMessage =
-        details.isUnauthorized ? NeonLocalizations.of(context).loginAgain : NeonLocalizations.of(context).actionRetry;
+    final actionMessage = details.isUnauthorized
+        ? NeonLocalizations.of(context).loginAgain
+        : NeonLocalizations.of(context).actionRetry;
 
-    final onPressed = details.isUnauthorized ? () => _openLoginPage(context) : onRetry;
+    final onPressed =
+        details.isUnauthorized ? () => _openLoginPage(context) : onRetry;
 
     switch (type) {
       case NeonErrorType.iconOnly:
@@ -170,48 +174,58 @@ class NeonError extends StatelessWidget {
       case DynamiteStatusCodeException():
         if (error.statusCode == 401) {
           return NeonExceptionDetails(
-            getText: (context) => NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
+            getText: (context) => NeonLocalizations.of(context)
+                .errorCredentialsForAccountNoLongerMatch,
             isUnauthorized: true,
           );
         }
         if (error.statusCode >= 500 && error.statusCode <= 599) {
           return NeonExceptionDetails(
-            getText: (context) => NeonLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
+            getText: (context) => NeonLocalizations.of(context)
+                .errorServerHadAProblemProcessingYourRequest,
           );
         }
       case SocketException():
         return NeonExceptionDetails(
           getText: (context) => error.address != null
-              ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.address!.host)
+              ? NeonLocalizations.of(context)
+                  .errorUnableToReachServerAt(error.address!.host)
               : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case ClientException():
         return NeonExceptionDetails(
           getText: (context) => error.uri != null
-              ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
+              ? NeonLocalizations.of(context)
+                  .errorUnableToReachServerAt(error.uri!.host)
               : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case HttpException():
         return NeonExceptionDetails(
           getText: (context) => error.uri != null
-              ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
+              ? NeonLocalizations.of(context)
+                  .errorUnableToReachServerAt(error.uri!.host)
               : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case TimeoutException():
         return NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorConnectionTimedOut,
+          getText: (context) =>
+              NeonLocalizations.of(context).errorConnectionTimedOut,
         );
     }
 
     return NeonExceptionDetails(
-      getText: (context) => NeonLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
+      getText: (context) =>
+          NeonLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
     );
   }
 
   static void _openLoginPage(BuildContext context) {
     unawaited(
       LoginCheckServerStatusRoute(
-        serverUrl: NeonProvider.of<AccountsBloc>(context).activeAccount.value!.serverURL,
+        serverUrl: NeonProvider.of<AccountsBloc>(context)
+            .activeAccount
+            .value!
+            .serverURL,
       ).push(context),
     );
   }

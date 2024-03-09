@@ -25,7 +25,11 @@ void main() {
       expect(a, equals(b), reason: 'ignore cached state in equality');
 
       expect(a.hashCode, equals(a.hashCode), reason: 'identical');
-      expect(a.hashCode, isNot(equals(b.hashCode)), reason: 'hashCode should respect the cached state');
+      expect(
+        a.hashCode,
+        isNot(equals(b.hashCode)),
+        reason: 'hashCode should respect the cached state',
+      );
 
       a = Result(
         data,
@@ -103,8 +107,18 @@ void main() {
     });
 
     test('copyWith', () {
-      expect(Result<dynamic>('String', 'error', isLoading: false, isCached: false).copyWith(data: '').data, '');
-      expect(Result<String>('String', 'error', isLoading: false, isCached: false).copyWith(data: '').data, '');
+      expect(
+        Result<dynamic>('String', 'error', isLoading: false, isCached: false)
+            .copyWith(data: '')
+            .data,
+        '',
+      );
+      expect(
+        Result<String>('String', 'error', isLoading: false, isCached: false)
+            .copyWith(data: '')
+            .data,
+        '',
+      );
 
       expect(Result<dynamic>.loading().copyWith(data: '').isLoading, true);
       expect(Result<String>.loading().copyWith(data: '').isLoading, true);
@@ -117,9 +131,17 @@ void main() {
     });
 
     test('toString', () {
-      final result = Result<dynamic>('value', Exception(), isLoading: false, isCached: true);
+      final result = Result<dynamic>(
+        'value',
+        Exception(),
+        isLoading: false,
+        isCached: true,
+      );
 
-      expect(result.toString(), 'Result(value, Exception, isLoading: false, isCached: true)');
+      expect(
+        result.toString(),
+        'Result(value, Exception, isLoading: false, isCached: true)',
+      );
     });
   });
 }

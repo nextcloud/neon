@@ -26,7 +26,8 @@ abstract interface class RequestCache {
   /// Retrieves the cache parameters for the given [key].
   Future<CacheParameters> getParameters(String key);
 
-  /// Updates the cache [parameters] for a given [key] without modifying the `value`.
+  /// Updates the cache [parameters] for a given [key] without modifying the
+  /// `value`.
   Future<void> updateParameters(String key, CacheParameters? parameters);
 }
 
@@ -35,9 +36,9 @@ abstract interface class RequestCache {
 /// Values are persisted locally in an SQLite database in the application cache
 /// directory.
 ///
-/// The database must be initialized with by calling `DefaultRequestCache().init()`
-/// and awaiting it's completion. If the database is not yet initialized a
-/// `StateError` will be thrown.
+/// The database must be initialized with by calling
+/// `DefaultRequestCache().init()` and awaiting it's completion. If the database
+/// is not yet initialized a `StateError` will be thrown.
 @internal
 class DefaultRequestCache implements RequestCache {
   /// Creates a new request cache instance.
@@ -49,7 +50,8 @@ class DefaultRequestCache implements RequestCache {
 
   /// Initializes this request cache by setting up the backing SQLite database.
   ///
-  /// This must called and completed before accessing other methods of the cache.
+  /// This must called and completed before accessing other methods of the
+  /// cache.
   Future<void> init() async {
     if (_database != null) {
       return;
@@ -57,7 +59,8 @@ class DefaultRequestCache implements RequestCache {
 
     assert(
       NeonPlatform.instance.canUsePaths,
-      'Tried to initialize DefaultRequestCache on a platform without support for paths',
+      'Tried to initialize DefaultRequestCache on a platform without '
+      'support for paths',
     );
     final cacheDir = await getApplicationCacheDirectory();
     _database = await openDatabase(
@@ -65,7 +68,7 @@ class DefaultRequestCache implements RequestCache {
       version: 2,
       onCreate: (db, version) async {
         await db.execute(
-          'CREATE TABLE cache (id INTEGER PRIMARY KEY, key TEXT, value TEXT, etag TEXT, expires INTEGER, UNIQUE(key))',
+          '''CREATE TABLE cache (id INTEGER PRIMARY KEY, key TEXT, value TEXT, etag TEXT, expires INTEGER, UNIQUE(key))''',
         );
       },
       onUpgrade: (db, oldVersion, newVersion) async {
@@ -84,7 +87,8 @@ class DefaultRequestCache implements RequestCache {
     final database = _database;
     if (database == null) {
       throw StateError(
-        'Cache has not been set up yet. Please make sure DefaultRequestCache.init() has been called before and completed.',
+        'Cache has not been set up yet. Please make sure '
+        'DefaultRequestCache.init() has been called before and completed.',
       );
     }
 
@@ -95,7 +99,8 @@ class DefaultRequestCache implements RequestCache {
   Future<String?> get(String key) async {
     List<Map<String, Object?>>? result;
     try {
-      result = await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
+      result = await _requireDatabase
+          .rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
     } on DatabaseException catch (error, stackTrace) {
       _log.severe(
         'Error while getting `$key` from cache.',
@@ -108,7 +113,11 @@ class DefaultRequestCache implements RequestCache {
   }
 
   @override
-  Future<void> set(String key, String value, CacheParameters? parameters) async {
+  Future<void> set(
+    String key,
+    String value,
+    CacheParameters? parameters,
+  ) async {
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
       // Using a manual solution from https://stackoverflow.com/a/38463024
@@ -125,8 +134,13 @@ class DefaultRequestCache implements RequestCache {
           whereArgs: [key],
         )
         ..rawInsert(
-          'INSERT INTO cache (key, value, etag, expires) SELECT ?, ?, ?, ? WHERE (SELECT changes() = 0)',
-          [key, value, parameters?.etag, parameters?.expires?.millisecondsSinceEpoch],
+          '''INSERT INTO cache (key, value, etag, expires) SELECT ?, ?, ?, ? WHERE (SELECT changes() = 0)''',
+          [
+            key,
+            value,
+            parameters?.etag,
+            parameters?.expires?.millisecondsSinceEpoch,
+          ],
         );
       await batch.commit(noResult: true);
     } on DatabaseException catch (error, stackTrace) {
@@ -142,7 +156,8 @@ class DefaultRequestCache implements RequestCache {
   Future<CacheParameters> getParameters(String key) async {
     List<Map<String, Object?>>? result;
     try {
-      result = await _requireDatabase.rawQuery('SELECT etag, expires FROM cache WHERE key = ?', [key]);
+      result = await _requireDatabase
+          .rawQuery('SELECT etag, expires FROM cache WHERE key = ?', [key]);
     } on DatabaseException catch (error, stackTrace) {
       _log.severe(
         'Error getting the cache parameters for `$key` from cache.',
@@ -156,7 +171,8 @@ class DefaultRequestCache implements RequestCache {
     final expires = row?['expires'] as int?;
     return CacheParameters(
       etag: row?['etag'] as String?,
-      expires: expires != null ? DateTime.fromMillisecondsSinceEpoch(expires) : null,
+      expires:
+          expires != null ? DateTime.fromMillisecondsSinceEpoch(expires) : null,
     );
   }
 

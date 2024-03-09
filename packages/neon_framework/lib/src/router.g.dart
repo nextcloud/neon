@@ -18,7 +18,8 @@ RouteBase get $routeNotFoundRoute => GoRouteData.$route(
     );
 
 extension $RouteNotFoundRouteExtension on RouteNotFoundRoute {
-  static RouteNotFoundRoute _fromState(GoRouterState state) => RouteNotFoundRoute(
+  static RouteNotFoundRoute _fromState(GoRouterState state) =>
+      RouteNotFoundRoute(
         uri: Uri.parse(state.pathParameters['uri']!),
       );
 
@@ -30,7 +31,8 @@ extension $RouteNotFoundRouteExtension on RouteNotFoundRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
@@ -65,7 +67,8 @@ RouteBase get $homeRoute => GoRouteData.$route(
                 ),
                 GoRouteData.$route(
                   path: 'check/server',
-                  factory: $_AddAccountCheckServerStatusRouteExtension._fromState,
+                  factory:
+                      $_AddAccountCheckServerStatusRouteExtension._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'check/account',
@@ -94,21 +97,23 @@ extension $HomeRouteExtension on HomeRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension $SettingsRouteExtension on SettingsRoute {
   static SettingsRoute _fromState(GoRouterState state) => SettingsRoute(
-        initialCategory:
-            _$convertMapValue('initial-category', state.uri.queryParameters, _$SettingsCategoriesEnumMap._$fromName),
+        initialCategory: _$convertMapValue('initial-category',
+            state.uri.queryParameters, _$SettingsCategoriesEnumMap._$fromName),
       );
 
   String get location => GoRouteData.$location(
         '/settings',
         queryParams: {
-          if (initialCategory != null) 'initial-category': _$SettingsCategoriesEnumMap[initialCategory!],
+          if (initialCategory != null)
+            'initial-category': _$SettingsCategoriesEnumMap[initialCategory!],
         },
       );
 
@@ -116,7 +121,8 @@ extension $SettingsRouteExtension on SettingsRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
@@ -131,8 +137,10 @@ const _$SettingsCategoriesEnumMap = {
   SettingsCategories.other: 'other',
 };
 
-extension $AppImplementationSettingsRouteExtension on AppImplementationSettingsRoute {
-  static AppImplementationSettingsRoute _fromState(GoRouterState state) => AppImplementationSettingsRoute(
+extension $AppImplementationSettingsRouteExtension
+    on AppImplementationSettingsRoute {
+  static AppImplementationSettingsRoute _fromState(GoRouterState state) =>
+      AppImplementationSettingsRoute(
         appid: state.pathParameters['appid']!,
       );
 
@@ -144,13 +152,15 @@ extension $AppImplementationSettingsRouteExtension on AppImplementationSettingsR
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension $_AddAccountRouteExtension on _AddAccountRoute {
-  static _AddAccountRoute _fromState(GoRouterState state) => const _AddAccountRoute();
+  static _AddAccountRoute _fromState(GoRouterState state) =>
+      const _AddAccountRoute();
 
   String get location => GoRouteData.$location(
         '/settings/account/add',
@@ -160,13 +170,15 @@ extension $_AddAccountRouteExtension on _AddAccountRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension $_AddAccountFlowRouteExtension on _AddAccountFlowRoute {
-  static _AddAccountFlowRoute _fromState(GoRouterState state) => _AddAccountFlowRoute(
+  static _AddAccountFlowRoute _fromState(GoRouterState state) =>
+      _AddAccountFlowRoute(
         serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
       );
 
@@ -181,13 +193,15 @@ extension $_AddAccountFlowRouteExtension on _AddAccountFlowRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension $_AddAccountQRcodeRouteExtension on _AddAccountQRcodeRoute {
-  static _AddAccountQRcodeRoute _fromState(GoRouterState state) => const _AddAccountQRcodeRoute();
+  static _AddAccountQRcodeRoute _fromState(GoRouterState state) =>
+      const _AddAccountQRcodeRoute();
 
   String get location => GoRouteData.$location(
         '/settings/account/add/qr-code',
@@ -197,13 +211,16 @@ extension $_AddAccountQRcodeRouteExtension on _AddAccountQRcodeRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $_AddAccountCheckServerStatusRouteExtension on _AddAccountCheckServerStatusRoute {
-  static _AddAccountCheckServerStatusRoute _fromState(GoRouterState state) => _AddAccountCheckServerStatusRoute(
+extension $_AddAccountCheckServerStatusRouteExtension
+    on _AddAccountCheckServerStatusRoute {
+  static _AddAccountCheckServerStatusRoute _fromState(GoRouterState state) =>
+      _AddAccountCheckServerStatusRoute(
         serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
       );
 
@@ -218,13 +235,16 @@ extension $_AddAccountCheckServerStatusRouteExtension on _AddAccountCheckServerS
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $_AddAccountCheckAccountRouteExtension on _AddAccountCheckAccountRoute {
-  static _AddAccountCheckAccountRoute _fromState(GoRouterState state) => _AddAccountCheckAccountRoute(
+extension $_AddAccountCheckAccountRouteExtension
+    on _AddAccountCheckAccountRoute {
+  static _AddAccountCheckAccountRoute _fromState(GoRouterState state) =>
+      _AddAccountCheckAccountRoute(
         serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
         loginName: state.uri.queryParameters['login-name']!,
         password: state.uri.queryParameters['password']!,
@@ -243,13 +263,15 @@ extension $_AddAccountCheckAccountRouteExtension on _AddAccountCheckAccountRoute
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension $AccountSettingsRouteExtension on AccountSettingsRoute {
-  static AccountSettingsRoute _fromState(GoRouterState state) => AccountSettingsRoute(
+  static AccountSettingsRoute _fromState(GoRouterState state) =>
+      AccountSettingsRoute(
         accountID: state.pathParameters['accountID']!,
       );
 
@@ -261,7 +283,8 @@ extension $AccountSettingsRouteExtension on AccountSettingsRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
@@ -276,7 +299,8 @@ T? _$convertMapValue<T>(
 }
 
 extension<T extends Enum> on Map<T, String> {
-  T _$fromName(String value) => entries.singleWhere((element) => element.value == value).key;
+  T _$fromName(String value) =>
+      entries.singleWhere((element) => element.value == value).key;
 }
 
 RouteBase get $loginRoute => GoRouteData.$route(
@@ -314,7 +338,8 @@ extension $LoginRouteExtension on LoginRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
@@ -335,13 +360,15 @@ extension $LoginFlowRouteExtension on LoginFlowRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension $LoginQRcodeRouteExtension on LoginQRcodeRoute {
-  static LoginQRcodeRoute _fromState(GoRouterState state) => const LoginQRcodeRoute();
+  static LoginQRcodeRoute _fromState(GoRouterState state) =>
+      const LoginQRcodeRoute();
 
   String get location => GoRouteData.$location(
         '/login/qr-code',
@@ -351,13 +378,15 @@ extension $LoginQRcodeRouteExtension on LoginQRcodeRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
-  static LoginCheckServerStatusRoute _fromState(GoRouterState state) => LoginCheckServerStatusRoute(
+  static LoginCheckServerStatusRoute _fromState(GoRouterState state) =>
+      LoginCheckServerStatusRoute(
         serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
         loginName: state.uri.queryParameters['login-name'],
         password: state.uri.queryParameters['password'],
@@ -376,13 +405,15 @@ extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension $LoginCheckAccountRouteExtension on LoginCheckAccountRoute {
-  static LoginCheckAccountRoute _fromState(GoRouterState state) => LoginCheckAccountRoute(
+  static LoginCheckAccountRoute _fromState(GoRouterState state) =>
+      LoginCheckAccountRoute(
         serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
         loginName: state.uri.queryParameters['login-name']!,
         password: state.uri.queryParameters['password']!,
@@ -401,7 +432,8 @@ extension $LoginCheckAccountRouteExtension on LoginCheckAccountRoute {
 
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
 }

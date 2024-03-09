@@ -29,7 +29,8 @@ enum StorageKeys implements Storable {
   /// The key for the `AccountsBloc` last used account.
   lastUsedAccount._('last-used-account'),
 
-  /// The key used by the `PushNotificationsBloc` to persist the last used endpoint.
+  /// The key used by the `PushNotificationsBloc` to persist the last used
+  /// endpoint.
   lastEndpoint._('last-endpoint'),
 
   /// The key for the `FirstLaunchBloc`.

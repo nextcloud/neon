@@ -50,10 +50,12 @@ class NeonListView extends StatelessWidget {
   /// The scroll key attached to this list view.
   final String scrollKey;
 
-  /// A list of widgets that are displayed at the top of the but do not scroll with it.
+  /// A list of widgets that are displayed at the top of the but do not scroll
+  /// with it.
   final List<Widget>? topFixedChildren;
 
-  /// A list of widgets that are displayed at the top of the list and scroll with it.
+  /// A list of widgets that are displayed at the top of the list and scroll
+  /// with it.
   final List<Widget>? topScrollingChildren;
 
   /// Whether the scroll view scrolls in the reading direction.
@@ -67,7 +69,8 @@ class NeonListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
-    final hasFloatingActionButton = Scaffold.maybeOf(context)?.hasFloatingActionButton ?? false;
+    final hasFloatingActionButton =
+        Scaffold.maybeOf(context)?.hasFloatingActionButton ?? false;
 
     return RefreshIndicator.adaptive(
       key: refreshIndicatorKey,
@@ -103,7 +106,9 @@ class NeonListView extends StatelessWidget {
               itemBuilder: (context, index) => topScrollingChildren![index],
             ),
           SliverPadding(
-            padding: hasFloatingActionButton ? const EdgeInsets.only(bottom: 88) : EdgeInsets.zero,
+            padding: hasFloatingActionButton
+                ? const EdgeInsets.only(bottom: 88)
+                : EdgeInsets.zero,
             sliver: sliver,
           ),
         ],

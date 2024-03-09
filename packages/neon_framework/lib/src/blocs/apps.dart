@@ -39,16 +39,19 @@ abstract class AppsBloc implements InteractiveBloc {
   /// Sets the active app using the [appID].
   ///
   /// If the app is already the active app nothing will happen.
-  /// When using [skipAlreadySet] nothing will be done if there already is an active app.
+  /// When using [skipAlreadySet] nothing will be done if there already is an
+  /// active app.
   void setActiveApp(String appID, {bool skipAlreadySet = false});
 
   /// A collection of clients used in the app drawer.
   ///
-  /// It does not contain clients for that are specially handled like for the notifications.
+  /// It does not contain clients for that are specially handled like for the
+  /// notifications.
   BehaviorSubject<Result<BuiltSet<AppImplementation>>> get appImplementations;
 
   /// The interface of the notifications app.
-  BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
+  BehaviorSubject<Result<NotificationsAppInterface?>>
+      get notificationsAppImplementation;
 
   /// The currently active app.
   BehaviorSubject<AppImplementation> get activeApp;
@@ -61,10 +64,12 @@ abstract class AppsBloc implements InteractiveBloc {
 
   /// Returns the active [Bloc] for the given [appImplementation].
   ///
-  /// If no bloc exists yet a new one will be instantiated and cached in [AppImplementation.blocsCache].
+  /// If no bloc exists yet a new one will be instantiated and cached in
+  /// [AppImplementation.blocsCache].
   T getAppBloc<T extends Bloc>(AppImplementation<T, dynamic> appImplementation);
 
-  /// Returns the active [Bloc] for every registered [AppImplementation] wrapped in a Provider.
+  /// Returns the active [Bloc] for every registered [AppImplementation] wrapped
+  /// in a Provider.
   List<Provider<Bloc>> get appBlocProviders;
 }
 
@@ -78,7 +83,11 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     this.allAppImplementations,
   ) {
     apps.listen((result) {
-      appImplementations.add(result.transform((data) => filteredAppImplementations(data.map((a) => a.id))));
+      appImplementations.add(
+        result.transform(
+          (data) => filteredAppImplementations(data.map((a) => a.id)),
+        ),
+      );
 
       if (result.hasData) {
         unawaited(updateApps());
@@ -88,9 +97,10 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     capabilitiesBloc.capabilities.listen((result) {
       notificationsAppImplementation.add(
         result.transform(
-          (data) => data.capabilities.notificationsCapabilities?.notifications != null
-              ? findAppImplementation(AppIDs.notifications)
-              : null,
+          (data) =>
+              data.capabilities.notificationsCapabilities?.notifications != null
+                  ? findAppImplementation(AppIDs.notifications)
+                  : null,
         ),
       );
 
@@ -105,10 +115,12 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   @override
   final log = Logger('AppsBloc');
 
-  /// Disposes all unsupported apps, sets the active app and checks the app compatibility.
+  /// Disposes all unsupported apps, sets the active app and checks the app
+  /// compatibility.
   ///
   /// Blocs of apps that are no longer present on the server are disposed.
-  /// The notifications app is handled separately because it does not appear in the list of apps.
+  /// The notifications app is handled separately because it does not appear in
+  /// the list of apps.
   Future<void> updateApps() async {
     // dispose unsupported apps
     for (final app in allAppImplementations) {
@@ -141,8 +153,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   /// Determines the appid of initial app.
   ///
-  /// First the user selected initial app is checked, then the dashboard app and as the last one the files app.
-  /// If none of those apps are installed, the first supported one will be returned.
+  /// First the user selected initial app is checked, then the dashboard app and
+  /// as the last one the files app. If none of those apps are installed, the
+  /// first supported one will be returned.
   /// Returns null when no app is supported by the server.
   String? getInitialAppFallback() {
     final supportedApps = appImplementations.valueOrNull?.data;
@@ -151,7 +164,13 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     }
 
     final options = accountsBloc.getOptionsFor(account);
-    for (final fallback in {options.initialApp.value, AppIDs.dashboard, AppIDs.files}) {
+    final apps = {
+      options.initialApp.value,
+      AppIDs.dashboard,
+      AppIDs.files,
+    };
+
+    for (final fallback in apps) {
       if (supportedApps.tryFind(fallback) != null) {
         return fallback;
       }
@@ -169,20 +188,26 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     final capabilities = capabilitiesBloc.capabilities.valueOrNull;
 
     // ignore cached data
-    if (capabilities == null || apps == null || !capabilities.hasSuccessfulData || !apps.hasSuccessfulData) {
+    if (capabilities == null ||
+        apps == null ||
+        !capabilities.hasSuccessfulData ||
+        !apps.hasSuccessfulData) {
       return;
     }
 
     final notSupported = MapBuilder<String, VersionCheck>();
 
-    final coreCheck = account.client.core.getVersionCheck(capabilities.requireData);
-    if (!coreCheck.isSupported && !capabilities.requireData.version.string.contains('dev')) {
+    final coreCheck =
+        account.client.core.getVersionCheck(capabilities.requireData);
+    if (!coreCheck.isSupported &&
+        !capabilities.requireData.version.string.contains('dev')) {
       notSupported['core'] = coreCheck;
     }
 
     for (final app in apps.requireData) {
       try {
-        final check = await app.getVersionCheck(account, capabilities.requireData);
+        final check =
+            await app.getVersionCheck(account, capabilities.requireData);
 
         if (check == null) {
           continue;
@@ -214,12 +239,19 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     return null;
   }
 
-  BuiltSet<AppImplementation> filteredAppImplementations(Iterable<String> appIds) => BuiltSet(
-        allAppImplementations.where(
-          (a) =>
-              appIds.contains(a.id) || a.additionalMatchingIDs?.firstWhereOrNull((id) => appIds.contains(id)) != null,
-        ),
-      );
+  BuiltSet<AppImplementation> filteredAppImplementations(
+    Iterable<String> appIds,
+  ) {
+    return BuiltSet(
+      allAppImplementations.where(
+        (a) =>
+            appIds.contains(a.id) ||
+            a.additionalMatchingIDs
+                    ?.firstWhereOrNull((id) => appIds.contains(id)) !=
+                null,
+      ),
+    );
+  }
 
   final CapabilitiesBloc capabilitiesBloc;
   final AccountsBloc accountsBloc;
@@ -261,7 +293,8 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       cacheKey: 'apps-apps',
       subject: apps,
       request: account.client.core.navigation.$getAppsNavigation_Request(),
-      serializer: account.client.core.navigation.$getAppsNavigation_Serializer(),
+      serializer:
+          account.client.core.navigation.$getAppsNavigation_Serializer(),
       unwrap: (response) => response.body.ocs.data,
     );
   }
@@ -282,16 +315,23 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       throw Exception('App $appID not found');
     }
 
-    // Only override the current active app in case it is not yet set, not supported or explicitly requested
-    if (!activeApp.hasValue || !skipAlreadySet || apps.requireData.tryFind(activeApp.value.id) == null) {
+    // Only override the current active app in case it is not yet set, not
+    // supported or explicitly requested
+    if (!activeApp.hasValue ||
+        !skipAlreadySet ||
+        apps.requireData.tryFind(activeApp.value.id) == null) {
       activeApp.add(app);
     }
   }
 
   @override
-  T getAppBloc<T extends Bloc>(AppImplementation<T, dynamic> appImplementation) => appImplementation.getBloc(account);
+  T getAppBloc<T extends Bloc>(
+    AppImplementation<T, dynamic> appImplementation,
+  ) =>
+      appImplementation.getBloc(account);
 
   @override
-  List<Provider<Bloc>> get appBlocProviders =>
-      allAppImplementations.map((appImplementation) => appImplementation.blocProvider).toList();
+  List<Provider<Bloc>> get appBlocProviders => allAppImplementations
+      .map((appImplementation) => appImplementation.blocProvider)
+      .toList();
 }

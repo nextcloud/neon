@@ -34,8 +34,14 @@ void main() {
 
   test('Duration', () {
     for (final entry in durations.entries) {
-      expect(entry.key.formatRelative(localizations, includeSign: false), entry.value.$1);
-      expect(entry.key.formatRelative(localizations, includeSign: true), entry.value.$2);
+      expect(
+        entry.key.formatRelative(localizations, includeSign: false),
+        entry.value.$1,
+      );
+      expect(
+        entry.key.formatRelative(localizations, includeSign: true),
+        entry.value.$2,
+      );
     }
   });
 
@@ -45,8 +51,18 @@ void main() {
     expect(base.formatRelative(localizations), 'now');
 
     for (final entry in durations.entries) {
-      expect(base.add(entry.key).formatRelative(localizations, to: base, includeSign: false), entry.value.$1);
-      expect(base.add(entry.key).formatRelative(localizations, to: base, includeSign: true), entry.value.$2);
+      expect(
+        base
+            .add(entry.key)
+            .formatRelative(localizations, to: base, includeSign: false),
+        entry.value.$1,
+      );
+      expect(
+        base
+            .add(entry.key)
+            .formatRelative(localizations, to: base, includeSign: true),
+        entry.value.$2,
+      );
     }
   });
 }

@@ -43,13 +43,15 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
       globalOptions.pushNotificationsDistributor.stream,
       accountsBloc.accounts,
     ]).debounceTime(const Duration(milliseconds: 100)).listen((_) async {
-      if (!globalOptions.pushNotificationsEnabled.enabled || !globalOptions.pushNotificationsEnabled.value) {
+      if (!globalOptions.pushNotificationsEnabled.enabled ||
+          !globalOptions.pushNotificationsEnabled.value) {
         return;
       }
       if (globalOptions.pushNotificationsDistributor.value != null) {
         return;
       }
-      if (globalOptions.pushNotificationsDistributor.values.containsKey(unifiedPushNextPushID)) {
+      if (globalOptions.pushNotificationsDistributor.values
+          .containsKey(unifiedPushNextPushID)) {
         // NextPush is already installed
         return;
       }

@@ -40,23 +40,28 @@ abstract interface class AccountsBloc implements Disposable {
 
   /// Logs in the given [account].
   ///
-  /// It will also call [setActiveAccount] when no other accounts are registered in [AccountsBloc.accounts].
+  /// It will also call [setActiveAccount] when no other accounts are registered
+  /// in [AccountsBloc.accounts].
   void addAccount(Account account);
 
   /// Logs out the given [account].
   ///
-  /// If [account] is the current [AccountsBloc.activeAccount] it will automatically activate the first one in [AccountsBloc.accounts].
-  /// It is not defined whether listeners of [AccountsBloc.accounts] or [AccountsBloc.activeAccount] are informed first.
+  /// If [account] is the current [AccountsBloc.activeAccount] it will
+  /// automatically activate the first one in [AccountsBloc.accounts].
+  /// It is not defined whether listeners of [AccountsBloc.accounts] or
+  /// [AccountsBloc.activeAccount] are informed first.
   void removeAccount(Account account);
 
   /// Updates the given [account].
   ///
-  /// It triggers an event in both [AccountsBloc.accounts] and [AccountsBloc.activeAccount] to inform all listeners.
+  /// It triggers an event in both [AccountsBloc.accounts] and
+  /// [AccountsBloc.activeAccount] to inform all listeners.
   void updateAccount(Account account);
 
   /// Sets the active [account].
   ///
-  /// It triggers an event in [AccountsBloc.activeAccount] to inform all listeners.
+  /// It triggers an event in [AccountsBloc.activeAccount] to inform all
+  /// listeners.
   void setActiveAccount(Account account);
 
   /// All registered accounts.
@@ -95,7 +100,8 @@ abstract interface class AccountsBloc implements Disposable {
 
   /// The capabilitiesBloc for the [activeAccount].
   ///
-  /// Convenience method for [getCapabilitiesBlocFor] with the currently active account.
+  /// Convenience method for [getCapabilitiesBlocFor] with the currently active
+  /// account.
   CapabilitiesBloc get activeCapabilitiesBloc;
 
   /// The capabilitiesBloc for the specified [account].
@@ -105,7 +111,8 @@ abstract interface class AccountsBloc implements Disposable {
 
   /// The userDetailsBloc for the [activeAccount].
   ///
-  /// Convenience method for [getUserDetailsBlocFor] with the currently active account.
+  /// Convenience method for [getUserDetailsBlocFor] with the currently active
+  /// account.
   UserDetailsBloc get activeUserDetailsBloc;
 
   /// The userDetailsBloc for the specified [account].
@@ -115,7 +122,8 @@ abstract interface class AccountsBloc implements Disposable {
 
   /// The userStatusBloc for the [activeAccount].
   ///
-  /// Convenience method for [getUserStatusBlocFor] with the currently active account.
+  /// Convenience method for [getUserStatusBlocFor] with the currently active
+  /// account.
   UserStatusBloc get activeUserStatusBloc;
 
   /// The userStatusBloc for the specified [account].
@@ -125,7 +133,8 @@ abstract interface class AccountsBloc implements Disposable {
 
   /// The UnifiedSearchBloc for the [activeAccount].
   ///
-  /// Convenience method for [getUnifiedSearchBlocFor] with the currently active account.
+  /// Convenience method for [getUnifiedSearchBlocFor] with the currently active
+  /// account.
   UnifiedSearchBloc get activeUnifiedSearchBloc;
 
   /// The UnifiedSearchBloc for the specified [account].
@@ -135,7 +144,8 @@ abstract interface class AccountsBloc implements Disposable {
 
   /// The WeatherStatusBloc for the [activeAccount].
   ///
-  /// Convenience method for [getWeatherStatusBlocFor] with the currently active account.
+  /// Convenience method for [getWeatherStatusBlocFor] with the currently active
+  /// account.
   WeatherStatusBloc get activeWeatherStatusBloc;
 
   /// The WeatherStatusBloc for the specified [account].
@@ -154,7 +164,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     this.globalOptions,
     this.allAppImplementations,
   ) {
-    final lastUsedStorage = NeonStorage().singleValueStore(StorageKeys.lastUsedAccount);
+    final lastUsedStorage =
+        NeonStorage().singleValueStore(StorageKeys.lastUsedAccount);
 
     accounts
       ..add(loadAccounts())
@@ -172,7 +183,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
     final as = accounts.value;
 
-    if (globalOptions.rememberLastUsedAccount.value && lastUsedStorage.hasValue()) {
+    if (globalOptions.rememberLastUsedAccount.value &&
+        lastUsedStorage.hasValue()) {
       final lastUsedAccountID = lastUsedStorage.getString();
       if (lastUsedAccountID != null) {
         final aa = as.tryFind(lastUsedAccountID);
@@ -247,7 +259,9 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   void removeAccount(Account account) {
-    accounts.add(accounts.value.rebuild((b) => b..removeWhere((a) => a.id == account.id)));
+    accounts.add(
+      accounts.value.rebuild((b) => b..removeWhere((a) => a.id == account.id)),
+    );
 
     final as = accounts.value;
     final aa = activeAccount.valueOrNull;
@@ -286,7 +300,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
     as = as.rebuild((b) {
       if (index == -1) {
-        // TODO: Figure out how we can remove the old account without potentially race conditioning
+        // TODO: Figure out how we can remove the old account without
+        //  potentially race conditioning
         b.add(account);
       } else {
         b[index] = account;
@@ -299,7 +314,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   /// The currently active account.
   ///
-  /// Equivalent to activeAccount.valueOrNull but throws a [StateError] when no user is logged in.
+  /// Equivalent to activeAccount.valueOrNull but throws a [StateError] when no
+  /// user is logged in.
   @visibleForTesting
   Account get aa {
     final aa = activeAccount.valueOrNull;
@@ -318,7 +334,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   AccountOptions get activeOptions => getOptionsFor(aa);
 
   @override
-  AccountOptions getOptionsFor(Account account) => accountsOptions[account] ??= AccountOptions(
+  AccountOptions getOptionsFor(Account account) =>
+      accountsOptions[account] ??= AccountOptions(
         NeonStorage().settingsStore(StorageKeys.accountOptions, account.id),
         getAppsBlocFor(account),
       );
@@ -338,25 +355,29 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   CapabilitiesBloc get activeCapabilitiesBloc => getCapabilitiesBlocFor(aa);
 
   @override
-  CapabilitiesBloc getCapabilitiesBlocFor(Account account) => capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
+  CapabilitiesBloc getCapabilitiesBlocFor(Account account) =>
+      capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
 
   @override
   UserDetailsBloc get activeUserDetailsBloc => getUserDetailsBlocFor(aa);
 
   @override
-  UserDetailsBloc getUserDetailsBlocFor(Account account) => userDetailsBlocs[account] ??= UserDetailsBloc(account);
+  UserDetailsBloc getUserDetailsBlocFor(Account account) =>
+      userDetailsBlocs[account] ??= UserDetailsBloc(account);
 
   @override
   UserStatusBloc get activeUserStatusBloc => getUserStatusBlocFor(aa);
 
   @override
-  UserStatusBloc getUserStatusBlocFor(Account account) => userStatusBlocs[account] ??= UserStatusBloc(account);
+  UserStatusBloc getUserStatusBlocFor(Account account) =>
+      userStatusBlocs[account] ??= UserStatusBloc(account);
 
   @override
   UnifiedSearchBloc get activeUnifiedSearchBloc => getUnifiedSearchBlocFor(aa);
 
   @override
-  UnifiedSearchBloc getUnifiedSearchBlocFor(Account account) => unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
+  UnifiedSearchBloc getUnifiedSearchBlocFor(Account account) =>
+      unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
         getAppsBlocFor(account),
         account,
       );
@@ -365,7 +386,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   WeatherStatusBloc get activeWeatherStatusBloc => getWeatherStatusBlocFor(aa);
 
   @override
-  WeatherStatusBloc getWeatherStatusBlocFor(Account account) => weatherStatusBlocs[account] ??= WeatherStatusBloc(
+  WeatherStatusBloc getWeatherStatusBlocFor(Account account) =>
+      weatherStatusBlocs[account] ??= WeatherStatusBloc(
         getCapabilitiesBlocFor(account).capabilities,
         account,
       );
@@ -378,7 +400,10 @@ BuiltList<Account> loadAccounts() {
   final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
 
   if (storage.hasValue()) {
-    return storage.getStringList()!.map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>)).toBuiltList();
+    return storage
+        .getStringList()!
+        .map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
+        .toBuiltList();
   }
 
   return BuiltList();

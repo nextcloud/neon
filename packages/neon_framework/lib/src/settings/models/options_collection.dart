@@ -18,7 +18,8 @@ abstract class OptionsCollection implements Exportable, Disposable {
   @protected
   Iterable<Option<dynamic>> get options;
 
-  /// Return a [Listenable] that triggers when any of the given [options] themselves trigger.
+  /// Return a [Listenable] that triggers when any of the given [options]
+  /// themselves trigger.
   Listenable get listenable => Listenable.merge(options.toList());
 
   /// Resets all [options].

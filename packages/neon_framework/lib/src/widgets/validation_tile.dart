@@ -54,7 +54,9 @@ class NeonValidationTile extends StatelessWidget {
       leading: leading,
       title: Text(
         title,
-        style: state == ValidationState.canceled ? TextStyle(color: Theme.of(context).disabledColor) : null,
+        style: state == ValidationState.canceled
+            ? TextStyle(color: Theme.of(context).disabledColor)
+            : null,
       ),
     );
   }

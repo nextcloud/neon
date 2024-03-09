@@ -19,7 +19,10 @@ class NeonNavigationDestination {
 
 @internal
 extension NavigationDestinationExtension on NavigationDestination {
-  static NavigationDestination fromNeonDestination(NeonNavigationDestination neonDestination) => NavigationDestination(
+  static NavigationDestination fromNeonDestination(
+    NeonNavigationDestination neonDestination,
+  ) =>
+      NavigationDestination(
         label: neonDestination.label,
         icon: neonDestination.icon(),
         selectedIcon: neonDestination.selectedIcon,
@@ -28,14 +31,18 @@ extension NavigationDestinationExtension on NavigationDestination {
 
 @internal
 extension NavigationRailDestinationExtension on NavigationRailDestination {
-  static NavigationRailDestination fromNeonDestination(NeonNavigationDestination neonDestination) {
+  static NavigationRailDestination fromNeonDestination(
+    NeonNavigationDestination neonDestination,
+  ) {
     final iconWidget = StreamBuilder(
       stream: neonDestination.notificationCount,
       initialData: 0,
       builder: (context, snapshot) {
         final colorScheme = Theme.of(context).colorScheme;
 
-        final color = snapshot.requireData > 0 ? colorScheme.primary : colorScheme.onBackground;
+        final color = snapshot.requireData > 0
+            ? colorScheme.primary
+            : colorScheme.onBackground;
 
         final icon = Container(
           margin: const EdgeInsets.all(5),
@@ -80,7 +87,9 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
 
 @internal
 extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
-  static NavigationDrawerDestination fromNeonDestination(NeonNavigationDestination neonDestination) {
+  static NavigationDrawerDestination fromNeonDestination(
+    NeonNavigationDestination neonDestination,
+  ) {
     final labelWidget = StreamBuilder(
       stream: neonDestination.notificationCount,
       initialData: 0,
@@ -131,7 +140,8 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
 
 @internal
 extension TabExtension on Tab {
-  static Tab fromNeonDestination(NeonNavigationDestination neonDestination) => Tab(
+  static Tab fromNeonDestination(NeonNavigationDestination neonDestination) =>
+      Tab(
         text: neonDestination.label,
         icon: neonDestination.icon(),
       );

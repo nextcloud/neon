@@ -59,7 +59,8 @@ class AccountSettingsPage extends StatelessWidget {
               case AccountDeletion.remote:
                 await launchUrl(
                   account.serverURL.replace(
-                    path: '${account.serverURL.path}/index.php/settings/user/drop_account',
+                    path:
+                        '${account.serverURL.path}/index.php/settings/user/drop_account',
                   ),
                 );
               case AccountDeletion.local:
@@ -84,14 +85,16 @@ class AccountSettingsPage extends StatelessWidget {
         ),
         IconButton(
           onPressed: () async {
-            final content =
-                '${NeonLocalizations.of(context).settingsResetForConfirmation(name)} ${NeonLocalizations.of(context).settingsResetForExplanation}';
+            final confirmation = NeonLocalizations.of(context)
+                .settingsResetForConfirmation(name);
+            final explanation =
+                NeonLocalizations.of(context).settingsResetForExplanation;
             final decision = await showAdaptiveDialog<bool>(
               context: context,
               builder: (context) => NeonConfirmationDialog(
                 icon: const Icon(Icons.restart_alt),
                 title: NeonLocalizations.of(context).settingsReset,
-                content: Text(content),
+                content: Text('$confirmation $explanation'),
               ),
             );
 
@@ -108,7 +111,9 @@ class AccountSettingsPage extends StatelessWidget {
     final body = SettingsList(
       categories: [
         SettingsCategory(
-          title: Text(NeonLocalizations.of(context).accountOptionsCategoryStorageInfo),
+          title: Text(
+            NeonLocalizations.of(context).accountOptionsCategoryStorageInfo,
+          ),
           tiles: [
             ResultBuilder.behaviorSubject(
               subject: userDetailsBloc.userDetails,
@@ -142,8 +147,10 @@ class AccountSettingsPage extends StatelessWidget {
                   title: LinearProgressIndicator(
                     value: value,
                     minHeight: isCupertino(context) ? 15 : null,
-                    borderRadius: BorderRadius.circular(isCupertino(context) ? 5 : 3),
-                    backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                    borderRadius:
+                        BorderRadius.circular(isCupertino(context) ? 5 : 3),
+                    backgroundColor:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.3),
                   ),
                   subtitle: subtitle,
                 );

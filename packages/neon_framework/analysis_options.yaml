@@ -3,6 +3,3 @@ include: package:neon_lints/flutter.yaml
 analyzer:
   exclude:
     - lib/l10n/**
-linter:
-  rules:
-    lines_longer_than_80_chars: false

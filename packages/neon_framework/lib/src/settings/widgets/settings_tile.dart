@@ -10,7 +10,8 @@ abstract class SettingsTile extends StatelessWidget {
 }
 
 @internal
-abstract class InputSettingsTile<T extends Option<dynamic>> extends SettingsTile {
+abstract class InputSettingsTile<T extends Option<dynamic>>
+    extends SettingsTile {
   const InputSettingsTile({
     required this.option,
     super.key,

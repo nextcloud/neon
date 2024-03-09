@@ -24,7 +24,7 @@ abstract class UserStatusBloc implements InteractiveBloc {
 
   /// Load the user status of the user with the [username] on the same server.
   ///
-  /// Set [force] to true to load the status even if one has already been loaded.
+  /// Set [force] to true to load the status even if one has already been loaded
   void load(
     String username, {
     Result<user_status.$PublicInterface>? status,
@@ -34,7 +34,8 @@ abstract class UserStatusBloc implements InteractiveBloc {
   /// Set the status type.
   void setStatusType(String statusType);
 
-  /// Set a predefined status message using the [id] and [clearAt] as unix timestamp.
+  /// Set a predefined status message using the [id] and [clearAt] as unix
+  /// timestamp.
   ///
   /// Predefined status messages received from [predefinedStatuses].
   void setPredefinedMessage({
@@ -42,7 +43,8 @@ abstract class UserStatusBloc implements InteractiveBloc {
     required int? clearAt,
   });
 
-  /// Set a custom status [message] with the [icon] and [clearAt] as unix timestamp.
+  /// Set a custom status [message] with the [icon] and [clearAt] as unix
+  /// timestamp.
   void setCustomMessage({
     required String? message,
     required String? icon,
@@ -56,10 +58,12 @@ abstract class UserStatusBloc implements InteractiveBloc {
   BehaviorSubject<Result<user_status.$PublicInterface>> get status;
 
   /// All user status mapped by username.
-  BehaviorSubject<BuiltMap<String, Result<user_status.$PublicInterface>>> get statuses;
+  BehaviorSubject<BuiltMap<String, Result<user_status.$PublicInterface>>>
+      get statuses;
 
   /// All predefined statuses.
-  BehaviorSubject<Result<BuiltList<user_status.Predefined>>> get predefinedStatuses;
+  BehaviorSubject<Result<BuiltList<user_status.Predefined>>>
+      get predefinedStatuses;
 }
 
 class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
@@ -102,15 +106,21 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
         cacheKey: 'user_status-predefined-statuses',
         subject: predefinedStatuses,
         request: account.client.userStatus.predefinedStatus.$findAll_Request(),
-        serializer: account.client.userStatus.predefinedStatus.$findAll_Serializer(),
+        serializer:
+            account.client.userStatus.predefinedStatus.$findAll_Serializer(),
         unwrap: (response) => response.body.ocs.data,
       ),
-      ...statuses.value.entries.map((entry) => load(entry.key, status: entry.value, force: true)),
+      ...statuses.value.entries
+          .map((entry) => load(entry.key, status: entry.value, force: true)),
     ]);
   }
 
   @override
-  Future<void> load(String username, {Result<user_status.$PublicInterface>? status, bool force = false}) async {
+  Future<void> load(
+    String username, {
+    Result<user_status.$PublicInterface>? status,
+    bool force = false,
+  }) async {
     final result = status ?? statuses.valueOrNull?[username];
 
     if (!force && result != null && !result.hasError) {
@@ -135,7 +145,8 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
           );
           data = response.body.ocs.data;
         } on DynamiteStatusCodeException catch (e) {
-          // 204 is returned if the heartbeat failed because the current status is different. Ignore this and fetch the normal status
+          // 204 is returned if the heartbeat failed because the current status
+          // is different. Ignore this and fetch the normal status
           if (e.statusCode != 204) {
             rethrow;
           }
@@ -144,7 +155,8 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
 
       if (data == null) {
         try {
-          final response = await account.client.userStatus.statuses.find(userId: username);
+          final response =
+              await account.client.userStatus.statuses.find(userId: username);
           data = response.body.ocs.data;
         } on DynamiteStatusCodeException catch (e) {
           if (e.statusCode != 404) {
@@ -165,12 +177,15 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
     }
   }
 
-  /// Reconstructs the message and icon for a private [status] using the [predefinedStatuses] in case it is a predefined status.
-  user_status.$PublicInterface? correctStatus(user_status.$PublicInterface? status) {
+  /// Reconstructs the message and icon for a private [status] using the
+  /// [predefinedStatuses] in case it is a predefined status.
+  user_status.$PublicInterface? correctStatus(
+    user_status.$PublicInterface? status,
+  ) {
     if (status is user_status.Private && status.messageIsPredefined) {
       final id = status.messageId;
-      final predefinedStatus =
-          predefinedStatuses.valueOrNull?.data?.firstWhereOrNull((predefined) => predefined.id == id);
+      final predefinedStatus = predefinedStatuses.valueOrNull?.data
+          ?.firstWhereOrNull((predefined) => predefined.id == id);
       if (predefinedStatus != null) {
         return status.rebuild(
           (b) => b
@@ -182,7 +197,10 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
     return status;
   }
 
-  void updateStatus(String username, Result<user_status.$PublicInterface> status) {
+  void updateStatus(
+    String username,
+    Result<user_status.$PublicInterface> status,
+  ) {
     statuses.add(
       statuses.value.rebuild((b) {
         b[username] = status;
@@ -197,9 +215,13 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   Future<void> setStatusType(String statusType) async {
     await wrapAction(
       () async {
-        final response = await account.client.userStatus.userStatus.setStatus(statusType: statusType);
+        final response = await account.client.userStatus.userStatus
+            .setStatus(statusType: statusType);
 
-        updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
+        updateStatus(
+          account.username,
+          Result.success(correctStatus(response.body.ocs.data)),
+        );
       },
       refresh: () async {},
     );
@@ -212,12 +234,16 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }) async {
     await wrapAction(
       () async {
-        final response = await account.client.userStatus.userStatus.setPredefinedMessage(
+        final response =
+            await account.client.userStatus.userStatus.setPredefinedMessage(
           messageId: id,
           clearAt: clearAt,
         );
 
-        updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
+        updateStatus(
+          account.username,
+          Result.success(correctStatus(response.body.ocs.data)),
+        );
       },
       refresh: () async {},
     );
@@ -231,13 +257,17 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   }) async {
     await wrapAction(
       () async {
-        final response = await account.client.userStatus.userStatus.setCustomMessage(
+        final response =
+            await account.client.userStatus.userStatus.setCustomMessage(
           statusIcon: icon,
           message: message,
           clearAt: clearAt,
         );
 
-        updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
+        updateStatus(
+          account.username,
+          Result.success(correctStatus(response.body.ocs.data)),
+        );
       },
       refresh: () async {},
     );

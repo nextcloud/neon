@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart' show defaultTargetPlatform;
 import 'package:flutter/material.dart';
 
-/// Returns whether the current platform of the current theme is a Cupertino one.
+/// Returns whether the current platform of the current theme is a Cupertino one
 ///
 /// This is true for both `TargetPlatform.iOS` and `TargetPlatform.macOS`.
 /// Use [isCupertinoPlatform] to check against the platform on which the

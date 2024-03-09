@@ -15,7 +15,8 @@ import 'package:rxdart/rxdart.dart';
 abstract class WeatherStatusBloc implements InteractiveBloc {
   /// Create a new weather status bloc.
   factory WeatherStatusBloc(
-    Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
+    Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
+        capabilities,
     Account account,
   ) =>
       _WeatherStatusBloc(
@@ -39,11 +40,14 @@ abstract class WeatherStatusBloc implements InteractiveBloc {
 class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
   _WeatherStatusBloc(
     this.account,
-    Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
+    Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
+        capabilities,
   ) {
     capabilitiesSubscription = capabilities.listen((result) {
       final oldSupport = isSupported.valueOrNull ?? false;
-      final newSupport = result.data?.capabilities.weatherStatusCapabilities?.weatherStatus.enabled ?? false;
+      final newSupport = result.data?.capabilities.weatherStatusCapabilities
+              ?.weatherStatus.enabled ??
+          false;
       isSupported.add(newSupport);
       if (!oldSupport && newSupport) {
         unawaited(refresh());
@@ -57,7 +61,8 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
   final log = Logger('WeatherStatusBloc');
 
   final Account account;
-  late final StreamSubscription<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
+  late final StreamSubscription<
+          Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
       capabilitiesSubscription;
   late final NeonTimer timer;
 
@@ -91,8 +96,10 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
         account: account,
         cacheKey: 'weather_status-location',
         subject: location,
-        request: account.client.weatherStatus.weatherStatus.$getLocation_Request(),
-        serializer: account.client.weatherStatus.weatherStatus.$getLocation_Serializer(),
+        request:
+            account.client.weatherStatus.weatherStatus.$getLocation_Request(),
+        serializer: account.client.weatherStatus.weatherStatus
+            .$getLocation_Serializer(),
         unwrap: (response) => response.body.ocs.data,
       ),
       refreshForecast(),
@@ -104,9 +111,12 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
       account: account,
       cacheKey: 'weather_status-forecast',
       subject: forecasts,
-      request: account.client.weatherStatus.weatherStatus.$getForecast_Request(),
-      serializer: account.client.weatherStatus.weatherStatus.$getForecast_Serializer(),
-      unwrap: (response) => response.body.ocs.data.builtListForecast ?? BuiltList(),
+      request:
+          account.client.weatherStatus.weatherStatus.$getForecast_Request(),
+      serializer:
+          account.client.weatherStatus.weatherStatus.$getForecast_Serializer(),
+      unwrap: (response) =>
+          response.body.ocs.data.builtListForecast ?? BuiltList(),
     );
   }
 
@@ -114,7 +124,8 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
   Future<void> setLocation(String address) async {
     await wrapAction(
       () async {
-        final response = await account.client.weatherStatus.weatherStatus.setLocation(
+        final response =
+            await account.client.weatherStatus.weatherStatus.setLocation(
           address: address,
         );
         location.add(Result.success(response.body.ocs.data));

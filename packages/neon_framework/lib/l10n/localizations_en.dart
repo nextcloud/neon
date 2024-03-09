@@ -38,7 +38,8 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get loginOpenAgain => 'Open again';
 
   @override
-  String get loginSwitchToBrowserWindow => 'Please switch to the browser window that just opened and proceed there';
+  String get loginSwitchToBrowserWindow =>
+      'Please switch to the browser window that just opened and proceed there';
 
   @override
   String get loginWorksWith => 'works with';
@@ -75,14 +76,16 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get loginCheckingAccount => 'Checking account';
 
   @override
-  String get errorCredentialsForAccountNoLongerMatch => 'The credentials for this account no longer match';
+  String get errorCredentialsForAccountNoLongerMatch =>
+      'The credentials for this account no longer match';
 
   @override
   String get errorServerHadAProblemProcessingYourRequest =>
       'The server had a problem while processing your request. You might want to try again';
 
   @override
-  String get errorSomethingWentWrongTryAgainLater => 'Something went wrong. Please try again later';
+  String get errorSomethingWentWrongTryAgainLater =>
+      'Something went wrong. Please try again later';
 
   @override
   String get errorUnableToReachServer => 'Unable to reach the server';
@@ -158,7 +161,8 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get actionDone => 'Done';
 
   @override
-  String get firstLaunchGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
+  String get firstLaunchGoToSettingsToEnablePushNotifications =>
+      'Go to the settings to enable push notifications';
 
   @override
   String get nextPushSupported => 'NextPush is supported!';
@@ -197,16 +201,19 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get settingsReset => 'Reset settings?';
 
   @override
-  String get settingsImportWrongFileExtension => 'Settings import has wrong file extension (has to be .json.base64)';
+  String get settingsImportWrongFileExtension =>
+      'Settings import has wrong file extension (has to be .json.base64)';
 
   @override
   String get settingsResetAll => 'Reset all settings';
 
   @override
-  String get settingsResetAllConfirmation => 'Do you want to reset all settings?';
+  String get settingsResetAllConfirmation =>
+      'Do you want to reset all settings?';
 
   @override
-  String get settingsResetAllExplanation => 'This will reset all preferences back to their default settings.';
+  String get settingsResetAllExplanation =>
+      'This will reset all preferences back to their default settings.';
 
   @override
   String settingsResetFor(String name) {
@@ -214,7 +221,8 @@ class NeonLocalizationsEn extends NeonLocalizations {
   }
 
   @override
-  String get settingsResetForExplanation => 'This will reset your account preferences back to their default settings.';
+  String get settingsResetForExplanation =>
+      'This will reset your account preferences back to their default settings.';
 
   @override
   String get settingsResetForClientExplanation =>
@@ -281,37 +289,46 @@ class NeonLocalizationsEn extends NeonLocalizations {
       'No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications';
 
   @override
-  String get globalOptionsPushNotificationsDistributor => 'UnifiedPush Distributor';
+  String get globalOptionsPushNotificationsDistributor =>
+      'UnifiedPush Distributor';
 
   @override
-  String get globalOptionsPushNotificationsDistributorGotifyUP => 'Gotify-UP (FOSS)';
+  String get globalOptionsPushNotificationsDistributorGotifyUP =>
+      'Gotify-UP (FOSS)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorFirebaseEmbedded => 'Firebase (proprietary)';
+  String get globalOptionsPushNotificationsDistributorFirebaseEmbedded =>
+      'Firebase (proprietary)';
 
   @override
   String get globalOptionsPushNotificationsDistributorNtfy => 'ntfy (FOSS)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorFCMUP => 'FCM-UP (proprietary)';
+  String get globalOptionsPushNotificationsDistributorFCMUP =>
+      'FCM-UP (proprietary)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorNextPush => 'NextPush (FOSS)';
+  String get globalOptionsPushNotificationsDistributorNextPush =>
+      'NextPush (FOSS)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorNoProvider2Push => 'NoProvider2Push (FOSS)';
+  String get globalOptionsPushNotificationsDistributorNoProvider2Push =>
+      'NoProvider2Push (FOSS)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorConversations => 'Conversations';
+  String get globalOptionsPushNotificationsDistributorConversations =>
+      'Conversations';
 
   @override
   String get globalOptionsStartupMinimized => 'Start minimized';
 
   @override
-  String get globalOptionsStartupMinimizeInsteadOfExit => 'Minimize instead of exit';
+  String get globalOptionsStartupMinimizeInsteadOfExit =>
+      'Minimize instead of exit';
 
   @override
-  String get globalOptionsAccountsRememberLastUsedAccount => 'Remember last used account';
+  String get globalOptionsAccountsRememberLastUsedAccount =>
+      'Remember last used account';
 
   @override
   String get globalOptionsAccountsInitialAccount => 'Initial account';
@@ -326,7 +343,8 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get globalOptionsNavigationModeDrawer => 'Drawer';
 
   @override
-  String get globalOptionsNavigationModeDrawerAlwaysVisible => 'Drawer always visible';
+  String get globalOptionsNavigationModeDrawerAlwaysVisible =>
+      'Drawer always visible';
 
   @override
   String get accountOptionsDeleteOnServer => 'Delete account on the server';
@@ -343,7 +361,8 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get accountOptionsRemoveLocal => 'Remove the account from the device';
 
   @override
-  String get accountOptionsRemoveRemote => 'Request deleting the account on the server';
+  String get accountOptionsRemoveRemote =>
+      'Request deleting the account on the server';
 
   @override
   String accountOptionsRemoveRemoteDelay(String time) {

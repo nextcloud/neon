@@ -38,7 +38,8 @@ sealed class TimerBloc extends Bloc {
 }
 
 /// Execute callbacks at defined periodic intervals.
-/// Components can register their callbacks and everything with the same periodicity will be executed at the same time.
+/// Components can register their callbacks and everything with the same
+/// periodicity will be executed at the same time.
 ///
 /// The [TimerBloc] is a singleton.
 /// Sub-second timers are not supported.

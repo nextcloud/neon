@@ -68,7 +68,7 @@ class AdaptiveListTile extends StatelessWidget {
   /// The [onTap] function is called when a user taps on the[AdaptiveListTile].
   /// If left `null`, the [AdaptiveListTile] will not react to taps.
   ///
-  /// If the platform is a Cupertino one and this is a `Future<void> Function()`,
+  /// If the platform is a Cupertino one and this is a `Future<void> Function()`
   /// then the [AdaptiveListTile] remains activated until the returned future is
   /// awaited. This is according to iOS behavior.
   /// However, if this function is a `void Function()`, then the tile is active

@@ -20,7 +20,8 @@ final _log = Logger('RequestManager');
 
 /// A callback that unwraps elements of type [R] into [T].
 ///
-/// This is commonly used to get the relevant information from a broader response.
+/// This is commonly used to get the relevant information from a broader
+/// response.
 typedef UnwrapCallback<T, R> = T Function(R);
 
 /// A callback to serialize a value of type [T] into a string.
@@ -53,13 +54,15 @@ final httpDateFormat = DateFormat('E, d MMM yyyy HH:mm:ss v', 'en_US');
 /// Requests need to be made through the [nextcloud](https://pub.dev/packages/nextcloud)
 /// package.
 ///
-/// Requests can be persisted in the local cache if enabled and set up by the [NeonStorage].
+/// Requests can be persisted in the local cache if enabled and set up by the
+/// [NeonStorage].
 class RequestManager {
   RequestManager._();
 
   /// Mocks the singleton instance for testing.
   @visibleForTesting
-  factory RequestManager.mocked(RequestManager requestManager) => _requestManager = requestManager;
+  factory RequestManager.mocked(RequestManager requestManager) =>
+      _requestManager = requestManager;
 
   static RequestManager? _requestManager;
 
@@ -68,7 +71,8 @@ class RequestManager {
   static RequestManager get instance => _requestManager ??= RequestManager._();
 
   @visibleForTesting
-  static set instance(RequestManager? requestManager) => _requestManager = requestManager;
+  static set instance(RequestManager? requestManager) =>
+      _requestManager = requestManager;
 
   final RequestCache? _cache = NeonStorage().requestCache;
 
@@ -118,8 +122,11 @@ class RequestManager {
         subject: subject,
         request: request,
         unwrap: unwrap,
-        serialize: (data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
-        deserialize: (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
+        serialize: (data) =>
+            data.toXmlElement(namespaces: namespaces).toXmlString(),
+        deserialize: (data) => WebDavMultistatus.fromXmlElement(
+          xml.XmlDocument.parse(data).rootElement,
+        ),
         disableTimeout: disableTimeout,
       );
 
@@ -156,7 +163,8 @@ class RequestManager {
         disableTimeout: disableTimeout,
       );
 
-  /// Executes a HTTP request for binary content using a simplified [uri] based approach.
+  /// Executes a HTTP request for binary content using a simplified [uri] based
+  /// approach.
   Future<void> wrapUri({
     required Account account,
     required Uri uri,
@@ -192,7 +200,8 @@ class RequestManager {
       rawResponse: () async {
         final response = await account.client.send(request);
 
-        return ResponseConverter<Uint8List, Map<String, String>>(serializer).convert(response);
+        return ResponseConverter<Uint8List, Map<String, String>>(serializer)
+            .convert(response);
       },
       unwrap: unwrap,
       subject: subject,
@@ -227,7 +236,14 @@ class RequestManager {
       if (cachedParameters.expires != null && !cachedParameters.isExpired) {
         final cachedValue = await _cache?.get(key);
         if (cachedValue != null) {
-          subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+          subject.add(
+            Result(
+              unwrap(deserialize(cachedValue)),
+              null,
+              isLoading: false,
+              isCached: true,
+            ),
+          );
           return;
         }
       }
@@ -252,7 +268,8 @@ class RequestManager {
           );
         }
 
-        if (cacheParameters != null && cacheParameters.etag == cachedParameters.etag) {
+        if (cacheParameters != null &&
+            cacheParameters.etag == cachedParameters.etag) {
           final cachedValue = await _cache?.get(key);
           if (cachedValue != null) {
             unawaited(
@@ -261,7 +278,14 @@ class RequestManager {
                 cacheParameters,
               ),
             );
-            subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+            subject.add(
+              Result(
+                unwrap(deserialize(cachedValue)),
+                null,
+                isLoading: false,
+                isCached: true,
+              ),
+            );
             return;
           }
         }
@@ -293,7 +317,8 @@ class RequestManager {
         final serialized = serialize(response);
 
         CacheParameters? cacheParameters;
-        if (response case DynamiteRawResponse(:final rawHeaders) when rawHeaders != null) {
+        if (response case DynamiteRawResponse(:final rawHeaders)
+            when rawHeaders != null) {
           cacheParameters = CacheParameters.parseHeaders(rawHeaders);
         }
 
@@ -369,7 +394,9 @@ class CacheParameters {
 
   /// Parse the cache parameters from HTTP response headers.
   factory CacheParameters.parseHeaders(Map<String, dynamic> headers) {
-    final expiry = headers.containsKey('expires') ? httpDateFormat.parse(headers['expires']! as String) : null;
+    final expiry = headers.containsKey('expires')
+        ? httpDateFormat.parse(headers['expires']! as String)
+        : null;
     return CacheParameters(
       etag: headers['etag'] as String?,
       expires: _isExpired(expiry) ? null : expiry,
@@ -385,10 +412,14 @@ class CacheParameters {
   /// Whether the resource has expired based on [expires].
   bool get isExpired => _isExpired(expires);
 
-  static bool _isExpired(DateTime? date) => date?.isBefore(DateTime.now()) ?? true;
+  static bool _isExpired(DateTime? date) =>
+      date?.isBefore(DateTime.now()) ?? true;
 
   @override
-  bool operator ==(Object other) => other is CacheParameters && other.etag == etag && other.expires == expires;
+  bool operator ==(Object other) =>
+      other is CacheParameters &&
+      other.etag == etag &&
+      other.expires == expires;
 
   @override
   int get hashCode => Object.hashAll([etag, expires]);

@@ -17,7 +17,8 @@ final _log = Logger('Option');
 /// See:
 ///   * [ToggleOption] for an Option<bool>
 ///   * [SelectOption] for an Option with multiple values
-sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Disposable {
+sealed class Option<T> extends ChangeNotifier
+    implements ValueListenable<T>, Disposable {
   /// Creates an Option
   Option({
     required this.storage,
@@ -113,7 +114,8 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
     final value = deserialize(data);
 
     if (value != null) {
-      // Do not trigger the validation to avoid resetting when the values haven't been loaded yet.
+      // Do not trigger the validation to avoid resetting when the values haven
+      // not been loaded yet.
       _value = value;
       notifyListeners();
     }
@@ -129,8 +131,9 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
 
   /// A stream of values that is updated on each event.
   ///
-  /// This is similar to adding an [addListener] callback and getting the current data in it.
-  /// You should generally listen to the notifications directly.
+  /// This is similar to adding an [addListener] callback and getting the
+  /// current data in it. You should generally listen to the notifications
+  /// directly.
   Stream<T> get stream {
     _stream ??= BehaviorSubject.seeded(_value);
 
@@ -165,13 +168,19 @@ class SelectOption<T> extends Option<T> {
 
     /// Force loading the stored value.
     ///
-    /// This is needed when [values] is empty but the stored value should still be loaded.
-    /// This only works when [T] is of type String?.
+    /// This is needed when [values] is empty but the stored value should still
+    /// be loaded. This only works when [T] is of type String?.
     bool forceLoadValue = true,
     super.category,
     super.enabled,
   })  : _values = values,
-        super(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
+        super(
+          initialValue: _loadValue(
+            values,
+            storage.getString(key.value),
+            forceLoad: forceLoadValue,
+          ),
+        );
 
   /// Creates a SelectOption depending on the State of another [Option].
   SelectOption.depend({
@@ -184,14 +193,24 @@ class SelectOption<T> extends Option<T> {
 
     /// Force loading the stored value.
     ///
-    /// This is needed when [values] is empty but the stored value should still be loaded.
-    /// This only works when [T] is of type String?.
+    /// This is needed when [values] is empty but the stored value should still
+    /// be loaded. This only works when [T] is of type String?.
     bool forceLoadValue = true,
     super.category,
   })  : _values = values,
-        super.depend(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
+        super.depend(
+          initialValue: _loadValue(
+            values,
+            storage.getString(key.value),
+            forceLoad: forceLoadValue,
+          ),
+        );
 
-  static T? _loadValue<T>(Map<T, LabelBuilder> vs, String? stored, {bool forceLoad = true}) {
+  static T? _loadValue<T>(
+    Map<T, LabelBuilder> vs,
+    String? stored, {
+    bool forceLoad = true,
+  }) {
     if (forceLoad && vs.isEmpty && stored is T) {
       return stored as T;
     }
@@ -229,14 +248,18 @@ class SelectOption<T> extends Option<T> {
 
   /// Updates the collection of possible values.
   ///
-  /// If the current [value] is no longer supported the option will reset to the [defaultValue].
+  /// If the current [value] is no longer supported the option will reset to the
+  /// [defaultValue].
   set values(Map<T, LabelBuilder> newValues) {
     if (_values == newValues) {
       return;
     }
     _values = newValues;
     if (!_values.keys.contains(_value)) {
-      _log.info('"$value" is not in "${_values.keys.join('", "')}", resetting "${key.value}"');
+      _log.info(
+        // ignore: lines_longer_than_80_chars
+        '"$value" is not in "${_values.keys.join('", "')}", resetting "${key.value}"',
+      );
       reset();
     }
     notifyListeners();

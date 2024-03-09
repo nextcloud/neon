@@ -42,7 +42,8 @@ class _HomePageState extends State<HomePage> {
   late global_options.GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
-  late StreamSubscription<BuiltMap<String, VersionCheck>> _versionCheckSubscription;
+  late StreamSubscription<BuiltMap<String, VersionCheck>>
+      _versionCheckSubscription;
 
   @override
   void initState() {
@@ -63,7 +64,10 @@ class _HomePageState extends State<HomePage> {
         final versionCheck = entry.value;
         final appName = l10n.appImplementationName(entry.key);
 
-        buffer.writeln('- $appName >=${versionCheck.minimumVersion} <${versionCheck.maximumMajor + 1}.0.0');
+        buffer.writeln(
+          // ignore: lines_longer_than_80_chars
+          '- $appName >=${versionCheck.minimumVersion} <${versionCheck.maximumMajor + 1}.0.0',
+        );
       }
 
       final message = l10n.errorUnsupportedAppVersions(buffer.toString());
@@ -87,7 +91,8 @@ class _HomePageState extends State<HomePage> {
       final status = await widget.account.client.core.getStatus();
 
       if (status.body.maintenance && mounted) {
-        final message = NeonLocalizations.of(context).errorServerInMaintenanceMode;
+        final message =
+            NeonLocalizations.of(context).errorServerInMaintenanceMode;
         await showErrorDialog(context: context, message: message);
       }
     } on http.ClientException catch (error, stackTrace) {
@@ -142,7 +147,8 @@ class _HomePageState extends State<HomePage> {
     final body = ValueListenableBuilder(
       valueListenable: _globalOptions.navigationMode,
       builder: (context, navigationMode, _) {
-        final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
+        final drawerAlwaysVisible =
+            navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
 
         final body = Scaffold(
           resizeToAvoidBottomInset: false,

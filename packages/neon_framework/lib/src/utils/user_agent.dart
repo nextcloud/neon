@@ -17,11 +17,14 @@ void buildUserAgent(PackageInfo packageInfo) {
 
 /// Gets the current user agent.
 ///
-/// It must be set by calling [buildUserAgent] before. If not set a [StateError] will be thrown.
+/// It must be set by calling [buildUserAgent] before. If not set a [StateError]
+/// will be thrown.
 @internal
 String get neonUserAgent {
   if (_userAgent == null) {
-    throw StateError('The user agent has not been set up. Please use `buildUserAgent` before.');
+    throw StateError(
+      'The user agent has not been set up. Please use `buildUserAgent` before.',
+    );
   }
   return _userAgent!;
 }

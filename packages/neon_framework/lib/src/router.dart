@@ -66,15 +66,18 @@ GoRouter buildAppRouter({
         }
 
         if (accountsBloc.hasAccounts && state.uri.hasScheme) {
-          final strippedUri = accountsBloc.activeAccount.value!.stripUri(state.uri);
+          final strippedUri =
+              accountsBloc.activeAccount.value!.stripUri(state.uri);
           if (strippedUri != state.uri) {
             return strippedUri.toString();
           }
         }
 
-        // Redirect to login screen when no account is logged in
-        // We only check the prefix of the current location as we also don't want to redirect on any of the other login routes.
-        if (!accountsBloc.hasAccounts && !state.matchedLocation.startsWith(const LoginRoute().location)) {
+        // Redirect to login screen when no account is logged in.
+        // We only check the prefix of the current location as we also don't
+        // want to redirect on any of the other login routes.
+        if (!accountsBloc.hasAccounts &&
+            !state.matchedLocation.startsWith(const LoginRoute().location)) {
           return const LoginRoute().location;
         }
 
@@ -292,7 +295,8 @@ class LoginQRcodeRoute extends GoRouteData {
   const LoginQRcodeRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const LoginQRcodePage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const LoginQRcodePage();
 
   @override
   FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
@@ -324,7 +328,8 @@ class LoginCheckServerStatusRoute extends GoRouteData {
     this.password,
   }) : assert(
           loginName == null && password == null,
-          'loginName and password must be null. Use LoginCheckServerStatusRoute.withCredentials instead.',
+          'loginName and password must be null. '
+          'Use LoginCheckServerStatusRoute.withCredentials instead.',
         );
 
   /// {@macro AppRoutes.LoginCheckServerStatusRoute}
@@ -510,7 +515,8 @@ class AppImplementationSettingsRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    final appImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
+    final appImplementations =
+        NeonProvider.of<BuiltSet<AppImplementation>>(context);
     final appImplementation = appImplementations.tryFind(appid)!;
 
     return AppImplementationSettingsPage(appImplementation: appImplementation);

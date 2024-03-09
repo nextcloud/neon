@@ -17,10 +17,15 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// The signature of a function building a widget displaying [error].
-typedef ErrorWidgetBuilder = Widget? Function(BuildContext context, Object? error);
+typedef ErrorWidgetBuilder = Widget? Function(
+  BuildContext context,
+  Object? error,
+);
 
-/// The signature of a function downloading image data from a the nextcloud api through [client].
-typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>> Function(NextcloudClient client);
+/// The signature of a function downloading image data from a the nextcloud api
+/// through [client].
+typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>>
+    Function(NextcloudClient client);
 
 /// A widget painting an Image.
 ///
@@ -107,7 +112,8 @@ class NeonImage extends StatelessWidget {
             width: size?.width,
             fit: fit,
             gaplessPlayback: true,
-            errorBuilder: (context, error, stacktrace) => _buildError(context, error),
+            errorBuilder: (context, error, stacktrace) =>
+                _buildError(context, error),
           );
         }
 
@@ -143,9 +149,10 @@ class NeonImage extends StatelessWidget {
 ///  * [NeonUriImage] for an image widget from an arbitrary URL.
 ///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonApiImage extends StatefulWidget {
-  /// Creates a new Neon API image fetching the image with the currently active account.
+  /// Creates a new Neon API image fetching the image with the currently active
+  /// account.
   ///
-  /// See [NeonApiImage.withAccount] to fetch the image using a specific account.
+  /// See [NeonApiImage.withAccount] to fetch the image using with a account.
   const NeonApiImage({
     required this.getImage,
     required this.cacheKey,
@@ -220,7 +227,8 @@ class _NeonApiImageState extends State<NeonApiImage> {
   void initState() {
     super.initState();
 
-    account = widget.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+    account = widget.account ??
+        NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     unawaited(load());
   }
@@ -243,7 +251,8 @@ class _NeonApiImageState extends State<NeonApiImage> {
       rawResponse: () async => widget.getImage(account.client),
       unwrap: (data) {
         try {
-          return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
+          return utf8
+              .encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
         } catch (_) {}
         return data;
       },
@@ -339,7 +348,8 @@ class _NeonUriImageState extends State<NeonUriImage> {
   void initState() {
     super.initState();
 
-    account = widget.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+    account = widget.account ??
+        NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     unawaited(load());
   }
@@ -368,7 +378,8 @@ class _NeonUriImageState extends State<NeonUriImage> {
       uri: completedUri,
       unwrap: (data) {
         try {
-          return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
+          return utf8
+              .encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
         } catch (_) {}
         return data;
       },
@@ -381,7 +392,8 @@ class _NeonUriImageState extends State<NeonUriImage> {
     return NeonImage(
       image: image,
       onRetry: load,
-      isSvgHint: widget.isSvgHint || (widget.uri.data?.mimeType.contains('svg') ?? false),
+      isSvgHint: widget.isSvgHint ||
+          (widget.uri.data?.mimeType.contains('svg') ?? false),
       size: widget.size,
       fit: widget.fit,
       svgColorFilter: widget.svgColorFilter,
@@ -423,9 +435,10 @@ class NeonImageWrapper extends StatelessWidget {
   ///
   /// If null defaults to `const BorderRadius.all(Radius.circular(8))`.
   ///
-  /// The shape or the [borderRadius] won't clip the children of the decorated [Container].
-  /// If the clip is required, insert a clip widget (e.g., [ClipRect], [ClipRRect], [ClipPath])
-  /// as the child of the [Container]. Be aware that clipping may be costly in terms of performance.
+  /// The shape or the [borderRadius] won't clip the children of the decorated
+  /// [Container]. If the clip is required, insert a clip widget
+  /// (e.g., [ClipRect], [ClipRRect], [ClipPath]) as the child of the
+  /// [Container]. Be aware that clipping may be costly in terms of performance.
   final BorderRadius? borderRadius;
 
   @override
@@ -435,7 +448,8 @@ class NeonImageWrapper extends StatelessWidget {
       width: size?.width,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        borderRadius: borderRadius ?? const BorderRadius.all(Radius.circular(8)),
+        borderRadius:
+            borderRadius ?? const BorderRadius.all(Radius.circular(8)),
         color: color,
       ),
       clipBehavior: Clip.antiAlias,

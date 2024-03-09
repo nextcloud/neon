@@ -65,7 +65,8 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     username = widget.username ?? account.username;
 
     if (widget.showStatus) {
-      userStatusBloc = accountsBloc.getUserStatusBlocFor(account)..load(username);
+      userStatusBloc = accountsBloc.getUserStatusBlocFor(account)
+        ..load(username);
     }
   }
 
@@ -74,8 +75,11 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final brightness = Theme.of(context).brightness;
-        size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
-        final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
+        size = constraints
+            .constrain(Size.square(widget.size ?? largeIconSize))
+            .shortestSide;
+        final pixelSize =
+            (size * MediaQuery.of(context).devicePixelRatio).toInt();
 
         final avatar = CircleAvatar(
           radius: size / 2,
@@ -108,7 +112,9 @@ class _UserAvatarState extends State<NeonUserAvatar> {
             avatar,
             ResultBuilder(
               stream: userStatusBloc!.statuses.map(
-                (statuses) => statuses[username] ?? Result<user_status.$PublicInterface>.loading(),
+                (statuses) =>
+                    statuses[username] ??
+                    Result<user_status.$PublicInterface>.loading(),
               ),
               builder: (context, result) => NeonUserStatusIndicator(
                 result: result,

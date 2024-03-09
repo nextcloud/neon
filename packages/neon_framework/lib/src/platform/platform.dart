@@ -3,7 +3,8 @@ import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
 
-/// Implements platform specific functionality and exposes the availability of certain features.
+/// Implements platform specific functionality and exposes the availability of
+/// certain features.
 ///
 /// See:
 ///   * `AndroidNeonPlatform` for the Android implementation
@@ -18,7 +19,8 @@ abstract interface class NeonPlatform {
   static NeonPlatform get instance {
     if (_instance == null) {
       throw StateError(
-        'NeonPlatform has not been set up yet. Please make sure NeonPlatform.setup() has been called before and completed.',
+        'NeonPlatform has not been set up yet. Please make sure '
+        'NeonPlatform.setup() has been called before and completed.',
       );
     }
 
@@ -64,5 +66,9 @@ abstract interface class NeonPlatform {
   FutureOr<void> init();
 
   /// Saves a file with the user choosing the location.
-  Future<void> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data);
+  Future<void> saveFileWithPickDialog(
+    String fileName,
+    String mimeType,
+    Uint8List data,
+  );
 }

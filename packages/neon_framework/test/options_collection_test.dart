@@ -5,7 +5,8 @@ import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/testing.dart';
 
 class Collection extends AppImplementationOptions {
-  Collection(List<Option<Object>> options, MockSettingsStore storage) : super(storage) {
+  Collection(List<Option<Object>> options, MockSettingsStore storage)
+      : super(storage) {
     when(() => storage.id).thenReturn('app');
 
     super.options = options;

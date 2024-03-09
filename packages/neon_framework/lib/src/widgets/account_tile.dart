@@ -43,7 +43,8 @@ class NeonAccountTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userDetailsBloc = NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(account);
+    final userDetailsBloc =
+        NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(account);
 
     return AdaptiveListTile(
       onTap: onTap,
@@ -59,7 +60,8 @@ class NeonAccountTile extends StatelessWidget {
             if (userDetails.hasData)
               Flexible(
                 child: Text(
-                  (userDetails.requireData.displayname ?? userDetails.requireData.displayName)!,
+                  (userDetails.requireData.displayname ??
+                      userDetails.requireData.displayName)!,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

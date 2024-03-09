@@ -44,7 +44,11 @@ class WebNeonPlatform implements NeonPlatform {
   }
 
   @override
-  Future<String?> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data) async {
+  Future<String?> saveFileWithPickDialog(
+    String fileName,
+    String mimeType,
+    Uint8List data,
+  ) async {
     final anchor = HTMLAnchorElement()
       ..href = 'data:$mimeType;base64,${base64.encode(data)}'
       ..target = 'blank'

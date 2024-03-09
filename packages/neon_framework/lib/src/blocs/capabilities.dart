@@ -17,7 +17,9 @@ abstract class CapabilitiesBloc implements InteractiveBloc {
   factory CapabilitiesBloc(Account account) => _CapabilitiesBloc(account);
 
   /// The capabilities of the server.
-  BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
+  BehaviorSubject<
+          Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
+      get capabilities;
 }
 
 class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {

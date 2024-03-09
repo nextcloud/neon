@@ -51,8 +51,8 @@ class NeonProvider<T extends Disposable> extends SingleChildStatelessWidget {
   /// Provider.of(context, listen: false);
   /// ```
   ///
-  /// If we want to access an instance of `DisposableA` which was provided higher up
-  /// in the widget tree we can do so via:
+  /// If we want to access an instance of `DisposableA` which was provided
+  /// higher up in the widget tree we can do so via:
   ///
   /// ```dart
   /// NeonProvider.of<DisposableA>(context);

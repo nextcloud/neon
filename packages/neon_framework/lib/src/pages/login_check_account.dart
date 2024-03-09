@@ -72,7 +72,8 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                           final details = NeonError.getDetails(state.error);
                           return NeonValidationTile(
                             title: details.isUnauthorized
-                                ? NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
+                                ? NeonLocalizations.of(context)
+                                    .errorCredentialsForAccountNoLongerMatch
                                 : details.getText(context),
                             state: ValidationState.failure,
                           );
@@ -92,7 +93,9 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                                 const HomeRoute().go(context);
                               }
                             : () {
-                                if (state.hasError && NeonError.getDetails(state.error).isUnauthorized) {
+                                if (state.hasError &&
+                                    NeonError.getDetails(state.error)
+                                        .isUnauthorized) {
                                   Navigator.pop(context);
                                   return;
                                 }

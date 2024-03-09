@@ -37,7 +37,8 @@ void main() {
     late SelectOption<SelectValues> option;
 
     setUp(() {
-      when(() => storage.setString(key.value, any())).thenAnswer((_) async => true);
+      when(() => storage.setString(key.value, any()))
+          .thenAnswer((_) async => true);
       when(() => storage.remove(key.value)).thenAnswer((_) async => true);
 
       option = SelectOption<SelectValues>(
@@ -55,9 +56,14 @@ void main() {
     });
 
     test('Create', () {
-      expect(option.value, option.defaultValue, reason: 'Should default to defaultValue.');
+      expect(
+        option.value,
+        option.defaultValue,
+        reason: 'Should default to defaultValue.',
+      );
 
-      when(() => storage.getString(key.value)).thenReturn('SelectValues.second');
+      when(() => storage.getString(key.value))
+          .thenReturn('SelectValues.second');
 
       option = SelectOption<SelectValues>(
         storage: storage,
@@ -67,7 +73,11 @@ void main() {
         values: valuesLabel,
       );
 
-      expect(option.value, SelectValues.second, reason: 'Should load value from storage when available.');
+      expect(
+        option.value,
+        SelectValues.second,
+        reason: 'Should load value from storage when available.',
+      );
     });
 
     test('Depend', () {
@@ -83,11 +93,19 @@ void main() {
         enabled: enabled,
       )..addListener(callback.call);
 
-      expect(option.enabled, enabled.value, reason: 'Should initialize with enabled value.');
+      expect(
+        option.enabled,
+        enabled.value,
+        reason: 'Should initialize with enabled value.',
+      );
 
       enabled.value = true;
       verify(callback.call).called(1);
-      expect(option.enabled, enabled.value, reason: 'Should update the enabled state.');
+      expect(
+        option.enabled,
+        enabled.value,
+        reason: 'Should update the enabled state.',
+      );
     });
 
     test('Update', () {
@@ -97,12 +115,21 @@ void main() {
         ..value = SelectValues.third;
 
       verify(callback.call).called(1);
-      verify(() => storage.setString(key.value, 'SelectValues.third')).called(1);
-      expect(option.value, SelectValues.third, reason: 'Should update the value.');
+      verify(() => storage.setString(key.value, 'SelectValues.third'))
+          .called(1);
+      expect(
+        option.value,
+        SelectValues.third,
+        reason: 'Should update the value.',
+      );
 
       option.value = SelectValues.third;
       verifyNever(callback.call); // Don't notify with the same value
-      expect(option.value, SelectValues.third, reason: 'Should keep the value.');
+      expect(
+        option.value,
+        SelectValues.third,
+        reason: 'Should keep the value.',
+      );
     });
 
     test('Disable', () {
@@ -167,7 +194,11 @@ void main() {
 
       verify(callback.call).called(1);
       verify(() => storage.remove(key.value)).called(1);
-      expect(option.value, option.defaultValue, reason: 'Should reset the value.');
+      expect(
+        option.value,
+        option.defaultValue,
+        reason: 'Should reset the value.',
+      );
     });
 
     test('Serialize null', () {
@@ -179,7 +210,12 @@ void main() {
         values: valuesLabel,
       );
 
-      expect(option.serialize(), null, reason: 'Should serialize to null. A string containing "null" is an error');
+      expect(
+        option.serialize(),
+        null,
+        reason:
+            'Should serialize to null. A string containing "null" is an error',
+      );
     });
 
     test('Deserialize', () {
@@ -216,7 +252,8 @@ void main() {
     late ToggleOption option;
 
     setUp(() {
-      when(() => storage.setBool(key.value, any())).thenAnswer((_) async => true);
+      when(() => storage.setBool(key.value, any()))
+          .thenAnswer((_) async => true);
       when(() => storage.remove(key.value)).thenAnswer((_) async => true);
 
       option = ToggleOption(
@@ -233,7 +270,11 @@ void main() {
     });
 
     test('Create', () {
-      expect(option.value, option.defaultValue, reason: 'Should default to defaultValue.');
+      expect(
+        option.value,
+        option.defaultValue,
+        reason: 'Should default to defaultValue.',
+      );
 
       when(() => storage.getBool(key.value)).thenReturn(true);
 
@@ -244,7 +285,11 @@ void main() {
         defaultValue: false,
       );
 
-      expect(option.value, true, reason: 'Should load value from storage when available.');
+      expect(
+        option.value,
+        true,
+        reason: 'Should load value from storage when available.',
+      );
     });
 
     test('Depend', () {
@@ -259,11 +304,19 @@ void main() {
         enabled: enabled,
       )..addListener(callback.call);
 
-      expect(option.enabled, enabled.value, reason: 'Should initialize with enabled value.');
+      expect(
+        option.enabled,
+        enabled.value,
+        reason: 'Should initialize with enabled value.',
+      );
 
       enabled.value = true;
       verify(callback.call).called(1);
-      expect(option.enabled, enabled.value, reason: 'Should update the enabled state.');
+      expect(
+        option.enabled,
+        enabled.value,
+        reason: 'Should update the enabled state.',
+      );
     });
 
     test('Update', () {
@@ -308,7 +361,11 @@ void main() {
 
       verify(callback.call).called(1);
       verify(() => storage.remove(key.value)).called(1);
-      expect(option.value, option.defaultValue, reason: 'Should reset the value.');
+      expect(
+        option.value,
+        option.defaultValue,
+        reason: 'Should reset the value.',
+      );
     });
 
     test('Deserialize', () {

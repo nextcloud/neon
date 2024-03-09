@@ -37,9 +37,9 @@ class NeonServerIcon extends StatelessWidget {
   /// Defaults to the nearest [IconTheme]'s [IconThemeData.size].
   ///
   /// If this [NeonServerIcon] is being placed inside an [IconButton], then use
-  /// [IconButton.iconSize] instead, so that the [IconButton] can make the splash
-  /// area the appropriate size as well. The [IconButton] uses an [IconTheme] to
-  /// pass down the size to the [NeonServerIcon].
+  /// [IconButton.iconSize] instead, so that the [IconButton] can make the
+  /// splash area the appropriate size as well. The [IconButton] uses an
+  /// [IconTheme] to pass down the size to the [NeonServerIcon].
   final double? size;
 
   @override

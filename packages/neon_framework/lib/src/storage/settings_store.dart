@@ -34,7 +34,8 @@ abstract interface class SettingsStore {
   Future<bool> remove(String key);
 }
 
-/// Default implementation of the [SettingsStore] backed by the given [persistence].
+/// Default implementation of the [SettingsStore] backed by the given
+/// [persistence].
 @immutable
 @internal
 final class DefaultSettingsStore implements SettingsStore {
@@ -55,11 +56,13 @@ final class DefaultSettingsStore implements SettingsStore {
   String? getString(String key) => persistence.getValue(key) as String?;
 
   @override
-  Future<bool> setString(String key, String value) => persistence.setValue(key, value);
+  Future<bool> setString(String key, String value) =>
+      persistence.setValue(key, value);
 
   @override
   bool? getBool(String key) => persistence.getValue(key) as bool?;
 
   @override
-  Future<bool> setBool(String key, bool value) => persistence.setValue(key, value);
+  Future<bool> setBool(String key, bool value) =>
+      persistence.setValue(key, value);
 }

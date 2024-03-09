@@ -5,14 +5,16 @@ import 'package:rxdart/rxdart.dart';
 extension ResultStreamTransform<T> on Stream<Result<T>> {
   /// Transforms every [Result] in the `Stream` using [Result.transform].
   @visibleForTesting
-  Stream<Result<R>> transformResult<R>(R Function(T data) callback) => map((e) => e.transform(callback));
+  Stream<Result<R>> transformResult<R>(R Function(T data) callback) =>
+      map((e) => e.transform(callback));
 }
 
 /// Immutable representation of the most recent interaction with a data fetching
 /// computation.
 ///
 /// See also:
-///  * [ResultBuilder], which builds itself based on a snapshot from interacting with a [Stream] of `Result`s.
+///  * [ResultBuilder], which builds itself based on a snapshot from interacting
+///    with a [Stream] of `Result`s.
 @immutable
 class Result<T> {
   /// Creates a new Result.
@@ -28,7 +30,8 @@ class Result<T> {
     required this.isCached,
   }) : assert(
           T != Never,
-          'Result() called without specifying the data type. Call Result<T>() instead',
+          'Result() called without specifying the data type. '
+          'Call Result<T>() instead',
         );
 
   /// Creates a new Result in the loading state.
@@ -44,7 +47,8 @@ class Result<T> {
         isCached = false,
         assert(
           T != Never,
-          'Result.loading() called without specifying the data type. Call Result<T>.loading() instead',
+          'Result.loading() called without specifying the data type. '
+          'Call Result<T>.loading() instead',
         );
 
   /// Creates a new Result in the success state.
@@ -59,7 +63,8 @@ class Result<T> {
         isCached = false,
         assert(
           T != Never,
-          'Result.success() called without specifying the data type. Call Result<T>.success() instead',
+          'Result.success() called without specifying the data type. '
+          'Call Result<T>.success() instead',
         );
 
   /// Creates a new Result in the error state.
@@ -74,7 +79,8 @@ class Result<T> {
         isCached = false,
         assert(
           T != Never,
-          'Result.error() called without specifying the data type. Call Result<T>.error() instead',
+          'Result.error() called without specifying the data type. '
+          'Call Result<T>.error() instead',
         );
 
   /// The latest data received by the data fetching computation.
@@ -114,7 +120,8 @@ class Result<T> {
   /// Copies this Result in a loading state.
   Result<T> asLoading() => copyWith(isLoading: true);
 
-  /// Copies this Result and optionally replaces the [data], [error], [isLoading] and [isCached].
+  /// Copies this Result and optionally replaces the [data], [error],
+  /// [isLoading] and [isCached] properties.
   Result<T> copyWith({
     T? data,
     Object? error,
@@ -144,7 +151,8 @@ class Result<T> {
 
   /// Returns whether this snapshot is equal to a [Result.success].
   ///
-  /// A successful result has data, has no error and is neither loading nor cached.
+  /// A successful result has data, has no error and is neither loading nor
+  /// cached.
   bool get hasSuccessfulData => hasData && !isCached && !isLoading && !hasError;
 
   /// Returns the latest data received, failing if there is no data.
@@ -169,7 +177,8 @@ class Result<T> {
   int get hashCode => Object.hash(data, error?.toString(), isLoading, isCached);
 
   @override
-  String toString() => 'Result($data, $error, isLoading: $isLoading, isCached: $isCached)';
+  String toString() =>
+      'Result($data, $error, isLoading: $isLoading, isCached: $isCached)';
 }
 
 /// Signature for strategies that build widgets based on asynchronous [Result]s.
@@ -177,7 +186,10 @@ class Result<T> {
 /// See also:
 ///  * [ResultBuilder], which delegates to an [ResultWidgetBuilder] to build
 ///    itself based on [Result] events from a [Stream].
-typedef ResultWidgetBuilder<T> = Widget Function(BuildContext context, Result<T> snapshot);
+typedef ResultWidgetBuilder<T> = Widget Function(
+  BuildContext context,
+  Result<T> snapshot,
+);
 
 /// Widget that builds itself based on the latest snapshot of interaction with
 /// a [Stream<Result>].

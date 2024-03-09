@@ -27,7 +27,8 @@ import 'package:vector_graphics/vector_graphics.dart';
 /// It is mandatory to provide a precompiled SVG under `assets/app.svg.vec`.
 /// SVGs can be precompiled with `https://pub.dev/packages/vector_graphics_compiler`
 @immutable
-abstract class AppImplementation<T extends Bloc, R extends AppImplementationOptions> implements Disposable, Findable {
+abstract class AppImplementation<T extends Bloc,
+    R extends AppImplementationOptions> implements Disposable, Findable {
   /// The unique id of an app.
   ///
   /// It is common to specify them in `AppIDs`.
@@ -36,7 +37,8 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
 
   /// A set of IDs that will match the server apps in addition to [id].
   ///
-  /// This should only be used when the implementation ID does not match the app ID on the server
+  /// This should only be used when the implementation ID does not match the app
+  /// ID on the server
   /// or the implementation supports multiple apps on the server.
   BuiltSet<String>? get additionalMatchingIDs => null;
 
@@ -49,14 +51,17 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// Default localized app name used in [name].
   ///
   /// Defaults to the frameworks mapping of the [id] to a localized name.
-  String nameFromLocalization(NeonLocalizations localizations) => localizations.appImplementationName(id);
+  String nameFromLocalization(NeonLocalizations localizations) =>
+      localizations.appImplementationName(id);
 
   /// Localized name of this app.
-  String name(BuildContext context) => nameFromLocalization(NeonLocalizations.of(context));
+  String name(BuildContext context) =>
+      nameFromLocalization(NeonLocalizations.of(context));
 
   /// The storage bucket for this app.
   @protected
-  late final SettingsStore storage = NeonStorage().settingsStore(StorageKeys.apps, id);
+  late final SettingsStore storage =
+      NeonStorage().settingsStore(StorageKeys.apps, id);
 
   /// The options associated with this app.
   ///
@@ -68,7 +73,8 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// Checks if the app is supported on the server of the [account].
   ///
   /// A value of `null` means that it can not be known if the app is supported.
-  /// This is the case for apps that depend on the server version like files and we assume that the app is supported.
+  /// This is the case for apps that depend on the server version like files and
+  /// we assume that the app is supported.
   /// The server support is handled differently.
   FutureOr<VersionCheck?> getVersionCheck(
     Account account,
@@ -139,7 +145,8 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// Route for the app.
   ///
   /// All pages of the app must be specified as sub routes.
-  /// If this is not [GoRoute] an initial route name must be specified by overriding [initialRouteName].
+  /// If this is not [GoRoute] an initial route name must be specified by
+  /// overriding [initialRouteName].
   RouteBase get route;
 
   /// Name of the initial route for this app.
@@ -169,7 +176,10 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
           return VectorGraphic(
             width: realSize,
             height: realSize,
-            colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(
+              color ?? Theme.of(context).colorScheme.primary,
+              BlendMode.srcIn,
+            ),
             loader: AssetBytesLoader(
               'assets/app.svg.vec',
               packageName: 'neon_$id',
@@ -188,11 +198,12 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
 
   /// A custom theme that will be injected into the widget tree.
   ///
-  /// You can later access it through `Theme.of(context).extension<ThemeName>()`.
+  /// You can later access it through `Theme.of(context).extension<ThemeName>()`
   final ThemeExtension? theme = null;
 
   @override
-  bool operator ==(Object other) => other is AppImplementation && other.id == id;
+  bool operator ==(Object other) =>
+      other is AppImplementation && other.id == id;
 
   @override
   int get hashCode => id.hashCode;

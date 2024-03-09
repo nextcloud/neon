@@ -25,15 +25,17 @@ class AppImplementationSettingsPage extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () async {
-            final content =
-                '${NeonLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context))} ${NeonLocalizations.of(context).settingsResetForClientExplanation}';
+            final confirmation = NeonLocalizations.of(context)
+                .settingsResetForConfirmation(appImplementation.name(context));
+            final explanation =
+                NeonLocalizations.of(context).settingsResetForClientExplanation;
 
             final decision = await showAdaptiveDialog<bool>(
               context: context,
               builder: (context) => NeonConfirmationDialog(
                 icon: const Icon(Icons.restart_alt),
                 title: NeonLocalizations.of(context).settingsReset,
-                content: Text(content),
+                content: Text('$confirmation $explanation'),
               ),
             );
 
@@ -41,7 +43,8 @@ class AppImplementationSettingsPage extends StatelessWidget {
               appImplementation.options.reset();
             }
           },
-          tooltip: NeonLocalizations.of(context).settingsResetFor(appImplementation.name(context)),
+          tooltip: NeonLocalizations.of(context)
+              .settingsResetFor(appImplementation.name(context)),
           icon: const Icon(MdiIcons.cogRefresh),
         ),
       ],
@@ -49,15 +52,22 @@ class AppImplementationSettingsPage extends StatelessWidget {
 
     final body = SettingsList(
       categories: [
-        for (final category in [...appImplementation.options.categories, null]) ...[
-          if (appImplementation.options.options.where((option) => option.category == category).isNotEmpty) ...[
+        for (final category in [
+          ...appImplementation.options.categories,
+          null,
+        ]) ...[
+          if (appImplementation.options.options
+              .where((option) => option.category == category)
+              .isNotEmpty) ...[
             SettingsCategory(
               title: Text(
-                category != null ? category.name(context) : NeonLocalizations.of(context).optionsCategoryOther,
+                category != null
+                    ? category.name(context)
+                    : NeonLocalizations.of(context).optionsCategoryOther,
               ),
               tiles: [
-                for (final option
-                    in appImplementation.options.options.where((option) => option.category == category)) ...[
+                for (final option in appImplementation.options.options
+                    .where((option) => option.category == category)) ...[
                   OptionSettingsTile(option: option),
                 ],
               ],

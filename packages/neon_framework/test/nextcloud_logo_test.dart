@@ -8,10 +8,17 @@ void main() {
   testWidgets('NextcloudLogo', (widgetTester) async {
     const widget = NextcloudLogo();
 
-    await widgetTester.pumpWidget(const TestApp(wrapMaterial: false, child: widget));
+    await widgetTester
+        .pumpWidget(const TestApp(wrapMaterial: false, child: widget));
     expect(find.byType(VectorGraphic), findsOneWidget);
-    expect(find.bySemanticsLabel(NeonLocalizationsEn().nextcloudLogo), findsOneWidget);
+    expect(
+      find.bySemanticsLabel(NeonLocalizationsEn().nextcloudLogo),
+      findsOneWidget,
+    );
 
-    await expectLater(find.byType(VectorGraphic), matchesGoldenFile('goldens/nextcloud_logo.png'));
+    await expectLater(
+      find.byType(VectorGraphic),
+      matchesGoldenFile('goldens/nextcloud_logo.png'),
+    );
   });
 }

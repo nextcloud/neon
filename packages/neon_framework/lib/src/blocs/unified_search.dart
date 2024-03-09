@@ -32,7 +32,8 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
   BehaviorSubject<Result<BuiltList<core.UnifiedSearchProvider>>> get providers;
 
   /// Contains the unified search results mapped by provider.
-  BehaviorSubject<BuiltMap<String, Result<core.UnifiedSearchResult>>> get results;
+  BehaviorSubject<BuiltMap<String, Result<core.UnifiedSearchResult>>>
+      get results;
 }
 
 class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
@@ -50,7 +51,9 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
         return;
       }
 
-      await searchProviders(result.requireData.map((provider) => provider.id).toList());
+      await searchProviders(
+        result.requireData.map((provider) => provider.id).toList(),
+      );
     });
   }
 
@@ -124,7 +127,10 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     );
   }
 
-  void updateResults(String providerID, Result<core.UnifiedSearchResult> result) {
+  void updateResults(
+    String providerID,
+    Result<core.UnifiedSearchResult> result,
+  ) {
     results.add(
       BuiltMap.build((b) {
         b.addEntries(
@@ -144,7 +150,8 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     final activeApp = appsBloc.activeApp.value;
 
     // Unlike non-matching providers (below) we don't filter the empty results,
-    // as the active app is more relevant and we want to know if there are no results for the active app.
+    // as the active app is more relevant and we want to know if there are no
+    // results for the active app.
     yield* results.entries
         .where((entry) => providerMatchesApp(entry.key, activeApp))
         .sorted((a, b) => sortEntriesCount(a.value, b.value));
@@ -157,8 +164,12 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   bool providerMatchesApp(String providerID, AppImplementation app) =>
       providerID == app.id || providerID.startsWith('${app.id}_');
 
-  bool hasEntries(Result<core.UnifiedSearchResult> result) => !result.hasData || result.requireData.entries.isNotEmpty;
+  bool hasEntries(Result<core.UnifiedSearchResult> result) =>
+      !result.hasData || result.requireData.entries.isNotEmpty;
 
-  int sortEntriesCount(Result<core.UnifiedSearchResult> a, Result<core.UnifiedSearchResult> b) =>
+  int sortEntriesCount(
+    Result<core.UnifiedSearchResult> a,
+    Result<core.UnifiedSearchResult> b,
+  ) =>
       (b.data?.entries.length ?? 0).compareTo(a.data?.entries.length ?? 0);
 }

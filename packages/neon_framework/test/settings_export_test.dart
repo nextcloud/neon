@@ -45,13 +45,15 @@ void main() {
         'accounts': {'accountID': 'value'},
       };
 
-      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded(BuiltList()));
+      when(() => bloc.accounts)
+          .thenAnswer((_) => BehaviorSubject.seeded(BuiltList()));
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'accounts': <String, dynamic>{}});
 
       final fakeAccount = MockAccount();
       final fakeOptions = MockAccountOptions();
-      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded(BuiltList([fakeAccount])));
+      when(() => bloc.accounts)
+          .thenAnswer((_) => BehaviorSubject.seeded(BuiltList([fakeAccount])));
       when(() => bloc.getOptionsFor(fakeAccount)).thenReturn(fakeOptions);
       when(fakeOptions.export).thenReturn(accountValue);
       when(() => fakeAccount.id).thenReturn('accountID');
@@ -60,7 +62,8 @@ void main() {
       expect(Map.fromEntries([export]), accountExport);
 
       exporter.import(Map.fromEntries([export]));
-      verify(() => fakeOptions.import(Map.fromEntries([accountValue]))).called(1);
+      verify(() => fakeOptions.import(Map.fromEntries([accountValue])))
+          .called(1);
     });
   });
 

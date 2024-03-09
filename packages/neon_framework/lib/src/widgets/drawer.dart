@@ -41,7 +41,9 @@ class _NeonDrawerState extends State<NeonDrawer> {
     _appsBloc.appImplementations.listen((result) {
       setState(() {
         _apps = result.data?.toList();
-        _activeApp = _apps?.indexWhere((app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
+        _activeApp = _apps?.indexWhere(
+          (app) => app.id == _appsBloc.activeApp.valueOrNull?.id,
+        );
       });
     });
   }
@@ -80,9 +82,10 @@ class _NeonDrawerState extends State<NeonDrawer> {
 
 /// Custom styled [DrawerHeader] used inside a [Drawer] or [NeonDrawer].
 ///
-/// The neon drawer will display the [core.ThemingPublicCapabilities_Theming.name]
-/// and [core.ThemingPublicCapabilities_Theming.logo] and automatically rebuild
-/// when the current theme changes.
+/// The neon drawer will display the
+/// [core.ThemingPublicCapabilities_Theming.name] and
+/// [core.ThemingPublicCapabilities_Theming.logo] and
+/// automatically rebuild when the current theme changes.
 @internal
 class NeonDrawerHeader extends StatelessWidget {
   /// Creates a new Neon drawer header.
@@ -109,7 +112,8 @@ class NeonDrawerHeader extends StatelessWidget {
           );
         }
 
-        final theme = capabilities.requireData.capabilities.themingPublicCapabilities?.theming;
+        final theme = capabilities
+            .requireData.capabilities.themingPublicCapabilities?.theming;
 
         if (theme == null) {
           return const SizedBox();

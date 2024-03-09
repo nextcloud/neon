@@ -29,10 +29,12 @@ class LoginCheckServerStatusPage extends StatefulWidget {
   final String? password;
 
   @override
-  State<LoginCheckServerStatusPage> createState() => _LoginCheckServerStatusPageState();
+  State<LoginCheckServerStatusPage> createState() =>
+      _LoginCheckServerStatusPageState();
 }
 
-class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage> {
+class _LoginCheckServerStatusPageState
+    extends State<LoginCheckServerStatusPage> {
   late final LoginCheckServerStatusBloc bloc;
 
   @override
@@ -61,15 +63,17 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
               child: ResultBuilder.behaviorSubject(
                 subject: bloc.state,
                 builder: (context, state) {
-                  final success =
-                      state.hasData && _isServerVersionAllowed(state.requireData) && !state.requireData.maintenance;
+                  final success = state.hasData &&
+                      _isServerVersionAllowed(state.requireData) &&
+                      !state.requireData.maintenance;
 
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       if (state.hasError) ...[
                         NeonValidationTile(
-                          title: NeonError.getDetails(state.error).getText(context),
+                          title: NeonError.getDetails(state.error)
+                              .getText(context),
                           state: ValidationState.failure,
                         ),
                       ],
@@ -129,13 +133,15 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
 
     if (_isServerVersionAllowed(result.requireData)) {
       return NeonValidationTile(
-        title: NeonLocalizations.of(context).loginSupportedServerVersion(result.requireData.versionstring),
+        title: NeonLocalizations.of(context)
+            .loginSupportedServerVersion(result.requireData.versionstring),
         state: ValidationState.success,
       );
     }
 
     return NeonValidationTile(
-      title: NeonLocalizations.of(context).loginUnsupportedServerVersion(result.requireData.versionstring),
+      title: NeonLocalizations.of(context)
+          .loginUnsupportedServerVersion(result.requireData.versionstring),
       state: ValidationState.failure,
     );
   }

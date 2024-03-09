@@ -32,9 +32,11 @@ extension ClearAt on user_status.ClearAt {
       case user_status.ClearAt_Type.endOf:
         switch (time.clearAtTimeType) {
           case user_status.ClearAtTimeType.day:
-            return DateTime(base.year, base.month, base.day).add(const Duration(days: 1));
+            return DateTime(base.year, base.month, base.day)
+                .add(const Duration(days: 1));
           case user_status.ClearAtTimeType.week:
-            return DateTime(base.year, base.month, base.day).add(Duration(days: 8 - base.weekday));
+            return DateTime(base.year, base.month, base.day)
+                .add(Duration(days: 8 - base.weekday));
         }
       case user_status.ClearAt_Type.period:
         return base.add(Duration(seconds: time.$int!));

@@ -6,7 +6,8 @@ class HexColor extends Color {
   HexColor(String hexColor) : super(_parse(hexColor));
 
   static int _parse(String hexColor) {
-    final formatted = hexColor.toUpperCase().replaceAll('#', '').padLeft(8, 'F');
+    final formatted =
+        hexColor.toUpperCase().replaceAll('#', '').padLeft(8, 'F');
 
     return int.parse(formatted, radix: 16);
   }

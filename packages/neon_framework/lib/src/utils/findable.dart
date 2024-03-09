@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 
-/// Interface to be implemented by classes that want to use the [FindExtension.find] and [FindExtension.tryFind] methods.
+/// Interface to be implemented by classes that want to use the
+/// [FindExtension.find] and [FindExtension.tryFind] methods.
 abstract interface class Findable {
   /// Unique ID of the element.
   String get id;

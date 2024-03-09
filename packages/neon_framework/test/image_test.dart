@@ -18,7 +18,8 @@ class MockRequestManager extends Mock implements RequestManager {}
 
 class MockNextcloudClient extends Mock implements NextcloudClient {}
 
-class MockDynamiteRawResponse extends Mock implements DynamiteRawResponse<Uint8List, dynamic> {}
+class MockDynamiteRawResponse extends Mock
+    implements DynamiteRawResponse<Uint8List, dynamic> {}
 
 class MockGetImage extends Mock {
   DynamiteRawResponse<Uint8List, dynamic> call(NextcloudClient client);
@@ -145,7 +146,9 @@ void main() {
 
     final mockAccount = MockAccount();
     when(() => mockAccount.client).thenReturn(mockNextcloudClient);
-    when(() => mockAccount.completeUri(any())).thenAnswer((invocation) => invocation.positionalArguments.single as Uri);
+    when(() => mockAccount.completeUri(any())).thenAnswer(
+      (invocation) => invocation.positionalArguments.single as Uri,
+    );
 
     final uri = Uri.parse('https://example.com');
     await tester.pumpWidget(

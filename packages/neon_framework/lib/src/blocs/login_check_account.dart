@@ -29,7 +29,8 @@ sealed class LoginCheckAccountBloc implements InteractiveBloc {
   BehaviorSubject<Result<Account>> get state;
 }
 
-class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccountBloc {
+class _LoginCheckAccountBloc extends InteractiveBloc
+    implements LoginCheckAccountBloc {
   _LoginCheckAccountBloc(
     this.serverURL,
     this.loginName,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
 
-/// A widget that rebuilds when one of the options in an [OptionsCollection] changes.
-class OptionsCollectionBuilder<T extends OptionsCollection> extends StatefulWidget {
+/// A widget that rebuilds when one of the options in an [OptionsCollection]
+/// changes.
+class OptionsCollectionBuilder<T extends OptionsCollection>
+    extends StatefulWidget {
   /// Creates a [OptionsCollectionBuilder].
   ///
   /// The [valueListenable] and [builder] arguments must not be null.
@@ -27,7 +29,7 @@ class OptionsCollectionBuilder<T extends OptionsCollection> extends StatefulWidg
   /// Must not be null.
   final ValueWidgetBuilder<T> builder;
 
-  /// A [valueListenable]-independent widget which is passed back to the [builder].
+  /// A [valueListenable]-independent widget.
   ///
   /// This argument is optional and can be null if the entire widget subtree the
   /// [builder] builds depends on the value of the [valueListenable]. For
@@ -40,7 +42,8 @@ class OptionsCollectionBuilder<T extends OptionsCollection> extends StatefulWidg
   State<StatefulWidget> createState() => _OptionsCollectionBuilderState<T>();
 }
 
-class _OptionsCollectionBuilderState<T extends OptionsCollection> extends State<OptionsCollectionBuilder<T>> {
+class _OptionsCollectionBuilderState<T extends OptionsCollection>
+    extends State<OptionsCollectionBuilder<T>> {
   @override
   void initState() {
     super.initState();

@@ -82,7 +82,8 @@ class AppTheme {
         onTertiary: onPrimaryColor,
       );
     } else {
-      colorScheme = brightness == Brightness.dark ? deviceThemeDark : deviceThemeLight;
+      colorScheme =
+          brightness == Brightness.dark ? deviceThemeDark : deviceThemeLight;
     }
 
     colorScheme ??= ColorScheme.fromSeed(
@@ -115,8 +116,11 @@ class AppTheme {
       inputDecorationTheme: _inputDecorationTheme,
       searchBarTheme: SearchBarThemeData(
         elevation: const MaterialStatePropertyAll(0),
-        backgroundColor: MaterialStatePropertyAll(colorScheme.secondaryContainer),
-        textStyle: MaterialStatePropertyAll(TextStyle(color: colorScheme.onSecondaryContainer)),
+        backgroundColor:
+            MaterialStatePropertyAll(colorScheme.secondaryContainer),
+        textStyle: MaterialStatePropertyAll(
+          TextStyle(color: colorScheme.onSecondaryContainer),
+        ),
       ),
       cupertinoOverrideTheme: CupertinoThemeData(
         brightness: brightness,

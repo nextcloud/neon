@@ -74,7 +74,9 @@ Account mockUserStatusAccount() {
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/predefined_statuses'): {
       'get': (match, queryParameters) => predefinedStatusesResponse(),
     },
-    RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/predefined'): {
+    RegExp(
+      r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/predefined',
+    ): {
       'put': (match, queryParameters) {
         messageId = queryParameters['messageId']!.single;
         messageIsPredefined = true;
@@ -82,7 +84,8 @@ Account mockUserStatusAccount() {
         return statusResponse();
       },
     },
-    RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/custom'): {
+    RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/custom'):
+        {
       'put': (match, queryParameters) {
         messageId = null;
         message = queryParameters['message']!.single;
@@ -161,7 +164,8 @@ void main() {
         Result.success('predefined'),
       ]),
     );
-    // The delay is necessary to avoid a race condition with loading twice at the same time
+    // The delay is necessary to avoid a race condition with loading twice at
+    // the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
     await bloc.refresh();
   });
@@ -225,13 +229,18 @@ void main() {
   test('Set status type', () async {
     bloc.setStatusType(user_status.$Type.dnd.value);
 
-    expect(bloc.status.transformResult((e) => e.status), emits(Result.success(user_status.$Type.dnd)));
+    expect(
+      bloc.status.transformResult((e) => e.status),
+      emits(Result.success(user_status.$Type.dnd)),
+    );
   });
 
   test('Set predefined message', () async {
     await Future<void>.delayed(const Duration(milliseconds: 1));
 
-    final clearAt = DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000;
+    final clearAt =
+        DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/
+            1000;
     bloc.setPredefinedMessage(
       id: 'predefined',
       clearAt: clearAt,
@@ -244,7 +253,9 @@ void main() {
   });
 
   test('Set custom message', () async {
-    final clearAt = DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000;
+    final clearAt =
+        DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/
+            1000;
     bloc.setCustomMessage(
       message: 'message',
       icon: 'icon',
@@ -258,7 +269,9 @@ void main() {
   });
 
   test('Clear message', () async {
-    final clearAt = DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000;
+    final clearAt =
+        DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/
+            1000;
     bloc
       ..setCustomMessage(
         message: 'message',

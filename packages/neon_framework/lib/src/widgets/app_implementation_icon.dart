@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 
-/// An icon widget displaying the app icon of a client with an overlay displaying the [unreadCount].
+/// An icon widget displaying the app icon of a client with an overlay
+/// displaying the [unreadCount].
 @internal
 class NeonAppImplementationIcon extends StatelessWidget {
   /// Creates a new app implementation icon.
@@ -48,10 +49,11 @@ class NeonAppImplementationIcon extends StatelessWidget {
   ///
   /// Defaults to the nearest [IconTheme]'s [IconThemeData.size].
   ///
-  /// If this [NeonAppImplementationIcon] is being placed inside an [IconButton],
-  /// then use [IconButton.iconSize] instead, so that the [IconButton] can make
-  /// the splash area the appropriate size as well. The [IconButton] uses an
-  /// [IconTheme] to pass down the size to the [NeonAppImplementationIcon].
+  /// If this [NeonAppImplementationIcon] is being placed inside an
+  /// [IconButton], then use [IconButton.iconSize] instead, so that the
+  /// [IconButton] can make the splash area the appropriate size as well.
+  /// The [IconButton] uses an [IconTheme] to pass down the size to the
+  /// [NeonAppImplementationIcon].
   final double? size;
 
   @override
@@ -59,7 +61,9 @@ class NeonAppImplementationIcon extends StatelessWidget {
     final unreadCount = this.unreadCount ?? 0;
 
     final color = this.color ??
-        (unreadCount > 0 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onBackground);
+        (unreadCount > 0
+            ? Theme.of(context).colorScheme.primary
+            : Theme.of(context).colorScheme.onBackground);
 
     final icon = Container(
       margin: const EdgeInsets.all(5),

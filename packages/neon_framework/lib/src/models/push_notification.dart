@@ -1,7 +1,8 @@
 import 'package:crypton/crypton.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/notifications.dart' show DecryptedSubject, decryptPushNotificationSubject;
+import 'package:nextcloud/notifications.dart'
+    show DecryptedSubject, decryptPushNotificationSubject;
 
 part 'push_notification.g.dart';
 
@@ -31,10 +32,13 @@ class PushNotification {
 
   /// Creates a new PushNotification object from the given [json] data.
   ///
-  /// Use [PushNotification.fromEncrypted] when you the [subject] is still encrypted.
-  factory PushNotification.fromJson(Map<String, dynamic> json) => _$PushNotificationFromJson(json);
+  /// Use [PushNotification.fromEncrypted] when you the [subject] is still
+  /// encrypted.
+  factory PushNotification.fromJson(Map<String, dynamic> json) =>
+      _$PushNotificationFromJson(json);
 
-  /// Creates a new PushNotification object from the given [json] data containing an encrypted [subject].
+  /// Creates a new PushNotification object from the given [json] data
+  /// containing an encrypted [subject].
   ///
   /// Use [PushNotification.fromJson] when the [subject] is not encrypted.
   factory PushNotification.fromEncrypted(
@@ -42,7 +46,8 @@ class PushNotification {
     String accountID,
     RSAPrivateKey privateKey,
   ) {
-    final subject = decryptPushNotificationSubject(privateKey, json[_subjectKey] as String);
+    final subject =
+        decryptPushNotificationSubject(privateKey, json[_subjectKey] as String);
 
     return PushNotification(
       accountID: accountID,

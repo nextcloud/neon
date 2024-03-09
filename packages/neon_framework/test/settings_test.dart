@@ -29,7 +29,8 @@ void main() {
 
   setUp(() {
     when(() => storage.setBool(key.value, any())).thenAnswer((_) async => true);
-    when(() => storage.setString(key.value, any())).thenAnswer((_) async => true);
+    when(() => storage.setString(key.value, any()))
+        .thenAnswer((_) async => true);
     when(() => storage.remove(key.value)).thenAnswer((_) async => true);
   });
 
@@ -99,7 +100,10 @@ void main() {
       });
 
       testWidgets('ToggleOption cupertino', (widgetTester) async {
-        final widget = TestApp(platform: TargetPlatform.macOS, child: OptionSettingsTile(option: option));
+        final widget = TestApp(
+          platform: TargetPlatform.macOS,
+          child: OptionSettingsTile(option: option),
+        );
         await widgetTester.pumpWidget(widget);
 
         expect(find.text('label'), findsOneWidget);

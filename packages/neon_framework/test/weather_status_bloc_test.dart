@@ -94,7 +94,9 @@ Account mockWeatherStatusAccount() {
   });
 }
 
-core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({required bool enabled}) =>
+core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({
+  required bool enabled,
+}) =>
     core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
       (b) => b
         ..version.update(
@@ -132,7 +134,9 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({requi
 
 void main() {
   late Account account;
-  late BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities;
+  late BehaviorSubject<
+          Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
+      capabilities;
   late WeatherStatusBloc bloc;
 
   setUpAll(() {
@@ -142,7 +146,8 @@ void main() {
 
   setUp(() {
     account = mockWeatherStatusAccount();
-    capabilities = BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>();
+    capabilities = BehaviorSubject<
+        Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>();
     bloc = WeatherStatusBloc(capabilities, account);
   });
 

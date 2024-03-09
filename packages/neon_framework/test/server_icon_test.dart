@@ -17,6 +17,9 @@ void main() {
     );
     await widgetTester.pumpWidget(TestApp(wrapMaterial: false, child: widget));
 
-    await expectLater(find.byType(VectorGraphic), matchesGoldenFile('goldens/neon_server_icon_nextcloud_logo.png'));
+    await expectLater(
+      find.byType(VectorGraphic),
+      matchesGoldenFile('goldens/neon_server_icon_nextcloud_logo.png'),
+    );
   });
 }

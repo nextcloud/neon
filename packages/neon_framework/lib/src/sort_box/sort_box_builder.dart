@@ -5,7 +5,10 @@ import 'package:sort_box/sort_box.dart';
 /// Signature for a function that creates a widget for a given sorted list.
 ///
 /// Used by [SortBoxBuilder] to display a sorted list of items.
-typedef SortBoxWidgetBuilder<T> = Widget Function(BuildContext context, List<T> sorted);
+typedef SortBoxWidgetBuilder<T> = Widget Function(
+  BuildContext context,
+  List<T> sorted,
+);
 
 /// Sorted list builder.
 ///

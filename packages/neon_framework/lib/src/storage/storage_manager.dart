@@ -74,7 +74,10 @@ class NeonStorage {
     var key = groupKey.value;
 
     if (key.isEmpty) {
-      throw ArgumentError('The group key must not be empty to avoid conflicts with the `SingleValueStore`.');
+      throw ArgumentError(
+        'The group key must not be empty to avoid conflicts '
+        'with the `SingleValueStore`.',
+      );
     }
 
     if (suffix != null) {
@@ -96,7 +99,8 @@ class NeonStorage {
   void _assertInitialized() {
     if (!_initialized) {
       throw StateError(
-        'NeonStorage has not been initialized yet. Please make sure NeonStorage.init() has been called before and completed.',
+        'NeonStorage has not been initialized yet. Please make sure '
+        'NeonStorage.init() has been called before and completed.',
       );
     }
   }

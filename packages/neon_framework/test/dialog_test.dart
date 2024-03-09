@@ -88,7 +88,11 @@ void main() {
         const dialog = NeonRenameDialog(title: title, value: value);
         await widgetTester.pumpWidget(const TestApp(child: dialog));
 
-        expect(find.text(title), findsExactly(2), reason: 'The title is also used for the confirmation button');
+        expect(
+          find.text(title),
+          findsExactly(2),
+          reason: 'The title is also used for the confirmation button',
+        );
         expect(find.text(value), findsOneWidget);
         expect(find.byType(TextFormField), findsOneWidget);
       });
@@ -100,27 +104,45 @@ void main() {
         final context = widgetTester.element(find.byType(Placeholder));
 
         // Equal value should not submit
-        var result = showRenameDialog(context: context, title: title, initialValue: value);
+        var result = showRenameDialog(
+          context: context,
+          title: title,
+          initialValue: value,
+        );
         await widgetTester.pumpAndSettle();
         await widgetTester.enterText(find.byType(TextFormField), value);
         await widgetTester.tap(find.byType(NeonDialogAction));
         expect(await result, isNull);
 
         // Empty value should not submit
-        result = showRenameDialog(context: context, title: title, initialValue: value);
+        result = showRenameDialog(
+          context: context,
+          title: title,
+          initialValue: value,
+        );
         await widgetTester.pumpAndSettle();
         await widgetTester.enterText(find.byType(TextFormField), '');
         await widgetTester.tap(find.byType(NeonDialogAction));
 
         // Different value should submit
-        await widgetTester.enterText(find.byType(TextFormField), 'My new value');
+        await widgetTester.enterText(
+          find.byType(TextFormField),
+          'My new value',
+        );
         await widgetTester.tap(find.byType(NeonDialogAction));
         expect(await result, equals('My new value'));
 
         // Submit via keyboard
-        result = showRenameDialog(context: context, title: title, initialValue: value);
+        result = showRenameDialog(
+          context: context,
+          title: title,
+          initialValue: value,
+        );
         await widgetTester.pumpAndSettle();
-        await widgetTester.enterText(find.byType(TextFormField), 'My new value');
+        await widgetTester.enterText(
+          find.byType(TextFormField),
+          'My new value',
+        );
         await widgetTester.testTextInput.receiveAction(TextInputAction.done);
         expect(await result, equals('My new value'));
       });
@@ -171,18 +193,21 @@ void main() {
       var dialog = const NeonDialog(
         actions: [],
       );
-      await widgetTester.pumpWidget(TestApp(platform: TargetPlatform.macOS, child: dialog));
+      await widgetTester
+          .pumpWidget(TestApp(platform: TargetPlatform.macOS, child: dialog));
       expect(
         find.byType(NeonDialogAction),
         findsOneWidget,
-        reason: 'Dialogs can not be dismissed on cupertino platforms. Expecting a fallback action.',
+        reason: 'Dialogs can not be dismissed on cupertino platforms. '
+            'Expecting a fallback action.',
       );
 
       dialog = const NeonDialog(
         automaticallyShowCancel: false,
         actions: [],
       );
-      await widgetTester.pumpWidget(TestApp(platform: TargetPlatform.macOS, child: dialog));
+      await widgetTester
+          .pumpWidget(TestApp(platform: TargetPlatform.macOS, child: dialog));
       expect(find.byType(NeonDialogAction), findsNothing);
     });
 
@@ -217,7 +242,9 @@ void main() {
               ..userId = 'test'
               ..message = 'predefined message'
               ..icon = '😅'
-              ..clearAt = now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000
+              ..clearAt =
+                  now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/
+                      1000
               ..status = user_status.$Type.online
               ..messageId = 'id1'
               ..messageIsPredefined = true
@@ -225,7 +252,8 @@ void main() {
           ),
         ),
       );
-      final predefinedStatuses = BehaviorSubject<Result<BuiltList<user_status.Predefined>>>.seeded(
+      final predefinedStatuses =
+          BehaviorSubject<Result<BuiltList<user_status.Predefined>>>.seeded(
         Result.success(
           BuiltList.from([
             user_status.Predefined(
@@ -262,11 +290,13 @@ void main() {
 
       final userStatusBloc = MockUserStatusBloc();
       when(() => userStatusBloc.status).thenAnswer((_) => status);
-      when(() => userStatusBloc.predefinedStatuses).thenAnswer((_) => predefinedStatuses);
+      when(() => userStatusBloc.predefinedStatuses)
+          .thenAnswer((_) => predefinedStatuses);
 
       final account = MockAccount();
       final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
+      when(() => accountsBloc.getUserStatusBlocFor(account))
+          .thenReturn(userStatusBloc);
 
       await tester.pumpWidget(
         TestApp(
@@ -285,7 +315,10 @@ void main() {
       expect(find.text('😅'), findsOne);
       expect(find.text('7 hours'), findsOne);
 
-      await expectLater(find.byType(NeonUserStatusDialog), matchesGoldenFile('goldens/user_status_dialog.png'));
+      await expectLater(
+        find.byType(NeonUserStatusDialog),
+        matchesGoldenFile('goldens/user_status_dialog.png'),
+      );
 
       // Other status type
       await tester.tap(find.text('Away'));
@@ -296,7 +329,8 @@ void main() {
       verify(
         () => userStatusBloc.setPredefinedMessage(
           id: 'id1',
-          clearAt: now.add(const Duration(hours: 7)).millisecondsSinceEpoch ~/ 1000,
+          clearAt:
+              now.add(const Duration(hours: 7)).millisecondsSinceEpoch ~/ 1000,
         ),
       ).called(1);
 
@@ -305,7 +339,8 @@ void main() {
       verify(
         () => userStatusBloc.setPredefinedMessage(
           id: 'id2',
-          clearAt: now.add(const Duration(days: 2)).millisecondsSinceEpoch ~/ 1000,
+          clearAt:
+              now.add(const Duration(days: 2)).millisecondsSinceEpoch ~/ 1000,
         ),
       ).called(1);
 
@@ -319,7 +354,8 @@ void main() {
         () => userStatusBloc.setCustomMessage(
           message: 'predefined message',
           icon: '😀',
-          clearAt: now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000,
+          clearAt:
+              now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000,
         ),
       ).called(1);
 
@@ -329,7 +365,8 @@ void main() {
         () => userStatusBloc.setCustomMessage(
           message: 'custom message',
           icon: '😅',
-          clearAt: now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000,
+          clearAt:
+              now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000,
         ),
       ).called(1);
 
@@ -355,7 +392,8 @@ void main() {
         () => userStatusBloc.setCustomMessage(
           message: 'predefined message',
           icon: '😅',
-          clearAt: now.add(const Duration(hours: 4)).millisecondsSinceEpoch ~/ 1000,
+          clearAt:
+              now.add(const Duration(hours: 4)).millisecondsSinceEpoch ~/ 1000,
         ),
       ).called(1);
 
@@ -383,8 +421,11 @@ void main() {
                 ..extendedSupport = false,
             )
             ..capabilities = (
-              // We need to provide at least one capability because anyOf expects at least one schema to match
-              commentsCapabilities: core.CommentsCapabilities((b) => b..files.update((b) => b..comments = true)),
+              // We need to provide at least one capability because anyOf
+              // expects at least one schema to match
+              commentsCapabilities: core.CommentsCapabilities(
+                (b) => b..files.update((b) => b..comments = true),
+              ),
               davCapabilities: null,
               dropAccountCapabilities: capabilities,
               filesCapabilities: null,
@@ -412,7 +453,8 @@ void main() {
       );
 
       final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
+      when(() => accountsBloc.getCapabilitiesBlocFor(account))
+          .thenReturn(capabilitiesBloc);
 
       await tester.pumpWidget(const TestApp(child: Placeholder()));
       final BuildContext context = tester.element(find.byType(Placeholder));
@@ -463,7 +505,8 @@ void main() {
         );
 
         final accountsBloc = MockAccountsBloc();
-        when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
+        when(() => accountsBloc.getCapabilitiesBlocFor(account))
+            .thenReturn(capabilitiesBloc);
 
         await tester.pumpWidget(const TestApp(child: Placeholder()));
         final BuildContext context = tester.element(find.byType(Placeholder));
@@ -484,7 +527,8 @@ void main() {
         expect(find.text('disabled'), findsOne);
         await tester.tap(find.text('disabled'));
 
-        await tester.tap(find.text(NeonLocalizations.of(context).actionContinue));
+        await tester
+            .tap(find.text(NeonLocalizations.of(context).actionContinue));
         expect(await future, AccountDeletion.local);
       });
 
@@ -516,7 +560,8 @@ void main() {
         );
 
         final accountsBloc = MockAccountsBloc();
-        when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
+        when(() => accountsBloc.getCapabilitiesBlocFor(account))
+            .thenReturn(capabilitiesBloc);
 
         await tester.pumpWidget(const TestApp(child: Placeholder()));
         final BuildContext context = tester.element(find.byType(Placeholder));
@@ -534,10 +579,22 @@ void main() {
         expect(find.byType(NeonConfirmationDialog), findsNothing);
         expect(find.byType(RadioListTile<AccountDeletion>), findsExactly(2));
 
-        expect(find.text(NeonLocalizations.of(context).accountOptionsRemoveRemoteDelay('12 hours')), findsOne);
-        await tester.tap(find.text(NeonLocalizations.of(context).accountOptionsRemoveRemoteDelay('12 hours')));
+        expect(
+          find.text(
+            NeonLocalizations.of(context)
+                .accountOptionsRemoveRemoteDelay('12 hours'),
+          ),
+          findsOne,
+        );
+        await tester.tap(
+          find.text(
+            NeonLocalizations.of(context)
+                .accountOptionsRemoveRemoteDelay('12 hours'),
+          ),
+        );
 
-        await tester.tap(find.text(NeonLocalizations.of(context).actionContinue));
+        await tester
+            .tap(find.text(NeonLocalizations.of(context).actionContinue));
         expect(await future, AccountDeletion.remote);
       });
     });

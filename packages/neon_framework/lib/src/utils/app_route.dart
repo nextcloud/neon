@@ -11,7 +11,8 @@ abstract class NeonBaseAppRoute extends GoRouteData {
   const NeonBaseAppRoute();
 
   @override
-  Page<void> buildPage(BuildContext context, GoRouterState state) => NoTransitionPage(
+  Page<void> buildPage(BuildContext context, GoRouterState state) =>
+      NoTransitionPage(
         child: build(context, state),
       );
 }

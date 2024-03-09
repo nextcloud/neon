@@ -28,7 +28,8 @@ final class SharedPreferencesPersistence implements CachedPersistence {
   const SharedPreferencesPersistence({String prefix = ''})
       : _prefix = prefix == '' ? _defaultPrefix : '$_defaultPrefix$prefix-';
 
-  static SharedPreferencesStorePlatform get _store => SharedPreferencesStorePlatform.instance;
+  static SharedPreferencesStorePlatform get _store =>
+      SharedPreferencesStorePlatform.instance;
 
   /// The prefix of this persistence.
   ///
@@ -46,7 +47,7 @@ final class SharedPreferencesPersistence implements CachedPersistence {
   /// Initializes all persistences by setting up the backing SharedPreferences
   /// storage and priming the global cache.
   ///
-  /// This must be called and completed before any calls to persistence are made.
+  /// This must be called and completed before making any calls to persistence.
   static Future<void> init() async {
     if (_initialized) {
       return;
@@ -132,8 +133,10 @@ final class SharedPreferencesPersistence implements CachedPersistence {
       String _ => _store.setValue('String', prefixedKey, value),
       bool _ => _store.setValue('Bool', prefixedKey, value),
       // Make a copy of the list so that later mutations won't propagate
-      Iterable<String> _ => _store.setValue('StringList', prefixedKey, value.toList()),
-      Object() => throw ArgumentError.value(value, 'value', 'Unsupported type.'),
+      Iterable<String> _ =>
+        _store.setValue('StringList', prefixedKey, value.toList()),
+      Object() =>
+        throw ArgumentError.value(value, 'value', 'Unsupported type.'),
     };
   }
 }

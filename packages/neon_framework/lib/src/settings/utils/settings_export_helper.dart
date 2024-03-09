@@ -73,10 +73,12 @@ class SettingsExportHelper {
   ///
   /// See:
   /// * [exportToFile] to export data to a [Uint8List].
-  Map<String, Object?> exportToJson() => Map.fromEntries(exportables.map((e) => e.export()));
+  Map<String, Object?> exportToJson() =>
+      Map.fromEntries(exportables.map((e) => e.export()));
 }
 
-/// Helper class to export [AppImplementation]s implementing the [Exportable] interface.
+/// Helper class to export [AppImplementation]s implementing the [Exportable]
+/// interface.
 @internal
 @immutable
 class AppImplementationsExporter implements Exportable {
@@ -127,7 +129,8 @@ class AccountsBlocExporter implements Exportable {
   static final _key = StorageKeys.accountOptions.value;
 
   @override
-  MapEntry<String, Object?> export() => MapEntry(_key, Map.fromEntries(_serialize()));
+  MapEntry<String, Object?> export() =>
+      MapEntry(_key, Map.fromEntries(_serialize()));
 
   Iterable<MapEntry<String, Object?>> _serialize() sync* {
     for (final account in accountsBloc.accounts.value) {

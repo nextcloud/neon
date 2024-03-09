@@ -83,7 +83,10 @@ void main() {
       ('https://test.example.com:443/test/bla.png', false),
       ('https://test.com:443/test/bla.png', false),
     ]) {
-      expect(account.getAuthorizationHeaders(Uri.parse(url)), shouldHaveHeaders ? isNotNull : isNull);
+      expect(
+        account.getAuthorizationHeaders(Uri.parse(url)),
+        shouldHaveHeaders ? isNotNull : isNull,
+      );
     }
   });
 

@@ -52,7 +52,8 @@ class NeonApp extends StatefulWidget {
 }
 
 // ignore: prefer_mixin
-class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowListener {
+class _NeonAppState extends State<NeonApp>
+    with WidgetsBindingObserver, WindowListener {
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
   late final BuiltSet<AppImplementation> _appImplementations;
@@ -107,32 +108,42 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
       }
 
       if (NeonPlatform.instance.canUsePushNotifications) {
-        final localNotificationsPlugin = await PushUtils.initLocalNotifications();
+        final localNotificationsPlugin =
+            await PushUtils.initLocalNotifications();
         PushUtils.onPushNotificationReceived = (accountID) async {
           final account = _accountsBloc.accounts.value.tryFind(accountID);
           if (account == null) {
             return;
           }
 
-          final allAppImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
-          final app = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
+          final allAppImplementations =
+              NeonProvider.of<BuiltSet<AppImplementation>>(context);
+          final app = allAppImplementations.tryFind(AppIDs.notifications)
+              as NotificationsAppInterface?;
 
           if (app == null) {
             return;
           }
 
-          await _accountsBloc.getAppsBlocFor(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
+          await _accountsBloc
+              .getAppsBlocFor(account)
+              .getAppBloc<NotificationsBlocInterface>(app)
+              .refresh();
         };
-        PushUtils.onLocalNotificationClicked = (pushNotificationWithAccountID) async {
-          final account = _accountsBloc.accounts.value.tryFind(pushNotificationWithAccountID.accountID);
+        PushUtils.onLocalNotificationClicked =
+            (pushNotificationWithAccountID) async {
+          final account = _accountsBloc.accounts.value
+              .tryFind(pushNotificationWithAccountID.accountID);
           if (account == null) {
             return;
           }
           _accountsBloc.setActiveAccount(account);
 
-          final allAppImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
+          final allAppImplementations =
+              NeonProvider.of<BuiltSet<AppImplementation>>(context);
 
-          final notificationsApp = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
+          final notificationsApp = allAppImplementations
+              .tryFind(AppIDs.notifications) as NotificationsAppInterface?;
           if (notificationsApp != null) {
             _accountsBloc
                 .getAppsBlocFor(account)
@@ -140,7 +151,9 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                 .deleteNotification(pushNotificationWithAccountID.subject.nid!);
           }
 
-          final app = allAppImplementations.tryFind(pushNotificationWithAccountID.subject.app) ?? notificationsApp;
+          final app = allAppImplementations
+                  .tryFind(pushNotificationWithAccountID.subject.app) ??
+              notificationsApp;
           if (app == null) {
             return;
           }
@@ -148,11 +161,15 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
           await _openAppFromExternal(account, app.id);
         };
 
-        final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
-        if (details != null && details.didNotificationLaunchApp && details.notificationResponse?.payload != null) {
+        final details =
+            await localNotificationsPlugin.getNotificationAppLaunchDetails();
+        if (details != null &&
+            details.didNotificationLaunchApp &&
+            details.notificationResponse?.payload != null) {
           await PushUtils.onLocalNotificationClicked!(
             PushNotification.fromJson(
-              json.decode(details.notificationResponse!.payload!) as Map<String, dynamic>,
+              json.decode(details.notificationResponse!.payload!)
+                  as Map<String, dynamic>,
             ),
           );
         }
@@ -182,7 +199,8 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
 
   Future<void> _openAppFromExternal(Account account, String id) async {
     _accountsBloc.getAppsBlocFor(account).setActiveApp(id);
-    _navigatorKey.currentState!.popUntil((route) => route.settings.name == 'home');
+    _navigatorKey.currentState!
+        .popUntil((route) => route.settings.name == 'home');
   }
 
   @override
@@ -206,29 +224,36 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
             FlutterNativeSplash.remove();
             return ResultBuilder.behaviorSubject(
               subject: activeAccountSnapshot.hasData
-                  ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
+                  ? _accountsBloc
+                      .getCapabilitiesBlocFor(activeAccountSnapshot.data!)
+                      .capabilities
                   : null,
               builder: (context, capabilitiesSnapshot) {
                 final appTheme = AppTheme(
                   serverTheme: ServerTheme(
-                    nextcloudTheme: capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
+                    nextcloudTheme: capabilitiesSnapshot
+                        .data?.capabilities.themingPublicCapabilities?.theming,
                   ),
                   useNextcloudTheme: options.themeUseNextcloudTheme.value,
                   deviceThemeLight: deviceThemeLight,
                   deviceThemeDark: deviceThemeDark,
                   oledAsDark: options.themeOLEDAsDark.value,
-                  appThemes: _appImplementations.map((a) => a.theme).whereNotNull(),
+                  appThemes:
+                      _appImplementations.map((a) => a.theme).whereNotNull(),
                   neonTheme: widget.neonTheme,
                 );
 
                 return MaterialApp.router(
                   debugShowCheckedModeBanner: false,
                   localizationsDelegates: [
-                    ..._appImplementations.map((app) => app.localizationsDelegate),
+                    ..._appImplementations
+                        .map((app) => app.localizationsDelegate),
                     ...NeonLocalizations.localizationsDelegates,
                   ],
                   supportedLocales: {
-                    ..._appImplementations.map((app) => app.supportedLocales).expand((element) => element),
+                    ..._appImplementations
+                        .map((app) => app.supportedLocales)
+                        .expand((element) => element),
                     ...NeonLocalizations.supportedLocales,
                   },
                   themeMode: options.themeMode.value,

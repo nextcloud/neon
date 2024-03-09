@@ -16,7 +16,7 @@ abstract interface class SingleValueStore {
   /// The key used by the storage backend.
   StorageKeys get key;
 
-  /// Returns true if the persistent storage contains a value at the given [key].
+  /// Returns true if the persistent storage contains a value at the given [key]
   bool hasValue();
 
   /// Reads a value from persistent storage, throwing an `Exception` if it is
@@ -44,7 +44,8 @@ abstract interface class SingleValueStore {
   Future<bool> setStringList(BuiltList<String> value);
 }
 
-/// Default implementation of the [SingleValueStore] backed by the given [persistence].
+/// Default implementation of the [SingleValueStore] backed by the given
+/// [persistence].
 @immutable
 @internal
 final class DefaultSingleValueStore implements SingleValueStore {
@@ -67,7 +68,8 @@ final class DefaultSingleValueStore implements SingleValueStore {
   @override
   String? getString() => persistence.getValue(key.value) as String?;
   @override
-  Future<bool> setString(String value) => persistence.setValue(key.value, value);
+  Future<bool> setString(String value) =>
+      persistence.setValue(key.value, value);
 
   @override
   bool? getBool() => persistence.getValue(key.value) as bool?;
@@ -90,5 +92,6 @@ final class DefaultSingleValueStore implements SingleValueStore {
   }
 
   @override
-  Future<bool> setStringList(BuiltList<String> value) => persistence.setValue(key.value, value);
+  Future<bool> setStringList(BuiltList<String> value) =>
+      persistence.setValue(key.value, value);
 }

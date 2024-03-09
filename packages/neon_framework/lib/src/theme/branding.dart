@@ -32,7 +32,8 @@ class Branding {
 
   /// A string to show in small print.
   ///
-  /// Typically this is a copyright notice shown as the [AboutDialog.applicationLegalese].
+  /// Typically this is a copyright notice shown as the
+  /// [AboutDialog.applicationLegalese].
   final String? legalese;
 
   /// Whether to show the Nextcloud logo on the LoginPage
@@ -52,7 +53,8 @@ class Branding {
       );
 
   /// The data from the closest [Branding] instance given the build context.
-  static Branding of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.branding;
+  static Branding of(BuildContext context) =>
+      Theme.of(context).extension<NeonTheme>()!.branding;
 
   @override
   int get hashCode => Object.hashAll([
@@ -67,6 +69,9 @@ class Branding {
       return true;
     }
 
-    return other is Branding && name == other.name && logo == other.logo && legalese == other.legalese;
+    return other is Branding &&
+        name == other.name &&
+        logo == other.logo &&
+        legalese == other.legalese;
   }
 }

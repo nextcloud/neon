@@ -28,11 +28,13 @@ class NeonCustomBackground extends StatelessWidget {
       valueListenable: globalOptions,
       child: child,
       builder: (context, options, child) {
-        if (!options.themeUseNextcloudTheme.value || !options.themeCustomBackground.value) {
+        if (!options.themeUseNextcloudTheme.value ||
+            !options.themeCustomBackground.value) {
           return child!;
         }
 
-        final theme = Theme.of(context).extension<ServerTheme>()!.nextcloudTheme;
+        final theme =
+            Theme.of(context).extension<ServerTheme>()!.nextcloudTheme;
 
         if (theme == null) {
           return ColoredBox(

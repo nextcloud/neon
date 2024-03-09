@@ -17,7 +17,10 @@ void main() {
     when(() => storage.requestCache).thenReturn(null);
   });
 
-  for (final (withStatus, matcher) in [(false, findsNothing), (true, findsOne)]) {
+  for (final (withStatus, matcher) in [
+    (false, findsNothing),
+    (true, findsOne),
+  ]) {
     testWidgets('${withStatus ? 'With' : 'Without'} status', (tester) async {
       final account = MockAccount();
       when(() => account.id).thenReturn('test');
@@ -43,8 +46,10 @@ void main() {
       );
 
       final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-      when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
+      when(() => accountsBloc.activeAccount)
+          .thenAnswer((_) => BehaviorSubject.seeded(account));
+      when(() => accountsBloc.getUserStatusBlocFor(account))
+          .thenReturn(userStatusBloc);
 
       await tester.pumpWidget(
         TestApp(
@@ -71,7 +76,8 @@ void main() {
       (user_status.$Type.dnd, '😀', findsNothing, findsOne),
       (user_status.$Type.dnd, null, findsNothing, findsOne),
     ]) {
-      testWidgets('${status.value} ${icon != null ? 'with' : 'without'} emoji', (tester) async {
+      testWidgets('${status.value} ${icon != null ? 'with' : 'without'} emoji',
+          (tester) async {
         await tester.pumpWidget(
           TestApp(
             child: NeonUserStatusIndicator(

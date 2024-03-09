@@ -35,9 +35,12 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     this.globalOptions,
   ) {
     if (NeonPlatform.instance.canUsePushNotifications) {
-      unawaited(UnifiedPush.getDistributors().then(globalOptions.updateDistributors));
+      unawaited(
+        UnifiedPush.getDistributors().then(globalOptions.updateDistributors),
+      );
 
-      globalOptions.pushNotificationsEnabled.addListener(pushNotificationsEnabledListener);
+      globalOptions.pushNotificationsEnabled
+          .addListener(pushNotificationsEnabledListener);
       // Call the listener to update everything
       unawaited(pushNotificationsEnabledListener());
     }
@@ -55,17 +58,21 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   @override
   void dispose() {
     unawaited(accountsListener?.cancel());
-    globalOptions.pushNotificationsEnabled.removeListener(pushNotificationsEnabledListener);
+    globalOptions.pushNotificationsEnabled
+        .removeListener(pushNotificationsEnabledListener);
   }
 
   Future<void> pushNotificationsEnabledListener() async {
     if (globalOptions.pushNotificationsEnabled.value) {
       await setupUnifiedPush();
 
-      globalOptions.pushNotificationsDistributor.addListener(distributorListener);
-      accountsListener = accountsBloc.accounts.listen(registerUnifiedPushInstances);
+      globalOptions.pushNotificationsDistributor
+          .addListener(distributorListener);
+      accountsListener =
+          accountsBloc.accounts.listen(registerUnifiedPushInstances);
     } else {
-      globalOptions.pushNotificationsDistributor.removeListener(distributorListener);
+      globalOptions.pushNotificationsDistributor
+          .removeListener(distributorListener);
       unawaited(accountsListener?.cancel());
     }
   }
@@ -87,18 +94,24 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
           return;
         }
 
-        log.fine('Registering account $instance for push notifications on $endpoint');
+        log.fine(
+          'Registering account $instance for push notifications on $endpoint',
+        );
 
-        final subscription = await account.client.notifications.push.registerDevice(
+        final subscription =
+            await account.client.notifications.push.registerDevice(
           pushTokenHash: notifications.generatePushTokenHash(endpoint),
           devicePublicKey: keypair.publicKey.toFormattedPEM(),
-          proxyServer: '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
+          // This is a hack to make the Nextcloud server directly push to the
+          // endpoint
+          proxyServer: '$endpoint#',
         );
 
         await storage.setString(account.id, endpoint);
 
         log.fine(
-          'Account $instance registered for push notifications ${json.encode(subscription.body.ocs.data.toJson())}',
+          'Account $instance registered for push notifications '
+          '${json.encode(subscription.body.ocs.data.toJson())}',
         );
       },
       onMessage: PushUtils.onMessage,
@@ -122,7 +135,9 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     }
   }
 
-  Future<void> unregisterUnifiedPushInstances(BuiltList<Account> accounts) async {
+  Future<void> unregisterUnifiedPushInstances(
+    BuiltList<Account> accounts,
+  ) async {
     for (final account in accounts) {
       try {
         await account.client.notifications.push.removeDevice();
