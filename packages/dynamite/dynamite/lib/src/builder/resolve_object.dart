@@ -78,15 +78,22 @@ TypeResultObject resolveObject(
 
       if (result is TypeResultOneOf && !result.isSingleValue) {
         validators.add(
-          refer('b').property(dartName).nullSafeProperty('validateOneOf').call([]),
+          refer('b')
+              .property(dartName)
+              .nullSafeProperty('validateOneOf')
+              .call([]),
         );
       } else if (result is TypeResultAnyOf && !result.isSingleValue) {
         validators.add(
-          refer('b').property(dartName).nullSafeProperty('validateAnyOf').call([]),
+          refer('b')
+              .property(dartName)
+              .nullSafeProperty('validateAnyOf')
+              .call([]),
         );
       }
 
-      validators.addAll(buildPatternCheck(propertySchema, 'b.$dartName', dartName));
+      validators
+          .addAll(buildPatternCheck(propertySchema, 'b.$dartName', dartName));
     }
 
     final $interface = buildInterface(

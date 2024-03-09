@@ -10,7 +10,9 @@ class TypeResultObject extends TypeResult {
     super.nullable,
     super.isTypeDef,
   })  : assert(
-          className != 'JsonObject' && className != 'Object' && className != 'dynamic',
+          className != 'JsonObject' &&
+              className != 'Object' &&
+              className != 'dynamic',
           'Use TypeResultBase instead',
         ),
         super(builderName: '${className}Builder');
@@ -21,7 +23,9 @@ class TypeResultObject extends TypeResult {
     required String mimeType,
   }) {
     if (className == _contentString && mimeType != 'application/json') {
-      throw StateError('$_contentString should have a mimeType of application/json');
+      throw StateError(
+        '$_contentString should have a mimeType of application/json',
+      );
     }
 
     return super.encode(object, mimeType: mimeType);

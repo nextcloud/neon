@@ -6,9 +6,11 @@ part of 'server_variable.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<ServerVariable> _$serverVariableSerializer = _$ServerVariableSerializer();
+Serializer<ServerVariable> _$serverVariableSerializer =
+    _$ServerVariableSerializer();
 
-class _$ServerVariableSerializer implements StructuredSerializer<ServerVariable> {
+class _$ServerVariableSerializer
+    implements StructuredSerializer<ServerVariable> {
   @override
   final Iterable<Type> types = const [ServerVariable, _$ServerVariable];
   @override
@@ -19,26 +21,30 @@ class _$ServerVariableSerializer implements StructuredSerializer<ServerVariable>
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'default',
-      serializers.serialize(object.$default, specifiedType: const FullType(String)),
+      serializers.serialize(object.$default,
+          specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.$enum;
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(String)])));
     }
     value = object.description;
     if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  ServerVariable deserialize(Serializers serializers, Iterable<Object?> serialized,
+  ServerVariable deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = ServerVariableBuilder();
 
@@ -49,14 +55,17 @@ class _$ServerVariableSerializer implements StructuredSerializer<ServerVariable>
       final Object? value = iterator.current;
       switch (key) {
         case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.$default = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<Object?>);
           break;
         case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -76,12 +85,15 @@ class _$ServerVariable extends ServerVariable {
   factory _$ServerVariable([void Function(ServerVariableBuilder)? updates]) =>
       (ServerVariableBuilder()..update(updates))._build();
 
-  _$ServerVariable._({required this.$default, this.$enum, this.description}) : super._() {
-    BuiltValueNullFieldError.checkNotNull($default, r'ServerVariable', '\$default');
+  _$ServerVariable._({required this.$default, this.$enum, this.description})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        $default, r'ServerVariable', '\$default');
   }
 
   @override
-  ServerVariable rebuild(void Function(ServerVariableBuilder) updates) => (toBuilder()..update(updates)).build();
+  ServerVariable rebuild(void Function(ServerVariableBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ServerVariableBuilder toBuilder() => ServerVariableBuilder()..replace(this);
@@ -89,7 +101,9 @@ class _$ServerVariable extends ServerVariable {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ServerVariable && $default == other.$default && $enum == other.$enum;
+    return other is ServerVariable &&
+        $default == other.$default &&
+        $enum == other.$enum;
   }
 
   @override
@@ -111,7 +125,8 @@ class _$ServerVariable extends ServerVariable {
   }
 }
 
-class ServerVariableBuilder implements Builder<ServerVariable, ServerVariableBuilder> {
+class ServerVariableBuilder
+    implements Builder<ServerVariable, ServerVariableBuilder> {
   _$ServerVariable? _$v;
 
   String? _$default;
@@ -158,7 +173,8 @@ class ServerVariableBuilder implements Builder<ServerVariable, ServerVariableBui
     try {
       _$result = _$v ??
           _$ServerVariable._(
-              $default: BuiltValueNullFieldError.checkNotNull($default, r'ServerVariable', '\$default'),
+              $default: BuiltValueNullFieldError.checkNotNull(
+                  $default, r'ServerVariable', '\$default'),
               $enum: _$enum?.build(),
               description: description);
     } catch (_) {
@@ -167,7 +183,8 @@ class ServerVariableBuilder implements Builder<ServerVariable, ServerVariableBui
         _$failedField = '\$enum';
         _$enum?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ServerVariable', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'ServerVariable', _$failedField, e.toString());
       }
       rethrow;
     }

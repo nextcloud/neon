@@ -22,7 +22,9 @@ Iterable<Spec> generateSchemas(
       // TypeDefs should only be generated for top level schemas.
       if (result is TypeResultBase || result.isTypeDef) {
         yield TypeDef((b) {
-          if (!(state.buildConfig.analyzerIgnores?.contains('public_member_api_docs') ?? false)) {
+          if (!(state.buildConfig.analyzerIgnores
+                  ?.contains('public_member_api_docs') ??
+              false)) {
             b.docs.add('// ignore: public_member_api_docs');
           }
 

@@ -79,7 +79,8 @@ Spec buildBuiltClass(
                 ..name = '_validate'
                 ..returns = refer('void')
                 ..annotations.add(
-                  refer('BuiltValueHook').call([], {'finalizeBuilder': literalTrue}),
+                  refer('BuiltValueHook')
+                      .call([], {'finalizeBuilder': literalTrue}),
                 )
                 ..static = true
                 ..requiredParameters.add(
@@ -108,11 +109,14 @@ Method get toJsonMethod => Method(
         ..name = 'toJson'
         ..returns = refer('Map<String, dynamic>')
         ..lambda = true
-        ..body = const Code(r'_$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
+        ..body = const Code(
+          r'_$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>',
+        ),
     );
 
 /// Builds the serializer getter for a built class.
-Method buildSerializer(String className, [String? serializerName]) => Method((b) {
+Method buildSerializer(String className, [String? serializerName]) =>
+    Method((b) {
       b
         ..docs.add('/// Serializer for $className.')
         ..name = 'serializer'
@@ -124,13 +128,17 @@ Method buildSerializer(String className, [String? serializerName]) => Method((b)
         )
         ..type = MethodType.getter;
       if (serializerName != null) {
-        b.annotations.add(refer('BuiltValueSerializer').call([], {'custom': literalTrue}));
+        b.annotations.add(
+          refer('BuiltValueSerializer').call([], {'custom': literalTrue}),
+        );
       }
     });
 
 Constructor builtValueConstructor(String className) => Constructor(
       (b) => b
-        ..docs.add('/// Creates a new $className object using the builder pattern.')
+        ..docs.add(
+          '/// Creates a new $className object using the builder pattern.',
+        )
         ..factory = true
         ..lambda = true
         ..optionalParameters.add(
@@ -166,5 +174,6 @@ Constructor get fromJsonConstructor => Constructor(
               ..type = refer('Map<String, dynamic>'),
           ),
         )
-        ..body = const Code(r'_$jsonSerializers.deserializeWith(serializer, json)!'),
+        ..body =
+            const Code(r'_$jsonSerializers.deserializeWith(serializer, json)!'),
     );

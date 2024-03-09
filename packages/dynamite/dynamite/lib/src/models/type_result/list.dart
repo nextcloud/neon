@@ -16,11 +16,15 @@ class TypeResultList extends TypeResult {
   String? get _serializer => null;
 
   @override
-  TypeResultList get dartType => TypeResultList('List', subType, nullable: nullable);
+  TypeResultList get dartType =>
+      TypeResultList('List', subType, nullable: nullable);
 
   @override
   bool operator ==(Object other) =>
-      other is TypeResultList && other.className == className && other.generics == generics && other.subType == subType;
+      other is TypeResultList &&
+      other.className == className &&
+      other.generics == generics &&
+      other.subType == subType;
 
   @override
   int get hashCode => className.hashCode + generics.hashCode + subType.hashCode;

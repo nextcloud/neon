@@ -17,7 +17,10 @@ Iterable<Spec> buildOfsExtensions(
       continue;
     }
 
-    final serializerMethod = buildSerializer(result.className, '${result.typeName}Extension._serializer');
+    final serializerMethod = buildSerializer(
+      result.className,
+      '${result.typeName}Extension._serializer',
+    );
 
     final toJson = Method(
       (b) => b
@@ -105,7 +108,8 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateOneOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = refer('validateOneOf', 'package:dynamite_runtime/utils.dart').call([
+      ..body =
+          refer('validateOneOf', 'package:dynamite_runtime/utils.dart').call([
         refer('_values'),
         refer('_names'),
       ]).code;
@@ -117,7 +121,8 @@ Iterable<Spec> generateSomeOf(
       ..name = 'validateAnyOf'
       ..returns = refer('void')
       ..lambda = true
-      ..body = refer('validateAnyOf', 'package:dynamite_runtime/utils.dart').call([
+      ..body =
+          refer('validateAnyOf', 'package:dynamite_runtime/utils.dart').call([
         refer('_values'),
         refer('_names'),
       ]).code;
@@ -146,7 +151,8 @@ Iterable<Spec> generateSomeOf(
         ),
       )
       ..lambda = true
-      ..body = const Code(r'_$jsonSerializers.deserializeWith(_serializer, json)!'),
+      ..body =
+          const Code(r'_$jsonSerializers.deserializeWith(_serializer, json)!'),
   );
 
   final toJson = Method(
@@ -159,7 +165,8 @@ Iterable<Spec> generateSomeOf(
       ..name = 'toJson'
       ..returns = refer('Object?')
       ..lambda = true
-      ..body = const Code(r'_$jsonSerializers.serializeWith(_serializer, this)'),
+      ..body =
+          const Code(r'_$jsonSerializers.serializeWith(_serializer, this)'),
   );
 
   yield Extension(
@@ -250,7 +257,9 @@ Iterable<Spec> generateSomeOf(
           bodyBuilder
             ..writeln()
             ..writeln('// Should not be possible after validation.')
-            ..writeln("throw StateError('Tried to serialize without any value.');");
+            ..writeln(
+              "throw StateError('Tried to serialize without any value.');",
+            );
 
           b.body = Code(bodyBuilder.toString());
         }),

@@ -23,19 +23,22 @@ class _$ContactSerializer implements StructuredSerializer<Contact> {
     if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.url;
     if (value != null) {
       result
         ..add('url')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.email;
     if (value != null) {
       result
         ..add('email')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -52,13 +55,16 @@ class _$ContactSerializer implements StructuredSerializer<Contact> {
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'url':
-          result.url = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.url = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'email':
-          result.email = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -75,12 +81,14 @@ class _$Contact extends Contact {
   @override
   final String? email;
 
-  factory _$Contact([void Function(ContactBuilder)? updates]) => (ContactBuilder()..update(updates))._build();
+  factory _$Contact([void Function(ContactBuilder)? updates]) =>
+      (ContactBuilder()..update(updates))._build();
 
   _$Contact._({this.name, this.url, this.email}) : super._();
 
   @override
-  Contact rebuild(void Function(ContactBuilder) updates) => (toBuilder()..update(updates)).build();
+  Contact rebuild(void Function(ContactBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ContactBuilder toBuilder() => ContactBuilder()..replace(this);
@@ -88,7 +96,10 @@ class _$Contact extends Contact {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Contact && name == other.name && url == other.url && email == other.email;
+    return other is Contact &&
+        name == other.name &&
+        url == other.url &&
+        email == other.email;
   }
 
   @override

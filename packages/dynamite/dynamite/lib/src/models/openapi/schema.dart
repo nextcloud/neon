@@ -64,7 +64,9 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   bool get nullable;
 
   bool get isContentString =>
-      type == SchemaType.string && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
+      type == SchemaType.string &&
+      (contentMediaType?.isNotEmpty ?? false) &&
+      contentSchema != null;
 
   Iterable<String> get formattedDescription => descriptionToDocs(description);
 
@@ -75,13 +77,18 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
       ..nullable ??= false;
 
     const allowedNumberFormats = [null, 'float', 'double'];
-    if (b.type == SchemaType.number && !allowedNumberFormats.contains(b.format)) {
-      throw OpenAPISpecError('Format "${b.format}" is not allowed for ${b.type}. Use one of $allowedNumberFormats.');
+    if (b.type == SchemaType.number &&
+        !allowedNumberFormats.contains(b.format)) {
+      throw OpenAPISpecError(
+        'Format "${b.format}" is not allowed for ${b.type}. Use one of $allowedNumberFormats.',
+      );
     }
     const allowedIntegerFormats = [null, 'int32', 'int64'];
     if (b.type == SchemaType.integer) {
       if (!allowedIntegerFormats.contains(b.format)) {
-        throw OpenAPISpecError('Format "${b.format}" is not allowed for ${b.type}. Use one of $allowedIntegerFormats.');
+        throw OpenAPISpecError(
+          'Format "${b.format}" is not allowed for ${b.type}. Use one of $allowedIntegerFormats.',
+        );
       } else if (b.format != null) {
         print(
           'All integers are represented as `int` meaning 64bit precision in the VM/wasm and 53bit precision on js.',

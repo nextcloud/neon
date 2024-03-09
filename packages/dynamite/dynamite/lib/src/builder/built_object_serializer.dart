@@ -68,8 +68,10 @@ Spec buildBuiltClassSerializer(
                 ),
               );
 
-            final properties = serializeProperty(state, identifier, spec, schema);
-            final nullableProperties = serializePropertyNullable(state, identifier, spec, schema);
+            final properties =
+                serializeProperty(state, identifier, spec, schema);
+            final nullableProperties =
+                serializePropertyNullable(state, identifier, spec, schema);
             final buffer = StringBuffer()
               ..write('final result = <Object?>[')
               ..writeAll(properties, '\n')
@@ -150,13 +152,18 @@ Iterable<String> deserializeProperty(
         identifier: identifier,
       ),
       propertySchema,
-      nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
+      nullable: isDartParameterNullable(
+        schema.required.contains(propertyName),
+        propertySchema,
+      ),
     );
 
     yield "case '$propertyName':";
     final deserialize = result.deserialize('value', 'serializers');
 
-    if (result is TypeResultBase || result is TypeResultEnum || result is TypeResultSomeOf) {
+    if (result is TypeResultBase ||
+        result is TypeResultEnum ||
+        result is TypeResultSomeOf) {
       yield 'result.$dartName = $deserialize;';
     } else {
       yield 'result.$dartName.replace($deserialize,);';
@@ -182,7 +189,10 @@ Iterable<String> serializePropertyNullable(
         identifier: identifier,
       ),
       propertySchema,
-      nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
+      nullable: isDartParameterNullable(
+        schema.required.contains(propertyName),
+        propertySchema,
+      ),
     );
     if (!result.nullable) {
       continue;
@@ -217,7 +227,10 @@ Iterable<String> serializeProperty(
         identifier: identifier,
       ),
       propertySchema,
-      nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
+      nullable: isDartParameterNullable(
+        schema.required.contains(propertyName),
+        propertySchema,
+      ),
     );
     if (result.nullable) {
       continue;

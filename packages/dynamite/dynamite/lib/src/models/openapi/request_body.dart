@@ -6,7 +6,8 @@ import 'package:dynamite/src/models/openapi/media_type.dart';
 part 'request_body.g.dart';
 
 abstract class RequestBody implements Built<RequestBody, RequestBodyBuilder> {
-  factory RequestBody([void Function(RequestBodyBuilder) updates]) = _$RequestBody;
+  factory RequestBody([void Function(RequestBodyBuilder) updates]) =
+      _$RequestBody;
 
   const RequestBody._();
 

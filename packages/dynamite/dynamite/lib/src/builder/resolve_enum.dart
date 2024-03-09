@@ -76,7 +76,8 @@ TypeResult resolveEnum(
         ..methods.addAll([
           Method(
             (b) => b
-              ..docs.add('/// Returns a set with all values this enum contains.')
+              ..docs
+                  .add('/// Returns a set with all values this enum contains.')
               ..name = 'values'
               ..returns = refer('BuiltSet<$identifier>')
               ..lambda = true
@@ -107,7 +108,9 @@ TypeResult resolveEnum(
               ..name = 'value'
               ..type = MethodType.getter
               ..lambda = true
-              ..body = Code('_\$jsonSerializers.serializeWith(serializer, this)! as ${subResult.dartType.className}'),
+              ..body = Code(
+                '_\$jsonSerializers.serializeWith(serializer, this)! as ${subResult.dartType.className}',
+              ),
           ),
           buildSerializer(identifier, 'const _\$${identifier}Serializer()'),
         ]),
@@ -132,7 +135,10 @@ TypeResult resolveEnum(
             final buffer = StringBuffer()
               ..writeln('<$identifier, Object>{')
               ..writeAll(
-                values.map((enumValue) => '$identifier.${enumValue.dartName}: ${enumValue.value}'),
+                values.map(
+                  (enumValue) =>
+                      '$identifier.${enumValue.dartName}: ${enumValue.value}',
+                ),
                 ',\n',
               )
               ..writeln(',')
@@ -149,7 +155,10 @@ TypeResult resolveEnum(
             final buffer = StringBuffer()
               ..writeln('<Object, $identifier>{')
               ..writeAll(
-                values.map((enumValue) => '${enumValue.value}: $identifier.${enumValue.dartName}'),
+                values.map(
+                  (enumValue) =>
+                      '${enumValue.value}: $identifier.${enumValue.dartName}',
+                ),
                 ',\n',
               )
               ..writeln(',')

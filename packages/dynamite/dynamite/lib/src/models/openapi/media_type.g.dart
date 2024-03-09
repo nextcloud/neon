@@ -23,7 +23,8 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
     if (value != null) {
       result
         ..add('schema')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Schema)));
     }
     return result;
   }
@@ -40,7 +41,8 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
       final Object? value = iterator.current;
       switch (key) {
         case 'schema':
-          result.schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.schema.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Schema))! as Schema);
           break;
       }
     }
@@ -53,12 +55,14 @@ class _$MediaType extends MediaType {
   @override
   final Schema? schema;
 
-  factory _$MediaType([void Function(MediaTypeBuilder)? updates]) => (MediaTypeBuilder()..update(updates))._build();
+  factory _$MediaType([void Function(MediaTypeBuilder)? updates]) =>
+      (MediaTypeBuilder()..update(updates))._build();
 
   _$MediaType._({this.schema}) : super._();
 
   @override
-  MediaType rebuild(void Function(MediaTypeBuilder) updates) => (toBuilder()..update(updates)).build();
+  MediaType rebuild(void Function(MediaTypeBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   MediaTypeBuilder toBuilder() => MediaTypeBuilder()..replace(this);
@@ -79,7 +83,8 @@ class _$MediaType extends MediaType {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'MediaType')..add('schema', schema)).toString();
+    return (newBuiltValueToStringHelper(r'MediaType')..add('schema', schema))
+        .toString();
   }
 }
 
@@ -125,7 +130,8 @@ class MediaTypeBuilder implements Builder<MediaType, MediaTypeBuilder> {
         _$failedField = 'schema';
         _schema?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'MediaType', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'MediaType', _$failedField, e.toString());
       }
       rethrow;
     }

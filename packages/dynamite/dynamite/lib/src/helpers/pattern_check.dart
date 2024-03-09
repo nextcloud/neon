@@ -16,14 +16,16 @@ Iterable<Expression> buildPatternCheck(
       ]);
     }
     if (schema.minLength != null) {
-      yield refer('checkMinLength', 'package:dynamite_runtime/utils.dart').call([
+      yield refer('checkMinLength', 'package:dynamite_runtime/utils.dart')
+          .call([
         refer(value).asA(refer('String?')),
         literalNum(schema.minLength!),
         literalString(name),
       ]);
     }
     if (schema.maxLength != null) {
-      yield refer('checkMaxLength', 'package:dynamite_runtime/utils.dart').call([
+      yield refer('checkMaxLength', 'package:dynamite_runtime/utils.dart')
+          .call([
         refer(value).asA(refer('String?')),
         literalNum(schema.maxLength!),
         literalString(name),

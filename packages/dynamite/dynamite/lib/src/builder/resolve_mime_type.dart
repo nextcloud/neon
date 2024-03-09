@@ -12,7 +12,9 @@ TypeResult? resolveMimeTypeDecode(
 ) {
   if (response.content != null) {
     if (response.content!.length > 1) {
-      print('Can not work with multiple mime types right now. Using the first supported.');
+      print(
+        'Can not work with multiple mime types right now. Using the first supported.',
+      );
     }
 
     for (final content in response.content!.entries) {
@@ -26,9 +28,12 @@ TypeResult? resolveMimeTypeDecode(
         mediaType.schema!,
       );
 
-      if (mimeType == '*/*' || mimeType == 'application/octet-stream' || mimeType.startsWith('image/')) {
+      if (mimeType == '*/*' ||
+          mimeType == 'application/octet-stream' ||
+          mimeType.startsWith('image/')) {
         return TypeResultObject('Uint8List');
-      } else if (mimeType.startsWith('text/') || mimeType == 'application/javascript') {
+      } else if (mimeType.startsWith('text/') ||
+          mimeType == 'application/javascript') {
         return TypeResultBase('String');
       } else if (mimeType == 'application/json') {
         return result;
@@ -53,7 +58,9 @@ void resolveMimeTypeEncode(
       if (result.nullable) {
         output.writeln('if ($parameterName != null) {');
       }
-      output.writeln('_request.body = ${result.encode(parameterName, mimeType: mimeType)};');
+      output.writeln(
+        '_request.body = ${result.encode(parameterName, mimeType: mimeType)};',
+      );
       if (result.nullable) {
         output.writeln('}');
       }
@@ -62,7 +69,9 @@ void resolveMimeTypeEncode(
       if (result.nullable) {
         output.writeln('if ($parameterName != null) {');
       }
-      output.writeln('_request.bodyBytes = ${result.encode(parameterName, mimeType: mimeType)};');
+      output.writeln(
+        '_request.bodyBytes = ${result.encode(parameterName, mimeType: mimeType)};',
+      );
       if (result.nullable) {
         output.writeln('}');
       }

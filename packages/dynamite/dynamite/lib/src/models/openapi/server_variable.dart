@@ -4,12 +4,15 @@ import 'package:built_value/serializer.dart';
 
 part 'server_variable.g.dart';
 
-abstract class ServerVariable implements Built<ServerVariable, ServerVariableBuilder> {
-  factory ServerVariable([void Function(ServerVariableBuilder) updates]) = _$ServerVariable;
+abstract class ServerVariable
+    implements Built<ServerVariable, ServerVariableBuilder> {
+  factory ServerVariable([void Function(ServerVariableBuilder) updates]) =
+      _$ServerVariable;
 
   const ServerVariable._();
 
-  static Serializer<ServerVariable> get serializer => _$serverVariableSerializer;
+  static Serializer<ServerVariable> get serializer =>
+      _$serverVariableSerializer;
 
   @BuiltValueField(wireName: 'default')
   String get $default;

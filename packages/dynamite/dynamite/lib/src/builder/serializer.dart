@@ -10,7 +10,8 @@ List<Spec> buildSerializer(State state) => [
 /// 
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.''')
-          ..annotations.add(refer('visibleForTesting', 'package:meta/meta.dart'))
+          ..annotations
+              .add(refer('visibleForTesting', 'package:meta/meta.dart'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
           ..name = r'$serializers'
@@ -22,7 +23,10 @@ List<Spec> buildSerializer(State state) => [
           ..type = refer('Serializers')
           ..name = r'_$serializers';
 
-        final serializers = state.resolvedTypes.map((type) => type.serializers).expand((element) => element).toSet();
+        final serializers = state.resolvedTypes
+            .map((type) => type.serializers)
+            .expand((element) => element)
+            .toSet();
 
         if (serializers.isEmpty) {
           b.assignment = const Code('Serializers()');
@@ -42,7 +46,8 @@ List<Spec> buildSerializer(State state) => [
 /// 
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.''')
-          ..annotations.add(refer('visibleForTesting', 'package:meta/meta.dart'))
+          ..annotations
+              .add(refer('visibleForTesting', 'package:meta/meta.dart'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
           ..name = r'$jsonSerializers'
@@ -58,11 +63,17 @@ List<Spec> buildSerializer(State state) => [
               .call(const [])
               .cascade('add')
               .call([
-                refer('DynamiteDoubleSerializer', 'package:dynamite_runtime/built_value.dart').newInstance(const []),
+                refer(
+                  'DynamiteDoubleSerializer',
+                  'package:dynamite_runtime/built_value.dart',
+                ).newInstance(const []),
               ])
               .cascade('addPlugin')
               .call([
-                refer('StandardJsonPlugin', 'package:built_value/standard_json_plugin.dart').newInstance(const [], {
+                refer(
+                  'StandardJsonPlugin',
+                  'package:built_value/standard_json_plugin.dart',
+                ).newInstance(const [], {
                   if (state.uniqueSomeOfTypes.isNotEmpty)
                     'typesToLeaveAsList': literalConstSet(
                       state.uniqueSomeOfTypes
@@ -75,9 +86,19 @@ List<Spec> buildSerializer(State state) => [
                 }),
               ])
               .cascade('addPlugin')
-              .call([refer('HeaderPlugin', 'package:dynamite_runtime/built_value.dart').constInstance(const [])])
+              .call([
+                refer(
+                  'HeaderPlugin',
+                  'package:dynamite_runtime/built_value.dart',
+                ).constInstance(const []),
+              ])
               .cascade('addPlugin')
-              .call([refer('ContentStringPlugin', 'package:dynamite_runtime/built_value.dart').constInstance(const [])])
+              .call([
+                refer(
+                  'ContentStringPlugin',
+                  'package:dynamite_runtime/built_value.dart',
+                ).constInstance(const []),
+              ])
               .parenthesized
               .property('build')
               .call(const [])

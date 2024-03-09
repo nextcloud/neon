@@ -19,11 +19,13 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'openapi',
-      serializers.serialize(object.version, specifiedType: const FullType(String)),
+      serializers.serialize(object.version,
+          specifiedType: const FullType(String)),
       'info',
       serializers.serialize(object.info, specifiedType: const FullType(Info)),
       'servers',
-      serializers.serialize(object.servers, specifiedType: const FullType(BuiltList, [FullType(Server)])),
+      serializers.serialize(object.servers,
+          specifiedType: const FullType(BuiltList, [FullType(Server)])),
     ];
     Object? value;
     value = object.security;
@@ -42,20 +44,23 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
     if (value != null) {
       result
         ..add('tags')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(Tag)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltSet, [FullType(Tag)])));
     }
     value = object.components;
     if (value != null) {
       result
         ..add('components')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Components)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Components)));
     }
     value = object.paths;
     if (value != null) {
       result
         ..add('paths')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(PathItem)])));
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType(PathItem)])));
     }
     return result;
   }
@@ -72,14 +77,17 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
       final Object? value = iterator.current;
       switch (key) {
         case 'openapi':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.version = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'info':
-          result.info.replace(serializers.deserialize(value, specifiedType: const FullType(Info))! as Info);
+          result.info.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Info))! as Info);
           break;
         case 'servers':
           result.servers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Server)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Server)]))!
+              as BuiltList<Object?>);
           break;
         case 'security':
           result.security.replace(serializers.deserialize(value,
@@ -91,16 +99,18 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
               ]))! as BuiltList<Object?>);
           break;
         case 'tags':
-          result.tags.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltSet, [FullType(Tag)]))!
+          result.tags.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(BuiltSet, [FullType(Tag)]))!
               as BuiltSet<Object?>);
           break;
         case 'components':
-          result.components
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Components))! as Components);
+          result.components.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Components))! as Components);
           break;
         case 'paths':
           result.paths.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(PathItem)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(PathItem)]))!);
           break;
       }
     }
@@ -125,7 +135,8 @@ class _$OpenAPI extends OpenAPI {
   @override
   final BuiltMap<String, PathItem>? paths;
 
-  factory _$OpenAPI([void Function(OpenAPIBuilder)? updates]) => (OpenAPIBuilder()..update(updates))._build();
+  factory _$OpenAPI([void Function(OpenAPIBuilder)? updates]) =>
+      (OpenAPIBuilder()..update(updates))._build();
 
   _$OpenAPI._(
       {required this.version,
@@ -142,7 +153,8 @@ class _$OpenAPI extends OpenAPI {
   }
 
   @override
-  OpenAPI rebuild(void Function(OpenAPIBuilder) updates) => (toBuilder()..update(updates)).build();
+  OpenAPI rebuild(void Function(OpenAPIBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   OpenAPIBuilder toBuilder() => OpenAPIBuilder()..replace(this);
@@ -206,18 +218,22 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
   ListBuilder<BuiltMap<String, BuiltList<String>>>? _security;
   ListBuilder<BuiltMap<String, BuiltList<String>>> get security =>
       _$this._security ??= ListBuilder<BuiltMap<String, BuiltList<String>>>();
-  set security(ListBuilder<BuiltMap<String, BuiltList<String>>>? security) => _$this._security = security;
+  set security(ListBuilder<BuiltMap<String, BuiltList<String>>>? security) =>
+      _$this._security = security;
 
   SetBuilder<Tag>? _tags;
   SetBuilder<Tag> get tags => _$this._tags ??= SetBuilder<Tag>();
   set tags(SetBuilder<Tag>? tags) => _$this._tags = tags;
 
   ComponentsBuilder? _components;
-  ComponentsBuilder get components => _$this._components ??= ComponentsBuilder();
-  set components(ComponentsBuilder? components) => _$this._components = components;
+  ComponentsBuilder get components =>
+      _$this._components ??= ComponentsBuilder();
+  set components(ComponentsBuilder? components) =>
+      _$this._components = components;
 
   MapBuilder<String, PathItem>? _paths;
-  MapBuilder<String, PathItem> get paths => _$this._paths ??= MapBuilder<String, PathItem>();
+  MapBuilder<String, PathItem> get paths =>
+      _$this._paths ??= MapBuilder<String, PathItem>();
   set paths(MapBuilder<String, PathItem>? paths) => _$this._paths = paths;
 
   OpenAPIBuilder();
@@ -257,7 +273,8 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
     try {
       _$result = _$v ??
           _$OpenAPI._(
-              version: BuiltValueNullFieldError.checkNotNull(version, r'OpenAPI', 'version'),
+              version: BuiltValueNullFieldError.checkNotNull(
+                  version, r'OpenAPI', 'version'),
               info: info.build(),
               servers: servers.build(),
               security: _security?.build(),
@@ -280,7 +297,8 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
         _$failedField = 'paths';
         _paths?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'OpenAPI', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'OpenAPI', _$failedField, e.toString());
       }
       rethrow;
     }

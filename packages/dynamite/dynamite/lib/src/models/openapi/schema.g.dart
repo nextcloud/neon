@@ -32,7 +32,8 @@ SchemaType _$schemaType(String name) {
   }
 }
 
-final BuiltSet<SchemaType> _$schemaTypeValues = BuiltSet<SchemaType>(const <SchemaType>[
+final BuiltSet<SchemaType> _$schemaTypeValues =
+    BuiltSet<SchemaType>(const <SchemaType>[
   _$schemaTypeBoolean,
   _$schemaTypeInteger,
   _$schemaTypeNumber,
@@ -51,112 +52,132 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
   final String wireName = 'Schema';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Schema object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Schema object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      serializers.serialize(object.deprecated,
+          specifiedType: const FullType(bool)),
       'required',
-      serializers.serialize(object.required, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      serializers.serialize(object.required,
+          specifiedType: const FullType(BuiltList, [FullType(String)])),
       'nullable',
-      serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      serializers.serialize(object.nullable,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.ref;
     if (value != null) {
       result
         ..add('\$ref')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.oneOf;
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Schema)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(Schema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Schema)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(Schema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Schema)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(Schema)])));
     }
     value = object.description;
     if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
-        ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(SchemaType)));
     }
     value = object.format;
     if (value != null) {
       result
         ..add('format')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.$default;
     if (value != null) {
       result
         ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.properties;
     if (value != null) {
       result
         ..add('properties')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Schema)])));
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType(Schema)])));
     }
     value = object.items;
     if (value != null) {
       result
         ..add('items')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Schema)));
     }
     value = object.additionalProperties;
     if (value != null) {
       result
         ..add('additionalProperties')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Schema)));
     }
     value = object.contentMediaType;
     if (value != null) {
       result
         ..add('contentMediaType')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.contentSchema;
     if (value != null) {
       result
         ..add('contentSchema')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Schema)));
     }
     value = object.discriminator;
     if (value != null) {
       result
         ..add('discriminator')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Discriminator)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Discriminator)));
     }
     value = object.pattern;
     if (value != null) {
       result
         ..add('pattern')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.minLength;
     if (value != null) {
@@ -185,76 +206,95 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
       final Object? value = iterator.current;
       switch (key) {
         case '\$ref':
-          result.ref = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.ref = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Schema)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Schema)]))!
+              as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Schema)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Schema)]))!
+              as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Schema)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(Schema)]))!
+              as BuiltList<Object?>);
           break;
         case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.deprecated = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
         case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
+          result.type = serializers.deserialize(value,
+              specifiedType: const FullType(SchemaType)) as SchemaType?;
           break;
         case 'format':
-          result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.format = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          result.$default = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(JsonObject)]))!
+              as BuiltList<Object?>);
           break;
         case 'properties':
           result.properties.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Schema)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(Schema)]))!);
           break;
         case 'required':
           result.required.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<Object?>);
           break;
         case 'items':
-          result.items.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.items.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Schema))! as Schema);
           break;
         case 'additionalProperties':
-          result.additionalProperties
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.additionalProperties.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Schema))! as Schema);
           break;
         case 'contentMediaType':
-          result.contentMediaType = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.contentMediaType = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'contentSchema':
-          result.contentSchema
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.contentSchema.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Schema))! as Schema);
           break;
         case 'discriminator':
-          result.discriminator
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Discriminator))! as Discriminator);
+          result.discriminator.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Discriminator))! as Discriminator);
           break;
         case 'pattern':
-          result.pattern = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.pattern = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'minLength':
-          result.minLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.minLength = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'maxLength':
-          result.maxLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.maxLength = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'nullable':
-          result.nullable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.nullable = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -270,11 +310,13 @@ class _$SchemaTypeSerializer implements PrimitiveSerializer<SchemaType> {
   final String wireName = 'SchemaType';
 
   @override
-  Object serialize(Serializers serializers, SchemaType object, {FullType specifiedType = FullType.unspecified}) =>
+  Object serialize(Serializers serializers, SchemaType object,
+          {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  SchemaType deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
+  SchemaType deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
       SchemaType.valueOf(serialized as String);
 }
 
@@ -322,7 +364,8 @@ class _$Schema extends Schema {
   @override
   final bool nullable;
 
-  factory _$Schema([void Function(SchemaBuilder)? updates]) => (SchemaBuilder()..update(updates))._build();
+  factory _$Schema([void Function(SchemaBuilder)? updates]) =>
+      (SchemaBuilder()..update(updates))._build();
 
   _$Schema._(
       {this.ref,
@@ -353,7 +396,8 @@ class _$Schema extends Schema {
   }
 
   @override
-  Schema rebuild(void Function(SchemaBuilder) updates) => (toBuilder()..update(updates)).build();
+  Schema rebuild(void Function(SchemaBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   SchemaBuilder toBuilder() => SchemaBuilder()..replace(this);
@@ -479,15 +523,19 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   set $default(JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
-  ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get $enum =>
+      _$this._$enum ??= ListBuilder<JsonObject>();
   set $enum(ListBuilder<JsonObject>? $enum) => _$this._$enum = $enum;
 
   MapBuilder<String, Schema>? _properties;
-  MapBuilder<String, Schema> get properties => _$this._properties ??= MapBuilder<String, Schema>();
-  set properties(MapBuilder<String, Schema>? properties) => _$this._properties = properties;
+  MapBuilder<String, Schema> get properties =>
+      _$this._properties ??= MapBuilder<String, Schema>();
+  set properties(MapBuilder<String, Schema>? properties) =>
+      _$this._properties = properties;
 
   ListBuilder<String>? _required;
-  ListBuilder<String> get required => _$this._required ??= ListBuilder<String>();
+  ListBuilder<String> get required =>
+      _$this._required ??= ListBuilder<String>();
   set required(ListBuilder<String>? required) => _$this._required = required;
 
   SchemaBuilder? _items;
@@ -495,20 +543,26 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   set items(SchemaBuilder? items) => _$this._items = items;
 
   SchemaBuilder? _additionalProperties;
-  SchemaBuilder get additionalProperties => _$this._additionalProperties ??= SchemaBuilder();
-  set additionalProperties(SchemaBuilder? additionalProperties) => _$this._additionalProperties = additionalProperties;
+  SchemaBuilder get additionalProperties =>
+      _$this._additionalProperties ??= SchemaBuilder();
+  set additionalProperties(SchemaBuilder? additionalProperties) =>
+      _$this._additionalProperties = additionalProperties;
 
   String? _contentMediaType;
   String? get contentMediaType => _$this._contentMediaType;
-  set contentMediaType(String? contentMediaType) => _$this._contentMediaType = contentMediaType;
+  set contentMediaType(String? contentMediaType) =>
+      _$this._contentMediaType = contentMediaType;
 
   SchemaBuilder? _contentSchema;
   SchemaBuilder get contentSchema => _$this._contentSchema ??= SchemaBuilder();
-  set contentSchema(SchemaBuilder? contentSchema) => _$this._contentSchema = contentSchema;
+  set contentSchema(SchemaBuilder? contentSchema) =>
+      _$this._contentSchema = contentSchema;
 
   DiscriminatorBuilder? _discriminator;
-  DiscriminatorBuilder get discriminator => _$this._discriminator ??= DiscriminatorBuilder();
-  set discriminator(DiscriminatorBuilder? discriminator) => _$this._discriminator = discriminator;
+  DiscriminatorBuilder get discriminator =>
+      _$this._discriminator ??= DiscriminatorBuilder();
+  set discriminator(DiscriminatorBuilder? discriminator) =>
+      _$this._discriminator = discriminator;
 
   String? _pattern;
   String? get pattern => _$this._pattern;
@@ -582,7 +636,8 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
               description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated'),
+              deprecated: BuiltValueNullFieldError.checkNotNull(
+                  deprecated, r'Schema', 'deprecated'),
               type: type,
               format: format,
               $default: $default,
@@ -597,7 +652,8 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
               pattern: pattern,
               minLength: minLength,
               maxLength: maxLength,
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'Schema', 'nullable'));
+              nullable: BuiltValueNullFieldError.checkNotNull(
+                  nullable, r'Schema', 'nullable'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -624,7 +680,8 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
         _$failedField = 'discriminator';
         _discriminator?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Schema', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Schema', _$failedField, e.toString());
       }
       rethrow;
     }

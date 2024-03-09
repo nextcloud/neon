@@ -19,21 +19,24 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'required',
-      serializers.serialize(object.required, specifiedType: const FullType(bool)),
+      serializers.serialize(object.required,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.description;
     if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.content;
     if (value != null) {
       result
         ..add('content')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])));
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType(MediaType)])));
     }
     return result;
   }
@@ -50,14 +53,17 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
       final Object? value = iterator.current;
       switch (key) {
         case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'content':
           result.content.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(MediaType)]))!);
           break;
         case 'required':
-          result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.required = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -77,12 +83,14 @@ class _$RequestBody extends RequestBody {
   factory _$RequestBody([void Function(RequestBodyBuilder)? updates]) =>
       (RequestBodyBuilder()..update(updates))._build();
 
-  _$RequestBody._({this.description, this.content, required this.required}) : super._() {
+  _$RequestBody._({this.description, this.content, required this.required})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required');
   }
 
   @override
-  RequestBody rebuild(void Function(RequestBodyBuilder) updates) => (toBuilder()..update(updates)).build();
+  RequestBody rebuild(void Function(RequestBodyBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   RequestBodyBuilder toBuilder() => RequestBodyBuilder()..replace(this);
@@ -90,7 +98,9 @@ class _$RequestBody extends RequestBody {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is RequestBody && content == other.content && required == other.required;
+    return other is RequestBody &&
+        content == other.content &&
+        required == other.required;
   }
 
   @override
@@ -120,8 +130,10 @@ class RequestBodyBuilder implements Builder<RequestBody, RequestBodyBuilder> {
   set description(String? description) => _$this._description = description;
 
   MapBuilder<String, MediaType>? _content;
-  MapBuilder<String, MediaType> get content => _$this._content ??= MapBuilder<String, MediaType>();
-  set content(MapBuilder<String, MediaType>? content) => _$this._content = content;
+  MapBuilder<String, MediaType> get content =>
+      _$this._content ??= MapBuilder<String, MediaType>();
+  set content(MapBuilder<String, MediaType>? content) =>
+      _$this._content = content;
 
   bool? _required;
   bool? get required => _$this._required;
@@ -162,14 +174,16 @@ class RequestBodyBuilder implements Builder<RequestBody, RequestBodyBuilder> {
           _$RequestBody._(
               description: description,
               content: _content?.build(),
-              required: BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required'));
+              required: BuiltValueNullFieldError.checkNotNull(
+                  required, r'RequestBody', 'required'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'content';
         _content?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'RequestBody', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'RequestBody', _$failedField, e.toString());
       }
       rethrow;
     }

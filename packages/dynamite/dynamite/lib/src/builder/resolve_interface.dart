@@ -42,7 +42,10 @@ Spec buildInterface(
   Iterable<TypeResultObject>? interfaces,
   Iterable<String>? documentation,
 }) {
-  assert((interfaces == null) != (methods == null), 'Either provide an interface or methods.');
+  assert(
+    (interfaces == null) != (methods == null),
+    'Either provide an interface or methods.',
+  );
   final className = '\$$identifier$interfaceSuffix';
 
   return Class((b) {
@@ -54,7 +57,8 @@ Spec buildInterface(
       ..abstract = true
       ..modifier = ClassModifier.interface
       ..name = className
-      ..annotations.add(refer('BuiltValue').call([], {'instantiable': literalFalse}));
+      ..annotations
+          .add(refer('BuiltValue').call([], {'instantiable': literalFalse}));
 
     if (interfaces != null) {
       b.implements.addAll(

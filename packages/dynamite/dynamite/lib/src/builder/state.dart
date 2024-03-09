@@ -29,7 +29,9 @@ class State {
   /// Wether the state contains resolved types that need the built_value generator.
   bool get hasResolvedBuiltTypes => resolvedTypes
       .where(
-        (type) => type is TypeResultEnum || type is TypeResultObject && type.className != 'ContentString',
+        (type) =>
+            type is TypeResultEnum ||
+            type is TypeResultObject && type.className != 'ContentString',
       )
       .isNotEmpty;
 }

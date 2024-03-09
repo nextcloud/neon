@@ -58,7 +58,9 @@ String toDartName(
     if (_isNonAlphaNumericString(char)) {
       upperCase = true;
     } else {
-      result += firstCharacter ? char.toLowerCase() : (upperCase ? char.toUpperCase() : char);
+      result += firstCharacter
+          ? char.toLowerCase()
+          : (upperCase ? char.toUpperCase() : char);
       upperCase = false;
       firstCharacter = false;
     }
@@ -68,7 +70,8 @@ String toDartName(
     return '${identifier}_$result';
   }
 
-  if (_reservedNames.contains(result) || RegExp(r'^[0-9]+$', multiLine: true).hasMatch(result)) {
+  if (_reservedNames.contains(result) ||
+      RegExp(r'^[0-9]+$', multiLine: true).hasMatch(result)) {
     return '\$$result';
   }
 
@@ -211,9 +214,11 @@ const _reservedNames = [
   'with',
 ];
 
-bool _isNonAlphaNumericString(String input) => !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);
+bool _isNonAlphaNumericString(String input) =>
+    !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);
 
-String toFieldName(String dartName, String type) => dartName == type ? '\$$dartName' : dartName;
+String toFieldName(String dartName, String type) =>
+    dartName == type ? '\$$dartName' : dartName;
 
 String toCamelCase(String name) {
   var result = '';
@@ -225,7 +230,9 @@ String toCamelCase(String name) {
     } else if (char == r'$') {
       result += r'$';
     } else {
-      result += firstCharacter ? char.toLowerCase() : (upperCase ? char.toUpperCase() : char);
+      result += firstCharacter
+          ? char.toLowerCase()
+          : (upperCase ? char.toUpperCase() : char);
       upperCase = false;
       firstCharacter = false;
     }

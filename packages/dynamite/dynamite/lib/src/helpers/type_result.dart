@@ -5,7 +5,11 @@ import 'package:source_helper/source_helper.dart';
 /// Escapes a [value] using the type specific syntax from [result].
 ///
 /// Use [forceString] to ensure the returned value is a `String`.
-String valueToEscapedValue(TypeResult result, String value, {bool forceString = false}) {
+String valueToEscapedValue(
+  TypeResult result,
+  String value, {
+  bool forceString = false,
+}) {
   if ((result is TypeResultBase && result.name == 'String') || forceString) {
     return escapeDartString(value);
   }

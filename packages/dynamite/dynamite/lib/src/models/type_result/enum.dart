@@ -16,7 +16,10 @@ class TypeResultEnum extends TypeResult {
 
   @override
   bool operator ==(Object other) =>
-      other is TypeResultEnum && other.className == className && other.generics == generics && other.subType == subType;
+      other is TypeResultEnum &&
+      other.className == className &&
+      other.generics == generics &&
+      other.subType == subType;
 
   @override
   int get hashCode => className.hashCode + generics.hashCode + subType.hashCode;

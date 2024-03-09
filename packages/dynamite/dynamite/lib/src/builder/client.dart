@@ -42,12 +42,17 @@ Class buildRootClient(
         }
 
         b
-          ..extend = refer('DynamiteClient', 'package:dynamite_runtime/http_client.dart')
+          ..extend = refer(
+            'DynamiteClient',
+            'package:dynamite_runtime/http_client.dart',
+          )
           ..name = r'$Client'
           ..constructors.addAll([
             Constructor(
               (b) => b
-                ..docs.add('/// Creates a new `DynamiteClient` for untagged requests.')
+                ..docs.add(
+                  '/// Creates a new `DynamiteClient` for untagged requests.',
+                )
                 ..requiredParameters.add(
                   Parameter(
                     (b) => b
@@ -86,13 +91,17 @@ Class buildRootClient(
             ),
             Constructor(
               (b) => b
-                ..docs.add(r'/// Creates a new [$Client] from another [client].')
+                ..docs
+                    .add(r'/// Creates a new [$Client] from another [client].')
                 ..name = 'fromClient'
                 ..requiredParameters.add(
                   Parameter(
                     (b) => b
                       ..name = 'client'
-                      ..type = refer('DynamiteClient', 'package:dynamite_runtime/http_client.dart'),
+                      ..type = refer(
+                        'DynamiteClient',
+                        'package:dynamite_runtime/http_client.dart',
+                      ),
                   ),
                 )
                 ..initializers.add(
@@ -143,7 +152,9 @@ Class buildClient(
           ..constructors.add(
             Constructor(
               (b) => b
-                ..docs.add('/// Creates a new `DynamiteClient` for ${tag.name} requests.')
+                ..docs.add(
+                  '/// Creates a new `DynamiteClient` for ${tag.name} requests.',
+                )
                 ..requiredParameters.add(
                   Parameter(
                     (b) => b
@@ -178,7 +189,8 @@ Iterable<Method> buildTags(
     for (final operationEntry in pathEntry.value.operations.entries) {
       final httpMethod = operationEntry.key.name;
       final operation = operationEntry.value;
-      final operationName = operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
+      final operationName =
+          operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
       final parameters = [
         ...?pathEntry.value.parameters,
         ...?operation.parameters,
@@ -196,7 +208,9 @@ Iterable<Method> buildTags(
         }
 
         if (responses.length > 1) {
-          print('$operationName uses more than one response schema but we only generate the first one');
+          print(
+            '$operationName uses more than one response schema but we only generate the first one',
+          );
           responses = Map.fromEntries([responses.entries.first]);
         }
       }
@@ -246,7 +260,9 @@ Iterable<Method> buildTags(
       if (requestBody != null) {
         for (final content in requestBody.content!.entries) {
           if (bodyParameter != null) {
-            print('Can not work with multiple mime types right now. Using the first supported.');
+            print(
+              'Can not work with multiple mime types right now. Using the first supported.',
+            );
             break;
           }
 
@@ -303,7 +319,9 @@ Iterable<Method> buildTags(
       yield Method((b) {
         b
           ..name = '\$${name}_Serializer'
-          ..docs.add('/// Builds a serializer to parse the response of [\$${name}_Request].')
+          ..docs.add(
+            '/// Builds a serializer to parse the response of [\$${name}_Request].',
+          )
           ..annotations.add(refer('experimental', 'package:meta/meta.dart'));
 
         if (operation.deprecated) {
@@ -332,7 +350,8 @@ ${allocate(returnType)}(
 ''');
 
             final statusCodes = responseEntry.value;
-            if (responses.values.isNotEmpty && !statusCodes.contains('default')) {
+            if (responses.values.isNotEmpty &&
+                !statusCodes.contains('default')) {
               code.writeln("validStatuses: const {${statusCodes.join(',')}},");
             }
 
@@ -365,14 +384,23 @@ ${allocate(returnType)}(
             }
 
             for (final parameter in pathParameters.entries) {
-              code.writeln(buildParameterSerialization(parameter.value, parameter.key, state, allocate));
+              code.writeln(
+                buildParameterSerialization(
+                  parameter.value,
+                  parameter.key,
+                  state,
+                  allocate,
+                ),
+              );
             }
 
             buildUrlPath(pathEntry.key, parameters, code, allocate);
 
             code
               ..writeln("final _uri = Uri.parse('\${$client.baseURL}\$_path');")
-              ..writeln("final _request = ${allocate(requestType)}('$httpMethod', _uri);");
+              ..writeln(
+                "final _request = ${allocate(requestType)}('$httpMethod', _uri);",
+              );
 
             final acceptHeader = responses.keys
                 .map((response) => response.content?.keys)
@@ -394,11 +422,22 @@ ${allocate(returnType)}(
             );
 
             for (final parameter in headerParameters.entries) {
-              code.writeln(buildParameterSerialization(parameter.value, parameter.key, state, allocate));
+              code.writeln(
+                buildParameterSerialization(
+                  parameter.value,
+                  parameter.key,
+                  state,
+                  allocate,
+                ),
+              );
             }
 
             if (bodyParameter != null) {
-              resolveMimeTypeEncode(bodyParameter.mimeType, bodyParameter.result, code);
+              resolveMimeTypeEncode(
+                bodyParameter.mimeType,
+                bodyParameter.result,
+                code,
+              );
             }
 
             code.writeln('return _request;');
@@ -416,7 +455,8 @@ ${allocate(returnType)}(
           b.annotations.add(refer('Deprecated').call([refer("''")]));
         }
 
-        final rawParameters = operationParameters.map((p) => '${p.name}: ${p.name},').join('\n');
+        final rawParameters =
+            operationParameters.map((p) => '${p.name}: ${p.name},').join('\n');
         final responseType = TypeReference(
           (b) => b
             ..symbol = 'DynamiteResponse'
@@ -528,7 +568,9 @@ void buildUrlPath(
   String Function(Reference) allocate,
 ) {
   final hasUriParameters = parameters.firstWhereOrNull(
-        (parameter) => parameter.$in == openapi.ParameterType.path || parameter.$in == openapi.ParameterType.query,
+        (parameter) =>
+            parameter.$in == openapi.ParameterType.path ||
+            parameter.$in == openapi.ParameterType.query,
       ) !=
       null;
 
@@ -542,7 +584,9 @@ void buildUrlPath(
       }
 
       // Default to a plain parameter without exploding.
-      queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
+      queryParams.add(
+        parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName,
+      );
     }
 
     final pathBuilder = StringBuffer()..write(path);
@@ -559,7 +603,9 @@ void buildUrlPath(
     try {
       UriTemplate(pattern);
     } on ParseException catch (e) {
-      throw Exception('The resulting uri $pattern is not a valid uri template according to RFC 6570. $e');
+      throw Exception(
+        'The resulting uri $pattern is not a valid uri template according to RFC 6570. $e',
+      );
     }
 
     code.writeln(
@@ -601,7 +647,8 @@ String buildParameterSerialization(
   }
 
   if (parameter.$in == openapi.ParameterType.header) {
-    final encoderRef = refer('HeaderEncoder', 'package:dynamite_runtime/utils.dart');
+    final encoderRef =
+        refer('HeaderEncoder', 'package:dynamite_runtime/utils.dart');
     final assignment =
         "_request.headers['${parameter.pctEncodedName}'] = ${allocate(encoderRef)}(explode: ${parameter.explode}).convert($serializedName);";
 
@@ -614,7 +661,9 @@ String buildParameterSerialization(
       buffer.writeln(assignment);
     }
   } else {
-    buffer.writeln("_parameters['${parameter.pctEncodedName}'] = $serializedName;");
+    buffer.writeln(
+      "_parameters['${parameter.pctEncodedName}'] = $serializedName;",
+    );
   }
 
   return buffer.toString();
@@ -628,7 +677,8 @@ void buildAuthCheck(
   StringSink output,
 ) {
   final security = operation.security ?? spec.security ?? BuiltList();
-  final securityRequirements = security.where((requirement) => requirement.isNotEmpty);
+  final securityRequirements =
+      security.where((requirement) => requirement.isNotEmpty);
   final isOptionalSecurity = securityRequirements.length != security.length;
 
   if (securityRequirements.isEmpty) {
@@ -645,7 +695,8 @@ final authentication = $client.authentications?.firstWhereOrNull(
     )
     ..writeAll(
       securityRequirements.map((requirement) {
-        final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
+        final securityScheme =
+            spec.components!.securitySchemes![requirement.keys.single]!;
         final dynamiteAuth = toDartName(
           'Dynamite-${securityScheme.fullName.join('-')}-Authentication',
           className: true,
@@ -688,7 +739,8 @@ Map<String, openapi.PathItem> generatePaths(openapi.OpenAPI spec, String? tag) {
       for (final operationEntry in path.value.operations.entries) {
         final operation = operationEntry.value;
         if ((operation.tags != null && operation.tags!.contains(tag)) ||
-            (tag == null && (operation.tags == null || operation.tags!.isEmpty))) {
+            (tag == null &&
+                (operation.tags == null || operation.tags!.isEmpty))) {
           paths[path.key] ??= path.value;
           paths[path.key]!.rebuild((b) {
             switch (operationEntry.key) {
@@ -727,7 +779,8 @@ Set<openapi.Tag> generateTags(openapi.OpenAPI spec) {
         if (operation.tags != null) {
           tags.addAll(
             operation.tags!.map((name) {
-              final tag = spec.tags?.firstWhereOrNull((tag) => tag.name == name);
+              final tag =
+                  spec.tags?.firstWhereOrNull((tag) => tag.name == name);
               return tag ?? openapi.Tag((b) => b..name = name);
             }),
           );

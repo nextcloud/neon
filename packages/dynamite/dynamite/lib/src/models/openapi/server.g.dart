@@ -15,7 +15,8 @@ class _$ServerSerializer implements StructuredSerializer<Server> {
   final String wireName = 'Server';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Server object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Server object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'url',
       serializers.serialize(object.url, specifiedType: const FullType(String)),
@@ -26,7 +27,8 @@ class _$ServerSerializer implements StructuredSerializer<Server> {
       result
         ..add('variables')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(ServerVariable)])));
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType(ServerVariable)])));
     }
     return result;
   }
@@ -43,11 +45,13 @@ class _$ServerSerializer implements StructuredSerializer<Server> {
       final Object? value = iterator.current;
       switch (key) {
         case 'url':
-          result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.url = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'variables':
           result.variables.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(ServerVariable)]))!);
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(ServerVariable)]))!);
           break;
       }
     }
@@ -62,14 +66,16 @@ class _$Server extends Server {
   @override
   final BuiltMap<String, ServerVariable>? variables;
 
-  factory _$Server([void Function(ServerBuilder)? updates]) => (ServerBuilder()..update(updates))._build();
+  factory _$Server([void Function(ServerBuilder)? updates]) =>
+      (ServerBuilder()..update(updates))._build();
 
   _$Server._({required this.url, this.variables}) : super._() {
     BuiltValueNullFieldError.checkNotNull(url, r'Server', 'url');
   }
 
   @override
-  Server rebuild(void Function(ServerBuilder) updates) => (toBuilder()..update(updates)).build();
+  Server rebuild(void Function(ServerBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   ServerBuilder toBuilder() => ServerBuilder()..replace(this);
@@ -106,8 +112,10 @@ class ServerBuilder implements Builder<Server, ServerBuilder> {
   set url(String? url) => _$this._url = url;
 
   MapBuilder<String, ServerVariable>? _variables;
-  MapBuilder<String, ServerVariable> get variables => _$this._variables ??= MapBuilder<String, ServerVariable>();
-  set variables(MapBuilder<String, ServerVariable>? variables) => _$this._variables = variables;
+  MapBuilder<String, ServerVariable> get variables =>
+      _$this._variables ??= MapBuilder<String, ServerVariable>();
+  set variables(MapBuilder<String, ServerVariable>? variables) =>
+      _$this._variables = variables;
 
   ServerBuilder();
 
@@ -139,14 +147,17 @@ class ServerBuilder implements Builder<Server, ServerBuilder> {
     _$Server _$result;
     try {
       _$result = _$v ??
-          _$Server._(url: BuiltValueNullFieldError.checkNotNull(url, r'Server', 'url'), variables: _variables?.build());
+          _$Server._(
+              url: BuiltValueNullFieldError.checkNotNull(url, r'Server', 'url'),
+              variables: _variables?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'variables';
         _variables?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Server', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'Server', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -12,7 +12,9 @@ void main() {
       expect(type.fullType, 'const FullType(BuiltList, [FullType(String)])');
       expect(
         type.serializers.toList(),
-        const ['..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)'],
+        const [
+          '..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)',
+        ],
       );
       expect(
         type.serialize('value'),
@@ -30,7 +32,10 @@ void main() {
       type = TypeResultList('BuiltList', type);
 
       expect(type.name, 'BuiltList<BuiltList<String>>');
-      expect(type.fullType, 'const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])])');
+      expect(
+        type.fullType,
+        'const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])])',
+      );
       expect(
         type.serializers.toList(),
         const [
@@ -66,7 +71,10 @@ void main() {
       final type = TypeResultMap('BuiltMap', subType);
 
       expect(type.name, 'BuiltMap<String, int>');
-      expect(type.fullType, 'const FullType(BuiltMap, [FullType(String), FullType(int)])');
+      expect(
+        type.fullType,
+        'const FullType(BuiltMap, [FullType(String), FullType(int)])',
+      );
       expect(
         type.serializers.toList(),
         const [
@@ -125,7 +133,8 @@ void main() {
   group(TypeResultObject, () {
     test('name', () {
       final subType = TypeResultBase('String');
-      final type = TypeResultObject('CustomType', generics: BuiltList([subType]));
+      final type =
+          TypeResultObject('CustomType', generics: BuiltList([subType]));
 
       expect(type.name, 'CustomType<String>');
       expect(type.fullType, 'const FullType(CustomType, [FullType(String)])');
@@ -148,7 +157,8 @@ void main() {
 
     test('ContentString', () {
       final subType = TypeResultBase('int');
-      final type = TypeResultObject('ContentString', generics: BuiltList([subType]));
+      final type =
+          TypeResultObject('ContentString', generics: BuiltList([subType]));
 
       expect(type.name, 'ContentString<int>');
       expect(type.fullType, 'const FullType(ContentString, [FullType(int)])');
@@ -168,10 +178,12 @@ void main() {
 
     test('equality', () {
       final subType1 = TypeResultBase('String');
-      final type1 = TypeResultObject('CustomType', generics: BuiltList([subType1]));
+      final type1 =
+          TypeResultObject('CustomType', generics: BuiltList([subType1]));
 
       final subType2 = TypeResultBase('String');
-      final type2 = TypeResultObject('CustomType', generics: BuiltList([subType2]));
+      final type2 =
+          TypeResultObject('CustomType', generics: BuiltList([subType2]));
 
       expect(type1, equals(type2));
       expect(type1.hashCode, type2.hashCode);

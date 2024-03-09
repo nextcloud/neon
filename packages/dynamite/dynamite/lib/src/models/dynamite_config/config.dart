@@ -6,18 +6,23 @@ import 'package:built_value/standard_json_plugin.dart';
 part 'config.g.dart';
 
 /// The configuration used by the dynamite builder.
-abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBuilder> {
-  factory DynamiteConfig([void Function(DynamiteConfigBuilder) updates]) = _$DynamiteConfig;
+abstract class DynamiteConfig
+    implements Built<DynamiteConfig, DynamiteConfigBuilder> {
+  factory DynamiteConfig([void Function(DynamiteConfigBuilder) updates]) =
+      _$DynamiteConfig;
 
   const DynamiteConfig._();
 
   /// Constructs the dynamite config from a json like map.
-  factory DynamiteConfig.fromJson(Map<String, dynamic> json) => _serializers.deserializeWith(serializer, json)!;
+  factory DynamiteConfig.fromJson(Map<String, dynamic> json) =>
+      _serializers.deserializeWith(serializer, json)!;
 
   /// Serializes this configuration to json.
-  Map<String, dynamic> toJson() => _serializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() =>
+      _serializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  static Serializer<DynamiteConfig> get serializer => _$dynamiteConfigSerializer;
+  static Serializer<DynamiteConfig> get serializer =>
+      _$dynamiteConfigSerializer;
 
   static const String configPath = 'dynamite.yaml';
 
@@ -76,7 +81,9 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
   /// Throws a [ArgumentError] if the override has overrides itself.
   DynamiteConfig merge(DynamiteConfig other) {
     if (other.overrides != null) {
-      throw ArgumentError('Configs can only be merged with a config that does not have further overrides');
+      throw ArgumentError(
+        'Configs can only be merged with a config that does not have further overrides',
+      );
     }
 
     return rebuild((b) {
@@ -98,4 +105,5 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
 @SerializersFor([
   DynamiteConfig,
 ])
-final Serializers _serializers = (_$_serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
+final Serializers _serializers =
+    (_$_serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();

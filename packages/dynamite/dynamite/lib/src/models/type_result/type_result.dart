@@ -22,8 +22,14 @@ sealed class TypeResult {
     String? builderName,
   })  : builderName = builderName ?? className,
         generics = generics ?? BuiltList(),
-        assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
-        assert(!className.contains('?'), 'Nullability should not be specified in the type.');
+        assert(
+          !className.contains('<'),
+          'Specify generics in the generics parameter.',
+        ),
+        assert(
+          !className.contains('?'),
+          'Nullability should not be specified in the type.',
+        );
 
   final String className;
   final String builderName;
@@ -135,7 +141,9 @@ sealed class TypeResult {
         return 'Uri(queryParameters: $serialized! as Map<String, dynamic>).query';
       case 'application/octet-stream':
         if (className != 'Uint8List') {
-          throw Exception('octet-stream can only be applied to binary data. Expected Uint8List but got $className');
+          throw Exception(
+            'octet-stream can only be applied to binary data. Expected Uint8List but got $className',
+          );
         }
         return '$object as Uint8List';
       default:
@@ -191,7 +199,10 @@ sealed class TypeResult {
   }
 
   @override
-  bool operator ==(Object other) => other is TypeResult && other.className == className && other.generics == generics;
+  bool operator ==(Object other) =>
+      other is TypeResult &&
+      other.className == className &&
+      other.generics == generics;
 
   @override
   int get hashCode => className.hashCode + generics.hashCode;

@@ -16,11 +16,15 @@ class TypeResultMap extends TypeResult {
   String? get _serializer => null;
 
   @override
-  TypeResultMap get dartType => TypeResultMap('Map', subType, nullable: nullable);
+  TypeResultMap get dartType =>
+      TypeResultMap('Map', subType, nullable: nullable);
 
   @override
   bool operator ==(Object other) =>
-      other is TypeResultMap && other.className == className && other.generics == generics && other.subType == subType;
+      other is TypeResultMap &&
+      other.className == className &&
+      other.generics == generics &&
+      other.subType == subType;
 
   @override
   int get hashCode => className.hashCode + generics.hashCode + subType.hashCode;

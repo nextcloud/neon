@@ -64,7 +64,9 @@ abstract class Info implements Built<Info, InfoBuilder> {
     if (termsOfService != null) {
       buffer
         ..write('\n\n')
-        ..write('Usage of these apis must adhere to the terms of service: `$termsOfService`');
+        ..write(
+          'Usage of these apis must adhere to the terms of service: `$termsOfService`',
+        );
     }
 
     return descriptionToDocs(buffer.toString());
