@@ -2,8 +2,11 @@
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/shared_preferences_persistence.dart';
+import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 void main() {
   group('Persistences', () {
@@ -148,6 +151,47 @@ void main() {
         await persistence.reload();
         expect(persistence.containsKey('key'), isTrue);
       });
+    });
+
+    test('RequestCache', () async {
+      final cache = DefaultRequestCache();
+      sqfliteFfiInit();
+      databaseFactory = databaseFactoryFfi;
+
+      expect(() async => cache.get('key'), throwsA(isA<StateError>()));
+
+      cache.database = await openDatabase(
+        inMemoryDatabasePath,
+        version: 1,
+        onCreate: DefaultRequestCache.onCreate,
+      );
+
+      dynamic result = await cache.get('key');
+      expect(result, isNull);
+
+      await cache.set('key', 'value', null);
+      result = await cache.get('key');
+      expect(result, equals('value'));
+
+      await cache.set('key', 'upsert', null);
+      result = await cache.get('key');
+      expect(result, equals('upsert'));
+
+      var parameters = const CacheParameters(etag: null, expires: null);
+      result = await cache.getParameters('newKey');
+      expect(result, equals(parameters));
+
+      await cache.set('key', 'value', parameters);
+      result = await cache.getParameters('key');
+      expect(result, equals(parameters));
+
+      parameters = CacheParameters(
+        etag: 'etag',
+        expires: DateTime.fromMillisecondsSinceEpoch(DateTime.now().microsecondsSinceEpoch),
+      );
+      await cache.updateParameters('key', parameters);
+      result = await cache.getParameters('key');
+      expect(result, equals(parameters));
     });
   });
 }
