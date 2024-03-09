@@ -133,13 +133,13 @@ class _HomePageState extends State<HomePage> {
 
             return StreamBuilder(
               stream: _appsBloc.activeApp,
-              builder: (context, activeAppIDSnapshot) {
-                if (!activeAppIDSnapshot.hasData) {
+              builder: (context, activeAppSnapshot) {
+                if (!activeAppSnapshot.hasData) {
                   return const SizedBox();
                 }
 
                 return SafeArea(
-                  child: activeAppIDSnapshot.requireData.page,
+                  child: activeAppSnapshot.requireData.page,
                 );
               },
             );
