@@ -19,10 +19,11 @@ import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:built_value/standard_json_plugin.dart' as _i5;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/built_value.dart' as _i4;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
 
 part 'settings.openapi.g.dart';
@@ -56,7 +57,7 @@ class $LogSettingsClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$download_Request`.
+  /// Builds a serializer to parse the response of [$download_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, LogSettingsLogSettingsDownloadHeaders> $download_Serializer() =>
       _i1.DynamiteSerializer(
@@ -70,38 +71,21 @@ class $LogSettingsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Returns a `DynamiteRequest` backing the [download] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * 200: Logfile returned
   ///
   /// See:
-  ///  * [downloadRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
-    final _rawResponse = await downloadRaw();
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// download logfile.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * 200: Logfile returned
-  ///
-  /// See:
-  ///  * [download] for an operation that returns a `DynamiteResponse` with a stable API.
+  ///  * [download] for a method executing this request and parsing the response.
+  ///  * [$download_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  Future<_i1.DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> downloadRaw() async {
-    final _headers = <String, String>{'Accept': 'application/octet-stream'};
-
+  _i3.Request $download_Request() {
+    const _path = '/index.php/settings/admin/log/download';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/octet-stream';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -111,7 +95,7 @@ class $LogSettingsClient {
     );
 
     if (authentication != null) {
-      _headers.addAll(
+      _request.headers.addAll(
         authentication.headers,
       );
     } else {
@@ -119,15 +103,30 @@ class $LogSettingsClient {
     }
 
 // coverage:ignore-end
-    const _path = '/index.php/settings/admin/log/download';
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
+    return _request;
+  }
+
+  /// download logfile.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: Logfile returned
+  ///
+  /// See:
+  ///  * [$download_Request] for the request send by this method.
+  ///  * [$download_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
+    final _request = $download_Request();
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $download_Serializer();
-    return _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(_serializer).convert(_response);
+    final _rawResponse =
+        await _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -191,9 +190,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
+      ..add(_i4.DynamiteDoubleSerializer())
+      ..addPlugin(_i5.StandardJsonPlugin())
+      ..addPlugin(const _i4.HeaderPlugin())
+      ..addPlugin(const _i4.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -44,7 +44,7 @@ void resolveMimeTypeEncode(
   TypeResult result,
   StringSink output,
 ) {
-  output.writeln("_headers['Content-Type'] = '$mimeType';");
+  output.writeln("_request.headers['Content-Type'] = '$mimeType';");
   final parameterName = toDartName(result.name);
 
   switch (mimeType) {
@@ -53,7 +53,7 @@ void resolveMimeTypeEncode(
       if (result.nullable) {
         output.writeln('if ($parameterName != null) {');
       }
-      output.writeln('_body = utf8.encode(${result.encode(parameterName, mimeType: mimeType)});');
+      output.writeln('_request.body = ${result.encode(parameterName, mimeType: mimeType)};');
       if (result.nullable) {
         output.writeln('}');
       }
@@ -62,7 +62,7 @@ void resolveMimeTypeEncode(
       if (result.nullable) {
         output.writeln('if ($parameterName != null) {');
       }
-      output.writeln('_body = ${result.encode(parameterName, mimeType: mimeType)};');
+      output.writeln('_request.bodyBytes = ${result.encode(parameterName, mimeType: mimeType)};');
       if (result.nullable) {
         output.writeln('}');
       }

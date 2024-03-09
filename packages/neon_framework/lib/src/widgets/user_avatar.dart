@@ -86,11 +86,11 @@ class _UserAvatarState extends State<NeonUserAvatar> {
               etag: null,
               expires: null,
               getImage: (client) async => switch (brightness) {
-                Brightness.dark => client.core.avatar.getAvatarDarkRaw(
+                Brightness.dark => client.core.avatar.getAvatarDark(
                     userId: username,
                     size: pixelSize,
                   ),
-                Brightness.light => client.core.avatar.getAvatarRaw(
+                Brightness.light => client.core.avatar.getAvatar(
                     userId: username,
                     size: pixelSize,
                   ),

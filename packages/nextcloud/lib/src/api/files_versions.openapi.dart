@@ -19,12 +19,13 @@ import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i5;
+import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i3;
+import 'package:uri/uri.dart' as _i4;
 
 part 'files_versions.openapi.g.dart';
 
@@ -57,7 +58,7 @@ class $PreviewClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$getPreview_Request`.
+  /// Builds a serializer to parse the response of [$getPreview_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(Uint8List),
@@ -65,6 +66,73 @@ class $PreviewClient {
         serializers: _$jsonSerializers,
         validStatuses: const {200},
       );
+
+  /// Get the preview for a file version.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getPreview] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `44`.
+  ///   * [y] Height of the preview. Defaults to `44`.
+  ///   * [version] Version of the file to get the preview for. Defaults to `''`.
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 404: Preview not found
+  ///
+  /// See:
+  ///  * [getPreview] for a method executing this request and parsing the response.
+  ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getPreview_Request({
+    String? file,
+    int? x,
+    int? y,
+    String? version,
+  }) {
+    final _parameters = <String, Object?>{};
+    var $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    $file ??= '';
+    _parameters['file'] = $file;
+
+    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    $x ??= 44;
+    _parameters['x'] = $x;
+
+    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    $y ??= 44;
+    _parameters['y'] = $y;
+
+    var $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    $version ??= '';
+    _parameters['version'] = $version;
+
+    final _path = _i4.UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
 
   /// Get the preview for a file version.
   ///
@@ -83,95 +151,25 @@ class $PreviewClient {
   ///   * 404: Preview not found
   ///
   /// See:
-  ///  * [getPreviewRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getPreview_Request] for the request send by this method.
+  ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
     String? file,
     int? x,
     int? y,
     String? version,
   }) async {
-    final _rawResponse = await getPreviewRaw(
+    final _request = $getPreview_Request(
       file: file,
       x: x,
       y: y,
       version: version,
     );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Get the preview for a file version.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [file] Path of the file. Defaults to `''`.
-  ///   * [x] Width of the preview. Defaults to `44`.
-  ///   * [y] Height of the preview. Defaults to `44`.
-  ///   * [version] Version of the file to get the preview for. Defaults to `''`.
-  ///
-  /// Status codes:
-  ///   * 200: Preview returned
-  ///   * 400: Getting preview is not possible
-  ///   * 404: Preview not found
-  ///
-  /// See:
-  ///  * [getPreview] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<Uint8List, void>> getPreviewRaw({
-    String? file,
-    int? x,
-    int? y,
-    String? version,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': '*/*'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
-    $file ??= '';
-    _parameters['file'] = $file;
-
-    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    $x ??= 44;
-    _parameters['x'] = $x;
-
-    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    $y ??= 44;
-    _parameters['y'] = $y;
-
-    var $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    $version ??= '';
-    _parameters['version'] = $version;
-
-    final _path = _i3.UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $getPreview_Serializer();
-    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -264,9 +262,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i4.DynamiteDoubleSerializer())
-      ..addPlugin(_i5.StandardJsonPlugin())
-      ..addPlugin(const _i4.HeaderPlugin())
-      ..addPlugin(const _i4.ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

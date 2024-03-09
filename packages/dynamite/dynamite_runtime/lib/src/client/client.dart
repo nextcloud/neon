@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:cookie_jar/cookie_jar.dart';
-import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/src/client/authentication.dart';
+import 'package:dynamite_runtime/src/client/exception.dart';
+import 'package:dynamite_runtime/src/client/response.dart';
 import 'package:dynamite_runtime/src/utils/uri.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';

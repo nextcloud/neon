@@ -18,11 +18,12 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i6;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i5;
+import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
 import 'package:uri/uri.dart' as _i4;
 
@@ -57,7 +58,7 @@ class $ApiClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of `$getAppList_Request`.
+  /// Builds a serializer to parse the response of [$getAppList_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiGetAppListResponseApplicationJson, void> $getAppList_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(ApiGetAppListResponseApplicationJson),
@@ -65,6 +66,68 @@ class $ApiClient {
         serializers: _$jsonSerializers,
         validStatuses: const {200},
       );
+
+  /// List available updates for apps.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getAppList] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [newVersion] Server version to check updates for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Apps returned
+  ///   * 404: New versions not found
+  ///
+  /// See:
+  ///  * [getAppList] for a method executing this request and parsing the response.
+  ///  * [$getAppList_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getAppList_Request({
+    required String newVersion,
+    ApiGetAppListApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $newVersion = _$jsonSerializers.serialize(newVersion, specifiedType: const FullType(String));
+    _parameters['newVersion'] = $newVersion;
+
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppListApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
 
   /// List available updates for apps.
   ///
@@ -83,88 +146,24 @@ class $ApiClient {
   ///   * 404: New versions not found
   ///
   /// See:
-  ///  * [getAppListRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
+  ///  * [$getAppList_Request] for the request send by this method.
+  ///  * [$getAppList_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiGetAppListResponseApplicationJson, void>> getAppList({
     required String newVersion,
     ApiGetAppListApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _rawResponse = await getAppListRaw(
+    final _request = $getAppList_Request(
       newVersion: newVersion,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// List available updates for apps.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a `DynamiteRawResponse` with the raw `HttpClientResponse` and serialization helpers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [newVersion] Server version to check updates for.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Apps returned
-  ///   * 404: New versions not found
-  ///
-  /// See:
-  ///  * [getAppList] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i2.experimental
-  Future<_i1.DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>> getAppListRaw({
-    required String newVersion,
-    ApiGetAppListApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{'Accept': 'application/json'};
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $newVersion = _$jsonSerializers.serialize(newVersion, specifiedType: const FullType(String));
-    _parameters['newVersion'] = $newVersion;
-
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppListApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const _i3.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}')
-        .expand(_parameters);
-    final _response = await _rootClient.executeRequest(
-      'get',
-      _path,
-      headers: _headers,
-    );
+    final _response = await _rootClient.sendWithCookies(_request);
 
     final _serializer = $getAppList_Serializer();
-    return _i1.ResponseConverter<ApiGetAppListResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse =
+        await _i1.ResponseConverter<ApiGetAppListResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
@@ -444,9 +443,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(_i7.StandardJsonPlugin())
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end
