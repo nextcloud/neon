@@ -27,7 +27,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   void initState() {
     super.initState();
 
-    bloc = NeonProvider.of<NotificationsBlocInterface>(context) as NotificationsBloc;
+    bloc = NeonProvider.of<NotificationsBloc>(context);
 
     bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
