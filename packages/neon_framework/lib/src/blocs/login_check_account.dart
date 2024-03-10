@@ -18,12 +18,7 @@ sealed class LoginCheckAccountBloc implements InteractiveBloc {
     Uri serverURL,
     String loginName,
     String password,
-  ) =>
-      _LoginCheckAccountBloc(
-        serverURL,
-        loginName,
-        password,
-      );
+  ) = _LoginCheckAccountBloc;
 
   /// Contains the account for the user
   BehaviorSubject<Result<Account>> get state;

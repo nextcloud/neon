@@ -17,13 +17,8 @@ sealed class NextPushBloc implements Disposable {
   factory NextPushBloc(
     AccountsBloc accountsBloc,
     GlobalOptions globalOptions, {
-    bool disabled = false,
-  }) =>
-      _NextPushBloc(
-        accountsBloc,
-        globalOptions,
-        disabled: disabled,
-      );
+    bool disabled,
+  }) = _NextPushBloc;
 
   /// Emits if NextPush is supported by the server.
   BehaviorSubject<void> get onNextPushSupported;

@@ -15,11 +15,7 @@ sealed class NotesBloc implements InteractiveBloc {
   factory NotesBloc(
     NotesOptions options,
     Account account,
-  ) =>
-      _NotesBloc(
-        options,
-        account,
-      );
+  ) = _NotesBloc;
 
   void createNote({
     String title = '',

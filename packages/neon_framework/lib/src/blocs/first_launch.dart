@@ -12,9 +12,8 @@ import 'package:rxdart/rxdart.dart';
 sealed class FirstLaunchBloc implements Disposable {
   @internal
   factory FirstLaunchBloc({
-    bool disabled = false,
-  }) =>
-      _FirstLaunchBloc(disabled: disabled);
+    bool disabled,
+  }) = _FirstLaunchBloc;
 
   /// Emits an event if the first launch tasks should be run.
   BehaviorSubject<void> get onFirstLaunch;

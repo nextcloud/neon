@@ -16,11 +16,7 @@ sealed class NewsBloc implements InteractiveBloc {
   factory NewsBloc(
     NewsOptions options,
     Account account,
-  ) =>
-      _NewsBloc(
-        options,
-        account,
-      );
+  ) = _NewsBloc;
 
   void addFeed(String url, int? folderId);
 

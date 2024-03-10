@@ -32,11 +32,7 @@ abstract interface class AccountsBloc implements Disposable {
   factory AccountsBloc(
     GlobalOptions globalOptions,
     BuiltSet<AppImplementation> allAppImplementations,
-  ) =>
-      _AccountsBloc(
-        globalOptions,
-        allAppImplementations,
-      );
+  ) = _AccountsBloc;
 
   /// Logs in the given [account].
   ///

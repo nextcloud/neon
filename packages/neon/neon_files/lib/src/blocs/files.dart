@@ -26,11 +26,7 @@ sealed class FilesBloc implements InteractiveBloc {
   factory FilesBloc(
     FilesOptions options,
     Account account,
-  ) =>
-      _FilesBloc(
-        options,
-        account,
-      );
+  ) = _FilesBloc;
 
   void uploadFile(PathUri uri, String localPath);
 

@@ -14,7 +14,7 @@ import 'package:rxdart/rxdart.dart';
 abstract class CapabilitiesBloc implements InteractiveBloc {
   /// Creates a new capabilities bloc.
   @internal
-  factory CapabilitiesBloc(Account account) => _CapabilitiesBloc(account);
+  factory CapabilitiesBloc(Account account) = _CapabilitiesBloc;
 
   /// The capabilities of the server.
   BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;

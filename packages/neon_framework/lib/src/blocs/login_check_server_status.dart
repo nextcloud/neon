@@ -13,7 +13,7 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc that checks that the server is ready for logging in.
 sealed class LoginCheckServerStatusBloc implements InteractiveBloc {
   @internal
-  factory LoginCheckServerStatusBloc(Uri serverURL) => _LoginCheckServerStatusBloc(serverURL);
+  factory LoginCheckServerStatusBloc(Uri serverURL) = _LoginCheckServerStatusBloc;
 
   /// Contains the current server connection state
   BehaviorSubject<Result<core.Status>> get state;

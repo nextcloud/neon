@@ -20,7 +20,7 @@ import 'package:window_manager/window_manager.dart';
 @sealed
 abstract class UserStatusBloc implements InteractiveBloc {
   /// Create a new user status bloc.
-  factory UserStatusBloc(Account account) => _UserStatusBloc(account);
+  factory UserStatusBloc(Account account) = _UserStatusBloc;
 
   /// Load the user status of the user with the [username] on the same server.
   ///

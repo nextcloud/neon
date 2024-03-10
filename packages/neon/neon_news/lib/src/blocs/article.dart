@@ -14,12 +14,7 @@ sealed class NewsArticleBloc implements InteractiveBloc {
     NewsArticlesBloc articlesBloc,
     Account account,
     news.Article article,
-  ) =>
-      _NewsArticleBloc(
-        articlesBloc,
-        account,
-        article,
-      );
+  ) = _NewsArticleBloc;
 
   void markArticleAsRead();
 

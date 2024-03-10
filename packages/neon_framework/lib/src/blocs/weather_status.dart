@@ -17,11 +17,7 @@ abstract class WeatherStatusBloc implements InteractiveBloc {
   factory WeatherStatusBloc(
     Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
     Account account,
-  ) =>
-      _WeatherStatusBloc(
-        account,
-        capabilities,
-      );
+  ) = _WeatherStatusBloc;
 
   /// Set the location to use.
   void setLocation(String address);
@@ -38,8 +34,8 @@ abstract class WeatherStatusBloc implements InteractiveBloc {
 
 class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
   _WeatherStatusBloc(
-    this.account,
     Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
+    this.account,
   ) {
     capabilitiesSubscription = capabilities.listen((result) {
       final oldSupport = isSupported.valueOrNull ?? false;

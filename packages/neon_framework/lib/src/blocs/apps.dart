@@ -28,13 +28,7 @@ abstract class AppsBloc implements InteractiveBloc {
     AccountsBloc accountsBloc,
     Account account,
     BuiltSet<AppImplementation> allAppImplementations,
-  ) =>
-      _AppsBloc(
-        capabilitiesBloc,
-        accountsBloc,
-        account,
-        allAppImplementations,
-      );
+  ) = _AppsBloc;
 
   /// Sets the active app using the [appID].
   ///

@@ -19,11 +19,7 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
   factory UnifiedSearchBloc(
     AppsBloc appsBloc,
     Account account,
-  ) =>
-      _UnifiedSearchBloc(
-        appsBloc,
-        account,
-      );
+  ) = _UnifiedSearchBloc;
 
   /// Search for a [term].
   void search(String term);
