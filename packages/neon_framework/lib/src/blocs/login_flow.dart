@@ -13,7 +13,9 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc for running the Nextcloud Login Flow V2.
 sealed class LoginFlowBloc implements InteractiveBloc {
   @internal
-  factory LoginFlowBloc(Uri serverURL) = _LoginFlowBloc;
+  factory LoginFlowBloc({
+    required Uri serverURL,
+  }) = _LoginFlowBloc;
 
   /// Contains the initialization of the login flow.
   BehaviorSubject<Result<core.LoginFlowV2>> get init;
@@ -25,7 +27,9 @@ sealed class LoginFlowBloc implements InteractiveBloc {
 }
 
 class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
-  _LoginFlowBloc(this.serverURL) {
+  _LoginFlowBloc({
+    required this.serverURL,
+  }) {
     unawaited(refresh());
   }
 

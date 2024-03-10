@@ -35,7 +35,9 @@ class TalkApp extends AppImplementation<TalkBloc, TalkOptions> {
   late final TalkOptions options = TalkOptions(storage);
 
   @override
-  TalkBloc buildBloc(Account account) => TalkBloc(account);
+  TalkBloc buildBloc(Account account) => TalkBloc(
+        account: account,
+      );
 
   @override
   final Widget page = const TalkMainPage();

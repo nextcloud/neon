@@ -25,8 +25,8 @@ class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
 
   @override
   FilesBloc buildBloc(Account account) => FilesBloc(
-        options,
-        account,
+        options: options,
+        account: account,
       );
 
   @override

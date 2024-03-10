@@ -54,9 +54,9 @@ class _NewsFolderViewState extends State<NewsFolderView> {
           child: _viewType == DefaultFolderViewType.articles
               ? NewsArticlesView(
                   bloc: NewsArticlesBloc(
-                    widget.bloc,
-                    widget.bloc.options,
-                    NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+                    newsBloc: widget.bloc,
+                    options: widget.bloc.options,
+                    account: NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
                     id: widget.folder.id,
                     listType: ListType.folder,
                   ),

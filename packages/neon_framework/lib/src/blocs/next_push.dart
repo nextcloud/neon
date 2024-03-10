@@ -14,9 +14,9 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc for checking NextPush compatibility.
 sealed class NextPushBloc implements Disposable {
   @internal
-  factory NextPushBloc(
-    AccountsBloc accountsBloc,
-    GlobalOptions globalOptions, {
+  factory NextPushBloc({
+    required AccountsBloc accountsBloc,
+    required GlobalOptions globalOptions,
     bool disabled,
   }) = _NextPushBloc;
 
@@ -25,9 +25,9 @@ sealed class NextPushBloc implements Disposable {
 }
 
 class _NextPushBloc extends Bloc implements NextPushBloc {
-  _NextPushBloc(
-    this.accountsBloc,
-    this.globalOptions, {
+  _NextPushBloc({
+    required this.accountsBloc,
+    required this.globalOptions,
     bool disabled = false,
   }) {
     if (disabled) {

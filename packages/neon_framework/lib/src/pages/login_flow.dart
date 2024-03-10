@@ -28,7 +28,9 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
   void initState() {
     super.initState();
 
-    bloc = LoginFlowBloc(widget.serverURL);
+    bloc = LoginFlowBloc(
+      serverURL: widget.serverURL,
+    );
 
     bloc.init.listen((result) async {
       if (result.hasData) {

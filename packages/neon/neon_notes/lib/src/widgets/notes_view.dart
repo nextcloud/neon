@@ -95,9 +95,9 @@ class NotesView extends StatelessWidget {
             MaterialPageRoute<void>(
               builder: (context) => NotesNotePage(
                 bloc: NotesNoteBloc(
-                  bloc,
-                  NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
-                  note,
+                  notesBloc: bloc,
+                  account: NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+                  note: note,
                 ),
                 notesBloc: bloc,
               ),

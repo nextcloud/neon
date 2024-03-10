@@ -45,8 +45,8 @@ Future<void> runNeon({
   );
 
   final accountsBloc = AccountsBloc(
-    globalOptions,
-    appImplementations,
+    globalOptions: globalOptions,
+    allAppImplementations: appImplementations,
   );
   if (account != null) {
     accountsBloc
@@ -54,15 +54,15 @@ Future<void> runNeon({
       ..setActiveAccount(account);
   }
   PushNotificationsBloc(
-    accountsBloc,
-    globalOptions,
+    accountsBloc: accountsBloc,
+    globalOptions: globalOptions,
   );
   final firstLaunchBloc = FirstLaunchBloc(
     disabled: firstLaunchDisabled,
   );
   final nextPushBloc = NextPushBloc(
-    accountsBloc,
-    globalOptions,
+    accountsBloc: accountsBloc,
+    globalOptions: globalOptions,
     disabled: nextPushDisabled,
   );
 

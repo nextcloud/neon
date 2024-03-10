@@ -10,11 +10,11 @@ import 'package:rxdart/rxdart.dart';
 
 sealed class NewsArticleBloc implements InteractiveBloc {
   @internal
-  factory NewsArticleBloc(
-    NewsArticlesBloc articlesBloc,
-    Account account,
-    news.Article article,
-  ) = _NewsArticleBloc;
+  factory NewsArticleBloc({
+    required NewsArticlesBloc articlesBloc,
+    required Account account,
+    required news.Article article,
+  }) = _NewsArticleBloc;
 
   void markArticleAsRead();
 
@@ -30,11 +30,11 @@ sealed class NewsArticleBloc implements InteractiveBloc {
 }
 
 class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
-  _NewsArticleBloc(
-    this.newsArticlesBloc,
-    this.account,
-    news.Article article,
-  ) {
+  _NewsArticleBloc({
+    required this.articlesBloc,
+    required this.account,
+    required news.Article article,
+  }) {
     id = article.id;
     unread.add(article.unread);
     starred.add(article.starred);
@@ -43,7 +43,7 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   @override
   final log = Logger('NewsArticleBloc');
 
-  final NewsArticlesBloc newsArticlesBloc;
+  final NewsArticlesBloc articlesBloc;
   final Account account;
 
   late final int id;
@@ -63,7 +63,7 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
 
   @override
   Future<void> refresh() async {
-    await newsArticlesBloc.refresh();
+    await articlesBloc.refresh();
   }
 
   @override

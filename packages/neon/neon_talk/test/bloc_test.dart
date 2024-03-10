@@ -102,7 +102,9 @@ void main() {
 
   setUp(() {
     account = mockTalkAccount();
-    bloc = TalkBloc(account);
+    bloc = TalkBloc(
+      account: account,
+    );
   });
 
   tearDown(() {

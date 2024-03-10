@@ -29,8 +29,8 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
 
   @override
   NotificationsBloc buildBloc(Account account) => NotificationsBloc(
-        options,
-        account,
+        options: options,
+        account: account,
       );
 
   @override

@@ -26,9 +26,9 @@ enum FilesBrowserMode {
 
 sealed class FilesBrowserBloc implements InteractiveBloc {
   @internal
-  factory FilesBrowserBloc(
-    FilesOptions options,
-    Account account, {
+  factory FilesBrowserBloc({
+    required FilesOptions options,
+    required Account account,
     PathUri? initialPath,
     FilesBrowserMode? mode,
   }) = _FilesBrowserBloc;
@@ -48,9 +48,9 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
 }
 
 class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
-  _FilesBrowserBloc(
-    this.options,
-    this.account, {
+  _FilesBrowserBloc({
+    required this.options,
+    required this.account,
     this.initialPath,
     FilesBrowserMode? mode,
   }) : mode = mode ?? FilesBrowserMode.browser {

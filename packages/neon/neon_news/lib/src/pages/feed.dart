@@ -26,9 +26,9 @@ class NewsFeedPage extends StatelessWidget {
       body: SafeArea(
         child: NewsArticlesView(
           bloc: NewsArticlesBloc(
-            bloc,
-            bloc.options,
-            NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+            newsBloc: bloc,
+            options: bloc.options,
+            account: NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
             id: feed.id,
             listType: ListType.feed,
           ),
