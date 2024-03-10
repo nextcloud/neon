@@ -44,7 +44,10 @@ void main() {
 
       parameters = CacheParameters(
         etag: 'etag',
-        expires: DateTime.fromMillisecondsSinceEpoch(DateTime.now().microsecondsSinceEpoch),
+        expires: DateTime.fromMillisecondsSinceEpoch(
+          DateTime.timestamp().millisecondsSinceEpoch,
+          isUtc: true,
+        ),
       );
       await cache.updateParameters('key', parameters);
       result = await cache.getParameters('key');

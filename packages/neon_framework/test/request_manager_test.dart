@@ -499,7 +499,7 @@ void main() {
           (_) => Future.value(
             CacheParameters(
               etag: null,
-              expires: DateTime.now().add(const Duration(hours: 1)),
+              expires: DateTime.timestamp().add(const Duration(hours: 1)),
             ),
           ),
         );
@@ -537,7 +537,7 @@ void main() {
           (_) => Future.value(
             CacheParameters(
               etag: null,
-              expires: DateTime.now().subtract(const Duration(hours: 1)),
+              expires: DateTime.timestamp().subtract(const Duration(hours: 1)),
             ),
           ),
         );
@@ -575,14 +575,7 @@ void main() {
 
       test('cached ETag', () async {
         final callback = MockCallbackFunction<CacheParameters>();
-        var newExpires = DateTime.now().add(const Duration(hours: 1));
-        // Only precise to the second is allowed.
-        newExpires = newExpires.subtract(
-          Duration(
-            milliseconds: newExpires.millisecond,
-            microseconds: newExpires.microsecond,
-          ),
-        );
+        final newExpires = DateTime.timestamp().copyWith(microsecond: 0, millisecond: 0).add(const Duration(hours: 1));
 
         when(() => cache.getParameters(any())).thenAnswer(
           (_) => Future.value(
@@ -682,14 +675,7 @@ void main() {
 
       test('cache ETag and Expires', () async {
         for (final (hours, isSet) in [(1, true), (-1, false)]) {
-          var newExpires = DateTime.timestamp().add(Duration(hours: hours));
-          // Only precise to the second is allowed.
-          newExpires = newExpires.subtract(
-            Duration(
-              milliseconds: newExpires.millisecond,
-              microseconds: newExpires.microsecond,
-            ),
-          );
+          final newExpires = DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(Duration(hours: hours));
 
           final subject = BehaviorSubject<Result<String>>();
 

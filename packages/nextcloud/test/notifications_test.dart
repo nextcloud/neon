@@ -50,7 +50,7 @@ void main() {
         test('List notifications', () async {
           await sendTestNotification();
 
-          final startTime = DateTime.now().toUtc();
+          final startTime = DateTime.timestamp();
           final response = await client.notifications.endpoint.listNotifications();
           expect(response.body.ocs.data, hasLength(1));
           expect(response.body.ocs.data[0].notificationId, isPositive);
@@ -78,7 +78,7 @@ void main() {
           final listResponse = await client.notifications.endpoint.listNotifications();
           expect(listResponse.body.ocs.data, hasLength(1));
 
-          final startTime = DateTime.now().toUtc();
+          final startTime = DateTime.timestamp();
           final response = await client.notifications.endpoint.getNotification(
             id: listResponse.body.ocs.data.first.notificationId,
           );

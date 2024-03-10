@@ -233,20 +233,26 @@ void main() {
   test('Set predefined message', () async {
     await Future<void>.delayed(const Duration(milliseconds: 1));
 
-    final clearAt = DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000;
+    final clearAt = DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1));
     bloc.setPredefinedMessage(
       id: 'predefined',
       clearAt: clearAt,
     );
 
     expect(
-      bloc.status.transformResult((e) => (e.message, e.icon, e.clearAt)),
+      bloc.status.transformResult(
+        (e) => (
+          e.message,
+          e.icon,
+          e.clearAt != null ? DateTime.fromMillisecondsSinceEpoch(e.clearAt! * 1000, isUtc: true) : null,
+        ),
+      ),
       emits(Result.success(('message', 'icon', clearAt))),
     );
   });
 
   test('Set custom message', () async {
-    final clearAt = DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000;
+    final clearAt = DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1));
     bloc.setCustomMessage(
       message: 'message',
       icon: 'icon',
@@ -254,13 +260,19 @@ void main() {
     );
 
     expect(
-      bloc.status.transformResult((e) => (e.message, e.icon, e.clearAt)),
+      bloc.status.transformResult(
+        (e) => (
+          e.message,
+          e.icon,
+          e.clearAt != null ? DateTime.fromMillisecondsSinceEpoch(e.clearAt! * 1000, isUtc: true) : null,
+        ),
+      ),
       emits(Result.success(('message', 'icon', clearAt))),
     );
   });
 
   test('Clear message', () async {
-    final clearAt = DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch ~/ 1000;
+    final clearAt = DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1));
     bloc
       ..setCustomMessage(
         message: 'message',
@@ -270,7 +282,13 @@ void main() {
       ..clearMessage();
 
     expect(
-      bloc.status.transformResult((e) => (e.message, e.icon, e.clearAt)),
+      bloc.status.transformResult(
+        (e) => (
+          e.message,
+          e.icon,
+          e.clearAt != null ? DateTime.fromMillisecondsSinceEpoch(e.clearAt! * 1000, isUtc: true) : null
+        ),
+      ),
       emitsInOrder([
         Result.success(('message', 'icon', clearAt)),
         Result.success(('message', 'icon', clearAt)).asLoading(),

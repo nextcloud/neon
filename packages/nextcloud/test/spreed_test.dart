@@ -236,7 +236,7 @@ void main() {
 
       group('Chat', () {
         test('Send message', () async {
-          final startTime = DateTime.now();
+          final startTime = DateTime.timestamp();
           final room = await createTestRoom();
 
           final response = await client1.spreed.chat.sendMessage(
@@ -254,7 +254,7 @@ void main() {
 
         group('Get messages', () {
           test('Directly', () async {
-            final startTime = DateTime.now();
+            final startTime = DateTime.timestamp();
             final room = await createTestRoom();
             await client1.spreed.chat.sendMessage(
               token: room.token,
@@ -316,7 +316,7 @@ void main() {
           });
 
           test('Polling', () async {
-            final startTime = DateTime.now();
+            final startTime = DateTime.timestamp();
 
             final room = await createTestRoom();
             final message = (await client1.spreed.chat.sendMessage(

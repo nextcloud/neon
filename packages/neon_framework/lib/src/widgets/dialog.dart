@@ -839,10 +839,11 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
 
     messageController.addListener(() {
       if ((bloc.status.valueOrNull?.data?.message ?? '') != messageController.text) {
+        final clearAt = bloc.status.valueOrNull?.data?.clearAt;
         bloc.setCustomMessage(
           message: messageController.text,
           icon: bloc.status.valueOrNull?.data?.icon,
-          clearAt: bloc.status.valueOrNull?.data?.clearAt,
+          clearAt: clearAt != null ? DateTime.fromMillisecondsSinceEpoch(clearAt * 1000, isUtc: true) : null,
         );
       }
     });
@@ -911,10 +912,13 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
                           builder: (context) => const NeonEmojiPickerDialog(),
                         );
                         if (emoji != null) {
+                          final clearAt = bloc.status.valueOrNull?.data?.clearAt;
                           bloc.setCustomMessage(
                             message: bloc.status.valueOrNull?.data?.message,
                             icon: emoji,
-                            clearAt: bloc.status.valueOrNull?.data?.clearAt,
+                            clearAt: clearAt != null
+                                ? DateTime.fromMillisecondsSinceEpoch(clearAt * 1000, isUtc: true)
+                                : null,
                           );
                         }
                       },
@@ -1018,7 +1022,7 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
               onTap: () {
                 bloc.setPredefinedMessage(
                   id: status.id,
-                  clearAt: clearAt != null ? clearAt.toDateTime(widget.now)!.millisecondsSinceEpoch ~/ 1000 : null,
+                  clearAt: clearAt?.toDateTime(widget.now),
                 );
               },
             ),
@@ -1038,7 +1042,10 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
             (b) => b
               ..type = user_status.ClearAt_Type.period
               ..time = (
-                $int: DateTime.fromMillisecondsSinceEpoch(status!.clearAt! * 1000).difference(DateTime.now()).inSeconds,
+                $int: DateTime.fromMillisecondsSinceEpoch(
+                  status!.clearAt! * 1000,
+                  isUtc: true,
+                ).difference(DateTime.timestamp()).inSeconds,
                 clearAtTimeType: null
               ),
           )
@@ -1059,7 +1066,7 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
             bloc.setCustomMessage(
               message: bloc.status.valueOrNull?.data?.message,
               icon: bloc.status.valueOrNull?.data?.icon,
-              clearAt: clearAt != null ? clearAt.toDateTime(widget.now)!.millisecondsSinceEpoch ~/ 1000 : null,
+              clearAt: clearAt?.toDateTime(widget.now),
             );
           },
           value: selected,

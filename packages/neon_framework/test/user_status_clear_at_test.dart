@@ -13,7 +13,7 @@ void main() {
         ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.day),
     ): (
       localizations.userStatusClearAtToday,
-      DateTime(2024, 1, 2),
+      DateTime.utc(2024, 1, 2),
     ),
     user_status.ClearAt(
       (b) => b
@@ -21,7 +21,7 @@ void main() {
         ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
     ): (
       localizations.userStatusClearAtThisWeek,
-      DateTime(2024, 1, 8),
+      DateTime.utc(2024, 1, 8),
     ),
     user_status.ClearAt(
       (b) => b
@@ -29,7 +29,7 @@ void main() {
         ..time = ($int: 120, clearAtTimeType: null),
     ): (
       localizations.relativeTimeMinutes(2),
-      DateTime(2024, 1, 1, 0, 2),
+      DateTime.utc(2024, 1, 1, 0, 2),
     ),
   };
 
@@ -41,7 +41,7 @@ void main() {
 
   test('To DateTime', () {
     for (final entry in clearAts.entries) {
-      expect(entry.key.toDateTime(DateTime(2024)), entry.value.$2);
+      expect(entry.key.toDateTime(DateTime.utc(2024)), entry.value.$2);
     }
   });
 }

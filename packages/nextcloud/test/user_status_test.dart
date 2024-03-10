@@ -115,7 +115,7 @@ void main() {
         test('Set predefined message', () async {
           await resetStatus();
 
-          final clearAt = DateTime.now().millisecondsSinceEpoch ~/ 1000 + 60;
+          final clearAt = DateTime.timestamp().millisecondsSinceEpoch ~/ 1000 + 60;
           final response = await client.userStatus.userStatus.setPredefinedMessage(
             messageId: 'meeting',
             clearAt: clearAt,
@@ -136,7 +136,7 @@ void main() {
         test('Set custom message', () async {
           await resetStatus();
 
-          final clearAt = DateTime.now().millisecondsSinceEpoch ~/ 1000 + 60;
+          final clearAt = DateTime.timestamp().millisecondsSinceEpoch ~/ 1000 + 60;
           final response = await client.userStatus.userStatus.setCustomMessage(
             statusIcon: '😀',
             message: 'bla',
@@ -158,7 +158,7 @@ void main() {
         test('Clear message', () async {
           await resetStatus();
 
-          final clearAt = DateTime.now().millisecondsSinceEpoch ~/ 1000 + 60;
+          final clearAt = DateTime.timestamp().millisecondsSinceEpoch ~/ 1000 + 60;
           await client.userStatus.userStatus.setCustomMessage(
             statusIcon: '😀',
             message: 'bla',

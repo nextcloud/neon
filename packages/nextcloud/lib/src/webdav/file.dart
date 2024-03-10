@@ -69,12 +69,19 @@ class WebDavFile {
   }();
 
   /// Upload date of the file
-  late final DateTime? uploadedDate =
-      props.ncuploadtime != null ? DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000, isUtc: true) : null;
+  late final DateTime? uploadedDate = props.ncuploadtime != null
+      ? DateTime.fromMillisecondsSinceEpoch(
+          props.ncuploadtime! * 1000,
+          isUtc: true,
+        )
+      : null;
 
   /// Creation date of the file as provided by uploader
   late final DateTime? createdDate = props.nccreationtime != null
-      ? DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000, isUtc: true)
+      ? DateTime.fromMillisecondsSinceEpoch(
+          props.nccreationtime! * 1000,
+          isUtc: true,
+        )
       : null;
 
   /// Whether this file is marked as favorite
