@@ -5,7 +5,7 @@ import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:intl/intl.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
@@ -43,10 +43,6 @@ const kMaxTries = 3;
 ///
 /// Requests that take longer than this duration will be canceled.
 const kDefaultTimeout = Duration(seconds: 30);
-
-/// Implements https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats
-@visibleForTesting
-final httpDateFormat = DateFormat('E, d MMM yyyy HH:mm:ss v', 'en_US');
 
 /// A singleton class that handles requests to the Nextcloud API.
 ///
@@ -369,7 +365,7 @@ class CacheParameters {
 
   /// Parse the cache parameters from HTTP response headers.
   factory CacheParameters.parseHeaders(Map<String, dynamic> headers) {
-    final expiry = headers.containsKey('expires') ? httpDateFormat.parse(headers['expires']! as String) : null;
+    final expiry = headers.containsKey('expires') ? parseHttpDate(headers['expires']! as String) : null;
     return CacheParameters(
       etag: headers['etag'] as String?,
       expires: _isExpired(expiry) ? null : expiry,

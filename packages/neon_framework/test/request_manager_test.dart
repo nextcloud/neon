@@ -8,6 +8,7 @@ import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
@@ -681,7 +682,7 @@ void main() {
 
       test('cache ETag and Expires', () async {
         for (final (hours, isSet) in [(1, true), (-1, false)]) {
-          var newExpires = DateTime.now().add(Duration(hours: hours));
+          var newExpires = DateTime.timestamp().add(Duration(hours: hours));
           // Only precise to the second is allowed.
           newExpires = newExpires.subtract(
             Duration(
@@ -713,7 +714,7 @@ void main() {
               headers: {},
               rawHeaders: {
                 'etag': 'a',
-                'expires': httpDateFormat.format(newExpires),
+                'expires': formatHttpDate(newExpires),
               },
             ),
             unwrap: (rawResponse) => rawResponse.body,
