@@ -10,10 +10,10 @@ import 'package:neon_framework/testing.dart';
 
 void main() {
   group('Storages', () {
-    late MockPersistence persistence;
+    late MockCachedPersistence persistence;
 
     setUp(() {
-      persistence = MockPersistence();
+      persistence = MockCachedPersistence();
     });
 
     test('AppStorage interface', () async {
