@@ -27,8 +27,8 @@ class NotesApp extends AppImplementation<NotesBloc, NotesOptions> {
 
   @override
   NotesBloc buildBloc(Account account) => NotesBloc(
-        options,
-        account,
+        options: options,
+        account: account,
       );
 
   @override

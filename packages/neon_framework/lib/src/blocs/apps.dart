@@ -23,12 +23,12 @@ import 'package:rxdart/rxdart.dart';
 abstract class AppsBloc implements InteractiveBloc {
   /// Create a new apps bloc.
   @internal
-  factory AppsBloc(
-    CapabilitiesBloc capabilitiesBloc,
-    AccountsBloc accountsBloc,
-    Account account,
-    BuiltSet<AppImplementation> allAppImplementations,
-  ) = _AppsBloc;
+  factory AppsBloc({
+    required CapabilitiesBloc capabilitiesBloc,
+    required AccountsBloc accountsBloc,
+    required Account account,
+    required BuiltSet<AppImplementation> allAppImplementations,
+  }) = _AppsBloc;
 
   /// Sets the active app using the [appID].
   ///
@@ -65,12 +65,12 @@ abstract class AppsBloc implements InteractiveBloc {
 /// Implementation of [AppsBloc].
 class _AppsBloc extends InteractiveBloc implements AppsBloc {
   /// Creates a new apps bloc.
-  _AppsBloc(
-    this.capabilitiesBloc,
-    this.accountsBloc,
-    this.account,
-    this.allAppImplementations,
-  ) {
+  _AppsBloc({
+    required this.capabilitiesBloc,
+    required this.accountsBloc,
+    required this.account,
+    required this.allAppImplementations,
+  }) {
     apps.listen((result) {
       appImplementations.add(result.transform((data) => filteredAppImplementations(data.map((a) => a.id))));
 

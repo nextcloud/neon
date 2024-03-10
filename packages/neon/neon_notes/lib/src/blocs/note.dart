@@ -14,11 +14,11 @@ import 'package:rxdart/rxdart.dart';
 
 sealed class NotesNoteBloc implements InteractiveBloc {
   @internal
-  factory NotesNoteBloc(
-    NotesBloc notesBloc,
-    Account account,
-    notes.Note note,
-  ) = _NotesNoteBloc;
+  factory NotesNoteBloc({
+    required NotesBloc notesBloc,
+    required Account account,
+    required notes.Note note,
+  }) = _NotesNoteBloc;
 
   void updateContent(String content);
 
@@ -36,11 +36,11 @@ sealed class NotesNoteBloc implements InteractiveBloc {
 }
 
 class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
-  _NotesNoteBloc(
-    this.notesBloc,
-    this.account,
-    notes.Note note,
-  ) {
+  _NotesNoteBloc({
+    required this.notesBloc,
+    required this.account,
+    required notes.Note note,
+  }) {
     emitNote(note);
     id = note.id;
     initialContent = note.content;

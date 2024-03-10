@@ -24,10 +24,10 @@ enum ListType {
 
 sealed class NewsArticlesBloc implements InteractiveBloc {
   @internal
-  factory NewsArticlesBloc(
-    NewsBloc newsBloc,
-    NewsOptions options,
-    Account account, {
+  factory NewsArticlesBloc({
+    required NewsBloc newsBloc,
+    required NewsOptions options,
+    required Account account,
     int? id,
     ListType? listType,
   }) = _NewsArticlesBloc;
@@ -52,21 +52,21 @@ sealed class NewsArticlesBloc implements InteractiveBloc {
 }
 
 class NewsMainArticlesBloc extends _NewsArticlesBloc {
-  NewsMainArticlesBloc(
-    super._newsBloc,
-    super.options,
-    super.account,
-  );
+  NewsMainArticlesBloc({
+    required super.newsBloc,
+    required super.options,
+    required super.account,
+  });
 }
 
 class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
-  _NewsArticlesBloc(
-    this._newsBloc,
-    this.options,
-    this.account, {
+  _NewsArticlesBloc({
+    required NewsBloc newsBloc,
+    required this.options,
+    required this.account,
     this.id,
     this.listType,
-  }) {
+  }) : _newsBloc = newsBloc {
     filterType.add(options.defaultArticlesFilterOption.value);
     if (listType != null && filterType.value == FilterType.starred) {
       filterType.add(FilterType.all);

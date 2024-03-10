@@ -12,10 +12,10 @@ import 'package:rxdart/rxdart.dart';
 
 sealed class NotesBloc implements InteractiveBloc {
   @internal
-  factory NotesBloc(
-    NotesOptions options,
-    Account account,
-  ) = _NotesBloc;
+  factory NotesBloc({
+    required NotesOptions options,
+    required Account account,
+  }) = _NotesBloc;
 
   void createNote({
     String title = '',
@@ -39,10 +39,10 @@ sealed class NotesBloc implements InteractiveBloc {
 }
 
 class _NotesBloc extends InteractiveBloc implements NotesBloc {
-  _NotesBloc(
-    this.options,
-    this.account,
-  ) {
+  _NotesBloc({
+    required this.options,
+    required this.account,
+  }) {
     unawaited(refresh());
   }
 

@@ -223,9 +223,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               MaterialPageRoute<void>(
                 builder: (context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
-                    widget.bloc,
-                    account,
-                    article,
+                    articlesBloc: widget.bloc,
+                    account: account,
+                    article: article,
                   ),
                   articlesBloc: widget.bloc,
                   useWebView: false,
@@ -241,9 +241,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               MaterialPageRoute<void>(
                 builder: (context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
-                    widget.bloc,
-                    account,
-                    article,
+                    articlesBloc: widget.bloc,
+                    account: account,
+                    article: article,
                   ),
                   articlesBloc: widget.bloc,
                   useWebView: true,

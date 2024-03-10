@@ -19,17 +19,17 @@ import 'package:unifiedpush/unifiedpush.dart';
 /// Bloc for managing push notifications and registration.
 sealed class PushNotificationsBloc {
   @internal
-  factory PushNotificationsBloc(
-    AccountsBloc accountsBloc,
-    GlobalOptions globalOptions,
-  ) = _PushNotificationsBloc;
+  factory PushNotificationsBloc({
+    required AccountsBloc accountsBloc,
+    required GlobalOptions globalOptions,
+  }) = _PushNotificationsBloc;
 }
 
 class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
-  _PushNotificationsBloc(
-    this.accountsBloc,
-    this.globalOptions,
-  ) {
+  _PushNotificationsBloc({
+    required this.accountsBloc,
+    required this.globalOptions,
+  }) {
     if (NeonPlatform.instance.canUsePushNotifications) {
       unawaited(UnifiedPush.getDistributors().then(globalOptions.updateDistributors));
 

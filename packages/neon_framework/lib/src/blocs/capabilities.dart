@@ -14,16 +14,18 @@ import 'package:rxdart/rxdart.dart';
 abstract class CapabilitiesBloc implements InteractiveBloc {
   /// Creates a new capabilities bloc.
   @internal
-  factory CapabilitiesBloc(Account account) = _CapabilitiesBloc;
+  factory CapabilitiesBloc({
+    required Account account,
+  }) = _CapabilitiesBloc;
 
   /// The capabilities of the server.
   BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
 }
 
 class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
-  _CapabilitiesBloc(
-    this.account,
-  ) {
+  _CapabilitiesBloc({
+    required this.account,
+  }) {
     unawaited(refresh());
   }
 

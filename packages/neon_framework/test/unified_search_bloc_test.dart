@@ -98,7 +98,10 @@ void main() {
     when(() => appsBloc.activeApp).thenAnswer((_) => activeApp);
 
     account = mockUnifiedSearchAccount();
-    bloc = UnifiedSearchBloc(appsBloc, account);
+    bloc = UnifiedSearchBloc(
+      appsBloc: appsBloc,
+      account: account,
+    );
   });
 
   tearDown(() {

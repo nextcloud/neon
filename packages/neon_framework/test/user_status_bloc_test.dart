@@ -144,7 +144,9 @@ void main() {
 
   setUp(() {
     account = mockUserStatusAccount();
-    bloc = UserStatusBloc(account);
+    bloc = UserStatusBloc(
+      account: account,
+    );
   });
 
   tearDown(() {

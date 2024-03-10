@@ -16,10 +16,10 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc for managing unified search.
 sealed class UnifiedSearchBloc implements InteractiveBloc {
   @internal
-  factory UnifiedSearchBloc(
-    AppsBloc appsBloc,
-    Account account,
-  ) = _UnifiedSearchBloc;
+  factory UnifiedSearchBloc({
+    required AppsBloc appsBloc,
+    required Account account,
+  }) = _UnifiedSearchBloc;
 
   /// Search for a [term].
   void search(String term);
@@ -32,10 +32,10 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
 }
 
 class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
-  _UnifiedSearchBloc(
-    this.appsBloc,
-    this.account,
-  ) {
+  _UnifiedSearchBloc({
+    required this.appsBloc,
+    required this.account,
+  }) {
     providers.listen((result) async {
       if (result.isLoading) {
         return;

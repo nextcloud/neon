@@ -143,7 +143,10 @@ void main() {
   setUp(() {
     account = mockWeatherStatusAccount();
     capabilities = BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>();
-    bloc = WeatherStatusBloc(capabilities, account);
+    bloc = WeatherStatusBloc(
+      capabilities: capabilities,
+      account: account,
+    );
   });
 
   tearDown(() async {

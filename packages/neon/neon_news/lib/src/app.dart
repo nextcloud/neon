@@ -30,8 +30,8 @@ class NewsApp extends AppImplementation<NewsBloc, NewsOptions> {
 
   @override
   NewsBloc buildBloc(Account account) => NewsBloc(
-        options,
-        account,
+        options: options,
+        account: account,
       );
 
   @override

@@ -123,7 +123,9 @@ void main() {
 
   setUp(() {
     account = mockDashboardAccount();
-    bloc = DashboardBloc(account);
+    bloc = DashboardBloc(
+      account: account,
+    );
   });
 
   tearDown(() async {

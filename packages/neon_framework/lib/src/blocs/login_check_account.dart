@@ -14,22 +14,22 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc that checks that the account is ready for logging in.
 sealed class LoginCheckAccountBloc implements InteractiveBloc {
   @internal
-  factory LoginCheckAccountBloc(
-    Uri serverURL,
-    String loginName,
-    String password,
-  ) = _LoginCheckAccountBloc;
+  factory LoginCheckAccountBloc({
+    required Uri serverURL,
+    required String loginName,
+    required String password,
+  }) = _LoginCheckAccountBloc;
 
   /// Contains the account for the user
   BehaviorSubject<Result<Account>> get state;
 }
 
 class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccountBloc {
-  _LoginCheckAccountBloc(
-    this.serverURL,
-    this.loginName,
-    this.password,
-  ) {
+  _LoginCheckAccountBloc({
+    required this.serverURL,
+    required this.loginName,
+    required this.password,
+  }) {
     unawaited(refresh());
   }
 

@@ -23,10 +23,10 @@ import 'package:universal_io/io.dart';
 
 sealed class FilesBloc implements InteractiveBloc {
   @internal
-  factory FilesBloc(
-    FilesOptions options,
-    Account account,
-  ) = _FilesBloc;
+  factory FilesBloc({
+    required FilesOptions options,
+    required Account account,
+  }) = _FilesBloc;
 
   void uploadFile(PathUri uri, String localPath);
 
@@ -58,10 +58,10 @@ sealed class FilesBloc implements InteractiveBloc {
 }
 
 class _FilesBloc extends InteractiveBloc implements FilesBloc {
-  _FilesBloc(
-    this.options,
-    this.account,
-  ) {
+  _FilesBloc({
+    required this.options,
+    required this.account,
+  }) {
     options.uploadQueueParallelism.addListener(uploadParallelismListener);
     options.downloadQueueParallelism.addListener(downloadParallelismListener);
   }
@@ -251,8 +251,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   @override
   FilesBrowserBloc getNewFilesBrowserBloc({PathUri? initialUri, FilesBrowserMode? mode}) => FilesBrowserBloc(
-        options,
-        account,
+        options: options,
+        account: account,
         initialPath: initialUri,
         mode: mode,
       );

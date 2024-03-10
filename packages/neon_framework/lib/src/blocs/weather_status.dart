@@ -14,10 +14,10 @@ import 'package:rxdart/rxdart.dart';
 @sealed
 abstract class WeatherStatusBloc implements InteractiveBloc {
   /// Create a new weather status bloc.
-  factory WeatherStatusBloc(
-    Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
-    Account account,
-  ) = _WeatherStatusBloc;
+  factory WeatherStatusBloc({
+    required Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
+    required Account account,
+  }) = _WeatherStatusBloc;
 
   /// Set the location to use.
   void setLocation(String address);
@@ -33,10 +33,10 @@ abstract class WeatherStatusBloc implements InteractiveBloc {
 }
 
 class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
-  _WeatherStatusBloc(
-    Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
-    this.account,
-  ) {
+  _WeatherStatusBloc({
+    required Stream<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilities,
+    required this.account,
+  }) {
     capabilitiesSubscription = capabilities.listen((result) {
       final oldSupport = isSupported.valueOrNull ?? false;
       final newSupport = result.data?.capabilities.weatherStatusCapabilities?.weatherStatus.enabled ?? false;

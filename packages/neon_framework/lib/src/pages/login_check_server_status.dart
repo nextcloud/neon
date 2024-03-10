@@ -39,7 +39,9 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   void initState() {
     super.initState();
 
-    bloc = LoginCheckServerStatusBloc(widget.serverURL);
+    bloc = LoginCheckServerStatusBloc(
+      serverURL: widget.serverURL,
+    );
   }
 
   @override

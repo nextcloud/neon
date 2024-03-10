@@ -39,9 +39,9 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
     super.initState();
 
     bloc = LoginCheckAccountBloc(
-      widget.serverURL,
-      widget.loginName,
-      widget.password,
+      serverURL: widget.serverURL,
+      loginName: widget.loginName,
+      password: widget.password,
     );
   }
 

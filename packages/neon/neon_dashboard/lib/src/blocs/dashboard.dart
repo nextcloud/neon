@@ -14,7 +14,9 @@ import 'package:rxdart/rxdart.dart';
 sealed class DashboardBloc implements InteractiveBloc {
   /// Creates a new Dashboard Bloc instance.
   @internal
-  factory DashboardBloc(Account account) = _DashboardBloc;
+  factory DashboardBloc({
+    required Account account,
+  }) = _DashboardBloc;
 
   /// Dashboard widgets that are displayed.
   BehaviorSubject<Result<BuiltList<dashboard.Widget>>> get widgets;
@@ -27,7 +29,9 @@ sealed class DashboardBloc implements InteractiveBloc {
 ///
 /// Automatically starts fetching the widgets and their items and refreshes everything every 30 seconds.
 class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
-  _DashboardBloc(this.account) {
+  _DashboardBloc({
+    required this.account,
+  }) {
     itemsV1.listen((_) => _updateItems());
     itemsV2.listen((_) => _updateItems());
 

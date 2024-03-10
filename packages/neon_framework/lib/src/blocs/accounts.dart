@@ -29,10 +29,10 @@ import 'package:rxdart/rxdart.dart';
 @sealed
 abstract interface class AccountsBloc implements Disposable {
   @internal
-  factory AccountsBloc(
-    GlobalOptions globalOptions,
-    BuiltSet<AppImplementation> allAppImplementations,
-  ) = _AccountsBloc;
+  factory AccountsBloc({
+    required GlobalOptions globalOptions,
+    required BuiltSet<AppImplementation> allAppImplementations,
+  }) = _AccountsBloc;
 
   /// Logs in the given [account].
   ///
@@ -146,10 +146,10 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   ///
   /// The last state will be loaded from storage and all necessary listeners
   /// will be set up.
-  _AccountsBloc(
-    this.globalOptions,
-    this.allAppImplementations,
-  ) {
+  _AccountsBloc({
+    required this.globalOptions,
+    required this.allAppImplementations,
+  }) {
     final lastUsedStorage = NeonStorage().singleValueStore(StorageKeys.lastUsedAccount);
 
     accounts
@@ -324,37 +324,43 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   AppsBloc getAppsBlocFor(Account account) => appsBlocs[account] ??= AppsBloc(
-        getCapabilitiesBlocFor(account),
-        this,
-        account,
-        allAppImplementations,
+        capabilitiesBloc: getCapabilitiesBlocFor(account),
+        accountsBloc: this,
+        account: account,
+        allAppImplementations: allAppImplementations,
       );
 
   @override
   CapabilitiesBloc get activeCapabilitiesBloc => getCapabilitiesBlocFor(aa);
 
   @override
-  CapabilitiesBloc getCapabilitiesBlocFor(Account account) => capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
+  CapabilitiesBloc getCapabilitiesBlocFor(Account account) => capabilitiesBlocs[account] ??= CapabilitiesBloc(
+        account: account,
+      );
 
   @override
   UserDetailsBloc get activeUserDetailsBloc => getUserDetailsBlocFor(aa);
 
   @override
-  UserDetailsBloc getUserDetailsBlocFor(Account account) => userDetailsBlocs[account] ??= UserDetailsBloc(account);
+  UserDetailsBloc getUserDetailsBlocFor(Account account) => userDetailsBlocs[account] ??= UserDetailsBloc(
+        account: account,
+      );
 
   @override
   UserStatusBloc get activeUserStatusBloc => getUserStatusBlocFor(aa);
 
   @override
-  UserStatusBloc getUserStatusBlocFor(Account account) => userStatusBlocs[account] ??= UserStatusBloc(account);
+  UserStatusBloc getUserStatusBlocFor(Account account) => userStatusBlocs[account] ??= UserStatusBloc(
+        account: account,
+      );
 
   @override
   UnifiedSearchBloc get activeUnifiedSearchBloc => getUnifiedSearchBlocFor(aa);
 
   @override
   UnifiedSearchBloc getUnifiedSearchBlocFor(Account account) => unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
-        getAppsBlocFor(account),
-        account,
+        appsBloc: getAppsBlocFor(account),
+        account: account,
       );
 
   @override
@@ -362,8 +368,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   WeatherStatusBloc getWeatherStatusBlocFor(Account account) => weatherStatusBlocs[account] ??= WeatherStatusBloc(
-        getCapabilitiesBlocFor(account).capabilities,
-        account,
+        capabilities: getCapabilitiesBlocFor(account).capabilities,
+        account: account,
       );
 }
 

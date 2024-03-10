@@ -13,10 +13,10 @@ import 'package:rxdart/rxdart.dart';
 
 sealed class NewsBloc implements InteractiveBloc {
   @internal
-  factory NewsBloc(
-    NewsOptions options,
-    Account account,
-  ) = _NewsBloc;
+  factory NewsBloc({
+    required NewsOptions options,
+    required Account account,
+  }) = _NewsBloc;
 
   void addFeed(String url, int? folderId);
 
@@ -48,10 +48,10 @@ sealed class NewsBloc implements InteractiveBloc {
 }
 
 class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBloc {
-  _NewsBloc(
-    this.options,
-    this.account,
-  ) {
+  _NewsBloc({
+    required this.options,
+    required this.account,
+  }) {
     mainArticlesBloc.articles.listen((result) {
       if (result.hasData) {
         final type = mainArticlesBloc.filterType.valueOrNull;
@@ -71,9 +71,9 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
   final Account account;
   @override
   late final mainArticlesBloc = NewsMainArticlesBloc(
-    this,
-    options,
-    account,
+    newsBloc: this,
+    options: options,
+    account: account,
   );
 
   late int newestItemId;
