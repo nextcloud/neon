@@ -12,7 +12,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/subjects.dart';
 
-class MockRoom extends Mock implements spreed.Room {}
+import 'testing.dart';
 
 Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => TestApp(
       child: NeonProvider<AccountsBloc>.value(

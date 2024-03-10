@@ -4,7 +4,7 @@ import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
-class MockRoom extends Mock implements spreed.Room {}
+import 'testing.dart';
 
 void main() {
   testWidgets('Unread messages', (tester) async {
