@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:http_parser/http_parser.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
@@ -174,7 +175,7 @@ void main() {
             responses.singleWhere((response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
         expect(props.nchaspreview, isTrue);
         expect(props.davgetcontenttype, 'image/png');
-        expect(webdavDateFormat.parseUtc(props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
+        expect(parseHttpDate(props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
         expect(props.ocsize, 50598);
       });
 
@@ -241,7 +242,7 @@ void main() {
         expect(response.name, 'Nextcloud.png');
         expect(response.isDirectory, isFalse);
 
-        expect(webdavDateFormat.parseUtc(response.props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
+        expect(parseHttpDate(response.props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
         expect(response.props.davgetetag, isNotEmpty);
         expect(response.props.davgetcontenttype, 'image/png');
         expect(response.props.davgetcontentlength, 50598);
@@ -301,7 +302,7 @@ void main() {
 
         expect(response.props.davgetcontenttype, isNull);
         expect(
-          webdavDateFormat.parseUtc(response.props.davgetlastmodified!).millisecondsSinceEpoch,
+          parseHttpDate(response.props.davgetlastmodified!).millisecondsSinceEpoch,
           closeTo(DateTime.now().millisecondsSinceEpoch, 10E3),
         );
         expect(response.props.davresourcetype!.collection, isNotNull);
@@ -370,7 +371,7 @@ void main() {
             .first
             .prop;
         expect(props.ocfavorite, 1);
-        expect(webdavDateFormat.parseUtc(props.davgetlastmodified!), lastModifiedDate);
+        expect(parseHttpDate(props.davgetlastmodified!), lastModifiedDate);
         expect(props.nccreationtime! * 1000, createdDate.millisecondsSinceEpoch);
         expect(props.ncuploadtime! * 1000, closeTo(uploadTime.millisecondsSinceEpoch, 10E3));
       });

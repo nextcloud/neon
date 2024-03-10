@@ -13,11 +13,6 @@
   },
   "packageRules": [
     {
-      "matchFileNames": ["packages/nextcloud/**"],
-      "matchPackageNames": ["intl"],
-      "rangeStrategy": "widen"
-    },
-    {
       "matchManagers": ["pub"],
       "matchDatasources": ["dart-version", "flutter-version"],
       "matchUpdateTypes": [
