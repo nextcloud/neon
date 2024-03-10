@@ -1,3 +1,4 @@
+import 'package:http_parser/http_parser.dart';
 import 'package:nextcloud/src/webdav/client.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
@@ -62,7 +63,7 @@ class WebDavFile {
   /// Last modified date of the file
   late final DateTime? lastModified = () {
     if (props.davgetlastmodified != null) {
-      return webdavDateFormat.parseUtc(props.davgetlastmodified!);
+      return parseHttpDate(props.davgetlastmodified!);
     }
     return null;
   }();
