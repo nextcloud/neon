@@ -22,11 +22,7 @@ sealed class PushNotificationsBloc {
   factory PushNotificationsBloc(
     AccountsBloc accountsBloc,
     GlobalOptions globalOptions,
-  ) =>
-      _PushNotificationsBloc(
-        accountsBloc,
-        globalOptions,
-      );
+  ) = _PushNotificationsBloc;
 }
 
 class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {

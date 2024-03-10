@@ -31,13 +31,7 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
     Account account, {
     PathUri? initialPath,
     FilesBrowserMode? mode,
-  }) =>
-      _FilesBrowserBloc(
-        options,
-        account,
-        initialPath: initialPath,
-        mode: mode,
-      );
+  }) = _FilesBrowserBloc;
 
   void setPath(PathUri uri);
 

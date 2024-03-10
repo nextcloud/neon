@@ -30,14 +30,7 @@ sealed class NewsArticlesBloc implements InteractiveBloc {
     Account account, {
     int? id,
     ListType? listType,
-  }) =>
-      _NewsArticlesBloc(
-        newsBloc,
-        options,
-        account,
-        id: id,
-        listType: listType,
-      );
+  }) = _NewsArticlesBloc;
 
   void setFilterType(FilterType type);
 

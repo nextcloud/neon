@@ -18,12 +18,7 @@ sealed class NotesNoteBloc implements InteractiveBloc {
     NotesBloc notesBloc,
     Account account,
     notes.Note note,
-  ) =>
-      _NotesNoteBloc(
-        notesBloc,
-        account,
-        note,
-      );
+  ) = _NotesNoteBloc;
 
   void updateContent(String content);
 

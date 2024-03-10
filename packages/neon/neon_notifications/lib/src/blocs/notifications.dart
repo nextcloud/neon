@@ -15,8 +15,7 @@ sealed class NotificationsBloc implements NotificationsBlocInterface, Interactiv
   factory NotificationsBloc(
     NotificationsOptions options,
     Account account,
-  ) =>
-      _NotificationsBloc(options, account);
+  ) = _NotificationsBloc;
 
   @override
   void deleteNotification(int id);

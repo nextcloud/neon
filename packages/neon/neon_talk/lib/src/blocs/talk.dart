@@ -13,7 +13,7 @@ import 'package:rxdart/rxdart.dart';
 sealed class TalkBloc implements InteractiveBloc {
   /// Creates a new Talk Bloc instance.
   @internal
-  factory TalkBloc(Account account) => _TalkBloc(account);
+  factory TalkBloc(Account account) = _TalkBloc;
 
   /// The list of rooms.
   BehaviorSubject<Result<BuiltList<spreed.Room>>> get rooms;

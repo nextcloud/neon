@@ -14,7 +14,7 @@ import 'package:rxdart/rxdart.dart';
 sealed class DashboardBloc implements InteractiveBloc {
   /// Creates a new Dashboard Bloc instance.
   @internal
-  factory DashboardBloc(Account account) => _DashboardBloc(account);
+  factory DashboardBloc(Account account) = _DashboardBloc;
 
   /// Dashboard widgets that are displayed.
   BehaviorSubject<Result<BuiltList<dashboard.Widget>>> get widgets;
