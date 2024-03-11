@@ -235,7 +235,10 @@ void main() {
   test('Set predefined message', () async {
     await Future<void>.delayed(const Duration(milliseconds: 1));
 
-    final clearAt = DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1));
+    final clearAt = tz.TZDateTime.from(
+      DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
+      tz.UTC,
+    );
     bloc.setPredefinedMessage(
       id: 'predefined',
       clearAt: clearAt,
@@ -254,7 +257,10 @@ void main() {
   });
 
   test('Set custom message', () async {
-    final clearAt = DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1));
+    final clearAt = tz.TZDateTime.from(
+      DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
+      tz.UTC,
+    );
     bloc.setCustomMessage(
       message: 'message',
       icon: 'icon',
@@ -274,7 +280,10 @@ void main() {
   });
 
   test('Clear message', () async {
-    final clearAt = DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1));
+    final clearAt = tz.TZDateTime.from(
+      DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
+      tz.UTC,
+    );
     bloc
       ..setCustomMessage(
         message: 'message',

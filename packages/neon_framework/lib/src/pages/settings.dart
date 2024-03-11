@@ -28,6 +28,7 @@ import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:url_launcher/url_launcher_string.dart';
 
 final _log = Logger('SettingsPage');
@@ -249,7 +250,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 final settingsExportHelper = _buildSettingsExportHelper(context);
 
                 try {
-                  final fileName = 'nextcloud-neon-settings-${DateTime.timestamp().secondsSinceEpoch}.json';
+                  final fileName = 'nextcloud-neon-settings-${tz.TZDateTime.now(tz.UTC).secondsSinceEpoch}.json';
 
                   final data = settingsExportHelper.exportToFile();
                   await NeonPlatform.instance.saveFileWithPickDialog(fileName, 'application/json', data);

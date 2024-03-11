@@ -19,6 +19,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart';
 
 sealed class FilesBloc implements InteractiveBloc {
@@ -30,7 +31,7 @@ sealed class FilesBloc implements InteractiveBloc {
 
   void uploadFile(PathUri uri, String localPath);
 
-  void uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified});
+  void uploadMemory(PathUri uri, Uint8List bytes, {tz.TZDateTime? lastModified});
 
   void openFile(PathUri uri, String etag, String? mimeType);
 
@@ -115,7 +116,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> uploadMemory(PathUri uri, Uint8List bytes, {DateTime? lastModified}) async {
+  Future<void> uploadMemory(PathUri uri, Uint8List bytes, {tz.TZDateTime? lastModified}) async {
     await wrapAction(
       () async {
         final task = FilesUploadTaskMemory(

@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:neon_files/src/utils/task.dart';
 import 'package:nextcloud/webdav.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 @immutable
 class FileDetails {
@@ -73,7 +74,7 @@ class FileDetails {
 
   final String? mimeType;
 
-  final DateTime? lastModified;
+  final tz.TZDateTime? lastModified;
 
   final bool? hasPreview;
 

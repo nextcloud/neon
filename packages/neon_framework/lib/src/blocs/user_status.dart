@@ -15,6 +15,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:window_manager/window_manager.dart';
 
 /// Bloc for managing user statuses.
@@ -42,14 +43,14 @@ abstract class UserStatusBloc implements InteractiveBloc {
   /// Predefined status messages received from [predefinedStatuses].
   void setPredefinedMessage({
     required String id,
-    required DateTime? clearAt,
+    required tz.TZDateTime? clearAt,
   });
 
   /// Set a custom status [message] with the [icon] and [clearAt].
   void setCustomMessage({
     required String? message,
     required String? icon,
-    required DateTime? clearAt,
+    required tz.TZDateTime? clearAt,
   });
 
   /// Clear the current status message.
@@ -211,7 +212,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   @override
   Future<void> setPredefinedMessage({
     required String id,
-    required DateTime? clearAt,
+    required tz.TZDateTime? clearAt,
   }) async {
     await wrapAction(
       () async {
@@ -230,7 +231,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   Future<void> setCustomMessage({
     required String? message,
     required String? icon,
-    required DateTime? clearAt,
+    required tz.TZDateTime? clearAt,
   }) async {
     await wrapAction(
       () async {

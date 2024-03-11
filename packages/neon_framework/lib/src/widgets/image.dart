@@ -15,6 +15,7 @@ import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 /// The signature of a function building a widget displaying [error].
 typedef ErrorWidgetBuilder = Widget? Function(BuildContext context, Object? error);
@@ -191,7 +192,7 @@ class NeonApiImage extends StatefulWidget {
   final String? etag;
 
   /// The expiration date used for invalidating the cache.
-  final DateTime? expires;
+  final tz.TZDateTime? expires;
 
   /// {@macro NeonImage.svgHint}
   final bool isSvgHint;

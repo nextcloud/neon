@@ -237,7 +237,7 @@ class TalkCommentMessage extends StatelessWidget {
       tz.UTC,
       chatMessage.timestamp,
     );
-    DateTime? previousDate;
+    tz.TZDateTime? previousDate;
     if (previousChatMessage != null) {
       previousDate = DateTimeUtils.fromSecondsSinceEpoch(
         tz.UTC,

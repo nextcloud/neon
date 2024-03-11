@@ -7,6 +7,7 @@ import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/sqlite_persistence.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   group('Persistences', () {
@@ -44,9 +45,9 @@ void main() {
 
       parameters = CacheParameters(
         etag: 'etag',
-        expires: DateTime.fromMillisecondsSinceEpoch(
-          DateTime.timestamp().millisecondsSinceEpoch,
-          isUtc: true,
+        expires: tz.TZDateTime.fromMillisecondsSinceEpoch(
+          tz.UTC,
+          tz.TZDateTime.now(tz.UTC).millisecondsSinceEpoch,
         ),
       );
       await cache.updateParameters('key', parameters);

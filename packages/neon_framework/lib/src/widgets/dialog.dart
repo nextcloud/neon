@@ -758,7 +758,7 @@ class NeonUserStatusDialog extends StatefulWidget {
   final Account account;
 
   /// The current time, only used for testing.
-  final DateTime? now;
+  final tz.TZDateTime? now;
 
   @override
   State<NeonUserStatusDialog> createState() => _NeonUserStatusDialogState();

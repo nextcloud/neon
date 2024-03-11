@@ -7,6 +7,7 @@ import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 final _log = Logger('RequestCache');
 
@@ -168,9 +169,9 @@ CREATE TABLE "cache" (
     return CacheParameters(
       etag: row?['etag'] as String?,
       expires: expires != null
-          ? DateTime.fromMillisecondsSinceEpoch(
+          ? tz.TZDateTime.fromMillisecondsSinceEpoch(
+              tz.UTC,
               expires,
-              isUtc: true,
             )
           : null,
     );
