@@ -46,7 +46,7 @@ class AccountSwitcherButton extends StatelessWidget {
     return IconButton(
       onPressed: () async => _onPressed(context),
       tooltip: NeonLocalizations.of(context).settingsAccount,
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(8),
       icon: const NeonUserAvatar(),
     );
   }
