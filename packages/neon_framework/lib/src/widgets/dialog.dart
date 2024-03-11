@@ -18,6 +18,7 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
+import 'package:nextcloud/utils.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 /// An button typically used in an [AlertDialog.adaptive].
@@ -843,7 +844,7 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
         bloc.setCustomMessage(
           message: messageController.text,
           icon: bloc.status.valueOrNull?.data?.icon,
-          clearAt: clearAt != null ? DateTime.fromMillisecondsSinceEpoch(clearAt * 1000, isUtc: true) : null,
+          clearAt: clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(clearAt, isUtc: true) : null,
         );
       }
     });
@@ -916,9 +917,7 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
                           bloc.setCustomMessage(
                             message: bloc.status.valueOrNull?.data?.message,
                             icon: emoji,
-                            clearAt: clearAt != null
-                                ? DateTime.fromMillisecondsSinceEpoch(clearAt * 1000, isUtc: true)
-                                : null,
+                            clearAt: clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(clearAt, isUtc: true) : null,
                           );
                         }
                       },
@@ -1042,8 +1041,8 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
             (b) => b
               ..type = user_status.ClearAt_Type.period
               ..time = (
-                $int: DateTime.fromMillisecondsSinceEpoch(
-                  status!.clearAt! * 1000,
+                $int: DateTimeUtils.fromSecondsSinceEpoch(
+                  status!.clearAt!,
                   isUtc: true,
                 ).difference(DateTime.timestamp()).inSeconds,
                 clearAtTimeType: null

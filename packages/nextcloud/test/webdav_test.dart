@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:http_parser/http_parser.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
@@ -294,16 +295,16 @@ void main() {
         expect(response.mimeType, isNull);
         expect(response.size, data.lengthInBytes);
         expect(
-          response.lastModified!.millisecondsSinceEpoch,
-          closeTo(DateTime.timestamp().millisecondsSinceEpoch, 10E3),
+          response.lastModified!.secondsSinceEpoch,
+          closeTo(DateTime.timestamp().secondsSinceEpoch, 10),
         );
         expect(response.name, 'dir-props');
         expect(response.isDirectory, isTrue);
 
         expect(response.props.davgetcontenttype, isNull);
         expect(
-          parseHttpDate(response.props.davgetlastmodified!).millisecondsSinceEpoch,
-          closeTo(DateTime.timestamp().millisecondsSinceEpoch, 10E3),
+          parseHttpDate(response.props.davgetlastmodified!).secondsSinceEpoch,
+          closeTo(DateTime.timestamp().secondsSinceEpoch, 10),
         );
         expect(response.props.davresourcetype!.collection, isNotNull);
         expect(response.props.ocsize, data.lengthInBytes);
@@ -372,8 +373,8 @@ void main() {
             .prop;
         expect(props.ocfavorite, 1);
         expect(parseHttpDate(props.davgetlastmodified!), lastModifiedDate);
-        expect(props.nccreationtime! * 1000, createdDate.millisecondsSinceEpoch);
-        expect(props.ncuploadtime! * 1000, closeTo(uploadTime.millisecondsSinceEpoch, 10E3));
+        expect(props.nccreationtime, createdDate.secondsSinceEpoch);
+        expect(props.ncuploadtime, closeTo(uploadTime.secondsSinceEpoch, 10));
       });
 
       test('Remove properties', () async {

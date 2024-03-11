@@ -1,4 +1,5 @@
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
@@ -115,7 +116,7 @@ void main() {
         test('Set predefined message', () async {
           await resetStatus();
 
-          final clearAt = DateTime.timestamp().millisecondsSinceEpoch ~/ 1000 + 60;
+          final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           final response = await client.userStatus.userStatus.setPredefinedMessage(
             messageId: 'meeting',
             clearAt: clearAt,
@@ -136,7 +137,7 @@ void main() {
         test('Set custom message', () async {
           await resetStatus();
 
-          final clearAt = DateTime.timestamp().millisecondsSinceEpoch ~/ 1000 + 60;
+          final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           final response = await client.userStatus.userStatus.setCustomMessage(
             statusIcon: '😀',
             message: 'bla',
@@ -158,7 +159,7 @@ void main() {
         test('Clear message', () async {
           await resetStatus();
 
-          final clearAt = DateTime.timestamp().millisecondsSinceEpoch ~/ 1000 + 60;
+          final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           await client.userStatus.userStatus.setCustomMessage(
             statusIcon: '😀',
             message: 'bla',
