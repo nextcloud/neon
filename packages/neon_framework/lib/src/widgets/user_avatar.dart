@@ -138,9 +138,12 @@ class NeonUserStatusIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget? child;
     if (result.isLoading) {
-      child = CircularProgressIndicator(
-        strokeWidth: 1.5,
-        color: Theme.of(context).colorScheme.onPrimary,
+      child = SizedBox.square(
+        dimension: size / 2.5,
+        child: CircularProgressIndicator(
+          strokeWidth: 1.5,
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
       );
     } else if (result.hasError) {
       child = Icon(
