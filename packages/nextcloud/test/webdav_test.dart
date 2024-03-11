@@ -175,7 +175,7 @@ void main() {
             responses.singleWhere((response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
         expect(props.nchaspreview, isTrue);
         expect(props.davgetcontenttype, 'image/png');
-        expect(parseHttpDate(props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
+        expect(parseHttpDate(props.davgetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
         expect(props.ocsize, 50598);
       });
 
@@ -233,7 +233,7 @@ void main() {
         expect(response.size, 50598);
         expect(response.ownerId, 'user1');
         expect(response.ownerDisplay, 'User One');
-        expect(response.lastModified!.isBefore(DateTime.now()), isTrue);
+        expect(response.lastModified!.isBefore(DateTime.timestamp()), isTrue);
         expect(response.isDirectory, isFalse);
         expect(response.uploadedDate, DateTime.utc(1970));
         expect(response.createdDate, DateTime.utc(1970));
@@ -242,7 +242,7 @@ void main() {
         expect(response.name, 'Nextcloud.png');
         expect(response.isDirectory, isFalse);
 
-        expect(parseHttpDate(response.props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
+        expect(parseHttpDate(response.props.davgetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
         expect(response.props.davgetetag, isNotEmpty);
         expect(response.props.davgetcontenttype, 'image/png');
         expect(response.props.davgetcontentlength, 50598);
@@ -295,7 +295,7 @@ void main() {
         expect(response.size, data.lengthInBytes);
         expect(
           response.lastModified!.millisecondsSinceEpoch,
-          closeTo(DateTime.now().millisecondsSinceEpoch, 10E3),
+          closeTo(DateTime.timestamp().millisecondsSinceEpoch, 10E3),
         );
         expect(response.name, 'dir-props');
         expect(response.isDirectory, isTrue);
@@ -303,7 +303,7 @@ void main() {
         expect(response.props.davgetcontenttype, isNull);
         expect(
           parseHttpDate(response.props.davgetlastmodified!).millisecondsSinceEpoch,
-          closeTo(DateTime.now().millisecondsSinceEpoch, 10E3),
+          closeTo(DateTime.timestamp().millisecondsSinceEpoch, 10E3),
         );
         expect(response.props.davresourcetype!.collection, isNotNull);
         expect(response.props.ocsize, data.lengthInBytes);
@@ -339,7 +339,7 @@ void main() {
       test('Set properties', () async {
         final lastModifiedDate = DateTime.utc(1972, 3);
         final createdDate = DateTime.utc(1971, 2);
-        final uploadTime = DateTime.now();
+        final uploadTime = DateTime.timestamp();
 
         await client.webdav.put(
           utf8.encode('test'),

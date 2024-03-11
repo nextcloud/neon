@@ -6,7 +6,7 @@ import 'package:neon_framework/l10n/localizations.dart';
 extension RelativeTimeFormatDateTime on DateTime {
   /// Format the relative time between this and [to].
   ///
-  /// If [to] is unspecified [DateTime.now] will be used.
+  /// If [to] is unspecified [DateTime.timestamp] will be used.
   /// Set [includeSign] to skip the parts that tell if the difference is into the future or into the past.
   /// It should only be used if it is already clear from the context if it is about the future or the past.
   String formatRelative(
@@ -14,10 +14,10 @@ extension RelativeTimeFormatDateTime on DateTime {
     bool includeSign = true,
     DateTime? to,
   }) =>
-      toLocal().difference(to ?? DateTime.now()).formatRelative(
-            localizations,
-            includeSign: includeSign,
-          );
+      difference(to ?? DateTime.timestamp()).formatRelative(
+        localizations,
+        includeSign: includeSign,
+      );
 }
 
 /// Extension for formatting difference of a [Duration].

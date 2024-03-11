@@ -17,7 +17,6 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/storage/keys.dart';
-
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
@@ -153,7 +152,7 @@ class PushUtils {
           }
           final title = (notification?.subject ?? pushNotification.subject.subject)!;
           final message = (notification?.message.isNotEmpty ?? false) ? notification!.message : null;
-          final when = notification != null ? DateTime.parse(notification.datetime) : null;
+          final when = notification != null ? DateTime.parse(notification.datetime).toUtc() : null;
 
           await localNotificationsPlugin.show(
             _getNotificationID(instance, pushNotification),

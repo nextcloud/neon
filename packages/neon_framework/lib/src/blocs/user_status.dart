@@ -36,19 +36,19 @@ abstract class UserStatusBloc implements InteractiveBloc {
   /// Set the status type.
   void setStatusType(String statusType);
 
-  /// Set a predefined status message using the [id] and [clearAt] as unix timestamp.
+  /// Set a predefined status message using the [id] and [clearAt].
   ///
   /// Predefined status messages received from [predefinedStatuses].
   void setPredefinedMessage({
     required String id,
-    required int? clearAt,
+    required DateTime? clearAt,
   });
 
-  /// Set a custom status [message] with the [icon] and [clearAt] as unix timestamp.
+  /// Set a custom status [message] with the [icon] and [clearAt].
   void setCustomMessage({
     required String? message,
     required String? icon,
-    required int? clearAt,
+    required DateTime? clearAt,
   });
 
   /// Clear the current status message.
@@ -210,13 +210,13 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   @override
   Future<void> setPredefinedMessage({
     required String id,
-    required int? clearAt,
+    required DateTime? clearAt,
   }) async {
     await wrapAction(
       () async {
         final response = await account.client.userStatus.userStatus.setPredefinedMessage(
           messageId: id,
-          clearAt: clearAt,
+          clearAt: clearAt != null ? clearAt.millisecondsSinceEpoch ~/ 1000 : null,
         );
 
         updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
@@ -229,14 +229,14 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   Future<void> setCustomMessage({
     required String? message,
     required String? icon,
-    required int? clearAt,
+    required DateTime? clearAt,
   }) async {
     await wrapAction(
       () async {
         final response = await account.client.userStatus.userStatus.setCustomMessage(
           statusIcon: icon,
           message: message,
-          clearAt: clearAt,
+          clearAt: clearAt != null ? clearAt.millisecondsSinceEpoch ~/ 1000 : null,
         );
 
         updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));

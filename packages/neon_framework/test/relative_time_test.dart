@@ -40,7 +40,7 @@ void main() {
   });
 
   test('DateTime', () {
-    final base = DateTime.now();
+    final base = DateTime.timestamp();
 
     expect(base.formatRelative(localizations), 'now');
 

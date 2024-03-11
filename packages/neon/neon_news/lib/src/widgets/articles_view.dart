@@ -163,7 +163,10 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               ),
             ),
             RelativeTime(
-              date: DateTime.fromMillisecondsSinceEpoch(article.pubDate * 1000),
+              date: DateTime.fromMillisecondsSinceEpoch(
+                article.pubDate * 1000,
+                isUtc: true,
+              ),
               style: const TextStyle(
                 fontWeight: FontWeight.w300,
                 fontSize: 12,

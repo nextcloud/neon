@@ -84,7 +84,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             ),
           ],
           RelativeTime(
-            date: DateTime.parse(notification.datetime),
+            date: DateTime.parse(notification.datetime).toUtc(),
           ),
         ],
       ),

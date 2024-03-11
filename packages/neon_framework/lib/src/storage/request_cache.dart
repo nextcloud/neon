@@ -167,7 +167,12 @@ CREATE TABLE "cache" (
     final expires = row?['expires'] as int?;
     return CacheParameters(
       etag: row?['etag'] as String?,
-      expires: expires != null ? DateTime.fromMillisecondsSinceEpoch(expires) : null,
+      expires: expires != null
+          ? DateTime.fromMillisecondsSinceEpoch(
+              expires,
+              isUtc: true,
+            )
+          : null,
     );
   }
 

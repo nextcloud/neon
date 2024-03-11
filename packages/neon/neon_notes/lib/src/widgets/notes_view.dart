@@ -58,7 +58,10 @@ class NotesView extends StatelessWidget {
         subtitle: Row(
           children: [
             RelativeTime(
-              date: DateTime.fromMillisecondsSinceEpoch(note.modified * 1000),
+              date: DateTime.fromMillisecondsSinceEpoch(
+                note.modified * 1000,
+                isUtc: true,
+              ),
             ),
             if (note.category.isNotEmpty) ...[
               const SizedBox(

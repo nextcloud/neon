@@ -381,7 +381,7 @@ class CacheParameters {
   /// Whether the resource has expired based on [expires].
   bool get isExpired => _isExpired(expires);
 
-  static bool _isExpired(DateTime? date) => date?.isBefore(DateTime.now()) ?? true;
+  static bool _isExpired(DateTime? date) => date?.isBefore(DateTime.timestamp()) ?? true;
 
   @override
   bool operator ==(Object other) => other is CacheParameters && other.etag == etag && other.expires == expires;

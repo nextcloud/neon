@@ -208,7 +208,7 @@ void main() {
     testWidgets('NeonUserStatusDialog', (tester) async {
       SharedPreferences.setMockInitialValues({});
 
-      final now = DateTime(2024, 1, 20);
+      final now = DateTime.utc(2024, 1, 20);
 
       final status = BehaviorSubject.seeded(
         Result.success(
@@ -296,7 +296,7 @@ void main() {
       verify(
         () => userStatusBloc.setPredefinedMessage(
           id: 'id1',
-          clearAt: now.add(const Duration(hours: 7)).millisecondsSinceEpoch ~/ 1000,
+          clearAt: now.add(const Duration(hours: 7)),
         ),
       ).called(1);
 
@@ -305,7 +305,7 @@ void main() {
       verify(
         () => userStatusBloc.setPredefinedMessage(
           id: 'id2',
-          clearAt: now.add(const Duration(days: 2)).millisecondsSinceEpoch ~/ 1000,
+          clearAt: now.add(const Duration(days: 2)),
         ),
       ).called(1);
 
@@ -319,7 +319,7 @@ void main() {
         () => userStatusBloc.setCustomMessage(
           message: 'predefined message',
           icon: '😀',
-          clearAt: now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000,
+          clearAt: now.add(const Duration(hours: 3)),
         ),
       ).called(1);
 
@@ -329,7 +329,7 @@ void main() {
         () => userStatusBloc.setCustomMessage(
           message: 'custom message',
           icon: '😅',
-          clearAt: now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000,
+          clearAt: now.add(const Duration(hours: 3)),
         ),
       ).called(1);
 
@@ -355,7 +355,7 @@ void main() {
         () => userStatusBloc.setCustomMessage(
           message: 'predefined message',
           icon: '😅',
-          clearAt: now.add(const Duration(hours: 4)).millisecondsSinceEpoch ~/ 1000,
+          clearAt: now.add(const Duration(hours: 4)),
         ),
       ).called(1);
 
