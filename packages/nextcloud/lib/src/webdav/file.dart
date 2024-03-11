@@ -4,6 +4,7 @@ import 'package:nextcloud/src/webdav/client.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 // ignore: public_member_api_docs
 extension WebDavMultistatusFile on WebDavMultistatus {
@@ -62,26 +63,27 @@ class WebDavFile {
   late final String? note = props.ncnote;
 
   /// Last modified date of the file
-  late final DateTime? lastModified = () {
+  late final tz.TZDateTime? lastModified = () {
     if (props.davgetlastmodified != null) {
-      return parseHttpDate(props.davgetlastmodified!);
+      final parsed = parseHttpDate(props.davgetlastmodified!);
+      return tz.TZDateTime.from(parsed, tz.UTC);
     }
     return null;
   }();
 
   /// Upload date of the file
-  late final DateTime? uploadedDate = props.ncuploadtime != null
+  late final tz.TZDateTime? uploadedDate = props.ncuploadtime != null
       ? DateTimeUtils.fromSecondsSinceEpoch(
+          tz.UTC,
           props.ncuploadtime!,
-          isUtc: true,
         )
       : null;
 
   /// Creation date of the file as provided by uploader
-  late final DateTime? createdDate = props.nccreationtime != null
+  late final tz.TZDateTime? createdDate = props.nccreationtime != null
       ? DateTimeUtils.fromSecondsSinceEpoch(
+          tz.UTC,
           props.nccreationtime!,
-          isUtc: true,
         )
       : null;
 

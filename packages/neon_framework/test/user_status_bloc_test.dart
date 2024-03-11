@@ -12,6 +12,7 @@ import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud/utils.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 Account mockUserStatusAccount() {
   var messageIsPredefined = false;
@@ -245,7 +246,7 @@ void main() {
         (e) => (
           e.message,
           e.icon,
-          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(e.clearAt!, isUtc: true) : null,
+          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, e.clearAt!) : null,
         ),
       ),
       emits(Result.success(('message', 'icon', clearAt))),
@@ -265,7 +266,7 @@ void main() {
         (e) => (
           e.message,
           e.icon,
-          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(e.clearAt!, isUtc: true) : null,
+          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, e.clearAt!) : null,
         ),
       ),
       emits(Result.success(('message', 'icon', clearAt))),
@@ -284,11 +285,7 @@ void main() {
 
     expect(
       bloc.status.transformResult(
-        (e) => (
-          e.message,
-          e.icon,
-          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(e.clearAt!, isUtc: true) : null
-        ),
+        (e) => (e.message, e.icon, e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, e.clearAt!) : null),
       ),
       emitsInOrder([
         Result.success(('message', 'icon', clearAt)),

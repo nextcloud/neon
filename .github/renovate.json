@@ -48,6 +48,12 @@
       "enabled": false
     },
     {
+      "matchManagers": ["pub"],
+      "matchPackageNames": ["timezone"],
+      "rangeStrategy": "bump",
+      "enabled": true
+    },
+    {
       "groupName": "built_value",
       "matchPackagePatterns": "^built"
     },
