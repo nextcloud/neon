@@ -5,6 +5,7 @@ import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/utils.dart';
 
 final _timeFormat = DateFormat.jm();
 
@@ -231,14 +232,14 @@ class TalkCommentMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    final date = DateTime.fromMillisecondsSinceEpoch(
-      chatMessage.timestamp * 1000,
+    final date = DateTimeUtils.fromSecondsSinceEpoch(
+      chatMessage.timestamp,
       isUtc: true,
     );
     DateTime? previousDate;
     if (previousChatMessage != null) {
-      previousDate = DateTime.fromMillisecondsSinceEpoch(
-        previousChatMessage!.timestamp * 1000,
+      previousDate = DateTimeUtils.fromSecondsSinceEpoch(
+        previousChatMessage!.timestamp,
         isUtc: true,
       );
     }

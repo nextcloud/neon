@@ -11,6 +11,7 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
+import 'package:nextcloud/utils.dart';
 
 Account mockUserStatusAccount() {
   var messageIsPredefined = false;
@@ -244,7 +245,7 @@ void main() {
         (e) => (
           e.message,
           e.icon,
-          e.clearAt != null ? DateTime.fromMillisecondsSinceEpoch(e.clearAt! * 1000, isUtc: true) : null,
+          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(e.clearAt!, isUtc: true) : null,
         ),
       ),
       emits(Result.success(('message', 'icon', clearAt))),
@@ -264,7 +265,7 @@ void main() {
         (e) => (
           e.message,
           e.icon,
-          e.clearAt != null ? DateTime.fromMillisecondsSinceEpoch(e.clearAt! * 1000, isUtc: true) : null,
+          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(e.clearAt!, isUtc: true) : null,
         ),
       ),
       emits(Result.success(('message', 'icon', clearAt))),
@@ -286,7 +287,7 @@ void main() {
         (e) => (
           e.message,
           e.icon,
-          e.clearAt != null ? DateTime.fromMillisecondsSinceEpoch(e.clearAt! * 1000, isUtc: true) : null
+          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(e.clearAt!, isUtc: true) : null
         ),
       ),
       emitsInOrder([

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:crypton/crypton.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notifications.dart';
+import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
@@ -57,8 +58,8 @@ void main() {
           expect(response.body.ocs.data[0].app, 'admin_notifications');
           expect(response.body.ocs.data[0].user, 'admin');
           expect(
-            DateTime.parse(response.body.ocs.data[0].datetime).millisecondsSinceEpoch,
-            closeTo(startTime.millisecondsSinceEpoch, 10E3),
+            DateTime.parse(response.body.ocs.data[0].datetime).secondsSinceEpoch,
+            closeTo(startTime.secondsSinceEpoch, 10),
           );
           expect(response.body.ocs.data[0].objectType, 'admin_notifications');
           expect(response.body.ocs.data[0].objectId, isNotNull);
@@ -89,8 +90,8 @@ void main() {
           expect(response.body.ocs.data.app, 'admin_notifications');
           expect(response.body.ocs.data.user, 'admin');
           expect(
-            DateTime.parse(response.body.ocs.data.datetime).millisecondsSinceEpoch,
-            closeTo(startTime.millisecondsSinceEpoch, 10E3),
+            DateTime.parse(response.body.ocs.data.datetime).secondsSinceEpoch,
+            closeTo(startTime.secondsSinceEpoch, 10),
           );
           expect(response.body.ocs.data.objectType, 'admin_notifications');
           expect(response.body.ocs.data.objectId, isNotNull);

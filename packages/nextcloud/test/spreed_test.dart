@@ -5,6 +5,7 @@ import 'package:built_value/json_object.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
@@ -247,7 +248,7 @@ void main() {
           expect(response.body.ocs.data!.actorType, spreed.ActorType.users);
           expect(response.body.ocs.data!.actorId, 'user1');
           expect(response.body.ocs.data!.actorDisplayName, 'User One');
-          expect(response.body.ocs.data!.timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
+          expect(response.body.ocs.data!.timestamp, closeTo(startTime.secondsSinceEpoch, 10));
           expect(response.body.ocs.data!.message, 'bla');
           expect(response.body.ocs.data!.messageType, spreed.MessageType.comment);
         });
@@ -282,7 +283,7 @@ void main() {
             expect(response.body.ocs.data[0].actorType, spreed.ActorType.users);
             expect(response.body.ocs.data[0].actorId, 'user1');
             expect(response.body.ocs.data[0].actorDisplayName, 'User One');
-            expect(response.body.ocs.data[0].timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
+            expect(response.body.ocs.data[0].timestamp, closeTo(startTime.secondsSinceEpoch, 10));
             expect(response.body.ocs.data[0].message, '123');
             expect(response.body.ocs.data[0].messageType, spreed.MessageType.comment);
 
@@ -291,8 +292,8 @@ void main() {
             expect(response.body.ocs.data[0].parent!.actorId, 'user1');
             expect(response.body.ocs.data[0].parent!.actorDisplayName, 'User One');
             expect(
-              response.body.ocs.data[0].parent!.timestamp * 1000,
-              closeTo(startTime.millisecondsSinceEpoch, 10E3),
+              response.body.ocs.data[0].parent!.timestamp,
+              closeTo(startTime.secondsSinceEpoch, 10),
             );
             expect(response.body.ocs.data[0].parent!.message, 'bla');
             expect(response.body.ocs.data[0].parent!.messageType, spreed.MessageType.comment);
@@ -301,7 +302,7 @@ void main() {
             expect(response.body.ocs.data[1].actorType, spreed.ActorType.users);
             expect(response.body.ocs.data[1].actorId, 'user1');
             expect(response.body.ocs.data[1].actorDisplayName, 'User One');
-            expect(response.body.ocs.data[1].timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
+            expect(response.body.ocs.data[1].timestamp, closeTo(startTime.secondsSinceEpoch, 10));
             expect(response.body.ocs.data[1].message, 'bla');
             expect(response.body.ocs.data[1].messageType, spreed.MessageType.comment);
 
@@ -309,7 +310,7 @@ void main() {
             expect(response.body.ocs.data[2].actorType, spreed.ActorType.users);
             expect(response.body.ocs.data[2].actorId, 'user1');
             expect(response.body.ocs.data[2].actorDisplayName, 'User One');
-            expect(response.body.ocs.data[2].timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
+            expect(response.body.ocs.data[2].timestamp, closeTo(startTime.secondsSinceEpoch, 10));
             expect(response.body.ocs.data[2].message, 'You created the conversation');
             expect(response.body.ocs.data[2].systemMessage, 'conversation_created');
             expect(response.body.ocs.data[2].messageType, spreed.MessageType.system);
@@ -346,7 +347,7 @@ void main() {
             expect(response.body.ocs.data[0].actorType, spreed.ActorType.users);
             expect(response.body.ocs.data[0].actorId, 'user1');
             expect(response.body.ocs.data[0].actorDisplayName, 'User One');
-            expect(response.body.ocs.data[0].timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
+            expect(response.body.ocs.data[0].timestamp, closeTo(startTime.secondsSinceEpoch, 10));
             expect(response.body.ocs.data[0].message, '123');
             expect(response.body.ocs.data[0].messageType, spreed.MessageType.comment);
           });

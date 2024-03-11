@@ -8,6 +8,7 @@ import 'package:meta/meta.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
+import 'package:nextcloud/utils.dart';
 import 'package:universal_io/io.dart' hide HttpClient;
 
 /// Base path used on the server
@@ -137,8 +138,8 @@ class WebDavClient {
     required int? contentLength,
   }) =>
       {
-        if (lastModified != null) 'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString(),
-        if (created != null) 'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
+        if (lastModified != null) 'X-OC-Mtime': lastModified.secondsSinceEpoch.toString(),
+        if (created != null) 'X-OC-CTime': created.secondsSinceEpoch.toString(),
         if (contentLength != null) HttpHeaders.contentLengthHeader: contentLength.toString(),
       };
 

@@ -1,4 +1,5 @@
 import 'package:http_parser/http_parser.dart';
+import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/src/webdav/client.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
@@ -70,16 +71,16 @@ class WebDavFile {
 
   /// Upload date of the file
   late final DateTime? uploadedDate = props.ncuploadtime != null
-      ? DateTime.fromMillisecondsSinceEpoch(
-          props.ncuploadtime! * 1000,
+      ? DateTimeUtils.fromSecondsSinceEpoch(
+          props.ncuploadtime!,
           isUtc: true,
         )
       : null;
 
   /// Creation date of the file as provided by uploader
   late final DateTime? createdDate = props.nccreationtime != null
-      ? DateTime.fromMillisecondsSinceEpoch(
-          props.nccreationtime! * 1000,
+      ? DateTimeUtils.fromSecondsSinceEpoch(
+          props.nccreationtime!,
           isUtc: true,
         )
       : null;

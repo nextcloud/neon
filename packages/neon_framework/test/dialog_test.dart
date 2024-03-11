@@ -9,6 +9,7 @@ import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
+import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -217,7 +218,7 @@ void main() {
               ..userId = 'test'
               ..message = 'predefined message'
               ..icon = '😅'
-              ..clearAt = now.add(const Duration(hours: 3)).millisecondsSinceEpoch ~/ 1000
+              ..clearAt = now.add(const Duration(hours: 3)).secondsSinceEpoch
               ..status = user_status.$Type.online
               ..messageId = 'id1'
               ..messageIsPredefined = true

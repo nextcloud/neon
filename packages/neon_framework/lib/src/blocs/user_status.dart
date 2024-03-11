@@ -13,6 +13,7 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
+import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -216,7 +217,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
       () async {
         final response = await account.client.userStatus.userStatus.setPredefinedMessage(
           messageId: id,
-          clearAt: clearAt != null ? clearAt.millisecondsSinceEpoch ~/ 1000 : null,
+          clearAt: clearAt?.secondsSinceEpoch,
         );
 
         updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
@@ -236,7 +237,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
         final response = await account.client.userStatus.userStatus.setCustomMessage(
           statusIcon: icon,
           message: message,
-          clearAt: clearAt != null ? clearAt.millisecondsSinceEpoch ~/ 1000 : null,
+          clearAt: clearAt?.secondsSinceEpoch,
         );
 
         updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));

@@ -12,6 +12,7 @@ import 'package:neon_notes/src/pages/note.dart';
 import 'package:neon_notes/src/sort/notes.dart';
 import 'package:neon_notes/src/utils/category_color.dart';
 import 'package:nextcloud/notes.dart' as notes;
+import 'package:nextcloud/utils.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({
@@ -58,8 +59,8 @@ class NotesView extends StatelessWidget {
         subtitle: Row(
           children: [
             RelativeTime(
-              date: DateTime.fromMillisecondsSinceEpoch(
-                note.modified * 1000,
+              date: DateTimeUtils.fromSecondsSinceEpoch(
+                note.modified,
                 isUtc: true,
               ),
             ),
