@@ -88,7 +88,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
                     final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
                     return SearchBar(
                       hintText: hintText,
-                      padding: const MaterialStatePropertyAll(EdgeInsetsDirectional.only(start: 4)),
+                      padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 8)),
                       textInputAction: TextInputAction.search,
                       leading: !drawerAlwaysVisible ? const DrawerButton() : null,
                       trailing: const [
