@@ -214,6 +214,9 @@ class RequestManager {
   }) async {
     final key = '${account.id}-$cacheKey';
 
+    if (subject.isClosed) {
+      return;
+    }
     if (!subject.hasValue) {
       subject.add(Result.loading());
     }
@@ -224,7 +227,9 @@ class RequestManager {
       if (cachedParameters.expires != null && !cachedParameters.isExpired) {
         final cachedValue = await _cache?.get(key);
         if (cachedValue != null) {
-          subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+          if (!subject.isClosed) {
+            subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+          }
           return;
         }
       }
@@ -258,7 +263,9 @@ class RequestManager {
                 cacheParameters,
               ),
             );
-            subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+            if (!subject.isClosed) {
+              subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
+            }
             return;
           }
         }
@@ -266,6 +273,9 @@ class RequestManager {
     }
 
     final cachedValue = await _cache?.get(key);
+    if (subject.isClosed) {
+      return;
+    }
     if (cachedValue != null) {
       subject.add(
         subject.value.copyWith(
@@ -285,6 +295,9 @@ class RequestManager {
           disableTimeout: disableTimeout,
           timeLimit: timeLimit,
         );
+        if (subject.isClosed) {
+          return;
+        }
         subject.add(Result.success(unwrap(response)));
 
         final serialized = serialize(response);
@@ -303,6 +316,9 @@ class RequestManager {
           stackTrace,
         );
 
+        if (subject.isClosed) {
+          return;
+        }
         subject.add(
           subject.value.copyWith(
             error: error,
@@ -318,6 +334,9 @@ class RequestManager {
             stackTrace,
           );
 
+          if (subject.isClosed) {
+            return;
+          }
           subject.add(
             subject.value.copyWith(
               error: error,
