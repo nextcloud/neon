@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart';
 
 sealed class FilesTask {
@@ -34,7 +35,7 @@ sealed class FilesUploadTask extends FilesTask {
 
   final int? size;
 
-  final DateTime? lastModified;
+  final tz.TZDateTime? lastModified;
 }
 
 sealed class FilesTaskIO extends FilesTask {
@@ -83,10 +84,10 @@ class FilesUploadTaskIO extends FilesTaskIO implements FilesUploadTask {
   late final FileStat _stat = file.statSync();
 
   @override
-  late int? size = _stat.size;
+  late int size = _stat.size;
 
   @override
-  late DateTime? lastModified = _stat.modified;
+  late tz.TZDateTime lastModified = tz.TZDateTime.from(_stat.modified, tz.UTC);
 
   Future<void> execute(NextcloudClient client) async {
     await client.webdav.putFile(
@@ -129,7 +130,7 @@ class FilesUploadTaskMemory extends FilesTaskMemory implements FilesUploadTask {
   final int? size;
 
   @override
-  final DateTime? lastModified;
+  final tz.TZDateTime? lastModified;
 
   Future<void> execute(NextcloudClient client) async {
     await client.webdav.putStream(

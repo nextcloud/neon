@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/utils/relative_time.dart';
+import 'package:timezone/timezone.dart' as tz;
 
-/// Shows the time elapsed since a [DateTime] and periodically updates itself.
+/// Shows the time elapsed since a [tz.TZDateTime] and periodically updates itself.
 class RelativeTime extends StatefulWidget {
   /// Creates a new relative DateTime widget.
   const RelativeTime({
@@ -14,7 +15,7 @@ class RelativeTime extends StatefulWidget {
   });
 
   /// The timestamp to be displayed.
-  final DateTime date;
+  final tz.TZDateTime date;
 
   /// The text style of the calculated time.
   ///

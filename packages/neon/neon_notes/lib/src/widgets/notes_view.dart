@@ -13,6 +13,7 @@ import 'package:neon_notes/src/sort/notes.dart';
 import 'package:neon_notes/src/utils/category_color.dart';
 import 'package:nextcloud/notes.dart' as notes;
 import 'package:nextcloud/utils.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 class NotesView extends StatelessWidget {
   const NotesView({
@@ -60,8 +61,8 @@ class NotesView extends StatelessWidget {
           children: [
             RelativeTime(
               date: DateTimeUtils.fromSecondsSinceEpoch(
+                tz.UTC,
                 note.modified,
-                isUtc: true,
               ),
             ),
             if (note.category.isNotEmpty) ...[

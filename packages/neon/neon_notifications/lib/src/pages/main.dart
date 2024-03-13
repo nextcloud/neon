@@ -10,6 +10,7 @@ import 'package:neon_notifications/l10n/localizations.dart';
 import 'package:neon_notifications/src/blocs/notifications.dart';
 import 'package:nextcloud/ids.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
+import 'package:timezone/timezone.dart' as tz;
 
 class NotificationsMainPage extends StatefulWidget {
   const NotificationsMainPage({
@@ -84,7 +85,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             ),
           ],
           RelativeTime(
-            date: DateTime.parse(notification.datetime).toUtc(),
+            date: tz.TZDateTime.parse(tz.UTC, notification.datetime),
           ),
         ],
       ),

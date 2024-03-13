@@ -6,6 +6,7 @@ import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/utils.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 final _timeFormat = DateFormat.jm();
 
@@ -233,14 +234,14 @@ class TalkCommentMessage extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     final date = DateTimeUtils.fromSecondsSinceEpoch(
+      tz.UTC,
       chatMessage.timestamp,
-      isUtc: true,
     );
-    DateTime? previousDate;
+    tz.TZDateTime? previousDate;
     if (previousChatMessage != null) {
       previousDate = DateTimeUtils.fromSecondsSinceEpoch(
+        tz.UTC,
         previousChatMessage!.timestamp,
-        isUtc: true,
       );
     }
 

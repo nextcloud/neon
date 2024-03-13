@@ -25,6 +25,7 @@ import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 final _log = Logger('PushUtils');
 
@@ -152,7 +153,7 @@ class PushUtils {
           }
           final title = (notification?.subject ?? pushNotification.subject.subject)!;
           final message = (notification?.message.isNotEmpty ?? false) ? notification!.message : null;
-          final when = notification != null ? DateTime.parse(notification.datetime).toUtc() : null;
+          final when = notification != null ? tz.TZDateTime.parse(tz.UTC, notification.datetime) : null;
 
           await localNotificationsPlugin.show(
             _getNotificationID(instance, pushNotification),

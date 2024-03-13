@@ -1,20 +1,21 @@
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
+import 'package:timezone/timezone.dart' as tz;
 
-/// Extension for formatting the difference between two [DateTime]s.
+/// Extension for formatting the difference between two [tz.TZDateTime]s.
 @internal
-extension RelativeTimeFormatDateTime on DateTime {
+extension RelativeTimeFormatDateTime on tz.TZDateTime {
   /// Format the relative time between this and [to].
   ///
-  /// If [to] is unspecified [DateTime.timestamp] will be used.
+  /// If [to] is unspecified the current time in the 'UTC' timezone will be used.
   /// Set [includeSign] to skip the parts that tell if the difference is into the future or into the past.
   /// It should only be used if it is already clear from the context if it is about the future or the past.
   String formatRelative(
     NeonLocalizations localizations, {
     bool includeSign = true,
-    DateTime? to,
+    tz.TZDateTime? to,
   }) =>
-      difference(to ?? DateTime.timestamp()).formatRelative(
+      difference(to ?? tz.TZDateTime.now(tz.UTC)).formatRelative(
         localizations,
         includeSign: includeSign,
       );

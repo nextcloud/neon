@@ -3,6 +3,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:neon_framework/l10n/localizations_en.dart';
 import 'package:neon_framework/src/utils/relative_time.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   final localizations = NeonLocalizationsEn();
@@ -40,7 +41,7 @@ void main() {
   });
 
   test('DateTime', () {
-    final base = DateTime.timestamp();
+    final base = tz.TZDateTime.now(tz.UTC);
 
     expect(base.formatRelative(localizations), 'now');
 

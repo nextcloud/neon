@@ -14,6 +14,7 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:xml/xml.dart' as xml;
 
 final _log = Logger('RequestManager');
@@ -365,7 +366,12 @@ class CacheParameters {
 
   /// Parse the cache parameters from HTTP response headers.
   factory CacheParameters.parseHeaders(Map<String, dynamic> headers) {
-    final expiry = headers.containsKey('expires') ? parseHttpDate(headers['expires']! as String) : null;
+    tz.TZDateTime? expiry;
+    if (headers.containsKey('expires')) {
+      final parsed = parseHttpDate(headers['expires']! as String);
+      expiry = tz.TZDateTime.from(parsed, tz.UTC);
+    }
+
     return CacheParameters(
       etag: headers['etag'] as String?,
       expires: _isExpired(expiry) ? null : expiry,
@@ -376,12 +382,12 @@ class CacheParameters {
   final String? etag;
 
   /// `Expires` of the resource.
-  final DateTime? expires;
+  final tz.TZDateTime? expires;
 
   /// Whether the resource has expired based on [expires].
   bool get isExpired => _isExpired(expires);
 
-  static bool _isExpired(DateTime? date) => date?.isBefore(DateTime.timestamp()) ?? true;
+  static bool _isExpired(tz.TZDateTime? date) => date?.isBefore(tz.TZDateTime.now(tz.UTC)) ?? true;
 
   @override
   bool operator ==(Object other) => other is CacheParameters && other.etag == etag && other.expires == expires;

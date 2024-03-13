@@ -12,6 +12,7 @@ import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   group('dialog', () {
@@ -209,7 +210,7 @@ void main() {
     testWidgets('NeonUserStatusDialog', (tester) async {
       SharedPreferences.setMockInitialValues({});
 
-      final now = DateTime.utc(2024, 1, 20);
+      final now = tz.TZDateTime.utc(2024, 1, 20);
 
       final status = BehaviorSubject.seeded(
         Result.success(

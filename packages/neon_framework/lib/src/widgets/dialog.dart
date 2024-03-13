@@ -19,6 +19,7 @@ import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud/utils.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:url_launcher/url_launcher_string.dart';
 
 /// An button typically used in an [AlertDialog.adaptive].
@@ -757,7 +758,7 @@ class NeonUserStatusDialog extends StatefulWidget {
   final Account account;
 
   /// The current time, only used for testing.
-  final DateTime? now;
+  final tz.TZDateTime? now;
 
   @override
   State<NeonUserStatusDialog> createState() => _NeonUserStatusDialogState();
@@ -844,7 +845,7 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
         bloc.setCustomMessage(
           message: messageController.text,
           icon: bloc.status.valueOrNull?.data?.icon,
-          clearAt: clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(clearAt, isUtc: true) : null,
+          clearAt: clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, clearAt) : null,
         );
       }
     });
@@ -917,7 +918,7 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
                           bloc.setCustomMessage(
                             message: bloc.status.valueOrNull?.data?.message,
                             icon: emoji,
-                            clearAt: clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(clearAt, isUtc: true) : null,
+                            clearAt: clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, clearAt) : null,
                           );
                         }
                       },
@@ -1042,8 +1043,8 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
               ..type = user_status.ClearAt_Type.period
               ..time = (
                 $int: DateTimeUtils.fromSecondsSinceEpoch(
+                  tz.UTC,
                   status!.clearAt!,
-                  isUtc: true,
                 ).difference(DateTime.timestamp()).inSeconds,
                 clearAtTimeType: null
               ),

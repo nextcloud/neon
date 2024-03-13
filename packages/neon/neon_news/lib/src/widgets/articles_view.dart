@@ -18,6 +18,7 @@ import 'package:neon_news/src/sort/articles.dart';
 import 'package:neon_news/src/widgets/feed_icon.dart';
 import 'package:nextcloud/news.dart' as news;
 import 'package:nextcloud/utils.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:url_launcher/url_launcher_string.dart';
 
 final _log = Logger('NewsArticlesView');
@@ -165,8 +166,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             ),
             RelativeTime(
               date: DateTimeUtils.fromSecondsSinceEpoch(
+                tz.UTC,
                 article.pubDate,
-                isUtc: true,
               ),
               style: const TextStyle(
                 fontWeight: FontWeight.w300,

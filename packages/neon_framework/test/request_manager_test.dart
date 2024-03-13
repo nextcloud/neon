@@ -14,6 +14,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 String base64String(String value) => base64.encode(utf8.encode(value));
 
@@ -499,7 +500,7 @@ void main() {
           (_) => Future.value(
             CacheParameters(
               etag: null,
-              expires: DateTime.timestamp().add(const Duration(hours: 1)),
+              expires: tz.TZDateTime.now(tz.UTC).add(const Duration(hours: 1)),
             ),
           ),
         );
@@ -537,7 +538,7 @@ void main() {
           (_) => Future.value(
             CacheParameters(
               etag: null,
-              expires: DateTime.timestamp().subtract(const Duration(hours: 1)),
+              expires: tz.TZDateTime.now(tz.UTC).subtract(const Duration(hours: 1)),
             ),
           ),
         );
@@ -575,7 +576,10 @@ void main() {
 
       test('cached ETag', () async {
         final callback = MockCallbackFunction<CacheParameters>();
-        final newExpires = DateTime.timestamp().copyWith(microsecond: 0, millisecond: 0).add(const Duration(hours: 1));
+        final newExpires = tz.TZDateTime.from(
+          DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
+          tz.UTC,
+        );
 
         when(() => cache.getParameters(any())).thenAnswer(
           (_) => Future.value(
@@ -675,7 +679,10 @@ void main() {
 
       test('cache ETag and Expires', () async {
         for (final (hours, isSet) in [(1, true), (-1, false)]) {
-          final newExpires = DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(Duration(hours: hours));
+          final newExpires = tz.TZDateTime.from(
+            DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(Duration(hours: hours)),
+            tz.UTC,
+          );
 
           final subject = BehaviorSubject<Result<String>>();
 

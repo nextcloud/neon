@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:neon_framework/l10n/localizations_en.dart';
 import 'package:neon_framework/src/utils/user_status_clear_at.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
+import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   final localizations = NeonLocalizationsEn();
@@ -41,7 +42,7 @@ void main() {
 
   test('To DateTime', () {
     for (final entry in clearAts.entries) {
-      expect(entry.key.toDateTime(DateTime.utc(2024)), entry.value.$2);
+      expect(entry.key.toDateTime(tz.TZDateTime.utc(2024)), entry.value.$2);
     }
   });
 }
