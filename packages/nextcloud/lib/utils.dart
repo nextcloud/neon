@@ -2,3 +2,4 @@
 library;
 
 export 'src/utils/date_time.dart';
+export 'src/utils/http_date_parser.dart';

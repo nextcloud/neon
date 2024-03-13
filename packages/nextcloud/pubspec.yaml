@@ -19,9 +19,9 @@ dependencies:
   crypton: ^2.0.0
   dynamite_runtime: ^0.2.0
   http: ^1.2.0
-  http_parser: ^4.0.0
   json_annotation: ^4.8.1
   meta: ^1.0.0
+  string_scanner: ^1.1.0
   timezone: ^0.9.2
   universal_io: ^2.0.0
   uri: ^1.0.0

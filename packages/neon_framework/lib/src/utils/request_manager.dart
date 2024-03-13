@@ -5,7 +5,6 @@ import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
@@ -13,6 +12,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:xml/xml.dart' as xml;
@@ -368,8 +368,7 @@ class CacheParameters {
   factory CacheParameters.parseHeaders(Map<String, dynamic> headers) {
     tz.TZDateTime? expiry;
     if (headers.containsKey('expires')) {
-      final parsed = parseHttpDate(headers['expires']! as String);
-      expiry = tz.TZDateTime.from(parsed, tz.UTC);
+      expiry = parseHttpDate(headers['expires']! as String);
     }
 
     return CacheParameters(

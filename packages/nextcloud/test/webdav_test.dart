@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:http_parser/http_parser.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
+import 'package:nextcloud/src/utils/http_date_parser.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';

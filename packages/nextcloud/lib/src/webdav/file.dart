@@ -1,5 +1,5 @@
-import 'package:http_parser/http_parser.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
+import 'package:nextcloud/src/utils/http_date_parser.dart';
 import 'package:nextcloud/src/webdav/client.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
@@ -65,8 +65,7 @@ class WebDavFile {
   /// Last modified date of the file
   late final tz.TZDateTime? lastModified = () {
     if (props.davgetlastmodified != null) {
-      final parsed = parseHttpDate(props.davgetlastmodified!);
-      return tz.TZDateTime.from(parsed, tz.UTC);
+      return parseHttpDate(props.davgetlastmodified!);
     }
     return null;
   }();
