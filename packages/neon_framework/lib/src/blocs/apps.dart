@@ -13,6 +13,7 @@ import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/notifications_interface.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
+import 'package:neon_framework/src/utils/server_version.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
@@ -170,7 +171,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     final notSupported = MapBuilder<String, VersionCheck>();
 
     final coreCheck = account.client.core.getVersionCheck(capabilities.requireData);
-    if (!coreCheck.isSupported && !capabilities.requireData.version.string.contains('dev')) {
+    if (!coreCheck.isSupported && !isDevelopmentServerVersion(capabilities.requireData.version.string)) {
       notSupported['core'] = coreCheck;
     }
 
