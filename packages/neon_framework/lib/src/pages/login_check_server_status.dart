@@ -5,6 +5,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/login_check_server_status.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
+import 'package:neon_framework/src/utils/server_version.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/validation_tile.dart';
 import 'package:nextcloud/core.dart' as core;
@@ -112,7 +113,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   }
 
   bool _isServerVersionAllowed(core.Status status) =>
-      status.versionCheck.isSupported || status.versionstring.contains('dev');
+      status.versionCheck.isSupported || isDevelopmentServerVersion(status.versionstring);
 
   Widget _buildServerVersionTile(Result<core.Status> result) {
     if (result.hasError) {
