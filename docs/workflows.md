@@ -9,6 +9,7 @@ If you need to add a new package to the Neon project please make sure to execute
 4. Add a Symlink to our main [license](../assets/AGPL-3.0.txt).
 5. Update [commitlint.yaml](../commitlint.yaml) by adding the new package name.
 6. Remove the package `.gitignore` (a global `.gitignore` for all packages is used instead).
+7. update codecov configuration with `./tool/update-codecov-config.sh`.
 
 ## Publishing new versions of the packages
 
