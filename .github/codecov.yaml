@@ -1,0 +1,38 @@
+github_checks:
+  annotations: true
+comment:
+  layout: newheader, diff, flags, files
+  require_changes: false
+  require_base: false
+  require_head: true
+  show_carryforward_flags: true
+  show_critical_paths: true
+  hide_comment_details: true
+flag_management:
+  default_rules:
+    carryforward: true
+flags:
+  dynamite:
+    paths:
+      - packages/dynamite/dynamite
+  dynamite_end_to_end_test:
+    paths:
+      - packages/dynamite/dynamite_end_to_end_test
+  dynamite_runtime:
+    paths:
+      - packages/dynamite/dynamite_runtime
+  neon_dashboard:
+    paths:
+      - packages/neon/neon_dashboard
+  neon_framework:
+    paths:
+      - packages/neon_framework
+  neon_talk:
+    paths:
+      - packages/neon/neon_talk
+  nextcloud:
+    paths:
+      - packages/nextcloud
+  sort_box:
+    paths:
+      - packages/sort_box

@@ -6,6 +6,7 @@ environment:
 
 dev_dependencies:
   commitlint_cli: ^0.7.1
+  coverage: ^1.7.2
   fvm: ^3.0.14
   husky: ^0.1.7
   melos: ^5.1.0
