@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:path/path.dart' as p;
@@ -17,18 +18,18 @@ abstract interface class RequestCache {
   ///
   /// Use [getParameters] if you only need to check whether the cache is still
   /// valid.
-  Future<String?> get(String key);
+  Future<String?> get(Account account, String key);
 
   /// Set's the cached [value] at the given [key].
   ///
   /// If a value is already present it will be updated with the new one.
-  Future<void> set(String key, String value, CacheParameters? parameters);
+  Future<void> set(Account account, String key, String value, CacheParameters? parameters);
 
   /// Retrieves the cache parameters for the given [key].
-  Future<CacheParameters> getParameters(String key);
+  Future<CacheParameters> getParameters(Account account, String key);
 
   /// Updates the cache [parameters] for a given [key] without modifying the `value`.
-  Future<void> updateParameters(String key, CacheParameters? parameters);
+  Future<void> updateParameters(Account account, String key, CacheParameters? parameters);
 }
 
 /// Default implementation of the [RequestCache].
@@ -64,30 +65,32 @@ final class DefaultRequestCache implements RequestCache {
     final cacheDir = await getApplicationCacheDirectory();
     database = await openDatabase(
       p.join(cacheDir.path, 'cache.db'),
-      version: 2,
+      version: 3,
       onCreate: onCreate,
       onUpgrade: (db, oldVersion, newVersion) async {
-        final batch = db.batch();
-        if (oldVersion == 1) {
-          batch
-            ..execute('ALTER TABLE cache ADD COLUMN etag TEXT')
-            ..execute('ALTER TABLE cache ADD COLUMN expires INTEGER');
-        }
-        await batch.commit();
+        // We can safely drop the table as it only contains cached data.
+        // Non breaking migrations should not drop the cache. The next
+        // breaking change should remove all non breaking migrations before it.
+        await db.transaction((txn) async {
+          if (oldVersion <= 2) {
+            await txn.execute('DROP TABLE cache');
+            await onCreate(txn);
+          }
+        });
       },
     );
   }
 
   @visibleForTesting
-  static Future<void> onCreate(Database db, int version) async {
+  static Future<void> onCreate(DatabaseExecutor db, [int? version]) async {
     await db.execute('''
 CREATE TABLE "cache" (
-	"id"      INTEGER UNIQUE,
-	"key"     TEXT UNIQUE,
-	"value"   TEXT,
+	"account" TEXT NOT NULL,
+	"key"     TEXT NOT NULL,
+	"value"   TEXT NOT NULL,
 	"etag"    TEXT,
 	"expires" INTEGER,
-	PRIMARY   KEY("id")
+	PRIMARY KEY("key", "account")
 );
 ''');
   }
@@ -104,10 +107,17 @@ CREATE TABLE "cache" (
   }
 
   @override
-  Future<String?> get(String key) async {
+  Future<String?> get(Account account, String key) async {
     List<Map<String, Object?>>? result;
     try {
-      result = await _requireDatabase.rawQuery('SELECT value FROM cache WHERE key = ?', [key]);
+      result = await _requireDatabase.rawQuery(
+        '''
+SELECT value
+FROM cache
+WHERE account = ? AND key = ?
+      ''',
+        [account.id, key],
+      );
     } on DatabaseException catch (error, stackTrace) {
       _log.severe(
         'Error while getting `$key` from cache.',
@@ -120,7 +130,7 @@ CREATE TABLE "cache" (
   }
 
   @override
-  Future<void> set(String key, String value, CacheParameters? parameters) async {
+  Future<void> set(Account account, String key, String value, CacheParameters? parameters) async {
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
       // Using a manual solution from https://stackoverflow.com/a/38463024
@@ -128,17 +138,28 @@ CREATE TABLE "cache" (
         ..update(
           'cache',
           {
+            'account': account.id,
             'key': key,
             'value': value,
             'etag': parameters?.etag,
             'expires': parameters?.expires?.millisecondsSinceEpoch,
           },
-          where: 'key = ?',
-          whereArgs: [key],
+          where: 'account = ? AND key = ?',
+          whereArgs: [account.id, key],
         )
         ..rawInsert(
-          'INSERT INTO cache (key, value, etag, expires) SELECT ?, ?, ?, ? WHERE (SELECT changes() = 0)',
-          [key, value, parameters?.etag, parameters?.expires?.millisecondsSinceEpoch],
+          '''
+INSERT INTO cache (account, key, value, etag, expires)
+SELECT ?, ?, ?, ?, ?
+WHERE (SELECT changes() = 0)
+''',
+          [
+            account.id,
+            key,
+            value,
+            parameters?.etag,
+            parameters?.expires?.millisecondsSinceEpoch,
+          ],
         );
       await batch.commit(noResult: true);
     } on DatabaseException catch (error, stackTrace) {
@@ -151,10 +172,17 @@ CREATE TABLE "cache" (
   }
 
   @override
-  Future<CacheParameters> getParameters(String key) async {
+  Future<CacheParameters> getParameters(Account account, String key) async {
     List<Map<String, Object?>>? result;
     try {
-      result = await _requireDatabase.rawQuery('SELECT etag, expires FROM cache WHERE key = ?', [key]);
+      result = await _requireDatabase.rawQuery(
+        '''
+SELECT etag, expires
+FROM cache
+WHERE account = ? AND key = ?
+''',
+        [account.id, key],
+      );
     } on DatabaseException catch (error, stackTrace) {
       _log.severe(
         'Error getting the cache parameters for `$key` from cache.',
@@ -178,16 +206,17 @@ CREATE TABLE "cache" (
   }
 
   @override
-  Future<void> updateParameters(String key, CacheParameters? parameters) async {
+  Future<void> updateParameters(Account account, String key, CacheParameters? parameters) async {
     try {
       await _requireDatabase.update(
         'cache',
         {
+          'account': account.id,
           'etag': parameters?.etag,
           'expires': parameters?.expires?.millisecondsSinceEpoch,
         },
-        where: 'key = ?',
-        whereArgs: [key],
+        where: 'account = ? AND key = ?',
+        whereArgs: [account.id, key],
       );
     } on DatabaseException catch (error, stackTrace) {
       _log.severe(
