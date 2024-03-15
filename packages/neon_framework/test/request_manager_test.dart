@@ -271,22 +271,26 @@ void main() {
     group('wrap with cache', () {
       late MockRequestCache cache;
 
+      setUpAll(() {
+        registerFallbackValue(account);
+      });
+
       setUp(() async {
         cache = MockRequestCache();
 
-        when(() => cache.get(any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value('Cached value'),
         );
 
-        when(() => cache.set(any(), any(), any())).thenAnswer(
+        when(() => cache.set(any(), any(), any(), any())).thenAnswer(
           (_) => Future.value(),
         );
 
-        when(() => cache.getParameters(any())).thenAnswer(
+        when(() => cache.getParameters(any(), any())).thenAnswer(
           (_) => Future.value(const CacheParameters(etag: null, expires: null)),
         );
 
-        when(() => cache.updateParameters(any(), any())).thenAnswer(
+        when(() => cache.updateParameters(any(), any(), any())).thenAnswer(
           (_) => Future.value(),
         );
 
@@ -318,8 +322,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
-        verify(() => cache.set('clientID-key', 'Test value', null)).called(1);
+        verify(() => cache.get(account, 'key')).called(1);
+        verify(() => cache.set(account, 'key', 'Test value', null)).called(1);
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -345,8 +349,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
-        verify(() => cache.set('clientID-key', 'Test value', null)).called(1);
+        verify(() => cache.get(account, 'key')).called(1);
+        verify(() => cache.set(account, 'key', 'Test value', null)).called(1);
       });
 
       test('timeout request', () async {
@@ -391,8 +395,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any()));
+        verify(() => cache.get(account, 'key')).called(1);
+        verifyNever(() => cache.set(any(), any(), any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -435,8 +439,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any()));
+        verify(() => cache.get(account, 'key')).called(1);
+        verifyNever(() => cache.set(any(), any(), any(), any()));
       });
 
       test('throwing request', () async {
@@ -464,8 +468,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any()));
+        verify(() => cache.get(account, 'key')).called(1);
+        verifyNever(() => cache.set(any(), any(), any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -491,12 +495,12 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any()));
+        verify(() => cache.get(account, 'key')).called(1);
+        verifyNever(() => cache.set(any(), any(), any(), any()));
       });
 
       test('cached Expires', () async {
-        when(() => cache.getParameters(any())).thenAnswer(
+        when(() => cache.getParameters(any(), any())).thenAnswer(
           (_) => Future.value(
             CacheParameters(
               etag: null,
@@ -504,7 +508,7 @@ void main() {
             ),
           ),
         );
-        when(() => cache.get(any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value('Cached value'),
         );
 
@@ -531,10 +535,10 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any()));
+        verify(() => cache.get(account, 'key')).called(1);
+        verifyNever(() => cache.set(any(), any(), any(), any()));
 
-        when(() => cache.getParameters(any())).thenAnswer(
+        when(() => cache.getParameters(any(), any())).thenAnswer(
           (_) => Future.value(
             CacheParameters(
               etag: null,
@@ -542,7 +546,7 @@ void main() {
             ),
           ),
         );
-        when(() => cache.get(any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value('Cached value'),
         );
 
@@ -570,8 +574,8 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
-        verify(() => cache.set(any(), any(), any())).called(1);
+        verify(() => cache.get(account, 'key')).called(1);
+        verify(() => cache.set(any(), any(), any(), any())).called(1);
       });
 
       test('cached ETag', () async {
@@ -581,7 +585,7 @@ void main() {
           tz.UTC,
         );
 
-        when(() => cache.getParameters(any())).thenAnswer(
+        when(() => cache.getParameters(any(), any())).thenAnswer(
           (_) => Future.value(
             const CacheParameters(
               etag: 'a',
@@ -589,7 +593,7 @@ void main() {
             ),
           ),
         );
-        when(() => cache.get(any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value('Cached value'),
         );
         when(callback.call).thenAnswer(
@@ -623,12 +627,12 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
+        verify(() => cache.get(account, 'key')).called(1);
         verify(callback.call).called(1);
-        verify(() => cache.updateParameters('clientID-key', CacheParameters(etag: 'a', expires: newExpires))).called(1);
-        verifyNever(() => cache.set(any(), any(), any()));
+        verify(() => cache.updateParameters(account, 'key', CacheParameters(etag: 'a', expires: newExpires))).called(1);
+        verifyNever(() => cache.set(any(), any(), any(), any()));
 
-        when(() => cache.getParameters(any())).thenAnswer(
+        when(() => cache.getParameters(any(), any())).thenAnswer(
           (_) => Future.value(
             const CacheParameters(
               etag: 'a',
@@ -636,7 +640,7 @@ void main() {
             ),
           ),
         );
-        when(() => cache.get(any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value('Cached value'),
         );
         when(callback.call).thenAnswer(
@@ -671,10 +675,10 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get('clientID-key')).called(1);
+        verify(() => cache.get(account, 'key')).called(1);
         verify(callback.call).called(1);
-        verify(() => cache.set('clientID-key', 'Test value', null));
-        verifyNever(() => cache.updateParameters(any(), any()));
+        verify(() => cache.set(account, 'key', 'Test value', null));
+        verifyNever(() => cache.updateParameters(any(), any(), any()));
       });
 
       test('cache ETag and Expires', () async {
@@ -730,10 +734,11 @@ void main() {
           );
 
           await subject.close();
-          verify(() => cache.get('clientID-key')).called(1);
+          verify(() => cache.get(account, 'key')).called(1);
           verify(
             () => cache.set(
-              'clientID-key',
+              account,
+              'key',
               'Test value',
               CacheParameters(etag: 'a', expires: isSet ? newExpires : null),
             ),

@@ -3,20 +3,25 @@
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/sqlite_persistence.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   group('Persistences', () {
     test('RequestCache', () async {
+      final account = MockAccount();
+      when(() => account.id).thenReturn('clientID');
+
       final cache = DefaultRequestCache();
       sqfliteFfiInit();
       databaseFactory = databaseFactoryFfi;
 
-      expect(() async => cache.get('key'), throwsA(isA<StateError>()));
+      expect(() async => cache.get(account, 'key'), throwsA(isA<StateError>()));
 
       cache.database = await openDatabase(
         inMemoryDatabasePath,
@@ -24,23 +29,23 @@ void main() {
         onCreate: DefaultRequestCache.onCreate,
       );
 
-      dynamic result = await cache.get('key');
+      dynamic result = await cache.get(account, 'key');
       expect(result, isNull);
 
-      await cache.set('key', 'value', null);
-      result = await cache.get('key');
+      await cache.set(account, 'key', 'value', null);
+      result = await cache.get(account, 'key');
       expect(result, equals('value'));
 
-      await cache.set('key', 'upsert', null);
-      result = await cache.get('key');
+      await cache.set(account, 'key', 'upsert', null);
+      result = await cache.get(account, 'key');
       expect(result, equals('upsert'));
 
       var parameters = const CacheParameters(etag: null, expires: null);
-      result = await cache.getParameters('newKey');
+      result = await cache.getParameters(account, 'newKey');
       expect(result, equals(parameters));
 
-      await cache.set('key', 'value', parameters);
-      result = await cache.getParameters('key');
+      await cache.set(account, 'key', 'value', parameters);
+      result = await cache.getParameters(account, 'key');
       expect(result, equals(parameters));
 
       parameters = CacheParameters(
@@ -50,8 +55,8 @@ void main() {
           tz.TZDateTime.now(tz.UTC).millisecondsSinceEpoch,
         ),
       );
-      await cache.updateParameters('key', parameters);
-      result = await cache.getParameters('key');
+      await cache.updateParameters(account, 'key', parameters);
+      result = await cache.getParameters(account, 'key');
       expect(result, equals(parameters));
     });
 

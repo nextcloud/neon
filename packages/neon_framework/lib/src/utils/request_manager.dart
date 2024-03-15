@@ -212,8 +212,6 @@ class RequestManager {
     bool disableTimeout = false,
     Duration timeLimit = kDefaultTimeout,
   }) async {
-    final key = '${account.id}-$cacheKey';
-
     if (subject.isClosed) {
       return;
     }
@@ -221,11 +219,11 @@ class RequestManager {
       subject.add(Result.loading());
     }
 
-    final cachedParameters = await _cache?.getParameters(key);
+    final cachedParameters = await _cache?.getParameters(account, cacheKey);
 
     if (cachedParameters != null) {
       if (cachedParameters.expires != null && !cachedParameters.isExpired) {
-        final cachedValue = await _cache?.get(key);
+        final cachedValue = await _cache?.get(account, cacheKey);
         if (cachedValue != null) {
           if (!subject.isClosed) {
             subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
@@ -255,11 +253,12 @@ class RequestManager {
         }
 
         if (cacheParameters != null && cacheParameters.etag == cachedParameters.etag) {
-          final cachedValue = await _cache?.get(key);
+          final cachedValue = await _cache?.get(account, cacheKey);
           if (cachedValue != null) {
             unawaited(
               _cache?.updateParameters(
-                key,
+                account,
+                cacheKey,
                 cacheParameters,
               ),
             );
@@ -272,7 +271,7 @@ class RequestManager {
       }
     }
 
-    final cachedValue = await _cache?.get(key);
+    final cachedValue = await _cache?.get(account, cacheKey);
     if (subject.isClosed) {
       return;
     }
@@ -307,7 +306,7 @@ class RequestManager {
           cacheParameters = CacheParameters.parseHeaders(rawHeaders);
         }
 
-        await _cache?.set(key, serialized, cacheParameters);
+        await _cache?.set(account, cacheKey, serialized, cacheParameters);
         break;
       } on TimeoutException catch (error, stackTrace) {
         _log.info(
