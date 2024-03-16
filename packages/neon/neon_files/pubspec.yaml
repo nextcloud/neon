@@ -41,7 +41,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.8
-  custom_lint: ^0.6.2
+  custom_lint: ^0.6.4
   go_router_builder: ^2.4.1
   neon_lints:
     git:

@@ -10,4 +10,4 @@ dev_dependencies:
   fvm: ^3.0.14
   husky: ^0.1.7
   melos: ^5.1.0
-  custom_lint: ^0.6.2
+  custom_lint: ^0.6.4
