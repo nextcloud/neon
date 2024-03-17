@@ -57,13 +57,29 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
     return ResultBuilder.behaviorSubject(
       subject: bloc.room,
       builder: (context, result) {
+        Widget title = Text(result.requireData.displayName);
+
+        final statusMessage = result.requireData.statusMessage;
+        if (statusMessage != null) {
+          title = Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              title,
+              Text(
+                statusMessage,
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
+            ],
+          );
+        }
+
         final appBar = AppBar(
           title: Row(
             children: <Widget>[
               TalkRoomAvatar(
                 room: widget.room,
               ),
-              Text(result.requireData.displayName),
+              title,
               NeonError(
                 result.error,
                 onRetry: bloc.refresh,
