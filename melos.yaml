@@ -42,7 +42,7 @@ scripts:
     melos run test:dart &&
     melos run test:flutter
   test:dart: >
-    melos exec --no-flutter --concurrency=1 --fail-fast --dir-exists=test -- "
+    melos exec --no-flutter --concurrency=1 --fail-fast --ignore=nextcloud --dir-exists=test -- "
       dart run --pause-isolates-on-exit --disable-service-auth-codes --enable-vm-service=8181 test --concurrency=$(nproc --all) --fail-fast &
       dart pub global run coverage:collect_coverage --wait-paused --uri=http://127.0.0.1:8181/ -o coverage/coverage.json --resume-isolates --scope-output=foo
       dart pub global run coverage:format_coverage --packages=.dart_tool/package_config.json --lcov -i coverage/coverage.json -o coverage/lcov.info

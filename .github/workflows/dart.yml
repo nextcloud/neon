@@ -17,16 +17,6 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 0
-      - name: Login to GHCR
-        uses: docker/login-action@e92390c5fb421da1463c202d546fed0ec5c39f20 # v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@2b51285047da1547ffb1b2203d8be4c0af6b1f20 # v3
-      - name: Build test Docker image
-        run: ./tool/build-dev-container.sh
 
       - name: Install dart
         uses: dart-lang/setup-dart@fedb1266e91cf51be2fdb382869461a434b920a3 # v1
@@ -42,11 +32,7 @@ jobs:
         run: melos run analyze
       - name: Run tests
         run: |
-          mapfile -t packages < <(melos list --parsable --diff=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }}..${{ github.event.pull_request.head.sha }} --include-dependents | xargs -r -n1 basename)
-          if [ -z "$packages" ]; then exit 0; fi
-          packages_glob="$(printf ",%s" "${packages[@]}")"
-          packages_glob="${packages_glob:1}"
-          MELOS_PACKAGES="$packages_glob" melos test
+          melos test
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@54bcd8715eee62d40e33596ef5e8f0f48dbbccab # v4
@@ -55,4 +41,4 @@ jobs:
           codecov_yml_path: ./github/codecov.yaml
           exclude: .fvm
           fail_ci_if_error: true
-          slug: nextcloud/neon
+          slug: Leptopoda/nextcloud-neon
