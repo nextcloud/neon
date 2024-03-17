@@ -123,8 +123,10 @@ class DashboardMainPage extends StatelessWidget {
     required UserStatusBloc userStatusBloc,
     required WeatherStatusBloc weatherStatusBloc,
   }) =>
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      Wrap(
+        alignment: WrapAlignment.center,
+        spacing: 8,
+        runSpacing: 8,
         children: <Widget>[
           ResultBuilder.behaviorSubject(
             subject: userStatusBloc.status,
@@ -248,20 +250,17 @@ class DashboardMainPage extends StatelessWidget {
     required Widget label,
     required VoidCallback onPressed,
   }) =>
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ActionChip(
-          avatar: icon,
-          label: label,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-            side: BorderSide(
-              color: Theme.of(context).colorScheme.primary,
-            ),
+      ActionChip(
+        avatar: icon,
+        label: label,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+          side: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
           ),
-          padding: const EdgeInsets.all(15),
-          onPressed: onPressed,
         ),
+        padding: const EdgeInsets.all(15),
+        onPressed: onPressed,
       );
 
   /// Builds the list of messages, [items] and buttons for a [widget].
