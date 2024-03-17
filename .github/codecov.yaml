@@ -8,31 +8,36 @@ comment:
   show_carryforward_flags: true
   show_critical_paths: true
   hide_comment_details: true
-flag_management:
-  default_rules:
-    carryforward: true
 flags:
   dynamite:
     paths:
       - packages/dynamite/dynamite
+    carryforward: true
   dynamite_end_to_end_test:
     paths:
       - packages/dynamite/dynamite_end_to_end_test
+    carryforward: true
   dynamite_runtime:
     paths:
       - packages/dynamite/dynamite_runtime
+    carryforward: true
   neon_dashboard:
     paths:
       - packages/neon/neon_dashboard
+    carryforward: true
   neon_framework:
     paths:
       - packages/neon_framework
+    carryforward: true
   neon_talk:
     paths:
       - packages/neon/neon_talk
+    carryforward: true
   nextcloud:
     paths:
       - packages/nextcloud
+    carryforward: true
   sort_box:
     paths:
       - packages/sort_box
+    carryforward: true

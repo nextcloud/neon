@@ -10,5 +10,5 @@ for package in $(melos list --dir-exists=test --json | jq -c '.[]'); do
     location=${location##"$(pwd)/"}
     echo "$name $location"
 
-    yq -iy ".flags.$name.paths[0] = \"$location\"" .github/codecov.yaml
+    yq -iy ".flags.$name.paths[0] = \"$location\" | .flags.$name.carryforward = true" .github/codecov.yaml
 done
