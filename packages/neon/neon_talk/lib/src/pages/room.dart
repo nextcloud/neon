@@ -57,9 +57,11 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
     return ResultBuilder.behaviorSubject(
       subject: bloc.room,
       builder: (context, result) {
-        Widget title = Text(result.requireData.displayName);
+        final room = result.requireData;
 
-        final statusMessage = result.requireData.statusMessage;
+        Widget title = Text(room.displayName);
+
+        final statusMessage = room.statusMessage;
         if (statusMessage != null) {
           title = Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +79,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
           title: Row(
             children: <Widget>[
               TalkRoomAvatar(
-                room: widget.room,
+                room: room,
               ),
               title,
               NeonError(
@@ -103,7 +105,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
         final body = ResultBuilder.behaviorSubject(
           subject: bloc.messages,
           builder: (context, result) => NeonListView(
-            scrollKey: 'talk-room-${widget.room.token}',
+            scrollKey: 'talk-room-${room.token}',
             reverse: true,
             isLoading: result.isLoading,
             error: result.error,
