@@ -73,7 +73,7 @@ final class DefaultRequestCache implements RequestCache {
         // Non breaking migrations should not drop the cache. The next
         // breaking change should remove all non breaking migrations before it.
         await db.transaction((txn) async {
-          if (oldVersion <= 2) {
+          if (oldVersion <= 3) {
             await txn.execute('DROP TABLE cache');
             await onCreate(txn);
           }

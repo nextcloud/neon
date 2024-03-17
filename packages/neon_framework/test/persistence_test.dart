@@ -55,9 +55,11 @@ void main() {
         expires: now,
       );
       await cache.updateParameters(account, 'key', parameters);
-      final cachedParameters = await cache.getParameters(account, 'key');
-      expect(cachedParameters.etag, 'etag');
-      expect(cachedParameters.expires?.secondsSinceEpoch, now.secondsSinceEpoch);
+
+      result = await cache.getParameters(account, 'key');
+      result as CacheParameters;
+      expect(result.etag, 'etag');
+      expect(result.expires?.secondsSinceEpoch, now.secondsSinceEpoch);
     });
 
     group('SQLitePersistence', () {
