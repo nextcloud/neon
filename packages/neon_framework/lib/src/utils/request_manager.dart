@@ -219,26 +219,46 @@ class RequestManager {
       subject.add(Result.loading());
     }
 
-    final cachedParameters = await _cache?.getParameters(account, cacheKey);
+    // Fetch the cached data with the cache parameters.
+    final cached = await _cache?.get(account, cacheKey);
+    if (subject.isClosed) {
+      return;
+    }
 
-    if (cachedParameters != null) {
-      if (cachedParameters.expires != null && !cachedParameters.isExpired) {
-        final cachedValue = await _cache?.get(account, cacheKey);
-        if (cachedValue != null) {
-          if (!subject.isClosed) {
-            subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
-          }
-          return;
-        }
-      }
+    if (cached != null) {
+      // If the cached data is not expired unwrap and emit it.
+      // Return as the value is up to date.
+      if (cached.parameters case CacheParameters(isExpired: false)) {
+        final unwrapped = unwrap(deserialize(cached.value));
+        subject.add(Result(unwrapped, null, isLoading: false, isCached: true));
+        return;
 
-      if (cachedParameters.etag != null) {
-        CacheParameters? cacheParameters;
+        // If the cached data expired and has an etag, try to refresh the cache parameters.
+        // If the etag did not change, unwrap and emit the cached data.
+        // Save the new cache parameters and return.
+      } else if (cached.parameters case CacheParameters(:final etag) when etag != null && getCacheParameters != null) {
         try {
-          cacheParameters = await timeout(
-            () async => getCacheParameters?.call(),
+          final newParameters = await timeout(
+            getCacheParameters.call,
             timeLimit: timeLimit,
           );
+          if (subject.isClosed) {
+            return;
+          }
+
+          if (newParameters.etag == etag) {
+            unawaited(
+              _cache?.updateParameters(
+                account,
+                cacheKey,
+                newParameters,
+              ),
+            );
+
+            final unwrapped = unwrap(deserialize(cached.value));
+            subject.add(Result(unwrapped, null, isLoading: false, isCached: true));
+            return;
+          }
         } on TimeoutException catch (error) {
           _log.info(
             'Fetching cache parameters timed out. Assuming expired.',
@@ -256,38 +276,22 @@ class RequestManager {
             stackTrace,
           );
         }
-
-        if (cacheParameters != null && cacheParameters.etag == cachedParameters.etag) {
-          final cachedValue = await _cache?.get(account, cacheKey);
-          if (cachedValue != null) {
-            unawaited(
-              _cache?.updateParameters(
-                account,
-                cacheKey,
-                cacheParameters,
-              ),
-            );
-            if (!subject.isClosed) {
-              subject.add(Result(unwrap(deserialize(cachedValue)), null, isLoading: false, isCached: true));
-            }
-            return;
-          }
-        }
       }
-    }
 
-    final cachedValue = await _cache?.get(account, cacheKey);
-    if (subject.isClosed) {
-      return;
-    }
-    if (cachedValue != null) {
+      // If the cached data did not satisfy the above `CacheParameters` checks, emit it in a loading state.
+      // DO NOT return as a new value MUST be fetched from the server.
+      final unwrapped = unwrap(deserialize(cached.value));
+
       subject.add(
         subject.value.copyWith(
-          data: unwrap(deserialize(cachedValue)),
+          data: unwrapped,
           isLoading: true,
           isCached: true,
         ),
       );
+
+      // When there was no value in the cache re emit the current result in the subject as loading.
+      // DO NOT return as a value MUST be fetched from the server.
     } else if (!subject.value.isLoading) {
       subject.add(subject.value.asLoading());
     }

@@ -79,7 +79,6 @@ void main() {
     expect(
       bloc.room.transformResult((e) => e.token),
       emitsInOrder([
-        Result.success('abcd'),
         Result.success('abcd').asLoading(),
         Result.success('abcd'),
         Result.success('abcd').asLoading(),
