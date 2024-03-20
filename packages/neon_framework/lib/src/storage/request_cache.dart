@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
+import 'package:nextcloud/utils.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -65,7 +66,7 @@ final class DefaultRequestCache implements RequestCache {
     final cacheDir = await getApplicationCacheDirectory();
     database = await openDatabase(
       p.join(cacheDir.path, 'cache.db'),
-      version: 3,
+      version: 4,
       onCreate: onCreate,
       onUpgrade: (db, oldVersion, newVersion) async {
         // We can safely drop the table as it only contains cached data.
@@ -75,6 +76,10 @@ final class DefaultRequestCache implements RequestCache {
           if (oldVersion <= 2) {
             await txn.execute('DROP TABLE cache');
             await onCreate(txn);
+          }
+
+          if (oldVersion <= 3) {
+            await txn.delete('cache');
           }
         });
       },
@@ -142,7 +147,7 @@ WHERE account = ? AND key = ?
             'key': key,
             'value': value,
             'etag': parameters?.etag,
-            'expires': parameters?.expires?.millisecondsSinceEpoch,
+            'expires': parameters?.expires?.secondsSinceEpoch,
           },
           where: 'account = ? AND key = ?',
           whereArgs: [account.id, key],
@@ -158,7 +163,7 @@ WHERE (SELECT changes() = 0)
             key,
             value,
             parameters?.etag,
-            parameters?.expires?.millisecondsSinceEpoch,
+            parameters?.expires?.secondsSinceEpoch,
           ],
         );
       await batch.commit(noResult: true);
@@ -197,7 +202,7 @@ WHERE account = ? AND key = ?
     return CacheParameters(
       etag: row?['etag'] as String?,
       expires: expires != null
-          ? tz.TZDateTime.fromMillisecondsSinceEpoch(
+          ? DateTimeUtils.fromSecondsSinceEpoch(
               tz.UTC,
               expires,
             )
@@ -213,7 +218,7 @@ WHERE account = ? AND key = ?
         {
           'account': account.id,
           'etag': parameters?.etag,
-          'expires': parameters?.expires?.millisecondsSinceEpoch,
+          'expires': parameters?.expires?.secondsSinceEpoch,
         },
         where: 'account = ? AND key = ?',
         whereArgs: [account.id, key],
