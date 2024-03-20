@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:flutter_file_dialog/flutter_file_dialog.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 
@@ -45,11 +45,9 @@ class AndroidNeonPlatform implements NeonPlatform {
 
   @override
   Future<void> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data) async {
-    await FlutterFileDialog.saveFile(
-      params: SaveFileDialogParams(
-        data: data,
-        fileName: fileName,
-      ),
+    await FilePicker.platform.saveFile(
+      fileName: fileName,
+      bytes: data,
     );
   }
 }
