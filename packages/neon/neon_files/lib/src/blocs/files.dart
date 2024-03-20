@@ -13,7 +13,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:open_file/open_file.dart';
+import 'package:open_filex/open_filex.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:queue/queue.dart';
@@ -139,7 +139,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
       () async {
         if (NeonPlatform.instance.canUsePaths) {
           final file = await cacheFile(uri, etag);
-          final result = await OpenFile.open(file.path, type: mimeType);
+          final result = await OpenFilex.open(file.path, type: mimeType);
           if (result.type != ResultType.done) {
             throw const UnableToOpenFileException();
           }
