@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
@@ -185,13 +186,14 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                 tooltip: NewsLocalizations.of(context).articleOpenLink,
                 icon: const Icon(Icons.open_in_new),
               ),
-              IconButton(
-                onPressed: () async {
-                  await Share.share(await _getURL());
-                },
-                tooltip: NewsLocalizations.of(context).articleShare,
-                icon: Icon(Icons.adaptive.share),
-              ),
+              if (NeonPlatform.instance.canUseSharing)
+                IconButton(
+                  onPressed: () async {
+                    await Share.share(await _getURL());
+                  },
+                  tooltip: NewsLocalizations.of(context).articleShare,
+                  icon: Icon(Icons.adaptive.share),
+                ),
             ],
           ],
         ),
