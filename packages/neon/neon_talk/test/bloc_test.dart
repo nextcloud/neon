@@ -8,35 +8,50 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/spreed.dart' as spreed;
 
 import 'testing.dart';
 
-Account mockTalkAccount() => mockServer({
-      RegExp(r'/ocs/v2\.php/apps/spreed/api/v4/room'): {
-        'get': (match, queryParameters) => Response(
-              json.encode({
-                'ocs': {
-                  'meta': {'status': '', 'statuscode': 0},
-                  'data': [
+Account mockTalkAccount() {
+  var roomCount = 3;
+
+  return mockServer({
+    RegExp(r'/ocs/v2\.php/apps/spreed/api/v4/room'): {
+      'get': (match, queryParameters) => Response(
+            json.encode({
+              'ocs': {
+                'meta': {'status': '', 'statuscode': 0},
+                'data': [
+                  for (var i = 0; i < roomCount; i++)
                     getRoom(
-                      id: 0,
-                      unreadMessages: 0,
+                      id: i,
+                      unreadMessages: i,
                     ),
-                    getRoom(
-                      id: 1,
-                      unreadMessages: 1,
-                    ),
-                    getRoom(
-                      id: 2,
-                      unreadMessages: 2,
-                    ),
-                  ],
-                },
-              }),
-              200,
-            ),
+                ],
+              },
+            }),
+            200,
+          ),
+      'post': (match, queryParameters) {
+        roomCount++;
+
+        return Response(
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': getRoom(
+                id: roomCount - 1,
+                unreadMessages: roomCount - 1,
+              ),
+            },
+          }),
+          200,
+        );
       },
-    });
+    },
+  });
+}
 
 void main() {
   late Account account;
@@ -54,7 +69,9 @@ void main() {
     );
   });
 
-  tearDown(() {
+  tearDown(() async {
+    // Wait for all events to be processed
+    await Future<void>.delayed(const Duration(milliseconds: 1));
     bloc.dispose();
   });
 
@@ -80,5 +97,43 @@ void main() {
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
     await bloc.refresh();
+  });
+
+  test('createRoom', () async {
+    expect(
+      bloc.rooms.transformResult((e) => BuiltList<int>(e.map((r) => r.id))),
+      emitsInOrder([
+        Result<BuiltList<int>>.loading(),
+        Result.success(BuiltList<int>([0, 1, 2])),
+        Result.success(BuiltList<int>([0, 1, 2])).asLoading(),
+        Result.success(BuiltList<int>([0, 1, 2, 3])),
+      ]),
+    );
+    expect(
+      bloc.unreadCounter,
+      emitsInOrder([
+        3,
+        3,
+        6,
+      ]),
+    );
+
+    // The delay is necessary to avoid a race condition with loading twice at the same time
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
+    bloc.createRoom(
+      spreed.RoomType.oneToOne,
+      null,
+      core.AutocompleteResult(
+        (b) => b
+          ..id = 'test'
+          ..label = ''
+          ..icon = ''
+          ..source = 'users'
+          ..status = (autocompleteResultStatus0: null, string: '')
+          ..subline = ''
+          ..shareWithDisplayNameUnique = '',
+      ),
+    );
   });
 }

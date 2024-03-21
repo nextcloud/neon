@@ -5,6 +5,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
+import 'package:neon_talk/src/dialogs/create_room.dart';
 import 'package:neon_talk/src/pages/room.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
@@ -42,15 +43,35 @@ class _TalkMainPageState extends State<TalkMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ResultBuilder.behaviorSubject(
-      subject: bloc.rooms,
-      builder: (context, rooms) => NeonListView(
-        scrollKey: 'talk-rooms',
-        isLoading: rooms.isLoading,
-        error: rooms.error,
-        onRefresh: bloc.refresh,
-        itemCount: rooms.data?.length ?? 0,
-        itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
+    return Scaffold(
+      body: ResultBuilder.behaviorSubject(
+        subject: bloc.rooms,
+        builder: (context, rooms) => NeonListView(
+          scrollKey: 'talk-rooms',
+          isLoading: rooms.isLoading,
+          error: rooms.error,
+          onRefresh: bloc.refresh,
+          itemCount: rooms.data?.length ?? 0,
+          itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () async {
+          final result = await showDialog<TalkCreateRoomDetails>(
+            context: context,
+            builder: (context) => const TalkCreateRoomDialog(),
+          );
+          if (result == null) {
+            return;
+          }
+
+          bloc.createRoom(
+            result.type,
+            result.roomName,
+            result.invite,
+          );
+        },
       ),
     );
   }

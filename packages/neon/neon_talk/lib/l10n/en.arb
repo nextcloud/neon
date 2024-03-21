@@ -1,5 +1,15 @@
 {
   "@@locale": "en",
   "actorSelf": "You",
-  "actorGuest": "Guest"
+  "actorGuest": "Guest",
+  "roomCreate": "Create room",
+  "roomCreateUserName": "User name",
+  "roomCreateGroupName": "Group name",
+  "roomCreateRoomName": "Room name",
+  "roomType": "{type, select, oneToOne{Private} group{Group} public{Public} other{}}",
+  "@roomType": {
+    "placeholders": {
+      "type": {}
+    }
+  }
 }

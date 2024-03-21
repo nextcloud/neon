@@ -100,6 +100,36 @@ abstract class TalkLocalizations {
   /// In en, this message translates to:
   /// **'Guest'**
   String get actorGuest;
+
+  /// No description provided for @roomCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create room'**
+  String get roomCreate;
+
+  /// No description provided for @roomCreateUserName.
+  ///
+  /// In en, this message translates to:
+  /// **'User name'**
+  String get roomCreateUserName;
+
+  /// No description provided for @roomCreateGroupName.
+  ///
+  /// In en, this message translates to:
+  /// **'Group name'**
+  String get roomCreateGroupName;
+
+  /// No description provided for @roomCreateRoomName.
+  ///
+  /// In en, this message translates to:
+  /// **'Room name'**
+  String get roomCreateRoomName;
+
+  /// No description provided for @roomType.
+  ///
+  /// In en, this message translates to:
+  /// **'{type, select, oneToOne{Private} group{Group} public{Public} other{}}'**
+  String roomType(String type);
 }
 
 class _TalkLocalizationsDelegate extends LocalizationsDelegate<TalkLocalizations> {
