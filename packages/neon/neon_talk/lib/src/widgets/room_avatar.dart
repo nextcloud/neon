@@ -42,10 +42,12 @@ class TalkRoomAvatar extends StatelessWidget {
           username: room.name,
         ),
       spreed.RoomType.group => _buildIconAvatar(AdaptiveIcons.group),
+      // coverage:ignore-start
       spreed.RoomType.public => _buildIconAvatar(AdaptiveIcons.link),
       spreed.RoomType.changelog => _buildIconAvatar(AdaptiveIcons.text_snippet_outlined),
       spreed.RoomType.oneToOneFormer => _buildIconAvatar(AdaptiveIcons.lock),
       spreed.RoomType.noteToSelf => _buildIconAvatar(AdaptiveIcons.edit_note),
+      // coverage:ignore-end
     };
   }
 
