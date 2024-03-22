@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
+import 'package:timezone/browser.dart' as tz;
 import 'package:web/web.dart';
 
 @immutable
@@ -39,8 +40,10 @@ class WebNeonPlatform implements NeonPlatform {
   bool get canUsePaths => false;
 
   @override
-  FutureOr<void> init() {
+  Future<void> init() async {
     databaseFactory = databaseFactoryFfiWeb;
+
+    await tz.initializeTimeZone();
   }
 
   @override

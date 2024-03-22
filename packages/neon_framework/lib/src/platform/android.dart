@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/platform.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 /// Android specific platform information.
 ///
@@ -41,7 +42,9 @@ class AndroidNeonPlatform implements NeonPlatform {
   bool get canUsePaths => true;
 
   @override
-  void init() {}
+  void init() {
+    tz.initializeTimeZones();
+  }
 
   @override
   Future<void> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data) async {
