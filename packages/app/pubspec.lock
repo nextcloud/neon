@@ -109,10 +109,10 @@ packages:
     dependency: transitive
     description:
       name: camera_android
-      sha256: "351429510121d179b9aac5a2e8cb525c3cd6c39f4d709c5f72dfb21726e52371"
+      sha256: "15a6543878a41c141807ffab496f66b7fef6da0f23372f5513fc6349e60f437e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.8+16"
+    version: "0.10.8+17"
   camera_avfoundation:
     dependency: transitive
     description:
@@ -316,10 +316,10 @@ packages:
     dependency: transitive
     description:
       name: emoji_picker_flutter
-      sha256: "871339250c00dc469b7fdaaec84f4e10ffa435e730a4f3f3fd06ebd5289ea5ad"
+      sha256: "7c6681783e06710608df27be0e38aa4ba73ca1ccac370bb0e7a1320723ae4bca"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   fake_async:
     dependency: transitive
     description:
@@ -453,10 +453,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_markdown
-      sha256: cb44f7831b23a6bdd0f501718b0d2e8045cbc625a15f668af37ddb80314821db
+      sha256: "87e11b9df25a42e2db315b8b7a51fae8e66f57a4b2f50ec4b822d0fa155e6b52"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.21"
+    version: "0.6.22"
   flutter_material_design_icons:
     dependency: transitive
     description:
@@ -943,10 +943,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_apple
-      sha256: bdafc6db74253abb63907f4e357302e6bb786ab41465e8635f362ee71fd8707b
+      sha256: "92861b0f0c2443dd8898398c2baa4f1ae925109b5909ae4a17d0108a6a788932"
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.0"
+    version: "9.4.2"
   permission_handler_html:
     dependency: transitive
     description:
