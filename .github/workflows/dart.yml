@@ -48,11 +48,22 @@ jobs:
           packages_glob="${packages_glob:1}"
           MELOS_PACKAGES="$packages_glob" melos test
 
+      - name: Setup Codecov
+        run: |
+          cd /tmp
+          curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          curl -Os https://uploader.codecov.io/latest/linux/codecov.SHA256SUM
+          curl -Os https://uploader.codecov.io/latest/linux/codecov.SHA256SUM.sig
+          gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
+
+          shasum -a 256 -c codecov.SHA256SUM
+          chmod +x codecov
+          mkdir /tmp/bin
+          mv codecov /tmp/bin
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@54bcd8715eee62d40e33596ef5e8f0f48dbbccab # v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} 
-          codecov_yml_path: ./github/codecov.yaml
-          exclude: .fvm
-          fail_ci_if_error: true
-          slug: nextcloud/neon
+        run: |
+          export PATH="$PATH:/tmp/bin"
+          melos exec --file-exists="coverage/lcov.info" --concurrency=1 -- "
+            codecov --verbose upload-process --fail-on-error -F "$MELOS_PACKAGE_NAME" -f "$MELOS_PACKAGE_PATH/coverage/lcov.info" -t "${{ secrets.CODECOV_TOKEN }}"
+          "         
