@@ -5,14 +5,13 @@ import 'dart:typed_data';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+import 'package:nextcloud/src/webdav/models.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
+import 'package:nextcloud/src/webdav/utils.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:universal_io/io.dart' hide HttpClient;
-
-/// Base path used on the server
-final webdavBase = PathUri.parse('/remote.php/webdav');
 
 // ignore: do_not_use_environment
 const bool _kIsWeb = bool.fromEnvironment('dart.library.js_util');
@@ -119,16 +118,6 @@ class WebDavClient {
 
   Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, path);
 
-  @visibleForTesting
-  // ignore: public_member_api_docs
-  static Uri constructUri(Uri baseURL, [PathUri? path]) {
-    final segments = baseURL.pathSegments.toList()..addAll(webdavBase.pathSegments);
-    if (path != null) {
-      segments.addAll(path.pathSegments);
-    }
-    return baseURL.replace(pathSegments: segments.where((s) => s.isNotEmpty));
-  }
-
   Future<WebDavMultistatus> _parseResponse(http.StreamedResponse response) async =>
       WebDavMultistatus.fromXmlElement(await response.stream.xml);
 
@@ -150,12 +139,7 @@ class WebDavClient {
       _constructUri(),
     );
 
-    final davCapabilities = response.headers['dav'];
-    final davSearchCapabilities = response.headers['dasl'];
-    return WebDavOptions(
-      davCapabilities?.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toSet(),
-      davSearchCapabilities?.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toSet(),
-    );
+    return parseWebDavOptions(response.headers);
   }
 
   /// Creates a collection at [path].
@@ -427,43 +411,4 @@ class WebDavClient {
           'Overwrite': overwrite ? 'T' : 'F',
         },
       );
-}
-
-/// WebDAV capabilities
-class WebDavOptions {
-  /// Creates a new WebDavStatus.
-  WebDavOptions(
-    Set<String>? capabilities,
-    Set<String>? searchCapabilities,
-  )   : capabilities = capabilities ?? {},
-        searchCapabilities = searchCapabilities ?? {};
-
-  /// DAV capabilities as advertised by the server in the 'dav' header.
-  Set<String> capabilities;
-
-  /// DAV search and locating capabilities as advertised by the server in the 'dasl' header.
-  Set<String> searchCapabilities;
-}
-
-/// Depth used for [WebDavClient.propfind].
-///
-/// See http://www.webdav.org/specs/rfc2518.html#HEADER_Depth for more information.
-enum WebDavDepth {
-  /// Returns props of the resource.
-  zero('0'),
-
-  /// Returns props of the resource and its immediate children.
-  ///
-  /// Only works on collections and returns the same as [WebDavDepth.zero] for other resources.
-  one('1'),
-
-  /// Returns props of the resource and all its progeny.
-  ///
-  /// Only works on collections and returns the same as [WebDavDepth.zero] for other resources.
-  infinity('infinity');
-
-  const WebDavDepth(this.value);
-
-  // ignore: public_member_api_docs
-  final String value;
 }
