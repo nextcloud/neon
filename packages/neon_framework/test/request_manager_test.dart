@@ -279,15 +279,11 @@ void main() {
         cache = MockRequestCache();
 
         when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value('Cached value'),
+          (_) => Future.value((value: 'Cached value', parameters: null)),
         );
 
         when(() => cache.set(any(), any(), any(), any())).thenAnswer(
           (_) => Future.value(),
-        );
-
-        when(() => cache.getParameters(any(), any())).thenAnswer(
-          (_) => Future.value(const CacheParameters(etag: null, expires: null)),
         );
 
         when(() => cache.updateParameters(any(), any(), any())).thenAnswer(
@@ -500,16 +496,16 @@ void main() {
       });
 
       test('cached Expires', () async {
-        when(() => cache.getParameters(any(), any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
-            CacheParameters(
-              etag: null,
-              expires: tz.TZDateTime.now(tz.UTC).add(const Duration(hours: 1)),
+            (
+              value: 'Cached value',
+              parameters: CacheParameters(
+                etag: null,
+                expires: tz.TZDateTime.now(tz.UTC).add(const Duration(hours: 1)),
+              )
             ),
           ),
-        );
-        when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value('Cached value'),
         );
 
         var subject = BehaviorSubject<Result<String>>();
@@ -538,16 +534,16 @@ void main() {
         verify(() => cache.get(account, 'key')).called(1);
         verifyNever(() => cache.set(any(), any(), any(), any()));
 
-        when(() => cache.getParameters(any(), any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
-            CacheParameters(
-              etag: null,
-              expires: tz.TZDateTime.now(tz.UTC).subtract(const Duration(hours: 1)),
+            (
+              value: 'Cached value',
+              parameters: CacheParameters(
+                etag: null,
+                expires: tz.TZDateTime.now(tz.UTC).subtract(const Duration(hours: 1)),
+              )
             ),
           ),
-        );
-        when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value('Cached value'),
         );
 
         subject = BehaviorSubject<Result<String>>();
@@ -585,16 +581,16 @@ void main() {
           tz.UTC,
         );
 
-        when(() => cache.getParameters(any(), any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
-            const CacheParameters(
-              etag: 'a',
-              expires: null,
+            (
+              value: 'Cached value',
+              parameters: const CacheParameters(
+                etag: 'a',
+                expires: null,
+              ),
             ),
           ),
-        );
-        when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value('Cached value'),
         );
         when(callback.call).thenAnswer(
           (_) async => CacheParameters(
@@ -632,16 +628,16 @@ void main() {
         verify(() => cache.updateParameters(account, 'key', CacheParameters(etag: 'a', expires: newExpires))).called(1);
         verifyNever(() => cache.set(any(), any(), any(), any()));
 
-        when(() => cache.getParameters(any(), any())).thenAnswer(
+        when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
-            const CacheParameters(
-              etag: 'a',
-              expires: null,
+            (
+              value: 'Cached value',
+              parameters: const CacheParameters(
+                etag: 'a',
+                expires: null,
+              ),
             ),
           ),
-        );
-        when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value('Cached value'),
         );
         when(callback.call).thenAnswer(
           (_) async => CacheParameters(

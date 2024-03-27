@@ -15,19 +15,13 @@ final _log = Logger('RequestCache');
 
 /// A storage used to cache a key value pair.
 abstract interface class RequestCache {
-  /// Get's the cached value for the given [key].
-  ///
-  /// Use [getParameters] if you only need to check whether the cache is still
-  /// valid.
-  Future<String?> get(Account account, String key);
+  /// Get's the cached value and parameters for the given [key].
+  Future<({String value, CacheParameters? parameters})?> get(Account account, String key);
 
   /// Set's the cached [value] at the given [key].
   ///
   /// If a value is already present it will be updated with the new one.
   Future<void> set(Account account, String key, String value, CacheParameters? parameters);
-
-  /// Retrieves the cache parameters for the given [key].
-  Future<CacheParameters> getParameters(Account account, String key);
 
   /// Updates the cache [parameters] for a given [key] without modifying the `value`.
   Future<void> updateParameters(Account account, String key, CacheParameters? parameters);
@@ -73,7 +67,7 @@ final class DefaultRequestCache implements RequestCache {
         // Non breaking migrations should not drop the cache. The next
         // breaking change should remove all non breaking migrations before it.
         await db.transaction((txn) async {
-          if (oldVersion <= 2) {
+          if (oldVersion <= 3) {
             await txn.execute('DROP TABLE cache');
             await onCreate(txn);
           }
@@ -112,15 +106,15 @@ CREATE TABLE "cache" (
   }
 
   @override
-  Future<String?> get(Account account, String key) async {
+  Future<({String value, CacheParameters? parameters})?> get(Account account, String key) async {
     List<Map<String, Object?>>? result;
     try {
       result = await _requireDatabase.rawQuery(
         '''
-SELECT value
+SELECT value, etag, expires
 FROM cache
 WHERE account = ? AND key = ?
-      ''',
+''',
         [account.id, key],
       );
     } on DatabaseException catch (error, stackTrace) {
@@ -131,7 +125,26 @@ WHERE account = ? AND key = ?
       );
     }
 
-    return result?.firstOrNull?['value'] as String?;
+    final row = result?.singleOrNull;
+    if (row == null) {
+      return null;
+    }
+
+    final value = row['value']! as String;
+    final etag = row['etag'] as String?;
+    final expires = row['expires'] as int?;
+
+    final parameters = CacheParameters(
+      etag: etag,
+      expires: expires != null
+          ? DateTimeUtils.fromSecondsSinceEpoch(
+              tz.UTC,
+              expires,
+            )
+          : null,
+    );
+
+    return (value: value, parameters: parameters);
   }
 
   @override
@@ -174,40 +187,6 @@ WHERE (SELECT changes() = 0)
         stackTrace,
       );
     }
-  }
-
-  @override
-  Future<CacheParameters> getParameters(Account account, String key) async {
-    List<Map<String, Object?>>? result;
-    try {
-      result = await _requireDatabase.rawQuery(
-        '''
-SELECT etag, expires
-FROM cache
-WHERE account = ? AND key = ?
-''',
-        [account.id, key],
-      );
-    } on DatabaseException catch (error, stackTrace) {
-      _log.severe(
-        'Error getting the cache parameters for `$key` from cache.',
-        error,
-        stackTrace,
-      );
-    }
-
-    final row = result?.firstOrNull;
-
-    final expires = row?['expires'] as int?;
-    return CacheParameters(
-      etag: row?['etag'] as String?,
-      expires: expires != null
-          ? DateTimeUtils.fromSecondsSinceEpoch(
-              tz.UTC,
-              expires,
-            )
-          : null,
-    );
   }
 
   @override

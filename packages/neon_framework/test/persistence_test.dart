@@ -14,50 +14,62 @@ import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   group('Persistences', () {
-    test('RequestCache', () async {
+    group('RequestCache', () {
       final account = MockAccount();
       when(() => account.id).thenReturn('clientID');
 
       final cache = DefaultRequestCache();
-      sqfliteFfiInit();
-      databaseFactory = databaseFactoryFfi;
 
-      expect(() async => cache.get(account, 'key'), throwsA(isA<StateError>()));
+      setUpAll(() {
+        sqfliteFfiInit();
+        databaseFactory = databaseFactoryFfi;
+      });
 
-      cache.database = await openDatabase(
-        inMemoryDatabasePath,
-        version: 1,
-        onCreate: DefaultRequestCache.onCreate,
-      );
+      setUp(() async {
+        cache.database = await openDatabase(
+          inMemoryDatabasePath,
+          version: 1,
+          onCreate: DefaultRequestCache.onCreate,
+          singleInstance: false,
+        );
+      });
 
-      dynamic result = await cache.get(account, 'key');
-      expect(result, isNull);
+      test('init', () {
+        cache.database = null;
+        expect(() async => cache.get(account, 'key'), throwsA(isA<StateError>()));
+      });
 
-      await cache.set(account, 'key', 'value', null);
-      result = await cache.get(account, 'key');
-      expect(result, equals('value'));
+      test('RequestCache', () async {
+        var result = await cache.get(account, 'key');
+        expect(result, isNull);
 
-      await cache.set(account, 'key', 'upsert', null);
-      result = await cache.get(account, 'key');
-      expect(result, equals('upsert'));
+        await cache.set(account, 'key', 'value', null);
+        result = await cache.get(account, 'key');
+        expect(result?.value, equals('value'));
 
-      var parameters = const CacheParameters(etag: null, expires: null);
-      result = await cache.getParameters(account, 'newKey');
-      expect(result, equals(parameters));
+        await cache.set(account, 'key', 'upsert', null);
+        result = await cache.get(account, 'key');
+        expect(result?.value, equals('upsert'));
 
-      await cache.set(account, 'key', 'value', parameters);
-      result = await cache.getParameters(account, 'key');
-      expect(result, equals(parameters));
+        var parameters = const CacheParameters(etag: null, expires: null);
+        result = await cache.get(account, 'newKey');
+        expect(result?.parameters, isNull);
 
-      final now = tz.TZDateTime.now(tz.UTC);
-      parameters = CacheParameters(
-        etag: 'etag',
-        expires: now,
-      );
-      await cache.updateParameters(account, 'key', parameters);
-      final cachedParameters = await cache.getParameters(account, 'key');
-      expect(cachedParameters.etag, 'etag');
-      expect(cachedParameters.expires?.secondsSinceEpoch, now.secondsSinceEpoch);
+        await cache.set(account, 'key', 'value', parameters);
+        result = await cache.get(account, 'key');
+        expect(result?.parameters, equals(parameters));
+
+        final now = tz.TZDateTime.now(tz.UTC);
+        parameters = CacheParameters(
+          etag: 'etag',
+          expires: now,
+        );
+
+        await cache.updateParameters(account, 'key', parameters);
+        result = await cache.get(account, 'key');
+        expect(result?.parameters?.etag, 'etag');
+        expect(result?.parameters?.expires?.secondsSinceEpoch, now.secondsSinceEpoch);
+      });
     });
 
     group('SQLitePersistence', () {
