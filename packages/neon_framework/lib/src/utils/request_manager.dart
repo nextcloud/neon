@@ -226,17 +226,29 @@ class RequestManager {
     }
 
     if (cached != null) {
-      // If the cached data is not expired unwrap and emit it.
+      final unwrapped = unwrap(deserialize(cached.value));
+
+      // If the cached data is not expired emit it.
       // Return as the value is up to date.
       if (cached.parameters case CacheParameters(isExpired: false)) {
-        final unwrapped = unwrap(deserialize(cached.value));
         subject.add(Result(unwrapped, null, isLoading: false, isCached: true));
         return;
+      }
 
-        // If the cached data expired and has an etag, try to refresh the cache parameters.
-        // If the etag did not change, unwrap and emit the cached data.
-        // Save the new cache parameters and return.
-      } else if (cached.parameters case CacheParameters(:final etag) when etag != null && getCacheParameters != null) {
+      // Emit the cached data it in a loading state.
+      // DO NOT return as new cache parameters or a new value MUST be fetched from the server.
+      subject.add(
+        subject.value.copyWith(
+          data: unwrapped,
+          isLoading: true,
+          isCached: true,
+        ),
+      );
+
+      // If the cached data expired and has an etag, try to refresh the cache parameters.
+      // If the etag did not change, emit the cached data in a done state.
+      // Save the new cache parameters and return.
+      if (cached.parameters case CacheParameters(:final etag) when etag != null && getCacheParameters != null) {
         try {
           final newParameters = await timeout(
             getCacheParameters.call,
@@ -255,7 +267,6 @@ class RequestManager {
               ),
             );
 
-            final unwrapped = unwrap(deserialize(cached.value));
             subject.add(Result(unwrapped, null, isLoading: false, isCached: true));
             return;
           }
@@ -277,18 +288,6 @@ class RequestManager {
           );
         }
       }
-
-      // If the cached data did not satisfy the above `CacheParameters` checks, emit it in a loading state.
-      // DO NOT return as a new value MUST be fetched from the server.
-      final unwrapped = unwrap(deserialize(cached.value));
-
-      subject.add(
-        subject.value.copyWith(
-          data: unwrapped,
-          isLoading: true,
-          isCached: true,
-        ),
-      );
 
       // When there was no value in the cache re emit the current result in the subject as loading.
       // DO NOT return as a value MUST be fetched from the server.
