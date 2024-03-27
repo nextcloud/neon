@@ -606,6 +606,7 @@ void main() {
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
+            equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
             equals(Result(base64String('Cached value'), null, isLoading: false, isCached: true)),
             emitsDone,
           ]),
