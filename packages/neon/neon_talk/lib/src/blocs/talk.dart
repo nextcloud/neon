@@ -5,6 +5,7 @@ import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 
@@ -14,6 +15,9 @@ sealed class TalkBloc implements InteractiveBloc {
   factory TalkBloc({
     required Account account,
   }) = _TalkBloc;
+
+  /// Creates a new Talk room.
+  void createRoom(spreed.RoomType type, String? roomName, core.AutocompleteResult? invite);
 
   /// The list of rooms.
   BehaviorSubject<Result<BuiltList<spreed.Room>>> get rooms;
@@ -73,5 +77,21 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
         ),
       ),
     );
+  }
+
+  @override
+  Future<void> createRoom(
+    spreed.RoomType type,
+    String? roomName,
+    core.AutocompleteResult? invite,
+  ) async {
+    await wrapAction(() async {
+      await account.client.spreed.room.createRoom(
+        roomType: type.value,
+        roomName: roomName,
+        invite: invite?.id,
+        source: invite?.source,
+      );
+    });
   }
 }
