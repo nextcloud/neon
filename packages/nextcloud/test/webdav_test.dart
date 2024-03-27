@@ -227,7 +227,7 @@ void main() {
 
         expect(response.path, PathUri.parse('Nextcloud.png'));
         expect(response.id, isNotEmpty);
-        expect(response.fileId, isNotEmpty);
+        expect(response.fileId, greaterThan(0));
         expect(response.isCollection, isFalse);
         expect(response.mimeType, 'image/png');
         expect(response.etag, isNotEmpty);
@@ -262,7 +262,7 @@ void main() {
         expect(response.props.occommentsunread, 0);
         expect(response.props.ocdownloadurl, isNull);
         expect(response.props.ocfavorite, 0);
-        expect(response.props.ocfileid, isNotEmpty);
+        expect(response.props.ocfileid, greaterThan(0));
         expect(response.props.ocid, isNotEmpty);
         expect(response.props.ocownerdisplayname, 'User One');
         expect(response.props.ocownerid, 'user1');

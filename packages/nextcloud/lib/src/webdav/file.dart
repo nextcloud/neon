@@ -39,7 +39,7 @@ class WebDavFile {
   late final String? id = props.ocid;
 
   /// The unique id for the file within the instance
-  late final String? fileId = props.ocfileid;
+  late final int? fileId = props.ocfileid;
 
   /// Whether this is a collection resource type
   late final bool? isCollection = props.davresourcetype != null ? props.davresourcetype!.collection != null : null;

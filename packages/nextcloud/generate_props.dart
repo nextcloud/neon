@@ -26,7 +26,7 @@ void main() {
       'comments-unread': 'int',
       'downloadURL': 'String',
       'favorite': 'int',
-      'fileid': 'String',
+      'fileid': 'int',
       'id': 'String',
       'owner-display-name': 'String',
       'owner-id': 'String',

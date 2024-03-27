@@ -490,7 +490,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceOwncloud,
     includeIfNull: false,
   )
-  final String? ocfileid;
+  final int? ocfileid;
 
   @annotation.XmlElement(
     name: 'id',
@@ -716,7 +716,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceOwncloud,
     includeIfNull: false,
   )
-  final String? ocfileid;
+  final int? ocfileid;
 
   @annotation.XmlElement(
     name: 'id',

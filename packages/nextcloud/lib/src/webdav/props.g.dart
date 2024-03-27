@@ -803,7 +803,7 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid;
+  final ocfileidSerialized = ocfileid?.toString();
   if (ocfileidSerialized != null) {
     builder.element('fileid', namespace: 'http://owncloud.org/ns', nest: () {
       builder.text(ocfileidSerialized);
@@ -922,7 +922,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       occommentsunread: occommentsunread != null ? int.parse(occommentsunread) : null,
       ocdownloadurl: ocdownloadurl,
       ocfavorite: ocfavorite != null ? int.parse(ocfavorite) : null,
-      ocfileid: ocfileid,
+      ocfileid: ocfileid != null ? int.parse(ocfileid) : null,
       ocid: ocid,
       ocownerdisplayname: ocownerdisplayname,
       ocownerid: ocownerid,
@@ -1107,7 +1107,7 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ocfavoriteConstructed);
   }
   final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid;
+  final ocfileidSerialized = ocfileid?.toString();
   final ocfileidConstructed = ocfileidSerialized != null
       ? XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], [XmlText(ocfileidSerialized)])
       : null;
@@ -1340,7 +1340,7 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid;
+  final ocfileidSerialized = ocfileid?.toString();
   if (ocfileidSerialized != null) {
     builder.element('fileid', namespace: 'http://owncloud.org/ns', nest: () {
       builder.text(ocfileidSerialized);
@@ -1460,7 +1460,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       occommentsunread: occommentsunread != null ? int.parse(occommentsunread) : null,
       ocdownloadurl: ocdownloadurl,
       ocfavorite: ocfavorite != null ? int.parse(ocfavorite) : null,
-      ocfileid: ocfileid,
+      ocfileid: ocfileid != null ? int.parse(ocfileid) : null,
       ocid: ocid,
       ocownerdisplayname: ocownerdisplayname,
       ocownerid: ocownerid,
@@ -1647,7 +1647,7 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ocfavoriteConstructed);
   }
   final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid;
+  final ocfileidSerialized = ocfileid?.toString();
   final ocfileidConstructed = ocfileidSerialized != null
       ? XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], [XmlText(ocfileidSerialized)])
       : null;
