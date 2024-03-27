@@ -27,6 +27,7 @@ fvmrc
 gboolean
 gchar
 genhtml
+gpgv
 hicolor
 icudtl
 inkscape
@@ -63,6 +64,7 @@ strdupv
 strfreev
 subprojects
 sysroot
+trustedkeys
 tsvg
 unixepoch
 werror
