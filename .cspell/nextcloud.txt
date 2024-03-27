@@ -21,6 +21,7 @@ lastmod
 licence
 lightrain
 lightrainshowers
+loglevel
 logoheader
 matterbridge
 mimetypes
