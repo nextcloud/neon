@@ -62,7 +62,9 @@ class WebDavFile {
   /// Share note
   late final String? note = props.ncnote;
 
-  /// Last modified date of the file
+  /// Last modified date of the file.
+  ///
+  /// It will throw a [FormatException] if the date is invalid.
   late final tz.TZDateTime? lastModified = () {
     if (props.davgetlastmodified != null) {
       return parseHttpDate(props.davgetlastmodified!);

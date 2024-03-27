@@ -244,6 +244,11 @@ class RequestManager {
             'Fetching cache parameters timed out. Assuming expired.',
             error,
           );
+        } on FormatException catch (error) {
+          _log.info(
+            'Invalid format when parsing cache parameters. Assuming expired.',
+            error,
+          );
         } on http.ClientException catch (error, stackTrace) {
           _log.warning(
             'Error fetching cache parameters. Assuming expired.',
@@ -303,7 +308,14 @@ class RequestManager {
 
         CacheParameters? cacheParameters;
         if (response case DynamiteRawResponse(:final rawHeaders) when rawHeaders != null) {
-          cacheParameters = CacheParameters.parseHeaders(rawHeaders);
+          try {
+            cacheParameters = CacheParameters.parseHeaders(rawHeaders);
+          } on FormatException catch (error) {
+            _log.info(
+              'Invalid format when parsing cache parameters.',
+              error,
+            );
+          }
         }
 
         await _cache?.set(account, cacheKey, serialized, cacheParameters);
@@ -383,6 +395,8 @@ class CacheParameters {
   });
 
   /// Parse the cache parameters from HTTP response headers.
+  ///
+  /// It will throw a [FormatException] if the expiry date is invalid.
   factory CacheParameters.parseHeaders(Map<String, dynamic> headers) {
     tz.TZDateTime? expiry;
     if (headers.containsKey('expires')) {
