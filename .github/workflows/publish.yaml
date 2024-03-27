@@ -9,24 +9,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  setup:
-    name: Setup
-    runs-on: ubuntu-22.04
-    outputs:
-      flutter_version: ${{ steps.flutter_version.outputs.FLUTTER_VERSION }}
-      build_number: ${{ steps.build_number.outputs.BUILD_NUMBER }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-
-      - name: Set build number
-        id: build_number
-        run: echo "BUILD_NUMBER=$(date +"%s")" >> $GITHUB_OUTPUT
-
   android:
     name: Android
     runs-on: ubuntu-22.04
-    needs: setup
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -43,7 +28,7 @@ jobs:
           java-version: 17
 
       - name: Build
-        run: cd packages/app && flutter build apk --split-per-abi --build-number="${{ needs.setup.outputs.build_number }}"
+        run: cd packages/app && flutter build apk --split-per-abi --build-number="$(date +"%s")"
       - uses: ilharp/sign-android-release@2034987c31e3959f7c97e88d5e656e52e6e88bd8 # v1
         name: Sign
         with:
@@ -86,7 +71,6 @@ jobs:
   linux:
     name: Linux ${{ matrix.architecture.flutter }}
     runs-on: ubuntu-22.04
-    needs: setup
     permissions:
       packages: write
     strategy:
@@ -120,7 +104,7 @@ jobs:
       - name: Setup
         run: ./tool/setup.sh
       - name: Build
-        run: ./tool/build-app.sh linux/${{ matrix.architecture.docker }} --build-number="${{ needs.setup.outputs.build_number }}"
+        run: ./tool/build-app.sh linux/${{ matrix.architecture.docker }} --build-number="$(date +"%s")"
 
       - uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4
         with:
