@@ -6,6 +6,8 @@ WORKDIR /usr/src/nextcloud
 RUN ./occ maintenance:install --admin-pass admin --admin-email admin@example.com
 RUN ./occ config:system:set allow_local_remote_servers --value=true
 RUN ./occ config:system:set trusted_domains 1 --value="*"
+RUN ./occ config:system:set debug --value=true --type=boolean
+RUN ./occ config:system:set loglevel --value=0 --type=integer
 
 RUN ./occ app:disable password_policy
 RUN OC_PASS="user1" ./occ user:add --password-from-env --display-name "User One" user1
