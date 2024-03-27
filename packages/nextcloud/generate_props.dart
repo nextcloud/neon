@@ -50,12 +50,21 @@ void main() {
 
       final namespaceVariable = convertNamespace(namespacePrefix);
       final variable = namespacePrefix + name.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
-      valueProps.add(
-        "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  final $type? $variable;",
-      );
-      findProps.add(
-        "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: true, isSelfClosing: true,)\n final List<String?>? $variable;",
-      );
+      valueProps.add('''
+@annotation.XmlElement(
+    name: '$name',
+    namespace: $namespaceVariable,
+    includeIfNull: false,
+  )
+  final $type? $variable;''');
+      findProps.add('''
+@annotation.XmlElement(
+    name: '$name',
+    namespace: $namespaceVariable,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? $variable;''');
       variables.add(variable);
     }
   }
@@ -77,6 +86,7 @@ void main() {
         variables,
         isPropfind: true,
       ),
+      '',
       ...generateClass(
         'WebDavProp',
         'prop',
@@ -85,6 +95,7 @@ void main() {
         variables,
         isPropfind: false,
       ),
+      '',
       ...generateClass(
         'WebDavOcFilterRules',
         'filter-rules',
@@ -118,7 +129,7 @@ List<String> generateClass(
       if (isPropfind) ...[
         '  const $name.fromBools({',
         ...variables.map((variable) => '    bool $variable = false,'),
-        '  }) : ${variables.map((variable) => '$variable = $variable ? const [null] : null').join(', ')};',
+        '  })  : ${variables.map((variable) => '$variable = $variable ? const [null] : null').join(',\n        ')};',
         '',
       ],
       '  factory $name.fromXmlElement(XmlElement element) => _\$${name}FromXmlElement(element);',
