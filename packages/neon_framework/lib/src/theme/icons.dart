@@ -174,4 +174,9 @@ abstract final class AdaptiveIcons {
   /// ![Icon preview](https://fafre.github.io/flutter_material_design_icons/icons/robot/1.7.12/64.png "robot") material design icon named "robot".
   /// and <i class='cupertino-icons md-36'>command</i> &#x2014; cupertino icon named "command".
   static IconData get automation => !isCupertinoPlatform() ? MdiIcons.robot : CupertinoIcons.command;
+
+  /// Platform-adaptive icon for
+  /// ![Icon preview](https://fafre.github.io/flutter_material_design_icons/icons/cancel/1.9.32/64.png "cancel") material design icon named "robot".
+  /// and <i class='cupertino-icons md-36'>xmark_circle</i> &#x2014; cupertino icon named "clear_circled".
+  static IconData get cancel => !isCupertinoPlatform() ? MdiIcons.cancel : CupertinoIcons.clear_circled;
 }

@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/testing.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/l10n/localizations_en.dart';
@@ -314,6 +315,47 @@ void main() {
       await expectLater(
         find.byType(TalkCommentMessage),
         matchesGoldenFile('goldens/message_comment_message.png'),
+      );
+    });
+
+    testWidgets('Deleted', (tester) async {
+      final account = MockAccount();
+      when(() => account.id).thenReturn('');
+      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
+
+      final accountsBloc = MockAccountsBloc();
+      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
+
+      final previousChatMessage = MockChatMessage();
+      when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => previousChatMessage.timestamp).thenReturn(0);
+      when(() => previousChatMessage.actorId).thenReturn('test');
+
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.timestamp).thenReturn(0);
+      when(() => chatMessage.actorId).thenReturn('test');
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorDisplayName).thenReturn('test');
+      when(() => chatMessage.messageType).thenReturn(spreed.MessageType.commentDeleted);
+      when(() => chatMessage.message).thenReturn('abc');
+      when(() => chatMessage.reactions).thenReturn(BuiltMap());
+
+      await tester.pumpWidget(
+        wrapWidget(
+          NeonProvider<AccountsBloc>.value(
+            value: accountsBloc,
+            child: TalkCommentMessage(
+              chatMessage: chatMessage,
+              previousChatMessage: previousChatMessage,
+            ),
+          ),
+        ),
+      );
+      expect(find.text('abc', findRichText: true), findsOne);
+      expect(find.byIcon(AdaptiveIcons.cancel), findsOne);
+      await expectLater(
+        find.byType(TalkCommentMessage),
+        matchesGoldenFile('goldens/message_comment_message_deleted.png'),
       );
     });
 
