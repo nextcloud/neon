@@ -395,6 +395,8 @@ class CacheParameters {
   });
 
   /// Parse the cache parameters from HTTP response headers.
+  ///
+  /// It will throw a [FormatException] if the expiry date is invalid.
   factory CacheParameters.parseHeaders(Map<String, dynamic> headers) {
     tz.TZDateTime? expiry;
     if (headers.containsKey('expires')) {
