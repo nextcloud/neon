@@ -193,33 +193,33 @@ void main() {
         final response = (await client.webdav.propfind(
           PathUri.parse('Nextcloud.png'),
           prop: const WebDavPropWithoutValues.fromBools(
-            davgetlastmodified: true,
-            davgetetag: true,
-            davgetcontenttype: true,
             davgetcontentlength: true,
+            davgetcontenttype: true,
+            davgetetag: true,
+            davgetlastmodified: true,
             davresourcetype: true,
-            ocid: true,
-            ocfileid: true,
-            ocfavorite: true,
-            occommentshref: true,
-            occommentscount: true,
-            occommentsunread: true,
-            ocdownloadurl: true,
-            ocownerid: true,
-            ocownerdisplayname: true,
-            ocsize: true,
-            ocpermissions: true,
-            ncnote: true,
+            nccreationtime: true,
             ncdatafingerprint: true,
             nchaspreview: true,
-            ncmounttype: true,
             ncisencrypted: true,
             ncmetadataetag: true,
-            ncuploadtime: true,
-            nccreationtime: true,
+            ncmounttype: true,
+            ncnote: true,
             ncrichworkspace: true,
-            ocssharepermissions: true,
+            ncuploadtime: true,
+            occommentscount: true,
+            occommentshref: true,
+            occommentsunread: true,
+            ocdownloadurl: true,
+            ocfavorite: true,
+            ocfileid: true,
+            ocid: true,
             ocmsharepermissions: true,
+            ocownerdisplayname: true,
+            ocownerid: true,
+            ocpermissions: true,
+            ocsize: true,
+            ocssharepermissions: true,
           ),
         ))
             .toWebDavFiles()
@@ -227,7 +227,7 @@ void main() {
 
         expect(response.path, PathUri.parse('Nextcloud.png'));
         expect(response.id, isNotEmpty);
-        expect(response.fileId, isNotEmpty);
+        expect(response.fileId, greaterThan(0));
         expect(response.isCollection, isFalse);
         expect(response.mimeType, 'image/png');
         expect(response.etag, isNotEmpty);
@@ -243,33 +243,33 @@ void main() {
         expect(response.name, 'Nextcloud.png');
         expect(response.isDirectory, isFalse);
 
-        expect(parseHttpDate(response.props.davgetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
-        expect(response.props.davgetetag, isNotEmpty);
-        expect(response.props.davgetcontenttype, 'image/png');
         expect(response.props.davgetcontentlength, 50598);
+        expect(response.props.davgetcontenttype, 'image/png');
+        expect(response.props.davgetetag, isNotEmpty);
+        expect(parseHttpDate(response.props.davgetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
         expect(response.props.davresourcetype!.collection, isNull);
-        expect(response.props.ocid, isNotEmpty);
-        expect(response.props.ocfileid, isNotEmpty);
-        expect(response.props.ocfavorite, 0);
-        expect(response.props.occommentshref, isNotEmpty);
-        expect(response.props.occommentscount, 0);
-        expect(response.props.occommentsunread, 0);
-        expect(response.props.ocdownloadurl, isNull);
-        expect(response.props.ocownerid, 'user1');
-        expect(response.props.ocownerdisplayname, 'User One');
-        expect(response.props.ocsize, 50598);
-        expect(response.props.ocpermissions, 'RGDNVW');
-        expect(response.props.ncnote, isNull);
+        expect(response.props.nccreationtime, 0);
         expect(response.props.ncdatafingerprint, isNull);
         expect(response.props.nchaspreview, isTrue);
-        expect(response.props.ncmounttype, isNull);
         expect(response.props.ncisencrypted, isNull);
         expect(response.props.ncmetadataetag, isNull);
-        expect(response.props.ncuploadtime, 0);
-        expect(response.props.nccreationtime, 0);
+        expect(response.props.ncmounttype, isNull);
+        expect(response.props.ncnote, isNull);
         expect(response.props.ncrichworkspace, isNull);
-        expect(response.props.ocssharepermissions, 19);
+        expect(response.props.ncuploadtime, 0);
+        expect(response.props.occommentscount, 0);
+        expect(response.props.occommentshref, isNotEmpty);
+        expect(response.props.occommentsunread, 0);
+        expect(response.props.ocdownloadurl, isNull);
+        expect(response.props.ocfavorite, 0);
+        expect(response.props.ocfileid, greaterThan(0));
+        expect(response.props.ocid, isNotEmpty);
+        expect(response.props.ocownerdisplayname, 'User One');
+        expect(response.props.ocownerid, 'user1');
+        expect(response.props.ocpermissions, 'RGDNVW');
+        expect(response.props.ocsize, 50598);
         expect(json.decode(response.props.ocmsharepermissions!), ['share', 'read', 'write']);
+        expect(response.props.ocssharepermissions, 19);
       });
 
       test('Get directory props', () async {

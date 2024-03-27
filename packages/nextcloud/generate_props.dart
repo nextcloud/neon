@@ -1,23 +1,72 @@
 import 'dart:io';
 
 void main() {
-  final props = File('lib/src/webdav/props.csv').readAsLinesSync().map((line) => line.split(','));
+  final props = <String, Map<String, String>>{
+    'dav': {
+      'getcontentlength': 'int',
+      'getcontenttype': 'String',
+      'getetag': 'String',
+      'getlastmodified': 'String',
+      'resourcetype': 'WebDavResourcetype',
+    },
+    'nc': {
+      'creation_time': 'int',
+      'data-fingerprint': 'String',
+      'has-preview': 'bool',
+      'is-encrypted': 'int',
+      'metadata_etag': 'String',
+      'mount-type': 'String',
+      'note': 'String',
+      'rich-workspace': 'String',
+      'upload_time': 'int',
+    },
+    'oc': {
+      'comments-count': 'int',
+      'comments-href': 'String',
+      'comments-unread': 'int',
+      'downloadURL': 'String',
+      'favorite': 'int',
+      'fileid': 'int',
+      'id': 'String',
+      'owner-display-name': 'String',
+      'owner-id': 'String',
+      'permissions': 'String',
+      'size': 'int',
+    },
+    'ocm': {
+      'share-permissions': 'String',
+    },
+    'ocs': {
+      'share-permissions': 'int',
+    },
+  };
+
   final valueProps = <String>[];
   final findProps = <String>[];
   final variables = <String>[];
-  for (final prop in props) {
-    final namespacePrefix = prop[0];
-    final namespaceVariable = convertNamespace(namespacePrefix);
-    final type = prop[2];
-    final name = prop[1];
-    final variable = namespacePrefix + name.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
-    valueProps.add(
-      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  final $type? $variable;",
-    );
-    findProps.add(
-      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: true, isSelfClosing: true,)\n final List<String?>? $variable;",
-    );
-    variables.add(variable);
+  for (final namespacePrefix in props.keys) {
+    for (final name in props[namespacePrefix]!.keys) {
+      final type = props[namespacePrefix]![name]!;
+
+      final namespaceVariable = convertNamespace(namespacePrefix);
+      final variable = namespacePrefix + name.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
+      valueProps.add('''
+@annotation.XmlElement(
+    name: '$name',
+    namespace: $namespaceVariable,
+    includeIfNull: false,
+  )
+  final $type? $variable;''');
+      findProps.add('''
+@annotation.XmlElement(
+    name: '$name',
+    namespace: $namespaceVariable,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? $variable;''');
+      variables.add(variable);
+    }
   }
   File('lib/src/webdav/props.dart').writeAsStringSync(
     [
@@ -37,6 +86,7 @@ void main() {
         variables,
         isPropfind: true,
       ),
+      '',
       ...generateClass(
         'WebDavProp',
         'prop',
@@ -45,6 +95,7 @@ void main() {
         variables,
         isPropfind: false,
       ),
+      '',
       ...generateClass(
         'WebDavOcFilterRules',
         'filter-rules',
@@ -78,7 +129,7 @@ List<String> generateClass(
       if (isPropfind) ...[
         '  const $name.fromBools({',
         ...variables.map((variable) => '    bool $variable = false,'),
-        '  }) : ${variables.map((variable) => '$variable = $variable ? const [null] : null').join(', ')};',
+        '  })  : ${variables.map((variable) => '$variable = $variable ? const [null] : null').join(',\n        ')};',
         '',
       ],
       '  factory $name.fromXmlElement(XmlElement element) => _\$${name}FromXmlElement(element);',

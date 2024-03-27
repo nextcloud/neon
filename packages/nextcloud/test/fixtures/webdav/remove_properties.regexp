@@ -10,7 +10,7 @@ content-type: application/xml
 PROPFIND http://localhost/remote\.php/webdav/remove-props\.txt
 authorization: Bearer mock
 content-type: application/xml
-<d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><oc:favorite/><nc:upload_time/><nc:creation_time/></d:prop></d:propfind>
+<d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><nc:creation_time/><nc:upload_time/><oc:favorite/></d:prop></d:propfind>
 PROPPATCH http://localhost/remote\.php/webdav/remove-props\.txt
 authorization: Bearer mock
 content-type: application/xml
