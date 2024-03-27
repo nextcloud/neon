@@ -3,41 +3,41 @@ import 'dart:io';
 void main() {
   final props = <String, Map<String, String>>{
     'dav': {
-      'getlastmodified': 'String',
-      'getetag': 'String',
-      'getcontenttype': 'String',
       'getcontentlength': 'int',
+      'getcontenttype': 'String',
+      'getetag': 'String',
+      'getlastmodified': 'String',
       'resourcetype': 'WebDavResourcetype',
     },
-    'oc': {
-      'id': 'String',
-      'fileid': 'String',
-      'favorite': 'int',
-      'comments-href': 'String',
-      'comments-count': 'int',
-      'comments-unread': 'int',
-      'downloadURL': 'String',
-      'owner-id': 'String',
-      'owner-display-name': 'String',
-      'size': 'int',
-      'permissions': 'String',
-    },
     'nc': {
-      'note': 'String',
+      'creation_time': 'int',
       'data-fingerprint': 'String',
       'has-preview': 'bool',
-      'mount-type': 'String',
       'is-encrypted': 'int',
       'metadata_etag': 'String',
-      'upload_time': 'int',
-      'creation_time': 'int',
+      'mount-type': 'String',
+      'note': 'String',
       'rich-workspace': 'String',
+      'upload_time': 'int',
     },
-    'ocs': {
-      'share-permissions': 'int',
+    'oc': {
+      'comments-count': 'int',
+      'comments-href': 'String',
+      'comments-unread': 'int',
+      'downloadURL': 'String',
+      'favorite': 'int',
+      'fileid': 'String',
+      'id': 'String',
+      'owner-display-name': 'String',
+      'owner-id': 'String',
+      'permissions': 'String',
+      'size': 'int',
     },
     'ocm': {
       'share-permissions': 'String',
+    },
+    'ocs': {
+      'share-permissions': 'int',
     },
   };
 

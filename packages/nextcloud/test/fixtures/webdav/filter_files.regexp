@@ -10,4 +10,4 @@ content-type: application/xml
 REPORT http://localhost/remote\.php/webdav
 authorization: Bearer mock
 content-type: application/xml
-<oc:filter-files xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><oc:filter-rules><oc:favorite>1</oc:favorite></oc:filter-rules><d:prop><oc:id/><oc:favorite/></d:prop></oc:filter-files>
+<oc:filter-files xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><oc:filter-rules><oc:favorite>1</oc:favorite></oc:filter-rules><d:prop><oc:favorite/><oc:id/></d:prop></oc:filter-files>
