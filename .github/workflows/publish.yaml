@@ -36,11 +36,11 @@ jobs:
         with:
           flutter-version: ${{ steps.fvm_config.outputs.FLUTTER_VERSION }}
           channel: ${{ steps.fvm_config.outputs.FLUTTER_CHANNEL }}
-      - name: Set up JDK 11
+      - name: Set up Java
         uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9 # v4
         with:
           distribution: 'adopt'
-          java-version: 11
+          java-version: 17
 
       - name: Build
         run: cd packages/app && flutter build apk --split-per-abi --build-number="${{ needs.setup.outputs.build_number }}"
