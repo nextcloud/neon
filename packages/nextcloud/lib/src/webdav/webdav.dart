@@ -157,10 +157,3 @@ class WebDavResourcetype with _$WebDavResourcetypeXmlSerializableMixin {
   @annotation.XmlElement(name: 'collection', namespace: namespaceDav, isSelfClosing: true, includeIfNull: true)
   final List<String?>? collection;
 }
-
-// TODO: oc:checksum
-// TODO: oc:tags
-// TODO: oc:systemtag
-// TODO: oc:circle
-// TODO: oc:share-types
-// TODO: nc:sharees

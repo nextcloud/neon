@@ -11,20 +11,45 @@ part 'props.g.dart';
 @annotation.XmlRootElement(name: 'prop', namespace: namespaceDav)
 class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin {
   const WebDavPropWithoutValues({
+    this.davcreationdate,
+    this.davdisplayname,
+    this.davgetcontentlanguage,
     this.davgetcontentlength,
     this.davgetcontenttype,
     this.davgetetag,
     this.davgetlastmodified,
+    this.davquotaavailablebytes,
+    this.davquotausedbytes,
     this.davresourcetype,
+    this.ncaclcanmanage,
+    this.ncaclenabled,
+    this.nccontainedfilecount,
+    this.nccontainedfoldercount,
     this.nccreationtime,
     this.ncdatafingerprint,
+    this.ncgroupfolderid,
     this.nchaspreview,
+    this.nchidden,
     this.ncisencrypted,
+    this.ncismountroot,
+    this.nclock,
+    this.nclockowner,
+    this.nclockownerdisplayname,
+    this.nclockownereditor,
+    this.nclockownertype,
+    this.nclocktime,
+    this.nclocktimeout,
+    this.nclocktoken,
     this.ncmetadataetag,
     this.ncmounttype,
     this.ncnote,
+    this.ncreminderduedate,
     this.ncrichworkspace,
+    this.ncrichworkspacefile,
+    this.ncshareattributes,
     this.ncuploadtime,
+    this.ncversionauthor,
+    this.ncversionlabel,
     this.occommentscount,
     this.occommentshref,
     this.occommentsunread,
@@ -41,20 +66,45 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   });
 
   const WebDavPropWithoutValues.fromBools({
+    bool davcreationdate = false,
+    bool davdisplayname = false,
+    bool davgetcontentlanguage = false,
     bool davgetcontentlength = false,
     bool davgetcontenttype = false,
     bool davgetetag = false,
     bool davgetlastmodified = false,
+    bool davquotaavailablebytes = false,
+    bool davquotausedbytes = false,
     bool davresourcetype = false,
+    bool ncaclcanmanage = false,
+    bool ncaclenabled = false,
+    bool nccontainedfilecount = false,
+    bool nccontainedfoldercount = false,
     bool nccreationtime = false,
     bool ncdatafingerprint = false,
+    bool ncgroupfolderid = false,
     bool nchaspreview = false,
+    bool nchidden = false,
     bool ncisencrypted = false,
+    bool ncismountroot = false,
+    bool nclock = false,
+    bool nclockowner = false,
+    bool nclockownerdisplayname = false,
+    bool nclockownereditor = false,
+    bool nclockownertype = false,
+    bool nclocktime = false,
+    bool nclocktimeout = false,
+    bool nclocktoken = false,
     bool ncmetadataetag = false,
     bool ncmounttype = false,
     bool ncnote = false,
+    bool ncreminderduedate = false,
     bool ncrichworkspace = false,
+    bool ncrichworkspacefile = false,
+    bool ncshareattributes = false,
     bool ncuploadtime = false,
+    bool ncversionauthor = false,
+    bool ncversionlabel = false,
     bool occommentscount = false,
     bool occommentshref = false,
     bool occommentsunread = false,
@@ -68,20 +118,45 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     bool ocsize = false,
     bool ocmsharepermissions = false,
     bool ocssharepermissions = false,
-  })  : davgetcontentlength = davgetcontentlength ? const [null] : null,
+  })  : davcreationdate = davcreationdate ? const [null] : null,
+        davdisplayname = davdisplayname ? const [null] : null,
+        davgetcontentlanguage = davgetcontentlanguage ? const [null] : null,
+        davgetcontentlength = davgetcontentlength ? const [null] : null,
         davgetcontenttype = davgetcontenttype ? const [null] : null,
         davgetetag = davgetetag ? const [null] : null,
         davgetlastmodified = davgetlastmodified ? const [null] : null,
+        davquotaavailablebytes = davquotaavailablebytes ? const [null] : null,
+        davquotausedbytes = davquotausedbytes ? const [null] : null,
         davresourcetype = davresourcetype ? const [null] : null,
+        ncaclcanmanage = ncaclcanmanage ? const [null] : null,
+        ncaclenabled = ncaclenabled ? const [null] : null,
+        nccontainedfilecount = nccontainedfilecount ? const [null] : null,
+        nccontainedfoldercount = nccontainedfoldercount ? const [null] : null,
         nccreationtime = nccreationtime ? const [null] : null,
         ncdatafingerprint = ncdatafingerprint ? const [null] : null,
+        ncgroupfolderid = ncgroupfolderid ? const [null] : null,
         nchaspreview = nchaspreview ? const [null] : null,
+        nchidden = nchidden ? const [null] : null,
         ncisencrypted = ncisencrypted ? const [null] : null,
+        ncismountroot = ncismountroot ? const [null] : null,
+        nclock = nclock ? const [null] : null,
+        nclockowner = nclockowner ? const [null] : null,
+        nclockownerdisplayname = nclockownerdisplayname ? const [null] : null,
+        nclockownereditor = nclockownereditor ? const [null] : null,
+        nclockownertype = nclockownertype ? const [null] : null,
+        nclocktime = nclocktime ? const [null] : null,
+        nclocktimeout = nclocktimeout ? const [null] : null,
+        nclocktoken = nclocktoken ? const [null] : null,
         ncmetadataetag = ncmetadataetag ? const [null] : null,
         ncmounttype = ncmounttype ? const [null] : null,
         ncnote = ncnote ? const [null] : null,
+        ncreminderduedate = ncreminderduedate ? const [null] : null,
         ncrichworkspace = ncrichworkspace ? const [null] : null,
+        ncrichworkspacefile = ncrichworkspacefile ? const [null] : null,
+        ncshareattributes = ncshareattributes ? const [null] : null,
         ncuploadtime = ncuploadtime ? const [null] : null,
+        ncversionauthor = ncversionauthor ? const [null] : null,
+        ncversionlabel = ncversionlabel ? const [null] : null,
         occommentscount = occommentscount ? const [null] : null,
         occommentshref = occommentshref ? const [null] : null,
         occommentsunread = occommentsunread ? const [null] : null,
@@ -98,6 +173,30 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
 
   factory WebDavPropWithoutValues.fromXmlElement(XmlElement element) =>
       _$WebDavPropWithoutValuesFromXmlElement(element);
+
+  @annotation.XmlElement(
+    name: 'creationdate',
+    namespace: namespaceDav,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? davcreationdate;
+
+  @annotation.XmlElement(
+    name: 'displayname',
+    namespace: namespaceDav,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? davdisplayname;
+
+  @annotation.XmlElement(
+    name: 'getcontentlanguage',
+    namespace: namespaceDav,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? davgetcontentlanguage;
 
   @annotation.XmlElement(
     name: 'getcontentlength',
@@ -132,12 +231,60 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   final List<String?>? davgetlastmodified;
 
   @annotation.XmlElement(
+    name: 'quota-available-bytes',
+    namespace: namespaceDav,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? davquotaavailablebytes;
+
+  @annotation.XmlElement(
+    name: 'quota-used-bytes',
+    namespace: namespaceDav,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? davquotausedbytes;
+
+  @annotation.XmlElement(
     name: 'resourcetype',
     namespace: namespaceDav,
     includeIfNull: true,
     isSelfClosing: true,
   )
   final List<String?>? davresourcetype;
+
+  @annotation.XmlElement(
+    name: 'acl-can-manage',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncaclcanmanage;
+
+  @annotation.XmlElement(
+    name: 'acl-enabled',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncaclenabled;
+
+  @annotation.XmlElement(
+    name: 'contained-file-count',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nccontainedfilecount;
+
+  @annotation.XmlElement(
+    name: 'contained-folder-count',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nccontainedfoldercount;
 
   @annotation.XmlElement(
     name: 'creation_time',
@@ -156,6 +303,14 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   final List<String?>? ncdatafingerprint;
 
   @annotation.XmlElement(
+    name: 'group-folder-id',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncgroupfolderid;
+
+  @annotation.XmlElement(
     name: 'has-preview',
     namespace: namespaceNextcloud,
     includeIfNull: true,
@@ -164,12 +319,92 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   final List<String?>? nchaspreview;
 
   @annotation.XmlElement(
+    name: 'hidden',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nchidden;
+
+  @annotation.XmlElement(
     name: 'is-encrypted',
     namespace: namespaceNextcloud,
     includeIfNull: true,
     isSelfClosing: true,
   )
   final List<String?>? ncisencrypted;
+
+  @annotation.XmlElement(
+    name: 'is-mount-root',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncismountroot;
+
+  @annotation.XmlElement(
+    name: 'lock',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nclock;
+
+  @annotation.XmlElement(
+    name: 'lock-owner',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nclockowner;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-displayname',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nclockownerdisplayname;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-editor',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nclockownereditor;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-type',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nclockownertype;
+
+  @annotation.XmlElement(
+    name: 'lock-time',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nclocktime;
+
+  @annotation.XmlElement(
+    name: 'lock-timeout',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nclocktimeout;
+
+  @annotation.XmlElement(
+    name: 'lock-token',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? nclocktoken;
 
   @annotation.XmlElement(
     name: 'metadata_etag',
@@ -196,6 +431,14 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   final List<String?>? ncnote;
 
   @annotation.XmlElement(
+    name: 'reminder-due-date',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncreminderduedate;
+
+  @annotation.XmlElement(
     name: 'rich-workspace',
     namespace: namespaceNextcloud,
     includeIfNull: true,
@@ -204,12 +447,44 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   final List<String?>? ncrichworkspace;
 
   @annotation.XmlElement(
+    name: 'rich-workspace-file',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncrichworkspacefile;
+
+  @annotation.XmlElement(
+    name: 'share-attributes',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncshareattributes;
+
+  @annotation.XmlElement(
     name: 'upload_time',
     namespace: namespaceNextcloud,
     includeIfNull: true,
     isSelfClosing: true,
   )
   final List<String?>? ncuploadtime;
+
+  @annotation.XmlElement(
+    name: 'version-author',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncversionauthor;
+
+  @annotation.XmlElement(
+    name: 'version-label',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncversionlabel;
 
   @annotation.XmlElement(
     name: 'comments-count',
@@ -321,20 +596,45 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
 @annotation.XmlRootElement(name: 'prop', namespace: namespaceDav)
 class WebDavProp with _$WebDavPropXmlSerializableMixin {
   const WebDavProp({
+    this.davcreationdate,
+    this.davdisplayname,
+    this.davgetcontentlanguage,
     this.davgetcontentlength,
     this.davgetcontenttype,
     this.davgetetag,
     this.davgetlastmodified,
+    this.davquotaavailablebytes,
+    this.davquotausedbytes,
     this.davresourcetype,
+    this.ncaclcanmanage,
+    this.ncaclenabled,
+    this.nccontainedfilecount,
+    this.nccontainedfoldercount,
     this.nccreationtime,
     this.ncdatafingerprint,
+    this.ncgroupfolderid,
     this.nchaspreview,
+    this.nchidden,
     this.ncisencrypted,
+    this.ncismountroot,
+    this.nclock,
+    this.nclockowner,
+    this.nclockownerdisplayname,
+    this.nclockownereditor,
+    this.nclockownertype,
+    this.nclocktime,
+    this.nclocktimeout,
+    this.nclocktoken,
     this.ncmetadataetag,
     this.ncmounttype,
     this.ncnote,
+    this.ncreminderduedate,
     this.ncrichworkspace,
+    this.ncrichworkspacefile,
+    this.ncshareattributes,
     this.ncuploadtime,
+    this.ncversionauthor,
+    this.ncversionlabel,
     this.occommentscount,
     this.occommentshref,
     this.occommentsunread,
@@ -351,6 +651,27 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   });
 
   factory WebDavProp.fromXmlElement(XmlElement element) => _$WebDavPropFromXmlElement(element);
+
+  @annotation.XmlElement(
+    name: 'creationdate',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final DateTime? davcreationdate;
+
+  @annotation.XmlElement(
+    name: 'displayname',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final String? davdisplayname;
+
+  @annotation.XmlElement(
+    name: 'getcontentlanguage',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final String? davgetcontentlanguage;
 
   @annotation.XmlElement(
     name: 'getcontentlength',
@@ -381,11 +702,53 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   final String? davgetlastmodified;
 
   @annotation.XmlElement(
+    name: 'quota-available-bytes',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final int? davquotaavailablebytes;
+
+  @annotation.XmlElement(
+    name: 'quota-used-bytes',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final int? davquotausedbytes;
+
+  @annotation.XmlElement(
     name: 'resourcetype',
     namespace: namespaceDav,
     includeIfNull: false,
   )
   final WebDavResourcetype? davresourcetype;
+
+  @annotation.XmlElement(
+    name: 'acl-can-manage',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? ncaclcanmanage;
+
+  @annotation.XmlElement(
+    name: 'acl-enabled',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? ncaclenabled;
+
+  @annotation.XmlElement(
+    name: 'contained-file-count',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nccontainedfilecount;
+
+  @annotation.XmlElement(
+    name: 'contained-folder-count',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nccontainedfoldercount;
 
   @annotation.XmlElement(
     name: 'creation_time',
@@ -402,6 +765,13 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   final String? ncdatafingerprint;
 
   @annotation.XmlElement(
+    name: 'group-folder-id',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? ncgroupfolderid;
+
+  @annotation.XmlElement(
     name: 'has-preview',
     namespace: namespaceNextcloud,
     includeIfNull: false,
@@ -409,11 +779,81 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   final bool? nchaspreview;
 
   @annotation.XmlElement(
+    name: 'hidden',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final bool? nchidden;
+
+  @annotation.XmlElement(
     name: 'is-encrypted',
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
   final int? ncisencrypted;
+
+  @annotation.XmlElement(
+    name: 'is-mount-root',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final bool? ncismountroot;
+
+  @annotation.XmlElement(
+    name: 'lock',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nclock;
+
+  @annotation.XmlElement(
+    name: 'lock-owner',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? nclockowner;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-displayname',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? nclockownerdisplayname;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-editor',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? nclockownereditor;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-type',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nclockownertype;
+
+  @annotation.XmlElement(
+    name: 'lock-time',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nclocktime;
+
+  @annotation.XmlElement(
+    name: 'lock-timeout',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nclocktimeout;
+
+  @annotation.XmlElement(
+    name: 'lock-token',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? nclocktoken;
 
   @annotation.XmlElement(
     name: 'metadata_etag',
@@ -437,6 +877,13 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   final String? ncnote;
 
   @annotation.XmlElement(
+    name: 'reminder-due-date',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final DateTime? ncreminderduedate;
+
+  @annotation.XmlElement(
     name: 'rich-workspace',
     namespace: namespaceNextcloud,
     includeIfNull: false,
@@ -444,11 +891,39 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   final String? ncrichworkspace;
 
   @annotation.XmlElement(
+    name: 'rich-workspace-file',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? ncrichworkspacefile;
+
+  @annotation.XmlElement(
+    name: 'share-attributes',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncshareattributes;
+
+  @annotation.XmlElement(
     name: 'upload_time',
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
   final int? ncuploadtime;
+
+  @annotation.XmlElement(
+    name: 'version-author',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncversionauthor;
+
+  @annotation.XmlElement(
+    name: 'version-label',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncversionlabel;
 
   @annotation.XmlElement(
     name: 'comments-count',
@@ -547,20 +1022,45 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
 @annotation.XmlRootElement(name: 'filter-rules', namespace: namespaceOwncloud)
 class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   const WebDavOcFilterRules({
+    this.davcreationdate,
+    this.davdisplayname,
+    this.davgetcontentlanguage,
     this.davgetcontentlength,
     this.davgetcontenttype,
     this.davgetetag,
     this.davgetlastmodified,
+    this.davquotaavailablebytes,
+    this.davquotausedbytes,
     this.davresourcetype,
+    this.ncaclcanmanage,
+    this.ncaclenabled,
+    this.nccontainedfilecount,
+    this.nccontainedfoldercount,
     this.nccreationtime,
     this.ncdatafingerprint,
+    this.ncgroupfolderid,
     this.nchaspreview,
+    this.nchidden,
     this.ncisencrypted,
+    this.ncismountroot,
+    this.nclock,
+    this.nclockowner,
+    this.nclockownerdisplayname,
+    this.nclockownereditor,
+    this.nclockownertype,
+    this.nclocktime,
+    this.nclocktimeout,
+    this.nclocktoken,
     this.ncmetadataetag,
     this.ncmounttype,
     this.ncnote,
+    this.ncreminderduedate,
     this.ncrichworkspace,
+    this.ncrichworkspacefile,
+    this.ncshareattributes,
     this.ncuploadtime,
+    this.ncversionauthor,
+    this.ncversionlabel,
     this.occommentscount,
     this.occommentshref,
     this.occommentsunread,
@@ -577,6 +1077,27 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   });
 
   factory WebDavOcFilterRules.fromXmlElement(XmlElement element) => _$WebDavOcFilterRulesFromXmlElement(element);
+
+  @annotation.XmlElement(
+    name: 'creationdate',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final DateTime? davcreationdate;
+
+  @annotation.XmlElement(
+    name: 'displayname',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final String? davdisplayname;
+
+  @annotation.XmlElement(
+    name: 'getcontentlanguage',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final String? davgetcontentlanguage;
 
   @annotation.XmlElement(
     name: 'getcontentlength',
@@ -607,11 +1128,53 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   final String? davgetlastmodified;
 
   @annotation.XmlElement(
+    name: 'quota-available-bytes',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final int? davquotaavailablebytes;
+
+  @annotation.XmlElement(
+    name: 'quota-used-bytes',
+    namespace: namespaceDav,
+    includeIfNull: false,
+  )
+  final int? davquotausedbytes;
+
+  @annotation.XmlElement(
     name: 'resourcetype',
     namespace: namespaceDav,
     includeIfNull: false,
   )
   final WebDavResourcetype? davresourcetype;
+
+  @annotation.XmlElement(
+    name: 'acl-can-manage',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? ncaclcanmanage;
+
+  @annotation.XmlElement(
+    name: 'acl-enabled',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? ncaclenabled;
+
+  @annotation.XmlElement(
+    name: 'contained-file-count',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nccontainedfilecount;
+
+  @annotation.XmlElement(
+    name: 'contained-folder-count',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nccontainedfoldercount;
 
   @annotation.XmlElement(
     name: 'creation_time',
@@ -628,6 +1191,13 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   final String? ncdatafingerprint;
 
   @annotation.XmlElement(
+    name: 'group-folder-id',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? ncgroupfolderid;
+
+  @annotation.XmlElement(
     name: 'has-preview',
     namespace: namespaceNextcloud,
     includeIfNull: false,
@@ -635,11 +1205,81 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   final bool? nchaspreview;
 
   @annotation.XmlElement(
+    name: 'hidden',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final bool? nchidden;
+
+  @annotation.XmlElement(
     name: 'is-encrypted',
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
   final int? ncisencrypted;
+
+  @annotation.XmlElement(
+    name: 'is-mount-root',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final bool? ncismountroot;
+
+  @annotation.XmlElement(
+    name: 'lock',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nclock;
+
+  @annotation.XmlElement(
+    name: 'lock-owner',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? nclockowner;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-displayname',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? nclockownerdisplayname;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-editor',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? nclockownereditor;
+
+  @annotation.XmlElement(
+    name: 'lock-owner-type',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nclockownertype;
+
+  @annotation.XmlElement(
+    name: 'lock-time',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nclocktime;
+
+  @annotation.XmlElement(
+    name: 'lock-timeout',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? nclocktimeout;
+
+  @annotation.XmlElement(
+    name: 'lock-token',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? nclocktoken;
 
   @annotation.XmlElement(
     name: 'metadata_etag',
@@ -663,6 +1303,13 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   final String? ncnote;
 
   @annotation.XmlElement(
+    name: 'reminder-due-date',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final DateTime? ncreminderduedate;
+
+  @annotation.XmlElement(
     name: 'rich-workspace',
     namespace: namespaceNextcloud,
     includeIfNull: false,
@@ -670,11 +1317,39 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   final String? ncrichworkspace;
 
   @annotation.XmlElement(
+    name: 'rich-workspace-file',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final int? ncrichworkspacefile;
+
+  @annotation.XmlElement(
+    name: 'share-attributes',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncshareattributes;
+
+  @annotation.XmlElement(
     name: 'upload_time',
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
   final int? ncuploadtime;
+
+  @annotation.XmlElement(
+    name: 'version-author',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncversionauthor;
+
+  @annotation.XmlElement(
+    name: 'version-label',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncversionlabel;
 
   @annotation.XmlElement(
     name: 'comments-count',

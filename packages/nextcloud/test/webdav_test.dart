@@ -10,6 +10,7 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
 import 'package:universal_io/io.dart';
+import 'package:version/version.dart';
 
 class MockCallbackFunction extends Mock {
   void progressCallback(double progress);
@@ -193,20 +194,45 @@ void main() {
         final response = (await client.webdav.propfind(
           PathUri.parse('Nextcloud.png'),
           prop: const WebDavPropWithoutValues.fromBools(
+            davcreationdate: true,
+            davdisplayname: true,
+            davgetcontentlanguage: true,
             davgetcontentlength: true,
             davgetcontenttype: true,
             davgetetag: true,
             davgetlastmodified: true,
+            davquotaavailablebytes: true,
+            davquotausedbytes: true,
             davresourcetype: true,
+            ncaclcanmanage: true,
+            ncaclenabled: true,
+            nccontainedfilecount: true,
+            nccontainedfoldercount: true,
             nccreationtime: true,
             ncdatafingerprint: true,
+            ncgroupfolderid: true,
             nchaspreview: true,
+            nchidden: true,
             ncisencrypted: true,
+            ncismountroot: true,
+            nclock: true,
+            nclockowner: true,
+            nclockownerdisplayname: true,
+            nclockownereditor: true,
+            nclockownertype: true,
+            nclocktime: true,
+            nclocktimeout: true,
+            nclocktoken: true,
             ncmetadataetag: true,
             ncmounttype: true,
             ncnote: true,
+            ncreminderduedate: true,
             ncrichworkspace: true,
+            ncrichworkspacefile: true,
+            ncshareattributes: true,
             ncuploadtime: true,
+            ncversionauthor: true,
+            ncversionlabel: true,
             occommentscount: true,
             occommentshref: true,
             occommentsunread: true,
@@ -243,20 +269,44 @@ void main() {
         expect(response.name, 'Nextcloud.png');
         expect(response.isDirectory, isFalse);
 
+        expect(response.props.davcreationdate, DateTime.utc(1970));
+        expect(response.props.davdisplayname, 'Nextcloud.png');
+        expect(response.props.davgetcontentlanguage, isNull);
         expect(response.props.davgetcontentlength, 50598);
         expect(response.props.davgetcontenttype, 'image/png');
         expect(response.props.davgetetag, isNotEmpty);
         expect(parseHttpDate(response.props.davgetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
+        expect(response.props.davquotaavailablebytes, isNull);
+        expect(response.props.davquotausedbytes, isNull);
         expect(response.props.davresourcetype!.collection, isNull);
         expect(response.props.nccreationtime, 0);
+        expect(response.props.ncaclcanmanage, isNull);
+        expect(response.props.ncaclenabled, isNull);
+        expect(response.props.nccontainedfilecount, isNull);
+        expect(response.props.nccontainedfoldercount, isNull);
         expect(response.props.ncdatafingerprint, isNull);
+        expect(response.props.ncgroupfolderid, isNull);
         expect(response.props.nchaspreview, isTrue);
+        expect(response.props.nchidden, preset.version >= Version(28, 0, 0) ? isFalse : isNull);
         expect(response.props.ncisencrypted, isNull);
+        expect(response.props.ncismountroot, preset.version >= Version(28, 0, 0) ? isFalse : isNull);
+        expect(response.props.nclock, isNull);
+        expect(response.props.nclockowner, isNull);
+        expect(response.props.nclockownerdisplayname, isNull);
+        expect(response.props.nclockownertype, isNull);
+        expect(response.props.nclocktime, isNull);
+        expect(response.props.nclocktimeout, isNull);
+        expect(response.props.nclocktoken, isNull);
         expect(response.props.ncmetadataetag, isNull);
         expect(response.props.ncmounttype, isNull);
         expect(response.props.ncnote, isNull);
+        expect(response.props.ncreminderduedate, isNull);
         expect(response.props.ncrichworkspace, isNull);
+        expect(response.props.ncrichworkspacefile, isNull);
+        expect(json.decode(response.props.ncshareattributes!), <String>[]);
         expect(response.props.ncuploadtime, 0);
+        expect(response.props.ncversionauthor, isNull);
+        expect(response.props.ncversionlabel, isNull);
         expect(response.props.occommentscount, 0);
         expect(response.props.occommentshref, isNotEmpty);
         expect(response.props.occommentsunread, 0);
