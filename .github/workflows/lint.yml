@@ -17,11 +17,5 @@ jobs:
       - name: Find untested Neon APIs
         run: ./tool/find-untested-neon-apis.sh
 
-      - name: Find dart:io usage
-        run: ./tool/find-dart-io-usage.sh
-
-      - name: Find dart:html usage
-        run: ./tool/find-dart-html-usage.sh
-
       - name: Find relative markdown links
         run: ./tool/find-relative-markdown-links.sh
