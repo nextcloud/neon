@@ -1892,6 +1892,10 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
       serializers.serialize(object.backendCapabilities, specifiedType: const FullType(UserDetails_BackendCapabilities)),
       'biography',
       serializers.serialize(object.biography, specifiedType: const FullType(String)),
+      'display-name',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
+      'displayname',
+      serializers.serialize(object.displayname, specifiedType: const FullType(String)),
       'fediverse',
       serializers.serialize(object.fediverse, specifiedType: const FullType(String)),
       'groups',
@@ -1906,6 +1910,8 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
       serializers.serialize(object.lastLogin, specifiedType: const FullType(int)),
       'locale',
       serializers.serialize(object.locale, specifiedType: const FullType(String)),
+      'manager',
+      serializers.serialize(object.manager, specifiedType: const FullType(String)),
       'organisation',
       serializers.serialize(object.organisation, specifiedType: const FullType(String)),
       'phone',
@@ -1948,18 +1954,6 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
         ..add('biographyScope')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
-    value = object.displayName;
-    if (value != null) {
-      result
-        ..add('display-name')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.displayname;
-    if (value != null) {
-      result
-        ..add('displayname')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.displaynameScope;
     if (value != null) {
       result
@@ -1994,12 +1988,6 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
     if (value != null) {
       result
         ..add('headlineScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.manager;
-    if (value != null) {
-      result
-        ..add('manager')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.notifyEmail;
@@ -2095,10 +2083,10 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.biographyScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'display-name':
-          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'displayname':
-          result.displayname = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.displayname = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'displaynameScope':
           result.displaynameScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -2141,7 +2129,7 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.locale = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'manager':
-          result.manager = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.manager = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'notify_email':
           result.notifyEmail = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -9315,9 +9303,9 @@ class _$UserDetails extends UserDetails {
   @override
   final String? biographyScope;
   @override
-  final String? displayName;
+  final String displayName;
   @override
-  final String? displayname;
+  final String displayname;
   @override
   final String? displaynameScope;
   @override
@@ -9345,7 +9333,7 @@ class _$UserDetails extends UserDetails {
   @override
   final String locale;
   @override
-  final String? manager;
+  final String manager;
   @override
   final String? notifyEmail;
   @override
@@ -9392,8 +9380,8 @@ class _$UserDetails extends UserDetails {
       required this.backendCapabilities,
       required this.biography,
       this.biographyScope,
-      this.displayName,
-      this.displayname,
+      required this.displayName,
+      required this.displayname,
       this.displaynameScope,
       this.email,
       this.emailScope,
@@ -9407,7 +9395,7 @@ class _$UserDetails extends UserDetails {
       required this.language,
       required this.lastLogin,
       required this.locale,
-      this.manager,
+      required this.manager,
       this.notifyEmail,
       required this.organisation,
       this.organisationScope,
@@ -9430,6 +9418,8 @@ class _$UserDetails extends UserDetails {
     BuiltValueNullFieldError.checkNotNull(backend, r'UserDetails', 'backend');
     BuiltValueNullFieldError.checkNotNull(backendCapabilities, r'UserDetails', 'backendCapabilities');
     BuiltValueNullFieldError.checkNotNull(biography, r'UserDetails', 'biography');
+    BuiltValueNullFieldError.checkNotNull(displayName, r'UserDetails', 'displayName');
+    BuiltValueNullFieldError.checkNotNull(displayname, r'UserDetails', 'displayname');
     BuiltValueNullFieldError.checkNotNull(fediverse, r'UserDetails', 'fediverse');
     BuiltValueNullFieldError.checkNotNull(groups, r'UserDetails', 'groups');
     BuiltValueNullFieldError.checkNotNull(headline, r'UserDetails', 'headline');
@@ -9437,6 +9427,7 @@ class _$UserDetails extends UserDetails {
     BuiltValueNullFieldError.checkNotNull(language, r'UserDetails', 'language');
     BuiltValueNullFieldError.checkNotNull(lastLogin, r'UserDetails', 'lastLogin');
     BuiltValueNullFieldError.checkNotNull(locale, r'UserDetails', 'locale');
+    BuiltValueNullFieldError.checkNotNull(manager, r'UserDetails', 'manager');
     BuiltValueNullFieldError.checkNotNull(organisation, r'UserDetails', 'organisation');
     BuiltValueNullFieldError.checkNotNull(phone, r'UserDetails', 'phone');
     BuiltValueNullFieldError.checkNotNull(profileEnabled, r'UserDetails', 'profileEnabled');
@@ -9845,8 +9836,8 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
               backendCapabilities: backendCapabilities.build(),
               biography: BuiltValueNullFieldError.checkNotNull(biography, r'UserDetails', 'biography'),
               biographyScope: biographyScope,
-              displayName: displayName,
-              displayname: displayname,
+              displayName: BuiltValueNullFieldError.checkNotNull(displayName, r'UserDetails', 'displayName'),
+              displayname: BuiltValueNullFieldError.checkNotNull(displayname, r'UserDetails', 'displayname'),
               displaynameScope: displaynameScope,
               email: email,
               emailScope: emailScope,
@@ -9860,7 +9851,7 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
               language: BuiltValueNullFieldError.checkNotNull(language, r'UserDetails', 'language'),
               lastLogin: BuiltValueNullFieldError.checkNotNull(lastLogin, r'UserDetails', 'lastLogin'),
               locale: BuiltValueNullFieldError.checkNotNull(locale, r'UserDetails', 'locale'),
-              manager: manager,
+              manager: BuiltValueNullFieldError.checkNotNull(manager, r'UserDetails', 'manager'),
               notifyEmail: notifyEmail,
               organisation: BuiltValueNullFieldError.checkNotNull(organisation, r'UserDetails', 'organisation'),
               organisationScope: organisationScope,

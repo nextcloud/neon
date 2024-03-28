@@ -1400,16 +1400,12 @@ class _$Capabilities_UserStatusSerializer implements StructuredSerializer<Capabi
     final result = <Object?>[
       'enabled',
       serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'restore',
+      serializers.serialize(object.restore, specifiedType: const FullType(bool)),
       'supports_emoji',
       serializers.serialize(object.supportsEmoji, specifiedType: const FullType(bool)),
     ];
-    Object? value;
-    value = object.restore;
-    if (value != null) {
-      result
-        ..add('restore')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
+
     return result;
   }
 
@@ -1428,7 +1424,7 @@ class _$Capabilities_UserStatusSerializer implements StructuredSerializer<Capabi
           result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'restore':
-          result.restore = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.restore = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'supports_emoji':
           result.supportsEmoji = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -4495,15 +4491,16 @@ class _$Capabilities_UserStatus extends Capabilities_UserStatus {
   @override
   final bool enabled;
   @override
-  final bool? restore;
+  final bool restore;
   @override
   final bool supportsEmoji;
 
   factory _$Capabilities_UserStatus([void Function(Capabilities_UserStatusBuilder)? updates]) =>
       (Capabilities_UserStatusBuilder()..update(updates))._build();
 
-  _$Capabilities_UserStatus._({required this.enabled, this.restore, required this.supportsEmoji}) : super._() {
+  _$Capabilities_UserStatus._({required this.enabled, required this.restore, required this.supportsEmoji}) : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_UserStatus', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(restore, r'Capabilities_UserStatus', 'restore');
     BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'Capabilities_UserStatus', 'supportsEmoji');
   }
 
@@ -4592,7 +4589,7 @@ class Capabilities_UserStatusBuilder
     final _$result = _$v ??
         _$Capabilities_UserStatus._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_UserStatus', 'enabled'),
-            restore: restore,
+            restore: BuiltValueNullFieldError.checkNotNull(restore, r'Capabilities_UserStatus', 'restore'),
             supportsEmoji:
                 BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'Capabilities_UserStatus', 'supportsEmoji'));
     replace(_$result);

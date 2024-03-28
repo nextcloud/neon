@@ -31,6 +31,7 @@
                         "type": "object",
                         "required": [
                             "enabled",
+                            "restore",
                             "supports_emoji"
                         ],
                         "properties": {

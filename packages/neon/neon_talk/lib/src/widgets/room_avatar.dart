@@ -19,7 +19,7 @@ class TalkRoomAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (room.isCustomAvatar ?? false) {
+    if (room.isCustomAvatar) {
       final brightness = Theme.of(context).brightness;
 
       return CircleAvatar(

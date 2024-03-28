@@ -34,6 +34,7 @@ Map<String, dynamic> getRoom({
       'hasCall': false,
       'hasPassword': false,
       'id': id ?? 0,
+      'isCustomAvatar': false,
       'isFavorite': false,
       'lastActivity': 0,
       'lastCommonReadMessage': 0,

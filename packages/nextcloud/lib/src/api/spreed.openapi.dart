@@ -14143,7 +14143,7 @@ abstract interface class $RoomInterface {
   bool get hasCall;
   bool get hasPassword;
   int get id;
-  bool? get isCustomAvatar;
+  bool get isCustomAvatar;
   bool get isFavorite;
   int get lastActivity;
   int get lastCommonReadMessage;
@@ -38956,11 +38956,11 @@ abstract interface class $PublicCapabilities0_Spreed_Config_CallInterface {
   @BuiltValueField(wireName: 'recording-consent')
   int? get recordingConsent;
   @BuiltValueField(wireName: 'supported-reactions')
-  BuiltList<String>? get supportedReactions;
+  BuiltList<String> get supportedReactions;
   @BuiltValueField(wireName: 'predefined-backgrounds')
-  BuiltList<String>? get predefinedBackgrounds;
+  BuiltList<String> get predefinedBackgrounds;
   @BuiltValueField(wireName: 'can-upload-background')
-  bool? get canUploadBackground;
+  bool get canUploadBackground;
   @BuiltValueField(wireName: 'sip-enabled')
   bool? get sipEnabled;
   @BuiltValueField(wireName: 'sip-dialout-enabled')
@@ -39010,7 +39010,7 @@ abstract interface class $PublicCapabilities0_Spreed_Config_ChatInterface {
   @BuiltValueField(wireName: 'has-translation-providers')
   bool? get hasTranslationProviders;
   @BuiltValueField(wireName: 'typing-privacy')
-  int? get typingPrivacy;
+  int get typingPrivacy;
   BuiltList<String>? get translations;
 }
 
