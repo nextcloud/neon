@@ -6,6 +6,7 @@ import 'dart:typed_data';
 
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
+import 'package:nextcloud/src/webdav/csrf_client.dart';
 import 'package:nextcloud/src/webdav/models.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
@@ -14,55 +15,17 @@ import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:universal_io/io.dart' show File, FileStat;
 
-// ignore: do_not_use_environment
-const bool _kIsWeb = bool.fromEnvironment('dart.library.js_util');
-
 /// WebDavClient class
 class WebDavClient {
   // ignore: public_member_api_docs
-  WebDavClient(this.rootClient);
+  WebDavClient(this.rootClient) : csrfClient = WebDavCSRFClient(rootClient);
 
   // ignore: public_member_api_docs
   final DynamiteClient rootClient;
 
-  String? _token;
-
-  Future<http.StreamedResponse> _send(
-    http.BaseRequest request,
-  ) async {
-    // On web we need to send a CSRF token because we also send the cookies.  In theory this should not be required as
-    // long as we send the OCS-APIRequest header, but the server has a bug that only triggers when you also send the
-    // cookies. On non-web platforms we don't send the cookies so we are fine, but on web the browser always does it
-    // and therefore we need this workaround.
-    // TODO: Fix this bug in server.
-    if (_kIsWeb) {
-      if (_token == null) {
-        final response = await rootClient.get(Uri.parse('${rootClient.baseURL}/index.php'));
-        if (response.statusCode >= 300) {
-          throw DynamiteStatusCodeException(
-            response.statusCode,
-          );
-        }
-
-        _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
-      }
-
-      request.headers.addAll({
-        'OCS-APIRequest': 'true',
-        'requesttoken': _token!,
-      });
-    }
-
-    final response = await rootClient.send(request);
-
-    if (response.statusCode >= 300) {
-      throw DynamiteStatusCodeException(
-        response.statusCode,
-      );
-    }
-
-    return response;
-  }
+  /// {@macro WebDavCSRFClient}
+  // TODO: Fix this bug in server.
+  final WebDavCSRFClient csrfClient;
 
   Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, path);
 
@@ -84,7 +47,7 @@ class WebDavClient {
   Future<WebDavOptions> options() async {
     final request = options_Request();
 
-    final response = await _send(request);
+    final response = await csrfClient.send(request);
     return parseWebDavOptions(response.headers);
   }
 
@@ -107,7 +70,7 @@ class WebDavClient {
   Future<http.StreamedResponse> mkcol(PathUri path) {
     final request = mkcol_Request(path);
 
-    return _send(request);
+    return csrfClient.send(request);
   }
 
   /// Request to delete the resource at [path].
@@ -129,7 +92,7 @@ class WebDavClient {
   Future<http.StreamedResponse> delete(PathUri path) {
     final request = delete_Request(path);
 
-    return _send(request);
+    return csrfClient.send(request);
   }
 
   /// Request to put a new file at [path] with [localData] as content.
@@ -174,7 +137,7 @@ class WebDavClient {
       created: created,
     );
 
-    return _send(request);
+    return csrfClient.send(request);
   }
 
   /// Request to put a new file at [path] with [localData] as content.
@@ -244,7 +207,7 @@ class WebDavClient {
       onProgress: onProgress,
     );
 
-    return _send(request);
+    return csrfClient.send(request);
   }
 
   /// Request to put a new file at [path] with [file] as content.
@@ -296,7 +259,7 @@ class WebDavClient {
       onProgress: onProgress,
     );
 
-    return _send(request);
+    return csrfClient.send(request);
   }
 
   /// Request to get the content of the file at [path].
@@ -320,7 +283,7 @@ class WebDavClient {
   }) {
     final request = get_Request(path);
     // ignore: discarded_futures
-    final response = _send(request);
+    final response = csrfClient.send(request);
     final controller = StreamController<List<int>>();
 
     unawaited(
@@ -413,7 +376,7 @@ class WebDavClient {
       depth: depth,
     );
 
-    final response = await _send(request);
+    final response = await csrfClient.send(request);
     return const WebDavResponseConverter().convert(response);
   }
 
@@ -454,7 +417,7 @@ class WebDavClient {
       prop: prop,
     );
 
-    final response = await _send(request);
+    final response = await csrfClient.send(request);
     return const WebDavResponseConverter().convert(response);
   }
 
@@ -497,7 +460,7 @@ class WebDavClient {
       remove: remove,
     );
 
-    final response = await _send(request);
+    final response = await csrfClient.send(request);
     final data = await const WebDavResponseConverter().convert(response);
     for (final a in data.responses) {
       for (final b in a.propstats) {
@@ -546,7 +509,7 @@ class WebDavClient {
       overwrite: overwrite,
     );
 
-    return _send(request);
+    return csrfClient.send(request);
   }
 
   /// Request to copy the resource from [sourcePath] to [destinationPath].
@@ -586,7 +549,7 @@ class WebDavClient {
       overwrite: overwrite,
     );
 
-    return _send(request);
+    return csrfClient.send(request);
   }
 
   void _addBaseHeaders(http.BaseRequest request) {
