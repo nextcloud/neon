@@ -12,7 +12,7 @@ import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/utils.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:nextcloud/utils.dart';
-import 'package:universal_io/io.dart' hide HttpClient;
+import 'package:universal_io/io.dart' show File, FileStat;
 
 // ignore: do_not_use_environment
 const bool _kIsWeb = bool.fromEnvironment('dart.library.js_util');
@@ -30,15 +30,6 @@ class WebDavClient {
   Future<http.StreamedResponse> _send(
     http.BaseRequest request,
   ) async {
-    final authentication = rootClient.authentications?.firstOrNull;
-    if (authentication != null) {
-      request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-    request.headers[HttpHeaders.contentTypeHeader] = 'application/xml';
-
     // On web we need to send a CSRF token because we also send the cookies.  In theory this should not be required as
     // long as we send the OCS-APIRequest header, but the server has a bug that only triggers when you also send the
     // cookies. On non-web platforms we don't send the cookies so we are fine, but on web the browser always does it
@@ -78,23 +69,15 @@ class WebDavClient {
   Future<WebDavMultistatus> _parseResponse(http.StreamedResponse response) async =>
       WebDavMultistatus.fromXmlElement(await response.stream.xml);
 
-  Map<String, String> _getUploadHeaders({
-    required DateTime? lastModified,
-    required DateTime? created,
-    required int? contentLength,
-  }) =>
-      {
-        if (lastModified != null) 'X-OC-Mtime': lastModified.secondsSinceEpoch.toString(),
-        if (created != null) 'X-OC-CTime': created.secondsSinceEpoch.toString(),
-        if (contentLength != null) HttpHeaders.contentLengthHeader: contentLength.toString(),
-      };
-
   /// Request to get the WebDAV capabilities of the server.
   ///
   /// See:
   ///   * [options] for a complete operation executing this request.
   http.BaseRequest options_Request() {
-    return http.Request('OPTIONS', _constructUri());
+    final request = http.Request('OPTIONS', _constructUri());
+
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Gets the WebDAV capabilities of the server.
@@ -116,7 +99,10 @@ class WebDavClient {
   /// See:
   ///   * [mkcol] for a complete operation executing this request.
   http.BaseRequest mkcol_Request(PathUri path) {
-    return http.Request('MKCOL', _constructUri(path));
+    final request = http.Request('MKCOL', _constructUri(path));
+
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Creates a collection at [path].
@@ -135,7 +121,10 @@ class WebDavClient {
   /// See:
   ///   * [delete] for a complete operation executing this request.
   http.BaseRequest delete_Request(PathUri path) {
-    return http.Request('DELETE', _constructUri(path));
+    final request = http.Request('DELETE', _constructUri(path));
+
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Deletes the resource at [path].
@@ -159,15 +148,16 @@ class WebDavClient {
     DateTime? lastModified,
     DateTime? created,
   }) {
-    final headers = _getUploadHeaders(
+    final request = http.Request('PUT', _constructUri(path))..bodyBytes = localData;
+
+    _addUploadHeaders(
+      request,
       lastModified: lastModified,
       created: created,
       contentLength: localData.length,
     );
-
-    return http.Request('PUT', _constructUri(path))
-      ..bodyBytes = localData
-      ..headers.addAll(headers);
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Puts a new file at [path] with [localData] as content.
@@ -205,13 +195,15 @@ class WebDavClient {
     int? contentLength,
     void Function(double progress)? onProgress,
   }) {
-    final headers = _getUploadHeaders(
+    final request = http.StreamedRequest('PUT', _constructUri(path));
+
+    _addBaseHeaders(request);
+    _addUploadHeaders(
+      request,
       lastModified: lastModified,
       created: created,
       contentLength: contentLength,
     );
-
-    final request = http.StreamedRequest('PUT', _constructUri(path))..headers.addAll(headers);
 
     if (contentLength != null && onProgress != null) {
       var uploaded = 0;
@@ -273,6 +265,8 @@ class WebDavClient {
     DateTime? created,
     void Function(double progress)? onProgress,
   }) {
+    // Authentication and content-type headers are already set by the putStream_Request.
+    // No need to set them here.
     return putStream_Request(
       file.openRead(),
       path,
@@ -316,7 +310,10 @@ class WebDavClient {
   /// See:
   ///   * [get], [getStream] and [getFile] for complete operations executing this request.
   http.BaseRequest get_Request(PathUri path) {
-    return http.Request('GET', _constructUri(path));
+    final request = http.Request('GET', _constructUri(path));
+
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Gets the content of the file at [path].
@@ -400,6 +397,7 @@ class WebDavClient {
       request.headers['Depth'] = depth.value;
     }
 
+    _addBaseHeaders(request);
     return request;
   }
 
@@ -434,12 +432,15 @@ class WebDavClient {
     WebDavOcFilterRules filterRules, {
     WebDavPropWithoutValues? prop,
   }) {
-    return http.Request('REPORT', _constructUri(path))
+    final request = http.Request('REPORT', _constructUri(path))
       ..encoding = utf8
       ..body = WebDavOcFilterFiles(
         filterRules: filterRules,
         prop: prop ?? const WebDavPropWithoutValues(), // coverage:ignore-line
       ).toXmlElement(namespaces: namespaces).toXmlString();
+
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Runs the filter-files report with the [filterRules] on the resource at [path].
@@ -472,12 +473,15 @@ class WebDavClient {
     WebDavProp? set,
     WebDavPropWithoutValues? remove,
   }) {
-    return http.Request('PROPPATCH', _constructUri(path))
+    final request = http.Request('PROPPATCH', _constructUri(path))
       ..encoding = utf8
       ..body = WebDavPropertyupdate(
         set: set != null ? WebDavSet(prop: set) : null,
         remove: remove != null ? WebDavRemove(prop: remove) : null,
       ).toXmlElement(namespaces: namespaces).toXmlString();
+
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Updates the props of the resource at [path].
@@ -520,9 +524,15 @@ class WebDavClient {
     PathUri destinationPath, {
     bool overwrite = false,
   }) {
-    return http.Request('MOVE', _constructUri(sourcePath))
-      ..headers['Destination'] = _constructUri(destinationPath).toString()
-      ..headers['Overwrite'] = overwrite ? 'T' : 'F';
+    final request = http.Request('MOVE', _constructUri(sourcePath));
+
+    _addCopyHeaders(
+      request,
+      destinationPath: destinationPath,
+      overwrite: overwrite,
+    );
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Moves the resource from [sourcePath] to [destinationPath].
@@ -554,9 +564,15 @@ class WebDavClient {
     PathUri destinationPath, {
     bool overwrite = false,
   }) {
-    return http.Request('COPY', _constructUri(sourcePath))
-      ..headers['Destination'] = _constructUri(destinationPath).toString()
-      ..headers['Overwrite'] = overwrite ? 'T' : 'F';
+    final request = http.Request('COPY', _constructUri(sourcePath));
+
+    _addCopyHeaders(
+      request,
+      destinationPath: destinationPath,
+      overwrite: overwrite,
+    );
+    _addBaseHeaders(request);
+    return request;
   }
 
   /// Copies the resource from [sourcePath] to [destinationPath].
@@ -577,5 +593,38 @@ class WebDavClient {
     );
 
     return _send(request);
+  }
+
+  void _addBaseHeaders(http.BaseRequest request) {
+    request.headers['content-type'] = 'application/xml';
+
+    final authentication = rootClient.authentications?.firstOrNull;
+    if (authentication != null) {
+      request.headers.addAll(
+        authentication.headers,
+      );
+    }
+  }
+
+  static void _addUploadHeaders(
+    http.BaseRequest request, {
+    DateTime? lastModified,
+    DateTime? created,
+    int? contentLength,
+  }) {
+    if (lastModified != null) {
+      request.headers['X-OC-Mtime'] = lastModified.secondsSinceEpoch.toString();
+    }
+    if (created != null) {
+      request.headers['X-OC-CTime'] = created.secondsSinceEpoch.toString();
+    }
+    if (contentLength != null) {
+      request.headers['content-length'] = contentLength.toString();
+    }
+  }
+
+  void _addCopyHeaders(http.BaseRequest request, {required PathUri destinationPath, required bool overwrite}) {
+    request.headers['Destination'] = _constructUri(destinationPath).toString();
+    request.headers['Overwrite'] = overwrite ? 'T' : 'F';
   }
 }
