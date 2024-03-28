@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
@@ -292,7 +293,7 @@ class TalkCommentMessage extends StatelessWidget {
       topMargin = 0;
     }
 
-    final text = RichText(
+    Widget text = RichText(
       maxLines: isParent ? 1 : null,
       overflow: isParent ? TextOverflow.ellipsis : TextOverflow.visible,
       text: buildChatMessage(
@@ -303,6 +304,20 @@ class TalkCommentMessage extends StatelessWidget {
             : textTheme.bodyMedium,
       ),
     );
+    if (chatMessage.messageType == spreed.MessageType.commentDeleted) {
+      text = Row(
+        children: [
+          Icon(
+            AdaptiveIcons.cancel,
+            size: textTheme.bodySmall!.fontSize,
+          ),
+          const SizedBox(
+            width: 2.5,
+          ),
+          text,
+        ],
+      );
+    }
 
     return Container(
       margin: EdgeInsets.only(
