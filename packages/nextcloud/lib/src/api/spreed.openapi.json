@@ -656,7 +656,10 @@
                                                 "required": [
                                                     "enabled",
                                                     "breakout-rooms",
-                                                    "recording"
+                                                    "recording",
+                                                    "supported-reactions",
+                                                    "predefined-backgrounds",
+                                                    "can-upload-background"
                                                 ],
                                                 "properties": {
                                                     "enabled": {
@@ -702,7 +705,8 @@
                                                 "type": "object",
                                                 "required": [
                                                     "max-length",
-                                                    "read-privacy"
+                                                    "read-privacy",
+                                                    "typing-privacy"
                                                 ],
                                                 "properties": {
                                                     "max-length": {
@@ -830,6 +834,7 @@
                     "hasCall",
                     "hasPassword",
                     "id",
+                    "isCustomAvatar",
                     "isFavorite",
                     "lastActivity",
                     "lastCommonReadMessage",

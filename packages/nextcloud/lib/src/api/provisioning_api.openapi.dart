@@ -5476,8 +5476,8 @@ abstract interface class $UserDetailsInterface {
   String get biography;
   String? get biographyScope;
   @BuiltValueField(wireName: 'display-name')
-  String? get displayName;
-  String? get displayname;
+  String get displayName;
+  String get displayname;
   String? get displaynameScope;
   String? get email;
   String? get emailScope;
@@ -5491,7 +5491,7 @@ abstract interface class $UserDetailsInterface {
   String get language;
   int get lastLogin;
   String get locale;
-  String? get manager;
+  String get manager;
   @BuiltValueField(wireName: 'notify_email')
   String? get notifyEmail;
   String get organisation;

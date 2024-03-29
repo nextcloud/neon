@@ -2203,7 +2203,7 @@ abstract class UserStatusRevertStatusResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_UserStatusInterface {
   bool get enabled;
-  bool? get restore;
+  bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
   bool get supportsEmoji;
 }
