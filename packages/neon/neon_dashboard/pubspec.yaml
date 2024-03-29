@@ -15,7 +15,6 @@ dependencies:
   go_router: ^13.0.0
   intersperse: ^2.0.0
   logging: ^1.0.0
-  meta: ^1.0.0
   neon_framework:
     git:
       url: https://github.com/nextcloud/neon

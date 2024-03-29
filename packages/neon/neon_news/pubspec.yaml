@@ -18,7 +18,6 @@ dependencies:
   html: ^0.15.0
   intl: ^0.18.0
   logging: ^1.0.0
-  meta: ^1.0.0
   neon_framework:
     git:
       url: https://github.com/nextcloud/neon

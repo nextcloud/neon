@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
-import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
@@ -13,7 +12,6 @@ import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotesNoteBloc implements InteractiveBloc {
-  @internal
   factory NotesNoteBloc({
     required NotesBloc notesBloc,
     required Account account,

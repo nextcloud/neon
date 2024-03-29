@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:logging/logging.dart';
-import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
@@ -13,7 +12,6 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc for fetching dashboard widgets and their items.
 sealed class DashboardBloc implements InteractiveBloc {
   /// Creates a new Dashboard Bloc instance.
-  @internal
   factory DashboardBloc({
     required Account account,
   }) = _DashboardBloc;
