@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, unused_local_variable
 
 // expect_lint: avoid_dart_html
 import 'dart:html';
@@ -18,4 +18,13 @@ void main() {
 
   // expect_lint: avoid_debug_print
   debugPrintStack();
+
+  // expect_lint: prefer_tz_date_time
+  var date = DateTime(0);
+
+  // expect_lint: prefer_tz_date_time
+  date = DateTime.now();
+
+  // expect_lint: prefer_tz_date_time
+  var dates = List.generate(5, DateTime.utc);
 }
