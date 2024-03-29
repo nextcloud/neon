@@ -65,5 +65,5 @@ jobs:
         run: |
           export PATH="$PATH:/tmp/bin"
           melos exec --file-exists="coverage/lcov.info" --concurrency=1 -- "
-            codecov --verbose upload-process --fail-on-error -F "$MELOS_PACKAGE_NAME" -f "$MELOS_PACKAGE_PATH/coverage/lcov.info" -t "${{ secrets.CODECOV_TOKEN }}"
-          "         
+            codecov --verbose upload-process --fail-on-error -F MELOS_PACKAGE_NAME -f MELOS_PACKAGE_PATH/coverage/lcov.info -t ${{ secrets.CODECOV_TOKEN }}
+          "
