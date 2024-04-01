@@ -843,14 +843,13 @@ packages:
     source: hosted
     version: "2.1.0"
   package_info_plus:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "packages/package_info_plus/package_info_plus"
-      ref: baa336fe79c29411542fc343d332846bcd7752c1
-      resolved-ref: baa336fe79c29411542fc343d332846bcd7752c1
-      url: "https://github.com/fluttercommunity/plus_plugins"
-    source: git
-    version: "5.0.1"
+      name: package_info_plus
+      sha256: cb44f49b6e690fa766f023d5b22cac6b9affe741dd792b6ac7ad4fabe0d7b097
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.0"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
