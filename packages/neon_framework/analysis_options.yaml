@@ -3,3 +3,7 @@ include: package:neon_lints/flutter.yaml
 analyzer:
   exclude:
     - lib/l10n/**
+
+custom_lint:
+  rules:
+    - avoid_exports: false
