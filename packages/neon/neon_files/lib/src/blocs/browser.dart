@@ -98,12 +98,12 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
       request: () => account.client.webdav.propfind(
         uri.value,
         prop: const WebDavPropWithoutValues.fromBools(
-          davgetcontenttype: true,
-          davgetetag: true,
-          davgetlastmodified: true,
-          nchaspreview: true,
-          ocsize: true,
-          ocfavorite: true,
+          davGetcontenttype: true,
+          davGetetag: true,
+          davGetlastmodified: true,
+          ncHasPreview: true,
+          ocSize: true,
+          ocFavorite: true,
         ),
         depth: WebDavDepth.one,
       ),

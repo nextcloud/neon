@@ -36,63 +36,63 @@ class WebDavFile {
   }();
 
   /// The fileid namespaced by the instance id, globally unique
-  late final String? id = props.ocid;
+  late final String? id = props.ocId;
 
   /// The unique id for the file within the instance
-  late final int? fileId = props.ocfileid;
+  late final int? fileId = props.ocFileid;
 
   /// Whether this is a collection resource type
-  late final bool? isCollection = props.davresourcetype != null ? props.davresourcetype!.collection != null : null;
+  late final bool? isCollection = props.davResourcetype != null ? props.davResourcetype!.collection != null : null;
 
   /// Mime-type of the file
-  late final String? mimeType = props.davgetcontenttype;
+  late final String? mimeType = props.davGetcontenttype;
 
   /// ETag of the file
-  late final String? etag = props.davgetetag;
+  late final String? etag = props.davGetetag;
 
   /// File content length or folder size
-  late final int? size = props.ocsize ?? props.davgetcontentlength;
+  late final int? size = props.ocSize ?? props.davGetcontentlength;
 
   /// The user id of the owner of a shared file
-  late final String? ownerId = props.ocownerid;
+  late final String? ownerId = props.ocOwnerId;
 
   /// The display name of the owner of a shared file
-  late final String? ownerDisplay = props.ocownerdisplayname;
+  late final String? ownerDisplay = props.ocOwnerDisplayName;
 
   /// Share note
-  late final String? note = props.ncnote;
+  late final String? note = props.ncNote;
 
   /// Last modified date of the file.
   ///
   /// It will throw a [FormatException] if the date is invalid.
   late final tz.TZDateTime? lastModified = () {
-    if (props.davgetlastmodified != null) {
-      return parseHttpDate(props.davgetlastmodified!);
+    if (props.davGetlastmodified != null) {
+      return parseHttpDate(props.davGetlastmodified!);
     }
     return null;
   }();
 
   /// Upload date of the file
-  late final tz.TZDateTime? uploadedDate = props.ncuploadtime != null
+  late final tz.TZDateTime? uploadedDate = props.ncUploadTime != null
       ? DateTimeUtils.fromSecondsSinceEpoch(
           tz.UTC,
-          props.ncuploadtime!,
+          props.ncUploadTime!,
         )
       : null;
 
   /// Creation date of the file as provided by uploader
-  late final tz.TZDateTime? createdDate = props.nccreationtime != null
+  late final tz.TZDateTime? createdDate = props.ncCreationTime != null
       ? DateTimeUtils.fromSecondsSinceEpoch(
           tz.UTC,
-          props.nccreationtime!,
+          props.ncCreationTime!,
         )
       : null;
 
   /// Whether this file is marked as favorite
-  late final bool? favorite = props.ocfavorite == null ? null : props.ocfavorite == 1;
+  late final bool? favorite = props.ocFavorite == null ? null : props.ocFavorite == 1;
 
   /// Whether this file has a preview image
-  late final bool? hasPreview = props.nchaspreview;
+  late final bool? hasPreview = props.ncHasPreview;
 
   /// Returns the decoded name of the file / folder without the whole path
   late final String name = path.name;
