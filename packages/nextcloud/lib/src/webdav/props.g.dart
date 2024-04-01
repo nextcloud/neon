@@ -8,10 +8,10 @@ part of 'props.dart';
 
 void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
-  final davgetcontentlength = instance.davgetcontentlength;
-  final davgetcontentlengthSerialized = davgetcontentlength;
-  if (davgetcontentlengthSerialized != null) {
-    for (final value in davgetcontentlengthSerialized) {
+  final davGetcontentlength = instance.davGetcontentlength;
+  final davGetcontentlengthSerialized = davGetcontentlength;
+  if (davGetcontentlengthSerialized != null) {
+    for (final value in davGetcontentlengthSerialized) {
       builder.element('getcontentlength', namespace: 'DAV:', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -19,10 +19,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final davgetcontenttype = instance.davgetcontenttype;
-  final davgetcontenttypeSerialized = davgetcontenttype;
-  if (davgetcontenttypeSerialized != null) {
-    for (final value in davgetcontenttypeSerialized) {
+  final davGetcontenttype = instance.davGetcontenttype;
+  final davGetcontenttypeSerialized = davGetcontenttype;
+  if (davGetcontenttypeSerialized != null) {
+    for (final value in davGetcontenttypeSerialized) {
       builder.element('getcontenttype', namespace: 'DAV:', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -30,10 +30,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final davgetetag = instance.davgetetag;
-  final davgetetagSerialized = davgetetag;
-  if (davgetetagSerialized != null) {
-    for (final value in davgetetagSerialized) {
+  final davGetetag = instance.davGetetag;
+  final davGetetagSerialized = davGetetag;
+  if (davGetetagSerialized != null) {
+    for (final value in davGetetagSerialized) {
       builder.element('getetag', namespace: 'DAV:', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -41,10 +41,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final davgetlastmodified = instance.davgetlastmodified;
-  final davgetlastmodifiedSerialized = davgetlastmodified;
-  if (davgetlastmodifiedSerialized != null) {
-    for (final value in davgetlastmodifiedSerialized) {
+  final davGetlastmodified = instance.davGetlastmodified;
+  final davGetlastmodifiedSerialized = davGetlastmodified;
+  if (davGetlastmodifiedSerialized != null) {
+    for (final value in davGetlastmodifiedSerialized) {
       builder.element('getlastmodified', namespace: 'DAV:', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -52,10 +52,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final davresourcetype = instance.davresourcetype;
-  final davresourcetypeSerialized = davresourcetype;
-  if (davresourcetypeSerialized != null) {
-    for (final value in davresourcetypeSerialized) {
+  final davResourcetype = instance.davResourcetype;
+  final davResourcetypeSerialized = davResourcetype;
+  if (davResourcetypeSerialized != null) {
+    for (final value in davResourcetypeSerialized) {
       builder.element('resourcetype', namespace: 'DAV:', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -63,10 +63,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final nccreationtime = instance.nccreationtime;
-  final nccreationtimeSerialized = nccreationtime;
-  if (nccreationtimeSerialized != null) {
-    for (final value in nccreationtimeSerialized) {
+  final ncCreationTime = instance.ncCreationTime;
+  final ncCreationTimeSerialized = ncCreationTime;
+  if (ncCreationTimeSerialized != null) {
+    for (final value in ncCreationTimeSerialized) {
       builder.element('creation_time', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -74,10 +74,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncdatafingerprint = instance.ncdatafingerprint;
-  final ncdatafingerprintSerialized = ncdatafingerprint;
-  if (ncdatafingerprintSerialized != null) {
-    for (final value in ncdatafingerprintSerialized) {
+  final ncDataFingerprint = instance.ncDataFingerprint;
+  final ncDataFingerprintSerialized = ncDataFingerprint;
+  if (ncDataFingerprintSerialized != null) {
+    for (final value in ncDataFingerprintSerialized) {
       builder.element('data-fingerprint', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -85,10 +85,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final nchaspreview = instance.nchaspreview;
-  final nchaspreviewSerialized = nchaspreview;
-  if (nchaspreviewSerialized != null) {
-    for (final value in nchaspreviewSerialized) {
+  final ncHasPreview = instance.ncHasPreview;
+  final ncHasPreviewSerialized = ncHasPreview;
+  if (ncHasPreviewSerialized != null) {
+    for (final value in ncHasPreviewSerialized) {
       builder.element('has-preview', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -96,10 +96,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncisencrypted = instance.ncisencrypted;
-  final ncisencryptedSerialized = ncisencrypted;
-  if (ncisencryptedSerialized != null) {
-    for (final value in ncisencryptedSerialized) {
+  final ncIsEncrypted = instance.ncIsEncrypted;
+  final ncIsEncryptedSerialized = ncIsEncrypted;
+  if (ncIsEncryptedSerialized != null) {
+    for (final value in ncIsEncryptedSerialized) {
       builder.element('is-encrypted', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -107,10 +107,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncmetadataetag = instance.ncmetadataetag;
-  final ncmetadataetagSerialized = ncmetadataetag;
-  if (ncmetadataetagSerialized != null) {
-    for (final value in ncmetadataetagSerialized) {
+  final ncMetadataEtag = instance.ncMetadataEtag;
+  final ncMetadataEtagSerialized = ncMetadataEtag;
+  if (ncMetadataEtagSerialized != null) {
+    for (final value in ncMetadataEtagSerialized) {
       builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -118,10 +118,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncmounttype = instance.ncmounttype;
-  final ncmounttypeSerialized = ncmounttype;
-  if (ncmounttypeSerialized != null) {
-    for (final value in ncmounttypeSerialized) {
+  final ncMountType = instance.ncMountType;
+  final ncMountTypeSerialized = ncMountType;
+  if (ncMountTypeSerialized != null) {
+    for (final value in ncMountTypeSerialized) {
       builder.element('mount-type', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -129,10 +129,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncnote = instance.ncnote;
-  final ncnoteSerialized = ncnote;
-  if (ncnoteSerialized != null) {
-    for (final value in ncnoteSerialized) {
+  final ncNote = instance.ncNote;
+  final ncNoteSerialized = ncNote;
+  if (ncNoteSerialized != null) {
+    for (final value in ncNoteSerialized) {
       builder.element('note', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -140,10 +140,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncrichworkspace = instance.ncrichworkspace;
-  final ncrichworkspaceSerialized = ncrichworkspace;
-  if (ncrichworkspaceSerialized != null) {
-    for (final value in ncrichworkspaceSerialized) {
+  final ncRichWorkspace = instance.ncRichWorkspace;
+  final ncRichWorkspaceSerialized = ncRichWorkspace;
+  if (ncRichWorkspaceSerialized != null) {
+    for (final value in ncRichWorkspaceSerialized) {
       builder.element('rich-workspace', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -151,10 +151,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncuploadtime = instance.ncuploadtime;
-  final ncuploadtimeSerialized = ncuploadtime;
-  if (ncuploadtimeSerialized != null) {
-    for (final value in ncuploadtimeSerialized) {
+  final ncUploadTime = instance.ncUploadTime;
+  final ncUploadTimeSerialized = ncUploadTime;
+  if (ncUploadTimeSerialized != null) {
+    for (final value in ncUploadTimeSerialized) {
       builder.element('upload_time', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -162,10 +162,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final occommentscount = instance.occommentscount;
-  final occommentscountSerialized = occommentscount;
-  if (occommentscountSerialized != null) {
-    for (final value in occommentscountSerialized) {
+  final ocCommentsCount = instance.ocCommentsCount;
+  final ocCommentsCountSerialized = ocCommentsCount;
+  if (ocCommentsCountSerialized != null) {
+    for (final value in ocCommentsCountSerialized) {
       builder.element('comments-count', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -173,10 +173,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final occommentshref = instance.occommentshref;
-  final occommentshrefSerialized = occommentshref;
-  if (occommentshrefSerialized != null) {
-    for (final value in occommentshrefSerialized) {
+  final ocCommentsHref = instance.ocCommentsHref;
+  final ocCommentsHrefSerialized = ocCommentsHref;
+  if (ocCommentsHrefSerialized != null) {
+    for (final value in ocCommentsHrefSerialized) {
       builder.element('comments-href', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -184,10 +184,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final occommentsunread = instance.occommentsunread;
-  final occommentsunreadSerialized = occommentsunread;
-  if (occommentsunreadSerialized != null) {
-    for (final value in occommentsunreadSerialized) {
+  final ocCommentsUnread = instance.ocCommentsUnread;
+  final ocCommentsUnreadSerialized = ocCommentsUnread;
+  if (ocCommentsUnreadSerialized != null) {
+    for (final value in ocCommentsUnreadSerialized) {
       builder.element('comments-unread', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -195,10 +195,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocdownloadurl = instance.ocdownloadurl;
-  final ocdownloadurlSerialized = ocdownloadurl;
-  if (ocdownloadurlSerialized != null) {
-    for (final value in ocdownloadurlSerialized) {
+  final ocDownloadURL = instance.ocDownloadURL;
+  final ocDownloadURLSerialized = ocDownloadURL;
+  if (ocDownloadURLSerialized != null) {
+    for (final value in ocDownloadURLSerialized) {
       builder.element('downloadURL', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -206,10 +206,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocfavorite = instance.ocfavorite;
-  final ocfavoriteSerialized = ocfavorite;
-  if (ocfavoriteSerialized != null) {
-    for (final value in ocfavoriteSerialized) {
+  final ocFavorite = instance.ocFavorite;
+  final ocFavoriteSerialized = ocFavorite;
+  if (ocFavoriteSerialized != null) {
+    for (final value in ocFavoriteSerialized) {
       builder.element('favorite', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -217,10 +217,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid;
-  if (ocfileidSerialized != null) {
-    for (final value in ocfileidSerialized) {
+  final ocFileid = instance.ocFileid;
+  final ocFileidSerialized = ocFileid;
+  if (ocFileidSerialized != null) {
+    for (final value in ocFileidSerialized) {
       builder.element('fileid', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -228,10 +228,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocid = instance.ocid;
-  final ocidSerialized = ocid;
-  if (ocidSerialized != null) {
-    for (final value in ocidSerialized) {
+  final ocId = instance.ocId;
+  final ocIdSerialized = ocId;
+  if (ocIdSerialized != null) {
+    for (final value in ocIdSerialized) {
       builder.element('id', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -239,10 +239,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocownerdisplayname = instance.ocownerdisplayname;
-  final ocownerdisplaynameSerialized = ocownerdisplayname;
-  if (ocownerdisplaynameSerialized != null) {
-    for (final value in ocownerdisplaynameSerialized) {
+  final ocOwnerDisplayName = instance.ocOwnerDisplayName;
+  final ocOwnerDisplayNameSerialized = ocOwnerDisplayName;
+  if (ocOwnerDisplayNameSerialized != null) {
+    for (final value in ocOwnerDisplayNameSerialized) {
       builder.element('owner-display-name', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -250,10 +250,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocownerid = instance.ocownerid;
-  final ocowneridSerialized = ocownerid;
-  if (ocowneridSerialized != null) {
-    for (final value in ocowneridSerialized) {
+  final ocOwnerId = instance.ocOwnerId;
+  final ocOwnerIdSerialized = ocOwnerId;
+  if (ocOwnerIdSerialized != null) {
+    for (final value in ocOwnerIdSerialized) {
       builder.element('owner-id', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -261,10 +261,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocpermissions = instance.ocpermissions;
-  final ocpermissionsSerialized = ocpermissions;
-  if (ocpermissionsSerialized != null) {
-    for (final value in ocpermissionsSerialized) {
+  final ocPermissions = instance.ocPermissions;
+  final ocPermissionsSerialized = ocPermissions;
+  if (ocPermissionsSerialized != null) {
+    for (final value in ocPermissionsSerialized) {
       builder.element('permissions', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -272,10 +272,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocsize = instance.ocsize;
-  final ocsizeSerialized = ocsize;
-  if (ocsizeSerialized != null) {
-    for (final value in ocsizeSerialized) {
+  final ocSize = instance.ocSize;
+  final ocSizeSerialized = ocSize;
+  if (ocSizeSerialized != null) {
+    for (final value in ocSizeSerialized) {
       builder.element('size', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -283,10 +283,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocmsharepermissions = instance.ocmsharepermissions;
-  final ocmsharepermissionsSerialized = ocmsharepermissions;
-  if (ocmsharepermissionsSerialized != null) {
-    for (final value in ocmsharepermissionsSerialized) {
+  final ocmSharePermissions = instance.ocmSharePermissions;
+  final ocmSharePermissionsSerialized = ocmSharePermissions;
+  if (ocmSharePermissionsSerialized != null) {
+    for (final value in ocmSharePermissionsSerialized) {
       builder.element('share-permissions', namespace: 'http://open-cloud-mesh.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
@@ -294,10 +294,10 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ocssharepermissions = instance.ocssharepermissions;
-  final ocssharepermissionsSerialized = ocssharepermissions;
-  if (ocssharepermissionsSerialized != null) {
-    for (final value in ocssharepermissionsSerialized) {
+  final ocsSharePermissions = instance.ocsSharePermissions;
+  final ocsSharePermissionsSerialized = ocsSharePermissions;
+  if (ocsSharePermissionsSerialized != null) {
+    for (final value in ocsSharePermissionsSerialized) {
       builder.element('share-permissions', namespace: 'http://open-collaboration-services.org/ns', isSelfClosing: true,
           nest: () {
         if (value != null) {
@@ -316,119 +316,119 @@ void _$WebDavPropWithoutValuesBuildXmlElement(WebDavPropWithoutValues instance, 
 }
 
 WebDavPropWithoutValues _$WebDavPropWithoutValuesFromXmlElement(XmlElement element) {
-  final davgetcontentlength =
+  final davGetcontentlength =
       element.getElements('getcontentlength', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
-  final davgetcontenttype =
+  final davGetcontenttype =
       element.getElements('getcontenttype', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
-  final davgetetag = element.getElements('getetag', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
-  final davgetlastmodified =
+  final davGetetag = element.getElements('getetag', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
+  final davGetlastmodified =
       element.getElements('getlastmodified', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
-  final davresourcetype =
+  final davResourcetype =
       element.getElements('resourcetype', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
-  final nccreationtime = element
+  final ncCreationTime = element
       .getElements('creation_time', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ncdatafingerprint = element
+  final ncDataFingerprint = element
       .getElements('data-fingerprint', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final nchaspreview = element
+  final ncHasPreview = element
       .getElements('has-preview', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ncisencrypted = element
+  final ncIsEncrypted = element
       .getElements('is-encrypted', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ncmetadataetag = element
+  final ncMetadataEtag = element
       .getElements('metadata_etag', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ncmounttype = element
+  final ncMountType = element
       .getElements('mount-type', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ncnote =
+  final ncNote =
       element.getElements('note', namespace: 'http://nextcloud.org/ns')?.map((e) => e.getText()).whereType<String>();
-  final ncrichworkspace = element
+  final ncRichWorkspace = element
       .getElements('rich-workspace', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ncuploadtime = element
+  final ncUploadTime = element
       .getElements('upload_time', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final occommentscount = element
+  final ocCommentsCount = element
       .getElements('comments-count', namespace: 'http://owncloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final occommentshref = element
+  final ocCommentsHref = element
       .getElements('comments-href', namespace: 'http://owncloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final occommentsunread = element
+  final ocCommentsUnread = element
       .getElements('comments-unread', namespace: 'http://owncloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ocdownloadurl = element
+  final ocDownloadURL = element
       .getElements('downloadURL', namespace: 'http://owncloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ocfavorite =
+  final ocFavorite =
       element.getElements('favorite', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
-  final ocfileid =
+  final ocFileid =
       element.getElements('fileid', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
-  final ocid =
+  final ocId =
       element.getElements('id', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
-  final ocownerdisplayname = element
+  final ocOwnerDisplayName = element
       .getElements('owner-display-name', namespace: 'http://owncloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ocownerid =
+  final ocOwnerId =
       element.getElements('owner-id', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
-  final ocpermissions = element
+  final ocPermissions = element
       .getElements('permissions', namespace: 'http://owncloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ocsize =
+  final ocSize =
       element.getElements('size', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
-  final ocmsharepermissions = element
+  final ocmSharePermissions = element
       .getElements('share-permissions', namespace: 'http://open-cloud-mesh.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ocssharepermissions = element
+  final ocsSharePermissions = element
       .getElements('share-permissions', namespace: 'http://open-collaboration-services.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
   return WebDavPropWithoutValues(
-      davgetcontentlength: davgetcontentlength?.toList(),
-      davgetcontenttype: davgetcontenttype?.toList(),
-      davgetetag: davgetetag?.toList(),
-      davgetlastmodified: davgetlastmodified?.toList(),
-      davresourcetype: davresourcetype?.toList(),
-      nccreationtime: nccreationtime?.toList(),
-      ncdatafingerprint: ncdatafingerprint?.toList(),
-      nchaspreview: nchaspreview?.toList(),
-      ncisencrypted: ncisencrypted?.toList(),
-      ncmetadataetag: ncmetadataetag?.toList(),
-      ncmounttype: ncmounttype?.toList(),
-      ncnote: ncnote?.toList(),
-      ncrichworkspace: ncrichworkspace?.toList(),
-      ncuploadtime: ncuploadtime?.toList(),
-      occommentscount: occommentscount?.toList(),
-      occommentshref: occommentshref?.toList(),
-      occommentsunread: occommentsunread?.toList(),
-      ocdownloadurl: ocdownloadurl?.toList(),
-      ocfavorite: ocfavorite?.toList(),
-      ocfileid: ocfileid?.toList(),
-      ocid: ocid?.toList(),
-      ocownerdisplayname: ocownerdisplayname?.toList(),
-      ocownerid: ocownerid?.toList(),
-      ocpermissions: ocpermissions?.toList(),
-      ocsize: ocsize?.toList(),
-      ocmsharepermissions: ocmsharepermissions?.toList(),
-      ocssharepermissions: ocssharepermissions?.toList());
+      davGetcontentlength: davGetcontentlength?.toList(),
+      davGetcontenttype: davGetcontenttype?.toList(),
+      davGetetag: davGetetag?.toList(),
+      davGetlastmodified: davGetlastmodified?.toList(),
+      davResourcetype: davResourcetype?.toList(),
+      ncCreationTime: ncCreationTime?.toList(),
+      ncDataFingerprint: ncDataFingerprint?.toList(),
+      ncHasPreview: ncHasPreview?.toList(),
+      ncIsEncrypted: ncIsEncrypted?.toList(),
+      ncMetadataEtag: ncMetadataEtag?.toList(),
+      ncMountType: ncMountType?.toList(),
+      ncNote: ncNote?.toList(),
+      ncRichWorkspace: ncRichWorkspace?.toList(),
+      ncUploadTime: ncUploadTime?.toList(),
+      ocCommentsCount: ocCommentsCount?.toList(),
+      ocCommentsHref: ocCommentsHref?.toList(),
+      ocCommentsUnread: ocCommentsUnread?.toList(),
+      ocDownloadURL: ocDownloadURL?.toList(),
+      ocFavorite: ocFavorite?.toList(),
+      ocFileid: ocFileid?.toList(),
+      ocId: ocId?.toList(),
+      ocOwnerDisplayName: ocOwnerDisplayName?.toList(),
+      ocOwnerId: ocOwnerId?.toList(),
+      ocPermissions: ocPermissions?.toList(),
+      ocSize: ocSize?.toList(),
+      ocmSharePermissions: ocmSharePermissions?.toList(),
+      ocsSharePermissions: ocsSharePermissions?.toList());
 }
 
 List<XmlAttribute> _$WebDavPropWithoutValuesToXmlAttributes(WebDavPropWithoutValues instance,
@@ -440,200 +440,200 @@ List<XmlAttribute> _$WebDavPropWithoutValuesToXmlAttributes(WebDavPropWithoutVal
 List<XmlNode> _$WebDavPropWithoutValuesToXmlChildren(WebDavPropWithoutValues instance,
     {Map<String, String?> namespaces = const {}}) {
   final children = <XmlNode>[];
-  final davgetcontentlength = instance.davgetcontentlength;
-  final davgetcontentlengthSerialized = davgetcontentlength;
-  final davgetcontentlengthConstructed = davgetcontentlengthSerialized?.map(
+  final davGetcontentlength = instance.davGetcontentlength;
+  final davGetcontentlengthSerialized = davGetcontentlength;
+  final davGetcontentlengthConstructed = davGetcontentlengthSerialized?.map(
       (e) => XmlElement(XmlName('getcontentlength', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
-  if (davgetcontentlengthConstructed != null) {
-    children.addAll(davgetcontentlengthConstructed);
+  if (davGetcontentlengthConstructed != null) {
+    children.addAll(davGetcontentlengthConstructed);
   }
-  final davgetcontenttype = instance.davgetcontenttype;
-  final davgetcontenttypeSerialized = davgetcontenttype;
-  final davgetcontenttypeConstructed = davgetcontenttypeSerialized
+  final davGetcontenttype = instance.davGetcontenttype;
+  final davGetcontenttypeSerialized = davGetcontenttype;
+  final davGetcontenttypeConstructed = davGetcontenttypeSerialized
       ?.map((e) => XmlElement(XmlName('getcontenttype', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
-  if (davgetcontenttypeConstructed != null) {
-    children.addAll(davgetcontenttypeConstructed);
+  if (davGetcontenttypeConstructed != null) {
+    children.addAll(davGetcontenttypeConstructed);
   }
-  final davgetetag = instance.davgetetag;
-  final davgetetagSerialized = davgetetag;
-  final davgetetagConstructed = davgetetagSerialized
+  final davGetetag = instance.davGetetag;
+  final davGetetagSerialized = davGetetag;
+  final davGetetagConstructed = davGetetagSerialized
       ?.map((e) => XmlElement(XmlName('getetag', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
-  if (davgetetagConstructed != null) {
-    children.addAll(davgetetagConstructed);
+  if (davGetetagConstructed != null) {
+    children.addAll(davGetetagConstructed);
   }
-  final davgetlastmodified = instance.davgetlastmodified;
-  final davgetlastmodifiedSerialized = davgetlastmodified;
-  final davgetlastmodifiedConstructed = davgetlastmodifiedSerialized
+  final davGetlastmodified = instance.davGetlastmodified;
+  final davGetlastmodifiedSerialized = davGetlastmodified;
+  final davGetlastmodifiedConstructed = davGetlastmodifiedSerialized
       ?.map((e) => XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
-  if (davgetlastmodifiedConstructed != null) {
-    children.addAll(davgetlastmodifiedConstructed);
+  if (davGetlastmodifiedConstructed != null) {
+    children.addAll(davGetlastmodifiedConstructed);
   }
-  final davresourcetype = instance.davresourcetype;
-  final davresourcetypeSerialized = davresourcetype;
-  final davresourcetypeConstructed = davresourcetypeSerialized
+  final davResourcetype = instance.davResourcetype;
+  final davResourcetypeSerialized = davResourcetype;
+  final davResourcetypeConstructed = davResourcetypeSerialized
       ?.map((e) => XmlElement(XmlName('resourcetype', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
-  if (davresourcetypeConstructed != null) {
-    children.addAll(davresourcetypeConstructed);
+  if (davResourcetypeConstructed != null) {
+    children.addAll(davResourcetypeConstructed);
   }
-  final nccreationtime = instance.nccreationtime;
-  final nccreationtimeSerialized = nccreationtime;
-  final nccreationtimeConstructed = nccreationtimeSerialized?.map((e) => XmlElement(
+  final ncCreationTime = instance.ncCreationTime;
+  final ncCreationTimeSerialized = ncCreationTime;
+  final ncCreationTimeConstructed = ncCreationTimeSerialized?.map((e) => XmlElement(
       XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (nccreationtimeConstructed != null) {
-    children.addAll(nccreationtimeConstructed);
+  if (ncCreationTimeConstructed != null) {
+    children.addAll(ncCreationTimeConstructed);
   }
-  final ncdatafingerprint = instance.ncdatafingerprint;
-  final ncdatafingerprintSerialized = ncdatafingerprint;
-  final ncdatafingerprintConstructed = ncdatafingerprintSerialized?.map((e) => XmlElement(
+  final ncDataFingerprint = instance.ncDataFingerprint;
+  final ncDataFingerprintSerialized = ncDataFingerprint;
+  final ncDataFingerprintConstructed = ncDataFingerprintSerialized?.map((e) => XmlElement(
       XmlName('data-fingerprint', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncdatafingerprintConstructed != null) {
-    children.addAll(ncdatafingerprintConstructed);
+  if (ncDataFingerprintConstructed != null) {
+    children.addAll(ncDataFingerprintConstructed);
   }
-  final nchaspreview = instance.nchaspreview;
-  final nchaspreviewSerialized = nchaspreview;
-  final nchaspreviewConstructed = nchaspreviewSerialized?.map((e) => XmlElement(
+  final ncHasPreview = instance.ncHasPreview;
+  final ncHasPreviewSerialized = ncHasPreview;
+  final ncHasPreviewConstructed = ncHasPreviewSerialized?.map((e) => XmlElement(
       XmlName('has-preview', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (nchaspreviewConstructed != null) {
-    children.addAll(nchaspreviewConstructed);
+  if (ncHasPreviewConstructed != null) {
+    children.addAll(ncHasPreviewConstructed);
   }
-  final ncisencrypted = instance.ncisencrypted;
-  final ncisencryptedSerialized = ncisencrypted;
-  final ncisencryptedConstructed = ncisencryptedSerialized?.map((e) => XmlElement(
+  final ncIsEncrypted = instance.ncIsEncrypted;
+  final ncIsEncryptedSerialized = ncIsEncrypted;
+  final ncIsEncryptedConstructed = ncIsEncryptedSerialized?.map((e) => XmlElement(
       XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncisencryptedConstructed != null) {
-    children.addAll(ncisencryptedConstructed);
+  if (ncIsEncryptedConstructed != null) {
+    children.addAll(ncIsEncryptedConstructed);
   }
-  final ncmetadataetag = instance.ncmetadataetag;
-  final ncmetadataetagSerialized = ncmetadataetag;
-  final ncmetadataetagConstructed = ncmetadataetagSerialized?.map((e) => XmlElement(
+  final ncMetadataEtag = instance.ncMetadataEtag;
+  final ncMetadataEtagSerialized = ncMetadataEtag;
+  final ncMetadataEtagConstructed = ncMetadataEtagSerialized?.map((e) => XmlElement(
       XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncmetadataetagConstructed != null) {
-    children.addAll(ncmetadataetagConstructed);
+  if (ncMetadataEtagConstructed != null) {
+    children.addAll(ncMetadataEtagConstructed);
   }
-  final ncmounttype = instance.ncmounttype;
-  final ncmounttypeSerialized = ncmounttype;
-  final ncmounttypeConstructed = ncmounttypeSerialized?.map((e) => XmlElement(
+  final ncMountType = instance.ncMountType;
+  final ncMountTypeSerialized = ncMountType;
+  final ncMountTypeConstructed = ncMountTypeSerialized?.map((e) => XmlElement(
       XmlName('mount-type', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncmounttypeConstructed != null) {
-    children.addAll(ncmounttypeConstructed);
+  if (ncMountTypeConstructed != null) {
+    children.addAll(ncMountTypeConstructed);
   }
-  final ncnote = instance.ncnote;
-  final ncnoteSerialized = ncnote;
-  final ncnoteConstructed = ncnoteSerialized?.map((e) =>
+  final ncNote = instance.ncNote;
+  final ncNoteSerialized = ncNote;
+  final ncNoteConstructed = ncNoteSerialized?.map((e) =>
       XmlElement(XmlName('note', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncnoteConstructed != null) {
-    children.addAll(ncnoteConstructed);
+  if (ncNoteConstructed != null) {
+    children.addAll(ncNoteConstructed);
   }
-  final ncrichworkspace = instance.ncrichworkspace;
-  final ncrichworkspaceSerialized = ncrichworkspace;
-  final ncrichworkspaceConstructed = ncrichworkspaceSerialized?.map((e) => XmlElement(
+  final ncRichWorkspace = instance.ncRichWorkspace;
+  final ncRichWorkspaceSerialized = ncRichWorkspace;
+  final ncRichWorkspaceConstructed = ncRichWorkspaceSerialized?.map((e) => XmlElement(
       XmlName('rich-workspace', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncrichworkspaceConstructed != null) {
-    children.addAll(ncrichworkspaceConstructed);
+  if (ncRichWorkspaceConstructed != null) {
+    children.addAll(ncRichWorkspaceConstructed);
   }
-  final ncuploadtime = instance.ncuploadtime;
-  final ncuploadtimeSerialized = ncuploadtime;
-  final ncuploadtimeConstructed = ncuploadtimeSerialized?.map((e) => XmlElement(
+  final ncUploadTime = instance.ncUploadTime;
+  final ncUploadTimeSerialized = ncUploadTime;
+  final ncUploadTimeConstructed = ncUploadTimeSerialized?.map((e) => XmlElement(
       XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncuploadtimeConstructed != null) {
-    children.addAll(ncuploadtimeConstructed);
+  if (ncUploadTimeConstructed != null) {
+    children.addAll(ncUploadTimeConstructed);
   }
-  final occommentscount = instance.occommentscount;
-  final occommentscountSerialized = occommentscount;
-  final occommentscountConstructed = occommentscountSerialized?.map((e) => XmlElement(
+  final ocCommentsCount = instance.ocCommentsCount;
+  final ocCommentsCountSerialized = ocCommentsCount;
+  final ocCommentsCountConstructed = ocCommentsCountSerialized?.map((e) => XmlElement(
       XmlName('comments-count', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (occommentscountConstructed != null) {
-    children.addAll(occommentscountConstructed);
+  if (ocCommentsCountConstructed != null) {
+    children.addAll(ocCommentsCountConstructed);
   }
-  final occommentshref = instance.occommentshref;
-  final occommentshrefSerialized = occommentshref;
-  final occommentshrefConstructed = occommentshrefSerialized?.map((e) => XmlElement(
+  final ocCommentsHref = instance.ocCommentsHref;
+  final ocCommentsHrefSerialized = ocCommentsHref;
+  final ocCommentsHrefConstructed = ocCommentsHrefSerialized?.map((e) => XmlElement(
       XmlName('comments-href', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (occommentshrefConstructed != null) {
-    children.addAll(occommentshrefConstructed);
+  if (ocCommentsHrefConstructed != null) {
+    children.addAll(ocCommentsHrefConstructed);
   }
-  final occommentsunread = instance.occommentsunread;
-  final occommentsunreadSerialized = occommentsunread;
-  final occommentsunreadConstructed = occommentsunreadSerialized?.map((e) => XmlElement(
+  final ocCommentsUnread = instance.ocCommentsUnread;
+  final ocCommentsUnreadSerialized = ocCommentsUnread;
+  final ocCommentsUnreadConstructed = ocCommentsUnreadSerialized?.map((e) => XmlElement(
       XmlName('comments-unread', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (occommentsunreadConstructed != null) {
-    children.addAll(occommentsunreadConstructed);
+  if (ocCommentsUnreadConstructed != null) {
+    children.addAll(ocCommentsUnreadConstructed);
   }
-  final ocdownloadurl = instance.ocdownloadurl;
-  final ocdownloadurlSerialized = ocdownloadurl;
-  final ocdownloadurlConstructed = ocdownloadurlSerialized?.map((e) => XmlElement(
+  final ocDownloadURL = instance.ocDownloadURL;
+  final ocDownloadURLSerialized = ocDownloadURL;
+  final ocDownloadURLConstructed = ocDownloadURLSerialized?.map((e) => XmlElement(
       XmlName('downloadURL', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ocdownloadurlConstructed != null) {
-    children.addAll(ocdownloadurlConstructed);
+  if (ocDownloadURLConstructed != null) {
+    children.addAll(ocDownloadURLConstructed);
   }
-  final ocfavorite = instance.ocfavorite;
-  final ocfavoriteSerialized = ocfavorite;
-  final ocfavoriteConstructed = ocfavoriteSerialized?.map((e) =>
+  final ocFavorite = instance.ocFavorite;
+  final ocFavoriteSerialized = ocFavorite;
+  final ocFavoriteConstructed = ocFavoriteSerialized?.map((e) =>
       XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ocfavoriteConstructed != null) {
-    children.addAll(ocfavoriteConstructed);
+  if (ocFavoriteConstructed != null) {
+    children.addAll(ocFavoriteConstructed);
   }
-  final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid;
-  final ocfileidConstructed = ocfileidSerialized?.map((e) =>
+  final ocFileid = instance.ocFileid;
+  final ocFileidSerialized = ocFileid;
+  final ocFileidConstructed = ocFileidSerialized?.map((e) =>
       XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ocfileidConstructed != null) {
-    children.addAll(ocfileidConstructed);
+  if (ocFileidConstructed != null) {
+    children.addAll(ocFileidConstructed);
   }
-  final ocid = instance.ocid;
-  final ocidSerialized = ocid;
-  final ocidConstructed = ocidSerialized?.map(
+  final ocId = instance.ocId;
+  final ocIdSerialized = ocId;
+  final ocIdConstructed = ocIdSerialized?.map(
       (e) => XmlElement(XmlName('id', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ocidConstructed != null) {
-    children.addAll(ocidConstructed);
+  if (ocIdConstructed != null) {
+    children.addAll(ocIdConstructed);
   }
-  final ocownerdisplayname = instance.ocownerdisplayname;
-  final ocownerdisplaynameSerialized = ocownerdisplayname;
-  final ocownerdisplaynameConstructed = ocownerdisplaynameSerialized?.map((e) => XmlElement(
+  final ocOwnerDisplayName = instance.ocOwnerDisplayName;
+  final ocOwnerDisplayNameSerialized = ocOwnerDisplayName;
+  final ocOwnerDisplayNameConstructed = ocOwnerDisplayNameSerialized?.map((e) => XmlElement(
       XmlName('owner-display-name', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ocownerdisplaynameConstructed != null) {
-    children.addAll(ocownerdisplaynameConstructed);
+  if (ocOwnerDisplayNameConstructed != null) {
+    children.addAll(ocOwnerDisplayNameConstructed);
   }
-  final ocownerid = instance.ocownerid;
-  final ocowneridSerialized = ocownerid;
-  final ocowneridConstructed = ocowneridSerialized?.map((e) =>
+  final ocOwnerId = instance.ocOwnerId;
+  final ocOwnerIdSerialized = ocOwnerId;
+  final ocOwnerIdConstructed = ocOwnerIdSerialized?.map((e) =>
       XmlElement(XmlName('owner-id', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ocowneridConstructed != null) {
-    children.addAll(ocowneridConstructed);
+  if (ocOwnerIdConstructed != null) {
+    children.addAll(ocOwnerIdConstructed);
   }
-  final ocpermissions = instance.ocpermissions;
-  final ocpermissionsSerialized = ocpermissions;
-  final ocpermissionsConstructed = ocpermissionsSerialized?.map((e) => XmlElement(
+  final ocPermissions = instance.ocPermissions;
+  final ocPermissionsSerialized = ocPermissions;
+  final ocPermissionsConstructed = ocPermissionsSerialized?.map((e) => XmlElement(
       XmlName('permissions', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ocpermissionsConstructed != null) {
-    children.addAll(ocpermissionsConstructed);
+  if (ocPermissionsConstructed != null) {
+    children.addAll(ocPermissionsConstructed);
   }
-  final ocsize = instance.ocsize;
-  final ocsizeSerialized = ocsize;
-  final ocsizeConstructed = ocsizeSerialized?.map((e) =>
+  final ocSize = instance.ocSize;
+  final ocSizeSerialized = ocSize;
+  final ocSizeConstructed = ocSizeSerialized?.map((e) =>
       XmlElement(XmlName('size', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ocsizeConstructed != null) {
-    children.addAll(ocsizeConstructed);
+  if (ocSizeConstructed != null) {
+    children.addAll(ocSizeConstructed);
   }
-  final ocmsharepermissions = instance.ocmsharepermissions;
-  final ocmsharepermissionsSerialized = ocmsharepermissions;
-  final ocmsharepermissionsConstructed = ocmsharepermissionsSerialized?.map((e) => XmlElement(
+  final ocmSharePermissions = instance.ocmSharePermissions;
+  final ocmSharePermissionsSerialized = ocmSharePermissions;
+  final ocmSharePermissionsConstructed = ocmSharePermissionsSerialized?.map((e) => XmlElement(
       XmlName('share-permissions', namespaces['http://open-cloud-mesh.org/ns']),
       [],
       e != null ? [XmlText(e)] : [],
       true));
-  if (ocmsharepermissionsConstructed != null) {
-    children.addAll(ocmsharepermissionsConstructed);
+  if (ocmSharePermissionsConstructed != null) {
+    children.addAll(ocmSharePermissionsConstructed);
   }
-  final ocssharepermissions = instance.ocssharepermissions;
-  final ocssharepermissionsSerialized = ocssharepermissions;
-  final ocssharepermissionsConstructed = ocssharepermissionsSerialized?.map((e) => XmlElement(
+  final ocsSharePermissions = instance.ocsSharePermissions;
+  final ocsSharePermissionsSerialized = ocsSharePermissions;
+  final ocsSharePermissionsConstructed = ocsSharePermissionsSerialized?.map((e) => XmlElement(
       XmlName('share-permissions', namespaces['http://open-collaboration-services.org/ns']),
       [],
       e != null ? [XmlText(e)] : [],
       true));
-  if (ocssharepermissionsConstructed != null) {
-    children.addAll(ocssharepermissionsConstructed);
+  if (ocsSharePermissionsConstructed != null) {
+    children.addAll(ocsSharePermissionsConstructed);
   }
   return children;
 }
@@ -665,197 +665,197 @@ mixin _$WebDavPropWithoutValuesXmlSerializableMixin {
 
 void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
-  final davgetcontentlength = instance.davgetcontentlength;
-  final davgetcontentlengthSerialized = davgetcontentlength?.toString();
-  if (davgetcontentlengthSerialized != null) {
+  final davGetcontentlength = instance.davGetcontentlength;
+  final davGetcontentlengthSerialized = davGetcontentlength?.toString();
+  if (davGetcontentlengthSerialized != null) {
     builder.element('getcontentlength', namespace: 'DAV:', nest: () {
-      builder.text(davgetcontentlengthSerialized);
+      builder.text(davGetcontentlengthSerialized);
     });
   }
-  final davgetcontenttype = instance.davgetcontenttype;
-  final davgetcontenttypeSerialized = davgetcontenttype;
-  if (davgetcontenttypeSerialized != null) {
+  final davGetcontenttype = instance.davGetcontenttype;
+  final davGetcontenttypeSerialized = davGetcontenttype;
+  if (davGetcontenttypeSerialized != null) {
     builder.element('getcontenttype', namespace: 'DAV:', nest: () {
-      builder.text(davgetcontenttypeSerialized);
+      builder.text(davGetcontenttypeSerialized);
     });
   }
-  final davgetetag = instance.davgetetag;
-  final davgetetagSerialized = davgetetag;
-  if (davgetetagSerialized != null) {
+  final davGetetag = instance.davGetetag;
+  final davGetetagSerialized = davGetetag;
+  if (davGetetagSerialized != null) {
     builder.element('getetag', namespace: 'DAV:', nest: () {
-      builder.text(davgetetagSerialized);
+      builder.text(davGetetagSerialized);
     });
   }
-  final davgetlastmodified = instance.davgetlastmodified;
-  final davgetlastmodifiedSerialized = davgetlastmodified;
-  if (davgetlastmodifiedSerialized != null) {
+  final davGetlastmodified = instance.davGetlastmodified;
+  final davGetlastmodifiedSerialized = davGetlastmodified;
+  if (davGetlastmodifiedSerialized != null) {
     builder.element('getlastmodified', namespace: 'DAV:', nest: () {
-      builder.text(davgetlastmodifiedSerialized);
+      builder.text(davGetlastmodifiedSerialized);
     });
   }
-  final davresourcetype = instance.davresourcetype;
-  final davresourcetypeSerialized = davresourcetype;
-  if (davresourcetypeSerialized != null) {
+  final davResourcetype = instance.davResourcetype;
+  final davResourcetypeSerialized = davResourcetype;
+  if (davResourcetypeSerialized != null) {
     builder.element('resourcetype', namespace: 'DAV:', nest: () {
-      davresourcetypeSerialized.buildXmlChildren(builder, namespaces: namespaces);
+      davResourcetypeSerialized.buildXmlChildren(builder, namespaces: namespaces);
     });
   }
-  final nccreationtime = instance.nccreationtime;
-  final nccreationtimeSerialized = nccreationtime?.toString();
-  if (nccreationtimeSerialized != null) {
+  final ncCreationTime = instance.ncCreationTime;
+  final ncCreationTimeSerialized = ncCreationTime?.toString();
+  if (ncCreationTimeSerialized != null) {
     builder.element('creation_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(nccreationtimeSerialized);
+      builder.text(ncCreationTimeSerialized);
     });
   }
-  final ncdatafingerprint = instance.ncdatafingerprint;
-  final ncdatafingerprintSerialized = ncdatafingerprint;
-  if (ncdatafingerprintSerialized != null) {
+  final ncDataFingerprint = instance.ncDataFingerprint;
+  final ncDataFingerprintSerialized = ncDataFingerprint;
+  if (ncDataFingerprintSerialized != null) {
     builder.element('data-fingerprint', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncdatafingerprintSerialized);
+      builder.text(ncDataFingerprintSerialized);
     });
   }
-  final nchaspreview = instance.nchaspreview;
-  final nchaspreviewSerialized = nchaspreview != null
-      ? nchaspreview == true
+  final ncHasPreview = instance.ncHasPreview;
+  final ncHasPreviewSerialized = ncHasPreview != null
+      ? ncHasPreview == true
           ? 'true'
           : 'false'
       : null;
-  if (nchaspreviewSerialized != null) {
+  if (ncHasPreviewSerialized != null) {
     builder.element('has-preview', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(nchaspreviewSerialized);
+      builder.text(ncHasPreviewSerialized);
     });
   }
-  final ncisencrypted = instance.ncisencrypted;
-  final ncisencryptedSerialized = ncisencrypted?.toString();
-  if (ncisencryptedSerialized != null) {
+  final ncIsEncrypted = instance.ncIsEncrypted;
+  final ncIsEncryptedSerialized = ncIsEncrypted?.toString();
+  if (ncIsEncryptedSerialized != null) {
     builder.element('is-encrypted', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncisencryptedSerialized);
+      builder.text(ncIsEncryptedSerialized);
     });
   }
-  final ncmetadataetag = instance.ncmetadataetag;
-  final ncmetadataetagSerialized = ncmetadataetag;
-  if (ncmetadataetagSerialized != null) {
+  final ncMetadataEtag = instance.ncMetadataEtag;
+  final ncMetadataEtagSerialized = ncMetadataEtag;
+  if (ncMetadataEtagSerialized != null) {
     builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncmetadataetagSerialized);
+      builder.text(ncMetadataEtagSerialized);
     });
   }
-  final ncmounttype = instance.ncmounttype;
-  final ncmounttypeSerialized = ncmounttype;
-  if (ncmounttypeSerialized != null) {
+  final ncMountType = instance.ncMountType;
+  final ncMountTypeSerialized = ncMountType;
+  if (ncMountTypeSerialized != null) {
     builder.element('mount-type', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncmounttypeSerialized);
+      builder.text(ncMountTypeSerialized);
     });
   }
-  final ncnote = instance.ncnote;
-  final ncnoteSerialized = ncnote;
-  if (ncnoteSerialized != null) {
+  final ncNote = instance.ncNote;
+  final ncNoteSerialized = ncNote;
+  if (ncNoteSerialized != null) {
     builder.element('note', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncnoteSerialized);
+      builder.text(ncNoteSerialized);
     });
   }
-  final ncrichworkspace = instance.ncrichworkspace;
-  final ncrichworkspaceSerialized = ncrichworkspace;
-  if (ncrichworkspaceSerialized != null) {
+  final ncRichWorkspace = instance.ncRichWorkspace;
+  final ncRichWorkspaceSerialized = ncRichWorkspace;
+  if (ncRichWorkspaceSerialized != null) {
     builder.element('rich-workspace', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncrichworkspaceSerialized);
+      builder.text(ncRichWorkspaceSerialized);
     });
   }
-  final ncuploadtime = instance.ncuploadtime;
-  final ncuploadtimeSerialized = ncuploadtime?.toString();
-  if (ncuploadtimeSerialized != null) {
+  final ncUploadTime = instance.ncUploadTime;
+  final ncUploadTimeSerialized = ncUploadTime?.toString();
+  if (ncUploadTimeSerialized != null) {
     builder.element('upload_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncuploadtimeSerialized);
+      builder.text(ncUploadTimeSerialized);
     });
   }
-  final occommentscount = instance.occommentscount;
-  final occommentscountSerialized = occommentscount?.toString();
-  if (occommentscountSerialized != null) {
+  final ocCommentsCount = instance.ocCommentsCount;
+  final ocCommentsCountSerialized = ocCommentsCount?.toString();
+  if (ocCommentsCountSerialized != null) {
     builder.element('comments-count', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentscountSerialized);
+      builder.text(ocCommentsCountSerialized);
     });
   }
-  final occommentshref = instance.occommentshref;
-  final occommentshrefSerialized = occommentshref;
-  if (occommentshrefSerialized != null) {
+  final ocCommentsHref = instance.ocCommentsHref;
+  final ocCommentsHrefSerialized = ocCommentsHref;
+  if (ocCommentsHrefSerialized != null) {
     builder.element('comments-href', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentshrefSerialized);
+      builder.text(ocCommentsHrefSerialized);
     });
   }
-  final occommentsunread = instance.occommentsunread;
-  final occommentsunreadSerialized = occommentsunread?.toString();
-  if (occommentsunreadSerialized != null) {
+  final ocCommentsUnread = instance.ocCommentsUnread;
+  final ocCommentsUnreadSerialized = ocCommentsUnread?.toString();
+  if (ocCommentsUnreadSerialized != null) {
     builder.element('comments-unread', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentsunreadSerialized);
+      builder.text(ocCommentsUnreadSerialized);
     });
   }
-  final ocdownloadurl = instance.ocdownloadurl;
-  final ocdownloadurlSerialized = ocdownloadurl;
-  if (ocdownloadurlSerialized != null) {
+  final ocDownloadURL = instance.ocDownloadURL;
+  final ocDownloadURLSerialized = ocDownloadURL;
+  if (ocDownloadURLSerialized != null) {
     builder.element('downloadURL', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocdownloadurlSerialized);
+      builder.text(ocDownloadURLSerialized);
     });
   }
-  final ocfavorite = instance.ocfavorite;
-  final ocfavoriteSerialized = ocfavorite?.toString();
-  if (ocfavoriteSerialized != null) {
+  final ocFavorite = instance.ocFavorite;
+  final ocFavoriteSerialized = ocFavorite?.toString();
+  if (ocFavoriteSerialized != null) {
     builder.element('favorite', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocfavoriteSerialized);
+      builder.text(ocFavoriteSerialized);
     });
   }
-  final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid?.toString();
-  if (ocfileidSerialized != null) {
+  final ocFileid = instance.ocFileid;
+  final ocFileidSerialized = ocFileid?.toString();
+  if (ocFileidSerialized != null) {
     builder.element('fileid', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocfileidSerialized);
+      builder.text(ocFileidSerialized);
     });
   }
-  final ocid = instance.ocid;
-  final ocidSerialized = ocid;
-  if (ocidSerialized != null) {
+  final ocId = instance.ocId;
+  final ocIdSerialized = ocId;
+  if (ocIdSerialized != null) {
     builder.element('id', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocidSerialized);
+      builder.text(ocIdSerialized);
     });
   }
-  final ocownerdisplayname = instance.ocownerdisplayname;
-  final ocownerdisplaynameSerialized = ocownerdisplayname;
-  if (ocownerdisplaynameSerialized != null) {
+  final ocOwnerDisplayName = instance.ocOwnerDisplayName;
+  final ocOwnerDisplayNameSerialized = ocOwnerDisplayName;
+  if (ocOwnerDisplayNameSerialized != null) {
     builder.element('owner-display-name', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocownerdisplaynameSerialized);
+      builder.text(ocOwnerDisplayNameSerialized);
     });
   }
-  final ocownerid = instance.ocownerid;
-  final ocowneridSerialized = ocownerid;
-  if (ocowneridSerialized != null) {
+  final ocOwnerId = instance.ocOwnerId;
+  final ocOwnerIdSerialized = ocOwnerId;
+  if (ocOwnerIdSerialized != null) {
     builder.element('owner-id', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocowneridSerialized);
+      builder.text(ocOwnerIdSerialized);
     });
   }
-  final ocpermissions = instance.ocpermissions;
-  final ocpermissionsSerialized = ocpermissions;
-  if (ocpermissionsSerialized != null) {
+  final ocPermissions = instance.ocPermissions;
+  final ocPermissionsSerialized = ocPermissions;
+  if (ocPermissionsSerialized != null) {
     builder.element('permissions', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocpermissionsSerialized);
+      builder.text(ocPermissionsSerialized);
     });
   }
-  final ocsize = instance.ocsize;
-  final ocsizeSerialized = ocsize?.toString();
-  if (ocsizeSerialized != null) {
+  final ocSize = instance.ocSize;
+  final ocSizeSerialized = ocSize?.toString();
+  if (ocSizeSerialized != null) {
     builder.element('size', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocsizeSerialized);
+      builder.text(ocSizeSerialized);
     });
   }
-  final ocmsharepermissions = instance.ocmsharepermissions;
-  final ocmsharepermissionsSerialized = ocmsharepermissions;
-  if (ocmsharepermissionsSerialized != null) {
+  final ocmSharePermissions = instance.ocmSharePermissions;
+  final ocmSharePermissionsSerialized = ocmSharePermissions;
+  if (ocmSharePermissionsSerialized != null) {
     builder.element('share-permissions', namespace: 'http://open-cloud-mesh.org/ns', nest: () {
-      builder.text(ocmsharepermissionsSerialized);
+      builder.text(ocmSharePermissionsSerialized);
     });
   }
-  final ocssharepermissions = instance.ocssharepermissions;
-  final ocssharepermissionsSerialized = ocssharepermissions?.toString();
-  if (ocssharepermissionsSerialized != null) {
+  final ocsSharePermissions = instance.ocsSharePermissions;
+  final ocsSharePermissionsSerialized = ocsSharePermissions?.toString();
+  if (ocsSharePermissionsSerialized != null) {
     builder.element('share-permissions', namespace: 'http://open-collaboration-services.org/ns', nest: () {
-      builder.text(ocssharepermissionsSerialized);
+      builder.text(ocsSharePermissionsSerialized);
     });
   }
 }
@@ -867,69 +867,69 @@ void _$WebDavPropBuildXmlElement(WebDavProp instance, XmlBuilder builder, {Map<S
 }
 
 WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
-  final davgetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
-  final davgetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
-  final davgetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
-  final davgetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:')?.getText();
-  final davresourcetype = element.getElement('resourcetype', namespace: 'DAV:');
-  final nccreationtime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncdatafingerprint = element.getElement('data-fingerprint', namespace: 'http://nextcloud.org/ns')?.getText();
-  final nchaspreview = element.getElement('has-preview', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncisencrypted = element.getElement('is-encrypted', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncmetadataetag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncmounttype = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncnote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncrichworkspace = element.getElement('rich-workspace', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncuploadtime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns')?.getText();
-  final occommentscount = element.getElement('comments-count', namespace: 'http://owncloud.org/ns')?.getText();
-  final occommentshref = element.getElement('comments-href', namespace: 'http://owncloud.org/ns')?.getText();
-  final occommentsunread = element.getElement('comments-unread', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocdownloadurl = element.getElement('downloadURL', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocfavorite = element.getElement('favorite', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocfileid = element.getElement('fileid', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocid = element.getElement('id', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocownerdisplayname = element.getElement('owner-display-name', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocownerid = element.getElement('owner-id', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocpermissions = element.getElement('permissions', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocsize = element.getElement('size', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocmsharepermissions =
+  final davGetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
+  final davGetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
+  final davGetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
+  final davGetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:')?.getText();
+  final davResourcetype = element.getElement('resourcetype', namespace: 'DAV:');
+  final ncCreationTime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncDataFingerprint = element.getElement('data-fingerprint', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncHasPreview = element.getElement('has-preview', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncIsEncrypted = element.getElement('is-encrypted', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncNote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncRichWorkspace = element.getElement('rich-workspace', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncUploadTime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ocCommentsCount = element.getElement('comments-count', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocCommentsHref = element.getElement('comments-href', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocCommentsUnread = element.getElement('comments-unread', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocDownloadURL = element.getElement('downloadURL', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocFavorite = element.getElement('favorite', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocFileid = element.getElement('fileid', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocId = element.getElement('id', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocOwnerDisplayName = element.getElement('owner-display-name', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocOwnerId = element.getElement('owner-id', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocPermissions = element.getElement('permissions', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocSize = element.getElement('size', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocmSharePermissions =
       element.getElement('share-permissions', namespace: 'http://open-cloud-mesh.org/ns')?.getText();
-  final ocssharepermissions =
+  final ocsSharePermissions =
       element.getElement('share-permissions', namespace: 'http://open-collaboration-services.org/ns')?.getText();
   return WebDavProp(
-      davgetcontentlength: davgetcontentlength != null ? int.parse(davgetcontentlength) : null,
-      davgetcontenttype: davgetcontenttype,
-      davgetetag: davgetetag,
-      davgetlastmodified: davgetlastmodified,
-      davresourcetype: davresourcetype != null ? WebDavResourcetype.fromXmlElement(davresourcetype) : null,
-      nccreationtime: nccreationtime != null ? int.parse(nccreationtime) : null,
-      ncdatafingerprint: ncdatafingerprint,
-      nchaspreview: nchaspreview != null
-          ? nchaspreview == 'true' || nchaspreview == '1'
+      davGetcontentlength: davGetcontentlength != null ? int.parse(davGetcontentlength) : null,
+      davGetcontenttype: davGetcontenttype,
+      davGetetag: davGetetag,
+      davGetlastmodified: davGetlastmodified,
+      davResourcetype: davResourcetype != null ? WebDavResourcetype.fromXmlElement(davResourcetype) : null,
+      ncCreationTime: ncCreationTime != null ? int.parse(ncCreationTime) : null,
+      ncDataFingerprint: ncDataFingerprint,
+      ncHasPreview: ncHasPreview != null
+          ? ncHasPreview == 'true' || ncHasPreview == '1'
               ? true
-              : nchaspreview == 'false' || nchaspreview == '0'
+              : ncHasPreview == 'false' || ncHasPreview == '0'
                   ? false
-                  : throw FormatException('Invalid bool format', nchaspreview)
+                  : throw FormatException('Invalid bool format', ncHasPreview)
           : null,
-      ncisencrypted: ncisencrypted != null ? int.parse(ncisencrypted) : null,
-      ncmetadataetag: ncmetadataetag,
-      ncmounttype: ncmounttype,
-      ncnote: ncnote,
-      ncrichworkspace: ncrichworkspace,
-      ncuploadtime: ncuploadtime != null ? int.parse(ncuploadtime) : null,
-      occommentscount: occommentscount != null ? int.parse(occommentscount) : null,
-      occommentshref: occommentshref,
-      occommentsunread: occommentsunread != null ? int.parse(occommentsunread) : null,
-      ocdownloadurl: ocdownloadurl,
-      ocfavorite: ocfavorite != null ? int.parse(ocfavorite) : null,
-      ocfileid: ocfileid != null ? int.parse(ocfileid) : null,
-      ocid: ocid,
-      ocownerdisplayname: ocownerdisplayname,
-      ocownerid: ocownerid,
-      ocpermissions: ocpermissions,
-      ocsize: ocsize != null ? int.parse(ocsize) : null,
-      ocmsharepermissions: ocmsharepermissions,
-      ocssharepermissions: ocssharepermissions != null ? int.parse(ocssharepermissions) : null);
+      ncIsEncrypted: ncIsEncrypted != null ? int.parse(ncIsEncrypted) : null,
+      ncMetadataEtag: ncMetadataEtag,
+      ncMountType: ncMountType,
+      ncNote: ncNote,
+      ncRichWorkspace: ncRichWorkspace,
+      ncUploadTime: ncUploadTime != null ? int.parse(ncUploadTime) : null,
+      ocCommentsCount: ocCommentsCount != null ? int.parse(ocCommentsCount) : null,
+      ocCommentsHref: ocCommentsHref,
+      ocCommentsUnread: ocCommentsUnread != null ? int.parse(ocCommentsUnread) : null,
+      ocDownloadURL: ocDownloadURL,
+      ocFavorite: ocFavorite != null ? int.parse(ocFavorite) : null,
+      ocFileid: ocFileid != null ? int.parse(ocFileid) : null,
+      ocId: ocId,
+      ocOwnerDisplayName: ocOwnerDisplayName,
+      ocOwnerId: ocOwnerId,
+      ocPermissions: ocPermissions,
+      ocSize: ocSize != null ? int.parse(ocSize) : null,
+      ocmSharePermissions: ocmSharePermissions,
+      ocsSharePermissions: ocsSharePermissions != null ? int.parse(ocsSharePermissions) : null);
 }
 
 List<XmlAttribute> _$WebDavPropToXmlAttributes(WebDavProp instance, {Map<String, String?> namespaces = const {}}) {
@@ -939,239 +939,239 @@ List<XmlAttribute> _$WebDavPropToXmlAttributes(WebDavProp instance, {Map<String,
 
 List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String?> namespaces = const {}}) {
   final children = <XmlNode>[];
-  final davgetcontentlength = instance.davgetcontentlength;
-  final davgetcontentlengthSerialized = davgetcontentlength?.toString();
-  final davgetcontentlengthConstructed = davgetcontentlengthSerialized != null
-      ? XmlElement(XmlName('getcontentlength', namespaces['DAV:']), [], [XmlText(davgetcontentlengthSerialized)])
+  final davGetcontentlength = instance.davGetcontentlength;
+  final davGetcontentlengthSerialized = davGetcontentlength?.toString();
+  final davGetcontentlengthConstructed = davGetcontentlengthSerialized != null
+      ? XmlElement(XmlName('getcontentlength', namespaces['DAV:']), [], [XmlText(davGetcontentlengthSerialized)])
       : null;
-  if (davgetcontentlengthConstructed != null) {
-    children.add(davgetcontentlengthConstructed);
+  if (davGetcontentlengthConstructed != null) {
+    children.add(davGetcontentlengthConstructed);
   }
-  final davgetcontenttype = instance.davgetcontenttype;
-  final davgetcontenttypeSerialized = davgetcontenttype;
-  final davgetcontenttypeConstructed = davgetcontenttypeSerialized != null
-      ? XmlElement(XmlName('getcontenttype', namespaces['DAV:']), [], [XmlText(davgetcontenttypeSerialized)])
+  final davGetcontenttype = instance.davGetcontenttype;
+  final davGetcontenttypeSerialized = davGetcontenttype;
+  final davGetcontenttypeConstructed = davGetcontenttypeSerialized != null
+      ? XmlElement(XmlName('getcontenttype', namespaces['DAV:']), [], [XmlText(davGetcontenttypeSerialized)])
       : null;
-  if (davgetcontenttypeConstructed != null) {
-    children.add(davgetcontenttypeConstructed);
+  if (davGetcontenttypeConstructed != null) {
+    children.add(davGetcontenttypeConstructed);
   }
-  final davgetetag = instance.davgetetag;
-  final davgetetagSerialized = davgetetag;
-  final davgetetagConstructed = davgetetagSerialized != null
-      ? XmlElement(XmlName('getetag', namespaces['DAV:']), [], [XmlText(davgetetagSerialized)])
+  final davGetetag = instance.davGetetag;
+  final davGetetagSerialized = davGetetag;
+  final davGetetagConstructed = davGetetagSerialized != null
+      ? XmlElement(XmlName('getetag', namespaces['DAV:']), [], [XmlText(davGetetagSerialized)])
       : null;
-  if (davgetetagConstructed != null) {
-    children.add(davgetetagConstructed);
+  if (davGetetagConstructed != null) {
+    children.add(davGetetagConstructed);
   }
-  final davgetlastmodified = instance.davgetlastmodified;
-  final davgetlastmodifiedSerialized = davgetlastmodified;
-  final davgetlastmodifiedConstructed = davgetlastmodifiedSerialized != null
-      ? XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], [XmlText(davgetlastmodifiedSerialized)])
+  final davGetlastmodified = instance.davGetlastmodified;
+  final davGetlastmodifiedSerialized = davGetlastmodified;
+  final davGetlastmodifiedConstructed = davGetlastmodifiedSerialized != null
+      ? XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], [XmlText(davGetlastmodifiedSerialized)])
       : null;
-  if (davgetlastmodifiedConstructed != null) {
-    children.add(davgetlastmodifiedConstructed);
+  if (davGetlastmodifiedConstructed != null) {
+    children.add(davGetlastmodifiedConstructed);
   }
-  final davresourcetype = instance.davresourcetype;
-  final davresourcetypeSerialized = davresourcetype;
-  final davresourcetypeConstructed = davresourcetypeSerialized != null
+  final davResourcetype = instance.davResourcetype;
+  final davResourcetypeSerialized = davResourcetype;
+  final davResourcetypeConstructed = davResourcetypeSerialized != null
       ? XmlElement(
           XmlName('resourcetype', namespaces['DAV:']),
-          davresourcetypeSerialized.toXmlAttributes(namespaces: namespaces),
-          davresourcetypeSerialized.toXmlChildren(namespaces: namespaces))
+          davResourcetypeSerialized.toXmlAttributes(namespaces: namespaces),
+          davResourcetypeSerialized.toXmlChildren(namespaces: namespaces))
       : null;
-  if (davresourcetypeConstructed != null) {
-    children.add(davresourcetypeConstructed);
+  if (davResourcetypeConstructed != null) {
+    children.add(davResourcetypeConstructed);
   }
-  final nccreationtime = instance.nccreationtime;
-  final nccreationtimeSerialized = nccreationtime?.toString();
-  final nccreationtimeConstructed = nccreationtimeSerialized != null
+  final ncCreationTime = instance.ncCreationTime;
+  final ncCreationTimeSerialized = ncCreationTime?.toString();
+  final ncCreationTimeConstructed = ncCreationTimeSerialized != null
       ? XmlElement(
-          XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(nccreationtimeSerialized)])
+          XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncCreationTimeSerialized)])
       : null;
-  if (nccreationtimeConstructed != null) {
-    children.add(nccreationtimeConstructed);
+  if (ncCreationTimeConstructed != null) {
+    children.add(ncCreationTimeConstructed);
   }
-  final ncdatafingerprint = instance.ncdatafingerprint;
-  final ncdatafingerprintSerialized = ncdatafingerprint;
-  final ncdatafingerprintConstructed = ncdatafingerprintSerialized != null
+  final ncDataFingerprint = instance.ncDataFingerprint;
+  final ncDataFingerprintSerialized = ncDataFingerprint;
+  final ncDataFingerprintConstructed = ncDataFingerprintSerialized != null
       ? XmlElement(XmlName('data-fingerprint', namespaces['http://nextcloud.org/ns']), [],
-          [XmlText(ncdatafingerprintSerialized)])
+          [XmlText(ncDataFingerprintSerialized)])
       : null;
-  if (ncdatafingerprintConstructed != null) {
-    children.add(ncdatafingerprintConstructed);
+  if (ncDataFingerprintConstructed != null) {
+    children.add(ncDataFingerprintConstructed);
   }
-  final nchaspreview = instance.nchaspreview;
-  final nchaspreviewSerialized = nchaspreview != null
-      ? nchaspreview == true
+  final ncHasPreview = instance.ncHasPreview;
+  final ncHasPreviewSerialized = ncHasPreview != null
+      ? ncHasPreview == true
           ? 'true'
           : 'false'
       : null;
-  final nchaspreviewConstructed = nchaspreviewSerialized != null
-      ? XmlElement(XmlName('has-preview', namespaces['http://nextcloud.org/ns']), [], [XmlText(nchaspreviewSerialized)])
+  final ncHasPreviewConstructed = ncHasPreviewSerialized != null
+      ? XmlElement(XmlName('has-preview', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncHasPreviewSerialized)])
       : null;
-  if (nchaspreviewConstructed != null) {
-    children.add(nchaspreviewConstructed);
+  if (ncHasPreviewConstructed != null) {
+    children.add(ncHasPreviewConstructed);
   }
-  final ncisencrypted = instance.ncisencrypted;
-  final ncisencryptedSerialized = ncisencrypted?.toString();
-  final ncisencryptedConstructed = ncisencryptedSerialized != null
+  final ncIsEncrypted = instance.ncIsEncrypted;
+  final ncIsEncryptedSerialized = ncIsEncrypted?.toString();
+  final ncIsEncryptedConstructed = ncIsEncryptedSerialized != null
       ? XmlElement(
-          XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncisencryptedSerialized)])
+          XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncIsEncryptedSerialized)])
       : null;
-  if (ncisencryptedConstructed != null) {
-    children.add(ncisencryptedConstructed);
+  if (ncIsEncryptedConstructed != null) {
+    children.add(ncIsEncryptedConstructed);
   }
-  final ncmetadataetag = instance.ncmetadataetag;
-  final ncmetadataetagSerialized = ncmetadataetag;
-  final ncmetadataetagConstructed = ncmetadataetagSerialized != null
+  final ncMetadataEtag = instance.ncMetadataEtag;
+  final ncMetadataEtagSerialized = ncMetadataEtag;
+  final ncMetadataEtagConstructed = ncMetadataEtagSerialized != null
       ? XmlElement(
-          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncmetadataetagSerialized)])
+          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncMetadataEtagSerialized)])
       : null;
-  if (ncmetadataetagConstructed != null) {
-    children.add(ncmetadataetagConstructed);
+  if (ncMetadataEtagConstructed != null) {
+    children.add(ncMetadataEtagConstructed);
   }
-  final ncmounttype = instance.ncmounttype;
-  final ncmounttypeSerialized = ncmounttype;
-  final ncmounttypeConstructed = ncmounttypeSerialized != null
-      ? XmlElement(XmlName('mount-type', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncmounttypeSerialized)])
+  final ncMountType = instance.ncMountType;
+  final ncMountTypeSerialized = ncMountType;
+  final ncMountTypeConstructed = ncMountTypeSerialized != null
+      ? XmlElement(XmlName('mount-type', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncMountTypeSerialized)])
       : null;
-  if (ncmounttypeConstructed != null) {
-    children.add(ncmounttypeConstructed);
+  if (ncMountTypeConstructed != null) {
+    children.add(ncMountTypeConstructed);
   }
-  final ncnote = instance.ncnote;
-  final ncnoteSerialized = ncnote;
-  final ncnoteConstructed = ncnoteSerialized != null
-      ? XmlElement(XmlName('note', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncnoteSerialized)])
+  final ncNote = instance.ncNote;
+  final ncNoteSerialized = ncNote;
+  final ncNoteConstructed = ncNoteSerialized != null
+      ? XmlElement(XmlName('note', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncNoteSerialized)])
       : null;
-  if (ncnoteConstructed != null) {
-    children.add(ncnoteConstructed);
+  if (ncNoteConstructed != null) {
+    children.add(ncNoteConstructed);
   }
-  final ncrichworkspace = instance.ncrichworkspace;
-  final ncrichworkspaceSerialized = ncrichworkspace;
-  final ncrichworkspaceConstructed = ncrichworkspaceSerialized != null
+  final ncRichWorkspace = instance.ncRichWorkspace;
+  final ncRichWorkspaceSerialized = ncRichWorkspace;
+  final ncRichWorkspaceConstructed = ncRichWorkspaceSerialized != null
       ? XmlElement(
-          XmlName('rich-workspace', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncrichworkspaceSerialized)])
+          XmlName('rich-workspace', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncRichWorkspaceSerialized)])
       : null;
-  if (ncrichworkspaceConstructed != null) {
-    children.add(ncrichworkspaceConstructed);
+  if (ncRichWorkspaceConstructed != null) {
+    children.add(ncRichWorkspaceConstructed);
   }
-  final ncuploadtime = instance.ncuploadtime;
-  final ncuploadtimeSerialized = ncuploadtime?.toString();
-  final ncuploadtimeConstructed = ncuploadtimeSerialized != null
-      ? XmlElement(XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncuploadtimeSerialized)])
+  final ncUploadTime = instance.ncUploadTime;
+  final ncUploadTimeSerialized = ncUploadTime?.toString();
+  final ncUploadTimeConstructed = ncUploadTimeSerialized != null
+      ? XmlElement(XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncUploadTimeSerialized)])
       : null;
-  if (ncuploadtimeConstructed != null) {
-    children.add(ncuploadtimeConstructed);
+  if (ncUploadTimeConstructed != null) {
+    children.add(ncUploadTimeConstructed);
   }
-  final occommentscount = instance.occommentscount;
-  final occommentscountSerialized = occommentscount?.toString();
-  final occommentscountConstructed = occommentscountSerialized != null
+  final ocCommentsCount = instance.ocCommentsCount;
+  final ocCommentsCountSerialized = ocCommentsCount?.toString();
+  final ocCommentsCountConstructed = ocCommentsCountSerialized != null
       ? XmlElement(
-          XmlName('comments-count', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentscountSerialized)])
+          XmlName('comments-count', namespaces['http://owncloud.org/ns']), [], [XmlText(ocCommentsCountSerialized)])
       : null;
-  if (occommentscountConstructed != null) {
-    children.add(occommentscountConstructed);
+  if (ocCommentsCountConstructed != null) {
+    children.add(ocCommentsCountConstructed);
   }
-  final occommentshref = instance.occommentshref;
-  final occommentshrefSerialized = occommentshref;
-  final occommentshrefConstructed = occommentshrefSerialized != null
+  final ocCommentsHref = instance.ocCommentsHref;
+  final ocCommentsHrefSerialized = ocCommentsHref;
+  final ocCommentsHrefConstructed = ocCommentsHrefSerialized != null
       ? XmlElement(
-          XmlName('comments-href', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentshrefSerialized)])
+          XmlName('comments-href', namespaces['http://owncloud.org/ns']), [], [XmlText(ocCommentsHrefSerialized)])
       : null;
-  if (occommentshrefConstructed != null) {
-    children.add(occommentshrefConstructed);
+  if (ocCommentsHrefConstructed != null) {
+    children.add(ocCommentsHrefConstructed);
   }
-  final occommentsunread = instance.occommentsunread;
-  final occommentsunreadSerialized = occommentsunread?.toString();
-  final occommentsunreadConstructed = occommentsunreadSerialized != null
+  final ocCommentsUnread = instance.ocCommentsUnread;
+  final ocCommentsUnreadSerialized = ocCommentsUnread?.toString();
+  final ocCommentsUnreadConstructed = ocCommentsUnreadSerialized != null
       ? XmlElement(
-          XmlName('comments-unread', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentsunreadSerialized)])
+          XmlName('comments-unread', namespaces['http://owncloud.org/ns']), [], [XmlText(ocCommentsUnreadSerialized)])
       : null;
-  if (occommentsunreadConstructed != null) {
-    children.add(occommentsunreadConstructed);
+  if (ocCommentsUnreadConstructed != null) {
+    children.add(ocCommentsUnreadConstructed);
   }
-  final ocdownloadurl = instance.ocdownloadurl;
-  final ocdownloadurlSerialized = ocdownloadurl;
-  final ocdownloadurlConstructed = ocdownloadurlSerialized != null
-      ? XmlElement(XmlName('downloadURL', namespaces['http://owncloud.org/ns']), [], [XmlText(ocdownloadurlSerialized)])
+  final ocDownloadURL = instance.ocDownloadURL;
+  final ocDownloadURLSerialized = ocDownloadURL;
+  final ocDownloadURLConstructed = ocDownloadURLSerialized != null
+      ? XmlElement(XmlName('downloadURL', namespaces['http://owncloud.org/ns']), [], [XmlText(ocDownloadURLSerialized)])
       : null;
-  if (ocdownloadurlConstructed != null) {
-    children.add(ocdownloadurlConstructed);
+  if (ocDownloadURLConstructed != null) {
+    children.add(ocDownloadURLConstructed);
   }
-  final ocfavorite = instance.ocfavorite;
-  final ocfavoriteSerialized = ocfavorite?.toString();
-  final ocfavoriteConstructed = ocfavoriteSerialized != null
-      ? XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], [XmlText(ocfavoriteSerialized)])
+  final ocFavorite = instance.ocFavorite;
+  final ocFavoriteSerialized = ocFavorite?.toString();
+  final ocFavoriteConstructed = ocFavoriteSerialized != null
+      ? XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], [XmlText(ocFavoriteSerialized)])
       : null;
-  if (ocfavoriteConstructed != null) {
-    children.add(ocfavoriteConstructed);
+  if (ocFavoriteConstructed != null) {
+    children.add(ocFavoriteConstructed);
   }
-  final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid?.toString();
-  final ocfileidConstructed = ocfileidSerialized != null
-      ? XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], [XmlText(ocfileidSerialized)])
+  final ocFileid = instance.ocFileid;
+  final ocFileidSerialized = ocFileid?.toString();
+  final ocFileidConstructed = ocFileidSerialized != null
+      ? XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], [XmlText(ocFileidSerialized)])
       : null;
-  if (ocfileidConstructed != null) {
-    children.add(ocfileidConstructed);
+  if (ocFileidConstructed != null) {
+    children.add(ocFileidConstructed);
   }
-  final ocid = instance.ocid;
-  final ocidSerialized = ocid;
-  final ocidConstructed = ocidSerialized != null
-      ? XmlElement(XmlName('id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocidSerialized)])
+  final ocId = instance.ocId;
+  final ocIdSerialized = ocId;
+  final ocIdConstructed = ocIdSerialized != null
+      ? XmlElement(XmlName('id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocIdSerialized)])
       : null;
-  if (ocidConstructed != null) {
-    children.add(ocidConstructed);
+  if (ocIdConstructed != null) {
+    children.add(ocIdConstructed);
   }
-  final ocownerdisplayname = instance.ocownerdisplayname;
-  final ocownerdisplaynameSerialized = ocownerdisplayname;
-  final ocownerdisplaynameConstructed = ocownerdisplaynameSerialized != null
+  final ocOwnerDisplayName = instance.ocOwnerDisplayName;
+  final ocOwnerDisplayNameSerialized = ocOwnerDisplayName;
+  final ocOwnerDisplayNameConstructed = ocOwnerDisplayNameSerialized != null
       ? XmlElement(XmlName('owner-display-name', namespaces['http://owncloud.org/ns']), [],
-          [XmlText(ocownerdisplaynameSerialized)])
+          [XmlText(ocOwnerDisplayNameSerialized)])
       : null;
-  if (ocownerdisplaynameConstructed != null) {
-    children.add(ocownerdisplaynameConstructed);
+  if (ocOwnerDisplayNameConstructed != null) {
+    children.add(ocOwnerDisplayNameConstructed);
   }
-  final ocownerid = instance.ocownerid;
-  final ocowneridSerialized = ocownerid;
-  final ocowneridConstructed = ocowneridSerialized != null
-      ? XmlElement(XmlName('owner-id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocowneridSerialized)])
+  final ocOwnerId = instance.ocOwnerId;
+  final ocOwnerIdSerialized = ocOwnerId;
+  final ocOwnerIdConstructed = ocOwnerIdSerialized != null
+      ? XmlElement(XmlName('owner-id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocOwnerIdSerialized)])
       : null;
-  if (ocowneridConstructed != null) {
-    children.add(ocowneridConstructed);
+  if (ocOwnerIdConstructed != null) {
+    children.add(ocOwnerIdConstructed);
   }
-  final ocpermissions = instance.ocpermissions;
-  final ocpermissionsSerialized = ocpermissions;
-  final ocpermissionsConstructed = ocpermissionsSerialized != null
-      ? XmlElement(XmlName('permissions', namespaces['http://owncloud.org/ns']), [], [XmlText(ocpermissionsSerialized)])
+  final ocPermissions = instance.ocPermissions;
+  final ocPermissionsSerialized = ocPermissions;
+  final ocPermissionsConstructed = ocPermissionsSerialized != null
+      ? XmlElement(XmlName('permissions', namespaces['http://owncloud.org/ns']), [], [XmlText(ocPermissionsSerialized)])
       : null;
-  if (ocpermissionsConstructed != null) {
-    children.add(ocpermissionsConstructed);
+  if (ocPermissionsConstructed != null) {
+    children.add(ocPermissionsConstructed);
   }
-  final ocsize = instance.ocsize;
-  final ocsizeSerialized = ocsize?.toString();
-  final ocsizeConstructed = ocsizeSerialized != null
-      ? XmlElement(XmlName('size', namespaces['http://owncloud.org/ns']), [], [XmlText(ocsizeSerialized)])
+  final ocSize = instance.ocSize;
+  final ocSizeSerialized = ocSize?.toString();
+  final ocSizeConstructed = ocSizeSerialized != null
+      ? XmlElement(XmlName('size', namespaces['http://owncloud.org/ns']), [], [XmlText(ocSizeSerialized)])
       : null;
-  if (ocsizeConstructed != null) {
-    children.add(ocsizeConstructed);
+  if (ocSizeConstructed != null) {
+    children.add(ocSizeConstructed);
   }
-  final ocmsharepermissions = instance.ocmsharepermissions;
-  final ocmsharepermissionsSerialized = ocmsharepermissions;
-  final ocmsharepermissionsConstructed = ocmsharepermissionsSerialized != null
+  final ocmSharePermissions = instance.ocmSharePermissions;
+  final ocmSharePermissionsSerialized = ocmSharePermissions;
+  final ocmSharePermissionsConstructed = ocmSharePermissionsSerialized != null
       ? XmlElement(XmlName('share-permissions', namespaces['http://open-cloud-mesh.org/ns']), [],
-          [XmlText(ocmsharepermissionsSerialized)])
+          [XmlText(ocmSharePermissionsSerialized)])
       : null;
-  if (ocmsharepermissionsConstructed != null) {
-    children.add(ocmsharepermissionsConstructed);
+  if (ocmSharePermissionsConstructed != null) {
+    children.add(ocmSharePermissionsConstructed);
   }
-  final ocssharepermissions = instance.ocssharepermissions;
-  final ocssharepermissionsSerialized = ocssharepermissions?.toString();
-  final ocssharepermissionsConstructed = ocssharepermissionsSerialized != null
+  final ocsSharePermissions = instance.ocsSharePermissions;
+  final ocsSharePermissionsSerialized = ocsSharePermissions?.toString();
+  final ocsSharePermissionsConstructed = ocsSharePermissionsSerialized != null
       ? XmlElement(XmlName('share-permissions', namespaces['http://open-collaboration-services.org/ns']), [],
-          [XmlText(ocssharepermissionsSerialized)])
+          [XmlText(ocsSharePermissionsSerialized)])
       : null;
-  if (ocssharepermissionsConstructed != null) {
-    children.add(ocssharepermissionsConstructed);
+  if (ocsSharePermissionsConstructed != null) {
+    children.add(ocsSharePermissionsConstructed);
   }
   return children;
 }
@@ -1202,197 +1202,197 @@ mixin _$WebDavPropXmlSerializableMixin {
 
 void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
-  final davgetcontentlength = instance.davgetcontentlength;
-  final davgetcontentlengthSerialized = davgetcontentlength?.toString();
-  if (davgetcontentlengthSerialized != null) {
+  final davGetcontentlength = instance.davGetcontentlength;
+  final davGetcontentlengthSerialized = davGetcontentlength?.toString();
+  if (davGetcontentlengthSerialized != null) {
     builder.element('getcontentlength', namespace: 'DAV:', nest: () {
-      builder.text(davgetcontentlengthSerialized);
+      builder.text(davGetcontentlengthSerialized);
     });
   }
-  final davgetcontenttype = instance.davgetcontenttype;
-  final davgetcontenttypeSerialized = davgetcontenttype;
-  if (davgetcontenttypeSerialized != null) {
+  final davGetcontenttype = instance.davGetcontenttype;
+  final davGetcontenttypeSerialized = davGetcontenttype;
+  if (davGetcontenttypeSerialized != null) {
     builder.element('getcontenttype', namespace: 'DAV:', nest: () {
-      builder.text(davgetcontenttypeSerialized);
+      builder.text(davGetcontenttypeSerialized);
     });
   }
-  final davgetetag = instance.davgetetag;
-  final davgetetagSerialized = davgetetag;
-  if (davgetetagSerialized != null) {
+  final davGetetag = instance.davGetetag;
+  final davGetetagSerialized = davGetetag;
+  if (davGetetagSerialized != null) {
     builder.element('getetag', namespace: 'DAV:', nest: () {
-      builder.text(davgetetagSerialized);
+      builder.text(davGetetagSerialized);
     });
   }
-  final davgetlastmodified = instance.davgetlastmodified;
-  final davgetlastmodifiedSerialized = davgetlastmodified;
-  if (davgetlastmodifiedSerialized != null) {
+  final davGetlastmodified = instance.davGetlastmodified;
+  final davGetlastmodifiedSerialized = davGetlastmodified;
+  if (davGetlastmodifiedSerialized != null) {
     builder.element('getlastmodified', namespace: 'DAV:', nest: () {
-      builder.text(davgetlastmodifiedSerialized);
+      builder.text(davGetlastmodifiedSerialized);
     });
   }
-  final davresourcetype = instance.davresourcetype;
-  final davresourcetypeSerialized = davresourcetype;
-  if (davresourcetypeSerialized != null) {
+  final davResourcetype = instance.davResourcetype;
+  final davResourcetypeSerialized = davResourcetype;
+  if (davResourcetypeSerialized != null) {
     builder.element('resourcetype', namespace: 'DAV:', nest: () {
-      davresourcetypeSerialized.buildXmlChildren(builder, namespaces: namespaces);
+      davResourcetypeSerialized.buildXmlChildren(builder, namespaces: namespaces);
     });
   }
-  final nccreationtime = instance.nccreationtime;
-  final nccreationtimeSerialized = nccreationtime?.toString();
-  if (nccreationtimeSerialized != null) {
+  final ncCreationTime = instance.ncCreationTime;
+  final ncCreationTimeSerialized = ncCreationTime?.toString();
+  if (ncCreationTimeSerialized != null) {
     builder.element('creation_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(nccreationtimeSerialized);
+      builder.text(ncCreationTimeSerialized);
     });
   }
-  final ncdatafingerprint = instance.ncdatafingerprint;
-  final ncdatafingerprintSerialized = ncdatafingerprint;
-  if (ncdatafingerprintSerialized != null) {
+  final ncDataFingerprint = instance.ncDataFingerprint;
+  final ncDataFingerprintSerialized = ncDataFingerprint;
+  if (ncDataFingerprintSerialized != null) {
     builder.element('data-fingerprint', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncdatafingerprintSerialized);
+      builder.text(ncDataFingerprintSerialized);
     });
   }
-  final nchaspreview = instance.nchaspreview;
-  final nchaspreviewSerialized = nchaspreview != null
-      ? nchaspreview == true
+  final ncHasPreview = instance.ncHasPreview;
+  final ncHasPreviewSerialized = ncHasPreview != null
+      ? ncHasPreview == true
           ? 'true'
           : 'false'
       : null;
-  if (nchaspreviewSerialized != null) {
+  if (ncHasPreviewSerialized != null) {
     builder.element('has-preview', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(nchaspreviewSerialized);
+      builder.text(ncHasPreviewSerialized);
     });
   }
-  final ncisencrypted = instance.ncisencrypted;
-  final ncisencryptedSerialized = ncisencrypted?.toString();
-  if (ncisencryptedSerialized != null) {
+  final ncIsEncrypted = instance.ncIsEncrypted;
+  final ncIsEncryptedSerialized = ncIsEncrypted?.toString();
+  if (ncIsEncryptedSerialized != null) {
     builder.element('is-encrypted', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncisencryptedSerialized);
+      builder.text(ncIsEncryptedSerialized);
     });
   }
-  final ncmetadataetag = instance.ncmetadataetag;
-  final ncmetadataetagSerialized = ncmetadataetag;
-  if (ncmetadataetagSerialized != null) {
+  final ncMetadataEtag = instance.ncMetadataEtag;
+  final ncMetadataEtagSerialized = ncMetadataEtag;
+  if (ncMetadataEtagSerialized != null) {
     builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncmetadataetagSerialized);
+      builder.text(ncMetadataEtagSerialized);
     });
   }
-  final ncmounttype = instance.ncmounttype;
-  final ncmounttypeSerialized = ncmounttype;
-  if (ncmounttypeSerialized != null) {
+  final ncMountType = instance.ncMountType;
+  final ncMountTypeSerialized = ncMountType;
+  if (ncMountTypeSerialized != null) {
     builder.element('mount-type', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncmounttypeSerialized);
+      builder.text(ncMountTypeSerialized);
     });
   }
-  final ncnote = instance.ncnote;
-  final ncnoteSerialized = ncnote;
-  if (ncnoteSerialized != null) {
+  final ncNote = instance.ncNote;
+  final ncNoteSerialized = ncNote;
+  if (ncNoteSerialized != null) {
     builder.element('note', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncnoteSerialized);
+      builder.text(ncNoteSerialized);
     });
   }
-  final ncrichworkspace = instance.ncrichworkspace;
-  final ncrichworkspaceSerialized = ncrichworkspace;
-  if (ncrichworkspaceSerialized != null) {
+  final ncRichWorkspace = instance.ncRichWorkspace;
+  final ncRichWorkspaceSerialized = ncRichWorkspace;
+  if (ncRichWorkspaceSerialized != null) {
     builder.element('rich-workspace', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncrichworkspaceSerialized);
+      builder.text(ncRichWorkspaceSerialized);
     });
   }
-  final ncuploadtime = instance.ncuploadtime;
-  final ncuploadtimeSerialized = ncuploadtime?.toString();
-  if (ncuploadtimeSerialized != null) {
+  final ncUploadTime = instance.ncUploadTime;
+  final ncUploadTimeSerialized = ncUploadTime?.toString();
+  if (ncUploadTimeSerialized != null) {
     builder.element('upload_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncuploadtimeSerialized);
+      builder.text(ncUploadTimeSerialized);
     });
   }
-  final occommentscount = instance.occommentscount;
-  final occommentscountSerialized = occommentscount?.toString();
-  if (occommentscountSerialized != null) {
+  final ocCommentsCount = instance.ocCommentsCount;
+  final ocCommentsCountSerialized = ocCommentsCount?.toString();
+  if (ocCommentsCountSerialized != null) {
     builder.element('comments-count', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentscountSerialized);
+      builder.text(ocCommentsCountSerialized);
     });
   }
-  final occommentshref = instance.occommentshref;
-  final occommentshrefSerialized = occommentshref;
-  if (occommentshrefSerialized != null) {
+  final ocCommentsHref = instance.ocCommentsHref;
+  final ocCommentsHrefSerialized = ocCommentsHref;
+  if (ocCommentsHrefSerialized != null) {
     builder.element('comments-href', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentshrefSerialized);
+      builder.text(ocCommentsHrefSerialized);
     });
   }
-  final occommentsunread = instance.occommentsunread;
-  final occommentsunreadSerialized = occommentsunread?.toString();
-  if (occommentsunreadSerialized != null) {
+  final ocCommentsUnread = instance.ocCommentsUnread;
+  final ocCommentsUnreadSerialized = ocCommentsUnread?.toString();
+  if (ocCommentsUnreadSerialized != null) {
     builder.element('comments-unread', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentsunreadSerialized);
+      builder.text(ocCommentsUnreadSerialized);
     });
   }
-  final ocdownloadurl = instance.ocdownloadurl;
-  final ocdownloadurlSerialized = ocdownloadurl;
-  if (ocdownloadurlSerialized != null) {
+  final ocDownloadURL = instance.ocDownloadURL;
+  final ocDownloadURLSerialized = ocDownloadURL;
+  if (ocDownloadURLSerialized != null) {
     builder.element('downloadURL', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocdownloadurlSerialized);
+      builder.text(ocDownloadURLSerialized);
     });
   }
-  final ocfavorite = instance.ocfavorite;
-  final ocfavoriteSerialized = ocfavorite?.toString();
-  if (ocfavoriteSerialized != null) {
+  final ocFavorite = instance.ocFavorite;
+  final ocFavoriteSerialized = ocFavorite?.toString();
+  if (ocFavoriteSerialized != null) {
     builder.element('favorite', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocfavoriteSerialized);
+      builder.text(ocFavoriteSerialized);
     });
   }
-  final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid?.toString();
-  if (ocfileidSerialized != null) {
+  final ocFileid = instance.ocFileid;
+  final ocFileidSerialized = ocFileid?.toString();
+  if (ocFileidSerialized != null) {
     builder.element('fileid', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocfileidSerialized);
+      builder.text(ocFileidSerialized);
     });
   }
-  final ocid = instance.ocid;
-  final ocidSerialized = ocid;
-  if (ocidSerialized != null) {
+  final ocId = instance.ocId;
+  final ocIdSerialized = ocId;
+  if (ocIdSerialized != null) {
     builder.element('id', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocidSerialized);
+      builder.text(ocIdSerialized);
     });
   }
-  final ocownerdisplayname = instance.ocownerdisplayname;
-  final ocownerdisplaynameSerialized = ocownerdisplayname;
-  if (ocownerdisplaynameSerialized != null) {
+  final ocOwnerDisplayName = instance.ocOwnerDisplayName;
+  final ocOwnerDisplayNameSerialized = ocOwnerDisplayName;
+  if (ocOwnerDisplayNameSerialized != null) {
     builder.element('owner-display-name', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocownerdisplaynameSerialized);
+      builder.text(ocOwnerDisplayNameSerialized);
     });
   }
-  final ocownerid = instance.ocownerid;
-  final ocowneridSerialized = ocownerid;
-  if (ocowneridSerialized != null) {
+  final ocOwnerId = instance.ocOwnerId;
+  final ocOwnerIdSerialized = ocOwnerId;
+  if (ocOwnerIdSerialized != null) {
     builder.element('owner-id', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocowneridSerialized);
+      builder.text(ocOwnerIdSerialized);
     });
   }
-  final ocpermissions = instance.ocpermissions;
-  final ocpermissionsSerialized = ocpermissions;
-  if (ocpermissionsSerialized != null) {
+  final ocPermissions = instance.ocPermissions;
+  final ocPermissionsSerialized = ocPermissions;
+  if (ocPermissionsSerialized != null) {
     builder.element('permissions', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocpermissionsSerialized);
+      builder.text(ocPermissionsSerialized);
     });
   }
-  final ocsize = instance.ocsize;
-  final ocsizeSerialized = ocsize?.toString();
-  if (ocsizeSerialized != null) {
+  final ocSize = instance.ocSize;
+  final ocSizeSerialized = ocSize?.toString();
+  if (ocSizeSerialized != null) {
     builder.element('size', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocsizeSerialized);
+      builder.text(ocSizeSerialized);
     });
   }
-  final ocmsharepermissions = instance.ocmsharepermissions;
-  final ocmsharepermissionsSerialized = ocmsharepermissions;
-  if (ocmsharepermissionsSerialized != null) {
+  final ocmSharePermissions = instance.ocmSharePermissions;
+  final ocmSharePermissionsSerialized = ocmSharePermissions;
+  if (ocmSharePermissionsSerialized != null) {
     builder.element('share-permissions', namespace: 'http://open-cloud-mesh.org/ns', nest: () {
-      builder.text(ocmsharepermissionsSerialized);
+      builder.text(ocmSharePermissionsSerialized);
     });
   }
-  final ocssharepermissions = instance.ocssharepermissions;
-  final ocssharepermissionsSerialized = ocssharepermissions?.toString();
-  if (ocssharepermissionsSerialized != null) {
+  final ocsSharePermissions = instance.ocsSharePermissions;
+  final ocsSharePermissionsSerialized = ocsSharePermissions?.toString();
+  if (ocsSharePermissionsSerialized != null) {
     builder.element('share-permissions', namespace: 'http://open-collaboration-services.org/ns', nest: () {
-      builder.text(ocssharepermissionsSerialized);
+      builder.text(ocsSharePermissionsSerialized);
     });
   }
 }
@@ -1405,69 +1405,69 @@ void _$WebDavOcFilterRulesBuildXmlElement(WebDavOcFilterRules instance, XmlBuild
 }
 
 WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
-  final davgetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
-  final davgetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
-  final davgetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
-  final davgetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:')?.getText();
-  final davresourcetype = element.getElement('resourcetype', namespace: 'DAV:');
-  final nccreationtime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncdatafingerprint = element.getElement('data-fingerprint', namespace: 'http://nextcloud.org/ns')?.getText();
-  final nchaspreview = element.getElement('has-preview', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncisencrypted = element.getElement('is-encrypted', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncmetadataetag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncmounttype = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncnote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncrichworkspace = element.getElement('rich-workspace', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncuploadtime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns')?.getText();
-  final occommentscount = element.getElement('comments-count', namespace: 'http://owncloud.org/ns')?.getText();
-  final occommentshref = element.getElement('comments-href', namespace: 'http://owncloud.org/ns')?.getText();
-  final occommentsunread = element.getElement('comments-unread', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocdownloadurl = element.getElement('downloadURL', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocfavorite = element.getElement('favorite', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocfileid = element.getElement('fileid', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocid = element.getElement('id', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocownerdisplayname = element.getElement('owner-display-name', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocownerid = element.getElement('owner-id', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocpermissions = element.getElement('permissions', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocsize = element.getElement('size', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocmsharepermissions =
+  final davGetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
+  final davGetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
+  final davGetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
+  final davGetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:')?.getText();
+  final davResourcetype = element.getElement('resourcetype', namespace: 'DAV:');
+  final ncCreationTime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncDataFingerprint = element.getElement('data-fingerprint', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncHasPreview = element.getElement('has-preview', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncIsEncrypted = element.getElement('is-encrypted', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncNote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncRichWorkspace = element.getElement('rich-workspace', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncUploadTime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ocCommentsCount = element.getElement('comments-count', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocCommentsHref = element.getElement('comments-href', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocCommentsUnread = element.getElement('comments-unread', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocDownloadURL = element.getElement('downloadURL', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocFavorite = element.getElement('favorite', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocFileid = element.getElement('fileid', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocId = element.getElement('id', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocOwnerDisplayName = element.getElement('owner-display-name', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocOwnerId = element.getElement('owner-id', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocPermissions = element.getElement('permissions', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocSize = element.getElement('size', namespace: 'http://owncloud.org/ns')?.getText();
+  final ocmSharePermissions =
       element.getElement('share-permissions', namespace: 'http://open-cloud-mesh.org/ns')?.getText();
-  final ocssharepermissions =
+  final ocsSharePermissions =
       element.getElement('share-permissions', namespace: 'http://open-collaboration-services.org/ns')?.getText();
   return WebDavOcFilterRules(
-      davgetcontentlength: davgetcontentlength != null ? int.parse(davgetcontentlength) : null,
-      davgetcontenttype: davgetcontenttype,
-      davgetetag: davgetetag,
-      davgetlastmodified: davgetlastmodified,
-      davresourcetype: davresourcetype != null ? WebDavResourcetype.fromXmlElement(davresourcetype) : null,
-      nccreationtime: nccreationtime != null ? int.parse(nccreationtime) : null,
-      ncdatafingerprint: ncdatafingerprint,
-      nchaspreview: nchaspreview != null
-          ? nchaspreview == 'true' || nchaspreview == '1'
+      davGetcontentlength: davGetcontentlength != null ? int.parse(davGetcontentlength) : null,
+      davGetcontenttype: davGetcontenttype,
+      davGetetag: davGetetag,
+      davGetlastmodified: davGetlastmodified,
+      davResourcetype: davResourcetype != null ? WebDavResourcetype.fromXmlElement(davResourcetype) : null,
+      ncCreationTime: ncCreationTime != null ? int.parse(ncCreationTime) : null,
+      ncDataFingerprint: ncDataFingerprint,
+      ncHasPreview: ncHasPreview != null
+          ? ncHasPreview == 'true' || ncHasPreview == '1'
               ? true
-              : nchaspreview == 'false' || nchaspreview == '0'
+              : ncHasPreview == 'false' || ncHasPreview == '0'
                   ? false
-                  : throw FormatException('Invalid bool format', nchaspreview)
+                  : throw FormatException('Invalid bool format', ncHasPreview)
           : null,
-      ncisencrypted: ncisencrypted != null ? int.parse(ncisencrypted) : null,
-      ncmetadataetag: ncmetadataetag,
-      ncmounttype: ncmounttype,
-      ncnote: ncnote,
-      ncrichworkspace: ncrichworkspace,
-      ncuploadtime: ncuploadtime != null ? int.parse(ncuploadtime) : null,
-      occommentscount: occommentscount != null ? int.parse(occommentscount) : null,
-      occommentshref: occommentshref,
-      occommentsunread: occommentsunread != null ? int.parse(occommentsunread) : null,
-      ocdownloadurl: ocdownloadurl,
-      ocfavorite: ocfavorite != null ? int.parse(ocfavorite) : null,
-      ocfileid: ocfileid != null ? int.parse(ocfileid) : null,
-      ocid: ocid,
-      ocownerdisplayname: ocownerdisplayname,
-      ocownerid: ocownerid,
-      ocpermissions: ocpermissions,
-      ocsize: ocsize != null ? int.parse(ocsize) : null,
-      ocmsharepermissions: ocmsharepermissions,
-      ocssharepermissions: ocssharepermissions != null ? int.parse(ocssharepermissions) : null);
+      ncIsEncrypted: ncIsEncrypted != null ? int.parse(ncIsEncrypted) : null,
+      ncMetadataEtag: ncMetadataEtag,
+      ncMountType: ncMountType,
+      ncNote: ncNote,
+      ncRichWorkspace: ncRichWorkspace,
+      ncUploadTime: ncUploadTime != null ? int.parse(ncUploadTime) : null,
+      ocCommentsCount: ocCommentsCount != null ? int.parse(ocCommentsCount) : null,
+      ocCommentsHref: ocCommentsHref,
+      ocCommentsUnread: ocCommentsUnread != null ? int.parse(ocCommentsUnread) : null,
+      ocDownloadURL: ocDownloadURL,
+      ocFavorite: ocFavorite != null ? int.parse(ocFavorite) : null,
+      ocFileid: ocFileid != null ? int.parse(ocFileid) : null,
+      ocId: ocId,
+      ocOwnerDisplayName: ocOwnerDisplayName,
+      ocOwnerId: ocOwnerId,
+      ocPermissions: ocPermissions,
+      ocSize: ocSize != null ? int.parse(ocSize) : null,
+      ocmSharePermissions: ocmSharePermissions,
+      ocsSharePermissions: ocsSharePermissions != null ? int.parse(ocsSharePermissions) : null);
 }
 
 List<XmlAttribute> _$WebDavOcFilterRulesToXmlAttributes(WebDavOcFilterRules instance,
@@ -1479,239 +1479,239 @@ List<XmlAttribute> _$WebDavOcFilterRulesToXmlAttributes(WebDavOcFilterRules inst
 List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     {Map<String, String?> namespaces = const {}}) {
   final children = <XmlNode>[];
-  final davgetcontentlength = instance.davgetcontentlength;
-  final davgetcontentlengthSerialized = davgetcontentlength?.toString();
-  final davgetcontentlengthConstructed = davgetcontentlengthSerialized != null
-      ? XmlElement(XmlName('getcontentlength', namespaces['DAV:']), [], [XmlText(davgetcontentlengthSerialized)])
+  final davGetcontentlength = instance.davGetcontentlength;
+  final davGetcontentlengthSerialized = davGetcontentlength?.toString();
+  final davGetcontentlengthConstructed = davGetcontentlengthSerialized != null
+      ? XmlElement(XmlName('getcontentlength', namespaces['DAV:']), [], [XmlText(davGetcontentlengthSerialized)])
       : null;
-  if (davgetcontentlengthConstructed != null) {
-    children.add(davgetcontentlengthConstructed);
+  if (davGetcontentlengthConstructed != null) {
+    children.add(davGetcontentlengthConstructed);
   }
-  final davgetcontenttype = instance.davgetcontenttype;
-  final davgetcontenttypeSerialized = davgetcontenttype;
-  final davgetcontenttypeConstructed = davgetcontenttypeSerialized != null
-      ? XmlElement(XmlName('getcontenttype', namespaces['DAV:']), [], [XmlText(davgetcontenttypeSerialized)])
+  final davGetcontenttype = instance.davGetcontenttype;
+  final davGetcontenttypeSerialized = davGetcontenttype;
+  final davGetcontenttypeConstructed = davGetcontenttypeSerialized != null
+      ? XmlElement(XmlName('getcontenttype', namespaces['DAV:']), [], [XmlText(davGetcontenttypeSerialized)])
       : null;
-  if (davgetcontenttypeConstructed != null) {
-    children.add(davgetcontenttypeConstructed);
+  if (davGetcontenttypeConstructed != null) {
+    children.add(davGetcontenttypeConstructed);
   }
-  final davgetetag = instance.davgetetag;
-  final davgetetagSerialized = davgetetag;
-  final davgetetagConstructed = davgetetagSerialized != null
-      ? XmlElement(XmlName('getetag', namespaces['DAV:']), [], [XmlText(davgetetagSerialized)])
+  final davGetetag = instance.davGetetag;
+  final davGetetagSerialized = davGetetag;
+  final davGetetagConstructed = davGetetagSerialized != null
+      ? XmlElement(XmlName('getetag', namespaces['DAV:']), [], [XmlText(davGetetagSerialized)])
       : null;
-  if (davgetetagConstructed != null) {
-    children.add(davgetetagConstructed);
+  if (davGetetagConstructed != null) {
+    children.add(davGetetagConstructed);
   }
-  final davgetlastmodified = instance.davgetlastmodified;
-  final davgetlastmodifiedSerialized = davgetlastmodified;
-  final davgetlastmodifiedConstructed = davgetlastmodifiedSerialized != null
-      ? XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], [XmlText(davgetlastmodifiedSerialized)])
+  final davGetlastmodified = instance.davGetlastmodified;
+  final davGetlastmodifiedSerialized = davGetlastmodified;
+  final davGetlastmodifiedConstructed = davGetlastmodifiedSerialized != null
+      ? XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], [XmlText(davGetlastmodifiedSerialized)])
       : null;
-  if (davgetlastmodifiedConstructed != null) {
-    children.add(davgetlastmodifiedConstructed);
+  if (davGetlastmodifiedConstructed != null) {
+    children.add(davGetlastmodifiedConstructed);
   }
-  final davresourcetype = instance.davresourcetype;
-  final davresourcetypeSerialized = davresourcetype;
-  final davresourcetypeConstructed = davresourcetypeSerialized != null
+  final davResourcetype = instance.davResourcetype;
+  final davResourcetypeSerialized = davResourcetype;
+  final davResourcetypeConstructed = davResourcetypeSerialized != null
       ? XmlElement(
           XmlName('resourcetype', namespaces['DAV:']),
-          davresourcetypeSerialized.toXmlAttributes(namespaces: namespaces),
-          davresourcetypeSerialized.toXmlChildren(namespaces: namespaces))
+          davResourcetypeSerialized.toXmlAttributes(namespaces: namespaces),
+          davResourcetypeSerialized.toXmlChildren(namespaces: namespaces))
       : null;
-  if (davresourcetypeConstructed != null) {
-    children.add(davresourcetypeConstructed);
+  if (davResourcetypeConstructed != null) {
+    children.add(davResourcetypeConstructed);
   }
-  final nccreationtime = instance.nccreationtime;
-  final nccreationtimeSerialized = nccreationtime?.toString();
-  final nccreationtimeConstructed = nccreationtimeSerialized != null
+  final ncCreationTime = instance.ncCreationTime;
+  final ncCreationTimeSerialized = ncCreationTime?.toString();
+  final ncCreationTimeConstructed = ncCreationTimeSerialized != null
       ? XmlElement(
-          XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(nccreationtimeSerialized)])
+          XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncCreationTimeSerialized)])
       : null;
-  if (nccreationtimeConstructed != null) {
-    children.add(nccreationtimeConstructed);
+  if (ncCreationTimeConstructed != null) {
+    children.add(ncCreationTimeConstructed);
   }
-  final ncdatafingerprint = instance.ncdatafingerprint;
-  final ncdatafingerprintSerialized = ncdatafingerprint;
-  final ncdatafingerprintConstructed = ncdatafingerprintSerialized != null
+  final ncDataFingerprint = instance.ncDataFingerprint;
+  final ncDataFingerprintSerialized = ncDataFingerprint;
+  final ncDataFingerprintConstructed = ncDataFingerprintSerialized != null
       ? XmlElement(XmlName('data-fingerprint', namespaces['http://nextcloud.org/ns']), [],
-          [XmlText(ncdatafingerprintSerialized)])
+          [XmlText(ncDataFingerprintSerialized)])
       : null;
-  if (ncdatafingerprintConstructed != null) {
-    children.add(ncdatafingerprintConstructed);
+  if (ncDataFingerprintConstructed != null) {
+    children.add(ncDataFingerprintConstructed);
   }
-  final nchaspreview = instance.nchaspreview;
-  final nchaspreviewSerialized = nchaspreview != null
-      ? nchaspreview == true
+  final ncHasPreview = instance.ncHasPreview;
+  final ncHasPreviewSerialized = ncHasPreview != null
+      ? ncHasPreview == true
           ? 'true'
           : 'false'
       : null;
-  final nchaspreviewConstructed = nchaspreviewSerialized != null
-      ? XmlElement(XmlName('has-preview', namespaces['http://nextcloud.org/ns']), [], [XmlText(nchaspreviewSerialized)])
+  final ncHasPreviewConstructed = ncHasPreviewSerialized != null
+      ? XmlElement(XmlName('has-preview', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncHasPreviewSerialized)])
       : null;
-  if (nchaspreviewConstructed != null) {
-    children.add(nchaspreviewConstructed);
+  if (ncHasPreviewConstructed != null) {
+    children.add(ncHasPreviewConstructed);
   }
-  final ncisencrypted = instance.ncisencrypted;
-  final ncisencryptedSerialized = ncisencrypted?.toString();
-  final ncisencryptedConstructed = ncisencryptedSerialized != null
+  final ncIsEncrypted = instance.ncIsEncrypted;
+  final ncIsEncryptedSerialized = ncIsEncrypted?.toString();
+  final ncIsEncryptedConstructed = ncIsEncryptedSerialized != null
       ? XmlElement(
-          XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncisencryptedSerialized)])
+          XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncIsEncryptedSerialized)])
       : null;
-  if (ncisencryptedConstructed != null) {
-    children.add(ncisencryptedConstructed);
+  if (ncIsEncryptedConstructed != null) {
+    children.add(ncIsEncryptedConstructed);
   }
-  final ncmetadataetag = instance.ncmetadataetag;
-  final ncmetadataetagSerialized = ncmetadataetag;
-  final ncmetadataetagConstructed = ncmetadataetagSerialized != null
+  final ncMetadataEtag = instance.ncMetadataEtag;
+  final ncMetadataEtagSerialized = ncMetadataEtag;
+  final ncMetadataEtagConstructed = ncMetadataEtagSerialized != null
       ? XmlElement(
-          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncmetadataetagSerialized)])
+          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncMetadataEtagSerialized)])
       : null;
-  if (ncmetadataetagConstructed != null) {
-    children.add(ncmetadataetagConstructed);
+  if (ncMetadataEtagConstructed != null) {
+    children.add(ncMetadataEtagConstructed);
   }
-  final ncmounttype = instance.ncmounttype;
-  final ncmounttypeSerialized = ncmounttype;
-  final ncmounttypeConstructed = ncmounttypeSerialized != null
-      ? XmlElement(XmlName('mount-type', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncmounttypeSerialized)])
+  final ncMountType = instance.ncMountType;
+  final ncMountTypeSerialized = ncMountType;
+  final ncMountTypeConstructed = ncMountTypeSerialized != null
+      ? XmlElement(XmlName('mount-type', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncMountTypeSerialized)])
       : null;
-  if (ncmounttypeConstructed != null) {
-    children.add(ncmounttypeConstructed);
+  if (ncMountTypeConstructed != null) {
+    children.add(ncMountTypeConstructed);
   }
-  final ncnote = instance.ncnote;
-  final ncnoteSerialized = ncnote;
-  final ncnoteConstructed = ncnoteSerialized != null
-      ? XmlElement(XmlName('note', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncnoteSerialized)])
+  final ncNote = instance.ncNote;
+  final ncNoteSerialized = ncNote;
+  final ncNoteConstructed = ncNoteSerialized != null
+      ? XmlElement(XmlName('note', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncNoteSerialized)])
       : null;
-  if (ncnoteConstructed != null) {
-    children.add(ncnoteConstructed);
+  if (ncNoteConstructed != null) {
+    children.add(ncNoteConstructed);
   }
-  final ncrichworkspace = instance.ncrichworkspace;
-  final ncrichworkspaceSerialized = ncrichworkspace;
-  final ncrichworkspaceConstructed = ncrichworkspaceSerialized != null
+  final ncRichWorkspace = instance.ncRichWorkspace;
+  final ncRichWorkspaceSerialized = ncRichWorkspace;
+  final ncRichWorkspaceConstructed = ncRichWorkspaceSerialized != null
       ? XmlElement(
-          XmlName('rich-workspace', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncrichworkspaceSerialized)])
+          XmlName('rich-workspace', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncRichWorkspaceSerialized)])
       : null;
-  if (ncrichworkspaceConstructed != null) {
-    children.add(ncrichworkspaceConstructed);
+  if (ncRichWorkspaceConstructed != null) {
+    children.add(ncRichWorkspaceConstructed);
   }
-  final ncuploadtime = instance.ncuploadtime;
-  final ncuploadtimeSerialized = ncuploadtime?.toString();
-  final ncuploadtimeConstructed = ncuploadtimeSerialized != null
-      ? XmlElement(XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncuploadtimeSerialized)])
+  final ncUploadTime = instance.ncUploadTime;
+  final ncUploadTimeSerialized = ncUploadTime?.toString();
+  final ncUploadTimeConstructed = ncUploadTimeSerialized != null
+      ? XmlElement(XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncUploadTimeSerialized)])
       : null;
-  if (ncuploadtimeConstructed != null) {
-    children.add(ncuploadtimeConstructed);
+  if (ncUploadTimeConstructed != null) {
+    children.add(ncUploadTimeConstructed);
   }
-  final occommentscount = instance.occommentscount;
-  final occommentscountSerialized = occommentscount?.toString();
-  final occommentscountConstructed = occommentscountSerialized != null
+  final ocCommentsCount = instance.ocCommentsCount;
+  final ocCommentsCountSerialized = ocCommentsCount?.toString();
+  final ocCommentsCountConstructed = ocCommentsCountSerialized != null
       ? XmlElement(
-          XmlName('comments-count', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentscountSerialized)])
+          XmlName('comments-count', namespaces['http://owncloud.org/ns']), [], [XmlText(ocCommentsCountSerialized)])
       : null;
-  if (occommentscountConstructed != null) {
-    children.add(occommentscountConstructed);
+  if (ocCommentsCountConstructed != null) {
+    children.add(ocCommentsCountConstructed);
   }
-  final occommentshref = instance.occommentshref;
-  final occommentshrefSerialized = occommentshref;
-  final occommentshrefConstructed = occommentshrefSerialized != null
+  final ocCommentsHref = instance.ocCommentsHref;
+  final ocCommentsHrefSerialized = ocCommentsHref;
+  final ocCommentsHrefConstructed = ocCommentsHrefSerialized != null
       ? XmlElement(
-          XmlName('comments-href', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentshrefSerialized)])
+          XmlName('comments-href', namespaces['http://owncloud.org/ns']), [], [XmlText(ocCommentsHrefSerialized)])
       : null;
-  if (occommentshrefConstructed != null) {
-    children.add(occommentshrefConstructed);
+  if (ocCommentsHrefConstructed != null) {
+    children.add(ocCommentsHrefConstructed);
   }
-  final occommentsunread = instance.occommentsunread;
-  final occommentsunreadSerialized = occommentsunread?.toString();
-  final occommentsunreadConstructed = occommentsunreadSerialized != null
+  final ocCommentsUnread = instance.ocCommentsUnread;
+  final ocCommentsUnreadSerialized = ocCommentsUnread?.toString();
+  final ocCommentsUnreadConstructed = ocCommentsUnreadSerialized != null
       ? XmlElement(
-          XmlName('comments-unread', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentsunreadSerialized)])
+          XmlName('comments-unread', namespaces['http://owncloud.org/ns']), [], [XmlText(ocCommentsUnreadSerialized)])
       : null;
-  if (occommentsunreadConstructed != null) {
-    children.add(occommentsunreadConstructed);
+  if (ocCommentsUnreadConstructed != null) {
+    children.add(ocCommentsUnreadConstructed);
   }
-  final ocdownloadurl = instance.ocdownloadurl;
-  final ocdownloadurlSerialized = ocdownloadurl;
-  final ocdownloadurlConstructed = ocdownloadurlSerialized != null
-      ? XmlElement(XmlName('downloadURL', namespaces['http://owncloud.org/ns']), [], [XmlText(ocdownloadurlSerialized)])
+  final ocDownloadURL = instance.ocDownloadURL;
+  final ocDownloadURLSerialized = ocDownloadURL;
+  final ocDownloadURLConstructed = ocDownloadURLSerialized != null
+      ? XmlElement(XmlName('downloadURL', namespaces['http://owncloud.org/ns']), [], [XmlText(ocDownloadURLSerialized)])
       : null;
-  if (ocdownloadurlConstructed != null) {
-    children.add(ocdownloadurlConstructed);
+  if (ocDownloadURLConstructed != null) {
+    children.add(ocDownloadURLConstructed);
   }
-  final ocfavorite = instance.ocfavorite;
-  final ocfavoriteSerialized = ocfavorite?.toString();
-  final ocfavoriteConstructed = ocfavoriteSerialized != null
-      ? XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], [XmlText(ocfavoriteSerialized)])
+  final ocFavorite = instance.ocFavorite;
+  final ocFavoriteSerialized = ocFavorite?.toString();
+  final ocFavoriteConstructed = ocFavoriteSerialized != null
+      ? XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], [XmlText(ocFavoriteSerialized)])
       : null;
-  if (ocfavoriteConstructed != null) {
-    children.add(ocfavoriteConstructed);
+  if (ocFavoriteConstructed != null) {
+    children.add(ocFavoriteConstructed);
   }
-  final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid?.toString();
-  final ocfileidConstructed = ocfileidSerialized != null
-      ? XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], [XmlText(ocfileidSerialized)])
+  final ocFileid = instance.ocFileid;
+  final ocFileidSerialized = ocFileid?.toString();
+  final ocFileidConstructed = ocFileidSerialized != null
+      ? XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], [XmlText(ocFileidSerialized)])
       : null;
-  if (ocfileidConstructed != null) {
-    children.add(ocfileidConstructed);
+  if (ocFileidConstructed != null) {
+    children.add(ocFileidConstructed);
   }
-  final ocid = instance.ocid;
-  final ocidSerialized = ocid;
-  final ocidConstructed = ocidSerialized != null
-      ? XmlElement(XmlName('id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocidSerialized)])
+  final ocId = instance.ocId;
+  final ocIdSerialized = ocId;
+  final ocIdConstructed = ocIdSerialized != null
+      ? XmlElement(XmlName('id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocIdSerialized)])
       : null;
-  if (ocidConstructed != null) {
-    children.add(ocidConstructed);
+  if (ocIdConstructed != null) {
+    children.add(ocIdConstructed);
   }
-  final ocownerdisplayname = instance.ocownerdisplayname;
-  final ocownerdisplaynameSerialized = ocownerdisplayname;
-  final ocownerdisplaynameConstructed = ocownerdisplaynameSerialized != null
+  final ocOwnerDisplayName = instance.ocOwnerDisplayName;
+  final ocOwnerDisplayNameSerialized = ocOwnerDisplayName;
+  final ocOwnerDisplayNameConstructed = ocOwnerDisplayNameSerialized != null
       ? XmlElement(XmlName('owner-display-name', namespaces['http://owncloud.org/ns']), [],
-          [XmlText(ocownerdisplaynameSerialized)])
+          [XmlText(ocOwnerDisplayNameSerialized)])
       : null;
-  if (ocownerdisplaynameConstructed != null) {
-    children.add(ocownerdisplaynameConstructed);
+  if (ocOwnerDisplayNameConstructed != null) {
+    children.add(ocOwnerDisplayNameConstructed);
   }
-  final ocownerid = instance.ocownerid;
-  final ocowneridSerialized = ocownerid;
-  final ocowneridConstructed = ocowneridSerialized != null
-      ? XmlElement(XmlName('owner-id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocowneridSerialized)])
+  final ocOwnerId = instance.ocOwnerId;
+  final ocOwnerIdSerialized = ocOwnerId;
+  final ocOwnerIdConstructed = ocOwnerIdSerialized != null
+      ? XmlElement(XmlName('owner-id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocOwnerIdSerialized)])
       : null;
-  if (ocowneridConstructed != null) {
-    children.add(ocowneridConstructed);
+  if (ocOwnerIdConstructed != null) {
+    children.add(ocOwnerIdConstructed);
   }
-  final ocpermissions = instance.ocpermissions;
-  final ocpermissionsSerialized = ocpermissions;
-  final ocpermissionsConstructed = ocpermissionsSerialized != null
-      ? XmlElement(XmlName('permissions', namespaces['http://owncloud.org/ns']), [], [XmlText(ocpermissionsSerialized)])
+  final ocPermissions = instance.ocPermissions;
+  final ocPermissionsSerialized = ocPermissions;
+  final ocPermissionsConstructed = ocPermissionsSerialized != null
+      ? XmlElement(XmlName('permissions', namespaces['http://owncloud.org/ns']), [], [XmlText(ocPermissionsSerialized)])
       : null;
-  if (ocpermissionsConstructed != null) {
-    children.add(ocpermissionsConstructed);
+  if (ocPermissionsConstructed != null) {
+    children.add(ocPermissionsConstructed);
   }
-  final ocsize = instance.ocsize;
-  final ocsizeSerialized = ocsize?.toString();
-  final ocsizeConstructed = ocsizeSerialized != null
-      ? XmlElement(XmlName('size', namespaces['http://owncloud.org/ns']), [], [XmlText(ocsizeSerialized)])
+  final ocSize = instance.ocSize;
+  final ocSizeSerialized = ocSize?.toString();
+  final ocSizeConstructed = ocSizeSerialized != null
+      ? XmlElement(XmlName('size', namespaces['http://owncloud.org/ns']), [], [XmlText(ocSizeSerialized)])
       : null;
-  if (ocsizeConstructed != null) {
-    children.add(ocsizeConstructed);
+  if (ocSizeConstructed != null) {
+    children.add(ocSizeConstructed);
   }
-  final ocmsharepermissions = instance.ocmsharepermissions;
-  final ocmsharepermissionsSerialized = ocmsharepermissions;
-  final ocmsharepermissionsConstructed = ocmsharepermissionsSerialized != null
+  final ocmSharePermissions = instance.ocmSharePermissions;
+  final ocmSharePermissionsSerialized = ocmSharePermissions;
+  final ocmSharePermissionsConstructed = ocmSharePermissionsSerialized != null
       ? XmlElement(XmlName('share-permissions', namespaces['http://open-cloud-mesh.org/ns']), [],
-          [XmlText(ocmsharepermissionsSerialized)])
+          [XmlText(ocmSharePermissionsSerialized)])
       : null;
-  if (ocmsharepermissionsConstructed != null) {
-    children.add(ocmsharepermissionsConstructed);
+  if (ocmSharePermissionsConstructed != null) {
+    children.add(ocmSharePermissionsConstructed);
   }
-  final ocssharepermissions = instance.ocssharepermissions;
-  final ocssharepermissionsSerialized = ocssharepermissions?.toString();
-  final ocssharepermissionsConstructed = ocssharepermissionsSerialized != null
+  final ocsSharePermissions = instance.ocsSharePermissions;
+  final ocsSharePermissionsSerialized = ocsSharePermissions?.toString();
+  final ocsSharePermissionsConstructed = ocsSharePermissionsSerialized != null
       ? XmlElement(XmlName('share-permissions', namespaces['http://open-collaboration-services.org/ns']), [],
-          [XmlText(ocssharepermissionsSerialized)])
+          [XmlText(ocsSharePermissionsSerialized)])
       : null;
-  if (ocssharepermissionsConstructed != null) {
-    children.add(ocssharepermissionsConstructed);
+  if (ocsSharePermissionsConstructed != null) {
+    children.add(ocsSharePermissionsConstructed);
   }
   return children;
 }

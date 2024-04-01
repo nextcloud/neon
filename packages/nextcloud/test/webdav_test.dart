@@ -164,20 +164,20 @@ void main() {
         final responses = (await client.webdav.propfind(
           PathUri.parse('/'),
           prop: const WebDavPropWithoutValues.fromBools(
-            nchaspreview: true,
-            davgetcontenttype: true,
-            davgetlastmodified: true,
-            ocsize: true,
+            ncHasPreview: true,
+            davGetcontenttype: true,
+            davGetlastmodified: true,
+            ocSize: true,
           ),
         ))
             .responses;
         expect(responses, isNotEmpty);
         final props =
             responses.singleWhere((response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
-        expect(props.nchaspreview, isTrue);
-        expect(props.davgetcontenttype, 'image/png');
-        expect(parseHttpDate(props.davgetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
-        expect(props.ocsize, 50598);
+        expect(props.ncHasPreview, isTrue);
+        expect(props.davGetcontenttype, 'image/png');
+        expect(parseHttpDate(props.davGetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
+        expect(props.ocSize, 50598);
       });
 
       test('List directory recursively', () async {
@@ -193,33 +193,33 @@ void main() {
         final response = (await client.webdav.propfind(
           PathUri.parse('Nextcloud.png'),
           prop: const WebDavPropWithoutValues.fromBools(
-            davgetcontentlength: true,
-            davgetcontenttype: true,
-            davgetetag: true,
-            davgetlastmodified: true,
-            davresourcetype: true,
-            nccreationtime: true,
-            ncdatafingerprint: true,
-            nchaspreview: true,
-            ncisencrypted: true,
-            ncmetadataetag: true,
-            ncmounttype: true,
-            ncnote: true,
-            ncrichworkspace: true,
-            ncuploadtime: true,
-            occommentscount: true,
-            occommentshref: true,
-            occommentsunread: true,
-            ocdownloadurl: true,
-            ocfavorite: true,
-            ocfileid: true,
-            ocid: true,
-            ocmsharepermissions: true,
-            ocownerdisplayname: true,
-            ocownerid: true,
-            ocpermissions: true,
-            ocsize: true,
-            ocssharepermissions: true,
+            davGetcontentlength: true,
+            davGetcontenttype: true,
+            davGetetag: true,
+            davGetlastmodified: true,
+            davResourcetype: true,
+            ncCreationTime: true,
+            ncDataFingerprint: true,
+            ncHasPreview: true,
+            ncIsEncrypted: true,
+            ncMetadataEtag: true,
+            ncMountType: true,
+            ncNote: true,
+            ncRichWorkspace: true,
+            ncUploadTime: true,
+            ocCommentsCount: true,
+            ocCommentsHref: true,
+            ocCommentsUnread: true,
+            ocDownloadURL: true,
+            ocFavorite: true,
+            ocFileid: true,
+            ocId: true,
+            ocOwnerDisplayName: true,
+            ocOwnerId: true,
+            ocPermissions: true,
+            ocSize: true,
+            ocmSharePermissions: true,
+            ocsSharePermissions: true,
           ),
         ))
             .toWebDavFiles()
@@ -243,33 +243,33 @@ void main() {
         expect(response.name, 'Nextcloud.png');
         expect(response.isDirectory, isFalse);
 
-        expect(response.props.davgetcontentlength, 50598);
-        expect(response.props.davgetcontenttype, 'image/png');
-        expect(response.props.davgetetag, isNotEmpty);
-        expect(parseHttpDate(response.props.davgetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
-        expect(response.props.davresourcetype!.collection, isNull);
-        expect(response.props.nccreationtime, 0);
-        expect(response.props.ncdatafingerprint, isNull);
-        expect(response.props.nchaspreview, isTrue);
-        expect(response.props.ncisencrypted, isNull);
-        expect(response.props.ncmetadataetag, isNull);
-        expect(response.props.ncmounttype, isNull);
-        expect(response.props.ncnote, isNull);
-        expect(response.props.ncrichworkspace, isNull);
-        expect(response.props.ncuploadtime, 0);
-        expect(response.props.occommentscount, 0);
-        expect(response.props.occommentshref, isNotEmpty);
-        expect(response.props.occommentsunread, 0);
-        expect(response.props.ocdownloadurl, isNull);
-        expect(response.props.ocfavorite, 0);
-        expect(response.props.ocfileid, greaterThan(0));
-        expect(response.props.ocid, isNotEmpty);
-        expect(response.props.ocownerdisplayname, 'User One');
-        expect(response.props.ocownerid, 'user1');
-        expect(response.props.ocpermissions, 'RGDNVW');
-        expect(response.props.ocsize, 50598);
-        expect(json.decode(response.props.ocmsharepermissions!), ['share', 'read', 'write']);
-        expect(response.props.ocssharepermissions, 19);
+        expect(response.props.davGetcontentlength, 50598);
+        expect(response.props.davGetcontenttype, 'image/png');
+        expect(response.props.davGetetag, isNotEmpty);
+        expect(parseHttpDate(response.props.davGetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
+        expect(response.props.davResourcetype!.collection, isNull);
+        expect(response.props.ncCreationTime, 0);
+        expect(response.props.ncDataFingerprint, isNull);
+        expect(response.props.ncHasPreview, isTrue);
+        expect(response.props.ncIsEncrypted, isNull);
+        expect(response.props.ncMetadataEtag, isNull);
+        expect(response.props.ncMountType, isNull);
+        expect(response.props.ncNote, isNull);
+        expect(response.props.ncRichWorkspace, isNull);
+        expect(response.props.ncUploadTime, 0);
+        expect(response.props.ocCommentsCount, 0);
+        expect(response.props.ocCommentsHref, isNotEmpty);
+        expect(response.props.ocCommentsUnread, 0);
+        expect(response.props.ocDownloadURL, isNull);
+        expect(response.props.ocFavorite, 0);
+        expect(response.props.ocFileid, greaterThan(0));
+        expect(response.props.ocId, isNotEmpty);
+        expect(response.props.ocOwnerDisplayName, 'User One');
+        expect(response.props.ocOwnerId, 'user1');
+        expect(response.props.ocPermissions, 'RGDNVW');
+        expect(response.props.ocSize, 50598);
+        expect(json.decode(response.props.ocmSharePermissions!), ['share', 'read', 'write']);
+        expect(response.props.ocsSharePermissions, 19);
       });
 
       test('Get directory props', () async {
@@ -280,10 +280,10 @@ void main() {
         final response = (await client.webdav.propfind(
           PathUri.parse('dir-props'),
           prop: const WebDavPropWithoutValues.fromBools(
-            davgetcontenttype: true,
-            davgetlastmodified: true,
-            davresourcetype: true,
-            ocsize: true,
+            davGetcontenttype: true,
+            davGetlastmodified: true,
+            davResourcetype: true,
+            ocSize: true,
           ),
           depth: WebDavDepth.zero,
         ))
@@ -301,13 +301,13 @@ void main() {
         expect(response.name, 'dir-props');
         expect(response.isDirectory, isTrue);
 
-        expect(response.props.davgetcontenttype, isNull);
+        expect(response.props.davGetcontenttype, isNull);
         expect(
-          parseHttpDate(response.props.davgetlastmodified!).secondsSinceEpoch,
+          parseHttpDate(response.props.davGetlastmodified!).secondsSinceEpoch,
           closeTo(DateTime.timestamp().secondsSinceEpoch, 10),
         );
-        expect(response.props.davresourcetype!.collection, isNotNull);
-        expect(response.props.ocsize, data.lengthInBytes);
+        expect(response.props.davResourcetype!.collection, isNotNull);
+        expect(response.props.ocSize, data.lengthInBytes);
       });
 
       test('Filter files', () async {
@@ -316,25 +316,25 @@ void main() {
         await client.webdav.proppatch(
           PathUri.parse('filter.txt'),
           set: const WebDavProp(
-            ocfavorite: 1,
+            ocFavorite: 1,
           ),
         );
 
         final responses = (await client.webdav.report(
           PathUri.parse('/'),
           const WebDavOcFilterRules(
-            ocfavorite: 1,
+            ocFavorite: 1,
           ),
           prop: const WebDavPropWithoutValues.fromBools(
-            ocid: true,
-            ocfavorite: true,
+            ocId: true,
+            ocFavorite: true,
           ),
         ))
             .responses;
         expect(responses, isNotEmpty);
         final props = responses.singleWhere((response) => response.href!.endsWith('/filter.txt')).propstats.first.prop;
-        expect(props.ocid, id);
-        expect(props.ocfavorite, 1);
+        expect(props.ocId, id);
+        expect(props.ocFavorite, 1);
       });
 
       test('Set properties', () async {
@@ -352,7 +352,7 @@ void main() {
         final updated = await client.webdav.proppatch(
           PathUri.parse('set-props.txt'),
           set: const WebDavProp(
-            ocfavorite: 1,
+            ocFavorite: 1,
           ),
         );
         expect(updated, isTrue);
@@ -360,10 +360,10 @@ void main() {
         final props = (await client.webdav.propfind(
           PathUri.parse('set-props.txt'),
           prop: const WebDavPropWithoutValues.fromBools(
-            ocfavorite: true,
-            davgetlastmodified: true,
-            nccreationtime: true,
-            ncuploadtime: true,
+            ocFavorite: true,
+            davGetlastmodified: true,
+            ncCreationTime: true,
+            ncUploadTime: true,
           ),
         ))
             .responses
@@ -371,10 +371,10 @@ void main() {
             .propstats
             .first
             .prop;
-        expect(props.ocfavorite, 1);
-        expect(parseHttpDate(props.davgetlastmodified!), lastModifiedDate);
-        expect(props.nccreationtime, createdDate.secondsSinceEpoch);
-        expect(props.ncuploadtime, closeTo(uploadTime.secondsSinceEpoch, 10));
+        expect(props.ocFavorite, 1);
+        expect(parseHttpDate(props.davGetlastmodified!), lastModifiedDate);
+        expect(props.ncCreationTime, createdDate.secondsSinceEpoch);
+        expect(props.ncUploadTime, closeTo(uploadTime.secondsSinceEpoch, 10));
       });
 
       test('Remove properties', () async {
@@ -383,7 +383,7 @@ void main() {
         var updated = await client.webdav.proppatch(
           PathUri.parse('remove-props.txt'),
           set: const WebDavProp(
-            ocfavorite: 1,
+            ocFavorite: 1,
           ),
         );
         expect(updated, isTrue);
@@ -391,9 +391,9 @@ void main() {
         var props = (await client.webdav.propfind(
           PathUri.parse('remove-props.txt'),
           prop: const WebDavPropWithoutValues.fromBools(
-            ocfavorite: true,
-            nccreationtime: true,
-            ncuploadtime: true,
+            ocFavorite: true,
+            ncCreationTime: true,
+            ncUploadTime: true,
           ),
         ))
             .responses
@@ -401,12 +401,12 @@ void main() {
             .propstats
             .first
             .prop;
-        expect(props.ocfavorite, 1);
+        expect(props.ocFavorite, 1);
 
         updated = await client.webdav.proppatch(
           PathUri.parse('remove-props.txt'),
           remove: const WebDavPropWithoutValues.fromBools(
-            ocfavorite: true,
+            ocFavorite: true,
           ),
         );
         expect(updated, isFalse);
@@ -414,7 +414,7 @@ void main() {
         props = (await client.webdav.propfind(
           PathUri.parse('remove-props.txt'),
           prop: const WebDavPropWithoutValues.fromBools(
-            ocfavorite: true,
+            ocFavorite: true,
           ),
         ))
             .responses
@@ -422,7 +422,7 @@ void main() {
             .propstats
             .first
             .prop;
-        expect(props.ocfavorite, 0);
+        expect(props.ocFavorite, 0);
       });
 
       test('Upload and download file', () async {

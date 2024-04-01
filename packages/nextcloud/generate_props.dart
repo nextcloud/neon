@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:dynamite/src/helpers/dart_helpers.dart';
+
 void main() {
   final props = <String, Map<String, String>>{
     'dav': {
@@ -49,7 +51,7 @@ void main() {
       final type = props[namespacePrefix]![name]!;
 
       final namespaceVariable = convertNamespace(namespacePrefix);
-      final variable = namespacePrefix + name.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
+      final variable = toDartName('$namespacePrefix-$name');
       valueProps.add('''
 @annotation.XmlElement(
     name: '$name',
