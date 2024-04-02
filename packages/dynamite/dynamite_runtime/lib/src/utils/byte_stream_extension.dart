@@ -12,7 +12,6 @@ import 'package:xml/xml_events.dart';
 final xmlConverter = XmlEventDecoder().fuse(const XmlNormalizeEvents()).fuse(const XmlNodeDecoder());
 
 /// Extension on byte streams that enable efficient transformations.
-@internal
 extension HttpBytesStreamExtension on http.ByteStream {
   /// Collects the data of this stream in a [Uint8List].
   ///
@@ -35,7 +34,7 @@ extension HttpBytesStreamExtension on http.ByteStream {
 
   /// Collect the data of this stream in [XmlElement], decoded according to
   /// [encoding], which defaults to [utf8].
-  Future<Object?> bytesToXml([Encoding encoding = utf8]) async {
+  Future<XmlElement?> bytesToXml([Encoding encoding = utf8]) async {
     final element = await encoding.decoder
         .fuse(xmlConverter)
         .bind(this)
@@ -52,7 +51,6 @@ extension HttpBytesStreamExtension on http.ByteStream {
 /// charset is unknown.
 ///
 /// Copied from `package:http`.
-@internal
 Encoding encodingForHeaders(Map<String, String> headers) =>
     _encodingForCharset(_contentTypeForHeaders(headers).parameters['charset']);
 

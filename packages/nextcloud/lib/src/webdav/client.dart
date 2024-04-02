@@ -66,9 +66,6 @@ class WebDavClient {
 
   Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, path);
 
-  Future<WebDavMultistatus> _parseResponse(http.StreamedResponse response) async =>
-      WebDavMultistatus.fromXmlElement(await response.stream.xml);
-
   /// Request to get the WebDAV capabilities of the server.
   ///
   /// See:
@@ -87,10 +84,7 @@ class WebDavClient {
   Future<WebDavOptions> options() async {
     final request = options_Request();
 
-    final response = await _send(
-      request,
-    );
-
+    final response = await _send(request);
     return parseWebDavOptions(response.headers);
   }
 
@@ -420,7 +414,7 @@ class WebDavClient {
     );
 
     final response = await _send(request);
-    return _parseResponse(response);
+    return const WebDavResponseConverter().convert(response);
   }
 
   /// Request to run the filter-files report with the [filterRules] on the resource at [path].
@@ -461,7 +455,7 @@ class WebDavClient {
     );
 
     final response = await _send(request);
-    return _parseResponse(response);
+    return const WebDavResponseConverter().convert(response);
   }
 
   /// Request to update the props of the resource at [path].
@@ -504,7 +498,7 @@ class WebDavClient {
     );
 
     final response = await _send(request);
-    final data = await _parseResponse(response);
+    final data = await const WebDavResponseConverter().convert(response);
     for (final a in data.responses) {
       for (final b in a.propstats) {
         if (!b.status.contains('200')) {
