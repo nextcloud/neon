@@ -37,7 +37,7 @@ void main() {
       'lock-owner-editor': 'String',
       'lock-owner-type': 'int',
       'lock-time': 'unixEpoch',
-      'lock-timeout': 'int',
+      'lock-timeout': 'seconds',
       'lock-token': 'String',
       'metadata_etag': 'String',
       'mount-type': 'String',
@@ -102,6 +102,9 @@ void main() {
         case 'unixEpoch':
           value.writeln('  @UnixEpochXMLConverter()');
           type = 'tz.TZDateTime';
+        case 'seconds':
+          value.writeln('  @DurationXMLConverter()');
+          type = 'Duration';
       }
 
       value.write('  final $type? $variable;');
@@ -124,6 +127,7 @@ void main() {
       '// coverage:ignore-file',
       "import 'package:meta/meta.dart';",
       "import 'package:nextcloud/src/utils/date_time.dart';",
+      "import 'package:nextcloud/src/webdav/utils.dart';",
       "import 'package:nextcloud/src/webdav/webdav.dart';",
       "import 'package:timezone/timezone.dart' as tz;",
       "import 'package:xml/xml.dart';",

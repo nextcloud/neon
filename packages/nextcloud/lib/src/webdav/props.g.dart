@@ -1598,10 +1598,10 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ncLockTimeout = instance.ncLockTimeout;
-  final ncLockTimeoutSerialized = ncLockTimeout?.toString();
+  final ncLockTimeoutSerialized = ncLockTimeout;
   if (ncLockTimeoutSerialized != null) {
     builder.element('lock-timeout', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncLockTimeoutSerialized);
+      const DurationXMLConverter().buildXmlChildren(ncLockTimeoutSerialized, builder, namespaces: namespaces);
     });
   }
   final ncLockToken = instance.ncLockToken;
@@ -1845,7 +1845,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
   final ncLockOwnerEditor = element.getElement('lock-owner-editor', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockOwnerType = element.getElement('lock-owner-type', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns');
-  final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns');
   final ncLockToken = element.getElement('lock-token', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
@@ -1950,7 +1950,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       ncLockOwnerEditor: ncLockOwnerEditor,
       ncLockOwnerType: ncLockOwnerType != null ? int.parse(ncLockOwnerType) : null,
       ncLockTime: ncLockTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncLockTime) : null,
-      ncLockTimeout: ncLockTimeout != null ? int.parse(ncLockTimeout) : null,
+      ncLockTimeout: ncLockTimeout != null ? const DurationXMLConverter().fromXmlElement(ncLockTimeout) : null,
       ncLockToken: ncLockToken,
       ncMetadataEtag: ncMetadataEtag,
       ncMountType: ncMountType,
@@ -2288,10 +2288,12 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ncLockTimeConstructed);
   }
   final ncLockTimeout = instance.ncLockTimeout;
-  final ncLockTimeoutSerialized = ncLockTimeout?.toString();
+  final ncLockTimeoutSerialized = ncLockTimeout;
   final ncLockTimeoutConstructed = ncLockTimeoutSerialized != null
       ? XmlElement(
-          XmlName('lock-timeout', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncLockTimeoutSerialized)])
+          XmlName('lock-timeout', namespaces['http://nextcloud.org/ns']),
+          const DurationXMLConverter().toXmlAttributes(ncLockTimeoutSerialized, namespaces: namespaces),
+          const DurationXMLConverter().toXmlChildren(ncLockTimeoutSerialized, namespaces: namespaces))
       : null;
   if (ncLockTimeoutConstructed != null) {
     children.add(ncLockTimeoutConstructed);
@@ -2815,10 +2817,10 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ncLockTimeout = instance.ncLockTimeout;
-  final ncLockTimeoutSerialized = ncLockTimeout?.toString();
+  final ncLockTimeoutSerialized = ncLockTimeout;
   if (ncLockTimeoutSerialized != null) {
     builder.element('lock-timeout', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncLockTimeoutSerialized);
+      const DurationXMLConverter().buildXmlChildren(ncLockTimeoutSerialized, builder, namespaces: namespaces);
     });
   }
   final ncLockToken = instance.ncLockToken;
@@ -3063,7 +3065,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
   final ncLockOwnerEditor = element.getElement('lock-owner-editor', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockOwnerType = element.getElement('lock-owner-type', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns');
-  final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns');
   final ncLockToken = element.getElement('lock-token', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
@@ -3168,7 +3170,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       ncLockOwnerEditor: ncLockOwnerEditor,
       ncLockOwnerType: ncLockOwnerType != null ? int.parse(ncLockOwnerType) : null,
       ncLockTime: ncLockTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncLockTime) : null,
-      ncLockTimeout: ncLockTimeout != null ? int.parse(ncLockTimeout) : null,
+      ncLockTimeout: ncLockTimeout != null ? const DurationXMLConverter().fromXmlElement(ncLockTimeout) : null,
       ncLockToken: ncLockToken,
       ncMetadataEtag: ncMetadataEtag,
       ncMountType: ncMountType,
@@ -3508,10 +3510,12 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ncLockTimeConstructed);
   }
   final ncLockTimeout = instance.ncLockTimeout;
-  final ncLockTimeoutSerialized = ncLockTimeout?.toString();
+  final ncLockTimeoutSerialized = ncLockTimeout;
   final ncLockTimeoutConstructed = ncLockTimeoutSerialized != null
       ? XmlElement(
-          XmlName('lock-timeout', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncLockTimeoutSerialized)])
+          XmlName('lock-timeout', namespaces['http://nextcloud.org/ns']),
+          const DurationXMLConverter().toXmlAttributes(ncLockTimeoutSerialized, namespaces: namespaces),
+          const DurationXMLConverter().toXmlChildren(ncLockTimeoutSerialized, namespaces: namespaces))
       : null;
   if (ncLockTimeoutConstructed != null) {
     children.add(ncLockTimeoutConstructed);

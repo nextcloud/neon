@@ -2,6 +2,7 @@
 // coverage:ignore-file
 import 'package:meta/meta.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
+import 'package:nextcloud/src/webdav/utils.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:xml/xml.dart';
@@ -938,7 +939,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncLockTimeout;
+  @DurationXMLConverter()
+  final Duration? ncLockTimeout;
 
   @annotation.XmlElement(
     name: 'lock-token',
@@ -1418,7 +1420,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncLockTimeout;
+  @DurationXMLConverter()
+  final Duration? ncLockTimeout;
 
   @annotation.XmlElement(
     name: 'lock-token',
