@@ -98,7 +98,7 @@ class WebDavFile {
   late final String name = path.name;
 
   /// Whether the file is hidden.
-  late final bool isHidden = name.startsWith('.');
+  late final bool isHidden = props.ncHidden ?? name.startsWith('.');
 
   /// Whether the file is a directory
   late final bool isDirectory = (isCollection ?? false) || path.isDirectory;
