@@ -158,9 +158,124 @@ class WebDavResourcetype with _$WebDavResourcetypeXmlSerializableMixin {
   final List<String?>? collection;
 }
 
-// TODO: oc:checksum
-// TODO: oc:tags
-// TODO: oc:systemtag
-// TODO: oc:circle
-// TODO: oc:share-types
-// TODO: nc:sharees
+@immutable
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'acl-list', namespace: namespaceNextcloud)
+class WebDavNcAclList with _$WebDavNcAclListXmlSerializableMixin {
+  const WebDavNcAclList({
+    required this.acls,
+  });
+
+  factory WebDavNcAclList.fromXmlElement(XmlElement element) => _$WebDavNcAclListFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'acl', namespace: namespaceNextcloud)
+  final List<WebDavNcAcl>? acls;
+}
+
+@immutable
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'acl', namespace: namespaceNextcloud)
+class WebDavNcAcl with _$WebDavNcAclXmlSerializableMixin {
+  const WebDavNcAcl({
+    required this.mappingType,
+    required this.mappingId,
+    required this.mappingDisplayName,
+    required this.mask,
+    required this.permissions,
+  });
+
+  factory WebDavNcAcl.fromXmlElement(XmlElement element) => _$WebDavNcAclFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'acl-mapping-type', namespace: namespaceNextcloud)
+  final String mappingType;
+
+  @annotation.XmlElement(name: 'acl-mapping-id', namespace: namespaceNextcloud)
+  final String mappingId;
+
+  @annotation.XmlElement(name: 'acl-mapping-display-name', namespace: namespaceNextcloud)
+  final String mappingDisplayName;
+
+  @annotation.XmlElement(name: 'acl-mask', namespace: namespaceNextcloud)
+  final int mask;
+
+  @annotation.XmlElement(name: 'acl-permissions', namespace: namespaceNextcloud)
+  final int permissions;
+}
+
+@immutable
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'sharees', namespace: namespaceNextcloud)
+class WebDavNcShareeList with _$WebDavNcShareeListXmlSerializableMixin {
+  const WebDavNcShareeList({
+    required this.sharees,
+  });
+
+  factory WebDavNcShareeList.fromXmlElement(XmlElement element) => _$WebDavNcShareeListFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'sharee', namespace: namespaceNextcloud)
+  final List<WebDavNcSharee>? sharees;
+}
+
+@immutable
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'sharee', namespace: namespaceNextcloud)
+class WebDavNcSharee with _$WebDavNcShareeXmlSerializableMixin {
+  const WebDavNcSharee({
+    required this.id,
+    required this.displayName,
+    required this.type,
+  });
+
+  factory WebDavNcSharee.fromXmlElement(XmlElement element) => _$WebDavNcShareeFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'id', namespace: namespaceNextcloud)
+  final String id;
+
+  @annotation.XmlElement(name: 'display-name', namespace: namespaceNextcloud)
+  final String displayName;
+
+  @annotation.XmlElement(name: 'type', namespace: namespaceNextcloud)
+  final int type;
+}
+
+@immutable
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'checksums', namespace: namespaceOwncloud)
+class WebDavOcChecksums with _$WebDavOcChecksumsXmlSerializableMixin {
+  const WebDavOcChecksums({
+    required this.checksums,
+  });
+
+  factory WebDavOcChecksums.fromXmlElement(XmlElement element) => _$WebDavOcChecksumsFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'checksum', namespace: namespaceNextcloud)
+  final List<String>? checksums;
+}
+
+@immutable
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'share-types', namespace: namespaceOwncloud)
+class WebDavOcShareTypes with _$WebDavOcShareTypesXmlSerializableMixin {
+  const WebDavOcShareTypes({
+    required this.shareTypes,
+  });
+
+  factory WebDavOcShareTypes.fromXmlElement(XmlElement element) => _$WebDavOcShareTypesFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'share-type', namespace: namespaceNextcloud)
+  final List<int>? shareTypes;
+}
+
+@immutable
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'tags', namespace: namespaceOwncloud)
+class WebDavOcTags with _$WebDavOcTagsXmlSerializableMixin {
+  const WebDavOcTags({
+    required this.tags,
+  });
+
+  factory WebDavOcTags.fromXmlElement(XmlElement element) => _$WebDavOcTagsFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'tag', namespace: namespaceNextcloud)
+  final List<String>? tags;
+}
