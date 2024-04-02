@@ -320,7 +320,7 @@ void main() {
         expect(response.props.ocCommentsHref, isNotEmpty);
         expect(response.props.ocCommentsUnread, 0);
         expect(response.props.ocDownloadURL, isNull);
-        expect(response.props.ocFavorite, 0);
+        expect(response.props.ocFavorite, false);
         expect(response.props.ocFileid, greaterThan(0));
         expect(response.props.ocId, isNotEmpty);
         expect(response.props.ocOwnerDisplayName, 'User One');
@@ -377,14 +377,14 @@ void main() {
         await client.webdav.proppatch(
           PathUri.parse('filter.txt'),
           set: const WebDavProp(
-            ocFavorite: 1,
+            ocFavorite: true,
           ),
         );
 
         final responses = (await client.webdav.report(
           PathUri.parse('/'),
           const WebDavOcFilterRules(
-            ocFavorite: 1,
+            ocFavorite: true,
           ),
           prop: const WebDavPropWithoutValues.fromBools(
             ocId: true,
@@ -395,7 +395,7 @@ void main() {
         expect(responses, isNotEmpty);
         final props = responses.singleWhere((response) => response.href!.endsWith('/filter.txt')).propstats.first.prop;
         expect(props.ocId, id);
-        expect(props.ocFavorite, 1);
+        expect(props.ocFavorite, true);
       });
 
       test('Set properties', () async {
@@ -413,7 +413,7 @@ void main() {
         final updated = await client.webdav.proppatch(
           PathUri.parse('set-props.txt'),
           set: const WebDavProp(
-            ocFavorite: 1,
+            ocFavorite: true,
           ),
         );
         expect(updated, isTrue);
@@ -432,7 +432,7 @@ void main() {
             .propstats
             .first
             .prop;
-        expect(props.ocFavorite, 1);
+        expect(props.ocFavorite, true);
         expect(props.davGetlastmodified, lastModifiedDate);
         expect(props.ncCreationTime, createdDate);
         expect(props.ncUploadTime!.secondsSinceEpoch, closeTo(uploadTime.secondsSinceEpoch, 10));
@@ -444,7 +444,7 @@ void main() {
         var updated = await client.webdav.proppatch(
           PathUri.parse('remove-props.txt'),
           set: const WebDavProp(
-            ocFavorite: 1,
+            ocFavorite: true,
           ),
         );
         expect(updated, isTrue);
@@ -462,7 +462,7 @@ void main() {
             .propstats
             .first
             .prop;
-        expect(props.ocFavorite, 1);
+        expect(props.ocFavorite, true);
 
         updated = await client.webdav.proppatch(
           PathUri.parse('remove-props.txt'),
@@ -483,7 +483,7 @@ void main() {
             .propstats
             .first
             .prop;
-        expect(props.ocFavorite, 0);
+        expect(props.ocFavorite, false);
       });
 
       test('Upload and download file', () async {

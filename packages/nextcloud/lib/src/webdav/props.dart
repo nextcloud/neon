@@ -803,14 +803,14 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncAclCanManage;
+  final bool? ncAclCanManage;
 
   @annotation.XmlElement(
     name: 'acl-enabled',
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncAclEnabled;
+  final bool? ncAclEnabled;
 
   @annotation.XmlElement(
     name: 'acl-list',
@@ -881,7 +881,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncIsEncrypted;
+  final bool? ncIsEncrypted;
 
   @annotation.XmlElement(
     name: 'is-mount-root',
@@ -895,7 +895,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncLock;
+  final bool? ncLock;
 
   @annotation.XmlElement(
     name: 'lock-owner',
@@ -1066,7 +1066,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceOwncloud,
     includeIfNull: false,
   )
-  final int? ocFavorite;
+  final bool? ocFavorite;
 
   @annotation.XmlElement(
     name: 'fileid',
@@ -1283,14 +1283,14 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncAclCanManage;
+  final bool? ncAclCanManage;
 
   @annotation.XmlElement(
     name: 'acl-enabled',
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncAclEnabled;
+  final bool? ncAclEnabled;
 
   @annotation.XmlElement(
     name: 'acl-list',
@@ -1361,7 +1361,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncIsEncrypted;
+  final bool? ncIsEncrypted;
 
   @annotation.XmlElement(
     name: 'is-mount-root',
@@ -1375,7 +1375,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncLock;
+  final bool? ncLock;
 
   @annotation.XmlElement(
     name: 'lock-owner',
@@ -1546,7 +1546,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceOwncloud,
     includeIfNull: false,
   )
-  final int? ocFavorite;
+  final bool? ocFavorite;
 
   @annotation.XmlElement(
     name: 'fileid',

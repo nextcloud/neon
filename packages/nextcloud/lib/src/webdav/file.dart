@@ -72,7 +72,7 @@ class WebDavFile {
   late final tz.TZDateTime? createdDate = props.ncCreationTime;
 
   /// Whether this file is marked as favorite
-  late final bool? favorite = props.ocFavorite == null ? null : props.ocFavorite == 1;
+  late final bool? favorite = props.ocFavorite;
 
   /// Whether this file has a preview image
   late final bool? hasPreview = props.ncHasPreview;

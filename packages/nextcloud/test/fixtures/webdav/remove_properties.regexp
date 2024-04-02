@@ -6,7 +6,7 @@ test
 PROPPATCH http://localhost/remote\.php/webdav/remove-props\.txt
 authorization: Bearer mock
 content-type: application/xml
-<d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:set><d:prop><oc:favorite>1</oc:favorite></d:prop></d:set></d:propertyupdate>
+<d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:set><d:prop><oc:favorite>true</oc:favorite></d:prop></d:set></d:propertyupdate>
 PROPFIND http://localhost/remote\.php/webdav/remove-props\.txt
 authorization: Bearer mock
 content-type: application/xml

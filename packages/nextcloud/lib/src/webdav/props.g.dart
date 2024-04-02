@@ -1437,14 +1437,22 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ncAclCanManage = instance.ncAclCanManage;
-  final ncAclCanManageSerialized = ncAclCanManage?.toString();
+  final ncAclCanManageSerialized = ncAclCanManage != null
+      ? ncAclCanManage == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ncAclCanManageSerialized != null) {
     builder.element('acl-can-manage', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncAclCanManageSerialized);
     });
   }
   final ncAclEnabled = instance.ncAclEnabled;
-  final ncAclEnabledSerialized = ncAclEnabled?.toString();
+  final ncAclEnabledSerialized = ncAclEnabled != null
+      ? ncAclEnabled == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ncAclEnabledSerialized != null) {
     builder.element('acl-enabled', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncAclEnabledSerialized);
@@ -1522,7 +1530,11 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ncIsEncrypted = instance.ncIsEncrypted;
-  final ncIsEncryptedSerialized = ncIsEncrypted?.toString();
+  final ncIsEncryptedSerialized = ncIsEncrypted != null
+      ? ncIsEncrypted == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ncIsEncryptedSerialized != null) {
     builder.element('is-encrypted', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncIsEncryptedSerialized);
@@ -1540,7 +1552,11 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ncLock = instance.ncLock;
-  final ncLockSerialized = ncLock?.toString();
+  final ncLockSerialized = ncLock != null
+      ? ncLock == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ncLockSerialized != null) {
     builder.element('lock', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncLockSerialized);
@@ -1708,7 +1724,11 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ocFavorite = instance.ocFavorite;
-  final ocFavoriteSerialized = ocFavorite?.toString();
+  final ocFavoriteSerialized = ocFavorite != null
+      ? ocFavorite == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ocFavoriteSerialized != null) {
     builder.element('favorite', namespace: 'http://owncloud.org/ns', nest: () {
       builder.text(ocFavoriteSerialized);
@@ -1869,8 +1889,20 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       davQuotaAvailableBytes: davQuotaAvailableBytes != null ? int.parse(davQuotaAvailableBytes) : null,
       davQuotaUsedBytes: davQuotaUsedBytes != null ? int.parse(davQuotaUsedBytes) : null,
       davResourcetype: davResourcetype != null ? WebDavResourcetype.fromXmlElement(davResourcetype) : null,
-      ncAclCanManage: ncAclCanManage != null ? int.parse(ncAclCanManage) : null,
-      ncAclEnabled: ncAclEnabled != null ? int.parse(ncAclEnabled) : null,
+      ncAclCanManage: ncAclCanManage != null
+          ? ncAclCanManage == 'true' || ncAclCanManage == '1'
+              ? true
+              : ncAclCanManage == 'false' || ncAclCanManage == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ncAclCanManage)
+          : null,
+      ncAclEnabled: ncAclEnabled != null
+          ? ncAclEnabled == 'true' || ncAclEnabled == '1'
+              ? true
+              : ncAclEnabled == 'false' || ncAclEnabled == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ncAclEnabled)
+          : null,
       ncAclList: ncAclList != null ? WebDavNcAclList.fromXmlElement(ncAclList) : null,
       ncContainedFileCount: ncContainedFileCount != null ? int.parse(ncContainedFileCount) : null,
       ncContainedFolderCount: ncContainedFolderCount != null ? int.parse(ncContainedFolderCount) : null,
@@ -1892,7 +1924,13 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
                   : throw FormatException('Invalid bool format', ncHidden)
           : null,
       ncInheritedAclList: ncInheritedAclList != null ? WebDavNcAclList.fromXmlElement(ncInheritedAclList) : null,
-      ncIsEncrypted: ncIsEncrypted != null ? int.parse(ncIsEncrypted) : null,
+      ncIsEncrypted: ncIsEncrypted != null
+          ? ncIsEncrypted == 'true' || ncIsEncrypted == '1'
+              ? true
+              : ncIsEncrypted == 'false' || ncIsEncrypted == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ncIsEncrypted)
+          : null,
       ncIsMountRoot: ncIsMountRoot != null
           ? ncIsMountRoot == 'true' || ncIsMountRoot == '1'
               ? true
@@ -1900,7 +1938,13 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
                   ? false
                   : throw FormatException('Invalid bool format', ncIsMountRoot)
           : null,
-      ncLock: ncLock != null ? int.parse(ncLock) : null,
+      ncLock: ncLock != null
+          ? ncLock == 'true' || ncLock == '1'
+              ? true
+              : ncLock == 'false' || ncLock == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ncLock)
+          : null,
       ncLockOwner: ncLockOwner,
       ncLockOwnerDisplayname: ncLockOwnerDisplayname,
       ncLockOwnerEditor: ncLockOwnerEditor,
@@ -1925,7 +1969,13 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       ocCommentsHref: ocCommentsHref,
       ocCommentsUnread: ocCommentsUnread != null ? int.parse(ocCommentsUnread) : null,
       ocDownloadURL: ocDownloadURL,
-      ocFavorite: ocFavorite != null ? int.parse(ocFavorite) : null,
+      ocFavorite: ocFavorite != null
+          ? ocFavorite == 'true' || ocFavorite == '1'
+              ? true
+              : ocFavorite == 'false' || ocFavorite == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ocFavorite)
+          : null,
       ocFileid: ocFileid != null ? int.parse(ocFileid) : null,
       ocId: ocId,
       ocOwnerDisplayName: ocOwnerDisplayName,
@@ -2036,7 +2086,11 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(davResourcetypeConstructed);
   }
   final ncAclCanManage = instance.ncAclCanManage;
-  final ncAclCanManageSerialized = ncAclCanManage?.toString();
+  final ncAclCanManageSerialized = ncAclCanManage != null
+      ? ncAclCanManage == true
+          ? 'true'
+          : 'false'
+      : null;
   final ncAclCanManageConstructed = ncAclCanManageSerialized != null
       ? XmlElement(
           XmlName('acl-can-manage', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncAclCanManageSerialized)])
@@ -2045,7 +2099,11 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ncAclCanManageConstructed);
   }
   final ncAclEnabled = instance.ncAclEnabled;
-  final ncAclEnabledSerialized = ncAclEnabled?.toString();
+  final ncAclEnabledSerialized = ncAclEnabled != null
+      ? ncAclEnabled == true
+          ? 'true'
+          : 'false'
+      : null;
   final ncAclEnabledConstructed = ncAclEnabledSerialized != null
       ? XmlElement(XmlName('acl-enabled', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncAclEnabledSerialized)])
       : null;
@@ -2146,7 +2204,11 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ncInheritedAclListConstructed);
   }
   final ncIsEncrypted = instance.ncIsEncrypted;
-  final ncIsEncryptedSerialized = ncIsEncrypted?.toString();
+  final ncIsEncryptedSerialized = ncIsEncrypted != null
+      ? ncIsEncrypted == true
+          ? 'true'
+          : 'false'
+      : null;
   final ncIsEncryptedConstructed = ncIsEncryptedSerialized != null
       ? XmlElement(
           XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncIsEncryptedSerialized)])
@@ -2168,7 +2230,11 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ncIsMountRootConstructed);
   }
   final ncLock = instance.ncLock;
-  final ncLockSerialized = ncLock?.toString();
+  final ncLockSerialized = ncLock != null
+      ? ncLock == true
+          ? 'true'
+          : 'false'
+      : null;
   final ncLockConstructed = ncLockSerialized != null
       ? XmlElement(XmlName('lock', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncLockSerialized)])
       : null;
@@ -2388,7 +2454,11 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ocDownloadURLConstructed);
   }
   final ocFavorite = instance.ocFavorite;
-  final ocFavoriteSerialized = ocFavorite?.toString();
+  final ocFavoriteSerialized = ocFavorite != null
+      ? ocFavorite == true
+          ? 'true'
+          : 'false'
+      : null;
   final ocFavoriteConstructed = ocFavoriteSerialized != null
       ? XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], [XmlText(ocFavoriteSerialized)])
       : null;
@@ -2584,14 +2654,22 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ncAclCanManage = instance.ncAclCanManage;
-  final ncAclCanManageSerialized = ncAclCanManage?.toString();
+  final ncAclCanManageSerialized = ncAclCanManage != null
+      ? ncAclCanManage == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ncAclCanManageSerialized != null) {
     builder.element('acl-can-manage', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncAclCanManageSerialized);
     });
   }
   final ncAclEnabled = instance.ncAclEnabled;
-  final ncAclEnabledSerialized = ncAclEnabled?.toString();
+  final ncAclEnabledSerialized = ncAclEnabled != null
+      ? ncAclEnabled == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ncAclEnabledSerialized != null) {
     builder.element('acl-enabled', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncAclEnabledSerialized);
@@ -2669,7 +2747,11 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ncIsEncrypted = instance.ncIsEncrypted;
-  final ncIsEncryptedSerialized = ncIsEncrypted?.toString();
+  final ncIsEncryptedSerialized = ncIsEncrypted != null
+      ? ncIsEncrypted == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ncIsEncryptedSerialized != null) {
     builder.element('is-encrypted', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncIsEncryptedSerialized);
@@ -2687,7 +2769,11 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ncLock = instance.ncLock;
-  final ncLockSerialized = ncLock?.toString();
+  final ncLockSerialized = ncLock != null
+      ? ncLock == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ncLockSerialized != null) {
     builder.element('lock', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncLockSerialized);
@@ -2855,7 +2941,11 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ocFavorite = instance.ocFavorite;
-  final ocFavoriteSerialized = ocFavorite?.toString();
+  final ocFavoriteSerialized = ocFavorite != null
+      ? ocFavorite == true
+          ? 'true'
+          : 'false'
+      : null;
   if (ocFavoriteSerialized != null) {
     builder.element('favorite', namespace: 'http://owncloud.org/ns', nest: () {
       builder.text(ocFavoriteSerialized);
@@ -3017,8 +3107,20 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       davQuotaAvailableBytes: davQuotaAvailableBytes != null ? int.parse(davQuotaAvailableBytes) : null,
       davQuotaUsedBytes: davQuotaUsedBytes != null ? int.parse(davQuotaUsedBytes) : null,
       davResourcetype: davResourcetype != null ? WebDavResourcetype.fromXmlElement(davResourcetype) : null,
-      ncAclCanManage: ncAclCanManage != null ? int.parse(ncAclCanManage) : null,
-      ncAclEnabled: ncAclEnabled != null ? int.parse(ncAclEnabled) : null,
+      ncAclCanManage: ncAclCanManage != null
+          ? ncAclCanManage == 'true' || ncAclCanManage == '1'
+              ? true
+              : ncAclCanManage == 'false' || ncAclCanManage == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ncAclCanManage)
+          : null,
+      ncAclEnabled: ncAclEnabled != null
+          ? ncAclEnabled == 'true' || ncAclEnabled == '1'
+              ? true
+              : ncAclEnabled == 'false' || ncAclEnabled == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ncAclEnabled)
+          : null,
       ncAclList: ncAclList != null ? WebDavNcAclList.fromXmlElement(ncAclList) : null,
       ncContainedFileCount: ncContainedFileCount != null ? int.parse(ncContainedFileCount) : null,
       ncContainedFolderCount: ncContainedFolderCount != null ? int.parse(ncContainedFolderCount) : null,
@@ -3040,7 +3142,13 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
                   : throw FormatException('Invalid bool format', ncHidden)
           : null,
       ncInheritedAclList: ncInheritedAclList != null ? WebDavNcAclList.fromXmlElement(ncInheritedAclList) : null,
-      ncIsEncrypted: ncIsEncrypted != null ? int.parse(ncIsEncrypted) : null,
+      ncIsEncrypted: ncIsEncrypted != null
+          ? ncIsEncrypted == 'true' || ncIsEncrypted == '1'
+              ? true
+              : ncIsEncrypted == 'false' || ncIsEncrypted == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ncIsEncrypted)
+          : null,
       ncIsMountRoot: ncIsMountRoot != null
           ? ncIsMountRoot == 'true' || ncIsMountRoot == '1'
               ? true
@@ -3048,7 +3156,13 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
                   ? false
                   : throw FormatException('Invalid bool format', ncIsMountRoot)
           : null,
-      ncLock: ncLock != null ? int.parse(ncLock) : null,
+      ncLock: ncLock != null
+          ? ncLock == 'true' || ncLock == '1'
+              ? true
+              : ncLock == 'false' || ncLock == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ncLock)
+          : null,
       ncLockOwner: ncLockOwner,
       ncLockOwnerDisplayname: ncLockOwnerDisplayname,
       ncLockOwnerEditor: ncLockOwnerEditor,
@@ -3073,7 +3187,13 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       ocCommentsHref: ocCommentsHref,
       ocCommentsUnread: ocCommentsUnread != null ? int.parse(ocCommentsUnread) : null,
       ocDownloadURL: ocDownloadURL,
-      ocFavorite: ocFavorite != null ? int.parse(ocFavorite) : null,
+      ocFavorite: ocFavorite != null
+          ? ocFavorite == 'true' || ocFavorite == '1'
+              ? true
+              : ocFavorite == 'false' || ocFavorite == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', ocFavorite)
+          : null,
       ocFileid: ocFileid != null ? int.parse(ocFileid) : null,
       ocId: ocId,
       ocOwnerDisplayName: ocOwnerDisplayName,
@@ -3186,7 +3306,11 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(davResourcetypeConstructed);
   }
   final ncAclCanManage = instance.ncAclCanManage;
-  final ncAclCanManageSerialized = ncAclCanManage?.toString();
+  final ncAclCanManageSerialized = ncAclCanManage != null
+      ? ncAclCanManage == true
+          ? 'true'
+          : 'false'
+      : null;
   final ncAclCanManageConstructed = ncAclCanManageSerialized != null
       ? XmlElement(
           XmlName('acl-can-manage', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncAclCanManageSerialized)])
@@ -3195,7 +3319,11 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ncAclCanManageConstructed);
   }
   final ncAclEnabled = instance.ncAclEnabled;
-  final ncAclEnabledSerialized = ncAclEnabled?.toString();
+  final ncAclEnabledSerialized = ncAclEnabled != null
+      ? ncAclEnabled == true
+          ? 'true'
+          : 'false'
+      : null;
   final ncAclEnabledConstructed = ncAclEnabledSerialized != null
       ? XmlElement(XmlName('acl-enabled', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncAclEnabledSerialized)])
       : null;
@@ -3296,7 +3424,11 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ncInheritedAclListConstructed);
   }
   final ncIsEncrypted = instance.ncIsEncrypted;
-  final ncIsEncryptedSerialized = ncIsEncrypted?.toString();
+  final ncIsEncryptedSerialized = ncIsEncrypted != null
+      ? ncIsEncrypted == true
+          ? 'true'
+          : 'false'
+      : null;
   final ncIsEncryptedConstructed = ncIsEncryptedSerialized != null
       ? XmlElement(
           XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncIsEncryptedSerialized)])
@@ -3318,7 +3450,11 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ncIsMountRootConstructed);
   }
   final ncLock = instance.ncLock;
-  final ncLockSerialized = ncLock?.toString();
+  final ncLockSerialized = ncLock != null
+      ? ncLock == true
+          ? 'true'
+          : 'false'
+      : null;
   final ncLockConstructed = ncLockSerialized != null
       ? XmlElement(XmlName('lock', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncLockSerialized)])
       : null;
@@ -3538,7 +3674,11 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ocDownloadURLConstructed);
   }
   final ocFavorite = instance.ocFavorite;
-  final ocFavoriteSerialized = ocFavorite?.toString();
+  final ocFavoriteSerialized = ocFavorite != null
+      ? ocFavorite == true
+          ? 'true'
+          : 'false'
+      : null;
   final ocFavoriteConstructed = ocFavoriteSerialized != null
       ? XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], [XmlText(ocFavoriteSerialized)])
       : null;
