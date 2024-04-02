@@ -216,6 +216,7 @@ void main() {
         wrapWidget(
           TalkSystemMessage(
             chatMessage: chatMessage,
+            previousChatMessage: null,
           ),
         ),
       );
@@ -233,12 +234,37 @@ void main() {
         wrapWidget(
           TalkSystemMessage(
             chatMessage: chatMessage,
+            previousChatMessage: null,
           ),
         ),
       );
       expect(find.byType(SizedBox), findsNothing);
       expect(find.byType(RichText), findsOne);
       await expectLater(find.byType(TalkSystemMessage), matchesGoldenFile('goldens/message_system_message_show.png'));
+    });
+
+    testWidgets('Grouping', (tester) async {
+      final previousChatMessage = MockChatMessage();
+      when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.system);
+
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.systemMessage).thenReturn('');
+      when(() => chatMessage.message).thenReturn('test');
+
+      await tester.pumpWidget(
+        wrapWidget(
+          TalkSystemMessage(
+            chatMessage: chatMessage,
+            previousChatMessage: previousChatMessage,
+          ),
+        ),
+      );
+      expect(find.byType(SizedBox), findsNothing);
+      expect(find.byType(RichText), findsOne);
+      await expectLater(
+        find.byType(TalkSystemMessage),
+        matchesGoldenFile('goldens/message_system_message_grouping.png'),
+      );
     });
   });
 

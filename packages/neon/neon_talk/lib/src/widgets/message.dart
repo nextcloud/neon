@@ -126,6 +126,7 @@ class TalkMessage extends StatelessWidget {
     if (chatMessage.messageType == spreed.MessageType.system) {
       return TalkSystemMessage(
         chatMessage: chatMessage,
+        previousChatMessage: previousChatMessage,
       );
     }
 
@@ -142,11 +143,15 @@ class TalkSystemMessage extends StatelessWidget {
   /// Creates a new Talk system message.
   const TalkSystemMessage({
     required this.chatMessage,
+    required this.previousChatMessage,
     super.key,
   });
 
   /// {@macro TalkMessage.chatMessage}
   final spreed.$ChatMessageInterface chatMessage;
+
+  /// {@macro TalkMessage.previousChatMessage}
+  final spreed.$ChatMessageInterface? previousChatMessage;
 
   // Keep this in sync with https://github.com/nextcloud/spreed/blob/24b1dc8f8d6fa30b0c6dec95f27b69ca59314633/src/store/conversationsStore.js#L706
   static const _ignoredMessages = {
@@ -163,8 +168,10 @@ class TalkSystemMessage extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
+    final groupMessages = previousChatMessage?.messageType == spreed.MessageType.system;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(vertical: groupMessages ? 2.5 : 10),
       child: Center(
         child: RichText(
           text: buildChatMessage(
