@@ -1,8 +1,8 @@
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/src/utils/http_date_parser.dart';
-import 'package:nextcloud/src/webdav/client.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
+import 'package:nextcloud/src/webdav/utils.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:timezone/timezone.dart' as tz;
 

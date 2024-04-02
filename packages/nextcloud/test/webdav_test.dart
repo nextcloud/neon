@@ -6,6 +6,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/src/utils/http_date_parser.dart';
+import 'package:nextcloud/src/webdav/utils.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
@@ -29,27 +30,27 @@ void main() {
 
       test(baseURL, () {
         expect(
-          WebDavClient.constructUri(baseURL).toString(),
+          constructUri(baseURL).toString(),
           '$sanitizedBaseURL$webdavBase',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('/')).toString(),
+          constructUri(baseURL, PathUri.parse('/')).toString(),
           '$sanitizedBaseURL$webdavBase',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('test')).toString(),
+          constructUri(baseURL, PathUri.parse('test')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('test/')).toString(),
+          constructUri(baseURL, PathUri.parse('test/')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('/test')).toString(),
+          constructUri(baseURL, PathUri.parse('/test')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          WebDavClient.constructUri(baseURL, PathUri.parse('/test/')).toString(),
+          constructUri(baseURL, PathUri.parse('/test/')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
       });
