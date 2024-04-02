@@ -1,7 +1,9 @@
 // ignore_for_file: public_member_api_docs
 // coverage:ignore-file
 import 'package:meta/meta.dart';
+import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 part 'props.g.dart';
@@ -729,7 +731,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceDav,
     includeIfNull: false,
   )
-  final DateTime? davCreationdate;
+  @ISO8601XMLConverter()
+  final tz.TZDateTime? davCreationdate;
 
   @annotation.XmlElement(
     name: 'displayname',
@@ -771,7 +774,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceDav,
     includeIfNull: false,
   )
-  final String? davGetlastmodified;
+  @HttpDateXMLConverter()
+  final tz.TZDateTime? davGetlastmodified;
 
   @annotation.XmlElement(
     name: 'quota-available-bytes',
@@ -834,7 +838,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncCreationTime;
+  @UnixEpochXMLConverter()
+  final tz.TZDateTime? ncCreationTime;
 
   @annotation.XmlElement(
     name: 'data-fingerprint',
@@ -925,7 +930,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncLockTime;
+  @UnixEpochXMLConverter()
+  final tz.TZDateTime? ncLockTime;
 
   @annotation.XmlElement(
     name: 'lock-timeout',
@@ -967,7 +973,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final DateTime? ncReminderDueDate;
+  @ISO8601XMLConverter()
+  final tz.TZDateTime? ncReminderDueDate;
 
   @annotation.XmlElement(
     name: 'rich-workspace',
@@ -1002,7 +1009,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncUploadTime;
+  @UnixEpochXMLConverter()
+  final tz.TZDateTime? ncUploadTime;
 
   @annotation.XmlElement(
     name: 'version-author',
@@ -1203,7 +1211,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceDav,
     includeIfNull: false,
   )
-  final DateTime? davCreationdate;
+  @ISO8601XMLConverter()
+  final tz.TZDateTime? davCreationdate;
 
   @annotation.XmlElement(
     name: 'displayname',
@@ -1245,7 +1254,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceDav,
     includeIfNull: false,
   )
-  final String? davGetlastmodified;
+  @HttpDateXMLConverter()
+  final tz.TZDateTime? davGetlastmodified;
 
   @annotation.XmlElement(
     name: 'quota-available-bytes',
@@ -1308,7 +1318,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncCreationTime;
+  @UnixEpochXMLConverter()
+  final tz.TZDateTime? ncCreationTime;
 
   @annotation.XmlElement(
     name: 'data-fingerprint',
@@ -1399,7 +1410,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncLockTime;
+  @UnixEpochXMLConverter()
+  final tz.TZDateTime? ncLockTime;
 
   @annotation.XmlElement(
     name: 'lock-timeout',
@@ -1441,7 +1453,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final DateTime? ncReminderDueDate;
+  @ISO8601XMLConverter()
+  final tz.TZDateTime? ncReminderDueDate;
 
   @annotation.XmlElement(
     name: 'rich-workspace',
@@ -1476,7 +1489,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     namespace: namespaceNextcloud,
     includeIfNull: false,
   )
-  final int? ncUploadTime;
+  @UnixEpochXMLConverter()
+  final tz.TZDateTime? ncUploadTime;
 
   @annotation.XmlElement(
     name: 'version-author',

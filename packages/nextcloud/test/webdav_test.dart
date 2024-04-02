@@ -5,7 +5,6 @@ import 'dart:typed_data';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
-import 'package:nextcloud/src/utils/http_date_parser.dart';
 import 'package:nextcloud/src/webdav/utils.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
@@ -178,7 +177,7 @@ void main() {
             responses.singleWhere((response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
         expect(props.ncHasPreview, isTrue);
         expect(props.davGetcontenttype, 'image/png');
-        expect(parseHttpDate(props.davGetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
+        expect(props.davGetlastmodified!.isBefore(DateTime.timestamp()), isTrue);
         expect(props.ocSize, 50598);
       });
 
@@ -192,7 +191,7 @@ void main() {
       });
 
       test('Get file props', () async {
-        final response = (await client.webdav.propfind(
+        final result = await client.webdav.propfind(
           PathUri.parse('Nextcloud.png'),
           prop: const WebDavPropWithoutValues.fromBools(
             davCreationdate: true,
@@ -254,9 +253,8 @@ void main() {
             ocmSharePermissions: true,
             ocsSharePermissions: true,
           ),
-        ))
-            .toWebDavFiles()
-            .single;
+        );
+        final response = result.toWebDavFiles().single;
 
         expect(response.path, PathUri.parse('Nextcloud.png'));
         expect(response.id, isNotEmpty);
@@ -282,11 +280,11 @@ void main() {
         expect(response.props.davGetcontentlength, 50598);
         expect(response.props.davGetcontenttype, 'image/png');
         expect(response.props.davGetetag, isNotEmpty);
-        expect(parseHttpDate(response.props.davGetlastmodified!).isBefore(DateTime.timestamp()), isTrue);
+        expect(response.props.davGetlastmodified!.isBefore(DateTime.timestamp()), isTrue);
         expect(response.props.davQuotaAvailableBytes, isNull);
         expect(response.props.davQuotaUsedBytes, isNull);
         expect(response.props.davResourcetype!.collection, isNull);
-        expect(response.props.ncCreationTime, 0);
+        expect(response.props.ncCreationTime, DateTime.utc(1970));
         expect(response.props.ncAclCanManage, isNull);
         expect(response.props.ncAclEnabled, isNull);
         expect(response.props.ncAclList, isNull);
@@ -314,7 +312,7 @@ void main() {
         expect(response.props.ncRichWorkspaceFile, isNull);
         expect(json.decode(response.props.ncShareAttributes!), <String>[]);
         expect(response.props.ncSharees!.sharees, isNull);
-        expect(response.props.ncUploadTime, 0);
+        expect(response.props.ncUploadTime, DateTime.utc(1970));
         expect(response.props.ncVersionAuthor, isNull);
         expect(response.props.ncVersionLabel, isNull);
         expect(response.props.ocChecksums, isNull);
@@ -366,7 +364,7 @@ void main() {
 
         expect(response.props.davGetcontenttype, isNull);
         expect(
-          parseHttpDate(response.props.davGetlastmodified!).secondsSinceEpoch,
+          response.props.davGetlastmodified!.secondsSinceEpoch,
           closeTo(DateTime.timestamp().secondsSinceEpoch, 10),
         );
         expect(response.props.davResourcetype!.collection, isNotNull);
@@ -435,9 +433,9 @@ void main() {
             .first
             .prop;
         expect(props.ocFavorite, 1);
-        expect(parseHttpDate(props.davGetlastmodified!), lastModifiedDate);
-        expect(props.ncCreationTime, createdDate.secondsSinceEpoch);
-        expect(props.ncUploadTime, closeTo(uploadTime.secondsSinceEpoch, 10));
+        expect(props.davGetlastmodified, lastModifiedDate);
+        expect(props.ncCreationTime, createdDate);
+        expect(props.ncUploadTime!.secondsSinceEpoch, closeTo(uploadTime.secondsSinceEpoch, 10));
       });
 
       test('Remove properties', () async {

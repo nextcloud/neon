@@ -1,5 +1,3 @@
-import 'package:nextcloud/src/utils/date_time.dart';
-import 'package:nextcloud/src/utils/http_date_parser.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/utils.dart';
@@ -65,28 +63,13 @@ class WebDavFile {
   /// Last modified date of the file.
   ///
   /// It will throw a [FormatException] if the date is invalid.
-  late final tz.TZDateTime? lastModified = () {
-    if (props.davGetlastmodified != null) {
-      return parseHttpDate(props.davGetlastmodified!);
-    }
-    return null;
-  }();
+  late final tz.TZDateTime? lastModified = props.davGetlastmodified;
 
   /// Upload date of the file
-  late final tz.TZDateTime? uploadedDate = props.ncUploadTime != null
-      ? DateTimeUtils.fromSecondsSinceEpoch(
-          tz.UTC,
-          props.ncUploadTime!,
-        )
-      : null;
+  late final tz.TZDateTime? uploadedDate = props.ncUploadTime;
 
   /// Creation date of the file as provided by uploader
-  late final tz.TZDateTime? createdDate = props.ncCreationTime != null
-      ? DateTimeUtils.fromSecondsSinceEpoch(
-          tz.UTC,
-          props.ncCreationTime!,
-        )
-      : null;
+  late final tz.TZDateTime? createdDate = props.ncCreationTime;
 
   /// Whether this file is marked as favorite
   late final bool? favorite = props.ocFavorite == null ? null : props.ocFavorite == 1;

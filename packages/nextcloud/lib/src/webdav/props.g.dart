@@ -1367,10 +1367,10 @@ mixin _$WebDavPropWithoutValuesXmlSerializableMixin {
 void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
   final davCreationdate = instance.davCreationdate;
-  final davCreationdateSerialized = davCreationdate?.toIso8601String();
+  final davCreationdateSerialized = davCreationdate;
   if (davCreationdateSerialized != null) {
     builder.element('creationdate', namespace: 'DAV:', nest: () {
-      builder.text(davCreationdateSerialized);
+      const ISO8601XMLConverter().buildXmlChildren(davCreationdateSerialized, builder, namespaces: namespaces);
     });
   }
   final davDisplayname = instance.davDisplayname;
@@ -1412,7 +1412,7 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
   final davGetlastmodifiedSerialized = davGetlastmodified;
   if (davGetlastmodifiedSerialized != null) {
     builder.element('getlastmodified', namespace: 'DAV:', nest: () {
-      builder.text(davGetlastmodifiedSerialized);
+      const HttpDateXMLConverter().buildXmlChildren(davGetlastmodifiedSerialized, builder, namespaces: namespaces);
     });
   }
   final davQuotaAvailableBytes = instance.davQuotaAvailableBytes;
@@ -1472,10 +1472,10 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ncCreationTime = instance.ncCreationTime;
-  final ncCreationTimeSerialized = ncCreationTime?.toString();
+  final ncCreationTimeSerialized = ncCreationTime;
   if (ncCreationTimeSerialized != null) {
     builder.element('creation_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncCreationTimeSerialized);
+      const UnixEpochXMLConverter().buildXmlChildren(ncCreationTimeSerialized, builder, namespaces: namespaces);
     });
   }
   final ncDataFingerprint = instance.ncDataFingerprint;
@@ -1575,10 +1575,10 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ncLockTime = instance.ncLockTime;
-  final ncLockTimeSerialized = ncLockTime?.toString();
+  final ncLockTimeSerialized = ncLockTime;
   if (ncLockTimeSerialized != null) {
     builder.element('lock-time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncLockTimeSerialized);
+      const UnixEpochXMLConverter().buildXmlChildren(ncLockTimeSerialized, builder, namespaces: namespaces);
     });
   }
   final ncLockTimeout = instance.ncLockTimeout;
@@ -1617,10 +1617,10 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ncReminderDueDate = instance.ncReminderDueDate;
-  final ncReminderDueDateSerialized = ncReminderDueDate?.toIso8601String();
+  final ncReminderDueDateSerialized = ncReminderDueDate;
   if (ncReminderDueDateSerialized != null) {
     builder.element('reminder-due-date', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncReminderDueDateSerialized);
+      const ISO8601XMLConverter().buildXmlChildren(ncReminderDueDateSerialized, builder, namespaces: namespaces);
     });
   }
   final ncRichWorkspace = instance.ncRichWorkspace;
@@ -1652,10 +1652,10 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
     });
   }
   final ncUploadTime = instance.ncUploadTime;
-  final ncUploadTimeSerialized = ncUploadTime?.toString();
+  final ncUploadTimeSerialized = ncUploadTime;
   if (ncUploadTimeSerialized != null) {
     builder.element('upload_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncUploadTimeSerialized);
+      const UnixEpochXMLConverter().buildXmlChildren(ncUploadTimeSerialized, builder, namespaces: namespaces);
     });
   }
   final ncVersionAuthor = instance.ncVersionAuthor;
@@ -1793,13 +1793,13 @@ void _$WebDavPropBuildXmlElement(WebDavProp instance, XmlBuilder builder, {Map<S
 }
 
 WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
-  final davCreationdate = element.getElement('creationdate', namespace: 'DAV:')?.getText();
+  final davCreationdate = element.getElement('creationdate', namespace: 'DAV:');
   final davDisplayname = element.getElement('displayname', namespace: 'DAV:')?.getText();
   final davGetcontentlanguage = element.getElement('getcontentlanguage', namespace: 'DAV:')?.getText();
   final davGetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
   final davGetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
   final davGetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
-  final davGetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:')?.getText();
+  final davGetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:');
   final davQuotaAvailableBytes = element.getElement('quota-available-bytes', namespace: 'DAV:')?.getText();
   final davQuotaUsedBytes = element.getElement('quota-used-bytes', namespace: 'DAV:')?.getText();
   final davResourcetype = element.getElement('resourcetype', namespace: 'DAV:');
@@ -1810,7 +1810,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       element.getElement('contained-file-count', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncContainedFolderCount =
       element.getElement('contained-folder-count', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncCreationTime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncCreationTime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns');
   final ncDataFingerprint = element.getElement('data-fingerprint', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncGroupFolderId = element.getElement('group-folder-id', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncHasPreview = element.getElement('has-preview', namespace: 'http://nextcloud.org/ns')?.getText();
@@ -1824,19 +1824,19 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       element.getElement('lock-owner-displayname', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockOwnerEditor = element.getElement('lock-owner-editor', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockOwnerType = element.getElement('lock-owner-type', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns');
   final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockToken = element.getElement('lock-token', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncNote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncReminderDueDate = element.getElement('reminder-due-date', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncReminderDueDate = element.getElement('reminder-due-date', namespace: 'http://nextcloud.org/ns');
   final ncRichWorkspace = element.getElement('rich-workspace', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncRichWorkspaceFile =
       element.getElement('rich-workspace-file', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncShareAttributes = element.getElement('share-attributes', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncSharees = element.getElement('sharees', namespace: 'http://nextcloud.org/ns');
-  final ncUploadTime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncUploadTime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns');
   final ncVersionAuthor = element.getElement('version-author', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncVersionLabel = element.getElement('version-label', namespace: 'http://nextcloud.org/ns')?.getText();
   final ocChecksums = element.getElement('checksums', namespace: 'http://owncloud.org/ns');
@@ -1858,13 +1858,14 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
   final ocsSharePermissions =
       element.getElement('share-permissions', namespace: 'http://open-collaboration-services.org/ns')?.getText();
   return WebDavProp(
-      davCreationdate: davCreationdate != null ? DateTime.parse(davCreationdate) : null,
+      davCreationdate: davCreationdate != null ? const ISO8601XMLConverter().fromXmlElement(davCreationdate) : null,
       davDisplayname: davDisplayname,
       davGetcontentlanguage: davGetcontentlanguage,
       davGetcontentlength: davGetcontentlength != null ? int.parse(davGetcontentlength) : null,
       davGetcontenttype: davGetcontenttype,
       davGetetag: davGetetag,
-      davGetlastmodified: davGetlastmodified,
+      davGetlastmodified:
+          davGetlastmodified != null ? const HttpDateXMLConverter().fromXmlElement(davGetlastmodified) : null,
       davQuotaAvailableBytes: davQuotaAvailableBytes != null ? int.parse(davQuotaAvailableBytes) : null,
       davQuotaUsedBytes: davQuotaUsedBytes != null ? int.parse(davQuotaUsedBytes) : null,
       davResourcetype: davResourcetype != null ? WebDavResourcetype.fromXmlElement(davResourcetype) : null,
@@ -1873,7 +1874,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       ncAclList: ncAclList != null ? WebDavNcAclList.fromXmlElement(ncAclList) : null,
       ncContainedFileCount: ncContainedFileCount != null ? int.parse(ncContainedFileCount) : null,
       ncContainedFolderCount: ncContainedFolderCount != null ? int.parse(ncContainedFolderCount) : null,
-      ncCreationTime: ncCreationTime != null ? int.parse(ncCreationTime) : null,
+      ncCreationTime: ncCreationTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncCreationTime) : null,
       ncDataFingerprint: ncDataFingerprint,
       ncGroupFolderId: ncGroupFolderId != null ? int.parse(ncGroupFolderId) : null,
       ncHasPreview: ncHasPreview != null
@@ -1904,18 +1905,19 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       ncLockOwnerDisplayname: ncLockOwnerDisplayname,
       ncLockOwnerEditor: ncLockOwnerEditor,
       ncLockOwnerType: ncLockOwnerType != null ? int.parse(ncLockOwnerType) : null,
-      ncLockTime: ncLockTime != null ? int.parse(ncLockTime) : null,
+      ncLockTime: ncLockTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncLockTime) : null,
       ncLockTimeout: ncLockTimeout != null ? int.parse(ncLockTimeout) : null,
       ncLockToken: ncLockToken,
       ncMetadataEtag: ncMetadataEtag,
       ncMountType: ncMountType,
       ncNote: ncNote,
-      ncReminderDueDate: ncReminderDueDate != null ? DateTime.parse(ncReminderDueDate) : null,
+      ncReminderDueDate:
+          ncReminderDueDate != null ? const ISO8601XMLConverter().fromXmlElement(ncReminderDueDate) : null,
       ncRichWorkspace: ncRichWorkspace,
       ncRichWorkspaceFile: ncRichWorkspaceFile != null ? int.parse(ncRichWorkspaceFile) : null,
       ncShareAttributes: ncShareAttributes,
       ncSharees: ncSharees != null ? WebDavNcShareeList.fromXmlElement(ncSharees) : null,
-      ncUploadTime: ncUploadTime != null ? int.parse(ncUploadTime) : null,
+      ncUploadTime: ncUploadTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncUploadTime) : null,
       ncVersionAuthor: ncVersionAuthor,
       ncVersionLabel: ncVersionLabel,
       ocChecksums: ocChecksums != null ? WebDavOcChecksums.fromXmlElement(ocChecksums) : null,
@@ -1944,9 +1946,12 @@ List<XmlAttribute> _$WebDavPropToXmlAttributes(WebDavProp instance, {Map<String,
 List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String?> namespaces = const {}}) {
   final children = <XmlNode>[];
   final davCreationdate = instance.davCreationdate;
-  final davCreationdateSerialized = davCreationdate?.toIso8601String();
+  final davCreationdateSerialized = davCreationdate;
   final davCreationdateConstructed = davCreationdateSerialized != null
-      ? XmlElement(XmlName('creationdate', namespaces['DAV:']), [], [XmlText(davCreationdateSerialized)])
+      ? XmlElement(
+          XmlName('creationdate', namespaces['DAV:']),
+          const ISO8601XMLConverter().toXmlAttributes(davCreationdateSerialized, namespaces: namespaces),
+          const ISO8601XMLConverter().toXmlChildren(davCreationdateSerialized, namespaces: namespaces))
       : null;
   if (davCreationdateConstructed != null) {
     children.add(davCreationdateConstructed);
@@ -1994,7 +1999,10 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
   final davGetlastmodified = instance.davGetlastmodified;
   final davGetlastmodifiedSerialized = davGetlastmodified;
   final davGetlastmodifiedConstructed = davGetlastmodifiedSerialized != null
-      ? XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], [XmlText(davGetlastmodifiedSerialized)])
+      ? XmlElement(
+          XmlName('getlastmodified', namespaces['DAV:']),
+          const HttpDateXMLConverter().toXmlAttributes(davGetlastmodifiedSerialized, namespaces: namespaces),
+          const HttpDateXMLConverter().toXmlChildren(davGetlastmodifiedSerialized, namespaces: namespaces))
       : null;
   if (davGetlastmodifiedConstructed != null) {
     children.add(davGetlastmodifiedConstructed);
@@ -2074,10 +2082,12 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ncContainedFolderCountConstructed);
   }
   final ncCreationTime = instance.ncCreationTime;
-  final ncCreationTimeSerialized = ncCreationTime?.toString();
+  final ncCreationTimeSerialized = ncCreationTime;
   final ncCreationTimeConstructed = ncCreationTimeSerialized != null
       ? XmlElement(
-          XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncCreationTimeSerialized)])
+          XmlName('creation_time', namespaces['http://nextcloud.org/ns']),
+          const UnixEpochXMLConverter().toXmlAttributes(ncCreationTimeSerialized, namespaces: namespaces),
+          const UnixEpochXMLConverter().toXmlChildren(ncCreationTimeSerialized, namespaces: namespaces))
       : null;
   if (ncCreationTimeConstructed != null) {
     children.add(ncCreationTimeConstructed);
@@ -2201,9 +2211,12 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ncLockOwnerTypeConstructed);
   }
   final ncLockTime = instance.ncLockTime;
-  final ncLockTimeSerialized = ncLockTime?.toString();
+  final ncLockTimeSerialized = ncLockTime;
   final ncLockTimeConstructed = ncLockTimeSerialized != null
-      ? XmlElement(XmlName('lock-time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncLockTimeSerialized)])
+      ? XmlElement(
+          XmlName('lock-time', namespaces['http://nextcloud.org/ns']),
+          const UnixEpochXMLConverter().toXmlAttributes(ncLockTimeSerialized, namespaces: namespaces),
+          const UnixEpochXMLConverter().toXmlChildren(ncLockTimeSerialized, namespaces: namespaces))
       : null;
   if (ncLockTimeConstructed != null) {
     children.add(ncLockTimeConstructed);
@@ -2251,10 +2264,12 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ncNoteConstructed);
   }
   final ncReminderDueDate = instance.ncReminderDueDate;
-  final ncReminderDueDateSerialized = ncReminderDueDate?.toIso8601String();
+  final ncReminderDueDateSerialized = ncReminderDueDate;
   final ncReminderDueDateConstructed = ncReminderDueDateSerialized != null
-      ? XmlElement(XmlName('reminder-due-date', namespaces['http://nextcloud.org/ns']), [],
-          [XmlText(ncReminderDueDateSerialized)])
+      ? XmlElement(
+          XmlName('reminder-due-date', namespaces['http://nextcloud.org/ns']),
+          const ISO8601XMLConverter().toXmlAttributes(ncReminderDueDateSerialized, namespaces: namespaces),
+          const ISO8601XMLConverter().toXmlChildren(ncReminderDueDateSerialized, namespaces: namespaces))
       : null;
   if (ncReminderDueDateConstructed != null) {
     children.add(ncReminderDueDateConstructed);
@@ -2298,9 +2313,12 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
     children.add(ncShareesConstructed);
   }
   final ncUploadTime = instance.ncUploadTime;
-  final ncUploadTimeSerialized = ncUploadTime?.toString();
+  final ncUploadTimeSerialized = ncUploadTime;
   final ncUploadTimeConstructed = ncUploadTimeSerialized != null
-      ? XmlElement(XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncUploadTimeSerialized)])
+      ? XmlElement(
+          XmlName('upload_time', namespaces['http://nextcloud.org/ns']),
+          const UnixEpochXMLConverter().toXmlAttributes(ncUploadTimeSerialized, namespaces: namespaces),
+          const UnixEpochXMLConverter().toXmlChildren(ncUploadTimeSerialized, namespaces: namespaces))
       : null;
   if (ncUploadTimeConstructed != null) {
     children.add(ncUploadTimeConstructed);
@@ -2496,10 +2514,10 @@ mixin _$WebDavPropXmlSerializableMixin {
 void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
   final davCreationdate = instance.davCreationdate;
-  final davCreationdateSerialized = davCreationdate?.toIso8601String();
+  final davCreationdateSerialized = davCreationdate;
   if (davCreationdateSerialized != null) {
     builder.element('creationdate', namespace: 'DAV:', nest: () {
-      builder.text(davCreationdateSerialized);
+      const ISO8601XMLConverter().buildXmlChildren(davCreationdateSerialized, builder, namespaces: namespaces);
     });
   }
   final davDisplayname = instance.davDisplayname;
@@ -2541,7 +2559,7 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
   final davGetlastmodifiedSerialized = davGetlastmodified;
   if (davGetlastmodifiedSerialized != null) {
     builder.element('getlastmodified', namespace: 'DAV:', nest: () {
-      builder.text(davGetlastmodifiedSerialized);
+      const HttpDateXMLConverter().buildXmlChildren(davGetlastmodifiedSerialized, builder, namespaces: namespaces);
     });
   }
   final davQuotaAvailableBytes = instance.davQuotaAvailableBytes;
@@ -2601,10 +2619,10 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ncCreationTime = instance.ncCreationTime;
-  final ncCreationTimeSerialized = ncCreationTime?.toString();
+  final ncCreationTimeSerialized = ncCreationTime;
   if (ncCreationTimeSerialized != null) {
     builder.element('creation_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncCreationTimeSerialized);
+      const UnixEpochXMLConverter().buildXmlChildren(ncCreationTimeSerialized, builder, namespaces: namespaces);
     });
   }
   final ncDataFingerprint = instance.ncDataFingerprint;
@@ -2704,10 +2722,10 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ncLockTime = instance.ncLockTime;
-  final ncLockTimeSerialized = ncLockTime?.toString();
+  final ncLockTimeSerialized = ncLockTime;
   if (ncLockTimeSerialized != null) {
     builder.element('lock-time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncLockTimeSerialized);
+      const UnixEpochXMLConverter().buildXmlChildren(ncLockTimeSerialized, builder, namespaces: namespaces);
     });
   }
   final ncLockTimeout = instance.ncLockTimeout;
@@ -2746,10 +2764,10 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ncReminderDueDate = instance.ncReminderDueDate;
-  final ncReminderDueDateSerialized = ncReminderDueDate?.toIso8601String();
+  final ncReminderDueDateSerialized = ncReminderDueDate;
   if (ncReminderDueDateSerialized != null) {
     builder.element('reminder-due-date', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncReminderDueDateSerialized);
+      const ISO8601XMLConverter().buildXmlChildren(ncReminderDueDateSerialized, builder, namespaces: namespaces);
     });
   }
   final ncRichWorkspace = instance.ncRichWorkspace;
@@ -2781,10 +2799,10 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
     });
   }
   final ncUploadTime = instance.ncUploadTime;
-  final ncUploadTimeSerialized = ncUploadTime?.toString();
+  final ncUploadTimeSerialized = ncUploadTime;
   if (ncUploadTimeSerialized != null) {
     builder.element('upload_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncUploadTimeSerialized);
+      const UnixEpochXMLConverter().buildXmlChildren(ncUploadTimeSerialized, builder, namespaces: namespaces);
     });
   }
   final ncVersionAuthor = instance.ncVersionAuthor;
@@ -2923,13 +2941,13 @@ void _$WebDavOcFilterRulesBuildXmlElement(WebDavOcFilterRules instance, XmlBuild
 }
 
 WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
-  final davCreationdate = element.getElement('creationdate', namespace: 'DAV:')?.getText();
+  final davCreationdate = element.getElement('creationdate', namespace: 'DAV:');
   final davDisplayname = element.getElement('displayname', namespace: 'DAV:')?.getText();
   final davGetcontentlanguage = element.getElement('getcontentlanguage', namespace: 'DAV:')?.getText();
   final davGetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
   final davGetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
   final davGetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
-  final davGetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:')?.getText();
+  final davGetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:');
   final davQuotaAvailableBytes = element.getElement('quota-available-bytes', namespace: 'DAV:')?.getText();
   final davQuotaUsedBytes = element.getElement('quota-used-bytes', namespace: 'DAV:')?.getText();
   final davResourcetype = element.getElement('resourcetype', namespace: 'DAV:');
@@ -2940,7 +2958,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       element.getElement('contained-file-count', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncContainedFolderCount =
       element.getElement('contained-folder-count', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncCreationTime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncCreationTime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns');
   final ncDataFingerprint = element.getElement('data-fingerprint', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncGroupFolderId = element.getElement('group-folder-id', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncHasPreview = element.getElement('has-preview', namespace: 'http://nextcloud.org/ns')?.getText();
@@ -2954,19 +2972,19 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       element.getElement('lock-owner-displayname', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockOwnerEditor = element.getElement('lock-owner-editor', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockOwnerType = element.getElement('lock-owner-type', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns');
   final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncLockToken = element.getElement('lock-token', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncNote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncReminderDueDate = element.getElement('reminder-due-date', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncReminderDueDate = element.getElement('reminder-due-date', namespace: 'http://nextcloud.org/ns');
   final ncRichWorkspace = element.getElement('rich-workspace', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncRichWorkspaceFile =
       element.getElement('rich-workspace-file', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncShareAttributes = element.getElement('share-attributes', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncSharees = element.getElement('sharees', namespace: 'http://nextcloud.org/ns');
-  final ncUploadTime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncUploadTime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns');
   final ncVersionAuthor = element.getElement('version-author', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncVersionLabel = element.getElement('version-label', namespace: 'http://nextcloud.org/ns')?.getText();
   final ocChecksums = element.getElement('checksums', namespace: 'http://owncloud.org/ns');
@@ -2988,13 +3006,14 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
   final ocsSharePermissions =
       element.getElement('share-permissions', namespace: 'http://open-collaboration-services.org/ns')?.getText();
   return WebDavOcFilterRules(
-      davCreationdate: davCreationdate != null ? DateTime.parse(davCreationdate) : null,
+      davCreationdate: davCreationdate != null ? const ISO8601XMLConverter().fromXmlElement(davCreationdate) : null,
       davDisplayname: davDisplayname,
       davGetcontentlanguage: davGetcontentlanguage,
       davGetcontentlength: davGetcontentlength != null ? int.parse(davGetcontentlength) : null,
       davGetcontenttype: davGetcontenttype,
       davGetetag: davGetetag,
-      davGetlastmodified: davGetlastmodified,
+      davGetlastmodified:
+          davGetlastmodified != null ? const HttpDateXMLConverter().fromXmlElement(davGetlastmodified) : null,
       davQuotaAvailableBytes: davQuotaAvailableBytes != null ? int.parse(davQuotaAvailableBytes) : null,
       davQuotaUsedBytes: davQuotaUsedBytes != null ? int.parse(davQuotaUsedBytes) : null,
       davResourcetype: davResourcetype != null ? WebDavResourcetype.fromXmlElement(davResourcetype) : null,
@@ -3003,7 +3022,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       ncAclList: ncAclList != null ? WebDavNcAclList.fromXmlElement(ncAclList) : null,
       ncContainedFileCount: ncContainedFileCount != null ? int.parse(ncContainedFileCount) : null,
       ncContainedFolderCount: ncContainedFolderCount != null ? int.parse(ncContainedFolderCount) : null,
-      ncCreationTime: ncCreationTime != null ? int.parse(ncCreationTime) : null,
+      ncCreationTime: ncCreationTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncCreationTime) : null,
       ncDataFingerprint: ncDataFingerprint,
       ncGroupFolderId: ncGroupFolderId != null ? int.parse(ncGroupFolderId) : null,
       ncHasPreview: ncHasPreview != null
@@ -3034,18 +3053,19 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       ncLockOwnerDisplayname: ncLockOwnerDisplayname,
       ncLockOwnerEditor: ncLockOwnerEditor,
       ncLockOwnerType: ncLockOwnerType != null ? int.parse(ncLockOwnerType) : null,
-      ncLockTime: ncLockTime != null ? int.parse(ncLockTime) : null,
+      ncLockTime: ncLockTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncLockTime) : null,
       ncLockTimeout: ncLockTimeout != null ? int.parse(ncLockTimeout) : null,
       ncLockToken: ncLockToken,
       ncMetadataEtag: ncMetadataEtag,
       ncMountType: ncMountType,
       ncNote: ncNote,
-      ncReminderDueDate: ncReminderDueDate != null ? DateTime.parse(ncReminderDueDate) : null,
+      ncReminderDueDate:
+          ncReminderDueDate != null ? const ISO8601XMLConverter().fromXmlElement(ncReminderDueDate) : null,
       ncRichWorkspace: ncRichWorkspace,
       ncRichWorkspaceFile: ncRichWorkspaceFile != null ? int.parse(ncRichWorkspaceFile) : null,
       ncShareAttributes: ncShareAttributes,
       ncSharees: ncSharees != null ? WebDavNcShareeList.fromXmlElement(ncSharees) : null,
-      ncUploadTime: ncUploadTime != null ? int.parse(ncUploadTime) : null,
+      ncUploadTime: ncUploadTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncUploadTime) : null,
       ncVersionAuthor: ncVersionAuthor,
       ncVersionLabel: ncVersionLabel,
       ocChecksums: ocChecksums != null ? WebDavOcChecksums.fromXmlElement(ocChecksums) : null,
@@ -3076,9 +3096,12 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     {Map<String, String?> namespaces = const {}}) {
   final children = <XmlNode>[];
   final davCreationdate = instance.davCreationdate;
-  final davCreationdateSerialized = davCreationdate?.toIso8601String();
+  final davCreationdateSerialized = davCreationdate;
   final davCreationdateConstructed = davCreationdateSerialized != null
-      ? XmlElement(XmlName('creationdate', namespaces['DAV:']), [], [XmlText(davCreationdateSerialized)])
+      ? XmlElement(
+          XmlName('creationdate', namespaces['DAV:']),
+          const ISO8601XMLConverter().toXmlAttributes(davCreationdateSerialized, namespaces: namespaces),
+          const ISO8601XMLConverter().toXmlChildren(davCreationdateSerialized, namespaces: namespaces))
       : null;
   if (davCreationdateConstructed != null) {
     children.add(davCreationdateConstructed);
@@ -3126,7 +3149,10 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
   final davGetlastmodified = instance.davGetlastmodified;
   final davGetlastmodifiedSerialized = davGetlastmodified;
   final davGetlastmodifiedConstructed = davGetlastmodifiedSerialized != null
-      ? XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], [XmlText(davGetlastmodifiedSerialized)])
+      ? XmlElement(
+          XmlName('getlastmodified', namespaces['DAV:']),
+          const HttpDateXMLConverter().toXmlAttributes(davGetlastmodifiedSerialized, namespaces: namespaces),
+          const HttpDateXMLConverter().toXmlChildren(davGetlastmodifiedSerialized, namespaces: namespaces))
       : null;
   if (davGetlastmodifiedConstructed != null) {
     children.add(davGetlastmodifiedConstructed);
@@ -3206,10 +3232,12 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ncContainedFolderCountConstructed);
   }
   final ncCreationTime = instance.ncCreationTime;
-  final ncCreationTimeSerialized = ncCreationTime?.toString();
+  final ncCreationTimeSerialized = ncCreationTime;
   final ncCreationTimeConstructed = ncCreationTimeSerialized != null
       ? XmlElement(
-          XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncCreationTimeSerialized)])
+          XmlName('creation_time', namespaces['http://nextcloud.org/ns']),
+          const UnixEpochXMLConverter().toXmlAttributes(ncCreationTimeSerialized, namespaces: namespaces),
+          const UnixEpochXMLConverter().toXmlChildren(ncCreationTimeSerialized, namespaces: namespaces))
       : null;
   if (ncCreationTimeConstructed != null) {
     children.add(ncCreationTimeConstructed);
@@ -3333,9 +3361,12 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ncLockOwnerTypeConstructed);
   }
   final ncLockTime = instance.ncLockTime;
-  final ncLockTimeSerialized = ncLockTime?.toString();
+  final ncLockTimeSerialized = ncLockTime;
   final ncLockTimeConstructed = ncLockTimeSerialized != null
-      ? XmlElement(XmlName('lock-time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncLockTimeSerialized)])
+      ? XmlElement(
+          XmlName('lock-time', namespaces['http://nextcloud.org/ns']),
+          const UnixEpochXMLConverter().toXmlAttributes(ncLockTimeSerialized, namespaces: namespaces),
+          const UnixEpochXMLConverter().toXmlChildren(ncLockTimeSerialized, namespaces: namespaces))
       : null;
   if (ncLockTimeConstructed != null) {
     children.add(ncLockTimeConstructed);
@@ -3383,10 +3414,12 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ncNoteConstructed);
   }
   final ncReminderDueDate = instance.ncReminderDueDate;
-  final ncReminderDueDateSerialized = ncReminderDueDate?.toIso8601String();
+  final ncReminderDueDateSerialized = ncReminderDueDate;
   final ncReminderDueDateConstructed = ncReminderDueDateSerialized != null
-      ? XmlElement(XmlName('reminder-due-date', namespaces['http://nextcloud.org/ns']), [],
-          [XmlText(ncReminderDueDateSerialized)])
+      ? XmlElement(
+          XmlName('reminder-due-date', namespaces['http://nextcloud.org/ns']),
+          const ISO8601XMLConverter().toXmlAttributes(ncReminderDueDateSerialized, namespaces: namespaces),
+          const ISO8601XMLConverter().toXmlChildren(ncReminderDueDateSerialized, namespaces: namespaces))
       : null;
   if (ncReminderDueDateConstructed != null) {
     children.add(ncReminderDueDateConstructed);
@@ -3430,9 +3463,12 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
     children.add(ncShareesConstructed);
   }
   final ncUploadTime = instance.ncUploadTime;
-  final ncUploadTimeSerialized = ncUploadTime?.toString();
+  final ncUploadTimeSerialized = ncUploadTime;
   final ncUploadTimeConstructed = ncUploadTimeSerialized != null
-      ? XmlElement(XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncUploadTimeSerialized)])
+      ? XmlElement(
+          XmlName('upload_time', namespaces['http://nextcloud.org/ns']),
+          const UnixEpochXMLConverter().toXmlAttributes(ncUploadTimeSerialized, namespaces: namespaces),
+          const UnixEpochXMLConverter().toXmlChildren(ncUploadTimeSerialized, namespaces: namespaces))
       : null;
   if (ncUploadTimeConstructed != null) {
     children.add(ncUploadTimeConstructed);
