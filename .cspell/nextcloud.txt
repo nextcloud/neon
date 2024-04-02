@@ -1,6 +1,7 @@
 apirequest
 apppassword
 bigfilechunking
+boardname
 bools
 bulkupload
 clearsky
@@ -44,6 +45,7 @@ shareapi
 sharebymail
 sharee
 shareesapi
+stackname
 statuscode
 stime
 stunservers
