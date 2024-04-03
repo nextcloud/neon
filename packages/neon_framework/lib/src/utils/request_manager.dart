@@ -181,8 +181,7 @@ class RequestManager {
       account: account,
       cacheKey: uri.toString(),
       getCacheParameters: () async {
-        final response = await account.client.executeRawRequest(
-          'HEAD',
+        final response = await account.client.head(
           uri,
           headers: headers,
         );

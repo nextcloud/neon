@@ -122,8 +122,6 @@ extension StringUtils on String {
 }
 
 const _reservedMethodNames = [
-  'executeRequest',
-  'executeRawRequest',
   'send',
   'head',
   'get',
