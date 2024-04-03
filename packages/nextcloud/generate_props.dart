@@ -6,48 +6,48 @@ void main() {
   final props = <String, Map<String, String>>{
     'dav': {
       // lockdiscovery and supportedlock are omitted because the server only has a dummy implementation anyway.
-      'creationdate': 'DateTime',
+      'creationdate': 'iso8601',
       'displayname': 'String',
       'getcontentlanguage': 'String',
       'getcontentlength': 'int',
       'getcontenttype': 'String',
       'getetag': 'String',
-      'getlastmodified': 'String',
+      'getlastmodified': 'httpDate',
       'quota-available-bytes': 'int',
       'quota-used-bytes': 'int',
       'resourcetype': 'WebDavResourcetype',
     },
     'nc': {
-      'acl-can-manage': 'int',
-      'acl-enabled': 'int',
+      'acl-can-manage': 'bool',
+      'acl-enabled': 'bool',
       'acl-list': 'WebDavNcAclList',
       'contained-file-count': 'int',
       'contained-folder-count': 'int',
-      'creation_time': 'int',
+      'creation_time': 'unixEpoch',
       'data-fingerprint': 'String',
       'group-folder-id': 'int',
       'has-preview': 'bool',
       'hidden': 'bool',
       'inherited-acl-list': 'WebDavNcAclList',
-      'is-encrypted': 'int',
+      'is-encrypted': 'bool',
       'is-mount-root': 'bool',
-      'lock': 'int',
+      'lock': 'bool',
       'lock-owner': 'String',
       'lock-owner-displayname': 'String',
       'lock-owner-editor': 'String',
       'lock-owner-type': 'int',
-      'lock-time': 'int',
-      'lock-timeout': 'int',
+      'lock-time': 'unixEpoch',
+      'lock-timeout': 'seconds',
       'lock-token': 'String',
       'metadata_etag': 'String',
       'mount-type': 'String',
       'note': 'String',
-      'reminder-due-date': 'DateTime',
+      'reminder-due-date': 'iso8601',
       'rich-workspace': 'String',
       'rich-workspace-file': 'int',
       'share-attributes': 'String',
       'sharees': 'WebDavNcShareeList',
-      'upload_time': 'int',
+      'upload_time': 'unixEpoch',
       'version-author': 'String',
       'version-label': 'String',
     },
@@ -57,7 +57,7 @@ void main() {
       'comments-href': 'String',
       'comments-unread': 'int',
       'downloadURL': 'String',
-      'favorite': 'int',
+      'favorite': 'bool',
       'fileid': 'int',
       'id': 'String',
       'owner-display-name': 'String',
@@ -80,17 +80,36 @@ void main() {
   final variables = <String>[];
   for (final namespacePrefix in props.keys) {
     for (final name in props[namespacePrefix]!.keys) {
-      final type = props[namespacePrefix]![name]!;
+      var type = props[namespacePrefix]![name]!;
 
       final namespaceVariable = convertNamespace(namespacePrefix);
       final variable = toDartName('$namespacePrefix-$name');
-      valueProps.add('''
+
+      final value = StringBuffer('''
 @annotation.XmlElement(
     name: '$name',
     namespace: $namespaceVariable,
     includeIfNull: false,
   )
-  final $type? $variable;''');
+''');
+      switch (type) {
+        case 'httpDate':
+          value.writeln('  @HttpDateXMLConverter()');
+          type = 'tz.TZDateTime';
+        case 'iso8601':
+          value.writeln('  @ISO8601XMLConverter()');
+          type = 'tz.TZDateTime';
+        case 'unixEpoch':
+          value.writeln('  @UnixEpochXMLConverter()');
+          type = 'tz.TZDateTime';
+        case 'seconds':
+          value.writeln('  @DurationXMLConverter()');
+          type = 'Duration';
+      }
+
+      value.write('  final $type? $variable;');
+      valueProps.add(value.toString());
+
       findProps.add('''
 @annotation.XmlElement(
     name: '$name',
@@ -107,7 +126,10 @@ void main() {
       '// ignore_for_file: public_member_api_docs',
       '// coverage:ignore-file',
       "import 'package:meta/meta.dart';",
+      "import 'package:nextcloud/src/utils/date_time.dart';",
+      "import 'package:nextcloud/src/webdav/utils.dart';",
       "import 'package:nextcloud/src/webdav/webdav.dart';",
+      "import 'package:timezone/timezone.dart' as tz;",
       "import 'package:xml/xml.dart';",
       "import 'package:xml_annotation/xml_annotation.dart' as annotation;",
       "part 'props.g.dart';",

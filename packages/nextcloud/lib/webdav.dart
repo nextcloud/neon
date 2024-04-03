@@ -7,7 +7,7 @@ export 'src/webdav/file.dart';
 export 'src/webdav/models.dart';
 export 'src/webdav/path_uri.dart';
 export 'src/webdav/props.dart';
-export 'src/webdav/utils.dart' hide constructUri;
+export 'src/webdav/utils.dart' hide DurationXMLConverter, constructUri;
 export 'src/webdav/webdav.dart';
 
 // ignore: public_member_api_docs
