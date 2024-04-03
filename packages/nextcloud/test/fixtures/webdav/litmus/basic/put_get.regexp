@@ -2,7 +2,11 @@ PUT http://localhost/remote\.php/webdav/res
 authorization: Bearer mock
 content-length: 19
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 This is a test file
 GET http://localhost/remote\.php/webdav/res
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token

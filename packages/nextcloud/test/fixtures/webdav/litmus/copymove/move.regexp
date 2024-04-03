@@ -2,25 +2,37 @@ PUT http://localhost/remote\.php/webdav/move-src1\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/move-src2\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 MKCOL http://localhost/remote\.php/webdav/move-coll
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 MOVE http://localhost/remote\.php/webdav/move-src1\.txt
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/move-dst\.txt
+ocs-apirequest: true
 overwrite: F
+requesttoken: token
 MOVE http://localhost/remote\.php/webdav/move-src2\.txt
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/move-dst\.txt
+ocs-apirequest: true
 overwrite: F
+requesttoken: token
 MOVE http://localhost/remote\.php/webdav/move-src2\.txt
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/move-dst\.txt
+ocs-apirequest: true
 overwrite: T
+requesttoken: token
