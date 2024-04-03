@@ -1,4 +1,5 @@
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart';
 import 'package:http/http.dart' as http;
 
 /// A [http.Client] that sends the Nextcloud CSRF token.
@@ -20,14 +21,17 @@ final class WebDavCSRFClient with http.BaseClient {
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
     if (_token == null) {
-      final response = await _inner.get(Uri.parse('${_inner.baseURL}/index.php'));
+      final response = await _inner.send(http.Request('GET', Uri.parse('${_inner.baseURL}/index.php')));
       if (response.statusCode >= 300) {
         throw DynamiteStatusCodeException(
           response.statusCode,
         );
       }
 
-      _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
+      final encoding = encodingForHeaders(response.headers);
+      final body = await response.stream.bytesToString(encoding);
+
+      _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(body)!.group(1);
     }
 
     request.headers.addAll({
