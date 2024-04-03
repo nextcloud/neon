@@ -105,15 +105,18 @@ class RequestManager {
     required Account account,
     required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
-    required AsyncValueGetter<WebDavMultistatus> request,
+    required http.BaseRequest request,
     required UnwrapCallback<T, WebDavMultistatus> unwrap,
     bool disableTimeout = false,
-  }) async =>
+  }) =>
       wrap<T, WebDavMultistatus>(
         account: account,
         cacheKey: cacheKey,
         subject: subject,
-        request: request,
+        request: () async {
+          final response = await account.client.webdav.csrfClient.send(request);
+          return const WebDavResponseConverter().convert(response);
+        },
         unwrap: unwrap,
         serialize: (data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
         deserialize: (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
