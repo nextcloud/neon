@@ -158,7 +158,7 @@ class $ApiClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getAppList_Serializer();
     final _rawResponse =

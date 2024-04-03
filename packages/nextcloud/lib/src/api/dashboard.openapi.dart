@@ -133,7 +133,7 @@ class $DashboardApiClient {
     final _request = $getWidgets_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getWidgets_Serializer();
     final _rawResponse = await _i1.ResponseConverter<DashboardApiGetWidgetsResponseApplicationJson, void>(_serializer)
@@ -250,7 +250,7 @@ class $DashboardApiClient {
       widgets: widgets,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getWidgetItems_Serializer();
     final _rawResponse =
@@ -372,7 +372,7 @@ class $DashboardApiClient {
       widgets: widgets,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getWidgetItemsV2_Serializer();
     final _rawResponse =

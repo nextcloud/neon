@@ -1,102 +1,158 @@
 MKCOL http://localhost/remote\.php/webdav/copy-coll-src
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 MKCOL http://localhost/remote\.php/webdav/copy-coll-src/sub
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/0\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/1\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/2\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/3\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/4\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/5\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/6\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/7\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/8\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/copy-coll-src/9\.txt
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 COPY http://localhost/remote\.php/webdav/copy-coll-src
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/copy-coll-dst1
+ocs-apirequest: true
 overwrite: F
+requesttoken: token
 COPY http://localhost/remote\.php/webdav/copy-coll-src
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/copy-coll-dst2
+ocs-apirequest: true
 overwrite: F
+requesttoken: token
 COPY http://localhost/remote\.php/webdav/copy-coll-src
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/copy-coll-dst1
+ocs-apirequest: true
 overwrite: F
+requesttoken: token
 COPY http://localhost/remote\.php/webdav/copy-coll-src
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/copy-coll-dst2
+ocs-apirequest: true
 overwrite: T
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/0\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/1\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/2\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/3\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/4\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/5\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/6\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/7\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/8\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/9\.txt
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst1/sub
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 DELETE http://localhost/remote\.php/webdav/copy-coll-dst2
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token

@@ -130,7 +130,7 @@ class $Client extends _i1.DynamiteClient {
       tags: tags,
       limit: limit,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $findPets_Serializer();
     final _rawResponse = await _i1.ResponseConverter<BuiltList<Pet>, void>(_serializer).convert(_response);
@@ -185,7 +185,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $addPet_Request(
       newPet: newPet,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $addPet_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Pet, void>(_serializer).convert(_response);
@@ -248,7 +248,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $findPetById_Request(
       id: id,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $findPetById_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Pet, void>(_serializer).convert(_response);
@@ -310,7 +310,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deletePet_Request(
       id: id,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $deletePet_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);

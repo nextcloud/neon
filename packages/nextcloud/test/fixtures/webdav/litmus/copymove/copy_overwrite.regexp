@@ -1,16 +1,24 @@
 MKCOL http://localhost/remote\.php/webdav/copy-overwrite-src
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 MKCOL http://localhost/remote\.php/webdav/copy-overwrite-dst
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 COPY http://localhost/remote\.php/webdav/copy-overwrite-src
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/copy-overwrite-dst
+ocs-apirequest: true
 overwrite: F
+requesttoken: token
 COPY http://localhost/remote\.php/webdav/copy-overwrite-src
 authorization: Bearer mock
 content-type: application/xml
 destination: http://localhost/remote\.php/webdav/copy-overwrite-dst
+ocs-apirequest: true
 overwrite: T
+requesttoken: token

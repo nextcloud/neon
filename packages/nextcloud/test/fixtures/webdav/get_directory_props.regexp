@@ -1,13 +1,19 @@
 MKCOL http://localhost/remote\.php/webdav/dir-props
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 PUT http://localhost/remote\.php/webdav/dir-props/test\.txt
 authorization: Bearer mock
 content-length: 4
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 test
 PROPFIND http://localhost/remote\.php/webdav/dir-props
 authorization: Bearer mock
 content-type: application/xml
 depth: 0
+ocs-apirequest: true
+requesttoken: token
 <d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><d:getcontenttype/><d:getlastmodified/><d:resourcetype/><oc:size/></d:prop></d:propfind>

@@ -1,4 +1,7 @@
+GET http://localhost/index\.php
 PROPFIND http://localhost/remote\.php/webdav
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 <d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><d:getcontenttype/><d:getlastmodified/><nc:has-preview/><oc:size/></d:prop></d:propfind>

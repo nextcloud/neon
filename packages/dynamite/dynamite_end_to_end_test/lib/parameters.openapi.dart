@@ -220,7 +220,7 @@ class $Client extends _i1.DynamiteClient {
       anyOf: anyOf,
       enumPattern: enumPattern,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -428,7 +428,7 @@ class $Client extends _i1.DynamiteClient {
       anyOf: anyOf,
       enumPattern: enumPattern,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $getHeaders_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -479,7 +479,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $getPathParameter_Request(
       pathParameter: pathParameter,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $getPathParameter_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -566,7 +566,7 @@ class $Client extends _i1.DynamiteClient {
       parameters: parameters,
       headers: headers,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $getNamingCollisions_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);

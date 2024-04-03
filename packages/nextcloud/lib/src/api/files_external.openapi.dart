@@ -132,7 +132,7 @@ class $ApiClient {
     final _request = $getUserMounts_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getUserMounts_Serializer();
     final _rawResponse =

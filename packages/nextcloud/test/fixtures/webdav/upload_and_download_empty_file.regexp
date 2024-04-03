@@ -2,6 +2,10 @@ PUT http://localhost/remote\.php/webdav/empty-file
 authorization: Bearer mock
 content-length: 0
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
 GET http://localhost/remote\.php/webdav/empty-file
 authorization: Bearer mock
 content-type: application/xml
+ocs-apirequest: true
+requesttoken: token

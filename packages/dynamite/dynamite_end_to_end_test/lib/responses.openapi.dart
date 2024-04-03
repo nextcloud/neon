@@ -71,7 +71,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> $get() async {
     final _request = $$get_Request();
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
@@ -118,7 +118,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$$put_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> $put() async {
     final _request = $$put_Request();
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $$put_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
@@ -166,7 +166,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$$post_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> $post() async {
     final _request = $$post_Request();
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $$post_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
@@ -213,7 +213,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$$patch_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> $patch() async {
     final _request = $$patch_Request();
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $$patch_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);

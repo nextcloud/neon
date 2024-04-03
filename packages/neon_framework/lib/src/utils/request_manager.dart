@@ -84,7 +84,7 @@ class RequestManager {
         cacheKey: cacheKey,
         subject: subject,
         request: () async {
-          final response = await account.client.sendWithCookies(request);
+          final response = await account.client.send(request);
           return ResponseConverter<B, H>(serializer).convert(response);
         },
         unwrap: (rawResponse) => unwrap(rawResponse),

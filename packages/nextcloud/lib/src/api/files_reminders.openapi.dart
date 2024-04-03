@@ -157,7 +157,7 @@ class $ApiClient {
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse =
@@ -279,7 +279,7 @@ class $ApiClient {
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $$set_Serializer();
     final _rawResponse =
@@ -388,7 +388,7 @@ class $ApiClient {
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $remove_Serializer();
     final _rawResponse =

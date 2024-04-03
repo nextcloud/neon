@@ -189,7 +189,7 @@ class $ApiClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $generateNotification_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ApiGenerateNotificationResponseApplicationJson, void>(_serializer)
@@ -296,7 +296,7 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $listNotifications_Serializer();
     final _rawResponse = await _i1.ResponseConverter<EndpointListNotificationsResponseApplicationJson,
@@ -396,7 +396,7 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $deleteAllNotifications_Serializer();
     final _rawResponse =
@@ -503,7 +503,7 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getNotification_Serializer();
     final _rawResponse = await _i1.ResponseConverter<EndpointGetNotificationResponseApplicationJson, void>(_serializer)
@@ -611,7 +611,7 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $deleteNotification_Serializer();
     final _rawResponse =
@@ -718,7 +718,7 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $confirmIdsForUser_Serializer();
     final _rawResponse =
@@ -853,7 +853,7 @@ class $PushClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $registerDevice_Serializer();
     final _rawResponse =
@@ -954,7 +954,7 @@ class $PushClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $removeDevice_Serializer();
     final _rawResponse =
@@ -1082,7 +1082,7 @@ class $SettingsClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $personal_Serializer();
     final _rawResponse =
@@ -1205,7 +1205,7 @@ class $SettingsClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $admin_Serializer();
     final _rawResponse =

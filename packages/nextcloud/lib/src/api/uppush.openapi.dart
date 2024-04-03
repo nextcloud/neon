@@ -107,7 +107,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$check_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CheckResponseApplicationJson, void>> check() async {
     final _request = $check_Request();
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $check_Serializer();
     final _rawResponse =
@@ -191,7 +191,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $setKeepalive_Request(
       keepalive: keepalive,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $setKeepalive_Serializer();
     final _rawResponse =
@@ -273,7 +273,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $createDevice_Request(
       deviceName: deviceName,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $createDevice_Serializer();
     final _rawResponse =
@@ -350,7 +350,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $syncDevice_Request(
       deviceId: deviceId,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $syncDevice_Serializer();
     final _rawResponse =
@@ -426,7 +426,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deleteDevice_Request(
       deviceId: deviceId,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $deleteDevice_Serializer();
     final _rawResponse =
@@ -517,7 +517,7 @@ class $Client extends _i1.DynamiteClient {
       deviceId: deviceId,
       appName: appName,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $createApp_Serializer();
     final _rawResponse =
@@ -590,7 +590,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deleteApp_Request(
       token: token,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $deleteApp_Serializer();
     final _rawResponse =
@@ -666,7 +666,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $unifiedpushDiscovery_Request(
       token: token,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $unifiedpushDiscovery_Serializer();
     final _rawResponse =
@@ -739,7 +739,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $push_Request(
       token: token,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $push_Serializer();
     final _rawResponse = await _i1.ResponseConverter<PushResponseApplicationJson, void>(_serializer).convert(_response);
@@ -806,7 +806,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$gatewayMatrixDiscovery_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>> gatewayMatrixDiscovery() async {
     final _request = $gatewayMatrixDiscovery_Request();
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $gatewayMatrixDiscovery_Serializer();
     final _rawResponse = await _i1.ResponseConverter<GatewayMatrixDiscoveryResponseApplicationJson, void>(_serializer)
@@ -874,7 +874,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$gatewayMatrix_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<GatewayMatrixResponseApplicationJson, void>> gatewayMatrix() async {
     final _request = $gatewayMatrix_Request();
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $gatewayMatrix_Serializer();
     final _rawResponse =

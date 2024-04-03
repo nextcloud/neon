@@ -121,7 +121,7 @@ class $LogSettingsClient {
   ///  * [$download_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
     final _request = $download_Request();
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $download_Serializer();
     final _rawResponse =

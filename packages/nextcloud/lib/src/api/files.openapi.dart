@@ -169,7 +169,7 @@ class $ApiClient {
       y: y,
       file: file,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getThumbnail_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -254,7 +254,7 @@ class $DirectEditingClient {
     final _request = $info_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $info_Serializer();
     final _rawResponse =
@@ -358,7 +358,7 @@ class $DirectEditingClient {
       creatorId: creatorId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $templates_Serializer();
     final _rawResponse = await _i1.ResponseConverter<DirectEditingTemplatesResponseApplicationJson, void>(_serializer)
@@ -471,7 +471,7 @@ class $DirectEditingClient {
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $open_Serializer();
     final _rawResponse =
@@ -594,7 +594,7 @@ class $DirectEditingClient {
       templateId: templateId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $create_Serializer();
     final _rawResponse =
@@ -696,7 +696,7 @@ class $OpenLocalEditorClient {
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $create_Serializer();
     final _rawResponse =
@@ -799,7 +799,7 @@ class $OpenLocalEditorClient {
       token: token,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $validate_Serializer();
     final _rawResponse = await _i1.ResponseConverter<OpenLocalEditorValidateResponseApplicationJson, void>(_serializer)
@@ -885,7 +885,7 @@ class $TemplateClient {
     final _request = $list_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $list_Serializer();
     final _rawResponse =
@@ -999,7 +999,7 @@ class $TemplateClient {
       templateType: templateType,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $create_Serializer();
     final _rawResponse =
@@ -1107,7 +1107,7 @@ class $TemplateClient {
       copySystemTemplates: copySystemTemplates,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $path_Serializer();
     final _rawResponse =
@@ -1220,7 +1220,7 @@ class $TransferOwnershipClient {
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $transfer_Serializer();
     final _rawResponse =
@@ -1318,7 +1318,7 @@ class $TransferOwnershipClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $accept_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TransferOwnershipAcceptResponseApplicationJson, void>(_serializer)
@@ -1415,7 +1415,7 @@ class $TransferOwnershipClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $reject_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TransferOwnershipRejectResponseApplicationJson, void>(_serializer)

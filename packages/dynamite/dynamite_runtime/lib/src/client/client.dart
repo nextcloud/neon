@@ -93,13 +93,14 @@ class DynamiteClient with http.BaseClient {
       request.bodyBytes = body;
     }
 
-    return sendWithCookies(request);
+    return send(request);
   }
 
   /// Sends an HTTP request and asynchronously returns the response.
   ///
   /// Cookies are persisted in the [cookieJar] and loaded for requests.
-  Future<http.StreamedResponse> sendWithCookies(http.BaseRequest request) async {
+  @override
+  Future<http.StreamedResponse> send(http.BaseRequest request) async {
     if (cookieJar != null) {
       final cookies = await cookieJar!.loadForRequest(request.url);
       if (cookies.isNotEmpty) {
@@ -107,7 +108,12 @@ class DynamiteClient with http.BaseClient {
       }
     }
 
-    final response = await send(request);
+    // Do not overwrite request headers to avoid invalid requests.
+    baseHeaders?.forEach((key, value) {
+      request.headers.putIfAbsent(key, () => value);
+    });
+
+    final response = await httpClient.send(request);
 
     final cookieHeader = response.headersSplitValues['set-cookie'];
     if (cookieHeader != null && cookieJar != null) {
@@ -116,15 +122,5 @@ class DynamiteClient with http.BaseClient {
     }
 
     return response;
-  }
-
-  @override
-  Future<http.StreamedResponse> send(http.BaseRequest request) async {
-    // Do not overwrite request headers to avoid invalid requests.
-    baseHeaders?.forEach((key, value) {
-      request.headers.putIfAbsent(key, () => value);
-    });
-
-    return httpClient.send(request);
   }
 }

@@ -143,7 +143,7 @@ class $WeatherStatusClient {
       mode: mode,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $setMode_Serializer();
     final _rawResponse =
@@ -225,7 +225,7 @@ class $WeatherStatusClient {
     final _request = $usePersonalAddress_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $usePersonalAddress_Serializer();
     final _rawResponse =
@@ -308,7 +308,7 @@ class $WeatherStatusClient {
     final _request = $getLocation_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getLocation_Serializer();
     final _rawResponse = await _i1.ResponseConverter<WeatherStatusGetLocationResponseApplicationJson, void>(_serializer)
@@ -418,7 +418,7 @@ class $WeatherStatusClient {
       lon: lon,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $setLocation_Serializer();
     final _rawResponse = await _i1.ResponseConverter<WeatherStatusSetLocationResponseApplicationJson, void>(_serializer)
@@ -502,7 +502,7 @@ class $WeatherStatusClient {
     final _request = $getForecast_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getForecast_Serializer();
     final _rawResponse = await _i1.ResponseConverter<WeatherStatusGetForecastResponseApplicationJson, void>(_serializer)
@@ -584,7 +584,7 @@ class $WeatherStatusClient {
     final _request = $getFavorites_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getFavorites_Serializer();
     final _rawResponse =
@@ -680,7 +680,7 @@ class $WeatherStatusClient {
       favorites: favorites,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $setFavorites_Serializer();
     final _rawResponse =

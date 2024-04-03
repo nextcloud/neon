@@ -135,7 +135,7 @@ class $Client extends _i1.DynamiteClient {
       tags: tags,
       limit: limit,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $findValues_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
@@ -191,7 +191,7 @@ class $NonRootClientClient {
   ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Object1, void>> setMode() async {
     final _request = $setMode_Request();
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $setMode_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);

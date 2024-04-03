@@ -158,7 +158,7 @@ class $DirectClient {
       expirationTime: expirationTime,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getUrl_Serializer();
     final _rawResponse =
@@ -261,7 +261,7 @@ class $OutOfOfficeClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getCurrentOutOfOfficeData_Serializer();
     final _rawResponse =
@@ -357,7 +357,7 @@ class $OutOfOfficeClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getOutOfOffice_Serializer();
     final _rawResponse =
@@ -489,7 +489,7 @@ class $OutOfOfficeClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $setOutOfOffice_Serializer();
     final _rawResponse =
@@ -585,7 +585,7 @@ class $OutOfOfficeClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $clearOutOfOffice_Serializer();
     final _rawResponse =
