@@ -15,7 +15,7 @@ void main() {
 
     test('Cookies', () async {
       final mockedClient = MockClient((request) async {
-        expect(request.headers['cookie'], equals(Cookie('a', 'b').toString()));
+        expect(request.headers['cookie'], equals('a=b; a2=b2; a3=b3'));
 
         return Response(
           '',
@@ -32,15 +32,19 @@ void main() {
         cookieJar: cookieJar,
       );
 
-      await cookieJar.saveFromResponse(uri, [Cookie('a', 'b')]);
+      await cookieJar.saveFromResponse(uri, [
+        Cookie('a', 'b'),
+        Cookie('a2', 'b2'),
+        Cookie('a3', 'b3'),
+      ]);
       await client.get(uri);
 
       final cookies = await cookieJar.loadForRequest(uri);
-      expect(cookies, hasLength(2));
+      expect(cookies, hasLength(4));
       expect(cookies[0].name, 'a');
       expect(cookies[0].value, 'b');
-      expect(cookies[1].name, 'c');
-      expect(cookies[1].value, 'd');
+      expect(cookies.last.name, 'c');
+      expect(cookies.last.value, 'd');
     });
 
     test('No cookies', () async {
