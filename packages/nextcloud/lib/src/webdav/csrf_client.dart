@@ -35,7 +35,7 @@ final class WebDavCSRFClient with http.BaseClient {
       'requesttoken': _token!,
     });
 
-    final response = await _inner.sendWithCookies(request);
+    final response = await _inner.send(request);
 
     if (response.statusCode >= 300) {
       throw DynamiteStatusCodeException(

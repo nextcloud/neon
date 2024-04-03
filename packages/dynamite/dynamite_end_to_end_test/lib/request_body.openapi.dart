@@ -79,7 +79,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $$get_Request(
       uint8List: uint8List,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -128,7 +128,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $$post_Request(
       string: string,
     );
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $$post_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);

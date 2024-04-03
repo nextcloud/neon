@@ -134,7 +134,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getStatus_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Status, void>> getStatus() async {
     final _request = $getStatus_Request();
-    final _response = await sendWithCookies(_request);
+    final _response = await send(_request);
 
     final _serializer = $getStatus_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Status, void>(_serializer).convert(_response);
@@ -224,7 +224,7 @@ class $AppPasswordClient {
     final _request = $getAppPassword_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getAppPassword_Serializer();
     final _rawResponse =
@@ -309,7 +309,7 @@ class $AppPasswordClient {
     final _request = $rotateAppPassword_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $rotateAppPassword_Serializer();
     final _rawResponse =
@@ -394,7 +394,7 @@ class $AppPasswordClient {
     final _request = $deleteAppPassword_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $deleteAppPassword_Serializer();
     final _rawResponse =
@@ -539,7 +539,7 @@ class $AutoCompleteClient {
       limit: limit,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse =
@@ -639,7 +639,7 @@ class $AvatarClient {
       userId: userId,
       size: size,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getAvatarDark_Serializer();
     final _rawResponse =
@@ -730,7 +730,7 @@ class $AvatarClient {
       userId: userId,
       size: size,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getAvatar_Serializer();
     final _rawResponse =
@@ -816,7 +816,7 @@ class $ClientFlowLoginV2Client {
     final _request = $poll_Request(
       token: token,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $poll_Serializer();
     final _rawResponse = await _i1.ResponseConverter<LoginFlowV2Credentials, void>(_serializer).convert(_response);
@@ -880,7 +880,7 @@ class $ClientFlowLoginV2Client {
   ///  * [$init_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<LoginFlowV2, void>> init() async {
     final _request = $init_Request();
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $init_Serializer();
     final _rawResponse = await _i1.ResponseConverter<LoginFlowV2, void>(_serializer).convert(_response);
@@ -982,7 +982,7 @@ class $CollaborationResourcesClient {
       filter: filter,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $searchCollections_Serializer();
     final _rawResponse =
@@ -1080,7 +1080,7 @@ class $CollaborationResourcesClient {
       collectionId: collectionId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $listCollection_Serializer();
     final _rawResponse =
@@ -1187,7 +1187,7 @@ class $CollaborationResourcesClient {
       collectionId: collectionId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $renameCollection_Serializer();
     final _rawResponse =
@@ -1303,7 +1303,7 @@ class $CollaborationResourcesClient {
       collectionId: collectionId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $addResource_Serializer();
     final _rawResponse =
@@ -1419,7 +1419,7 @@ class $CollaborationResourcesClient {
       collectionId: collectionId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $removeResource_Serializer();
     final _rawResponse =
@@ -1525,7 +1525,7 @@ class $CollaborationResourcesClient {
       resourceId: resourceId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getCollectionsByResource_Serializer();
     final _rawResponse =
@@ -1644,7 +1644,7 @@ class $CollaborationResourcesClient {
       baseResourceId: baseResourceId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $createCollectionOnResource_Serializer();
     final _rawResponse =
@@ -1747,7 +1747,7 @@ class $GuestAvatarClient {
       guestName: guestName,
       size: size,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getAvatarDark_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -1849,7 +1849,7 @@ class $GuestAvatarClient {
       size: size,
       darkTheme: darkTheme,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getAvatar_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -1949,7 +1949,7 @@ class $HoverCardClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getUser_Serializer();
     final _rawResponse =
@@ -2053,7 +2053,7 @@ class $NavigationClient {
       absolute: absolute,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getAppsNavigation_Serializer();
     final _rawResponse =
@@ -2151,7 +2151,7 @@ class $NavigationClient {
       absolute: absolute,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getSettingsNavigation_Serializer();
     final _rawResponse =
@@ -2228,7 +2228,7 @@ class $OcmClient {
   ///  * [$discovery_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>> discovery() async {
     final _request = $discovery_Request();
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $discovery_Serializer();
     final _rawResponse =
@@ -2316,7 +2316,7 @@ class $OcsClient {
     final _request = $getCapabilities_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getCapabilities_Serializer();
     final _rawResponse =
@@ -2472,7 +2472,7 @@ class $PreviewClient {
       mode: mode,
       mimeFallback: mimeFallback,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getPreviewByFileId_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -2619,7 +2619,7 @@ class $PreviewClient {
       mode: mode,
       mimeFallback: mimeFallback,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getPreview_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -2740,7 +2740,7 @@ class $ProfileApiClient {
       targetUserId: targetUserId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $setVisibility_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ProfileApiSetVisibilityResponseApplicationJson, void>(_serializer)
@@ -2826,7 +2826,7 @@ class $ReferenceClient {
     final _request = $preview_Request(
       referenceId: referenceId,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $preview_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -2925,7 +2925,7 @@ class $ReferenceApiClient {
       reference: reference,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $resolveOne_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ReferenceApiResolveOneResponseApplicationJson, void>(_serializer)
@@ -3028,7 +3028,7 @@ class $ReferenceApiClient {
       limit: limit,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $resolve_Serializer();
     final _rawResponse =
@@ -3139,7 +3139,7 @@ class $ReferenceApiClient {
       limit: limit,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $extract_Serializer();
     final _rawResponse =
@@ -3221,7 +3221,7 @@ class $ReferenceApiClient {
     final _request = $getProvidersInfo_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getProvidersInfo_Serializer();
     final _rawResponse =
@@ -3323,7 +3323,7 @@ class $ReferenceApiClient {
       timestamp: timestamp,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $touchProvider_Serializer();
     final _rawResponse =
@@ -3411,7 +3411,7 @@ class $TextProcessingApiClient {
     final _request = $taskTypes_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $taskTypes_Serializer();
     final _rawResponse =
@@ -3535,7 +3535,7 @@ class $TextProcessingApiClient {
       identifier: identifier,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $schedule_Serializer();
     final _rawResponse =
@@ -3631,7 +3631,7 @@ class $TextProcessingApiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getTask_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TextProcessingApiGetTaskResponseApplicationJson, void>(_serializer)
@@ -3728,7 +3728,7 @@ class $TextProcessingApiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $deleteTask_Serializer();
     final _rawResponse =
@@ -3832,7 +3832,7 @@ class $TextProcessingApiClient {
       identifier: identifier,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $listTasksByApp_Serializer();
     final _rawResponse =
@@ -3920,7 +3920,7 @@ class $TextToImageApiClient {
     final _request = $isAvailable_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $isAvailable_Serializer();
     final _rawResponse =
@@ -4043,7 +4043,7 @@ class $TextToImageApiClient {
       numberOfImages: numberOfImages,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $schedule_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TextToImageApiScheduleResponseApplicationJson, void>(_serializer)
@@ -4138,7 +4138,7 @@ class $TextToImageApiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getTask_Serializer();
     final _rawResponse =
@@ -4235,7 +4235,7 @@ class $TextToImageApiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $deleteTask_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TextToImageApiDeleteTaskResponseApplicationJson, void>(_serializer)
@@ -4337,7 +4337,7 @@ class $TextToImageApiClient {
       index: index,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getImage_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -4439,7 +4439,7 @@ class $TextToImageApiClient {
       identifier: identifier,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $listTasksByApp_Serializer();
     final _rawResponse =
@@ -4527,7 +4527,7 @@ class $TranslationApiClient {
     final _request = $languages_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $languages_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TranslationApiLanguagesResponseApplicationJson, void>(_serializer)
@@ -4641,7 +4641,7 @@ class $TranslationApiClient {
       fromLanguage: fromLanguage,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $translate_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TranslationApiTranslateResponseApplicationJson, void>(_serializer)
@@ -4742,7 +4742,7 @@ class $UnifiedSearchClient {
       from: from,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getProviders_Serializer();
     final _rawResponse =
@@ -4886,7 +4886,7 @@ class $UnifiedSearchClient {
       from: from,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $search_Serializer();
     final _rawResponse =
@@ -4974,7 +4974,7 @@ class $WhatsNewClient {
     final _request = $$get_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse =
@@ -5068,7 +5068,7 @@ class $WhatsNewClient {
       version: version,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $dismiss_Serializer();
     final _rawResponse =
@@ -5154,7 +5154,7 @@ class $WipeClient {
     final _request = $checkWipe_Request(
       token: token,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $checkWipe_Serializer();
     final _rawResponse =
@@ -5233,7 +5233,7 @@ class $WipeClient {
     final _request = $wipeDone_Request(
       token: token,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $wipeDone_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);

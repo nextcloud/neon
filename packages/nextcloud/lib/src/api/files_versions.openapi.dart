@@ -165,7 +165,7 @@ class $PreviewClient {
       y: y,
       version: version,
     );
-    final _response = await _rootClient.sendWithCookies(_request);
+    final _response = await _rootClient.send(_request);
 
     final _serializer = $getPreview_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);

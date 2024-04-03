@@ -442,7 +442,7 @@ ${allocate(returnType)}(
           ..body = Code.scope(
             (allocate) => '''
 final _request = \$${name}_Request($rawParameters);
-final _response = await $client.sendWithCookies(_request);
+final _response = await $client.send(_request);
 
 final _serializer = \$${name}_Serializer();
 final _rawResponse = await ${allocate(responseConverterType)}(_serializer).convert(_response);
