@@ -172,7 +172,7 @@ void main() {
   test('refresh', () async {
     capabilities.add(Result.success(buildCapabilities(enabled: true)));
     expect(
-      bloc.forecasts.transformResult((e) => e.isNotEmpty),
+      bloc.forecasts.transformResult((e) => e!.isNotEmpty),
       emitsInOrder([
         Result<bool>.loading(),
         Result.success(true),
@@ -195,5 +195,23 @@ void main() {
     bloc
       ..setLocation('Hamburg')
       ..setLocation('Berlin');
+  });
+
+  test('Remove location', () async {
+    capabilities.add(Result.success(buildCapabilities(enabled: true)));
+    expect(
+      bloc.forecasts.transformResult((e) => e != null),
+      emitsInOrder([
+        Result<bool>.loading(),
+        Result.success(true),
+        Result.success(null),
+        Result.success(null),
+      ]),
+    );
+
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+    bloc.setLocation('');
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+    await bloc.refresh();
   });
 }
