@@ -12,6 +12,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/testing.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -168,5 +169,17 @@ void main() {
         bloc.search(entry.key);
       });
     }
+  });
+
+  test('Active app change resets', () {
+    expect(
+      bloc.results,
+      emitsInOrder([
+        BuiltMap<String, Result<core.UnifiedSearchResult>>(),
+        BuiltMap<String, Result<core.UnifiedSearchResult>>(),
+      ]),
+    );
+
+    activeApp.add(MockAppImplementation());
   });
 }

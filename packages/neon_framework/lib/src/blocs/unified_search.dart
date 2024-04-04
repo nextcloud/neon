@@ -35,7 +35,12 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   _UnifiedSearchBloc({
     required this.appsBloc,
     required this.account,
-  });
+  }) {
+    appsBloc.activeApp.listen((_) {
+      term = '';
+      results.add(BuiltMap());
+    });
+  }
 
   @override
   final log = Logger('UnifiedSearchBloc');
