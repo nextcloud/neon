@@ -8213,11 +8213,17 @@ class _$c4bc4131e74e61dae681408e87e2e2bdSerializer implements PrimitiveSerialize
   }) {
     bool? $bool;
     try {
-      $bool = serializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+      $bool = serializers.deserialize(
+        data,
+        specifiedType: const FullType(bool),
+      )! as bool;
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(
+        data,
+        specifiedType: const FullType(int),
+      )! as int;
     } catch (_) {}
     return ($bool: $bool, $int: $int);
   }
@@ -8289,11 +8295,17 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }) {
     num? $num;
     try {
-      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      $num = serializers.deserialize(
+        data,
+        specifiedType: const FullType(num),
+      )! as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
@@ -8379,7 +8391,10 @@ class _$b20d370ea28764b414e70ac5df151f1bSerializer implements PrimitiveSerialize
     } catch (_) {}
     UserDetails? userDetails;
     try {
-      userDetails = serializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      userDetails = serializers.deserialize(
+        data,
+        specifiedType: const FullType(UserDetails),
+      )! as UserDetails;
     } catch (_) {}
     return (
       groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1:
@@ -8461,7 +8476,10 @@ class _$1e1cd5e43e0a1022a23a294e58225d74Serializer implements PrimitiveSerialize
   }) {
     UserDetails? userDetails;
     try {
-      userDetails = serializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      userDetails = serializers.deserialize(
+        data,
+        specifiedType: const FullType(UserDetails),
+      )! as UserDetails;
     } catch (_) {}
     UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
         usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
@@ -8550,7 +8568,10 @@ class _$f9d75e948689049b3f3e23e024d4be73Serializer implements PrimitiveSerialize
   }) {
     UserDetails? userDetails;
     try {
-      userDetails = serializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      userDetails = serializers.deserialize(
+        data,
+        specifiedType: const FullType(UserDetails),
+      )! as UserDetails;
     } catch (_) {}
     UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
         usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;

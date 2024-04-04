@@ -13361,7 +13361,10 @@ class _$87e48e5649cd72b4d2947aaaea13ccd8Serializer implements PrimitiveSerialize
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
     } catch (_) {}
     return (autocompleteResultStatus0: autocompleteResultStatus0, string: string);
   }
@@ -13433,11 +13436,17 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
   }) {
     int? $int;
     try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(
+        data,
+        specifiedType: const FullType(int),
+      )! as int;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
     } catch (_) {}
     return ($int: $int, string: string);
   }
@@ -13512,13 +13521,17 @@ class _$46564992d3ed3482aa6c1162698aac99Serializer implements PrimitiveSerialize
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
-          as BuiltList<Never>;
+      builtListNever = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(Never)]),
+      )! as BuiltList<Never>;
     } catch (_) {}
     SharebymailCapabilities0? sharebymailCapabilities0;
     try {
-      sharebymailCapabilities0 = serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities0))!
-          as SharebymailCapabilities0;
+      sharebymailCapabilities0 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(SharebymailCapabilities0),
+      )! as SharebymailCapabilities0;
     } catch (_) {}
     return (builtListNever: builtListNever, sharebymailCapabilities0: sharebymailCapabilities0);
   }
@@ -13593,8 +13606,10 @@ class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerialize
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
-          as BuiltList<Never>;
+      builtListNever = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(Never)]),
+      )! as BuiltList<Never>;
     } catch (_) {}
     SpreedPublicCapabilities0? spreedPublicCapabilities0;
     try {
@@ -13773,28 +13788,38 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
   }) {
     CommentsCapabilities? commentsCapabilities;
     try {
-      commentsCapabilities =
-          serializers.deserialize(data, specifiedType: const FullType(CommentsCapabilities))! as CommentsCapabilities;
+      commentsCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(CommentsCapabilities),
+      )! as CommentsCapabilities;
     } catch (_) {}
     DavCapabilities? davCapabilities;
     try {
-      davCapabilities =
-          serializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities;
+      davCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(DavCapabilities),
+      )! as DavCapabilities;
     } catch (_) {}
     DropAccountCapabilities? dropAccountCapabilities;
     try {
-      dropAccountCapabilities = serializers.deserialize(data, specifiedType: const FullType(DropAccountCapabilities))!
-          as DropAccountCapabilities;
+      dropAccountCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(DropAccountCapabilities),
+      )! as DropAccountCapabilities;
     } catch (_) {}
     FilesCapabilities? filesCapabilities;
     try {
-      filesCapabilities =
-          serializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities;
+      filesCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(FilesCapabilities),
+      )! as FilesCapabilities;
     } catch (_) {}
     FilesSharingCapabilities? filesSharingCapabilities;
     try {
-      filesSharingCapabilities = serializers.deserialize(data, specifiedType: const FullType(FilesSharingCapabilities))!
-          as FilesSharingCapabilities;
+      filesSharingCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(FilesSharingCapabilities),
+      )! as FilesSharingCapabilities;
     } catch (_) {}
     FilesTrashbinCapabilities? filesTrashbinCapabilities;
     try {
@@ -13812,8 +13837,10 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
     } catch (_) {}
     NotesCapabilities? notesCapabilities;
     try {
-      notesCapabilities =
-          serializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities;
+      notesCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(NotesCapabilities),
+      )! as NotesCapabilities;
     } catch (_) {}
     NotificationsCapabilities? notificationsCapabilities;
     try {
@@ -13831,8 +13858,10 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
     } catch (_) {}
     SharebymailCapabilities? sharebymailCapabilities;
     try {
-      sharebymailCapabilities = (serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
-          as SharebymailCapabilities)
+      sharebymailCapabilities = (serializers.deserialize(
+        data,
+        specifiedType: const FullType(SharebymailCapabilities),
+      )! as SharebymailCapabilities)
         ..validateOneOf();
     } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
@@ -13852,8 +13881,10 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
     } catch (_) {}
     UserStatusCapabilities? userStatusCapabilities;
     try {
-      userStatusCapabilities = serializers.deserialize(data, specifiedType: const FullType(UserStatusCapabilities))!
-          as UserStatusCapabilities;
+      userStatusCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(UserStatusCapabilities),
+      )! as UserStatusCapabilities;
     } catch (_) {}
     WeatherStatusCapabilities? weatherStatusCapabilities;
     try {

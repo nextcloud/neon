@@ -814,11 +814,17 @@ class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerialize
   }) {
     bool? $bool;
     try {
-      $bool = serializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+      $bool = serializers.deserialize(
+        data,
+        specifiedType: const FullType(bool),
+      )! as bool;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
     } catch (_) {}
     return ($bool: $bool, string: string);
   }

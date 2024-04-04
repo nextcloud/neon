@@ -237,11 +237,17 @@ class _$0c9017d9a03ba2eb2f15acadeab85bbeSerializer implements PrimitiveSerialize
   }) {
     ObjectAnyOf0? objectAnyOf0;
     try {
-      objectAnyOf0 = serializers.deserialize(data, specifiedType: const FullType(ObjectAnyOf0))! as ObjectAnyOf0;
+      objectAnyOf0 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(ObjectAnyOf0),
+      )! as ObjectAnyOf0;
     } catch (_) {}
     ObjectAnyOf1? objectAnyOf1;
     try {
-      objectAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(ObjectAnyOf1))! as ObjectAnyOf1;
+      objectAnyOf1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(ObjectAnyOf1),
+      )! as ObjectAnyOf1;
     } catch (_) {}
     return (objectAnyOf0: objectAnyOf0, objectAnyOf1: objectAnyOf1);
   }
@@ -313,11 +319,17 @@ class _$fba45e085ee99d64c5141852d4323e3dSerializer implements PrimitiveSerialize
   }) {
     MixedAnyOf1? mixedAnyOf1;
     try {
-      mixedAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(MixedAnyOf1))! as MixedAnyOf1;
+      mixedAnyOf1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(MixedAnyOf1),
+      )! as MixedAnyOf1;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
     } catch (_) {}
     return (mixedAnyOf1: mixedAnyOf1, string: string);
   }
@@ -389,11 +401,17 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }) {
     num? $num;
     try {
-      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      $num = serializers.deserialize(
+        data,
+        specifiedType: const FullType(num),
+      )! as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }

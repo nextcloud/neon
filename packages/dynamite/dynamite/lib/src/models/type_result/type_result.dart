@@ -107,9 +107,13 @@ sealed class TypeResult {
   String deserialize(String object, [String? serializerName]) {
     final buffer = StringBuffer()
       ..write(serializerName ?? r'_$jsonSerializers')
-      ..write('.deserialize(')
+      ..writeln('.deserialize(')
       ..write(object)
-      ..write(', specifiedType: $fullType)');
+      ..writeln(',')
+      ..write('specifiedType: ')
+      ..write(fullType)
+      ..writeln(',')
+      ..write(')');
 
     if (!nullable) {
       buffer.write('!');

@@ -335,12 +335,17 @@ class _$7f1b9936cf688676379074249fff891bSerializer implements PrimitiveSerialize
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
-          as BuiltList<Never>;
+      builtListNever = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(Never)]),
+      )! as BuiltList<Never>;
     } catch (_) {}
     Capabilities0? capabilities0;
     try {
-      capabilities0 = serializers.deserialize(data, specifiedType: const FullType(Capabilities0))! as Capabilities0;
+      capabilities0 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(Capabilities0),
+      )! as Capabilities0;
     } catch (_) {}
     return (builtListNever: builtListNever, capabilities0: capabilities0);
   }

@@ -5846,12 +5846,17 @@ class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerialize
   }) {
     BuiltList<int>? builtListInt;
     try {
-      builtListInt =
-          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+      builtListInt = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(int)]),
+      )! as BuiltList<int>;
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(
+        data,
+        specifiedType: const FullType(int),
+      )! as int;
     } catch (_) {}
     return (builtListInt: builtListInt, $int: $int);
   }

@@ -2361,12 +2361,17 @@ class _$557344b3ba734aacc7109e5420fcb6c5Serializer implements PrimitiveSerialize
   }) {
     ClearAtTimeType? clearAtTimeType;
     try {
-      clearAtTimeType =
-          serializers.deserialize(data, specifiedType: const FullType(ClearAtTimeType))! as ClearAtTimeType;
+      clearAtTimeType = serializers.deserialize(
+        data,
+        specifiedType: const FullType(ClearAtTimeType),
+      )! as ClearAtTimeType;
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(
+        data,
+        specifiedType: const FullType(int),
+      )! as int;
     } catch (_) {}
     return (clearAtTimeType: clearAtTimeType, $int: $int);
   }
@@ -2438,12 +2443,17 @@ class _$d77829de8b7590d2e16cdb714800f5beSerializer implements PrimitiveSerialize
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
-          as BuiltList<Never>;
+      builtListNever = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(Never)]),
+      )! as BuiltList<Never>;
     } catch (_) {}
     Private? private;
     try {
-      private = serializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
+      private = serializers.deserialize(
+        data,
+        specifiedType: const FullType(Private),
+      )! as Private;
     } catch (_) {}
     return (builtListNever: builtListNever, private: private);
   }

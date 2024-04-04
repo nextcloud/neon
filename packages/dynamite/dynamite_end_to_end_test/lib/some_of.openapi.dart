@@ -169,11 +169,17 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }) {
     num? $num;
     try {
-      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      $num = serializers.deserialize(
+        data,
+        specifiedType: const FullType(num),
+      )! as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
