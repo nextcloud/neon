@@ -24,6 +24,12 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
   /// Search for a [term].
   void search(String term);
 
+  /// Enables searching in all providers.
+  void enableExtendedSearch();
+
+  /// Whether the search happens only in the providers of the active app or of all apps.
+  BehaviorSubject<bool?> get isExtendedSearch;
+
   /// The available search providers.
   BehaviorSubject<Result<BuiltList<core.UnifiedSearchProvider>?>> get providers;
 
@@ -38,6 +44,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   }) {
     appsBloc.activeApp.listen((_) {
       term = '';
+      extendedSearchEnabled = false;
       results.add(BuiltMap());
     });
   }
@@ -48,6 +55,10 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   final AppsBloc appsBloc;
   final Account account;
   String term = '';
+  bool extendedSearchEnabled = false;
+
+  @override
+  final isExtendedSearch = BehaviorSubject.seeded(null);
 
   @override
   final providers = BehaviorSubject.seeded(Result.success(null));
@@ -57,6 +68,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
   @override
   void dispose() {
+    unawaited(isExtendedSearch.close());
     unawaited(providers.close());
     unawaited(results.close());
     super.dispose();
@@ -77,17 +89,40 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
     if (term.isEmpty) {
       results.add(BuiltMap());
+      isExtendedSearch.add(null);
+      extendedSearchEnabled = false;
       return;
     }
 
     if (providers.value.hasData) {
-      await searchProviders(providers.value.requireData!.map((provider) => provider.id).toList());
+      final activeApp = appsBloc.activeApp.value;
+
+      var providerIDs = providers.value.requireData!.map((provider) => provider.id);
+      if (!extendedSearchEnabled) {
+        final matchingProviderIDs = providerIDs.where((id) => providerMatchesApp(id, activeApp));
+
+        if (matchingProviderIDs.isNotEmpty) {
+          providerIDs = matchingProviderIDs;
+        }
+
+        isExtendedSearch.add(matchingProviderIDs.isEmpty);
+      } else {
+        isExtendedSearch.add(true);
+      }
+
+      await searchProviders(providerIDs.toList());
     }
   }
 
   @override
   Future<void> search(String term) async {
     this.term = term.trim();
+    await refresh();
+  }
+
+  @override
+  Future<void> enableExtendedSearch() async {
+    extendedSearchEnabled = true;
     await refresh();
   }
 
