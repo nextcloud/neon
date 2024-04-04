@@ -62,7 +62,22 @@ class DynamiteClient with http.BaseClient {
     if (cookieJar != null) {
       final cookies = await cookieJar!.loadForRequest(request.url);
       if (cookies.isNotEmpty) {
-        request.headers['cookie'] = cookies.join('; ');
+        final buffer = StringBuffer();
+
+        for (final entry in cookies.indexed) {
+          final cookie = entry.$2;
+
+          buffer
+            ..write(cookie.name)
+            ..write('=')
+            ..write(cookie.value);
+
+          if (entry.$1 < cookies.length - 1) {
+            buffer.write('; ');
+          }
+        }
+
+        request.headers['cookie'] = buffer.toString();
       }
     }
 
