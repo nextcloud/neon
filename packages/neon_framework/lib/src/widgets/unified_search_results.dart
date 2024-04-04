@@ -39,7 +39,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
         onRefresh: bloc.refresh,
         itemCount: providers.data?.length ?? 0,
         itemBuilder: (context, index) {
-          final provider = providers.requireData[index];
+          final provider = providers.data![index];
 
           return NeonUnifiedSearchProvider(
             provider: provider,

@@ -25,7 +25,7 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
   void search(String term);
 
   /// The available search providers.
-  BehaviorSubject<Result<BuiltList<core.UnifiedSearchProvider>>> get providers;
+  BehaviorSubject<Result<BuiltList<core.UnifiedSearchProvider>?>> get providers;
 
   /// Contains the unified search results mapped by provider.
   BehaviorSubject<BuiltMap<String, Result<core.UnifiedSearchResult>>> get results;
@@ -35,20 +35,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   _UnifiedSearchBloc({
     required this.appsBloc,
     required this.account,
-  }) {
-    providers.listen((result) async {
-      if (result.isLoading) {
-        return;
-      }
-
-      if (term.isEmpty) {
-        results.add(BuiltMap());
-        return;
-      }
-
-      await searchProviders(result.requireData.map((provider) => provider.id).toList());
-    });
-  }
+  });
 
   @override
   final log = Logger('UnifiedSearchBloc');
@@ -58,7 +45,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   String term = '';
 
   @override
-  final providers = BehaviorSubject.seeded(Result.success(BuiltList()));
+  final providers = BehaviorSubject.seeded(Result.success(null));
 
   @override
   final results = BehaviorSubject.seeded(BuiltMap());
@@ -72,14 +59,25 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud(
-      account: account,
-      cacheKey: 'unified-search-providers',
-      subject: providers,
-      getRequest: account.client.core.unifiedSearch.$getProviders_Request,
-      serializer: account.client.core.unifiedSearch.$getProviders_Serializer(),
-      unwrap: (response) => response.body.ocs.data,
-    );
+    if (!providers.value.hasSuccessfulData) {
+      await RequestManager.instance.wrapNextcloud(
+        account: account,
+        cacheKey: 'unified-search-providers',
+        subject: providers,
+        getRequest: account.client.core.unifiedSearch.$getProviders_Request,
+        serializer: account.client.core.unifiedSearch.$getProviders_Serializer(),
+        unwrap: (response) => response.body.ocs.data,
+      );
+    }
+
+    if (term.isEmpty) {
+      results.add(BuiltMap());
+      return;
+    }
+
+    if (providers.value.hasData) {
+      await searchProviders(providers.value.requireData!.map((provider) => provider.id).toList());
+    }
   }
 
   @override
