@@ -33,51 +33,6 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
     itemsV1.listen((_) => _updateItems());
     itemsV2.listen((_) => _updateItems());
 
-    widgets.listen((result) async {
-      if (!result.hasData) {
-        return;
-      }
-
-      final v1WidgetIDs = ListBuilder<String>();
-      final v2WidgetIDs = ListBuilder<String>();
-
-      for (final widget in result.requireData) {
-        final itemApiVersions = widget.itemApiVersions;
-        if (itemApiVersions != null && itemApiVersions.contains(2)) {
-          v2WidgetIDs.add(widget.id);
-        } else {
-          v1WidgetIDs.add(widget.id);
-        }
-      }
-
-      await Future.wait([
-        if (v1WidgetIDs.isNotEmpty)
-          RequestManager.instance.wrapNextcloud(
-            account: account,
-            cacheKey: 'dashboard-widgets-v1',
-            subject: itemsV1,
-            request: account.client.dashboard.dashboardApi.$getWidgetItems_Request(
-              widgets: v1WidgetIDs.build(),
-              limit: maxItems,
-            ),
-            serializer: account.client.dashboard.dashboardApi.$getWidgetItems_Serializer(),
-            unwrap: (response) => response.body.ocs.data,
-          ),
-        if (v2WidgetIDs.isNotEmpty)
-          RequestManager.instance.wrapNextcloud(
-            account: account,
-            cacheKey: 'dashboard-widgets-v2',
-            subject: itemsV2,
-            request: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
-              widgets: v2WidgetIDs.build(),
-              limit: maxItems,
-            ),
-            serializer: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer(),
-            unwrap: (response) => response.body.ocs.data,
-          ),
-      ]);
-    });
-
     unawaited(refresh());
 
     timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
@@ -110,18 +65,63 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud(
-      account: account,
-      cacheKey: 'dashboard-widgets',
-      subject: widgets,
-      request: account.client.dashboard.dashboardApi.$getWidgets_Request(),
-      serializer: account.client.dashboard.dashboardApi.$getWidgets_Serializer(),
-      // Filter all widgets that don't support v1 nor v2
-      unwrap: (response) => BuiltList(
-        response.body.ocs.data.values
-            .where((widget) => widget.itemApiVersions == null || widget.itemApiVersions!.isNotEmpty),
-      ),
-    );
+    if (!widgets.hasValue || !widgets.value.hasSuccessfulData) {
+      await RequestManager.instance.wrapNextcloud(
+        account: account,
+        cacheKey: 'dashboard-widgets',
+        subject: widgets,
+        request: account.client.dashboard.dashboardApi.$getWidgets_Request(),
+        serializer: account.client.dashboard.dashboardApi.$getWidgets_Serializer(),
+        // Filter all widgets that don't support v1 nor v2
+        unwrap: (response) => BuiltList(
+          response.body.ocs.data.values
+              .where((widget) => widget.itemApiVersions == null || widget.itemApiVersions!.isNotEmpty),
+        ),
+      );
+    }
+
+    if (!widgets.value.hasData) {
+      return;
+    }
+
+    final v1WidgetIDs = ListBuilder<String>();
+    final v2WidgetIDs = ListBuilder<String>();
+
+    for (final widget in widgets.value.requireData) {
+      final itemApiVersions = widget.itemApiVersions;
+      if (itemApiVersions != null && itemApiVersions.contains(2)) {
+        v2WidgetIDs.add(widget.id);
+      } else {
+        v1WidgetIDs.add(widget.id);
+      }
+    }
+
+    await Future.wait([
+      if (v1WidgetIDs.isNotEmpty)
+        RequestManager.instance.wrapNextcloud(
+          account: account,
+          cacheKey: 'dashboard-widgets-v1',
+          subject: itemsV1,
+          request: account.client.dashboard.dashboardApi.$getWidgetItems_Request(
+            widgets: v1WidgetIDs.build(),
+            limit: maxItems,
+          ),
+          serializer: account.client.dashboard.dashboardApi.$getWidgetItems_Serializer(),
+          unwrap: (response) => response.body.ocs.data,
+        ),
+      if (v2WidgetIDs.isNotEmpty)
+        RequestManager.instance.wrapNextcloud(
+          account: account,
+          cacheKey: 'dashboard-widgets-v2',
+          subject: itemsV2,
+          request: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
+            widgets: v2WidgetIDs.build(),
+            limit: maxItems,
+          ),
+          serializer: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer(),
+          unwrap: (response) => response.body.ocs.data,
+        ),
+    ]);
   }
 
   void _updateItems() {
