@@ -2106,8 +2106,10 @@ class _$20fe3de793aed6fbf929c9b82b472b1aSerializer implements PrimitiveSerialize
   }) {
     BuiltList<Forecast>? builtListForecast;
     try {
-      builtListForecast = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Forecast)]))!
-          as BuiltList<Forecast>;
+      builtListForecast = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(Forecast)]),
+      )! as BuiltList<Forecast>;
     } catch (_) {}
     WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1;
     try {

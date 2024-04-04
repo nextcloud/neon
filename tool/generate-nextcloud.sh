@@ -8,9 +8,6 @@ cd "$(dirname "$0")/.."
   fvm dart run generate_props.dart
   fvm dart run build_runner build --delete-conflicting-outputs
   fvm dart run generate_exports.dart
-  # For some reason we need to fix and format twice, otherwise not everything gets fixed
-  fvm dart fix --apply lib/src/api/
-  melos run format
   fvm dart fix --apply lib/src/api/
   melos run format
 )

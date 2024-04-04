@@ -328,11 +328,17 @@ class _$fc0451dbdd462718bd075afd2e3ce0ecSerializer implements PrimitiveSerialize
   }) {
     BaseOneOf1? baseOneOf1;
     try {
-      baseOneOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
+      baseOneOf1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseOneOf1),
+      )! as BaseOneOf1;
     } catch (_) {}
     double? $double;
     try {
-      $double = serializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      $double = serializers.deserialize(
+        data,
+        specifiedType: const FullType(double),
+      )! as double;
     } catch (_) {}
     return (baseOneOf1: baseOneOf1, $double: $double);
   }
@@ -404,11 +410,17 @@ class _$ce3c7b262d1c503446a436c461be5be9Serializer implements PrimitiveSerialize
   }) {
     BaseAnyOf1? baseAnyOf1;
     try {
-      baseAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf1))! as BaseAnyOf1;
+      baseAnyOf1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseAnyOf1),
+      )! as BaseAnyOf1;
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(
+        data,
+        specifiedType: const FullType(int),
+      )! as int;
     } catch (_) {}
     return (baseAnyOf1: baseAnyOf1, $int: $int);
   }
@@ -498,25 +510,39 @@ class _$8da5087c0b3f2cce06998d453af8ad19Serializer implements PrimitiveSerialize
   }) {
     BaseAllOf? baseAllOf;
     try {
-      baseAllOf = serializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
+      baseAllOf = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseAllOf),
+      )! as BaseAllOf;
     } catch (_) {}
     BaseAnyOf? baseAnyOf;
     try {
-      baseAnyOf = (serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)
+      baseAnyOf = (serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseAnyOf),
+      )! as BaseAnyOf)
         ..validateAnyOf();
     } catch (_) {}
     BaseNestedOneOf3? baseNestedOneOf3;
     try {
-      baseNestedOneOf3 =
-          serializers.deserialize(data, specifiedType: const FullType(BaseNestedOneOf3))! as BaseNestedOneOf3;
+      baseNestedOneOf3 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseNestedOneOf3),
+      )! as BaseNestedOneOf3;
     } catch (_) {}
     BaseOneOf1? baseOneOf1;
     try {
-      baseOneOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
+      baseOneOf1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseOneOf1),
+      )! as BaseOneOf1;
     } catch (_) {}
     double? $double;
     try {
-      $double = serializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      $double = serializers.deserialize(
+        data,
+        specifiedType: const FullType(double),
+      )! as double;
     } catch (_) {}
     return (
       baseAllOf: baseAllOf,
@@ -612,25 +638,39 @@ class _$523892e2348458a2bdb28f9f942dca37Serializer implements PrimitiveSerialize
   }) {
     BaseAllOf? baseAllOf;
     try {
-      baseAllOf = serializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
+      baseAllOf = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseAllOf),
+      )! as BaseAllOf;
     } catch (_) {}
     BaseAnyOf1? baseAnyOf1;
     try {
-      baseAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf1))! as BaseAnyOf1;
+      baseAnyOf1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseAnyOf1),
+      )! as BaseAnyOf1;
     } catch (_) {}
     BaseNestedAnyOf3? baseNestedAnyOf3;
     try {
-      baseNestedAnyOf3 =
-          serializers.deserialize(data, specifiedType: const FullType(BaseNestedAnyOf3))! as BaseNestedAnyOf3;
+      baseNestedAnyOf3 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseNestedAnyOf3),
+      )! as BaseNestedAnyOf3;
     } catch (_) {}
     BaseOneOf? baseOneOf;
     try {
-      baseOneOf = (serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)
+      baseOneOf = (serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseOneOf),
+      )! as BaseOneOf)
         ..validateOneOf();
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(
+        data,
+        specifiedType: const FullType(int),
+      )! as int;
     } catch (_) {}
     return (
       baseAllOf: baseAllOf,
@@ -708,11 +748,17 @@ class _$abe6d27882a5771a98ede04cd64de567Serializer implements PrimitiveSerialize
   }) {
     BaseOneOf1? baseOneOf1;
     try {
-      baseOneOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
+      baseOneOf1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseOneOf1),
+      )! as BaseOneOf1;
     } catch (_) {}
     num? $num;
     try {
-      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      $num = serializers.deserialize(
+        data,
+        specifiedType: const FullType(num),
+      )! as num;
     } catch (_) {}
     return (baseOneOf1: baseOneOf1, $num: $num);
   }

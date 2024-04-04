@@ -160,15 +160,24 @@ class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer implements PrimitiveSerialize
   }) {
     Base? base;
     try {
-      base = serializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
+      base = serializers.deserialize(
+        data,
+        specifiedType: const FullType(Base),
+      )! as Base;
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(
+        data,
+        specifiedType: const FullType(int),
+      )! as int;
     } catch (_) {}
     JsonObject? jsonObject;
     try {
-      jsonObject = serializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
+      jsonObject = serializers.deserialize(
+        data,
+        specifiedType: const FullType(JsonObject),
+      )! as JsonObject;
     } catch (_) {}
     return (base: base, $int: $int, jsonObject: jsonObject);
   }
