@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/src/client/authentication.dart';
@@ -54,47 +53,6 @@ class DynamiteClient with http.BaseClient {
   ///
   /// The first one matching the required authentication type will be used.
   final List<DynamiteAuthentication>? authentications;
-
-  /// Makes a request against a given [path].
-  ///
-  /// The query parameters of the [baseURL] are added.
-  /// The [path] is resolved against the path of the [baseURL].
-  /// All [baseHeaders] are added to the request.
-  Future<http.StreamedResponse> executeRequest(
-    String method,
-    String path, {
-    Map<String, String>? headers,
-    Uint8List? body,
-  }) {
-    final uri = Uri.parse('$baseURL$path');
-
-    return executeRawRequest(
-      method,
-      uri,
-      headers: headers,
-      body: body,
-    );
-  }
-
-  /// Executes a HTTP request against give full [uri].
-  Future<http.StreamedResponse> executeRawRequest(
-    String method,
-    Uri uri, {
-    Map<String, String>? headers,
-    Uint8List? body,
-  }) async {
-    final request = http.Request(method, uri);
-
-    if (headers != null) {
-      request.headers.addAll(headers);
-    }
-
-    if (body != null) {
-      request.bodyBytes = body;
-    }
-
-    return send(request);
-  }
 
   /// Sends an HTTP request and asynchronously returns the response.
   ///

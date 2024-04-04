@@ -4,7 +4,7 @@ cd "$(dirname "$0")/.."
 
 function find_apis() {
     # shellcheck disable=SC2068
-    grep -r $@ --include "*\.dart" -e "client\([0-9]\)\?\.[^.]*.[^(]*(" -oh | sed "s/^client\([0-9]\)\?\.//" | sed "s/($//" | sed "s/Raw$//" | grep -v "_Serializer" | grep -v "send" | grep -v "_Request" | grep -v "^executeRawRequest" | sort | uniq
+    grep -r $@ --include "*\.dart" -e "client\([0-9]\)\?\.[^.]*.[^(]*(" -oh | sed "s/^client\([0-9]\)\?\.//" | sed "s/($//" | grep -v "_Serializer" | grep -v "send" | grep -v "head" | grep -v "_Request" | sort | uniq
 }
 
 used_apis=("$(find_apis "packages/neon_framework" "packages/neon/"*)")
