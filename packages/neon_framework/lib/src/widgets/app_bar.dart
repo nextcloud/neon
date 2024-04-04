@@ -86,17 +86,23 @@ class _NeonAppBarState extends State<NeonAppBar> {
                   valueListenable: globalOptions.navigationMode,
                   builder: (context, navigationMode, _) {
                     final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
-                    return SearchBar(
-                      hintText: hintText,
-                      padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 8)),
-                      textInputAction: TextInputAction.search,
-                      leading: !drawerAlwaysVisible ? const DrawerButton() : null,
-                      trailing: const [
-                        NotificationIconButton(),
-                        AccountSwitcherButton(),
-                      ],
-                      onTap: () {
-                        controller.openView();
+                    return ResultBuilder.behaviorSubject(
+                      subject: appsBloc.appImplementations,
+                      builder: (context, appImplementations) {
+                        final showDrawer = appImplementations.hasData && appImplementations.requireData.length > 2;
+                        return SearchBar(
+                          hintText: hintText,
+                          padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 8)),
+                          textInputAction: TextInputAction.search,
+                          leading: showDrawer && !drawerAlwaysVisible ? const DrawerButton() : null,
+                          trailing: const [
+                            NotificationIconButton(),
+                            AccountSwitcherButton(),
+                          ],
+                          onTap: () {
+                            controller.openView();
+                          },
+                        );
                       },
                     );
                   },

@@ -93,73 +93,71 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const drawer = NeonDrawer();
-    const appBar = NeonAppBar();
-
-    final appView = ResultBuilder.behaviorSubject(
+    return ResultBuilder.behaviorSubject(
       subject: _appsBloc.appImplementations,
       builder: (context, appImplementations) {
+        Widget appView;
         if (!appImplementations.hasData) {
-          return const SizedBox();
-        }
-
-        if (appImplementations.requireData.isEmpty) {
-          return Center(
+          appView = const SizedBox();
+        } else if (appImplementations.requireData.isEmpty) {
+          appView = Center(
             child: Text(
               NeonLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
               textAlign: TextAlign.center,
             ),
           );
-        }
+        } else {
+          appView = StreamBuilder(
+            stream: _appsBloc.activeApp,
+            builder: (context, activeAppSnapshot) {
+              if (!activeAppSnapshot.hasData) {
+                return const SizedBox();
+              }
 
-        return StreamBuilder(
-          stream: _appsBloc.activeApp,
-          builder: (context, activeAppSnapshot) {
-            if (!activeAppSnapshot.hasData) {
-              return const SizedBox();
-            }
-
-            return SafeArea(
-              child: activeAppSnapshot.requireData.page,
-            );
-          },
-        );
-      },
-    );
-
-    final body = ValueListenableBuilder(
-      valueListenable: _globalOptions.navigationMode,
-      builder: (context, navigationMode, _) {
-        final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
-
-        final body = Scaffold(
-          resizeToAvoidBottomInset: false,
-          drawer: !drawerAlwaysVisible ? drawer : null,
-          appBar: appBar,
-          body: appView,
-        );
-
-        if (drawerAlwaysVisible) {
-          return Row(
-            children: [
-              ColoredBox(
-                color: Theme.of(context).colorScheme.background,
-                child: drawer,
-              ),
-              Expanded(
-                child: body,
-              ),
-            ],
+              return SafeArea(
+                child: activeAppSnapshot.requireData.page,
+              );
+            },
           );
         }
 
-        return body;
-      },
-    );
+        final showDrawer = appImplementations.hasData && appImplementations.requireData.length > 2;
 
-    return MultiProvider(
-      providers: _appsBloc.appBlocProviders,
-      child: body,
+        final body = ValueListenableBuilder(
+          valueListenable: _globalOptions.navigationMode,
+          builder: (context, navigationMode, _) {
+            final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
+
+            final body = Scaffold(
+              resizeToAvoidBottomInset: false,
+              drawer: showDrawer && !drawerAlwaysVisible ? const NeonDrawer() : null,
+              appBar: const NeonAppBar(),
+              body: appView,
+            );
+
+            if (showDrawer && drawerAlwaysVisible) {
+              return Row(
+                children: [
+                  ColoredBox(
+                    color: Theme.of(context).colorScheme.background,
+                    child: const NeonDrawer(),
+                  ),
+                  Expanded(
+                    child: body,
+                  ),
+                ],
+              );
+            }
+
+            return body;
+          },
+        );
+
+        return MultiProvider(
+          providers: _appsBloc.appBlocProviders,
+          child: body,
+        );
+      },
     );
   }
 }
