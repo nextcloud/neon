@@ -192,9 +192,10 @@ class DashboardMainPage extends StatelessWidget {
                   }
                 }
 
-                if (forecastsResult.hasData) {
-                  final weatherCode = forecastsResult.requireData.first.data.next1Hours.summary.symbolCode;
-                  final temperature = forecastsResult.requireData.first.data.instant.details.airTemperature;
+                final forecasts = forecastsResult.data;
+                if (forecasts != null) {
+                  final weatherCode = forecasts.first.data.next1Hours.summary.symbolCode;
+                  final temperature = forecasts.first.data.instant.details.airTemperature;
                   final description = DashboardLocalizations.of(context).weather(
                     weatherCode.replaceAll(RegExp(r'_(day|night)$'), ''),
                   );

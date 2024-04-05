@@ -29,7 +29,7 @@ abstract class WeatherStatusBloc implements InteractiveBloc {
   BehaviorSubject<Result<weather_status.$LocationInterface>> get location;
 
   /// Contains the forecasts.
-  BehaviorSubject<Result<BuiltList<weather_status.Forecast>>> get forecasts;
+  BehaviorSubject<Result<BuiltList<weather_status.Forecast>?>> get forecasts;
 }
 
 class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
@@ -82,20 +82,34 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
       return;
     }
 
-    await Future.wait([
-      RequestManager.instance.wrapNextcloud(
-        account: account,
-        cacheKey: 'weather_status-location',
-        subject: location,
-        request: account.client.weatherStatus.weatherStatus.$getLocation_Request(),
-        serializer: account.client.weatherStatus.weatherStatus.$getLocation_Serializer(),
-        unwrap: (response) => response.body.ocs.data,
-      ),
-      refreshForecast(),
-    ]);
+    await RequestManager.instance.wrapNextcloud(
+      account: account,
+      cacheKey: 'weather_status-location',
+      subject: location,
+      request: account.client.weatherStatus.weatherStatus.$getLocation_Request(),
+      serializer: account.client.weatherStatus.weatherStatus.$getLocation_Serializer(),
+      unwrap: (response) => response.body.ocs.data,
+    );
+
+    if (!location.value.hasData) {
+      return;
+    }
+
+    await refreshForecast();
   }
 
   Future<void> refreshForecast() async {
+    final locationData = location.value.requireData;
+
+    final address = locationData.address;
+    final lat = locationData.lat;
+    final lon = locationData.lon;
+
+    if ((address == null || address.isEmpty) && (lat == null || lat.isEmpty) && (lon == null || lon.isEmpty)) {
+      forecasts.add(Result.success(null));
+      return;
+    }
+
     await RequestManager.instance.wrapNextcloud(
       account: account,
       cacheKey: 'weather_status-forecast',
