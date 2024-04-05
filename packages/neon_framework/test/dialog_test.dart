@@ -398,6 +398,7 @@ void main() {
               provisioningApiCapabilities: null,
               sharebymailCapabilities: null,
               spreedPublicCapabilities: null,
+              systemtagsCapabilities: null,
               themingPublicCapabilities: null,
               userStatusCapabilities: null,
               weatherStatusCapabilities: null,

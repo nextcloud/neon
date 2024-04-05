@@ -1366,6 +1366,28 @@
                     }
                 ]
             },
+            "SystemtagsCapabilities": {
+                "type": "object",
+                "required": [
+                    "systemtags"
+                ],
+                "properties": {
+                    "systemtags": {
+                        "type": "object",
+                        "required": [
+                            "enabled"
+                        ],
+                        "properties": {
+                            "enabled": {
+                                "type": "boolean",
+                                "enum": [
+                                    true
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
             "ThemingPublicCapabilities": {
                 "type": "object",
                 "required": [
@@ -2546,6 +2568,9 @@
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/SpreedPublicCapabilities"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/components/schemas/SystemtagsCapabilities"
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/ThemingPublicCapabilities"

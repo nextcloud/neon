@@ -4,12 +4,14 @@ bigfilechunking
 bools
 bulkupload
 clearsky
+configapi
 cospend
 datetime
 dialin
 dialout
 displayname
 etag
+federatedfilesharing
 fediverse
 heavyrain
 heavyrainshowers
@@ -48,6 +50,7 @@ stunservers
 stylesheet
 subadmin
 subline
+systemtags
 totalitems
 trashbin
 turnservers

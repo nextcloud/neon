@@ -4,6 +4,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
+import 'package:version/version.dart';
 
 void main() {
   presets(
@@ -76,6 +77,11 @@ void main() {
           expect(response.body.ocs.data.capabilities.provisioningApiCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.sharebymailCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.spreedPublicCapabilities, isNotNull);
+          expect(
+            response.body.ocs.data.capabilities.systemtagsCapabilities,
+            isNotNull,
+            skip: preset.version < Version(28, 0, 0),
+          );
           expect(response.body.ocs.data.capabilities.themingPublicCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.userStatusCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.weatherStatusCapabilities, isNotNull);
