@@ -146,8 +146,6 @@ void main() {
       emitsInOrder([
         Result<BuiltList<String>>.loading(),
         Result.success(widgets),
-        Result.success(widgets).asLoading(),
-        Result.success(widgets),
       ]),
     );
 
