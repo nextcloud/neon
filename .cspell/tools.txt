@@ -47,6 +47,7 @@ libsqlite
 mipmap
 ndebug
 nodoc
+noopenapi
 nproc
 openrelay
 openrelayprojectsecret

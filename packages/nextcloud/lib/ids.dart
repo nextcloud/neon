@@ -54,6 +54,9 @@ final class AppIDs {
   /// ID for the spreed app.
   static const spreed = 'spreed';
 
+  /// ID for the systemtags app.
+  static const systemtags = 'systemtags';
+
   /// ID for the theming app.
   static const theming = 'theming';
 
@@ -62,6 +65,9 @@ final class AppIDs {
 
   /// ID for the uppush app.
   static const uppush = 'uppush';
+
+  /// ID for the user_ldap app.
+  static const userLdap = 'user_ldap';
 
   /// ID for the user_status app.
   static const userStatus = 'user_status';

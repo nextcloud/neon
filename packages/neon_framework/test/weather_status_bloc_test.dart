@@ -119,6 +119,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({requi
           provisioningApiCapabilities: null,
           sharebymailCapabilities: null,
           spreedPublicCapabilities: null,
+          systemtagsCapabilities: null,
           themingPublicCapabilities: null,
           userStatusCapabilities: null,
           weatherStatusCapabilities: core.WeatherStatusCapabilities(

@@ -9331,6 +9331,138 @@ typedef SpreedPublicCapabilities = ({
   SpreedPublicCapabilities0? spreedPublicCapabilities0
 });
 
+class SystemtagsCapabilities_Systemtags_Enabled extends EnumClass {
+  const SystemtagsCapabilities_Systemtags_Enabled._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const SystemtagsCapabilities_Systemtags_Enabled $true = _$systemtagsCapabilitiesSystemtagsEnabled$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SystemtagsCapabilities_Systemtags_Enabled> get values =>
+      _$systemtagsCapabilitiesSystemtagsEnabledValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SystemtagsCapabilities_Systemtags_Enabled valueOf(String name) =>
+      _$valueOfSystemtagsCapabilities_Systemtags_Enabled(name);
+
+  /// Returns the serialized value of this enum value.
+  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
+
+  /// Serializer for SystemtagsCapabilities_Systemtags_Enabled.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SystemtagsCapabilities_Systemtags_Enabled> get serializer =>
+      const _$SystemtagsCapabilities_Systemtags_EnabledSerializer();
+}
+
+class _$SystemtagsCapabilities_Systemtags_EnabledSerializer
+    implements PrimitiveSerializer<SystemtagsCapabilities_Systemtags_Enabled> {
+  const _$SystemtagsCapabilities_Systemtags_EnabledSerializer();
+
+  static const Map<SystemtagsCapabilities_Systemtags_Enabled, Object> _toWire =
+      <SystemtagsCapabilities_Systemtags_Enabled, Object>{
+    SystemtagsCapabilities_Systemtags_Enabled.$true: true,
+  };
+
+  static const Map<Object, SystemtagsCapabilities_Systemtags_Enabled> _fromWire =
+      <Object, SystemtagsCapabilities_Systemtags_Enabled>{
+    true: SystemtagsCapabilities_Systemtags_Enabled.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [SystemtagsCapabilities_Systemtags_Enabled];
+
+  @override
+  String get wireName => 'SystemtagsCapabilities_Systemtags_Enabled';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SystemtagsCapabilities_Systemtags_Enabled object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SystemtagsCapabilities_Systemtags_Enabled deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SystemtagsCapabilities_SystemtagsInterface {
+  SystemtagsCapabilities_Systemtags_Enabled get enabled;
+}
+
+abstract class SystemtagsCapabilities_Systemtags
+    implements
+        $SystemtagsCapabilities_SystemtagsInterface,
+        Built<SystemtagsCapabilities_Systemtags, SystemtagsCapabilities_SystemtagsBuilder> {
+  /// Creates a new SystemtagsCapabilities_Systemtags object using the builder pattern.
+  factory SystemtagsCapabilities_Systemtags([void Function(SystemtagsCapabilities_SystemtagsBuilder)? b]) =
+      _$SystemtagsCapabilities_Systemtags;
+
+  // coverage:ignore-start
+  const SystemtagsCapabilities_Systemtags._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SystemtagsCapabilities_Systemtags.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SystemtagsCapabilities_Systemtags.
+  static Serializer<SystemtagsCapabilities_Systemtags> get serializer => _$systemtagsCapabilitiesSystemtagsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SystemtagsCapabilitiesInterface {
+  SystemtagsCapabilities_Systemtags get systemtags;
+}
+
+abstract class SystemtagsCapabilities
+    implements $SystemtagsCapabilitiesInterface, Built<SystemtagsCapabilities, SystemtagsCapabilitiesBuilder> {
+  /// Creates a new SystemtagsCapabilities object using the builder pattern.
+  factory SystemtagsCapabilities([void Function(SystemtagsCapabilitiesBuilder)? b]) = _$SystemtagsCapabilities;
+
+  // coverage:ignore-start
+  const SystemtagsCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SystemtagsCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SystemtagsCapabilities.
+  static Serializer<SystemtagsCapabilities> get serializer => _$systemtagsCapabilitiesSerializer;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $ThemingPublicCapabilities_ThemingInterface {
   String get name;
@@ -9643,6 +9775,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   ProvisioningApiCapabilities? provisioningApiCapabilities,
   SharebymailCapabilities? sharebymailCapabilities,
   SpreedPublicCapabilities? spreedPublicCapabilities,
+  SystemtagsCapabilities? systemtagsCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
   UserStatusCapabilities? userStatusCapabilities,
   WeatherStatusCapabilities? weatherStatusCapabilities
@@ -13253,13 +13386,13 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
   /// Serializer for OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      $d7df54b8bef6b092d401eed2bcfbb6f0Extension._serializer;
+      $d6144dc1a5d1c43badd4fd45532494b5Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
-      $d7df54b8bef6b092d401eed2bcfbb6f0Extension._fromJson(json);
+      $d6144dc1a5d1c43badd4fd45532494b5Extension._fromJson(json);
 }
 
 /// Serialization extension for `UnifiedSearchSearchCursor`.
@@ -13622,7 +13755,7 @@ class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerialize
   }
 }
 
-typedef _$d7df54b8bef6b092d401eed2bcfbb6f0 = ({
+typedef _$d6144dc1a5d1c43badd4fd45532494b5 = ({
   CommentsCapabilities? commentsCapabilities,
   DavCapabilities? davCapabilities,
   DropAccountCapabilities? dropAccountCapabilities,
@@ -13635,6 +13768,7 @@ typedef _$d7df54b8bef6b092d401eed2bcfbb6f0 = ({
   ProvisioningApiCapabilities? provisioningApiCapabilities,
   SharebymailCapabilities? sharebymailCapabilities,
   SpreedPublicCapabilities? spreedPublicCapabilities,
+  SystemtagsCapabilities? systemtagsCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
   UserStatusCapabilities? userStatusCapabilities,
   WeatherStatusCapabilities? weatherStatusCapabilities
@@ -13642,7 +13776,7 @@ typedef _$d7df54b8bef6b092d401eed2bcfbb6f0 = ({
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $d7df54b8bef6b092d401eed2bcfbb6f0Extension on _$d7df54b8bef6b092d401eed2bcfbb6f0 {
+extension $d6144dc1a5d1c43badd4fd45532494b5Extension on _$d6144dc1a5d1c43badd4fd45532494b5 {
   List<dynamic> get _values => [
         commentsCapabilities,
         davCapabilities,
@@ -13656,6 +13790,7 @@ extension $d7df54b8bef6b092d401eed2bcfbb6f0Extension on _$d7df54b8bef6b092d401ee
         provisioningApiCapabilities,
         sharebymailCapabilities,
         spreedPublicCapabilities,
+        systemtagsCapabilities,
         themingPublicCapabilities,
         userStatusCapabilities,
         weatherStatusCapabilities,
@@ -13673,6 +13808,7 @@ extension $d7df54b8bef6b092d401eed2bcfbb6f0Extension on _$d7df54b8bef6b092d401ee
         'provisioningApiCapabilities',
         'sharebymailCapabilities',
         'spreedPublicCapabilities',
+        'systemtagsCapabilities',
         'themingPublicCapabilities',
         'userStatusCapabilities',
         'weatherStatusCapabilities',
@@ -13689,9 +13825,9 @@ extension $d7df54b8bef6b092d401eed2bcfbb6f0Extension on _$d7df54b8bef6b092d401ee
         _values,
         _names,
       );
-  static Serializer<_$d7df54b8bef6b092d401eed2bcfbb6f0> get _serializer =>
-      const _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer();
-  static _$d7df54b8bef6b092d401eed2bcfbb6f0 _fromJson(Object? json) =>
+  static Serializer<_$d6144dc1a5d1c43badd4fd45532494b5> get _serializer =>
+      const _$d6144dc1a5d1c43badd4fd45532494b5Serializer();
+  static _$d6144dc1a5d1c43badd4fd45532494b5 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -13700,19 +13836,19 @@ extension $d7df54b8bef6b092d401eed2bcfbb6f0Extension on _$d7df54b8bef6b092d401ee
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerializer<_$d7df54b8bef6b092d401eed2bcfbb6f0> {
-  const _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer();
+class _$d6144dc1a5d1c43badd4fd45532494b5Serializer implements PrimitiveSerializer<_$d6144dc1a5d1c43badd4fd45532494b5> {
+  const _$d6144dc1a5d1c43badd4fd45532494b5Serializer();
 
   @override
-  Iterable<Type> get types => const [_$d7df54b8bef6b092d401eed2bcfbb6f0];
+  Iterable<Type> get types => const [_$d6144dc1a5d1c43badd4fd45532494b5];
 
   @override
-  String get wireName => r'_$d7df54b8bef6b092d401eed2bcfbb6f0';
+  String get wireName => r'_$d6144dc1a5d1c43badd4fd45532494b5';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$d7df54b8bef6b092d401eed2bcfbb6f0 object, {
+    _$d6144dc1a5d1c43badd4fd45532494b5 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -13764,6 +13900,10 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities))!;
     }
+    value = object.systemtagsCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(SystemtagsCapabilities))!;
+    }
     value = object.themingPublicCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(ThemingPublicCapabilities))!;
@@ -13781,7 +13921,7 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
   }
 
   @override
-  _$d7df54b8bef6b092d401eed2bcfbb6f0 deserialize(
+  _$d6144dc1a5d1c43badd4fd45532494b5 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -13872,6 +14012,13 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
       )! as SpreedPublicCapabilities)
         ..validateOneOf();
     } catch (_) {}
+    SystemtagsCapabilities? systemtagsCapabilities;
+    try {
+      systemtagsCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(SystemtagsCapabilities),
+      )! as SystemtagsCapabilities;
+    } catch (_) {}
     ThemingPublicCapabilities? themingPublicCapabilities;
     try {
       themingPublicCapabilities = serializers.deserialize(
@@ -13906,6 +14053,7 @@ class _$d7df54b8bef6b092d401eed2bcfbb6f0Serializer implements PrimitiveSerialize
       provisioningApiCapabilities: provisioningApiCapabilities,
       sharebymailCapabilities: sharebymailCapabilities,
       spreedPublicCapabilities: spreedPublicCapabilities,
+      systemtagsCapabilities: systemtagsCapabilities,
       themingPublicCapabilities: themingPublicCapabilities,
       userStatusCapabilities: userStatusCapabilities,
       weatherStatusCapabilities: weatherStatusCapabilities
@@ -14364,6 +14512,14 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Signaling.serializer)
       ..add($06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer)
+      ..addBuilderFactory(const FullType(SystemtagsCapabilities), SystemtagsCapabilitiesBuilder.new)
+      ..add(SystemtagsCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(SystemtagsCapabilities_Systemtags),
+        SystemtagsCapabilities_SystemtagsBuilder.new,
+      )
+      ..add(SystemtagsCapabilities_Systemtags.serializer)
+      ..add(SystemtagsCapabilities_Systemtags_Enabled.serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilitiesBuilder.new)
       ..add(ThemingPublicCapabilities.serializer)
       ..addBuilderFactory(
@@ -14389,7 +14545,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..add($d7df54b8bef6b092d401eed2bcfbb6f0Extension._serializer)
+      ..add($d6144dc1a5d1c43badd4fd45532494b5Extension._serializer)
       ..add(PreviewGetPreviewByFileIdA.serializer)
       ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
       ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
@@ -14785,7 +14941,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$b2c4857c0136baea42828d89c87c757d,
             _$46564992d3ed3482aa6c1162698aac99,
             _$06c2e47196a84ebc3718dccf9eb4b29d,
-            _$d7df54b8bef6b092d401eed2bcfbb6f0,
+            _$d6144dc1a5d1c43badd4fd45532494b5,
           },
         ),
       )

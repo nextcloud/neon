@@ -24,30 +24,19 @@ function generate_spec() {
   composer install
 )
 
-for path in \
-  core \
-  apps/comments \
-  apps/dashboard \
-  apps/dav \
-  apps/files \
-  apps/files_external \
-  apps/files_reminders \
-  apps/files_sharing \
-  apps/files_trashbin \
-  apps/files_versions \
-  apps/provisioning_api \
-  apps/settings \
-  apps/sharebymail \
-  apps/theming \
-  apps/updatenotification \
-  apps/user_status \
-  apps/weather_status \
-; do
-  (
-    cd external/nextcloud-server
-    generate_spec "$path" "$(basename $path)"
-  )
-done
+(
+  cd external/nextcloud-server
+
+  for path in core apps/*; do
+    if [ ! -f "$path/.noopenapi" ] &&
+    [[ "$path" != "apps/cloud_federation_api" ]] &&
+    [[ "$path" != "apps/federatedfilesharing" ]] &&
+    [[ "$path" != "apps/federation" ]] &&
+    [[ "$path" != "apps/oauth2" ]]; then
+      generate_spec "$path" "$(basename "$path")"
+    fi
+  done
+)
 
 (
   cd external/nextcloud-notifications

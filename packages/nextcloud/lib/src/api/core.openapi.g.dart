@@ -87,6 +87,23 @@ final BuiltSet<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> _$ocmOcmDiscoveryH
   _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true,
 ]);
 
+const SystemtagsCapabilities_Systemtags_Enabled _$systemtagsCapabilitiesSystemtagsEnabled$true =
+    SystemtagsCapabilities_Systemtags_Enabled._('\$true');
+
+SystemtagsCapabilities_Systemtags_Enabled _$valueOfSystemtagsCapabilities_Systemtags_Enabled(String name) {
+  switch (name) {
+    case '\$true':
+      return _$systemtagsCapabilitiesSystemtagsEnabled$true;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SystemtagsCapabilities_Systemtags_Enabled> _$systemtagsCapabilitiesSystemtagsEnabledValues =
+    BuiltSet<SystemtagsCapabilities_Systemtags_Enabled>(const <SystemtagsCapabilities_Systemtags_Enabled>[
+  _$systemtagsCapabilitiesSystemtagsEnabled$true,
+]);
+
 const PreviewGetPreviewByFileIdA _$previewGetPreviewByFileIdA$0 = PreviewGetPreviewByFileIdA._('\$0');
 const PreviewGetPreviewByFileIdA _$previewGetPreviewByFileIdA$1 = PreviewGetPreviewByFileIdA._('\$1');
 
@@ -510,6 +527,9 @@ Serializer<SpreedPublicCapabilities0_Spreed_Config> _$spreedPublicCapabilities0S
 Serializer<SpreedPublicCapabilities0_Spreed> _$spreedPublicCapabilities0SpreedSerializer =
     _$SpreedPublicCapabilities0_SpreedSerializer();
 Serializer<SpreedPublicCapabilities0> _$spreedPublicCapabilities0Serializer = _$SpreedPublicCapabilities0Serializer();
+Serializer<SystemtagsCapabilities_Systemtags> _$systemtagsCapabilitiesSystemtagsSerializer =
+    _$SystemtagsCapabilities_SystemtagsSerializer();
+Serializer<SystemtagsCapabilities> _$systemtagsCapabilitiesSerializer = _$SystemtagsCapabilitiesSerializer();
 Serializer<ThemingPublicCapabilities_Theming> _$themingPublicCapabilitiesThemingSerializer =
     _$ThemingPublicCapabilities_ThemingSerializer();
 Serializer<ThemingPublicCapabilities> _$themingPublicCapabilitiesSerializer = _$ThemingPublicCapabilitiesSerializer();
@@ -5782,6 +5802,85 @@ class _$SpreedPublicCapabilities0Serializer implements StructuredSerializer<Spre
         case 'spreed':
           result.spreed.replace(serializers.deserialize(value,
               specifiedType: const FullType(SpreedPublicCapabilities0_Spreed))! as SpreedPublicCapabilities0_Spreed);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SystemtagsCapabilities_SystemtagsSerializer implements StructuredSerializer<SystemtagsCapabilities_Systemtags> {
+  @override
+  final Iterable<Type> types = const [SystemtagsCapabilities_Systemtags, _$SystemtagsCapabilities_Systemtags];
+  @override
+  final String wireName = 'SystemtagsCapabilities_Systemtags';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SystemtagsCapabilities_Systemtags object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(SystemtagsCapabilities_Systemtags_Enabled)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SystemtagsCapabilities_Systemtags deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SystemtagsCapabilities_SystemtagsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled =
+              serializers.deserialize(value, specifiedType: const FullType(SystemtagsCapabilities_Systemtags_Enabled))!
+                  as SystemtagsCapabilities_Systemtags_Enabled;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SystemtagsCapabilitiesSerializer implements StructuredSerializer<SystemtagsCapabilities> {
+  @override
+  final Iterable<Type> types = const [SystemtagsCapabilities, _$SystemtagsCapabilities];
+  @override
+  final String wireName = 'SystemtagsCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SystemtagsCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'systemtags',
+      serializers.serialize(object.systemtags, specifiedType: const FullType(SystemtagsCapabilities_Systemtags)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SystemtagsCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SystemtagsCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'systemtags':
+          result.systemtags.replace(serializers.deserialize(value,
+              specifiedType: const FullType(SystemtagsCapabilities_Systemtags))! as SystemtagsCapabilities_Systemtags);
           break;
       }
     }
@@ -22301,6 +22400,193 @@ class SpreedPublicCapabilities0Builder
         spreed.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SystemtagsCapabilities_SystemtagsInterfaceBuilder {
+  void replace($SystemtagsCapabilities_SystemtagsInterface other);
+  void update(void Function($SystemtagsCapabilities_SystemtagsInterfaceBuilder) updates);
+  SystemtagsCapabilities_Systemtags_Enabled? get enabled;
+  set enabled(SystemtagsCapabilities_Systemtags_Enabled? enabled);
+}
+
+class _$SystemtagsCapabilities_Systemtags extends SystemtagsCapabilities_Systemtags {
+  @override
+  final SystemtagsCapabilities_Systemtags_Enabled enabled;
+
+  factory _$SystemtagsCapabilities_Systemtags([void Function(SystemtagsCapabilities_SystemtagsBuilder)? updates]) =>
+      (SystemtagsCapabilities_SystemtagsBuilder()..update(updates))._build();
+
+  _$SystemtagsCapabilities_Systemtags._({required this.enabled}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'SystemtagsCapabilities_Systemtags', 'enabled');
+  }
+
+  @override
+  SystemtagsCapabilities_Systemtags rebuild(void Function(SystemtagsCapabilities_SystemtagsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SystemtagsCapabilities_SystemtagsBuilder toBuilder() => SystemtagsCapabilities_SystemtagsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SystemtagsCapabilities_Systemtags && enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SystemtagsCapabilities_Systemtags')..add('enabled', enabled)).toString();
+  }
+}
+
+class SystemtagsCapabilities_SystemtagsBuilder
+    implements
+        Builder<SystemtagsCapabilities_Systemtags, SystemtagsCapabilities_SystemtagsBuilder>,
+        $SystemtagsCapabilities_SystemtagsInterfaceBuilder {
+  _$SystemtagsCapabilities_Systemtags? _$v;
+
+  SystemtagsCapabilities_Systemtags_Enabled? _enabled;
+  SystemtagsCapabilities_Systemtags_Enabled? get enabled => _$this._enabled;
+  set enabled(covariant SystemtagsCapabilities_Systemtags_Enabled? enabled) => _$this._enabled = enabled;
+
+  SystemtagsCapabilities_SystemtagsBuilder();
+
+  SystemtagsCapabilities_SystemtagsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SystemtagsCapabilities_Systemtags other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SystemtagsCapabilities_Systemtags;
+  }
+
+  @override
+  void update(void Function(SystemtagsCapabilities_SystemtagsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SystemtagsCapabilities_Systemtags build() => _build();
+
+  _$SystemtagsCapabilities_Systemtags _build() {
+    final _$result = _$v ??
+        _$SystemtagsCapabilities_Systemtags._(
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SystemtagsCapabilities_Systemtags', 'enabled'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SystemtagsCapabilitiesInterfaceBuilder {
+  void replace($SystemtagsCapabilitiesInterface other);
+  void update(void Function($SystemtagsCapabilitiesInterfaceBuilder) updates);
+  SystemtagsCapabilities_SystemtagsBuilder get systemtags;
+  set systemtags(SystemtagsCapabilities_SystemtagsBuilder? systemtags);
+}
+
+class _$SystemtagsCapabilities extends SystemtagsCapabilities {
+  @override
+  final SystemtagsCapabilities_Systemtags systemtags;
+
+  factory _$SystemtagsCapabilities([void Function(SystemtagsCapabilitiesBuilder)? updates]) =>
+      (SystemtagsCapabilitiesBuilder()..update(updates))._build();
+
+  _$SystemtagsCapabilities._({required this.systemtags}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(systemtags, r'SystemtagsCapabilities', 'systemtags');
+  }
+
+  @override
+  SystemtagsCapabilities rebuild(void Function(SystemtagsCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SystemtagsCapabilitiesBuilder toBuilder() => SystemtagsCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SystemtagsCapabilities && systemtags == other.systemtags;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, systemtags.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SystemtagsCapabilities')..add('systemtags', systemtags)).toString();
+  }
+}
+
+class SystemtagsCapabilitiesBuilder
+    implements Builder<SystemtagsCapabilities, SystemtagsCapabilitiesBuilder>, $SystemtagsCapabilitiesInterfaceBuilder {
+  _$SystemtagsCapabilities? _$v;
+
+  SystemtagsCapabilities_SystemtagsBuilder? _systemtags;
+  SystemtagsCapabilities_SystemtagsBuilder get systemtags =>
+      _$this._systemtags ??= SystemtagsCapabilities_SystemtagsBuilder();
+  set systemtags(covariant SystemtagsCapabilities_SystemtagsBuilder? systemtags) => _$this._systemtags = systemtags;
+
+  SystemtagsCapabilitiesBuilder();
+
+  SystemtagsCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _systemtags = $v.systemtags.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SystemtagsCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SystemtagsCapabilities;
+  }
+
+  @override
+  void update(void Function(SystemtagsCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SystemtagsCapabilities build() => _build();
+
+  _$SystemtagsCapabilities _build() {
+    _$SystemtagsCapabilities _$result;
+    try {
+      _$result = _$v ?? _$SystemtagsCapabilities._(systemtags: systemtags.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'systemtags';
+        systemtags.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SystemtagsCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }
