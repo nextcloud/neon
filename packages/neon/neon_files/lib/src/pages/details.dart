@@ -66,14 +66,13 @@ class FilesDetailsPage extends StatelessWidget {
                         ? NeonLocalizations.of(context).actionYes
                         : NeonLocalizations.of(context).actionNo,
                   },
-                }.entries) ...[
+                }.entries)
                   DataRow(
                     cells: [
                       DataCell(Text(entry.key)),
                       DataCell(Text(entry.value)),
                     ],
                   ),
-                ],
               ],
             ),
           ],

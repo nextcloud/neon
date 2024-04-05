@@ -89,9 +89,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                     items: [
                       FilterType.all,
                       FilterType.unread,
-                      if (widget.bloc.listType == null) ...[
-                        FilterType.starred,
-                      ],
+                      if (widget.bloc.listType == null) FilterType.starred,
                     ].map(
                       (a) {
                         late final String label;
@@ -141,13 +139,12 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                     : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
               ),
             ),
-            if (article.mediaThumbnail != null) ...[
+            if (article.mediaThumbnail != null)
               NeonUriImage(
                 uri: Uri.parse(article.mediaThumbnail!),
                 size: const Size(100, 50),
                 fit: BoxFit.cover,
               ),
-            ],
           ],
         ),
         subtitle: Row(
