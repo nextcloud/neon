@@ -9,6 +9,8 @@ packages/**/.flutter-plugins
 packages/**/.flutter-plugins-dependencies
 packages/**/coverage
 packages/**/build
+packages/**/build-dir
+packages/**/.flatpak-builder
 packages/**/doc/api
 
 !packages/app/pubspec.lock
