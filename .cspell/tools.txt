@@ -21,6 +21,7 @@ enduml
 euxo
 exiftool
 extglob
+flatpak
 freedesktop
 fullpath
 fvmrc

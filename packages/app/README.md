@@ -14,6 +14,14 @@ Due to CORS issues the app must be run with web security disabled.
 fvm flutter run -d chrome --web-browser-flag "--disable-web-security"
 ```
 
+## Build and run the Flatpak
+
+```bash
+flatpak-builder --user --install --force-clean build-dir de.provokateurin.neon.yaml
+
+flatpak run de.provokateurin.neon
+```
+
 ## Screenshots
 
 For more screenshots see `./screenshots/`.
