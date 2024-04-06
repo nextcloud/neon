@@ -22,7 +22,6 @@ modules:
       - ln -s /app/lib/libappindicator3.so /app/lib/libayatana-appindicator3.so.7
       - ln -s /app/lib/libindicator3.so /app/lib/libayatana-indicator3.so.7
       - ln -s /app/lib/libindicator3.so /app/lib/libayatana-ido3-0.4.so.0
-      - mkdir -p /app/bin
   - name: x86_64-quirks
     only-arches: [x86_64]
     buildsystem: simple
@@ -32,7 +31,7 @@ modules:
   - name: nextcloud-neon
     buildsystem: simple
     build-commands:
-      - mkdir -p /app/nextcloud-neon/{data,lib}
+      - mkdir -p /app/bin /app/nextcloud-neon/{data,lib}
       - cp nextcloud-neon /app/nextcloud-neon/
       - cp *.so /app/nextcloud-neon/lib/
       - cp -r flutter_assets icudtl.dat /app/nextcloud-neon/data/
