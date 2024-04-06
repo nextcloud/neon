@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
@@ -16,12 +14,9 @@ import 'package:neon_framework/src/utils/global_popups.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/app_bar.dart';
 import 'package:neon_framework/src/widgets/drawer.dart';
-import 'package:neon_framework/src/widgets/error.dart';
-import 'package:nextcloud/core.dart' as core;
+import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
-
-final _log = Logger('HomePage');
 
 /// The home page of Neon.
 @internal
@@ -43,6 +38,8 @@ class _HomePageState extends State<HomePage> {
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
   late StreamSubscription<BuiltMap<String, VersionCheck>> _versionCheckSubscription;
+  late StreamSubscription<Object> maintenanceModeErrorsSubscription;
+  late StreamSubscription<void> maintenanceModeSubscription;
 
   @override
   void initState() {
@@ -50,6 +47,7 @@ class _HomePageState extends State<HomePage> {
     _globalOptions = NeonProvider.of<global_options.GlobalOptions>(context);
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
     _appsBloc = _accountsBloc.getAppsBlocFor(widget.account);
+    final maintenanceModeBloc = _accountsBloc.getMaintenanceModeBlocFor(widget.account);
 
     _versionCheckSubscription = _appsBloc.appVersionChecks.listen((values) {
       if (!mounted) {
@@ -70,37 +68,27 @@ class _HomePageState extends State<HomePage> {
       unawaited(showErrorDialog(context: context, message: message));
     });
 
-    GlobalPopups().register(context);
+    maintenanceModeErrorsSubscription = maintenanceModeBloc.errors.listen((error) {
+      NeonError.showSnackbar(context, error);
+    });
 
-    unawaited(_checkMaintenanceMode());
+    maintenanceModeSubscription = maintenanceModeBloc.onMaintenanceMode.listen((_) async {
+      await showErrorDialog(
+        context: context,
+        message: NeonLocalizations.of(context).errorServerInMaintenanceMode,
+      );
+    });
+
+    GlobalPopups().register(context);
   }
 
   @override
   void dispose() {
     unawaited(_versionCheckSubscription.cancel());
+    unawaited(maintenanceModeErrorsSubscription.cancel());
+    unawaited(maintenanceModeSubscription.cancel());
     GlobalPopups().dispose();
     super.dispose();
-  }
-
-  Future<void> _checkMaintenanceMode() async {
-    try {
-      final status = await widget.account.client.core.getStatus();
-
-      if (status.body.maintenance && mounted) {
-        final message = NeonLocalizations.of(context).errorServerInMaintenanceMode;
-        await showErrorDialog(context: context, message: message);
-      }
-    } on http.ClientException catch (error, stackTrace) {
-      _log.warning(
-        'Error getting the server status.',
-        error,
-        stackTrace,
-      );
-
-      if (mounted) {
-        NeonError.showSnackbar(context, error);
-      }
-    }
   }
 
   @override
