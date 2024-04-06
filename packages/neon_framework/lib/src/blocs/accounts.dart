@@ -9,6 +9,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/capabilities.dart';
+import 'package:neon_framework/src/blocs/maintenance_mode.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/blocs/user_details.dart';
 import 'package:neon_framework/src/blocs/user_status.dart';
@@ -138,6 +139,16 @@ abstract interface class AccountsBloc implements Disposable {
   ///
   /// Use [activeWeatherStatusBloc] to get them for the [activeAccount].
   WeatherStatusBloc getWeatherStatusBlocFor(Account account);
+
+  /// The MaintenanceModeBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getMaintenanceModeBlocFor] with the currently active account.
+  MaintenanceModeBloc get activeMaintenanceModeBloc;
+
+  /// The MaintenanceModeBloc for the specified [account].
+  ///
+  /// Use [activeMaintenanceModeBloc] to get them for the [activeAccount].
+  MaintenanceModeBloc getMaintenanceModeBlocFor(Account account);
 }
 
 /// Implementation of [AccountsBloc].
@@ -213,6 +224,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   final userStatusBlocs = AccountCache<UserStatusBloc>();
   final unifiedSearchBlocs = AccountCache<UnifiedSearchBloc>();
   final weatherStatusBlocs = AccountCache<WeatherStatusBloc>();
+  final maintenanceModeBlocs = AccountCache<MaintenanceModeBloc>();
 
   @override
   void dispose() {
@@ -224,6 +236,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     userStatusBlocs.dispose();
     unifiedSearchBlocs.dispose();
     weatherStatusBlocs.dispose();
+    maintenanceModeBlocs.dispose();
     accountsOptions.dispose();
   }
 
@@ -369,6 +382,15 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   @override
   WeatherStatusBloc getWeatherStatusBlocFor(Account account) => weatherStatusBlocs[account] ??= WeatherStatusBloc(
         capabilities: getCapabilitiesBlocFor(account).capabilities,
+        account: account,
+      );
+
+  @override
+  MaintenanceModeBloc get activeMaintenanceModeBloc => getMaintenanceModeBlocFor(aa);
+
+  @override
+  MaintenanceModeBloc getMaintenanceModeBlocFor(Account account) =>
+      maintenanceModeBlocs[account] ??= MaintenanceModeBloc(
         account: account,
       );
 }
