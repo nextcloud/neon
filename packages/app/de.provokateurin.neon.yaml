@@ -11,17 +11,12 @@ finish-args:
   - --device=dri
   - --env=LD_LIBRARY_PATH=/app/lib/:/app/nextcloud-neon/lib/
 modules:
-  - ../../external/flathub-shared-modules/libappindicator/libappindicator-gtk3-12.10.json
   - name: aarch64-quirks
     only-arches: [aarch64]
     buildsystem: simple
     build-commands:
       - mkdir -p /app/nextcloud-neon/lib
       - ln -s /usr/lib/aarch64-linux-gnu/libsqlite3.so.0 /app/nextcloud-neon/lib/libsqlite3.so
-      - ln -s /app/lib/libappindicator3.so /app/lib/libayatana-appindicator3.so.1
-      - ln -s /app/lib/libappindicator3.so /app/lib/libayatana-appindicator3.so.7
-      - ln -s /app/lib/libindicator3.so /app/lib/libayatana-indicator3.so.7
-      - ln -s /app/lib/libindicator3.so /app/lib/libayatana-ido3-0.4.so.0
   - name: x86_64-quirks
     only-arches: [x86_64]
     buildsystem: simple

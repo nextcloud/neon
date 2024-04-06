@@ -1,6 +1,5 @@
 aarch
 allprojects
-appindicator
 autoptr
 buildscript
 buildsystem
@@ -39,11 +38,8 @@ jvmargs
 klass
 lcov
 libapp
-libappindicator
-libayatana
 libflutter
 libgtk
-libindicator
 libsqlite
 mipmap
 ndebug
