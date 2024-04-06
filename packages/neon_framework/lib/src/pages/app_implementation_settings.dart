@@ -49,21 +49,17 @@ class AppImplementationSettingsPage extends StatelessWidget {
 
     final body = SettingsList(
       categories: [
-        for (final category in [...appImplementation.options.categories, null]) ...[
-          if (appImplementation.options.options.where((option) => option.category == category).isNotEmpty) ...[
+        for (final category in [...appImplementation.options.categories, null])
+          if (appImplementation.options.options.where((option) => option.category == category).isNotEmpty)
             SettingsCategory(
               title: Text(
                 category != null ? category.name(context) : NeonLocalizations.of(context).optionsCategoryOther,
               ),
               tiles: [
-                for (final option
-                    in appImplementation.options.options.where((option) => option.category == category)) ...[
+                for (final option in appImplementation.options.options.where((option) => option.category == category))
                   OptionSettingsTile(option: option),
-                ],
               ],
             ),
-          ],
-        ],
       ],
     );
 

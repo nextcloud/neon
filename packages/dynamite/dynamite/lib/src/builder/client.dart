@@ -74,14 +74,13 @@ Class buildRootClient(
                       ..toSuper = true
                       ..named = true,
                   ),
-                  if (spec.hasAnySecurity) ...[
+                  if (spec.hasAnySecurity)
                     Parameter(
                       (b) => b
                         ..name = 'authentications'
                         ..toSuper = true
                         ..named = true,
                     ),
-                  ],
                 ]),
             ),
             Constructor(

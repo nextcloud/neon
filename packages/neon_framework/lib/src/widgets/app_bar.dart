@@ -177,12 +177,11 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(app.name(context)),
-            if (_accounts.length > 1) ...[
+            if (_accounts.length > 1)
               Text(
                 _account.humanReadableID,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-            ],
           ],
         ),
       ),

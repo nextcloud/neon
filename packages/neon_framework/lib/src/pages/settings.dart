@@ -135,8 +135,8 @@ class _SettingsPageState extends State<SettingsPage> {
           title: Text(NeonLocalizations.of(context).settingsApps),
           key: ValueKey(SettingsCategories.apps.name),
           tiles: <SettingsTile>[
-            for (final appImplementation in appImplementations) ...[
-              if (appImplementation.options.options.isNotEmpty) ...[
+            for (final appImplementation in appImplementations)
+              if (appImplementation.options.options.isNotEmpty)
                 CustomSettingsTile(
                   leading: appImplementation.buildIcon(),
                   title: Text(appImplementation.name(context)),
@@ -144,8 +144,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     AppImplementationSettingsRoute(appid: appImplementation.id).go(context);
                   },
                 ),
-              ],
-            ],
           ],
         ),
         SettingsCategory(
@@ -176,7 +174,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ],
         ),
         if (NeonPlatform.instance.canUsePushNotifications) buildNotificationsCategory(),
-        if (NeonPlatform.instance.canUseWindowManager) ...[
+        if (NeonPlatform.instance.canUseWindowManager)
           SettingsCategory(
             title: Text(NeonLocalizations.of(context).optionsCategoryStartup),
             key: ValueKey(SettingsCategories.startup.name),
@@ -189,7 +187,6 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ],
           ),
-        ],
         ...buildAccountCategory(),
         SettingsCategory(
           hasLeading: true,

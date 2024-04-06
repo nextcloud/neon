@@ -70,12 +70,11 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      if (state.hasError) ...[
+                      if (state.hasError)
                         NeonValidationTile(
                           title: NeonError.getDetails(state.error).getText(context),
                           state: ValidationState.failure,
                         ),
-                      ],
                       _buildServerVersionTile(state),
                       _buildMaintenanceModeTile(state),
                       Align(
