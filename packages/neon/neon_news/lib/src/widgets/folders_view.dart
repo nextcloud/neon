@@ -28,8 +28,11 @@ class NewsFoldersView extends StatelessWidget {
           sortProperty: bloc.options.foldersSortPropertyOption,
           sortBoxOrder: bloc.options.foldersSortBoxOrderOption,
           input: feeds.hasData
-              ? folders.data?.map((folder) {
-                  final feedsInFolder = feeds.requireData.where((feed) => feed.folderId == folder.id);
+              ? [
+                  ...?folders.data,
+                  if (feeds.requireData.where((feed) => feed.folderId == null).isNotEmpty) null,
+                ].map((folder) {
+                  final feedsInFolder = feeds.requireData.where((feed) => feed.folderId == folder?.id);
                   final feedCount = feedsInFolder.length;
                   final unreadCount = feedsInFolder.fold(0, (a, b) => a + b.unreadCount!);
 
@@ -59,7 +62,7 @@ class NewsFoldersView extends StatelessWidget {
     final (folder: folder, feedCount: feedCount, unreadCount: unreadCount) = folderFeedsWrapper;
     return ListTile(
       title: Text(
-        folder.name,
+        folder?.name ?? NewsLocalizations.of(context).folderRoot,
         style: unreadCount == 0
             ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
             : null,
@@ -85,50 +88,56 @@ class NewsFoldersView extends StatelessWidget {
           ],
         ),
       ),
-      trailing: PopupMenuButton(
-        itemBuilder: (context) => [
-          PopupMenuItem(
-            value: NewsFolderAction.delete,
-            child: Text(NewsLocalizations.of(context).actionDelete),
-          ),
-          PopupMenuItem(
-            value: NewsFolderAction.rename,
-            child: Text(NewsLocalizations.of(context).actionRename),
-          ),
-        ],
-        onSelected: (action) async {
-          switch (action) {
-            case NewsFolderAction.delete:
-              final result = await showFolderDeleteDialog(context: context, folderName: folder.name);
-              if (result) {
-                bloc.deleteFolder(folder.id);
+      trailing: folder != null
+          ? PopupMenuButton(
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: NewsFolderAction.delete,
+                  child: Text(NewsLocalizations.of(context).actionDelete),
+                ),
+                PopupMenuItem(
+                  value: NewsFolderAction.rename,
+                  child: Text(NewsLocalizations.of(context).actionRename),
+                ),
+              ],
+              onSelected: (action) async {
+                switch (action) {
+                  case NewsFolderAction.delete:
+                    final result = await showFolderDeleteDialog(context: context, folderName: folder.name);
+                    if (result) {
+                      bloc.deleteFolder(folder.id);
+                    }
+                  case NewsFolderAction.rename:
+                    if (!context.mounted) {
+                      return;
+                    }
+                    final result = await showFolderRenameDialog(context: context, folderName: folder.name);
+                    if (result != null) {
+                      bloc.renameFolder(folder.id, result);
+                    }
+                }
+              },
+            )
+          : null,
+      onLongPress: folder != null
+          ? () {
+              if (unreadCount > 0) {
+                bloc.markFolderAsRead(folder.id);
               }
-            case NewsFolderAction.rename:
-              if (!context.mounted) {
-                return;
-              }
-              final result = await showFolderRenameDialog(context: context, folderName: folder.name);
-              if (result != null) {
-                bloc.renameFolder(folder.id, result);
-              }
-          }
-        },
-      ),
-      onLongPress: () {
-        if (unreadCount > 0) {
-          bloc.markFolderAsRead(folder.id);
-        }
-      },
-      onTap: () async {
-        await Navigator.of(context).push(
-          MaterialPageRoute<void>(
-            builder: (context) => NewsFolderPage(
-              bloc: bloc,
-              folder: folder,
-            ),
-          ),
-        );
-      },
+            }
+          : null,
+      onTap: folder != null
+          ? () async {
+              await Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (context) => NewsFolderPage(
+                    bloc: bloc,
+                    folder: folder,
+                  ),
+                ),
+              );
+            }
+          : null,
     );
   }
 }

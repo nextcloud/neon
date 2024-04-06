@@ -141,15 +141,15 @@ class NewsFeedsView extends StatelessWidget {
                     if (!context.mounted) {
                       return;
                     }
-                    final result = await showAdaptiveDialog<int?>(
+                    final result = await showAdaptiveDialog<({int? value})>(
                       context: context,
                       builder: (context) => NewsMoveFeedDialog(
                         folders: folders,
                         feed: feed,
                       ),
                     );
-                    if (result != null && result != feed.folderId) {
-                      bloc.moveFeed(feed.id, result);
+                    if (result != null && result.value != feed.folderId) {
+                      bloc.moveFeed(feed.id, result.value);
                     }
                 }
               },

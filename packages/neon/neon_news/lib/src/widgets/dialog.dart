@@ -272,7 +272,7 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pop(folder?.id);
+      Navigator.of(context).pop((value: folder?.id));
     }
   }
 

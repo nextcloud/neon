@@ -4,7 +4,7 @@ import 'package:nextcloud/news.dart' as news;
 
 final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   properties: {
-    FoldersSortProperty.alphabetical: (folderFeedsWrapper) => folderFeedsWrapper.folder.name.toLowerCase(),
+    FoldersSortProperty.alphabetical: (folderFeedsWrapper) => folderFeedsWrapper.folder?.name.toLowerCase() ?? '',
     FoldersSortProperty.unreadCount: (folderFeedsWrapper) => folderFeedsWrapper.unreadCount,
   },
   boxes: const {
@@ -17,4 +17,4 @@ final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   },
 );
 
-typedef FolderFeedsWrapper = ({news.Folder folder, int feedCount, int unreadCount});
+typedef FolderFeedsWrapper = ({news.Folder? folder, int feedCount, int unreadCount});
