@@ -15,20 +15,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-      - uses: kuhnroyal/flutter-fvm-config-action@34c3905bc939a4ff9d9cb07d5a977493fa73b2aa # v2
-        id: fvm_config
-      - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1 # v2
-        with:
-          flutter-version: ${{ steps.fvm_config.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm_config.outputs.FLUTTER_CHANNEL }}
+
       - name: Set up Java
         uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9 # v4
         with:
           distribution: 'adopt'
           java-version: 17
 
+      - name: Install dart
+        uses: dart-lang/setup-dart@fedb1266e91cf51be2fdb382869461a434b920a3 # v1
+      - name: Setup
+        run: ./tool/setup.sh
+
       - name: Build
-        run: cd packages/app && flutter build apk --split-per-abi --build-number="$(date +"%s")"
+        run: cd packages/app && fvm flutter build apk --split-per-abi --build-number="$(date +"%s")"
       - uses: ilharp/sign-android-release@2034987c31e3959f7c97e88d5e656e52e6e88bd8 # v1
         name: Sign
         with:
