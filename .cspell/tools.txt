@@ -1,6 +1,5 @@
 aarch
 allprojects
-appindicator
 autoptr
 buildscript
 buildsystem
@@ -21,6 +20,7 @@ enduml
 euxo
 exiftool
 extglob
+flatpak
 freedesktop
 fullpath
 fvmrc
@@ -38,11 +38,8 @@ jvmargs
 klass
 lcov
 libapp
-libappindicator
-libayatana
 libflutter
 libgtk
-libindicator
 libsqlite
 mipmap
 ndebug
