@@ -1,0 +1,21 @@
+{
+    "id": 0,
+    "name": "Recipe Without an image",
+    "description": "",
+    "url": "",
+    "image": "",
+    "prepTime": "",
+    "cookTime": "",
+    "totalTime": "",
+    "recipeCategory": "",
+    "keywords": "",
+    "recipeYield": 1,
+    "tool": [],
+    "recipeIngredient": [],
+    "recipeInstructions": [],
+    "nutrition": [],
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "dateModified": "2021-12-18T16:30:25+0000",
+    "dateCreated": "2021-12-18T16:30:25+0000"
+}

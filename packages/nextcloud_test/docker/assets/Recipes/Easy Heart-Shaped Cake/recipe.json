@@ -1,0 +1,78 @@
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "mainEntityOfPage": "https:\/\/www.allrecipes.com\/recipe\/283074\/easy-heart-shaped-cake\/",
+    "name": "Easy Heart-Shaped Cake",
+    "image": "https:\/\/imagesvc.meredithcorp.io\/v3\/mm\/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F8979442.jpg",
+    "datePublished": "2021-01-20T00:41:46.000Z",
+    "description": "This heart-shaped cake combines Ann McGavin Stout's Homemade Vanilla Cake recipe and QueenCook's Easy Valentine's Day Cake frosting recipe. The result is a supremely tasty, no-fail heart cake.",
+    "prepTime": "PT1H0M",
+    "cookTime": "PT0H45M",
+    "totalTime": "PT2H25M",
+    "recipeYield": 1,
+    "recipeIngredient": [
+        "2 cups white sugar",
+        "1 cup unsalted butter, softened",
+        "2 teaspoons vanilla extract",
+        "2 teaspoons almond extract",
+        "4 large eggs",
+        "3 cups all-purpose flour",
+        "\u2153 cup cornstarch",
+        "1 tablespoon baking powder",
+        "\u00be teaspoon salt",
+        "1\u2009\u00bd cups milk",
+        "2 cups unsalted butter, softened",
+        "4 teaspoons vanilla extract",
+        "8 cups powdered sugar",
+        "2 tablespoons whole milk, or more as needed",
+        "2 drops red food coloring, or as desired",
+        "2 drops yellow food coloring, or as desired",
+        "sprinkles as needed"
+    ],
+    "recipeInstructions": [
+        "Preheat the oven to 350 degrees F (175 degrees C). Grease an 8-inch square pan and an 8-inch round pan. Line bottoms with parchment or wax paper. Grease paper and dust lightly with flour.\n",
+        "Beat white sugar, butter, vanilla, and almond extract in a large bowl with an electric mixer on high speed until light and fluffy. Beat in eggs, 1 at a time, until well combined.\n",
+        "Stir flour, cornstarch, baking powder, and salt together in another bowl.\n",
+        "Beat 1 cup dry ingredients into wet ingredients until just combined. Add 1\/2 cup milk; beat until combined. Continue adding 1 cup dry ingredients and 1\/2 cup milk, beating after each addition, until all are used and batter is smooth. Divide evenly between the prepared pans.\n",
+        "Bake in the preheated oven until a toothpick inserted in the center of each cake comes out clean, 45 to 50 minutes. Cool in pans on wire racks for 10 minutes. Remove from pans and cool completely on racks.\n",
+        "Beat butter and vanilla together in a large bowl with an electric mixer on medium speed until combined, about 30 seconds. Gradually add powdered sugar, beating after each addition and adding milk as needed, until frosting is fluffy, smooth, and spreadable.\n",
+        "Remove 1\/3 cup frosting and divide between 2 small bowls. Tint 1 dark pink with red food coloring. Tint the other orange-pink with red and yellow food coloring. Tint remaining frosting light pink with red food coloring.\n",
+        "Set square cake on a work surface and rotate 45 degrees so that it resembles a diamond. Spread a little light pink frosting on left and right top sides of the diamond. Cut round cake in half crosswise to make 2 half-moons. Attach half-moons to top left and top right sides of diamond, gently pressing cake pieces together to adhere. Spread remaining light pink frosting over the assembled cake. Drop spoonfuls of dark pink and pink-orange frosting onto cake. Drag an offset spatula through frosting to create a marbled look.\n",
+        "Pat sprinkles onto the sides of the cake. Chill, covered, for up to 3 days. Let stand at room temperature 30 minutes before slicing into 16 pieces.\n"
+    ],
+    "recipeCategory": "Dessert",
+    "recipeCuisine": [],
+    "author": [
+        {
+            "@type": "Person",
+            "name": "thehungryscientist"
+        }
+    ],
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "itemReviewed": "Easy Heart-Shaped Cake",
+        "bestRating": "5",
+        "worstRating": "1"
+    },
+    "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "778.3 calories",
+        "carbohydrateContent": "109.4 g",
+        "cholesterolContent": "140 mg",
+        "fatContent": "36.6 g",
+        "fiberContent": "0.7 g",
+        "proteinContent": "5.2 g",
+        "saturatedFatContent": "22.6 g",
+        "sodiumContent": "205.8 mg",
+        "sugarContent": "87.9 g"
+    },
+    "review": [],
+    "keywords": "",
+    "tool": [],
+    "url": "https:\/\/www.allrecipes.com\/recipe\/283074\/easy-heart-shaped-cake\/",
+    "dateModified": "2021-01-30T15:02:50+0000",
+    "dateCreated": "2021-01-30T14:57:15+0000",
+    "id": 908706,
+    "printImage": false,
+    "imageUrl": "\/apps\/cookbook\/recipes\/908706\/image?size=full"
+}

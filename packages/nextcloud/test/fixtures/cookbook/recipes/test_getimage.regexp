@@ -1,0 +1,9 @@
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+/image
+accept: image/jpeg,image/svg\+xml
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+/image\?size=full
+accept: image/jpeg,image/svg\+xml
+authorization: Basic mock

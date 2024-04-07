@@ -85,15 +85,21 @@ void main() {
           final response = await client.core.navigation.getAppsNavigation();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
-          expect(response.body.ocs.data, hasLength(7));
+          expect(response.body.ocs.data, hasLength(8));
 
-          expect(response.body.ocs.data[0].id, 'dashboard');
-          expect(response.body.ocs.data[1].id, 'files');
-          expect(response.body.ocs.data[2].id, 'photos');
-          expect(response.body.ocs.data[3].id, 'activity');
-          expect(response.body.ocs.data[4].id, 'spreed');
-          expect(response.body.ocs.data[5].id, 'notes');
-          expect(response.body.ocs.data[6].id, 'news');
+          expect(
+            response.body.ocs.data.map((e) => e.id),
+            containsAllInOrder([
+              'dashboard',
+              'files',
+              'photos',
+              'activity',
+              'spreed',
+              'notes',
+              'news',
+              'cookbook',
+            ]),
+          );
         });
       });
 

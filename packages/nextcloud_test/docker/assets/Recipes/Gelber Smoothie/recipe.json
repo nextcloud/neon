@@ -1,0 +1,32 @@
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "nutrition": [],
+    "dateCreated": "2021-04-11T14:23:36+0000",
+    "printImage": false,
+    "id": 922169,
+    "name": "Gelber Smoothie ",
+    "imageUrl": "\/apps\/cookbook\/recipes\/922169\/image?size=full",
+    "recipeCategory": "",
+    "description": "",
+    "recipeIngredient": [
+        "  1   Mango, in St\u00fccken",
+        "  \u00bd   Ananas, in St\u00fccken",
+        "  \u00bd TL  Kurkuma",
+        "  \u00bd EL  Limettensaft",
+        "  1 dl  Wasser",
+        "  1 dl  Kokosmilch"
+    ],
+    "recipeInstructions": [
+        "\n                    \n                        Smoothie\n                        \n                            Mango mit allen Zutaten bis und mit Kokosmilch p\u00fcrieren, in die Gl\u00e4ser verteilen. \n                        \n                    \n                "
+    ],
+    "tool": [],
+    "recipeYield": 5,
+    "prepTime": "",
+    "cookTime": "",
+    "totalTime": "",
+    "keywords": "Vegan,Vegetarisch,Schnelle K\u00fcche",
+    "image": "https:\/\/recipecontent.fooby.ch\/12744_3-2_480-320.jpg",
+    "url": "https:\/\/fooby.ch\/de\/rezepte\/12744\/gelber-smoothie-?startAuto1=0",
+    "dateModified": "2021-04-17T12:45:04+0000"
+}

@@ -1,0 +1,101 @@
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "image": "https:\/\/img.chefkoch-cdn.de\/rezepte\/1769311286873269\/bilder\/1314890\/crop-960x540\/bauernbrot-mit-sauerteig.jpg",
+    "recipeCategory": "Brot und Br\u00f6tchen",
+    "recipeIngredient": [
+        "400 g Roggenmehl , 997, alternativ 1150",
+        "400 ml Wasser",
+        "80 g Sauerteig , (aktives Roggen - ASG)",
+        "400 g Roggenmehl , 997, alternativ 1150",
+        "300 g Weizenmehl , 550",
+        "3 TL, gestr. Salz",
+        "800 g Sauerteig , vorbereiter Ansatz",
+        "2 g Hefe ( je nach aktivit\u00e4t des Sauerteiges)",
+        "6 g Malz , (Roggenmalz)",
+        "300 g Wasser , lauwarmes"
+    ],
+    "name": "Bauernbrot mit Sauerteig",
+    "description": "Bauernbrot mit Sauerteig - gelingsicheres Roggenbrot. \u00dcber 150 Bewertungen und f\u00fcr mega befunden. Mit \u25ba Portionsrechner \u25ba Kochbuch \u25ba Video-Tipps!",
+    "recipeInstructions": [
+        "F\u00fcr den Sauerteigansatz Roggenmehl, Wasser und aktives Roggen-ASG miteinander verr\u00fchren und bei Zimmertemperatur \u00fcber Nacht, am besten 15 - 17 Stunden stehen lassen.",
+        "Beide Mehlsorten in einer R\u00fchrsch\u00fcssel vermischen und in die Mitte eine Mulde dr\u00fccken. Das Salz und das Roggenmalz an den Rand streuen. Ggf. 1 - 20 g Hefe (ich verwende gar keine Hefe, da mein ASG sehr aktiv ist) mit dem lauwarmen Wasser verschl\u00e4mmen und in die Mulde gie\u00dfen. Den Sauerteigansatz dazugeben und alles in der Knetmaschine 5-10 Minuten kneten. Danach folgt eine Teigruhe von 30 Minuten.",
+        "Den Teig aus der Sch\u00fcssel nehmen und auf der Arbeitsfl\u00e4che kr\u00e4ftig kneten und rund wirken. Der Teig klebt kaum. Den Teig in zwei Portionen teilen, diese in gut bemehlten G\u00e4rk\u00f6rbchen mit dem Schluss nach oben zur Gare stellen.",
+        "Nach 60 Minuten, je nach Zugabe von Hefe (Fingerprobe), das Brot auf einen Schie\u00dfer st\u00fcrzen, einschneiden und in den auf gut 250\u00b0 vorgeheizten Backofen oder auf einen Backstein schie\u00dfen. In den ersten 15 Minuten mit kr\u00e4ftigen Schwaden anbacken, dann die Schwaden ablassen und das Brot in ca. 60 Minuten bei 200\u00b0 fertig backen. Ca. 10 Minuten vor Ende der Backzeit die Ofent\u00fcr leicht \u00f6ffnen (einen Kochl\u00f6ffelstiel dazwischen klemmen) und zu Ende backen.",
+        "Klopftest: Das Brot sollte an der Unterseite sch\u00f6n hohl klingen, wenn man dagegen klopft.",
+        "Ergibt zwei kleine Roggenbrote \u00e0 750 g."
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "zaubermaus558"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Chefkoch.de"
+    },
+    "datePublished": "2010-10-13",
+    "prepTime": "PT0H30M",
+    "totalTime": "PT17H30M",
+    "recipeYield": 1,
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingCount": 150,
+        "ratingValue": 4.7,
+        "reviewCount": 262,
+        "worstRating": 0,
+        "bestRating": 5
+    },
+    "keywords": "Backen,Brot oder Br\u00f6tchen",
+    "reviews": [
+        {
+            "@type": "Review",
+            "reviewBody": "Liebe Zaubermaus558,\r\nvielen Dank f\u00fcr dieses tolle und einfache Brotrezept.\r\nIch habe ein ASG geschenkt bekommen und wollte nun auch mal ein Sauerteigbrot backen. Einen G\u00e4rkorb habe ich mir dann auch angeschafft und heute wurde gebacken.\r\nMein G\u00e4rkorb ist gro\u00df genug und ich habe es gefragt, ein gro\u00dfes Brot zu backen.\r\nWas soll ich sagen, es hat alles funktioniert, ganz ohne klebrigen Teig.\r\nDie Backzeit habe ich trotz Gr\u00f6\u00dfe nicht ver\u00e4ndert. Es hat auch ohne Schieber und Backstein geklappt, habe es auf das vorgeheizte Backblech gest\u00fcrzt. Ist wundersch\u00f6n in Form geblieben, ohne zu zerlaufen.\r\nKaum war mein Brot fertig, stand mein Vater spontan an der T\u00fcr (vom himmlischen Duft angezogen). Nat\u00fcrlich musste ich ihm ein St\u00fcck vom frischen Brot mitgeben. Au\u00dfen sehr knusprig und innen wunderbar fluffig. Bei der Gr\u00f6\u00dfe des Brotes gibt man ja gerne etwas ab.\r\nIch bin sehr begeistert.\r\nIch pflege mein ASG liebevoll weiter und bleibe beim Brotbacken.\r\nDenke jetzt mal \u00fcber die Anschaffung eines Backsteins nach!\r\nDanke auch an alle USER f\u00fcr die wertvollen Tipps\ud83d\ude4f!\r\nLiebe Gr\u00fc\u00dfe !",
+            "datePublished": "2021-12-13",
+            "author": {
+                "@type": "Person",
+                "name": "Djangolinchen"
+            }
+        },
+        {
+            "@type": "Review",
+            "reviewBody": "Hallo, eine Frage, wenn Hefewasser benutzt wird, l\u00e4\u00dft man dann die Hefe weg,?",
+            "datePublished": "2021-11-19",
+            "author": {
+                "@type": "Person",
+                "name": "Nette444"
+            }
+        },
+        {
+            "@type": "Review",
+            "reviewBody": "Danke Zaubermaus558,\nwar sehr informativ und hilfreich\n\ud83d\udc4d",
+            "datePublished": "2021-11-11",
+            "author": {
+                "@type": "Person",
+                "name": "tema2"
+            }
+        },
+        {
+            "@type": "Review",
+            "reviewBody": "Hi Lizzy,\r\n\r\nda hast du ja ein super Brotrezept eingestellt.\r\n\r\nDas hat schon lecker durchs ganze Haus geduftet beim Backen.\r\n\r\nEs schmeckt uns sehr gut und es ist auch wundersch\u00f6n anzuschauen - Bilder sind hochgeladen!\r\n\r\nHere are the results of the Amboss family: 5 stars!!!!\r\n\r\nLiebe Gr\u00fc\u00dfe\r\nAmboss110",
+            "datePublished": "2010-12-13",
+            "author": {
+                "@type": "Person",
+                "name": "Amboss110"
+            }
+        },
+        {
+            "@type": "Review",
+            "reviewBody": "Hallo Sabine,\r\nfreud mich sehr, da\u00df dir das bauernbrot gut gelungen und geschmeckt hat. Wegen dem Salz finde ich, das ist Gesckmacksache und Brotgew\u00fcrze vertragen wir leider nicht. Aber man kann ja Salz und Gew\u00fcrze nach eigenem gutd\u00fcnken dazu tun. Dank f\u00fcr deine positive Beurteilung.\r\nLiebe Gr\u00fc\u00dfe\r\nLizzy",
+            "datePublished": "2010-11-09",
+            "author": {
+                "@type": "Person",
+                "name": "zaubermaus558"
+            }
+        }
+    ],
+    "tool": [],
+    "url": "https:\/\/www.chefkoch.de\/rezepte\/1769311286873269\/Bauernbrot-mit-Sauerteig.html",
+    "nutrition": [],
+    "dateModified": "2021-12-19T01:30:41+0000",
+    "dateCreated": "2021-12-19T01:30:41+0000"
+}

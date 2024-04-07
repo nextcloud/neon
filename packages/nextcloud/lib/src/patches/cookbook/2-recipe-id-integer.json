@@ -1,0 +1,17 @@
+[
+    {
+        "op": "replace",
+        "path": "/components/schemas/RecipeStub/allOf/1/properties/recipe_id/description",
+        "value": "The index of the recipe."
+    },
+    {
+        "op": "replace",
+        "path": "/paths/~1index.php~1apps~1cookbook~1api~1v1~1recipes~1{id}/parameters/0/schema/type",
+        "value": "string"
+    },
+    {
+        "op": "replace",
+        "path": "/paths/~1index.php~1apps~1cookbook~1api~1v1~1recipes~1{id}~1image/get/parameters/0/schema/type",
+        "value": "string"
+    }
+]

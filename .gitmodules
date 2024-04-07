@@ -25,3 +25,6 @@
 [submodule "external/nextcloud-drop_account"]
 	path = external/nextcloud-drop_account
 	url = https://framagit.org/framasoft/nextcloud/drop_account.git
+[submodule "external/nextcloud-cookbook"]
+	path = external/nextcloud-cookbook
+	url = https://github.com/nextcloud/cookbook.git

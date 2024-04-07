@@ -1,0 +1,256 @@
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "mainEntityOfPage": "https:\/\/www.allrecipes.com\/recipe\/222331\/chef-johns-gazpacho\/",
+    "datePublished": "2012-05-09T23:49:30.000Z",
+    "recipeCuisine": [],
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Chef John"
+        }
+    ],
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.795321637426901,
+        "ratingCount": 342,
+        "itemReviewed": "Chef John's Gazpacho",
+        "bestRating": "5",
+        "worstRating": "1"
+    },
+    "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "131.7 calories",
+        "carbohydrateContent": "10.5 g",
+        "fatContent": "9.9 g",
+        "fiberContent": "2.8 g",
+        "proteinContent": "2 g",
+        "saturatedFatContent": "1.4 g",
+        "sodiumContent": "410.3 mg",
+        "sugarContent": "4.5 g"
+    },
+    "review": [
+        {
+            "@type": "Review",
+            "datePublished": "2012-06-02T23:53:32.307Z",
+            "reviewBody": "Oh Chef John, your reputation precedes you! From your how-to videos to your numerous published recipes, you've earned your title. I was craving Summer and happened to find this recipe, and while I don't have end of season tomatoes yet, this gazpacho turned out incredibly. If you love to cook, but take satisfaction in the preparation of the dish, then try this recipe. I had some time on a Saturday afternoon all to myself to create, and chopping the vegetables was a great source of relaxation. I felt like a character in a movie (have you ever seen Julia & Julia?) while I was preparing this soup. OK, maybe that's a bit dramatic, but the finished product is DELICIOUS! Don't be intimidated by the steps, and here is a great tip from the video--to peel tomatoes easily, dip them in a pot of boiling water for a few seconds. You'll be able to pull the peel off easily before dicing them. THANKS for a wonderful, fresh, healthy recipe! I can't wait to share this with my friends.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Jennifer Baker",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/jrbaker\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2012-06-06T18:25:01.79Z",
+            "reviewBody": "This might be one of my favorite recipes of all time. Delicious, simple to make and tastes as good or better the next day. I've already had 5 people ask me for the recipe. I made this over the weekend and I am now making it again for an end of school party on Friday for the teachers. I didn't change a single thing in this recipe. This is an absolute MUST try recipe. On a side ntoe - I served this for dinner, but I also served it for brunch along with a southwestern breakfast casserole and it worked very well together. Thank you again Chef John - your flavor combinations are ALWAYS spot on!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Stirring up Trouble",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/7111996\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2012-07-29T22:35:21.49Z",
+            "reviewBody": "WOW! As a registered nutritionist and personal chef I always look for healthy foods that are quick to make and great tasting. Just last Friday I held a workshop at our local Cancer Center and wowed the participants. This recipe is quick and easy to prepare and has great texture and taste. Thank you Chef John!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Chef Ian",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/4395436\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2012-07-08T08:47:38.37Z",
+            "reviewBody": "After trying Chef John's Gazpacho a few days ago I have now pitched my own recipe of over 20 years! Yes folks it is true! You can teach an old dog new tricks or new recipes anyway.;) I made no changes to it and my family and friends loved it! Gazpacho can be time consuming to make but John's isn't but 45 minutes and viewing his video to make it makes it all the more easy. Plus his voice is so relaxing to me!;) The only thing I added was a cucumber slice and a dollop of Daisy Sour Cream to the top of each serving. Bon appetit!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Herbies Mom",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/2380426\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2013-07-17T00:19:25.123Z",
+            "reviewBody": "SHUT THE FRONT DOOR PEOPLE! This soup is phenomenal. Who knew that a simple cold tomato summer soup could taste like this? I'd all but given up but this recipe showed up in my inbox and I thought \"what the heck we'll try one more gazpacho recipe.\" SO THANKFUL I DID!!! and I'm sorry to say I did change one thing. I did not see the 4 tomatoes called for first thing. so I got home and had all the rest of the ingredients but not those. So-what to do??? I followed the rest of the directions and then added 2 cups of low-sodium V8. This soup is amazing. I'm letting it chill now as I write but it already tastes so good I know this is going to be a once-a-weeker for the rest of the summer! and I am doing great things for my body!!! also I didn't strain the blenderized cherry tomatoes. and I used 1\/4 of a yellow onion and blenderized that with the cherry tomatoes. I'm coming in with a spoon boys and y'all better get out of the way!!!!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "patreeseeya",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/9872596\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2012-10-19T23:53:05.35Z",
+            "reviewBody": "Never had Gazpacho. Didn't think I would like a cold soup. I was surprised to find this is absolutely delicious. I didn't have farm tomatoes, so I used on the vine ones from the supermarket and added 1\/4 of a mango for sweetness. So good, savory, and lite. Will eat again.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "REE28AM",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/1365464\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2012-08-03T23:06:44.48Z",
+            "reviewBody": "This was amazing- the time was worth it. I gave up on the straining and put all the \"chunks\" of the cherry tomato pur\u00e9e in with the rest of the soup but I don't see a problem at all with the texture. I also used a lemon instead of a lime. Other than that I followed all the directions and the video! And here's my secret: I used supermarket tomatoes. Who knows it might taste better with real vine ripened tomatoes but it still tastes great either way!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "The Purple Baker",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/6449783\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2013-07-23T00:30:18.06Z",
+            "reviewBody": "Made this with fresh veg from my garden. Left out the cayenne and the jalapeno so my young son could eat it. Also left out the lime as our tomatoes were bright enough without. My son didn't care for the raw onion and my husband and I decided I should dice the onion a lot smaller next time (I used my vitamix to chop the veg). I was however very pleased with the flavor. I think I might go heavier on the cumin and oregano next time just to play up the Spanish influence. I made some biscuits to go with (didn't have time to make bread) and that was dinner. It was delicious. Our cherry tomatoes are candy-sweet and the big yellow tomatoes were very mild and relatively low acid. So this ended up on the sweet end of the spectrum which really suited me very well. I think it will be even better tomorrow.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "shris",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/2606463\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2013-11-12T00:35:55.42Z",
+            "reviewBody": "This certainly wasn't a Gazpacho recipe that I enjoyed. Perhaps the tomatoes weren't ripe enough, I don't know. Either way, it wasn't bursting with flavor. I also couldn't get past the blended\/pureed tomatoes, it didn't look appealing at all. My kids and wife tried it and didn't like it either. I was a bit disappointed, perhaps I should be more disappointed with the lack of fresh\/flavorful produce in my area.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 2
+            },
+            "author": {
+                "@type": "Person",
+                "name": "RSFORBES",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/1155228\/"
+            }
+        }
+    ],
+    "video": {
+        "@context": "http:\/\/schema.org",
+        "@type": "VideoObject",
+        "name": "Chef John's Gazpacho",
+        "description": "See how to make this classic cold Spanish soup.",
+        "uploadDate": "2012-04-21T02:08:33.432Z",
+        "duration": "PT5M2.875S",
+        "thumbnailUrl": "https:\/\/imagesvc.meredithcorp.io\/v3\/mm\/image?url=https%3A%2F%2Fcf-images.us-east-1.prod.boltdns.net%2Fv1%2Fstatic%2F1033249144001%2F478b6c41-77cd-49c8-9ded-c008d033f0fd%2F69627980-14b0-49c7-8f89-d162e1d277da%2F160x90%2Fmatch%2Fimage.jpg",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Allrecipes",
+            "url": "https:\/\/www.allrecipes.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/www.allrecipes.com\/img\/logo.png",
+                "width": 209,
+                "height": 60
+            },
+            "sameAs": [
+                "https:\/\/www.facebook.com\/allrecipes",
+                "https:\/\/twitter.com\/Allrecipes",
+                "https:\/\/www.pinterest.com\/allrecipes\/",
+                "https:\/\/www.instagram.com\/allrecipes\/"
+            ]
+        },
+        "embedUrl": "https:\/\/players.brightcove.net\/1033249144001\/default_default\/index.html?videoId=1574176958001"
+    },
+    "dateCreated": "2021-01-30T14:58:28+0000",
+    "printImage": false,
+    "id": 908724,
+    "name": "Chef John's Gazpacho",
+    "imageUrl": "\/apps\/cookbook\/recipes\/908724\/image?size=full",
+    "recipeCategory": "Soup",
+    "description": "Only try this recipe if you're going to use some killer, end-of-summer, super-sweet tomatoes. There just isn't any substitute, so happy hunting, and I hope you find some so you give this a try.",
+    "recipeIngredient": [
+        "4 large fresh tomatoes, peeled and diced",
+        "\u00bd English cucumber, peeled and finely diced",
+        "\u00bd cup finely diced red bell pepper",
+        "\u00bc cup minced green onion",
+        "1 large jalapeno pepper, seeded and minced",
+        "2 cloves garlic, minced",
+        "1 teaspoon salt",
+        "\u00bd teaspoon ground cumin",
+        "1 pinch dried oregano",
+        "1 pinch cayenne pepper, or to taste",
+        "freshly ground black pepper to taste",
+        "1 pint cherry tomatoes",
+        "\u00bc cup extra-virgin olive oil",
+        "1 lime, juiced",
+        "1 tablespoon balsamic vinegar",
+        "1 teaspoon Worcestershire sauce",
+        "salt and ground black pepper to taste",
+        "2 tablespoons thinly sliced fresh basil"
+    ],
+    "recipeInstructions": [
+        "Combine diced tomatoes, cucumber, bell pepper, green onion, jalapeno, and garlic in a large bowl. Stir in salt, cumin, oregano, cayenne pepper, and black pepper.\n",
+        "Place cherry tomatoes, olive oil, lime juice, balsamic vinegar, and Worcestershire sauce in a blender. Cover and puree until smooth. Pour pureed mixture through a strainer into the tomato-cucumber mixture; stir to combine.\n",
+        "Place 1\/3 of the tomato mixture into the blender. Cover, turn blender on, and puree until smooth. Return pureed mixture to the remaining tomato-cucumber mixture. Stir to combine. Cover and chill in refrigerator for 2 hours.\n",
+        "Season cold soup with salt and black pepper to taste. Ladle into bowls and top with basil.\n"
+    ],
+    "tool": [],
+    "recipeYield": 6,
+    "prepTime": "PT0H45M",
+    "cookTime": "PT0H2M",
+    "totalTime": "PT2H45M",
+    "keywords": "",
+    "image": "https:\/\/imagesvc.meredithcorp.io\/v3\/mm\/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F842477.jpg",
+    "url": "https:\/\/www.allrecipes.com\/recipe\/222331\/chef-johns-gazpacho\/",
+    "dateModified": "2021-09-27T21:55:46+0000"
+}

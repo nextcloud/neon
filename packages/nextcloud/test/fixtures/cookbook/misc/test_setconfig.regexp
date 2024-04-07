@@ -1,0 +1,5 @@
+POST http://localhost/index\.php/apps/cookbook/api/v1/config
+accept: application/json
+authorization: Basic mock
+content-type: application/json; charset=utf-8
+\{"folder":"/"\}

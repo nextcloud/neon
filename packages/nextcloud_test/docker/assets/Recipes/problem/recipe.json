@@ -1,0 +1,31 @@
+{
+    "id": 128051,
+    "name": "Test-Recipe",
+    "description": "",
+    "url": "",
+    "image": "",
+    "prepTime": "",
+    "cookTime": "",
+    "totalTime": "",
+    "recipeCategory": "",
+    "keywords": "",
+    "recipeYield": 1,
+    "tool": [],
+    "recipeIngredient": [
+        "Ingredient 1",
+        "",
+        "Ingredient 3"
+    ],
+    "recipeInstructions": [
+        "Step 1",
+        "",
+        "Step 3"
+    ],
+    "nutrition": [],
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "dateModified": "2021-10-30T16:02:47+0000",
+    "dateCreated": "2021-10-30T16:02:22+0000",
+    "printImage": false,
+    "imageUrl": "\/index.php\/apps\/cookbook\/recipes\/128051\/image?size=full"
+}

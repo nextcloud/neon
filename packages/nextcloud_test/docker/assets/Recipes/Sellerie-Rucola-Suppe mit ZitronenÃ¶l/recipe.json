@@ -1,0 +1,38 @@
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "nutrition": [],
+    "dateCreated": "2021-04-17T12:41:40+0000",
+    "printImage": false,
+    "id": 922659,
+    "name": "Sellerie-Rucola-Suppe mit Zitronen\u00c3\u00b6l",
+    "imageUrl": "\/apps\/cookbook\/recipes\/922659\/image?size=full",
+    "recipeCategory": "",
+    "description": "",
+    "recipeIngredient": [
+        "  1 dl  Oliven\u00c3\u00b6l",
+        "  2   Bio-Zitronen, nur abgeriebene Schale",
+        "  1 EL  Oliven\u00c3\u00b6l",
+        "  1   Zwiebel, grob gehackt",
+        "  1   Knoblauchzehe, grob gehackt",
+        "  800 g  Knollensellerie, in St\u00c3\u00bccken",
+        "  1 Liter  Wasser",
+        "  2 TL  Salz",
+        "  100 g  Rucola, grob geschnitten",
+        "  1 EL  Zitronensaft",
+        "     Salz, Pfeffer, nach Bedarf",
+        "  50 g  Rucola"
+    ],
+    "recipeInstructions": [
+        "\n                    \n                        Schnelles Zitronen\u00c3\u00b6l\n                        \n                            \u00c3\u0096l in einer kleinen Pfanne erw\u00c3\u00a4rmen. Zitronenschale beigeben, in eine kleine, saubere Flasche umf\u00c3\u00bcllen.\n                        \n                    \n                        Suppe\n                        \n                            \u00c3\u0096l in einer Pfanne erw\u00c3\u00a4rmen. Zwiebel und Knoblauch and\u00c3\u00a4mpfen. Sellerie beigeben, ca. 3 Min. mitd\u00c3\u00a4mpfen. Wasser dazugiessen, aufkochen, salzen. Suppe ca. 25 Min. k\u00c3\u00b6cheln. Rucola beigeben, ca. 5 Min. mitk\u00c3\u00b6cheln, fein p\u00c3\u00bcrieren. \n                        \n                    \n                        Anrichten\n                        \n                            Zitronensaft unter die Suppe r\u00c3\u00bchren, w\u00c3\u00bcrzen. Suppe anrichten, Rucola mit wenig Zitronen\u00c3\u00b6l auf der Suppe verteilen. \n                        \n                    \n                "
+    ],
+    "tool": [],
+    "recipeYield": 4,
+    "prepTime": "",
+    "cookTime": "PT0H2M",
+    "totalTime": "",
+    "keywords": "Winter,Suppen und Eintopf",
+    "image": "https:\/\/recipecontent.fooby.ch\/18757_3-2_480-320.jpg",
+    "url": "https:\/\/fooby.ch\/de\/rezepte\/18757\/sellerie-rucola-suppe-mit-zitronenoel",
+    "dateModified": "2021-07-05T14:57:07+0000"
+}

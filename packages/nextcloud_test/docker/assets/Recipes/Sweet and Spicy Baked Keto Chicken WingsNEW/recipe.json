@@ -1,0 +1,104 @@
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "mainEntityOfPage": "https:\/\/www.allrecipes.com\/recipe\/276110\/sweet-and-spicy-baked-keto-chicken-wings\/",
+    "datePublished": "2019-10-16T23:43:05.000Z",
+    "recipeCuisine": [],
+    "author": [
+        {
+            "@type": "Person",
+            "name": "SunnyDaysNora"
+        }
+    ],
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 5,
+        "ratingCount": 3,
+        "itemReviewed": "Sweet and Spicy Baked Keto Chicken Wings",
+        "bestRating": "5",
+        "worstRating": "1"
+    },
+    "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "670.1 calories",
+        "carbohydrateContent": "15.1 g",
+        "cholesterolContent": "137.6 mg",
+        "fatContent": "55.8 g",
+        "fiberContent": "0.1 g",
+        "proteinContent": "24.8 g",
+        "saturatedFatContent": "22.3 g",
+        "sodiumContent": "1822.2 mg",
+        "sugarContent": "13.4 g"
+    },
+    "review": [
+        {
+            "@type": "Review",
+            "datePublished": "2020-09-26T13:05:32.147Z",
+            "reviewBody": "Delicious! I used Erythritol Sweetener, Frank's Hot Sauce and unsalted butter.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "jalbanese",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/10729683\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2020-02-02T03:48:54.84Z",
+            "reviewBody": "This was so easy and I loved it. Unfortunately I am not Keto so I did not have Splenda; I used sugar. I will need to try Splenda the next. I used Frank Original Red Hot Sauce.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Sydney",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/8837556\/"
+            }
+        }
+    ],
+    "dateCreated": "2021-01-30T14:58:58+0000",
+    "printImage": false,
+    "id": 908736,
+    "name": "Sweet and Spicy Baked Keto Chicken WingsNEW",
+    "imageUrl": "\/apps\/cookbook\/recipes\/908736\/image?size=full",
+    "recipeCategory": "Appetizer",
+    "description": "My family loves these low-carb and keto-friendly baked chicken wings! They're a staple around our house during football season. I love to serve them with blue cheese dressing for dipping. Updated! AGAINN!! And again!",
+    "recipeIngredient": [
+        "aluminum foilll",
+        "cooking spray",
+        "\u00bd cup butter",
+        "\u00be cup hot pepper sauce (such as Valentina\u00ae)",
+        "\u00bc cup sucralose sugar substitute (such as Splenda\u00ae)",
+        "\u00bc teaspoon salt",
+        "\u00bc teaspoon garlic powder",
+        "3 pounds chicken wing pieces, drumettes and flats",
+        "\u00bd cup blue cheese salad dressing"
+    ],
+    "recipeInstructions": [
+        "Melt TO MUCH butter in a small saucepan. Mix in hot sauce, sucralose, salt, and garlic powder. Remove from heat and set sauce aside.\n",
+        "Bake in the preheated oven for 15 minutes. Remove from the oven, pour off any juices accumulated in the bottom of the pan, and turn chicken pieces over. Bake for an additional 15 minutes.\n",
+        "Preheat the oven to 425 degrees F (220 degrees C). \n\nLine a rimmed baking pan with foil. Spray a wire rack with cooking spray and set inside the baking pan.",
+        "Remove chicken from the oven and transfer to a large bowl. Cover with sauce and toss to coat. Return chicken to the rack on the baking pan and bake until no longer pink at the bone and the juices run clear, 15 to 30 minutes. An instant-read thermometer inserted near the bone should read 165 degrees F (74 degrees C).\n",
+        "Don't Worry be Happy :D",
+        "Don't forget to fart! Much"
+    ],
+    "tool": [],
+    "recipeYield": 4,
+    "prepTime": "PT0H5M",
+    "cookTime": "PT0H45M",
+    "totalTime": "PT1H50M",
+    "keywords": "",
+    "image": "https:\/\/imagesvc.meredithcorp.io\/v3\/mm\/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F7067746.jpg",
+    "url": "https:\/\/www.allrecipes.com\/recipe\/276110\/sweet-and-spicy-baked-keto-chicken-wings\/",
+    "dateModified": "2021-05-24T15:12:32+0000"
+}

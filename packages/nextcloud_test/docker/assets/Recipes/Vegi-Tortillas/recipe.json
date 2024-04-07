@@ -1,0 +1,35 @@
+{
+    "name": "Vegi-Tortillas",
+    "image": "https:\/\/recipecontent.fooby.ch\/14222_3-2_480-320.jpg",
+    "recipeYield": 8,
+    "keywords": "Vorspeise",
+    "recipeIngredient": [
+        "  400 g  Rotkabis, fein gehobelt",
+        "  1   Limette, nur Saft",
+        "  1 EL  Rohzucker",
+        "  2 TL  Sambal Oelek",
+        "  \u00bd TL  Salz",
+        "  16   Mini-Tortillas",
+        "  8 EL  Guacamole ",
+        "  1 Dose  rote Indianerbohnen (ca. 290 g), abgesp\u00fclt, abgetropft",
+        "  60 g  eingelegte Jalape\u00f1os in Scheiben",
+        "  200 g  Manchego, grob gerieben",
+        "  200 g  Cr\u00e8me fra\u00eeche",
+        "  1   Limette, heiss abgesp\u00fclt, trocken getupft,  in Schnitzen",
+        "  wenig   Pfeffer",
+        "  wenig   Fleur de Sel"
+    ],
+    "recipeInstructions": [
+        "\n                    \n                        Rotkabis\n                        \n                            Kabis mit Limettensaft, Rohzucker, Sambal Oelek und Salz mischen., zugedeckt ca. 30 Min. ziehen lassen.\n                        \n                    \n                        Tortillas\n                        \n                            Tortillas mit je \u00bd EL Guacamole bestreichen, auf zwei mit Backpapier belegte Bleche legen. Bohnen, Jalape\u00f1os und K\u00e4se darauf verteilen.\n                        \n                    \n                        Backen\n                        \n                            Pro Blech ca. 3 Min. in der oberen H\u00e4lfte des auf 220  \u00b0C vorgeheizten Ofens. Rotkabis und Cr\u00e8me fra\u00eeche darauf verteilen, mit Limettensaft betr\u00e4ufeln, w\u00fcrzen und umschlagen. \n                        \n                    \n                "
+    ],
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "recipeCategory": "",
+    "tool": [],
+    "description": "",
+    "url": "https:\/\/fooby.ch\/de\/rezepte\/14222\/vegi-tortillas?startAuto1=0",
+    "nutrition": [],
+    "dateModified": "2021-04-17T12:25:01+0000",
+    "dateCreated": "2021-04-17T12:25:01+0000",
+    "id": 12
+}

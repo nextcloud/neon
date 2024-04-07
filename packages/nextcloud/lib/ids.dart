@@ -3,6 +3,9 @@ final class AppIDs {
   /// ID for the comments app.
   static const comments = 'comments';
 
+  /// ID for the cookbook app.
+  static const cookbook = 'cookbook';
+
   /// ID for the core app.
   static const core = 'core';
 
