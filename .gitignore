@@ -12,8 +12,10 @@ packages/**/build
 packages/**/build-dir
 packages/**/.flatpak-builder
 packages/**/doc/api
-packages/**/pubspec_overrides.yaml
 
 !packages/app/pubspec.lock
+
+# Melos recommends adding them, but renovate does not generate them which would end up with broken lockfiles
+# **/pubspec_overrides.yaml
 
 .fvm/
