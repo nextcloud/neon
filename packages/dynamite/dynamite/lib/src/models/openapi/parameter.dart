@@ -180,21 +180,18 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
 
   String get formattedDescription {
     final name = toDartName(this.name);
+    final buffer = StringBuffer()..write('  * [$name]');
 
-    final buffer = StringBuffer()
-      ..write('$docsSeparator   * ')
-      ..write('[$name]');
-
+    final description = formatDescription(this.description);
     if (description != null) {
-      buffer.write(' $description');
-      if (!description!.endsWith('.')) {
-        buffer.write('.');
-      }
+      buffer
+        ..write(' ')
+        ..write(description);
     }
 
-    Object? $default = schema?.$default;
+    var $default = schema?.$default?.toString();
     if ($default != null) {
-      if ($default.toString() == '') {
+      if ($default.isEmpty) {
         $default = "''";
       }
 

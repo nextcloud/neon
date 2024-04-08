@@ -6,6 +6,7 @@ import 'package:dynamite/src/builder/resolve_object.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
@@ -38,7 +39,9 @@ Class buildRootClient(
       (b) {
         final rootTag = spec.tags?.firstWhereOrNull((tag) => tag.name.isEmpty);
         if (rootTag != null) {
-          b.docs.addAll(rootTag.formattedDescription);
+          b.docs.addAll(
+            escapeDescription(rootTag.formattedDescription),
+          );
         }
 
         b
@@ -114,7 +117,7 @@ super(
           b.fields.add(
             Field(
               (b) => b
-                ..docs.addAll(tag.formattedDescription)
+                ..docs.addAll(escapeDescription(tag.formattedDescription))
                 ..name = toDartName(tag.name)
                 ..late = true
                 ..modifier = FieldModifier.final$
@@ -137,7 +140,7 @@ Class buildClient(
       (b) {
         final name = clientName(tag.name);
         b
-          ..docs.addAll(tag.formattedDescription)
+          ..docs.addAll(escapeDescription(tag.formattedDescription))
           ..name = name
           ..constructors.add(
             Constructor(
@@ -344,7 +347,7 @@ ${allocate(returnType)}(
       yield Method((b) {
         b
           ..name = '\$${name}_Request'
-          ..docs.addAll(operation.formattedDescription(name, isRequest: true))
+          ..docs.addAll(escapeDescription(operation.formattedDescription(name, isRequest: true)))
           ..annotations.add(refer('experimental', 'package:meta/meta.dart'));
 
         if (operation.deprecated) {
@@ -409,7 +412,7 @@ ${allocate(returnType)}(
         b
           ..name = name
           ..modifier = MethodModifier.async
-          ..docs.addAll(operation.formattedDescription(name));
+          ..docs.addAll(escapeDescription(operation.formattedDescription(name)));
 
         if (operation.deprecated) {
           b.annotations.add(refer('Deprecated').call([refer("''")]));

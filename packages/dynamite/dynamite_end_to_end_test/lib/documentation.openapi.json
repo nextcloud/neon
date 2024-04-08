@@ -80,6 +80,23 @@
             }
           }
         }
+      },
+      "get": {
+        "operationId": "multiple-new-lines",
+        "description": "Nothing cool here.\n\n\n Bye 👋. Test. \n \n :) ",
+        "summary": "Do something really cool.\n\n\n Hi there. Test. \n \n :) ",
+        "responses": {
+          "default": {
+            "description": "finds an object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Object1"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },

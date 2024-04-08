@@ -141,6 +141,126 @@ class $Client extends _i1.DynamiteClient {
     final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
+
+  /// Builds a serializer to parse the response of [$multipleNewLines_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Object1, void> $multipleNewLines_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Object1),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Do something really cool.
+  ///
+  ///
+  /// Hi there. Test.
+  ///
+  /// :).
+  ///
+  /// Nothing cool here.
+  ///
+  ///
+  /// Bye 👋. Test.
+  ///
+  /// :).
+  ///
+  /// Returns a `DynamiteRequest` backing the [multipleNewLines] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default: finds an object
+  ///
+  /// See:
+  ///  * [multipleNewLines] for a method executing this request and parsing the response.
+  ///  * [$multipleNewLines_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $multipleNewLines_Request() {
+    const _path = '/other-endpoint';
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    return _request;
+  }
+
+  /// Do something really cool.
+  ///
+  ///
+  /// Hi there. Test.
+  ///
+  /// :).
+  ///
+  /// Nothing cool here.
+  ///
+  ///
+  /// Bye 👋. Test.
+  ///
+  /// :).
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default: finds an object
+  ///
+  /// See:
+  ///  * [$multipleNewLines_Request] for the request send by this method.
+  ///  * [$multipleNewLines_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Object1, void>> multipleNewLines() async {
+    final _request = $multipleNewLines_Request();
+    final _response = await send(_request);
+
+    final _serializer = $multipleNewLines_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$nonRootClientSetMode_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Object1, void> $nonRootClientSetMode_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Object1),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Do something really cool.
+  ///
+  /// Returns a `DynamiteRequest` backing the [nonRootClientSetMode] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default: finds an object
+  ///
+  /// See:
+  ///  * [nonRootClientSetMode] for a method executing this request and parsing the response.
+  ///  * [$nonRootClientSetMode_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $nonRootClientSetMode_Request() {
+    const _path = '/other-endpoint';
+    final _uri = Uri.parse('$baseURL$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+    return _request;
+  }
+
+  /// Do something really cool.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default: finds an object
+  ///
+  /// See:
+  ///  * [$nonRootClientSetMode_Request] for the request send by this method.
+  ///  * [$nonRootClientSetMode_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Object1, void>> nonRootClientSetMode() async {
+    final _request = $nonRootClientSetMode_Request();
+    final _response = await send(_request);
+
+    final _serializer = $nonRootClientSetMode_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
 }
 
 /// the non root client used for other requests.
@@ -149,6 +269,78 @@ class $NonRootClientClient {
   $NonRootClientClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$multipleNewLines_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Object1, void> $multipleNewLines_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Object1),
+        headersType: null,
+        serializers: _$jsonSerializers,
+      );
+
+  /// Do something really cool.
+  ///
+  ///
+  /// Hi there. Test.
+  ///
+  /// :).
+  ///
+  /// Nothing cool here.
+  ///
+  ///
+  /// Bye 👋. Test.
+  ///
+  /// :).
+  ///
+  /// Returns a `DynamiteRequest` backing the [multipleNewLines] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default: finds an object
+  ///
+  /// See:
+  ///  * [multipleNewLines] for a method executing this request and parsing the response.
+  ///  * [$multipleNewLines_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $multipleNewLines_Request() {
+    const _path = '/other-endpoint';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    return _request;
+  }
+
+  /// Do something really cool.
+  ///
+  ///
+  /// Hi there. Test.
+  ///
+  /// :).
+  ///
+  /// Nothing cool here.
+  ///
+  ///
+  /// Bye 👋. Test.
+  ///
+  /// :).
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * default: finds an object
+  ///
+  /// See:
+  ///  * [$multipleNewLines_Request] for the request send by this method.
+  ///  * [$multipleNewLines_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Object1, void>> multipleNewLines() async {
+    final _request = $multipleNewLines_Request();
+    final _response = await _rootClient.send(_request);
+
+    final _serializer = $multipleNewLines_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
 
   /// Builds a serializer to parse the response of [$setMode_Request].
   @_i2.experimental
