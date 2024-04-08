@@ -16,7 +16,7 @@ class TypeResultList extends TypeResult {
   String? get _serializer => null;
 
   @override
-  TypeResultList get dartType => TypeResultList('List', subType, nullable: nullable);
+  TypeResultList get dartType => TypeResultList('List', subType.dartType, nullable: nullable);
 
   @override
   bool operator ==(Object other) =>

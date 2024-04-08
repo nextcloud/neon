@@ -232,4 +232,54 @@ specifiedType: const FullType(String),
       expect(type1.hashCode, type2.hashCode);
     });
   });
+
+  test('dartType', () {
+    final jsonObjectType = TypeResultBase('JsonObject');
+    expect(
+      jsonObjectType.dartType,
+      TypeResultBase('dynamic'),
+    );
+
+    TypeResult type = TypeResultBase('String');
+    expect(
+      type.dartType,
+      TypeResultBase('String'),
+    );
+
+    type = TypeResultEnum('EnumClass', jsonObjectType);
+    expect(
+      type.dartType,
+      TypeResultEnum('EnumClass', TypeResultBase('dynamic')),
+    );
+
+    type = TypeResultList('BuiltList', jsonObjectType);
+    expect(
+      type.dartType,
+      TypeResultList('List', TypeResultBase('dynamic')),
+    );
+
+    type = TypeResultMap('BuiltMap', jsonObjectType);
+    expect(
+      type.dartType,
+      TypeResultMap('Map', TypeResultBase('dynamic')),
+    );
+
+    type = TypeResultObject(
+      'BuiltClass',
+      generics: BuiltList([
+        jsonObjectType,
+        TypeResultMap('BuiltList', jsonObjectType),
+      ]),
+    );
+    expect(
+      type.dartType,
+      TypeResultObject(
+        'BuiltClass',
+        generics: BuiltList([
+          TypeResultBase('dynamic'),
+          TypeResultMap('Map', TypeResultBase('dynamic')),
+        ]),
+      ),
+    );
+  });
 }
