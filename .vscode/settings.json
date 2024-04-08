@@ -5,10 +5,12 @@
   "dart.testInvocationMode": "line",
   "files.insertFinalNewline": true,
   "search.exclude": {
-    "**/.fvm": true
+    "**/.fvm": true,
+    "external/": true
   },
   "files.watcherExclude": {
-    "**/.fvm": true
+    "**/.fvm": true,
+    "external/": true
   },
   "files.associations": {
     "*.arb": "json",
