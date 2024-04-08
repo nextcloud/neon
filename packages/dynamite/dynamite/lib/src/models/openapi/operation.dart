@@ -40,65 +40,77 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
     b.deprecated ??= false;
   }
 
-  Iterable<String> formattedDescription(
+  String formattedDescription(
     String methodName, {
     bool isRequest = false,
     bool requiresAuth = false,
-  }) sync* {
-    if (summary != null && summary!.isNotEmpty) {
-      yield* descriptionToDocs(summary);
-      yield docsSeparator;
+  }) {
+    final buffer = StringBuffer();
+
+    final summary = formatDescription(this.summary);
+    if (summary != null) {
+      buffer
+        ..writeln(summary)
+        ..write('\n');
     }
 
-    if (description != null && description!.isNotEmpty) {
-      yield* descriptionToDocs(description);
-      yield docsSeparator;
+    final description = formatDescription(this.description);
+    if (description != null) {
+      buffer
+        ..writeln(description)
+        ..write('\n');
     }
 
     if (isRequest) {
-      yield '$docsSeparator Returns a `DynamiteRequest` backing the [$methodName] operation.';
+      buffer.writeln('Returns a `DynamiteRequest` backing the [$methodName] operation.');
     } else {
-      yield '$docsSeparator Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.';
+      buffer.writeln(
+        'Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.',
+      );
     }
-    yield '$docsSeparator Throws a `DynamiteApiException` if the API call does not return an expected status code.';
-    yield docsSeparator;
+    buffer
+      ..writeln('Throws a `DynamiteApiException` if the API call does not return an expected status code.')
+      ..write('\n');
 
     if (parameters != null && parameters!.isNotEmpty) {
-      yield '$docsSeparator Parameters:';
+      buffer.writeln('Parameters:');
       for (final parameter in parameters!) {
-        yield parameter.formattedDescription;
+        buffer.writeln(parameter.formattedDescription);
       }
-      yield docsSeparator;
+      buffer.write('\n');
     }
 
     if (responses != null && responses!.isNotEmpty) {
-      yield '$docsSeparator Status codes:';
+      buffer.writeln('Status codes:');
       for (final response in responses!.entries) {
         final statusCode = response.key;
         final description = response.value.description;
 
-        final buffer = StringBuffer()
-          ..write('$docsSeparator ')
-          ..write('  * $statusCode');
-
+        buffer.write('  * $statusCode');
         if (description.isNotEmpty) {
           buffer
             ..write(': ')
             ..write(description);
         }
 
-        yield buffer.toString();
+        buffer.write('\n');
       }
-      yield docsSeparator;
+      buffer.write('\n');
     }
 
-    yield '$docsSeparator See:';
+    buffer.writeln('See:');
     if (isRequest) {
-      yield '$docsSeparator  * [$methodName] for a method executing this request and parsing the response.';
-      yield '$docsSeparator  * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed this request.';
+      buffer
+        ..writeln(' * [$methodName] for a method executing this request and parsing the response.')
+        ..writeln(
+          ' * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed this request.',
+        );
     } else {
-      yield '$docsSeparator  * [\$${methodName}_Request] for the request send by this method.';
-      yield '$docsSeparator  * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed request.';
+      buffer
+        ..writeln(' * [\$${methodName}_Request] for the request send by this method.')
+        ..writeln(' * [\$${methodName}_Serializer] for a converter to parse the `Response` from an executed request.');
     }
+
+    return buffer.toString();
   }
 }

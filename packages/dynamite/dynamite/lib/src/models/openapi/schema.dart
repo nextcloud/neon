@@ -66,7 +66,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   bool get isContentString =>
       type == SchemaType.string && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 
-  Iterable<String> get formattedDescription => descriptionToDocs(description);
+  String? get formattedDescription => formatDescription(description);
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _defaults(SchemaBuilder b) {

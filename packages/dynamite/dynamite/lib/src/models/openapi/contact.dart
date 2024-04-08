@@ -27,12 +27,12 @@ abstract class Contact implements Built<Contact, ContactBuilder> {
     if (email != null) {
       buffer
         ..write('\n')
-        ..write('  Email: `$email`');
+        ..write('  Email: `$email`.');
     }
     if (url != null) {
       buffer
         ..write('\n')
-        ..write('  Website: `$url`');
+        ..write('  Website: `$url`.');
     }
 
     return buffer.toString();

@@ -1,5 +1,6 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/helpers/docs.dart';
 
 const interfaceSuffix = 'Interface';
 
@@ -8,7 +9,7 @@ const interfaceSuffix = 'Interface';
 /// Attributes must be defined in a separate interface called `\$$className$interfaceSuffix`.
 Spec buildBuiltClass(
   String className, {
-  Iterable<String>? documentation,
+  String? documentation,
   Iterable<String>? defaults,
   Iterable<Expression>? validators,
   Iterable<Method>? methods,
@@ -39,7 +40,7 @@ Spec buildBuiltClass(
         }
 
         if (documentation != null) {
-          b.docs.addAll(documentation);
+          b.docs.addAll(escapeDescription(documentation));
         }
 
         if (defaults != null && defaults.isNotEmpty) {

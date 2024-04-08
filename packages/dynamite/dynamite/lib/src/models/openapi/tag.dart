@@ -16,5 +16,5 @@ abstract class Tag implements Built<Tag, TagBuilder> {
   @BuiltValueField(compare: false)
   String? get description;
 
-  Iterable<String> get formattedDescription => descriptionToDocs(description);
+  String? get formattedDescription => formatDescription(description);
 }

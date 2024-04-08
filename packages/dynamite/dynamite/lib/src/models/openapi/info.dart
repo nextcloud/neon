@@ -29,8 +29,8 @@ abstract class Info implements Built<Info, InfoBuilder> {
 
   String? get summary;
 
-  Iterable<String> formattedDescription() {
-    final buffer = StringBuffer()..write('$title Version: $version');
+  String formattedDescription() {
+    final buffer = StringBuffer()..write('$title Version: $version.');
 
     final summary = this.summary;
     if (summary != null && summary.isNotEmpty) {
@@ -39,18 +39,18 @@ abstract class Info implements Built<Info, InfoBuilder> {
         ..write(summary);
     }
 
-    final description = this.description;
-    if (description != null && description.isNotEmpty) {
+    final description = formatDescription(this.description);
+    if (description != null) {
       buffer
         ..write('\n\n')
         ..write(description);
     }
 
-    final contact = this.contact;
+    final contact = this.contact?.formattedDescription();
     if (contact != null) {
       buffer
         ..write('\n\n')
-        ..write(contact.formattedDescription());
+        ..write(contact);
     }
 
     final license = this.license;
@@ -61,12 +61,12 @@ abstract class Info implements Built<Info, InfoBuilder> {
     }
 
     final termsOfService = this.termsOfService;
-    if (termsOfService != null) {
+    if (termsOfService != null && termsOfService.isNotEmpty) {
       buffer
         ..write('\n\n')
-        ..write('Usage of these apis must adhere to the terms of service: `$termsOfService`');
+        ..write('Usage of these apis must adhere to the terms of service: `$termsOfService`.');
     }
 
-    return descriptionToDocs(buffer.toString());
+    return buffer.toString();
   }
 }

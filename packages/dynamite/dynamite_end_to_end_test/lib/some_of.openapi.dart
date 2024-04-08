@@ -25,7 +25,7 @@ typedef AnyOfIntDoubleOther = ({num? $num, String? string});
 typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
 
 /// Object with someOfs that only contain a single value (or are optimized to such).
-///  Should use the single member directly.
+/// Should use the single member directly.
 @BuiltValue(instantiable: false)
 abstract interface class $OneValueSomeOfInObjectInterface {
   @BuiltValueField(wireName: 'OneValue')
@@ -37,7 +37,7 @@ abstract interface class $OneValueSomeOfInObjectInterface {
 }
 
 /// Object with someOfs that only contain a single value (or are optimized to such).
-///  Should use the single member directly.
+/// Should use the single member directly.
 abstract class OneValueSomeOfInObject
     implements $OneValueSomeOfInObjectInterface, Built<OneValueSomeOfInObject, OneValueSomeOfInObjectBuilder> {
   /// Creates a new OneValueSomeOfInObject object using the builder pattern.

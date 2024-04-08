@@ -6,6 +6,7 @@ import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
@@ -49,7 +50,7 @@ TypeResult resolveSomeOf(
   if (state.resolvedTypes.add(result) && !result.isSingleValue) {
     final $typedef = TypeDef((b) {
       b
-        ..docs.addAll(schema.formattedDescription)
+        ..docs.addAll(escapeDescription(schema.formattedDescription))
         ..name = result.className
         ..definition = refer(result.dartType.name);
     });
