@@ -12,8 +12,10 @@ packages/**/build
 packages/**/build-dir
 packages/**/.flatpak-builder
 packages/**/doc/api
-packages/**/pubspec_overrides.yaml
 
 !packages/app/pubspec.lock
+
+# Melos reccomends not adding them to vcs but we need them as we don't use melos in CI
+# **/pubspec_overrides.yaml
 
 .fvm/
