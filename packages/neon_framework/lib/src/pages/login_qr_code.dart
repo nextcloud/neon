@@ -48,11 +48,11 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
                 throw const InvalidQRcodeException();
               }
 
-              LoginCheckServerStatusRoute.withCredentials(
+              await LoginCheckServerStatusRoute.withCredentials(
                 serverUrl: match.serverURL,
                 loginName: match.username,
                 password: match.password,
-              ).pushReplacement(context);
+              ).push<LoginCheckServerStatusRoute>(context);
             } on InvalidQRcodeException catch (error, stackTrace) {
               if (_lastErrorURL != url) {
                 _log.warning(
@@ -62,7 +62,9 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
                 );
 
                 _lastErrorURL = url;
-                NeonError.showSnackbar(context, error);
+                if (context.mounted) {
+                  NeonError.showSnackbar(context, error);
+                }
               }
             }
           },

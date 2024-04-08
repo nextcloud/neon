@@ -31,11 +31,11 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void login(String url) {
+  Future<void> login(String url) async {
     if (_formKey.currentState!.validate()) {
       final uri = Uri.parse(url);
 
-      LoginCheckServerStatusRoute(serverUrl: uri).go(context);
+      await LoginCheckServerStatusRoute(serverUrl: uri).push<LoginCheckServerStatusRoute>(context);
     } else {
       _focusNode.requestFocus();
     }
@@ -94,8 +94,8 @@ class _LoginPageState extends State<LoginPage> {
                         labelText: NeonLocalizations.of(context).loginUsingServerAddress,
                         suffixIcon: IconButton(
                           icon: Icon(AdaptiveIcons.arrow_forward),
-                          onPressed: () {
-                            login(_controller.text);
+                          onPressed: () async {
+                            await login(_controller.text);
                           },
                         ),
                       ),
@@ -115,7 +115,9 @@ class _LoginPageState extends State<LoginPage> {
                         AdaptiveIcons.qr_code_scanner,
                         size: 60,
                       ),
-                      onPressed: () => const LoginQRcodeRoute().go(context),
+                      onPressed: () async {
+                        await const LoginQRcodeRoute().push<LoginQRcodeRoute>(context);
+                      },
                     ),
                   ],
                 ],

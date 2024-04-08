@@ -41,12 +41,12 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
       }
     });
 
-    bloc.result.listen((result) {
-      LoginCheckAccountRoute(
+    bloc.result.listen((result) async {
+      await LoginCheckAccountRoute(
         serverUrl: Uri.parse(result.server),
         loginName: result.loginName,
         password: result.appPassword,
-      ).pushReplacement(context);
+      ).push<LoginCheckAccountRoute>(context);
     });
   }
 

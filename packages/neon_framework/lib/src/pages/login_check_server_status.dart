@@ -99,15 +99,15 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     );
   }
 
-  void _onContinue() {
+  Future<void> _onContinue() async {
     if (widget.loginName != null) {
-      LoginCheckAccountRoute(
+      await LoginCheckAccountRoute(
         serverUrl: widget.serverURL,
         loginName: widget.loginName!,
         password: widget.password!,
-      ).pushReplacement(context);
+      ).push<LoginCheckAccountRoute>(context);
     } else {
-      LoginFlowRoute(serverUrl: widget.serverURL).pushReplacement(context);
+      await LoginFlowRoute(serverUrl: widget.serverURL).push<LoginFlowRoute>(context);
     }
   }
 
