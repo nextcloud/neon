@@ -15,7 +15,7 @@ packages/**/doc/api
 
 !packages/app/pubspec.lock
 
-# Melos reccomends not adding them to vcs but we need them as we don't use melos in CI
+# Melos recommends adding them, but renovate does not generate them which would end up with broken lockfiles
 # **/pubspec_overrides.yaml
 
 .fvm/
