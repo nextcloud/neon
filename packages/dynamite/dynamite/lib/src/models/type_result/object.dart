@@ -26,4 +26,18 @@ class TypeResultObject extends TypeResult {
 
     return super.encode(object, mimeType: mimeType);
   }
+
+  @override
+  TypeResultObject get dartType {
+    if (generics.isEmpty) {
+      return this;
+    }
+
+    return TypeResultObject(
+      className,
+      generics: BuiltList(generics.map((type) => type.dartType)),
+      nullable: nullable,
+      isTypeDef: isTypeDef,
+    );
+  }
 }

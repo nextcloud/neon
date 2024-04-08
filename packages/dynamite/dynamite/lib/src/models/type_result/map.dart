@@ -16,7 +16,7 @@ class TypeResultMap extends TypeResult {
   String? get _serializer => null;
 
   @override
-  TypeResultMap get dartType => TypeResultMap('Map', subType, nullable: nullable);
+  TypeResultMap get dartType => TypeResultMap('Map', subType.dartType, nullable: nullable);
 
   @override
   bool operator ==(Object other) =>

@@ -151,8 +151,7 @@ sealed class TypeResult {
   String get nullableName => nullable ? '$name?' : name;
 
   /// Native dart type equivalent
-  // ignore: avoid_returning_this
-  TypeResult get dartType => this;
+  TypeResult get dartType;
 
   /// Returns `this` with a `true` value for [isTypeDef].
   TypeResult get asTypeDef {
