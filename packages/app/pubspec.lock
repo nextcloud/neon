@@ -306,12 +306,11 @@ packages:
     source: hosted
     version: "1.7.0"
   dynamite_runtime:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: dynamite_runtime
-      sha256: "0e416683614460ed2a407bbf1717eb5f756e7a40969319b4192ea0fc01104979"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../dynamite/dynamite_runtime"
+      relative: true
+    source: path
     version: "0.2.0"
   emoji_picker_flutter:
     dependency: transitive
@@ -346,13 +345,11 @@ packages:
     source: hosted
     version: "7.0.0"
   file_icons:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      path: "packages/file_icons"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../file_icons"
+      relative: true
+    source: path
     version: "1.0.0"
   file_picker:
     dependency: transitive
@@ -761,74 +758,58 @@ packages:
   neon_dashboard:
     dependency: "direct main"
     description:
-      path: "packages/neon/neon_dashboard"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../neon/neon_dashboard"
+      relative: true
+    source: path
     version: "1.0.0"
   neon_files:
     dependency: "direct main"
     description:
-      path: "packages/neon/neon_files"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../neon/neon_files"
+      relative: true
+    source: path
     version: "1.0.0"
   neon_framework:
     dependency: "direct main"
     description:
-      path: "packages/neon_framework"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../neon_framework"
+      relative: true
+    source: path
     version: "1.0.0"
   neon_lints:
     dependency: "direct dev"
     description:
-      path: "packages/neon_lints"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../neon_lints"
+      relative: true
+    source: path
     version: "1.0.0"
   neon_news:
     dependency: "direct main"
     description:
-      path: "packages/neon/neon_news"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../neon/neon_news"
+      relative: true
+    source: path
     version: "1.0.0"
   neon_notes:
     dependency: "direct main"
     description:
-      path: "packages/neon/neon_notes"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../neon/neon_notes"
+      relative: true
+    source: path
     version: "1.0.0"
   neon_notifications:
     dependency: "direct main"
     description:
-      path: "packages/neon/neon_notifications"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../neon/neon_notifications"
+      relative: true
+    source: path
     version: "1.0.0"
   neon_talk:
     dependency: "direct main"
     description:
-      path: "packages/neon/neon_talk"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../neon/neon_talk"
+      relative: true
+    source: path
     version: "1.0.0"
   nested:
     dependency: transitive
@@ -839,12 +820,11 @@ packages:
     source: hosted
     version: "1.0.0"
   nextcloud:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: nextcloud
-      sha256: "6c0e0be07c9563cbf99c00ae1ca97657762741d035175e4caf22c4e8d0ceb693"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../nextcloud"
+      relative: true
+    source: path
     version: "5.0.2"
   open_filex:
     dependency: transitive
@@ -1212,13 +1192,11 @@ packages:
     source: sdk
     version: "0.0.99"
   sort_box:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      path: "packages/sort_box"
-      ref: HEAD
-      resolved-ref: "82c4f0254f964a3d3e79befc21c7017ba2c053b8"
-      url: "https://github.com/nextcloud/neon"
-    source: git
+      path: "../sort_box"
+      relative: true
+    source: path
     version: "1.0.0"
   source_span:
     dependency: transitive
