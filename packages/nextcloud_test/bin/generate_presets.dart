@@ -8,6 +8,7 @@ import 'package:version/version.dart';
 
 Future<void> main() async {
   const appIDs = [
+    'cookbook',
     'news',
     'notes',
     'spreed',
