@@ -55,6 +55,104 @@
             "Object": {
                 "type": "object"
             },
+            "AdditionalProperties": {
+                "type": "object",
+                "properties": {
+                    "empty_schema_bool": {
+                        "type": "object",
+                        "additionalProperties": true
+                    },
+                    "empty_schema": {
+                        "type": "object",
+                        "additionalProperties": {}
+                    },
+                    "nested": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "Object": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object"
+                        }
+                    },
+                    "bool": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "boolean"
+                        }
+                    },
+                    "integer": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "integer"
+                        }
+                    },
+                    "double": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "num": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "number"
+                        }
+                    },
+                    "string": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "content-string": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string",
+                            "nullable": true,
+                            "contentMediaType": "application/json",
+                            "contentSchema": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "string-binary": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    },
+                    "list": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array"
+                        }
+                    },
+                    "list-never": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "maxLength": 0
+                        }
+                    },
+                    "list-string": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "additionalProperties": true
+            },
             "String": {
                 "type": "object"
             },

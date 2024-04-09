@@ -107,3 +107,42 @@ class SchemaType extends EnumClass {
 
   static Serializer<SchemaType> get serializer => _$schemaTypeSerializer;
 }
+
+/// A Schema value can be either a json boolean or object.
+///
+/// https://json-schema.org/understanding-json-schema/basics
+class SchemaPlugin implements SerializerPlugin {
+  const SchemaPlugin();
+
+  @override
+  Object? afterDeserialize(Object? object, FullType specifiedType) => object;
+
+  @override
+  Object? afterSerialize(Object? object, FullType specifiedType) => object;
+
+  @override
+  Object? beforeDeserialize(Object? object, FullType specifiedType) {
+    if (specifiedType.root != Schema) {
+      return object;
+    }
+
+    switch (object) {
+      case null:
+        return null;
+
+      case bool _:
+        if (object) {
+          // An empty list in BuiltValue it equivalent to the empty json object.
+          return [];
+        } else {
+          throw UnsupportedError('The never matching schema is not yet supported.');
+        }
+
+      default:
+        return object;
+    }
+  }
+
+  @override
+  Object? beforeSerialize(Object? object, FullType specifiedType) => object;
+}
