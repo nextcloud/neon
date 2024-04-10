@@ -69,7 +69,10 @@ class _NeonAppBarState extends State<NeonAppBar> {
           stream: appsBloc.activeApp,
           builder: (context, activeAppSnapshot) {
             if (!activeAppSnapshot.hasData) {
-              return const SizedBox.shrink();
+              return const Align(
+                alignment: Alignment.topRight,
+                child: AccountSwitcherButton(),
+              );
             }
             final activeApp = activeAppSnapshot.requireData;
 
